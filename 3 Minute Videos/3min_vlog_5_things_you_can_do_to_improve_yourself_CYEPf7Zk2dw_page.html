@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — 3min Vlog - 5 things you can do to improve yourself</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>3min Vlog - 5 things you can do to improve yourself</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; CYEPf7Zk2dw</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=CYEPf7Zk2dw" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="min-vlog-5-things-you-can-do-to-improve-yourself">3min Vlog - 5 things you can do to improve yourself</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=CYEPf7Zk2dw">https://www.youtube.com/watch?v=CYEPf7Zk2dw</a><br />
+<strong>Video ID:</strong> <code>CYEPf7Zk2dw</code></p>
+<hr />
+<h1 id="video-summary">📹 Video Summary</h1>
+<p><strong>Title:</strong> <em>Friday Motivation – 5 Simple Things to Boost Your Well‑Being</em><br />
+<strong>Creator:</strong> Not specified (speaking directly to the audience)<br />
+<strong>Length:</strong> ~3 min<br />
+<strong>Core Message:</strong> When you’re feeling stuck, focus on five easy, daily habits that act as “1 % improvements.” Small, consistent actions can lift you out of a low‑energy spot and build long‑term momentum.</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The speaker opens with a friendly “good morning” and a quick check‑in (“how are you feeling?”). He introduces a quote about <strong>setting the bar low enough</strong> when you’re in a “crappy place” and uses it as a springboard for five concrete habits to practice over the next few days. The tone is casual, encouraging, and non‑judgmental—perfect for a quick Friday pick‑me‑up.</p>
+<hr />
+<h2 id="the-5-things-to-think-about-and-act-on">The 5 Things to Think About (and Act On)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Habit</th>
+<th>Why it matters</th>
+<th>Quick starter tip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Sleep</strong> – get enough, avoid late‑night scrolling, games, anime, porn, etc.</td>
+<td>Poor sleep = low energy, mood swings, bad decisions.</td>
+<td>Set a “phone‑off” alarm 30 min before bed; aim for 7‑9 hrs.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Hydration</strong> – 2‑3 L of water daily.</td>
+<td>Dehydration drags focus, hampers recovery, makes cravings worse.</td>
+<td>Keep a reusable bottle; sip regularly, especially after exercise.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Exercise</strong> – move your body, then drink more water.</td>
+<td>Physical activity releases endorphins, improves sleep, supports mental health.</td>
+<td>10‑minute walk, bodyweight circuit, or any sport you enjoy.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Personal “Me‑Time”</strong> – do something just for you each day (walk, guitar, golf, a modest drink, sunrise/sunset, etc.).</td>
+<td>Reinforces self‑worth, breaks monotony, creates positive dopamine loops.</td>
+<td>Schedule a 15‑min slot on your calendar and treat it as a non‑negotiable appointment.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Talk to Someone</strong> – share feelings with a trusted person (friend, family, barber, stranger, WhatsApp, etc.).</td>
+<td>Externalizing thoughts reduces rumination, provides perspective, lowers anxiety.</td>
+<td>Reach out via a quick text or call; it can be a casual chat, not a therapy session.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key Point:</strong> You don’t need to master all five at once. Pick <strong>one</strong> you can improve today, then add another tomorrow. Incremental change beats perfectionism.</p>
+</blockquote>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ol>
+<li><strong>Micro‑improvements win:</strong> Tiny, consistent actions (the “1 % rule”) accumulate into noticeable life upgrades.</li>
+<li><strong>Prioritize basics first:</strong> Sleep, water, and movement are the foundation; everything else builds on them.</li>
+<li><strong>Self‑care isn’t selfish:</strong> Taking time for hobbies or simple pleasures restores motivation and confidence.</li>
+<li><strong>Communication matters:</strong> Even a brief chat with a barber or a random acquaintance can provide unexpected relief and insight.</li>
+<li><strong>No pressure, no judgment:</strong> If you’re hesitant to talk to close friends or family, any trusted person—online or offline—counts.</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li>“<strong>If you’re in a crappy place, are you setting the bar low enough?</strong>” – the opening reflection.</li>
+<li>“<strong>Small building blocks, the little one‑percent improvements, will help you in the long term.</strong>”</li>
+<li>“<strong>Talk to someone… it doesn’t have to be face‑to‑face; a barber, a stranger, WhatsApp—anyone you trust.</strong>”</li>
+<li>“<strong>Whatever you’re doing today, absolutely smash it—you’re a legend.</strong>”</li>
+</ul>
+<hr />
+<h2 id="quick-action-plan-5day-challenge">Quick Action Plan (5‑Day Challenge)</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Day 1</strong></td>
+<td>Turn off screens 30 min before bed → improve sleep.</td>
+</tr>
+<tr>
+<td><strong>Day 2</strong></td>
+<td>Carry a water bottle; aim for 2 L by day’s end.</td>
+</tr>
+<tr>
+<td><strong>Day 3</strong></td>
+<td>Do a 10‑minute walk or simple workout.</td>
+</tr>
+<tr>
+<td><strong>Day 4</strong></td>
+<td>Spend 15 min on a hobby (guitar, drawing, etc.).</td>
+</tr>
+<tr>
+<td><strong>Day 5</strong></td>
+<td>Reach out to anyone (friend, family, barber) for a short chat.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Feel free to reorder or combine steps—the goal is consistent progress, not perfection.</em></p>
+<hr />
+<p><strong>Bottom line:</strong> Small, deliberate habits—sleep, hydration, movement, personal joy, and connection—are the easiest levers to pull when you need a lift. Implement one today, and you’ll already be on the path to feeling better. 🌟</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Good morning, gang! It's Friday, and I hope you're feeling good, because today we're diving into five simple habits that can turn a crappy day into a stepping stone for long‑term growth.</p>
+<p><strong>JORDAN:</strong> First up, sleep. If you're up all night scrolling, gaming, or binge‑watching anime, your brain isn't getting the recharge it needs. Try cutting back on those late‑night distractions for the next few days and see how much clearer you feel in the morning.</p>
+<p><strong>JORDAN:</strong> Hydration is the next low‑effort win. Most of us should be sipping two to three liters of water a day, especially if we start moving more. Keep a reusable bottle handy and watch how that extra fluid fuels both your workouts and your focus.</p>
+<p><strong>JORDAN:</strong> Speaking of movement, yes—exercise. You don’t need a marathon; even a quick walk, a short bike ride, or a few sets of bodyweight moves can make a huge difference. Pair that with a bit more water, and you’ll notice your energy levels climbing faster than you'd expect.</p>
+<p><strong>JORDAN:</strong> Now, here’s a fun one: do something just for you, every day, for the next five days. Whether that’s catching the sunrise, strumming a guitar, hitting the golf course, or even enjoying a modest drink with friends—make it a non‑negotiable treat and ditch any guilt about it.</p>
+<p><strong>JORDAN:</strong> The key with that personal time is consistency, not extravagance. It’s about carving out a slice of your day that says, “I matter,” and letting that tiny habit compound into bigger confidence over time.</p>
+<p><strong>JORDAN:</strong> The final habit is maybe the most underrated—talk to someone. It doesn’t have to be a therapist or a family member; it could be a trusted friend, a coworker, or even your barber who always seems to hear the most interesting stories.</p>
+<p><strong>JORDAN:</strong> Sharing your thoughts, even about the mundane, helps you offload mental weight and gain fresh perspective. A quick message on WhatsApp or a brief chat over coffee can calm the mind and make problems feel more manageable.</p>
+<p><strong>JORDAN:</strong> If you’re nervous about judgment, remember you don’t have to spill every detail. Just voice the feeling—that’s often enough to break the pressure loop and get you back on track.</p>
+<p><strong>JORDAN:</strong> So, take a moment right now and ask yourself: can I tackle all five of these habits, or at least one? Pick the one that feels most doable and commit to it today.</p>
+<p><strong>JORDAN:</strong> As you roll through the next few days, notice how each small win stacks up. Better sleep, more water, a bit of movement, personal time, and a conversation—those are the building blocks of a one‑percent improvement.</p>
+<p><strong>JORDAN:</strong> And if you stumble, that’s okay. The goal isn’t perfection; it’s progress. Reset, adjust, and keep moving forward.</p>
+<p><strong>JORDAN:</strong> To sum it up: prioritize sleep, hydrate, move your body, treat yourself, and connect with another human. Those five steps are your toolkit for turning a rough patch into lasting growth.</p>
+<p><strong>JORDAN:</strong> Thanks for hanging out with me today. Keep smashing those habits, stay legendary, and I’ll catch you on the next episode. Take care!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>
