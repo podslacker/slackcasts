@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; fkCTifAqVGg</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=fkCTifAqVGg" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" loading="lazy" data-caption="[music] &gt;&gt; Hi everyone. Welcome. I&#39;m very excited to kick off this session today. Um where we&#39;ll talk about…"><figcaption class="gal-caption">[music] &gt;&gt; Hi everyone. Welcome. I&#39;m very excited to kick off this session today. Um where we&#39;ll talk about…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" loading="lazy" data-caption="GenAI ecosystem. And to understand where we&#39;re going, let me give you a glimpse of uh our AI let&#39;s have a look…"><figcaption class="gal-caption">GenAI ecosystem. And to understand where we&#39;re going, let me give you a glimpse of uh our AI let&#39;s have a look…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" loading="lazy" data-caption="inspiration. It&#39;s not just uh proper ideas often stem from visual search query you know exactly what you&#39;re…"><figcaption class="gal-caption">inspiration. It&#39;s not just uh proper ideas often stem from visual search query you know exactly what you&#39;re…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" loading="lazy" data-caption="application modernization specialist. Kandula, who&#39;s an application modern And my name is Naz Bayraktar, and…"><figcaption class="gal-caption">application modernization specialist. Kandula, who&#39;s an application modern And my name is Naz Bayraktar, and…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" loading="lazy" data-caption="into exact match. So, you come up with a golden test set the most commonly used. So, you can look Let&#39;s walk…"><figcaption class="gal-caption">into exact match. So, you come up with a golden test set the most commonly used. So, you can look Let&#39;s walk…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" loading="lazy" data-caption="it as a prototype, and then take it to they&#39;ve been developing locally, running into a secure cloud…"><figcaption class="gal-caption">it as a prototype, and then take it to they&#39;ve been developing locally, running into a secure cloud…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_07.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_07.jpg" loading="lazy" data-caption="Everything looks fine. I went through it very very quickly. You can see if there&#39;s any issues. And then, we…"><figcaption class="gal-caption">Everything looks fine. I went through it very very quickly. You can see if there&#39;s any issues. And then, we…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_08.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_08.jpg" loading="lazy" data-caption="authentication. And when something goes with its own IAM, so its own its own I wrong and you look back at your…"><figcaption class="gal-caption">authentication. And when something goes with its own IAM, so its own its own I wrong and you look back at your…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_09.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_09.jpg" loading="lazy" data-caption="enable it between your user and your to, while with Model Armor, you can just language model to have all of…"><figcaption class="gal-caption">enable it between your user and your to, while with Model Armor, you can just language model to have all of…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_10.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_10.jpg" loading="lazy" data-caption="Okay. Uh I might have to skip this one. If somebody can come and help me for the Do I need to do something…"><figcaption class="gal-caption">Okay. Uh I might have to skip this one. If somebody can come and help me for the Do I need to do something…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_11.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_11.jpg" loading="lazy" data-caption="have drilled down even and looked at if I could write good SQL queries, I&#39;d more are being used. And if I…"><figcaption class="gal-caption">have drilled down even and looked at if I could write good SQL queries, I&#39;d more are being used. And if I…</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_12.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_12.jpg" loading="lazy" data-caption="you better. Thanks a lot for listening. &gt;&gt; [applause] your use cases and see how we can help [music]…"><figcaption class="gal-caption">you better. Thanks a lot for listening. &gt;&gt; [applause] your use cases and see how we can help [music]…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="from-prototype-to-production-45-minutes-to-a-reliable-gemini-enterprise-agent-platform-agent">From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=fkCTifAqVGg">https://www.youtube.com/watch?v=fkCTifAqVGg</a><br />
+<strong>Video ID:</strong> <code>fkCTifAqVGg</code></p>
+<hr />
+<h1 id="building-a-reliable-agent-from-prototype-to-production">Building a Reliable Agent – From Prototype to Production</h1>
+<p><strong>Session:</strong> Google Cloud Next 2024 – AI Track<br />
+<strong>Speakers:</strong> Alibek (Engineering Manager, Booking.com AI Platform), Maria (Software Engineer, Booking.com AI Platform), Manasa Kandula (Application Modernization Specialist, Google), Naz Bayraktar (AI Specialist, Google)</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The talk walks through <strong>Booking.com’s journey</strong> of turning experimental generative‑AI (GenAI) prototypes into a <strong>governed, production‑ready, multi‑provider AI ecosystem</strong>. It showcases several <strong>real‑world agentic use cases</strong>, the <strong>technical lessons learned</strong> when serving large language models (LLMs) on Google Cloud (Vertex AI), and then hands the stage to Google experts who present <strong>four practical principles</strong> for evaluating, deploying, securing, and observing agents at scale.</p>
+<hr />
+<h2 id="booking.com-context-ai-footprint">1️⃣ Booking.com – Context &amp; AI Footprint</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mission</strong></td>
+<td>“Make it easier for everyone to experience the world.”</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>6.8 B guest arrivals since 2010; 175 k destinations; 7 k employees in 70 countries.</td>
+</tr>
+<tr>
+<td><strong>AI Heritage</strong></td>
+<td>&gt;10 years of predictive ML; hundreds of models in production handling ~500 k requests / s with 50 ms P99 latency.</td>
+</tr>
+<tr>
+<td><strong>GenAI Evolution</strong></td>
+<td>2023: simple wrappers (ChatGPT‑style experiments).<br>Early 2024: multi‑provider stack, in‑house models.<br>Mid‑2024: unified gateway with governance, monitoring.<br>Now: full lifecycle platform – evaluation, safety guardrails, agentic capabilities.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="agentic-usecases-powered-by-gemini-vertex-ai">2️⃣ Agentic Use‑Cases Powered by Gemini &amp; Vertex AI</h2>
+<table>
+<thead>
+<tr>
+<th>Use‑Case</th>
+<th>Audience</th>
+<th>Goal</th>
+<th>Core Tech</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Know Before You Go</strong></td>
+<td>End‑users (travelers)</td>
+<td>Generate pre‑trip itineraries, transport plans, personalized suggestions. <br>Bridges booking → departure.</td>
+<td>Gemini + Google Maps grounding + search.</td>
+</tr>
+<tr>
+<td><strong>Big Bot</strong></td>
+<td>Internal staff</td>
+<td>Conversational data‑registry; find data assets, spin up workflows via natural language.</td>
+<td>Gemini for internal productivity.</td>
+</tr>
+<tr>
+<td><strong>Partner Analytics</strong></td>
+<td>Partner platform users</td>
+<td>Extract pain points from reviews/comments → actionable themes (e.g., “pool quality”, “breakfast variety”).</td>
+<td>LLM for signal extraction, not just generation.</td>
+</tr>
+<tr>
+<td><strong>Reels to Reality</strong></td>
+<td>End‑users (visual inspiration)</td>
+<td>Turn short‑form travel videos (YouTube URLs) into concrete itineraries in the Booking.com app.</td>
+<td>Multimodal Gemini (video URL ingestion).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Key Insight:</strong> The value comes <strong>not just from the model</strong>, but from <strong>how the model is served, governed, and integrated</strong> into workflows.</p>
+</blockquote>
+<hr />
+<h2 id="technical-learnings-serving-llms-on-vertex-ai">3️⃣ Technical Learnings – Serving LLMs on Vertex AI</h2>
+<ol>
+<li><p><strong>One Size Does Not Fit All</strong></p>
+<ul>
+<li><strong>On‑Demand</strong> (default) → insufficient latency &amp; scalability for <em>Know Before You Go</em>.</li>
+<li><strong>Provisioned Throughput</strong> → reserved token capacity; better but still limited.</li>
+<li><strong>Priority Processing</strong> → needed for multimodal workloads like <em>Reels to Reality</em>.</li>
+</ul>
+</li>
+<li><p><strong>Match Serving Tier to Use‑Case</strong></p>
+<ul>
+<li>Determine required <strong>throughput, latency, and multimodal support</strong> before choosing a tier.</li>
+</ul>
+</li>
+<li><p><strong>Governance &amp; Visibility</strong></p>
+<ul>
+<li>Central <strong>gateway</strong> with built‑in usage monitoring, safety guardrails, and model‑agnostic APIs.</li>
+<li>Platform team provides <strong>self‑service docs, hackathons, and up‑to‑date tutorials</strong> to move teams from experimentation to production.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Quote:</strong> “Building the platform is only half the job; the other half is helping users understand what’s available and how to start.” – Maria</p>
+</blockquote>
+<hr />
+<h2 id="googles-four-principles-for-production-agents">4️⃣ Google’s Four Principles for Production Agents</h2>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>What It Solves</th>
+<th>Practical Tips</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Evaluation</strong></td>
+<td>Non‑deterministic behavior makes QA hard.</td>
+<td>• <strong>Response evaluation</strong> (LLM‑as‑judge, automated metrics: hallucination, groundedness, coherence). <br>• <strong>Trajectory evaluation</strong> – inspect tool calls, parameters, and agent collaboration.</td>
+</tr>
+<tr>
+<td><strong>Rapid Cloud Deployment</strong></td>
+<td>Moving from prototype code to scalable service.</td>
+<td>Use <strong>Vertex AI Agent Engine</strong>, <strong>Model Armor</strong>, and CI/CD pipelines to spin up serving endpoints quickly.</td>
+</tr>
+<tr>
+<td><strong>Identity &amp; Security at Deploy</strong></td>
+<td>Prevent misuse, ensure provenance.</td>
+<td>Assign <strong>service‑account‑based identities</strong>, enforce <strong>IAM</strong> policies, and enable <strong>model‑level access controls</strong>.</td>
+</tr>
+<tr>
+<td><strong>Observability &amp; Auditing</strong></td>
+<td>Debugging &amp; compliance in production.</td>
+<td>Leverage <strong>Cloud Logging</strong>, <strong>Trace</strong>, <strong>Metrics</strong>, and <strong>Audit logs</strong>; instrument agents to emit tool‑call traces for post‑mortem analysis.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Quote:</strong> “Agents are non‑deterministic, so you need both response‑level and trajectory‑level evaluation.” – Naz Bayraktar</p>
+</blockquote>
+<hr />
+<h2 id="takeaways">5️⃣ Takeaways</h2>
+<ol>
+<li><strong>Start Small, Iterate Fast</strong> – Early prototypes give insight, but a unified gateway with governance is essential for scaling.</li>
+<li><strong>Choose the Right Serving Tier</strong> – Evaluate latency, throughput, and multimodal needs before locking into a Vertex AI tier.</li>
+<li><strong>Governance is Not an After‑thought</strong> – Built‑in safety guardrails, usage monitoring, and model‑level controls keep the ecosystem trustworthy.</li>
+<li><strong>Evaluation Must Be Multi‑Dimensional</strong> – Combine human review, LLM‑as‑judge, and automated trajectory metrics.</li>
+<li><strong>Enable Self‑Service for Teams</strong> – Documentation, tutorials, and community events (hackathons) accelerate adoption across a large organization.</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li><strong>Alibek:</strong> “Our partnership with Google is battle‑tested, built on deep trust and technology that actually delivers.”</li>
+<li><strong>Maria:</strong> “It’s not just about choosing the right model. It’s about how we serve the LLMs and make them easy to use across the organization.”</li>
+<li><strong>Naz:</strong> “Agents are non‑deterministic, so you need both response‑level and trajectory‑level evaluation.”</li>
+<li><strong>Manasa:</strong> “Security and identity start at deployment time – you can’t bolt them on later.”</li>
+</ul>
+<hr />
+<h3 id="tldr">TL;DR</h3>
+<p>Booking.com transformed experimental GenAI projects into a <strong>governed, production‑grade AI platform</strong> powered by Google’s Gemini and Vertex AI. By <strong>matching serving strategies to workload</strong>, <strong>embedding safety &amp; observability</strong>, and <strong>providing self‑service enablement</strong>, they accelerated the rollout of several travel‑centric agents. Google’s four‑step framework (evaluate, deploy, secure, observe) rounds out the playbook for any organization looking to move agentic AI from prototype to production.</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, your detail‑driven host, and with me as always is the big‑picture thinker, Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Glad to be here. Today we’re diving into how a massive travel platform turned experimental AI into production‑ready, reliable agents—straight from a recent Booking.com and Google partnership talk.</p>
+<p><strong>JORDAN:</strong> Right, the talk opened with Alibek, an engineering manager at Booking.com, laying out their mission: making it easier for anyone to experience the world. He reminded us that they’ve facilitated over 6.8 billion guest arrivals across 175 000 destinations.</p>
+<p><strong>MIKE:</strong> Those numbers are mind‑blowing! And it sets the stage for why they can’t just dabble in AI—they need real, scalable solutions that improve every traveler’s journey.</p>
+<p><strong>JORDAN:</strong> Exactly. They’ve been running predictive ML models for a decade, handling half a million requests per second with sub‑50 ms latency. The shift now is toward generative AI—specifically Gemini on Vertex AI—to power agentic use cases.</p>
+<p><strong>MIKE:</strong> “Agentic” meaning the AI can act on behalf of users, right? Like booking a ride from the airport or building a personalized itinerary? That’s huge for the travel experience.</p>
+<p><strong>JORDAN:</strong> Maria, a software engineer on the same team, walked us through four concrete use cases. The first is “Know Before You Go,” a customer‑facing agent that stitches together flight info, ground transport, and itinerary suggestions by grounding in Google Maps and live search.</p>
+<p><strong>MIKE:</strong> I love that—bridging the gap between booking and actually traveling. It turns the anxiety of “what do I do when I land?” into a smooth, AI‑driven plan.</p>
+<p><strong>JORDAN:</strong> The second use case, “Big Bot,” is an internal data‑registry chatbot. Employees can ask natural‑language questions about platform data assets, even spin up workflows on the fly.</p>
+<p><strong>MIKE:</strong> That shows the power of LLMs not just for customers but for boosting developer productivity inside a massive organization.</p>
+<p><strong>JORDAN:</strong> Third, the partner‑analytics agent extracts pain points from reviews, turning free‑form comments into actionable signals—like “people hate the pool temperature.”</p>
+<p><strong>MIKE:</strong> Turning raw sentiment into concrete product improvements—that’s a direct revenue driver.</p>
+<p><strong>JORDAN:</strong> And finally, “Reels to Reality” is a multimodal marvel: feed a YouTube travel video URL, and the model builds a concrete itinerary in the Booking.com app. It leverages Gemini’s ability to process video context.</p>
+<p><strong>MIKE:</strong> Visual inspiration is huge for travel planning. Turning a TikTok‑style clip into a real booking pipeline is exactly the kind of frictionless experience users crave.</p>
+<p><strong>JORDAN:</strong> All these use cases revealed a key technical lesson: serving strategy matters. They experimented with Vertex AI’s on‑demand, provisioned throughput, and priority processing, matching each to the latency and scale needs of the specific agent.</p>
+<p><strong>MIKE:</strong> It’s a reminder that there’s no “default will do it” in production. Even a seemingly simple chatbot can choke if you pick the wrong serving tier.</p>
+<p><strong>JORDAN:</strong> The other lesson was about platform ownership. The AI platform team doesn’t build the agents themselves; they provide self‑service tools, documentation, hackathons, and ongoing visibility so product teams can take ideas from prototype to production.</p>
+<p><strong>MIKE:</strong> That cultural shift—from siloed experiments to a governed, multi‑provider ecosystem—is what turns hype into real, reliable products.</p>
+<p><strong>JORDAN:</strong> To sum up, Booking.com’s journey shows how a travel giant can mature from isolated GenAI experiments to a governed, production‑ready AI ecosystem, thanks to a strong partnership with Google and careful attention to serving, governance, and internal adoption.</p>
+<p><strong>MIKE:</strong> Absolutely. If you’re building agents, take away the need for the right infrastructure, the importance of internal enablement, and always keep the end‑user experience front and center. Thanks for listening!</p>
+<p><strong>JORDAN:</strong> That’s it for today’s episode. We’ll be back soon with more deep dives into AI in the real world.</p>
+<p><strong>MIKE:</strong> Stay curious, stay innovative, and see you next time!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

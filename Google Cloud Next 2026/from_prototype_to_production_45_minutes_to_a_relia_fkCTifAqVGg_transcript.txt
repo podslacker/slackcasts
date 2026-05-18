@@ -1,0 +1,1170 @@
+﻿[00:00] [music]
+[00:13] >> Hi everyone.
+[00:16] Welcome.
+[00:17] I'm very excited to kick off this
+[00:19] session today.
+[00:21] Um where we'll talk about how to build a
+[00:23] reliable agent from prototype to
+[00:26] production.
+[00:28] My name is Alibek. I'm an engineering
+[00:30] manager at uh booking.com leading the AI
+[00:34] platform team.
+[00:35] I'll be sharing this stage with amazing
+[00:36] Googlers and my colleague Maria.
+[00:39] They'll introduce themselves later.
+[00:43] So,
+[00:44] um we've been partnering with uh Google
+[00:47] for many years and this isn't just a
+[00:50] one-off project.
+[00:52] Um it's a battle-tested partnership uh
+[00:54] that is built on deep trust and
+[00:56] technology
+[00:58] that actually delivers.
+[01:00] And beyond our partner uh performance
+[01:03] marketing partnership with Google,
+[01:05] we're also harnessing the power of
+[01:07] Gemini and Vertex AI to build agentic
+[01:10] use cases that unlock smarter and more
+[01:13] automated customer experiences.
+[01:17] But let me first uh give you a little
+[01:19] bit more introduction about our company
+[01:22] first. So, this is our mission.
+[01:24] We want to make it easier for everyone
+[01:27] to experience the world.
+[01:29] And this is something that we ourselves
+[01:31] truly believe in.
+[01:33] It is vital because
+[01:35] connecting people with destinations
+[01:38] uh is something that fosters this
+[01:40] cultural understanding and personal
+[01:42] growth
+[01:43] cuz we rediscover ourselves we like what
+[01:45] we love what we don't know.
+[01:47] Um and in fact many of you if not all
+[01:51] traveled across countries
+[01:53] and maybe even continents to experience
+[01:56] this very conference in person embodying
+[02:00] um that core mission.
+[02:03] Can I have a quick show of hands? How
+[02:04] many of you today traveled
+[02:06] internationally?
+[02:08] Wow. That's almost the whole room.
+[02:11] Um and how many of you have used
+[02:14] booking.com app to plan your trip?
+[02:18] That's exciting. I love to see so many
+[02:20] hands.
+[02:21] Um for those of you who did not raise
+[02:24] hands but maybe for the rest as well, I
+[02:26] wanted to give you a sense of how
+[02:28] massive our engine is.
+[02:30] So, let me dive into some of the stats
+[02:33] about our platform.
+[02:36] So,
+[02:37] we are not just a booking site. It's a
+[02:40] massive online travel platform.
+[02:43] Uh since 2010, we've facilitated
+[02:47] facilitated over 6.8 billion
+[02:51] uh guest arrivals in different
+[02:53] accommodations.
+[02:55] We are present globally so it's a truly
+[02:57] international company.
+[02:59] We cover 175,000
+[03:02] destinations worldwide.
+[03:04] And we have offices across 140
+[03:07] uh uh we have 140 offices across 70
+[03:11] countries
+[03:12] with 7,000 employees in our headquarter
+[03:15] in Amsterdam, Netherlands.
+[03:17] But the real story here is that we are
+[03:22] multi-vertical
+[03:23] uh company. We revolt beyond hotels,
+[03:26] accommodation, transport, attractions.
+[03:30] Um we are fully integrated
+[03:32] multi-vertical ecosystem.
+[03:37] But now let's talk about AI.
+[03:40] So, booking.com is not new to AI. We've
+[03:42] been running predictive machine learning
+[03:44] models for more than 10 years already.
+[03:48] Today we run hundreds of models in
+[03:50] production
+[03:51] that
+[03:53] generate massive traffic
+[03:55] of around half a million requests per
+[03:56] second
+[03:57] with roughly 50 ms at P999.
+[04:01] Um
+[04:02] but today we want to focus specifically
+[04:04] on the GenAI. So,
+[04:07] let me give you a glimpse of uh our AI
+[04:09] GenAI ecosystem.
+[04:11] And to understand where we're going,
+[04:14] let's have a look how our ecosystem
+[04:17] matured.
+[04:18] So,
+[04:20] first we started experimenting in 2023
+[04:23] since the ChatGPT moment. Uh you can see
+[04:25] the phase zero. We had a very simple uh
+[04:29] wrapper kind of application. This was
+[04:31] our foot in the door uh in in the
+[04:34] industry.
+[04:35] Um and by early 2024, we've revamped our
+[04:38] core stack
+[04:40] and began uh integrating our in-house um
+[04:44] models by and evolving into
+[04:46] multi-provider
+[04:47] uh environment. But the real shift
+[04:49] happened when we moved to a single
+[04:53] gateway
+[04:54] uh where our internal users can access
+[04:56] any model
+[04:58] and not only that but also with a
+[05:00] critical addition of built-in governance
+[05:03] and usage monitoring.
+[05:08] And today we have arrived at
+[05:09] comprehensive AI ecosystem. You can see
+[05:12] we have a lot of capabilities listed
+[05:14] here. I'm not going to uh dive into each
+[05:16] all of them.
+[05:17] But we are not just accessing models
+[05:20] anywhere. We're managing the entire life
+[05:22] cycle.
+[05:23] From advanced evaluations, safety
+[05:25] guardrails, and production-ready agentic
+[05:27] capabilities,
+[05:29] we now have integrated
+[05:31] solution us scale multiple use cases
+[05:35] very quickly.
+[05:37] And with that, I wanted to hand over uh
+[05:39] to my colleague Maria to dive deeper
+[05:42] into particular use cases.
+[05:49] Hi everyone. I'm Maria. I'm a software
+[05:51] engineer also in the AI platform at
+[05:53] booking.com and I'll build on what
+[05:55] Alibek just shared by showing you a few
+[05:57] use cases with uh Gemini models.
+[06:00] So, the first I want to focus on is
+[06:02] called Know Before You Go. It's actually
+[06:04] our first uh customer-facing agentic
+[06:06] solution built as a proof of concept
+[06:08] together with the folks at Google.
+[06:10] Um as you may know, waiting for your
+[06:12] trip can be exciting but the planning
+[06:14] phase sometimes uh it's a bit
+[06:16] frustrating, it's time-consuming. So,
+[06:18] with this project, what we really want
+[06:20] to do is to bridge the gap between the
+[06:22] time of booking and when you actually go
+[06:24] on the trip. So, for example, you can
+[06:26] plan um how to get from uh the airport
+[06:29] to your accommodation or uh you can
+[06:30] create itineraries based on your uh
+[06:32] group, your interest, your constraints.
+[06:35] Uh this was achieved by leveraging
+[06:37] Google Maps uh and search grounding
+[06:39] under the hood
+[06:40] and it's it really shows how reasoning
+[06:42] and external knowledge come together um
+[06:45] to basically form a cohesive experience
+[06:47] for the traveler.
+[06:49] Moving on now to an internal use case.
+[06:52] Um it's called Big Bot. It's our
+[06:54] internal data registry chatbot.
+[06:56] Um users can ask uh internal users of
+[06:59] course can ask general questions about
+[07:01] uh the platform. They can search for
+[07:03] data assets which we know is important
+[07:05] in such a big company where you have a
+[07:06] lot um of information. And also uh they
+[07:09] can create workflows from natural
+[07:11] language. Um the point here is that
+[07:13] we're not just leveraging Gemini uh for
+[07:15] our end users but also using it
+[07:17] internally to
+[07:19] um enhance developer productivity.
+[07:22] Now, uh moving on to partner analytics.
+[07:25] This is a host-facing use case. So, on
+[07:28] the partner platform, um the users can
+[07:30] go into uh
+[07:32] extract traveler pain points. So, uh
+[07:35] it's not just uh we don't just leverage
+[07:37] LLMs for text generation. We use it for
+[07:41] signal extraction. Um so, a partner can
+[07:43] go in and double-check
+[07:45] um basically extract from comments and
+[07:47] reviews
+[07:48] the common themes. Uh so, for example,
+[07:51] they can see that uh a lot of users
+[07:53] let's say complain about the pool or the
+[07:55] breakfast variety and that way they know
+[07:57] what to really focus on and what matters
+[08:00] most for their customers.
+[08:02] The final use case I want to present um
+[08:04] is focused on multimodality. Um I really
+[08:07] love this one. It's called Reels to
+[08:08] Reality.
+[08:09] Um it takes short-form video inspiration
+[08:11] to real itineraries on the booking.com
+[08:14] app.
+[08:15] And um we know that you know, travel
+[08:18] ideas often stem from visual
+[08:20] inspiration. It's not just uh proper
+[08:22] search query you know exactly what
+[08:23] you're going for.
+[08:24] So, building an itinerary and booking
+[08:27] really helps you uh plan your trip
+[08:29] better essentially.
+[08:30] Uh Gem- Gemini's a perfect fit for this
+[08:32] because uh you can pass YouTube URLs
+[08:34] directly to the model and it enhances
+[08:36] the context of the query.
+[08:38] And uh it's I think a great example of
+[08:41] how multimodal AI can be super relevant
+[08:43] for travel.
+[08:45] So, I've shared a few use cases but of
+[08:47] course these didn't come without their
+[08:48] challenges and their learnings.
+[08:50] Um all of these examples show us one
+[08:53] important thing. It's not just about
+[08:55] choosing the right model. It's about how
+[08:57] we serve the LLMs and make them easy to
+[08:59] use across our organization.
+[09:03] Um most of you may already famili- may
+[09:04] already be familiar with on-demand LLM
+[09:06] serving uh but we found there are
+[09:08] multiple options to serve LLMs on Vertex
+[09:10] AI.
+[09:11] Uh we found out about this because uh
+[09:14] we've gone through a lot of um service
+[09:16] tiers and a lot of experimentation.
+[09:18] Essentially, one size does not fit all
+[09:20] when it comes to serving tiers. Um
+[09:22] initially we were using just on-demand
+[09:24] so um
+[09:25] the uh default Vertex AI serving option.
+[09:29] Uh but for Know Before You Go, our first
+[09:31] project, we quickly found that it wasn't
+[09:33] really fast or scalable enough. So, we
+[09:35] switched to provision throughput which
+[09:37] is a reserved capacity of tokens per
+[09:39] minute. Um but that also isn't a
+[09:42] bulletproof solution, right? So, um then
+[09:44] we started looking into priority
+[09:46] processing for multimodal use cases
+[09:49] um like for example Reels to Reality.
+[09:51] >> [snorts]
+[09:51] >> Um the real takeaway has been that we
+[09:54] are trying to match the serving strategy
+[09:56] with the production need rather than
+[09:58] just assume that a default is going to
+[09:59] do the trick.
+[10:01] And the second learning I want to focus
+[10:02] on is about knowledge sharing and
+[10:04] visibility. So, we are a platform team.
+[10:07] That means we don't develop these use
+[10:08] cases ourselves. Uh it's usually
+[10:10] self-service or at most we support. Um
+[10:13] so it means that building the platform
+[10:14] is only half the job for us. Uh the
+[10:16] other the other half is uh helping users
+[10:19] understand what's available, when to use
+[10:21] which tool, and how to get started in a
+[10:23] way that's really accessible and um
+[10:25] relevant to them. So, we tailor a lot of
+[10:27] content, always try to keep it up to
+[10:29] date, um keep coming up with hackathons,
+[10:31] provide our specific information, uh
+[10:33] with the goal to really um help people
+[10:35] move from experimentation to production.
+[10:38] So, if I had to summarize our journey in
+[10:40] one sentence, it would be this.
+[10:42] Booking.com um has been moving from
+[10:44] isolated gen AI experiments to a
+[10:46] governed multi-provider production-ready
+[10:48] AI ecosystem. And Google's a very
+[10:50] important part of that journey,
+[10:52] especially as we venture further into
+[10:53] agentic um solutions.
+[10:56] Thank you. Now I'll hand over to Manasa
+[10:57] and Naz, who will share four principles
+[10:59] for develop uh for deploying agents into
+[11:02] into production on Google Cloud.
+[11:13] Most of us are familiar with building
+[11:15] agents. However, as we're building them,
+[11:18] some natural questions arise. Like how
+[11:21] do we ensure the quality of our agents
+[11:24] are up to our quality standards? How do
+[11:27] I properly govern my tools and agents as
+[11:30] I'm building more and more of them?
+[11:33] And as I am following this journey with
+[11:35] my agents, how do I make sure I keep
+[11:37] them secure while they're running in
+[11:39] production?
+[11:40] Today, we are going to cover four main
+[11:42] topics in the next 30 minutes to help
+[11:45] you understand how you can go about
+[11:47] these challenges.
+[11:48] First, we'll dive into how do you
+[11:50] evaluate your agents before you put them
+[11:53] into production utilizing various
+[11:55] techniques. Then we're going to give
+[11:57] some tips on how you can move from code
+[12:00] to cloud quickly.
+[12:02] We'll then continue with how do you have
+[12:04] agent identity at deployment time?
+[12:08] And how do you keep your agents secure
+[12:11] in production? And then we'll finalize
+[12:13] with observability and auditability of
+[12:16] your agents. As you're running them in
+[12:18] production, you might run into issues
+[12:20] that you would like to debug, and we'll
+[12:22] look into how you can do that
+[12:23] effectively.
+[12:25] Before I begin, I would like to
+[12:26] introduce you to my colleague Manasa
+[12:28] Kandula, who's an application modern
+[12:30] application modernization specialist.
+[12:33] And my name is Naz Bayraktar, and I'm an
+[12:35] AI specialist, and we're both based in
+[12:37] Google Amsterdam.
+[12:40] So, we're going to be utilizing a sample
+[12:42] demo. Coincidentally, this is going to
+[12:45] be in travel domain.
+[12:47] Uh inspired from my colleagues from
+[12:49] Booking.
+[12:50] And we'll have three main agents in our
+[12:53] sample demo. Uh the main one will be the
+[12:55] London Travel Concierge. This is the
+[12:58] main agent that will interact with our
+[13:00] users, who will give travel itinerary
+[13:03] recommendations to them. It will speak
+[13:05] via A2A with the ticket agent and
+[13:07] activities agent. It will have access to
+[13:10] weather MCP server as London's weather
+[13:12] is very unpredictable. And it will also
+[13:15] have its own London weather MCP server
+[13:18] where it's going to have access to
+[13:20] proprietary data that resides in Cloud
+[13:23] SQL that belongs to our company so that
+[13:25] we can give proper recommendations to
+[13:29] our end users. We'll also utilize Agent
+[13:31] Engine and Model Armor, and more on that
+[13:33] later.
+[13:35] So, let's go ahead and get started with
+[13:37] how we can evaluate agents.
+[13:40] Agents are non-deterministic, and this
+[13:42] brings some challenges to our evaluation
+[13:45] systems.
+[13:46] We can mainly split our methods of
+[13:49] evaluating them into two components.
+[13:52] First is response evaluation, where we
+[13:55] disregard everything that happens within
+[13:57] an agent and only take a look at the
+[13:59] response. This is very similar to how
+[14:02] you do any gen AI model evaluation. And
+[14:04] the second is trajectory evaluation.
+[14:07] This is unique to agents specifically,
+[14:10] where we look into inner workings of an
+[14:13] agent and look into which tools did it
+[14:16] call, with which parameters, and with
+[14:18] which agents it collaborated. And then
+[14:21] we evaluate our golden goal, which is
+[14:24] our evaluation set, against how the
+[14:26] agent performed and come up to certain
+[14:28] decisions.
+[14:30] Now, I imagine all of you are familiar
+[14:32] with human evaluation. This is what we
+[14:34] did 4 years ago, and any person who used
+[14:37] an LLM probably has done this. You take
+[14:40] a look at the response, and you decide
+[14:42] whether if it was good enough or not.
+[14:44] Ideally, if you're doing it
+[14:45] professionally, you have certain
+[14:47] criteria that you need to evaluate the
+[14:48] agent against. Well, this has some
+[14:50] obvious drawbacks. It's very subjective,
+[14:53] it's time-consuming, and expensive. So,
+[14:56] this brought us to using LLM as judge.
+[15:00] This is a commonly used technique that
+[15:02] was adopted by the industry, where you
+[15:04] have a secondary LLM that evaluates the
+[15:07] outputs from the first LLM. And this is
+[15:09] something that we mainly use for
+[15:11] response evaluation, and it's still
+[15:13] pretty valid for evaluating agents.
+[15:16] Now,
+[15:17] the advantage of using LLM as judge is
+[15:20] very scalable, it's efficient efficient,
+[15:22] and consistent. While it's not perfect,
+[15:25] it's not very suitable for complex
+[15:27] scenarios. For example, code
+[15:29] modernization, it does not work very
+[15:31] well with LLM as judge. And it's limited
+[15:33] by the LLM's capabilities, of course.
+[15:36] We can utilize LLM as judge integrated
+[15:39] in automated metrics. So, automated
+[15:42] metrics for those of you who are AI
+[15:44] practitioners, probably heard about the
+[15:46] metrics like RMSE, mean absolute error,
+[15:49] and so on.
+[15:50] These are the automated metrics designed
+[15:52] for agent specifically. Some of which we
+[15:55] inspire from gen AI evaluation, like
+[15:58] hallucination, groundedness, coherence
+[16:02] scores, that also utilizes LLM as judge,
+[16:05] but you can also have custom automated
+[16:07] metrics integrated into your systems.
+[16:11] Now, what I'm mainly going to focus on
+[16:13] here is the trajectory automated
+[16:15] metrics, because that is only viable for
+[16:19] agents themselves.
+[16:21] Our agents are built on ADK in our demo.
+[16:24] So, I'm going to walk you through how
+[16:26] that works on ADK.
+[16:28] So, when you want to do a trajectory
+[16:29] evaluation,
+[16:31] you decide on which metrics that you
+[16:33] would like to look into.
+[16:35] Let's walk over the first three that is
+[16:37] the most commonly used. So, you can look
+[16:39] into exact match.
+[16:41] So, you come up with a golden test set
+[16:45] on deciding what is the most ideal path
+[16:48] my agent should follow. That includes
+[16:50] the tools, that includes the tool input
+[16:53] parameters, and the order of those tools
+[16:55] that is supposed to be called for the
+[16:57] agent to come up with a certain output.
+[17:00] You don't care about the output, but the
+[17:02] inner workings need to be perfect. That
+[17:05] is the exact match evaluation. So, this
+[17:07] is specifically relevant, for example,
+[17:09] our ticket agent, where it's important
+[17:12] that we ticket the customer correctly
+[17:14] with the right discount, with the right
+[17:16] price, and so on.
+[17:18] Then we have in order match.
+[17:21] When we do in order match, given our
+[17:23] agents are not deterministic,
+[17:25] it's okay if it calls some other tools.
+[17:28] Let's say it decided to call Google
+[17:30] Search tool, and I didn't have that in
+[17:32] my golden test set. It increased my
+[17:35] latency. However, it did not change the
+[17:37] response because it decided it
+[17:39] accidentally called it, it was not
+[17:41] necessary, and it just moved on. I will
+[17:43] still get a correct response in in order
+[17:46] match. So, you can detour, but as long
+[17:48] as you get to the right destination,
+[17:50] meaning you call the right tools, that's
+[17:52] okay.
+[17:53] Then we have any order match. This is
+[17:55] when you don't really mind, as long as
+[17:58] the right tools are being called, the
+[18:00] order is not really important for you.
+[18:03] Think of uh us giving recommendations
+[18:05] about London. You don't really care with
+[18:07] which neighborhood you start as long as
+[18:09] you give the correct recommendations to
+[18:12] your user.
+[18:13] So,
+[18:15] the advantage of automated metrics is
+[18:17] that they're very scalable, and they're
+[18:19] objective.
+[18:20] But no methodology is perfect.
+[18:23] It's
+[18:24] difficult to measure when it comes to
+[18:25] creativity, and it's subject to
+[18:28] cheating, especially if you pick the
+[18:30] wrong metric for your use case.
+[18:32] Now, I'll show you a demo
+[18:35] on how it looks in our sample
+[18:40] solution. So, here
+[18:44] we have the implementation for loading
+[18:47] the configuration of our agent on ADK.
+[18:49] So, the configuration are the automated
+[18:51] metrics that we would like to evaluate.
+[18:53] Here I have the tool trajectory, the
+[18:55] hallucination, the safety, and so on.
+[18:56] So, that includes the trajectory and the
+[18:59] response evaluation. Then I am loading
+[19:01] an evaluation data set. I created this
+[19:04] using the ADK user interface by having
+[19:06] conversations with the agent, and I
+[19:09] saved the conversation that I'm happy
+[19:10] with as my golden test set.
+[19:13] You see it's in a JSON format. Later, we
+[19:16] will run a simulation. So, we have the
+[19:18] input prompts that we prompted our
+[19:20] agents to, and the agent has access to
+[19:23] golden results.
+[19:25] We are going to rerun this agent and see
+[19:27] which results it will come up with, and
+[19:29] based on those results we're going to
+[19:31] calculate each metric
+[19:33] and see how it performs, and save the
+[19:34] results on BigQuery.
+[19:36] So, here you see in one conversation,
+[19:40] at every turn, what was the input
+[19:42] prompt,
+[19:43] what was the expected response, what was
+[19:45] actual response. And then you see all
+[19:48] the metric results saved in a granular
+[19:50] level, and on the right-hand side we
+[19:52] have the aggregated metrics for the
+[19:54] whole conversation.
+[19:56] So,
+[19:57] by looking at that, you can decide
+[19:59] whether if your agents are ready to go
+[20:01] to production. And once you're there, it
+[20:04] is time to get to cloud. And for that, I
+[20:05] will hand over to Manasa.
+[20:11] We're going to be switching back and
+[20:12] forth often, so you don't need to clap
+[20:13] every time, but we appreciate it. Uh
+[20:16] so, the next step that we cared about is
+[20:18] making sure that we were able to
+[20:20] increase our developer velocity. By
+[20:22] that, I mean we want to specifically
+[20:24] make sure our developers are not
+[20:26] burdened by all of the bottlenecks that
+[20:28] come with taking an agent from prototype
+[20:30] to production. I'll explain what that
+[20:32] means in a second. So, what we've
+[20:34] noticed over the last year is with the
+[20:37] help of code assistance tools, people
+[20:39] are able to build agents relatively
+[20:41] quickly and easily in their own local
+[20:43] environment. But what we see is that
+[20:45] developers generally get slowed down
+[20:47] when they have to take this agent that
+[20:48] they've been developing locally, running
+[20:50] it as a prototype, and then take it to
+[20:52] into a secure cloud architecture. And
+[20:54] that obviously makes sense because, you
+[20:56] know, in the advent of the AI era, the
+[20:59] rules have changed, the runtimes have
+[21:01] changed, architectural principles have
+[21:03] changed. So, this adds a lot of
+[21:04] cognitive complexity.
+[21:07] So, in order to solve that, we use
+[21:08] something called Gemini Cloud Assist.
+[21:11] And Gemini Cloud Assist is something you
+[21:12] can think of as your AI
+[21:15] architect for Google Cloud. So, what it
+[21:17] does is that it has a really good
+[21:18] understanding of the resources and
+[21:21] infrastructure that Google Cloud has
+[21:22] available, and it can analyze your code
+[21:25] base and your intent to be able to
+[21:27] translate that into architecture that
+[21:29] lands well on Google Cloud. And if you
+[21:31] paid attention to the architecture of
+[21:33] our London Concierge app, there was a
+[21:35] PostgreSQL database with a vector
+[21:37] extension over there. So, in order to
+[21:39] bring that into Cloud SQL onto Google
+[21:41] Cloud, the agent would suggest using
+[21:44] Cloud SQL with Postgres. And also, in
+[21:47] order to make sure that it's secure, it
+[21:49] will also like we suggest that you need
+[21:50] to make it a private instance.
+[21:53] Along with Gemini Cloud Assist, we also
+[21:56] have the Application Design Center. And
+[21:57] you can think of the Application Design
+[21:59] Center as a place where you you can
+[22:01] store your architectural templates and
+[22:03] deploy your architectural templates from
+[22:05] there. So, you can work with Gemini
+[22:07] Cloud Assist and Application Design
+[22:09] Center together. And one more advantage
+[22:11] of using ADC, I'm going to call it ADC
+[22:13] from now on, is that it also gives you
+[22:16] out-of-the-box metrics from day one. And
+[22:18] we'll take a look look at that a little
+[22:19] bit down the line.
+[22:21] But now, we were talking about
+[22:23] developers and bringing their code to
+[22:25] cloud.
+[22:26] What would such a user journey look
+[22:28] like? What would a developer's journey
+[22:29] look like? Let's say, for instance,
+[22:31] you're using Gemini CLI as your code
+[22:33] assistance tool.
+[22:34] You would use that to be able to help
+[22:36] you generate code. And along with the
+[22:38] Gemini Cloud Assist and ADC MCP servers,
+[22:42] you can have them analyze your code
+[22:44] base,
+[22:45] figure out the right architecture for
+[22:46] your code base, and also land that
+[22:48] architecture on Google Cloud. And in
+[22:50] that process, if you have any issues,
+[22:52] you can use these two MCP tools to be
+[22:54] able to help you troubleshoot. So, we'll
+[22:56] take a look at a recorded demo to be to
+[22:58] see what that looks like.
+[23:01] So, the first thing you see is an IDE
+[23:03] with our agent's code base.
+[23:06] And first, we check to see if our MCP
+[23:09] servers are installed MCP tools are
+[23:11] installed. We have the ADC and the
+[23:13] Gemini Cloud Assist MCP servers
+[23:14] installed. And then, we make sure that
+[23:17] we have a skill installed that is able
+[23:18] to coordinate with these two and make
+[23:20] them work to do what you need.
+[23:23] Now that we have the prerequisites, we
+[23:25] make sure we have we ask the
+[23:28] uh the agent to design a cloud
+[23:29] architecture from our code base.
+[23:32] So, the agent looks through your entire
+[23:35] code base,
+[23:36] searches through it, tries to understand
+[23:38] the components of it, and tries to
+[23:40] figure out how they're connected and
+[23:41] related to one another. I didn't give it
+[23:43] any other instructions except that one
+[23:45] sentence. So then, after it has a basic
+[23:47] understanding, it calls the Gemini Cloud
+[23:49] Assist MCP tool to take this
+[23:51] understanding and translate that into an
+[23:53] architecture.
+[23:56] So, what you see now is that after it's
+[23:58] translated it, it takes the Terraform
+[24:01] version of those templates and downloads
+[24:03] that directly onto your code base.
+[24:05] And now, it also
+[24:07] deploys that template onto ADC in the
+[24:09] same step. So, now we can take look at
+[24:12] the template in a visual design canvas,
+[24:14] and we can also explore the
+[24:15] configuration of the different
+[24:17] components inside the template and how
+[24:19] they're related to one another. Now that
+[24:21] we approve this template, I took a look
+[24:23] at it, it looked good, I approved it,
+[24:25] and now the agents are going to de-
+[24:28] deploy this architecture onto Google
+[24:30] Cloud.
+[24:32] This is a time-consuming process. It
+[24:34] takes about 10-15 minutes. Obviously,
+[24:36] it's fast-forwarded.
+[24:38] So, and it keeps checking to see if
+[24:40] there any issues and
+[24:42] and checks the deployment status until
+[24:44] it's complete. Now now that it is
+[24:47] deployed, we can actually take a look at
+[24:49] that application deployed using the app
+[24:52] ADC as well. So, we can take a look at
+[24:54] the deployment logs in Cloud Build.
+[24:58] You can see if there's any issues.
+[24:59] Everything looks fine. I went through it
+[25:00] very very quickly.
+[25:02] And then, we can take a look at the
+[25:04] outputs of this deployment. And the main
+[25:06] thing I'm interested in is the load
+[25:08] balancer IP address with which we can
+[25:10] take a look at which which we can
+[25:12] interact with our travel agent right
+[25:14] there.
+[25:16] It seems to work. I think. Yeah, it
+[25:19] works. So, one step further. So, what I
+[25:22] hope to show you with this demo is that
+[25:25] if you have a process where you have an
+[25:26] agent or you have an agentic
+[25:27] application, you've built it locally, it
+[25:30] runs well locally, and if you want to
+[25:32] bring it to the cloud, it usually takes
+[25:34] a developer days simply because you have
+[25:36] to figure out what the right matching
+[25:37] component on Google Cloud is, how do you
+[25:39] configure it using security best
+[25:41] practices, how do you connect two things
+[25:43] together. And this is something that
+[25:45] takes many days, and we managed to do
+[25:47] this in a matter about half an hour
+[25:48] using these two MCP tools.
+[25:52] Okay, now we have a bunch of agents and
+[25:54] a bunch of MCP servers running in our
+[25:57] environment. So, how do you make sure
+[25:59] you can use track what agents and MCP
+[26:02] servers you have running, and how do you
+[26:04] also make sure that you are reusing
+[26:06] tools that you've deployed and not
+[26:08] building new ones that are very similar
+[26:10] to the ones that you already have? So,
+[26:12] for this, we have something called the
+[26:13] registry. You can think of this registry
+[26:16] as a source of truth for your agentic
+[26:19] ecosystem. So, you can use this as a
+[26:21] catalog to store your MCP servers and
+[26:24] your agents, and use this as a source of
+[26:26] truth within your organization. So, one
+[26:28] of the advantages it has, one of the
+[26:29] main advantages, is that it helps
+[26:31] discovery across your organization, so
+[26:33] you can see what agents your teams,
+[26:36] other teams in your organizations have
+[26:37] built, and you can also reuse the same
+[26:39] tools and agents and reduce double work
+[26:42] in engineering.
+[26:44] Alongside Agent Registry, we also have
+[26:46] something called the Agent Gateway.
+[26:48] While discovery is an important problem
+[26:50] to solve, and you can do that with the
+[26:52] registry, you also need something like
+[26:55] governance. So, with teams building lots
+[26:57] of agents and tools, you have a
+[27:00] proliferation of them, and you want to
+[27:01] make sure not that not every agent that
+[27:04] you have is able to talk to every other
+[27:05] agent in your system. So, for instance,
+[27:07] in our travel app, we would like our
+[27:09] travel app to be able to talk to, for
+[27:11] example, the ticketing agent because we
+[27:14] want it to be able to use it uh to buy
+[27:16] tickets for our customers. But we don't
+[27:18] want it to talk to our internal HR agent
+[27:21] cuz that would be really bad. So, this
+[27:23] is something that typically, if you
+[27:24] leave this in the land of the developer
+[27:26] uh of developers, it adds a lot of
+[27:28] burden and it uh takes a lot of
+[27:30] engineering cycles to be able to
+[27:31] implement that at the developer level.
+[27:34] So, we want to pull this up to the
+[27:35] platform level, and this is what Agent
+[27:37] Gateway does. It You can think of it as
+[27:39] the governance layer for your agents and
+[27:41] MCP tools.
+[27:43] And I wish I could talk to you about
+[27:46] this for the next hour. I can't, but
+[27:48] there's lots of great demos on the floor
+[27:50] and lots of talks that were talk about
+[27:52] Agent Gateway and Agent Registry, so
+[27:54] please be sure to check them out.
+[27:57] Okay, with that, Naz is going to be
+[27:59] talking about safety.
+[28:02] So, how do we ensure our agents stay
+[28:05] secure while we run them in production?
+[28:08] For that, we are going to look into
+[28:10] three main components. We are going to
+[28:12] get started with agent identity. Then,
+[28:15] we'll look into the most common threats
+[28:18] GenAI applications face while running
+[28:21] live and how we can tackle those. And
+[28:23] finally, we'll wrap up with talking
+[28:25] about observability and auditability.
+[28:29] When you put your agent to production
+[28:31] and if something goes wrong, how you're
+[28:32] going to work backwards from it to fix
+[28:34] the issue that you have in in place. So,
+[28:38] let's get started with agent identity.
+[28:40] We just released it today
+[28:43] where this is a solution where your
+[28:47] agent will have a unique IAM at
+[28:50] deployment time. And you don't have to
+[28:53] manage it. It will have these privileged
+[28:55] access provided by you.
+[28:57] The advantage of having such solution,
+[28:59] in the case of our demo, say that our
+[29:01] Concierge agents wants to
+[29:04] purchase a ticket. It will do so with
+[29:07] its own I
+[29:08] with its own IAM, so its own
+[29:11] authentication. And when something goes
+[29:13] wrong and you look back at your logs,
+[29:15] you're going to see not just the service
+[29:17] that accessed to that agent, but you'll
+[29:20] see exactly which which agent, which
+[29:23] which version that access was made, and
+[29:26] you'll be able to have an irrefutable
+[29:28] audit trail to trace back exactly what
+[29:30] happened.
+[29:33] For example, here on the top, we have
+[29:36] our Concierge agent that has a regular
+[29:39] service role.
+[29:40] There, it means you will have to manage
+[29:43] the whole life cycle of this role. And
+[29:45] in the second and third agents, we
+[29:47] defined our agents with
+[29:49] agent identity. So at runtime, they were
+[29:51] assigned an identity. You don't have to
+[29:54] worry about it. If it's not running in
+[29:55] deployment, then
+[29:57] they disappear. And then as you're
+[29:59] running in them in production, you'll
+[30:01] have access to all of these logs and
+[30:02] these behaviors.
+[30:05] Moving forward, how do we make sure we
+[30:07] prevent bad actors accessing and
+[30:10] compromising our agents?
+[30:13] There are many reasons why you might
+[30:15] want to secure your LLM applications.
+[30:18] Uh the common three ones would be not
+[30:21] wanting to leak PII information of your
+[30:23] customers.
+[30:25] Um
+[30:26] protecting your brand reputation by not
+[30:29] sharing information about your
+[30:31] competitors. Uh you don't want to
+[30:33] release biased information um and also
+[30:38] information that you're not that is not
+[30:40] relevant to your tone of voice as a
+[30:41] company.
+[30:43] So for that, we have Model Armor.
+[30:46] Model Armor resides between the user and
+[30:49] your LLM to prevent all of these from
+[30:52] happening. So these are things that you
+[30:54] would prompt yourself over a long period
+[30:57] of time to prevent from happening and
+[30:59] you would need to do rigorous tests. But
+[31:02] if you were to place Model Armor in
+[31:03] between, then most of these things are
+[31:06] tackled on behalf of you. So let's see
+[31:08] how that works in our demo.
+[31:11] So here we have the UI of our
+[31:13] application.
+[31:14] We're greeting our agent. And then we're
+[31:17] going to attempt
+[31:19] to do data exfiltration.
+[31:22] We're trying to retrieve the credit card
+[31:24] information from a user. This is
+[31:26] detected by our
+[31:28] Model Armor and our agent is not
+[31:30] responding to that. Then we'll try to do
+[31:33] prompt injection.
+[31:37] Again, detected by Model Armor.
+[31:54] We'll then have a jailbreak attempt and
+[31:56] you'll see we have many creative attacks
+[31:58] that we can have towards our
+[31:59] application.
+[32:07] Now we're trying to do prompt leakage
+[32:09] attack by trying to retrieve the system
+[32:11] instruction
+[32:12] from our agent.
+[32:19] You see the attacker getting
+[32:22] frustrated.
+[32:29] Violating the safety filter.
+[32:36] And then finally trying a malicious URL
+[32:38] filter
+[32:41] to see if our agent will actually try to
+[32:43] go ahead and retrieve it.
+[32:49] Now to prove you that we did not block
+[32:51] every prompt,
+[32:53] we are making our agent work as the way
+[32:56] it's supposed to.
+[32:58] But we're not going to give up.
+[33:05] Well, let's see if it can do sensitive
+[33:07] data detection.
+[33:12] Well,
+[33:14] this is something that would have taken
+[33:15] us a lot of prompt engineering to get
+[33:18] to, while with Model Armor, you can just
+[33:20] enable it between your user and your
+[33:22] language model to have all of this in
+[33:24] place.
+[33:25] Given that we talked about identity and
+[33:28] uh agent security at runtime, we'll now
+[33:31] move on to talking about how do we debug
+[33:33] issues as they arise while running in
+[33:35] production. And then we're going back to
+[33:37] Manasa.
+[33:39] So I'm going to start with a question.
+[33:40] How many of you have had um
+[33:43] applications running in production? How
+[33:44] many of you have production
+[33:45] applications?
+[33:47] Almost all of you.
+[33:49] How many of you have had production
+[33:51] applications that have had no issues?
+[33:54] Not a single hand up. Okay, that's that
+[33:55] proves my point. So the thing is, the
+[33:58] crux of the story is, how do you figure
+[34:00] out when something goes wrong if you
+[34:02] don't have observability?
+[34:04] And one of the things that frustrates me
+[34:06] is that observability is often referred
+[34:09] to as a day two operation. And there's
+[34:12] reason behind this. It's mainly because
+[34:13] it's not trivial. So as an application
+[34:15] developer, in order to be able to get
+[34:17] observability signals, you need to
+[34:19] instrument your code base. Next, as a
+[34:22] platform engineer, in order to be able
+[34:23] to get observability signals across your
+[34:25] platform, you have to pull these out of
+[34:27] your cloud vendor, you have to build
+[34:29] beautiful dashboards that integrate with
+[34:30] the application signals so that they
+[34:32] actually make sense to you and give you
+[34:33] information that is valuable. So all of
+[34:36] this takes a lot of time and engineering
+[34:37] effort. But and that's why it's never
+[34:40] done on day zero, it's always done as an
+[34:42] after not as an afterthought, but
+[34:43] afterwards.
+[34:45] But we actually managed to solve this
+[34:47] problem for ourselves by doing two
+[34:49] things. Firstly, we used ADK with a
+[34:52] Google Cloud agentic platform, with
+[34:54] which we were able to get application
+[34:57] observability out of the box with just
+[34:59] uh click of a single bottom button.
+[35:02] And then, if you remember earlier, I
+[35:03] talked about Application Design Center
+[35:05] ADC.
+[35:06] We used ADC to deploy our entire
+[35:08] application, you saw that, and that gave
+[35:10] us platform dashboards out of the box as
+[35:12] well. And what ADC did on top of that is
+[35:15] instead of just giving us dashboards and
+[35:17] signals for independent resources across
+[35:20] the cloud project, it tied them together
+[35:22] as something that belonged to a single
+[35:24] application. So we were able to operate
+[35:26] the application as a whole instead of
+[35:28] signals from the Postgres database,
+[35:30] instead of signals from just that Cloud
+[35:32] Run instance, etc. So with that, we were
+[35:34] able to simplify our journey pretty
+[35:36] quickly.
+[35:38] And alongside with our agent app, we
+[35:40] also have the agent app dashboard, which
+[35:42] has additional metrics that are useful
+[35:44] to anybody who's running AI apps. So
+[35:46] you're able to look at things like the
+[35:48] uh the token count usage, uh
+[35:51] uh the latency with respect to certain
+[35:52] models, etc. And all of these come out
+[35:55] of the box.
+[35:56] All right. Now that we have our
+[35:57] dashboards ready,
+[35:59] how do we actually diagnose issues once
+[36:02] the signals that there's an issue uh
+[36:04] occurs?
+[36:06] So we at Google Cloud have been using
+[36:08] open I've been a big supporter of
+[36:09] OpenTelemetry for a very long time. And
+[36:12] for those who are not aware of it,
+[36:13] OpenTelemetry is a standard that is open
+[36:16] and is used by multiple vendors across
+[36:18] the globe, and it is there to be help
+[36:21] you build telemetry pipelines
+[36:22] independent of vendor. So it adds a lot
+[36:25] of interoperability between different
+[36:26] tools, etc. And what the USS community
+[36:29] with and Google Cloud has done together
+[36:31] is extended the OpenTelemetry protocol
+[36:35] to also include signals from GenAI
+[36:38] sources. So before when this came up,
+[36:40] obviously if there was no GenAI, and all
+[36:42] the telemetry signals were based on
+[36:44] normal applications. But of course, when
+[36:46] if you're building and operating a GenAI
+[36:48] app, you need extra signals about uh the
+[36:51] model, etc. that OpenTelemetry gives for
+[36:54] you now.
+[36:55] Let's take a look. Sorry, I'm going to
+[36:57] go back. I need to go to a live demo,
+[36:59] please.
+[37:11] It's worth it, I promise. It just takes
+[37:13] a couple of seconds to come up.
+[37:21] Do I need to do something here?
+[37:28] Okay.
+[37:35] Uh I might have to skip this one. If
+[37:37] somebody can come and help me for the
+[37:38] next demo, I'll come back to this in a
+[37:40] second. I was about to show you what one
+[37:42] of these traces for GenAI look like.
+[37:44] We'll come back to it uh at the end. So
+[37:46] I promise you I'll show you this. So we
+[37:48] only do one switch at the end to a live
+[37:49] demo. So right now, we have our
+[37:52] application instrumented. It runs
+[37:54] beautifully. There are no errors that I
+[37:56] seem to be picking up, but there's still
+[37:58] a very important question to answer. The
+[38:00] thing is, the question here is, how do
+[38:02] you know if your agents are actually
+[38:04] delivering value to your end customer?
+[38:05] Because that is the reason you're
+[38:06] building everything, right? So in order
+[38:08] to do that, we use something called the
+[38:10] BigQuery Analytics plugin, which comes
+[38:13] with application uh development kit or
+[38:15] ADK. So what it does is it takes all the
+[38:18] uh every single conversation that you
+[38:20] have with your user or with the end
+[38:22] user, and it takes all of the metadata
+[38:25] and the information from it and stores
+[38:27] it in a structured database. And for
+[38:29] those of you who know what BigQuery is,
+[38:31] you know that you can uh run very
+[38:33] powerful analyses on this data to have
+[38:36] you help you deliver business value.
+[38:41] Can we go back?
+[38:43] Thanks.
+[38:44] This has a demo, too.
+[38:52] Sorry, what do I have to click?
+[38:56] Yeah, great. So first, let's take a look
+[38:58] at the trace. So this is a trace for one
+[39:00] single turn that the user had with the
+[39:02] agent. So what you see over here
+[39:06] is you can see every single step and how
+[39:07] much time each of these steps took
+[39:09] before the end user got the response
+[39:11] back. And I also talked about the fact
+[39:13] that it has GenAI uh
+[39:16] uh
+[39:17] components in it. So we go to this
+[39:18] traditional view of a trace. You see
+[39:20] there's several steps over here where
+[39:22] you call the LLM. The LLM calls a tool
+[39:25] to do search for data, uh London
+[39:27] activities data, and then gives this
+[39:29] answer back to the AI model. And then
+[39:32] finally, the user gets the answer.
+[39:33] Everything marked with GenAI
+[39:35] over here tells you that this has GenAI
+[39:38] information in the trace. So if you take
+[39:40] a look at this, you see a whole bunch of
+[39:42] metadata. You can see that we're using
+[39:43] Gemini 2.5 Flash. The temperature that
+[39:46] we used was 0.01. The number of tokens I
+[39:48] used for this specific turn, which was
+[39:51] about 3,500 58. Uh we need to optimize
+[39:54] our agent. But anyway, so you can see
+[39:57] all of this in one space. So you can
+[39:59] have this for every single conversation.
+[40:01] And this is very useful information to
+[40:03] have when you're debugging.
+[40:05] Now, if we went back to BigQuery, which
+[40:07] where which also captures our users
+[40:09] interaction with our
+[40:12] with our model.
+[40:13] What you see over here is data for one
+[40:15] specific day.
+[40:17] And yeah, so it gives you the timestamp,
+[40:20] gives you the event for every single
+[40:22] conversation. It gives you the
+[40:25] uh the attributes. And if I'm not
+[40:28] mistaken, I might have hidden that
+[40:29] column, but you also see the content of
+[40:31] the conversation.
+[40:33] And now with this, I can run very
+[40:35] interesting queries. So for instance, I
+[40:37] want to know for this particular day,
+[40:39] what is the user sentiment? Am I
+[40:41] How happy is each of my user with every
+[40:43] single conversation? So having taken
+[40:45] this data, I run this analysis and you
+[40:48] see uh this is sorted descending, so
+[40:50] that's why you see very happy users at
+[40:52] the very top. You see that this person
+[40:54] was very happy with what we gave. Yes,
+[40:56] day two is absolutely perfect. Those are
+[40:58] exactly the kind of things I want to do,
+[41:00] blah blah blah. So that conversation is
+[41:01] rated five out of five. But if we go
+[41:04] way down, let's go here and say and I'll
+[41:07] sort This is easier to go. This is
+[41:08] exported to
+[41:10] uh Google Sheets. So this is uh an
+[41:13] unhappy user says, "This is really not
+[41:15] working out. So your tool can't find
+[41:16] anything, blah blah blah." So that gives
+[41:18] you a one out of five. So just by using
+[41:20] this data and running a SQL query, I was
+[41:22] able to analyze the sentiment of every
+[41:24] single user conversation, and that is
+[41:26] very useful information for me.
+[41:28] And lastly, I can also have a dashboard
+[41:31] that I built to see the number of tokens
+[41:33] that I've used on a specific day on
+[41:34] average. And you see where these tokens
+[41:36] are being used. And if I wanted to, and
+[41:38] if I could write good SQL queries, I'd
+[41:40] have drilled down even and looked at
+[41:42] more
+[41:43] uh data about where these tokens are
+[41:45] being used up and which type of
+[41:46] interaction, etc.
+[41:48] We can go back to the slides now.
+[42:02] So we looked at both of these, and just
+[42:04] to uh
+[42:05] end this,
+[42:07] we talked about a lot of different steps
+[42:08] that we went through in the last 30
+[42:10] minutes about how to get our agents into
+[42:11] production.
+[42:13] And let's say you do this for one agent.
+[42:15] Takes a little bit of effort. Let's say
+[42:17] you want to do this for 10 agents. Let's
+[42:18] say you want to do this for 100 agents.
+[42:20] Are you going to be able to scale the
+[42:22] steps that we talked about one by one
+[42:25] uh
+[42:26] for all your agents in your
+[42:27] organization? Scaling manual oversight
+[42:30] is really difficult. So in order to
+[42:31] solve that problem, we go back to ADC
+[42:33] again.
+[42:34] Earlier in the demo, we saw that we used
+[42:36] ADC to be able to take uh
+[42:39] our codebase, analyze it, and generate a
+[42:42] custom template for our code directly.
+[42:45] But what if we have a platform team in
+[42:47] between that has a golden template for
+[42:48] all agentic apps in your organization?
+[42:51] So they can create an agentic template
+[42:53] for any agentic app that is going to be
+[42:55] deployed with your organization, which
+[42:56] has all the policies, all the
+[42:58] guardrails, all the
+[42:59] every all the security requirements
+[43:01] built in. And then you as a developer
+[43:03] just take that template using these MCP
+[43:06] tools and customize it to run to your
+[43:08] app. Then you make sure that your
+[43:10] application uh every single application
+[43:13] in your organization is compliant.
+[43:16] I'm going to We have 2 minutes left, so
+[43:17] I'm going to skip to the very end. Check
+[43:19] out ADC. It's a really cool uh uh tool,
+[43:23] and it really helps building governance
+[43:24] at a platform level.
+[43:26] So with this, I hand this back to Naz.
+[43:30] As a recap, we covered four main topics.
+[43:34] First, we talked about evaluation. How
+[43:36] you can do evaluation on agents or is
+[43:38] through response evaluation or
+[43:40] trajectory evaluation. And we covered a
+[43:42] few metrics that you could cover when it
+[43:44] comes to trajectory automated metrics.
+[43:47] Then Manasa talked about how do you get
+[43:49] your code to cloud efficiently. She also
+[43:52] covered how do you have a proper
+[43:54] registry for your tools and agents. Then
+[43:57] we talked about having an IAM for your
+[43:59] agents specifically at deployment time,
+[44:02] and looked into common threats that your
+[44:04] agents might face and how you can tackle
+[44:06] those.
+[44:08] She then concluded with how you can do
+[44:10] observability and auditability.
+[44:13] And also, as you're scaling the amount
+[44:15] of agents that you're putting into
+[44:16] production within your organization, how
+[44:19] you can utilize templates to scale more
+[44:21] effectively rather than going all of
+[44:24] these steps one by one.
+[44:27] Given that, I see that we are almost out
+[44:29] of time. We will be in the corridor in
+[44:32] case any of you would like to ask any
+[44:34] questions, so that we get to understand
+[44:37] your use cases and see how we can help
+[44:38] you better. Thanks a lot for listening.
+[44:41] >> [applause]
+[44:44] [music]
