@@ -1,0 +1,924 @@
+﻿[00:13] welcome to Google Cloud. Next,
+[00:16] we are going to be talking about
+[00:19] something that we are often asked which
+[00:22] is impossible to do.
+[00:25] Ship product faster.
+[00:28] By the way, it has to be a
+[00:30] differentiator that no one has done
+[00:32] before.
+[00:34] Ship it globally quickly.
+[00:38] And you ask about headcount.
+[00:41] That's that's a good question. We'll
+[00:42] come back to that. So, how do we achieve
+[00:44] that? Um, and I think the answer lies
+[00:48] somewhere with the two-letter acronym AI
+[00:51] and agents, which is what we are going
+[00:53] to be exploring today.
+[00:55] My name is Patik. I lead a cloud phops
+[00:58] practice here at Google. Joining me here
+[01:00] is Andre. He leads uh financial services
+[01:03] here at Google. And the ultimate proof
+[01:05] point we have brought is James who's the
+[01:08] CIO of One United Bank and have uh been
+[01:12] sharing experiences around how AI has
+[01:14] been helping the bank internally,
+[01:16] externally and for greater good.
+[01:19] The way we will be spending our time
+[01:20] today is looking at value realization
+[01:23] framework. Right. So, how do we move
+[01:25] from AI hype, right, just go at it to
+[01:30] thinking about hard ROI numbers? This is
+[01:34] something that the executives, the board
+[01:36] is specifically asking many of our
+[01:38] companies to do. Next up, we have James
+[01:42] who will be sharing his experiences in
+[01:44] terms of how they have been using AI for
+[01:47] the past several years going back to
+[01:50] 2020. the lessons learned, the ROI that
+[01:53] the team have received not only to
+[01:55] improve internal teams productivity but
+[01:58] also making a differentiated customer
+[02:00] experience externally and they are going
+[02:03] to be also building something of a
+[02:05] greater good which I will let James
+[02:08] speak about. Um and then finally we will
+[02:11] move on to a demo. For demo piece we
+[02:14] actually picked a use case that we think
+[02:16] would be resonating well with all of
+[02:18] you. Uh this is about an army of AI
+[02:22] agents helping you manage cloud spend at
+[02:26] scale. So think about reporting,
+[02:29] optimization,
+[02:31] >> forecasting, allocation and so and so
+[02:33] forth.
+[02:34] >> All right. So with that said, Andre, how
+[02:38] should we be thinking about value
+[02:40] overall?
+[02:41] >> Yeah. Uh and we'll start with uh the
+[02:45] most expensive thing that customers are
+[02:47] faced with right now. And it really
+[02:49] boils down to looking through uh this
+[02:52] chart that we have here that shows um
+[02:56] you know what's been happening over the
+[02:58] past few years. And as you can see in
+[03:02] this chart, there's two races that are
+[03:04] that's happening. First is the
+[03:06] innovation race which is really driven
+[03:08] by the boardroom pressures to uh invest
+[03:12] billions of dollars into AI capabilities
+[03:16] only to six months later to a year find
+[03:18] out that the hard ROI and the savings
+[03:22] that they were looking to receive and
+[03:25] the business value created no longer
+[03:27] exist. So and it wasn't that it was the
+[03:30] business uh technology that failed. It
+[03:34] was more so that no one asked the
+[03:36] business value question before the first
+[03:39] line of code was written.
+[03:41] The second race here is that you can see
+[03:43] is in the dark blue line. It's slow,
+[03:46] steady. Uh and that's because every
+[03:49] dollar that is spent is tied to business
+[03:52] outcome.
+[03:54] Uh and you know the harsh reality here
+[03:57] especially for lean teams is you can't
+[04:00] afford to run these science projects
+[04:03] every dollar that is spent you have to
+[04:06] answer the question where's the ROI so
+[04:09] we wanted to enable you and create a
+[04:11] framework uh that we can leave with you
+[04:14] that really helps you guide you to
+[04:17] participate in this value realization
+[04:19] race. Next slide. And the way we think
+[04:22] about it is across three phases. The
+[04:24] first phase is identifying where the
+[04:27] pain is the loudest. Right? So this is
+[04:29] fixing the friction. Identifying all of
+[04:32] the repetitive manual task that can be
+[04:36] automated. Um and from a financial
+[04:38] services perspective that is being able
+[04:41] to open a bank account. There's loan
+[04:44] processing. That's password resets.
+[04:47] Right? all of that work that's high
+[04:49] volume that's tedious uh but low
+[04:51] complexity uh and that can be automated.
+[04:55] The second is automation and that is
+[04:58] where we're actually deploying agents in
+[05:01] your across your enterprise ac across
+[05:03] your environment and we use that as a
+[05:06] way to buy back capacity. So how can we
+[05:08] get time back to the teams and we do
+[05:10] that through automation and the last
+[05:13] phase here uh really to me I think
+[05:17] allows us to really drive value and
+[05:19] that's the transformation because now we
+[05:22] freed up the time and the capacity from
+[05:25] uh your resources and teams to now so
+[05:28] they can invest in building products uh
+[05:31] that's capable of uh competing against
+[05:35] their competitors. So James let me bring
+[05:37] you in uh tell me about one united bank.
+[05:41] >> Sure.
+[05:42] >> And tell me how this framework is
+[05:44] applicable to your
+[05:45] >> Awesome. Well, hey, thanks for having
+[05:47] me, Andre. Uh, really appreciate the
+[05:49] opportunity to tell everyone a little
+[05:50] bit about who we are and what we've been
+[05:51] able to accomplish. Uh, so, uh, One
+[05:54] United Bank, uh, is America's leading
+[05:56] community development financial
+[05:58] institution. Uh, what does that mean? It
+[06:00] really means that we're a missiondriven
+[06:02] organization. Uh, we've been championing
+[06:04] financial services and financial
+[06:06] literacy for economic advancement for
+[06:08] years. Um, you know, we're also a FDIC
+[06:12] insured bank. Um, but we're a digital
+[06:15] bank. So we operate a little bit more
+[06:17] like a fintech and find ourselves
+[06:18] competing against uh the likes of the
+[06:20] neo banks that are out there. Uh we find
+[06:23] that what we are doing differently is
+[06:25] we're leveraging our technology to help
+[06:27] us deliver unique products and services
+[06:29] to our customers on that national basis.
+[06:32] Um that said we're doing it with a
+[06:34] pretty lean team. We got about 150
+[06:36] employees internally uh that are helping
+[06:39] us support that mission and objective.
+[06:42] >> Awesome. So James, if I were to go back
+[06:45] to what Andrew just mentioned, right,
+[06:46] the playbook, which is the friction, the
+[06:49] automation, and then ultimately the
+[06:51] transformation. Yeah.
+[06:54] >> Tell me more about the friction.
+[06:56] >> Yeah. Like what let's let's go back
+[06:59] 2020. What happened there?
+[07:01] >> Yeah, sure. like going back to 2020 um
+[07:04] you know I think if you uh think about
+[07:06] where we were uh in time when United was
+[07:09] well established as a digital bank and
+[07:11] we were originating you know new
+[07:13] customers on a monthly basis at a pretty
+[07:15] steady clip and it was slowly improving
+[07:17] and in increasing especially as we hit
+[07:19] those periods of time where PPP was a
+[07:21] thing and everyone was looking for you
+[07:23] know digital services from their couch.
+[07:26] Uh and then I think we all remember over
+[07:28] the summer that summer uh there was the
+[07:29] George Floyd incident and there was a uh
+[07:32] outreach that uh was looking for
+[07:34] organizations that were valueminded like
+[07:36] One United.
+[07:37] >> Uh what we saw was we saw that our
+[07:39] customer base doubled in about a 60-day
+[07:42] period.
+[07:42] >> Um you know, and if we think about what
+[07:44] that was in COVID, I mean, we were faced
+[07:47] with the challenge of that didn't mean
+[07:48] we were going to get more headcount. We
+[07:50] were really honestly struggling with how
+[07:52] are we socially distancing people in our
+[07:54] call center? How can you bring in more
+[07:56] people, you know, into, you know, an
+[07:58] office and train them up and get them up
+[08:00] to speed to be able to support financial
+[08:02] services? I mean, that's a really
+[08:03] difficult task on a regular day.
+[08:06] >> Yeah. And, you know, you think about it,
+[08:08] right? You had this one challenge on one
+[08:10] hand, but then you had a great
+[08:12] opportunity.
+[08:13] >> Yeah.
+[08:13] >> Right. So, talk to us about what that
+[08:16] looks like and why you can't just throw
+[08:17] people at it, right?
+[08:18] >> Yeah. Sure. So I think that you know if
+[08:21] you go back to that moment in time what
+[08:23] what happened was we had this great
+[08:25] phenomenon of a of a whole new customer
+[08:27] base coming in and you know that meant
+[08:30] that while our origination systems had
+[08:32] done a great job of getting everyone in
+[08:34] we were now faced with the inevitable
+[08:36] questions and struggles new customers
+[08:38] have and they didn't have the
+[08:39] opportunity to go into branches to
+[08:41] satisfy them. So what we were faced with
+[08:43] was a flood of uh new customer inquiries
+[08:46] uh for support coming through multiple
+[08:48] channels. So when you talk about the
+[08:49] friction, you know, people people will
+[08:52] certainly come and reach out to you
+[08:53] through email and they'll reach out to
+[08:55] you through your website, but people
+[08:57] when it comes to their money, they end
+[08:58] up calling, right? They end up on the
+[09:01] phones. So when we looked around at
+[09:02] where our friction was, we were seeing
+[09:04] that our biggest problem was in being
+[09:05] able to service those customers who are
+[09:07] coming in through the voice channel. We
+[09:09] had a legacy phone system that had that
+[09:11] crazy phone tree. You know, it was one
+[09:13] of the places that, you know, we had
+[09:14] done a lot of work in the phone tree and
+[09:15] we thought, "Oh my god, we've built this
+[09:17] great phone tree." Well, people coming
+[09:19] in have complicated questions and those
+[09:22] complicated questions are hard to find
+[09:23] answers to in a seven layer phone tree.
+[09:25] Um, so what we did was we made our first
+[09:28] kind of pivot uh to looking to agents to
+[09:31] help us. Right? This was early though uh
+[09:33] in agents. We were looking at dialogue
+[09:35] flow at the time.
+[09:36] >> But what we moved to was we moved to a
+[09:38] natural language processing approach. We
+[09:41] as we simply asked the question of our
+[09:42] customers, how can we help you? And
+[09:44] instead what that did was it allowed
+[09:46] them to say, "Hey, I want to call center
+[09:48] agent." Of course they're going to say
+[09:49] agent. That's the first thing they say.
+[09:50] So we were able to prompt them to give
+[09:52] us a little bit more description. And
+[09:54] what it resulted in was intentbased
+[09:56] routing. It took away the complexity of
+[09:59] how do I find the right place in the
+[10:00] bank to get the help that I need. Right?
+[10:03] So that agent really translated that um
+[10:06] that that voice u question into an
+[10:09] actual actionable piece of information.
+[10:11] We took that information of the intent
+[10:13] and the routing. We certainly got the
+[10:15] customer to the right place and and
+[10:17] alleviated the friction for the
+[10:18] customer, but we were also building up
+[10:20] the knowledge of what they were calling
+[10:22] for and in a lot more detail than, you
+[10:24] know, we were getting from the old phone
+[10:26] based, you know, one, two, three pushing
+[10:28] of buttons.
+[10:29] >> Gotcha. So, we talked about value
+[10:32] realization, right? So, talk to us about
+[10:35] how this deployment helped your
+[10:37] business. what were some of the KPIs
+[10:39] that came out of it and um how did you
+[10:43] ultimately receive value on the end of
+[10:44] this?
+[10:45] >> Yeah, sure. So, I think that you know
+[10:47] when we think about a call center agent
+[10:50] um you know their their their time is
+[10:52] measured, right? I mean every phone call
+[10:53] that comes into the call center agent
+[10:55] you know every call needs to be handled
+[10:57] and solved. So what we were doing was we
+[11:00] kind of took the next step. So we
+[11:01] identified our friction, we found a good
+[11:03] solution and we started getting the
+[11:04] data. Then what we moved on to is being
+[11:06] able to say, "All right, how can we help
+[11:08] automate some of the things before it
+[11:09] gets to the agent, we took away the need
+[11:12] for the agent to be doing things like
+[11:14] authenticating the caller as they came
+[11:15] in, we used dialogue flow to ask the
+[11:18] basic authentication questions. So we
+[11:19] were able to do things like screen pop
+[11:21] the customer information. They had the
+[11:23] full 360 degree view of that customer,
+[11:25] an explanation of why they were calling,
+[11:27] and we had done the work of building up
+[11:29] our knowledge base so that we were able
+[11:30] to surface the knowledgebased answers to
+[11:33] our employees as that call was coming
+[11:35] in, really arming them with the
+[11:36] information that they needed.
+[11:38] Additionally, because we were doing the
+[11:40] intentbased routing, we were able to
+[11:42] move to a place where we could bring in
+[11:45] less skilled staff to handle the more
+[11:47] repetitive problems. So that meant that
+[11:50] we turn we translated um you know the
+[11:53] two or three-w week period of having to
+[11:55] train a call center agent who has to
+[11:56] flip to five different screens to do
+[11:58] something in a bank down to hey we need
+[12:00] to train them on one topic one intent
+[12:02] one purpose. Uh that allowed us to take
+[12:04] training from multiple weeks down to
+[12:06] days. Um, so those were some of the, you
+[12:09] know, I'd say key metrics that, you
+[12:11] know, really allowed us to pull back
+[12:13] some of the value from our call center
+[12:15] agents and be able to scale, uh, and and
+[12:18] really, I think, drove some of the ROI
+[12:19] of the initial, uh, build out of the
+[12:21] application.
+[12:22] >> So, I I love the story. Um, you
+[12:26] mentioned that 2020 opportunity is
+[12:29] knocking on your door. You have a
+[12:30] challenge that's a make or break
+[12:33] situation and a decision needs to be
+[12:35] made. It's a problem that you cannot
+[12:37] throw money or people at which no longer
+[12:40] solves the problem but may have
+[12:42] exacerbated the problem. So you turned
+[12:44] to AI not because it is cool but it's
+[12:48] because you it's a necessity at that
+[12:50] point and then the team actually did
+[12:54] deploy it successfully and created a
+[12:57] differentiated experience for the
+[12:59] customers as well as relieving that
+[13:00] pressure internally and absorbing that
+[13:03] opportunity that that that was knocking
+[13:05] on the doorstep. So, so now I feel like
+[13:09] if I were in your position, I there's
+[13:11] two opportunities for me, right? There's
+[13:12] two two choices. One is to to cash in
+[13:17] the success from the story and then, you
+[13:20] know, retire early, go to beach, die
+[13:23] equities on the hand uh or um double
+[13:27] down on finding another use case where
+[13:30] where this could be applicable. I feel
+[13:32] like unfortunately you may have picked
+[13:34] them later.
+[13:35] So there's no beach involved yet?
+[13:37] >> There's no beach involved yet. All
+[13:38] right. So, so tell us what what hap what
+[13:41] did you do with this success for the
+[13:42] first use case?
+[13:43] >> Yeah, sure. So, um the first use case,
+[13:46] you know, what we did was we took the
+[13:48] data that we were now gathering and we
+[13:50] were able to pivot and certainly do more
+[13:52] case deflection. But one of the key
+[13:55] things that was also happening was with
+[13:57] success and attention, I think we all
+[13:59] know brings not necessarily always the
+[14:02] best actors. So we were also faced with
+[14:04] a bit of a challenge in the fraud arena
+[14:06] where we were receiving a lot of dispute
+[14:08] cases, friendly fraud type of activity.
+[14:10] So what we did was we built upon what we
+[14:13] had already put in place with Google
+[14:14] dialogue flow to start handling the
+[14:17] dispute cases that were coming in
+[14:19] differently. We reused the
+[14:21] authentication mechanism from our agent
+[14:23] to authenticate callers before we handed
+[14:26] them off to the dispute intake team to
+[14:28] make sure we had a good understanding of
+[14:29] who the customer was and that we were
+[14:31] able to associate them with a case
+[14:33] inside Salesforce. We were able to then
+[14:36] use the 360deree view of our customer,
+[14:38] the real-time disputes API from our
+[14:41] partners over at Viserve, and through
+[14:43] application integration, one of Google's
+[14:45] frameworks uh for connecting our
+[14:47] enterprise systems, we were able to feed
+[14:49] that into Gemini to allow us to perform
+[14:52] a quick risk assessment that we were
+[14:54] able to write back to the Salesforce
+[14:56] case, arming our loss mitigation team
+[14:59] with the critical information that they
+[15:01] needed. You know, just like I said
+[15:03] before, you know, you've got call center
+[15:04] agents that are flipping between five
+[15:06] screens. Your loss mitigation team, you
+[15:08] know, that they're digging into at least
+[15:10] three or four or five different systems
+[15:12] to have a good picture of who the person
+[15:15] is when they're facing a dispute case.
+[15:16] That takes a lot of time. Uh so for our
+[15:19] loss mitigation team, the concept of
+[15:21] having Gemini help them identify the
+[15:24] most obvious risks, you know, that were
+[15:27] coming in through these dispute cases
+[15:29] has saved them a ton of time. Um, and
+[15:32] it's allowed us to prioritize based upon
+[15:34] the risk level that Gemini was able to
+[15:36] put together by looking across the
+[15:38] transactions and the dispute data and
+[15:40] the customer history. Uh, whereas in the
+[15:43] past, all they could look at really was
+[15:45] the most highest dollar value disputes
+[15:48] that were coming in. They weren't
+[15:49] catching the repetitive, you know, oh,
+[15:51] this person filed a $50 dispute this
+[15:53] week. Oh, they filed a $50 dispute last
+[15:55] week. You know, it really did allow them
+[15:57] to connect the dots. So it was injecting
+[16:00] AI and Gemini into the workflow that
+[16:03] really saved us all this time on the uh
+[16:05] fraud side.
+[16:06] >> Oh, very cool. So, so you are
+[16:07] incrementally now building and using AI
+[16:10] to drive one of the internal process
+[16:13] which is fraud. And I love that not only
+[16:17] it helps you semi-automate and maybe
+[16:19] automate uh the information gathering
+[16:22] synthesis from multiple different data
+[16:24] sources but that's actually also happens
+[16:26] to be a great use case for AI to help
+[16:29] the agents internally uh drive this very
+[16:32] fast and and I love the discovery which
+[16:34] is like hey
+[16:37] you set out to solve the fraud problem
+[16:40] at scale but now you're also handling
+[16:43] cases that would not have been possible
+[16:45] before because there's capacity to even
+[16:49] manage that.
+[16:51] >> Now going back to the ROI which is I
+[16:53] think the heart of the conversation is
+[16:54] okay you you did all this what does it
+[16:57] mean from from a from a hard ROI
+[16:59] perspective?
+[17:00] >> Yeah. So I mean I think that you know uh
+[17:02] first of all like the the fact that
+[17:04] we're able to automate all this and pull
+[17:06] it together allows our loss mitigation
+[17:08] team to get to more of those dispute
+[17:09] cases. I also think that introducing the
+[17:13] authentication mechanisms allowed us to
+[17:15] also reduce the number of inbound fraud
+[17:17] cases. I think it like kind of pushed
+[17:19] the fraudsters in a different direction.
+[17:21] Fraudsters tend to like the easiest
+[17:23] target, right? You introduce a little
+[17:25] bit more friction for them, they tend to
+[17:26] go a different direction. Um so that
+[17:29] said you know I think that for us you
+[17:30] know we definitely saw a huge decrease
+[17:32] in the overall uh losses that we were
+[17:34] experiencing uh in the reggie category
+[17:37] the year after we introduced uh this
+[17:39] agentic fraud uh approach.
+[17:41] >> Very cool.
+[17:43] >> Yeah. And you know going back to this
+[17:46] framework that we put together right
+[17:48] seems like you're following every step
+[17:50] here right we've identified the friction
+[17:53] points which is the detection fraud
+[17:55] detection and then we actually deployed
+[17:57] agents here where we are now having a
+[18:00] aentic workflow to help mitigate that
+[18:03] fraud uh detection process. The last
+[18:07] thing that we have not talked about is
+[18:09] how do we transform the investment
+[18:12] capital from it. So tell me a little bit
+[18:14] more about how one United Bank was able
+[18:17] to use that investment to pursue other
+[18:20] opportunities and capabilities.
+[18:22] >> Yeah. So um I think that's that's a
+[18:24] great question and I think honestly you
+[18:26] know you build on success right that's
+[18:28] what you do uh and one United being a
+[18:30] missiondriven organization you know we
+[18:32] really uh have been putting ourselves
+[18:34] out there for years now focusing on how
+[18:37] we can uh improve economic advancement
+[18:40] uh across the country. Um up on the
+[18:42] screen you'll see that there's a number
+[18:43] of different statistics here that really
+[18:45] just highlight what is out there um
+[18:47] across the country. A true struggle um
+[18:50] in in wide areas of um you know the our
+[18:54] customer base and and broad-based
+[18:57] America. You know, I think the thing
+[18:58] that always strikes me, the number that
+[19:00] I of all of these, it always makes me
+[19:02] the most, you know, um, realize the need
+[19:05] is the fact that there's a real problem
+[19:07] where people can't handle an unexpected
+[19:10] $400 expense. Um, you know, that's
+[19:13] that's a real struggle and a real
+[19:14] problem that tells you how tightly
+[19:16] individuals are managing their finances.
+[19:18] We've got people who are watching every
+[19:20] dollar that comes in and every dollar
+[19:21] that goes out. Uh, and they really don't
+[19:24] have anyone helping them, right? there's
+[19:26] no one there to be have their backs on a
+[19:28] normal day in and dayout basis. So what
+[19:30] we did was in the in the face of the
+[19:32] success we had deploying agents against
+[19:34] those couple of ROI use cases that we
+[19:37] saw was that we actually built out um a
+[19:39] new a new service a differentiator our
+[19:42] transformation item
+[19:43] >> right we we built out um a service that
+[19:46] we're calling wise one uh wise one is a
+[19:49] personal financial coach um in your
+[19:52] pocket we we built it with Google Gemini
+[19:54] uh we built upon our success in the
+[19:56] Google dialogue flow arena using
+[19:59] conversational agents now and generative
+[20:00] AI uh to be able to certainly service
+[20:04] customers but also help them with their
+[20:05] finances. Uh and how do we do that,
+[20:08] right? How is it possible that we're
+[20:09] going to be able to help them understand
+[20:10] when there's an opportunity to save or
+[20:13] when there's a need to, you know, move
+[20:14] money to cover a bill? Uh what we're
+[20:16] able to do is we um use an agentic
+[20:20] framework, right? Um to accomplish this.
+[20:22] Uh we have a number of enterprise data
+[20:25] streams that we're uh leveraging to uh
+[20:28] bring into the wise one agent. Uh you
+[20:30] know things like our customers budgets,
+[20:32] their goals. Um certainly you know we're
+[20:35] using our FAQs and our knowledge base to
+[20:37] help guide them as well as the decades
+[20:40] of financial literacy content that we've
+[20:42] been building up to be able to answer
+[20:44] questions. So, we use the Wise One
+[20:47] orchestration Engine really to be the
+[20:49] financial coach that's basically got all
+[20:52] these subcategories of classified agents
+[20:55] that it can come back and answer
+[20:57] questions on, be instructive,
+[20:58] supportive, um, and really be kind of a,
+[21:02] you know,
+[21:03] your your your safety net in your pocket
+[21:06] when it comes to your finances. That
+[21:07] independent third party, you know, that
+[21:09] can come in there. You know, I think the
+[21:11] thing is is that, you know, this is
+[21:12] something that others, you know, may
+[21:14] strive to do, but the the thing that One
+[21:16] United is uniquely positioned to do as a
+[21:18] bank and a financial institution is be
+[21:20] stewards of your financial data and give
+[21:23] you the ability to make great um great
+[21:25] financial uh decisions and achieve good
+[21:28] outcomes. So, we're really excited about
+[21:30] being able to move forward our mission
+[21:32] uh through a service like this um and
+[21:34] leveraging the technology to really do
+[21:36] something different.
+[21:38] I am definitely going to be the user of
+[21:40] vice one. Um even though I do follow a
+[21:43] certain financial discipline, I think
+[21:45] there is always an opportunity to learn
+[21:47] more and I love the fact that bank's
+[21:51] mission is to drive the literacy from a
+[21:54] from a from a objective standpoint and I
+[21:57] think using AI and I guess in this case
+[22:00] army of AI agents to drive that mission
+[22:03] forward um it's it's truly unique. I
+[22:06] haven't seen this across many other
+[22:07] financial institution as well. And kudos
+[22:10] to you and your team for driving this.
+[22:12] >> Yeah. Well, I think you know again it's
+[22:13] the early successes. It's building on
+[22:15] successes that so you can go into the
+[22:17] boardroom and have the conversation
+[22:18] about being able to build a service like
+[22:20] this, right? You have a proven track
+[22:22] record of success by reducing those
+[22:23] frictions and delivering the
+[22:25] automations. That's what gives you the
+[22:27] opportunity to transform the business.
+[22:28] So
+[22:29] >> I I want to go back to one thing that
+[22:31] you mentioned in your introduction which
+[22:33] is 150 employees.
+[22:35] >> That's right.
+[22:37] Um I think I think it's incredible right
+[22:39] like you have a living proof point of
+[22:43] lean teams using AI as a capacity a
+[22:48] workforce multiplier in terms of driving
+[22:52] um you know maybe differentiated
+[22:55] customer experience externally or
+[22:57] driving internal uh productivity or even
+[23:00] you know driving a mission forward for a
+[23:02] greater good. So love love the story.
+[23:05] Thank you James for sharing that. Um
+[23:08] what we have next is a demo um for one
+[23:12] of the use cases I think going along the
+[23:14] similar trajectory that Andre was
+[23:16] speaking about is identifying the
+[23:19] friction uh moving to automation. Um and
+[23:22] then finally thinking about
+[23:23] transformation. So one of the use case
+[23:25] that we have is uh cloud phops. We have
+[23:28] found that several uh organizations may
+[23:32] have PHOPS team which are lean. Some may
+[23:35] not even have a PHOps team and there are
+[23:37] uh one person wearing multiple hats
+[23:39] managing cloud spend at scale. Right. So
+[23:42] I think the idea here is how do we have
+[23:46] AI and AI agents help you manage cloud
+[23:48] spend because I think we know that you
+[23:51] just have to be uh uh responsible in
+[23:54] terms of spending your dollars in cloud
+[23:56] and thinking about ROI throughout. So
+[23:59] let's switch to uh the demo piece.
+[24:07] Are you all able to see the screen?
+[24:10] All right. Uh, quick poll.
+[24:14] Dark mode or light mode?
+[24:18] >> Dark mode.
+[24:22] Okay.
+[24:24] Light mode.
+[24:27] Oh.
+[24:28] >> Oh, boy. Pretty even.
+[24:30] >> I feel like light mode missed it by
+[24:31] three people. Just quickly counted that.
+[24:35] All right. So, we will switch it back to
+[24:37] dark.
+[24:38] All right. So this is my uh interface
+[24:42] into speaking to army of AI agents. I'm
+[24:45] talking to a platform supervisor. So I'm
+[24:48] just going to ask hi
+[24:51] what can you do?
+[24:55] um just to understand the capabilities
+[24:57] that the uh platform has and there is
+[25:01] number of things it can do from
+[25:04] inventory to cost optimization analysis
+[25:08] pricing ROI pull request governance
+[25:12] policy architecture okay that's a lot so
+[25:14] I'm going to ask a simple question and
+[25:16] say
+[25:18] show me top five services spent in the
+[25:23] last 30 base.
+[25:27] So I'm interested in just generally
+[25:29] understanding where my teams are uh
+[25:32] spending money on cloud um and what goes
+[25:36] on behind the scenes is orchestrator
+[25:39] based on the intent of my question
+[25:41] reroutes it to a specific specialist. So
+[25:45] in this case that specialist happens to
+[25:47] be billing. Billing uh is connected with
+[25:50] Bitquery through MCP server. It creates
+[25:53] a SQL on the fly, looks at the billing
+[25:57] data and come up with the answer. So
+[26:00] that's what this information is.
+[26:04] Um, now just to show you, we have
+[26:07] several agents working behind the scenes
+[26:09] depending upon the intent of the
+[26:11] question I have. Um, and it's the
+[26:15] platform supervisor that decides and
+[26:17] defines whether I need access to one
+[26:20] agent or multiple agents to accomplish
+[26:23] users tasks or goal.
+[26:27] So I'm going to ask a little bit more
+[26:28] deeper question. Um, show me cost
+[26:32] breakdown
+[26:33] by namespace within GKE.
+[26:42] So um for anyone who may not have worked
+[26:46] directly with Kubernetes engine,
+[26:47] Kubernetes engine tends to be a little
+[26:49] bit more complicated because of its
+[26:50] multi-tenant architectures. You could
+[26:53] have multiple app teams using same
+[26:56] cluster for application development and
+[26:59] I think what that does is it creates a
+[27:02] challenge of allocating shared services
+[27:04] cost. So typically what teams do is they
+[27:08] use different namespaces for running
+[27:11] their services within their nodes. So
+[27:14] you know typically when you want to look
+[27:15] at hey what is my service A cost versus
+[27:18] service B cost um just looking at a
+[27:21] cluster information it may not be
+[27:23] enough. So you may need to go a level
+[27:25] down there as well. So this is again
+[27:28] based on my question it's still billing
+[27:30] but now it is able to find out nested
+[27:33] information um that may not be readily
+[27:35] visible uh if you if you look at the
+[27:38] billing file uh but it is able to
+[27:40] identify it and capture it and then show
+[27:41] it to the team. Um u it actually is also
+[27:45] pretty interesting to see that what part
+[27:48] of my cluster is actually being
+[27:50] unallocated meaning uh it is not doing
+[27:53] any useful work for my business
+[27:55] objective. So in this case I can see
+[27:57] unallocated spend is roughly around $350
+[28:00] uh for a for a given month. So that was
+[28:02] interesting. Um and uh Gemini here also
+[28:07] gives me some important tips about hey
+[28:09] this is unallocated maybe that's the
+[28:11] avenue that you need to look into in
+[28:12] terms of optimizing your spend.
+[28:16] So I will go ahead and say that okay my
+[28:18] computer engine cost is 315 for last
+[28:21] month create a budget alert for me
+[28:28] as soon as the cost
+[28:31] goes over let's say 500.
+[28:35] Um so again the idea here is um if it
+[28:38] goes above 500 just let me know so I can
+[28:40] do something about it. Um, in this case,
+[28:43] based on the intent of my question, it's
+[28:45] the budget specialist that is being
+[28:46] called under the hood. Um, and it goes
+[28:49] in and it actually creates a budget for
+[28:51] me. So, if I go to my cloud console, if
+[28:55] I look at my budgets and alerts
+[28:58] um, and you see that the budget has been
+[29:02] created u by the AI agents behind the
+[29:05] scenes.
+[29:07] Um, this actually does few things. One,
+[29:10] it gives your finance team, your PHOPS
+[29:13] team, your app teams ability to create
+[29:16] and manage their own budgets and kind of
+[29:18] driving that accountability to the edge
+[29:20] without having them either work through
+[29:23] themselves through AM permissions,
+[29:25] authentication, authorization or depend
+[29:28] on some other team to be able to do so
+[29:31] for them.
+[29:33] All right, so I think we showcased that.
+[29:35] Let me go ahead and ask a little bit
+[29:36] more detailed question about um now we
+[29:40] are turning towards you know just show
+[29:42] me information about uh clusters that I
+[29:45] might be running in my uh systems. Um so
+[29:48] in this case uh it identifies based on
+[29:50] the intent of my question that this is
+[29:52] an inventory related information. It's
+[29:54] asking for metadata. So again it uses
+[29:57] MCP but this time it uses MCP for
+[29:59] Kubernetes to get cluster information um
+[30:04] for me. So it says I have one cluster
+[30:06] it's running in central one um it's
+[30:09] using E2 standard 4 um and then some of
+[30:12] the information that is important for me
+[30:14] in terms of phops profile any labels
+[30:16] that are attached to it for cost
+[30:18] allocation.
+[30:21] Um it also provides me a useful question
+[30:23] at the end. Would you like to scan it
+[30:25] for cost optimization opportunity?
+[30:28] Oh yes, please let me know if there are
+[30:33] any optimizations.
+[30:38] So this one is a slightly involved agent
+[30:42] um because what it is doing now is it is
+[30:46] looking at your observability data. So
+[30:49] your CPU utilization, memory
+[30:52] utilization, it looks at for last 30
+[30:54] days. Uh it looks at uh the requests,
+[30:58] the usage, the limits. Uh basically it
+[31:01] uses Goldilocks behind the scenes to
+[31:04] identify whether a workload can be right
+[31:07] sized in a safe manner because yes, we
+[31:10] do want to optimize cost but we don't
+[31:12] want there to be a performance issue. Um
+[31:15] and this is a balance which is extremely
+[31:18] hard to maintain and this requires quite
+[31:21] a bit of analysis behind the scenes. So
+[31:24] what what what I have feed into the
+[31:26] agent behind the scenes is you look at
+[31:28] CPU for P99 which is which means 99% of
+[31:32] the time if the CPU usage is low we can
+[31:36] be safe that it can be right sized. Now
+[31:39] we also don't want to right size it to
+[31:41] it to its max. So we might be adding a
+[31:43] buffer of 20% or 30% on top of it.
+[31:46] Right? So we are taking into account all
+[31:48] of the guardrails, all of the
+[31:49] performance factors behind the scenes
+[31:52] before a recommendation is created. This
+[31:54] recommendation is truly custom based on
+[31:59] your needs. Right? So it's not coming
+[32:02] from PHOPSHub. It's not coming from
+[32:03] active assist. It's something that a
+[32:07] human would technically do in order for
+[32:09] this to come up. AI agent is doing
+[32:10] exactly the same behind the scenes. So I
+[32:13] have a report. Um 95% of my cluster is
+[32:18] idle. Um it gives me information about
+[32:21] utilization and it also tells me there
+[32:23] is a primary target of this app that can
+[32:26] be right sized.
+[32:29] So I will say if I were to implement
+[32:33] this,
+[32:36] how much would I save?
+[32:40] Which is a normal question about like
+[32:43] hey are we even thinking about this in
+[32:44] the right direction or not? And what it
+[32:46] does is it again calls a different sub
+[32:49] agent pricing specialist that looks at
+[32:51] my contractual negotiation with Google
+[32:54] Cloud. It identifies the node that I'm
+[32:58] running in the location US Central 1 for
+[33:02] E2 standard and then it identifies vCPU
+[33:06] memory savings and then club that
+[33:08] information in one page. So essentially
+[33:11] I can save 16 bucks which is good enough
+[33:13] for two Starbucks. So I would go ahead
+[33:16] and
+[33:18] don't go to Starbucks reserve then you
+[33:20] will get only one um but regular
+[33:22] Starbucks is fine. So, I'll go ahead and
+[33:25] I'll say, "Okay, I want to save $16."
+[33:28] Um, so I'll go ahead and create
+[33:31] implementation.
+[33:33] Yes, please go ahead and
+[33:36] implement this.
+[33:40] Now, now if I were to do this in
+[33:42] production, I think several people will
+[33:44] get a heart attack. Um, so what we
+[33:48] really want AI agents to be doing is not
+[33:51] implementing it, but do something smart.
+[33:54] So it actually looks at my code repo. It
+[33:57] creates what we call a pull request,
+[34:00] which means here is my suggested changes
+[34:02] in your code and then it reroutes the
+[34:06] request to an application team. Do you
+[34:09] agree with this?
+[34:11] So I'm going to click on this pull
+[34:14] request. I'm going to look at the code
+[34:16] change that was done by my EI agent and
+[34:20] I'm going to pretend that I know what
+[34:22] it's doing and I'll say yes this is
+[34:25] amazing
+[34:27] please go ahead and merge this.
+[34:31] What happens behind the scenes is this
+[34:33] is what we call infrastructure as a
+[34:37] code. So as soon as my
+[34:40] code has been merged, which means it has
+[34:42] been reviewed and marked safe for
+[34:45] production, um it actually creates a
+[34:48] CI/CD job behind the scenes. I'm using
+[34:50] GitHub action runner to do this. It
+[34:52] connects to my cloud, connects to my
+[34:54] Kubernetes, deploys my code, rightize my
+[34:58] workloads. Everything happens in one
+[35:00] swoop.
+[35:07] So this will take
+[35:12] two seconds to be done. I waited for it.
+[35:15] Okay. So it's done now. Um which means
+[35:18] my workload in Kubernetes should have
+[35:22] been right sized.
+[35:25] So I go to Kubernetes engine,
+[35:32] go to workload
+[35:34] and then I think this is the app and we
+[35:38] will wait for a few more seconds and you
+[35:40] will see this red line drop which is the
+[35:43] vCPU usage and the memory usage you see
+[35:46] on both the charts. We will come back to
+[35:48] this. Um let me go ahead and show you
+[35:51] one more thing.
+[35:57] back.
+[36:01] Okay. The other thing is an often time
+[36:05] question comes back is like allocation
+[36:07] like I want to allocate my cost to
+[36:08] different teams and for that labels and
+[36:11] tag should be applied appropriately and
+[36:14] that itself can go into its own
+[36:17] different barrel of conversations with
+[36:19] the app teams. Um so in this case you
+[36:21] can actually ask AI agent to do uh to
+[36:24] help you with labeling management as
+[36:26] well. So show me cloud resources that
+[36:30] doesn't
+[36:32] have labels environment and then it
+[36:35] scans across my cloud um and then will
+[36:40] provide me information about uh
+[36:41] resources that is missing the label
+[36:43] environment. So in this case the cluster
+[36:45] is actually missing it.
+[36:48] So I'll say go ahead and apply a label
+[36:56] uh environment equal to finance.
+[37:00] Um and the idea here is not only agent
+[37:02] is able to identify it but it is also
+[37:04] able to rectify information on your
+[37:06] behalf. Now, in this case, I did give
+[37:09] agent access to directly go ahead and
+[37:11] make the change because I know it's a
+[37:12] safe change to be made regardless if
+[37:15] it's a production environment or a
+[37:16] non-production environment. So, that has
+[37:19] been done. Okay, I'm coming back here.
+[37:22] You see the spike drop here, which means
+[37:23] the workload has been right sized. I go
+[37:25] to cluster. I look at the labels and you
+[37:28] will see that the environment label is
+[37:30] now
+[37:32] being applied.
+[37:37] And I'm going to ask a final question,
+[37:40] which is, what's the weather
+[37:45] in Jersey City?
+[37:49] I'm from New Jersey, so I just care
+[37:51] about what's going on there. And the
+[37:53] agent will come back and say, "No,
+[37:55] that's outside of my domain knowledge."
+[37:57] So the idea here is that you can
+[38:00] certainly guardrail your agents to to
+[38:02] ground it into the data source that you
+[38:04] have. Um you can however ask any
+[38:07] questions about GKE like if there are
+[38:11] different modes and what should I be
+[38:12] using um and it will certainly give you
+[38:15] answer to that but if you ask anything
+[38:16] outside of this domain it will restrict
+[38:19] you from doing that. So I hope you all
+[38:22] enjoyed the demo and

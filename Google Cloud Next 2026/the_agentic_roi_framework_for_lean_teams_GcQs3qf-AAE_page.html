@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — The agentic ROI framework for lean teams</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>The agentic ROI framework for lean teams</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; GcQs3qf-AAE</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=GcQs3qf-AAE" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" loading="lazy" data-caption="welcome to Google Cloud. Next, we are going to be talking about something that we are often asked which"><figcaption class="gal-caption">welcome to Google Cloud. Next, we are going to be talking about something that we are often asked which</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" loading="lazy" data-caption="the repetitive manual task that can be fixing the friction. Identifying all of automated. Um and from a…"><figcaption class="gal-caption">the repetitive manual task that can be fixing the friction. Identifying all of automated. Um and from a…</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" loading="lazy" data-caption="that came out of it and um how did you business. what were some of the KPIs how this deployment helped your…"><figcaption class="gal-caption">that came out of it and um how did you business. what were some of the KPIs how this deployment helped your…</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" loading="lazy" data-caption="missiondriven organization you know we what you do uh and one United being a really uh have been putting…"><figcaption class="gal-caption">missiondriven organization you know we what you do uh and one United being a really uh have been putting…</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" loading="lazy" data-caption="on behind the scenes is orchestrator based on the intent of my question spending money on cloud um and what…"><figcaption class="gal-caption">on behind the scenes is orchestrator based on the intent of my question spending money on cloud um and what…</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" loading="lazy" data-caption="production, I think several people will Now, now if I were to do this in get a heart attack. Um, so what we…"><figcaption class="gal-caption">production, I think several people will Now, now if I were to do this in get a heart attack. Um, so what we…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="the-agentic-roi-framework-for-lean-teams">The agentic ROI framework for lean teams</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=GcQs3qf-AAE">https://www.youtube.com/watch?v=GcQs3qf-AAE</a><br />
+<strong>Video ID:</strong> <code>GcQs3qf-AAE</code></p>
+<hr />
+<h1 id="google-cloud-ai-agents-for-faster-global-product-delivery">Google Cloud – AI &amp; Agents for Faster, Global Product Delivery</h1>
+<p><em>Webinar featuring Patik (Cloud PhOps), Andre (Financial Services), and James (CIO, One United Bank)</em></p>
+<hr />
+<h2 id="overview">1️⃣ Overview</h2>
+<p>The session tackles a common executive dilemma: <strong>how to ship products faster, globally, and with a unique competitive edge – without simply adding headcount</strong>.<br />
+The answer presented is the strategic use of <strong>AI‑powered agents</strong>.</p>
+<p>The agenda:</p>
+<ol>
+<li><strong>Value Realization Framework</strong> – moving from AI hype to hard ROI.</li>
+<li><strong>Case study</strong> – James explains how One United Bank applied AI since 2020.</li>
+<li><strong>Demo</strong> – an “army of AI agents” that autonomously manage cloud spend (reporting, optimization, forecasting, allocation).</li>
+</ol>
+<hr />
+<h2 id="major-sections-core-topics">2️⃣ Major Sections &amp; Core Topics</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Key Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intro &amp; The Problem</strong></td>
+<td>• Boardroom pressure → massive AI investment, but ROI often disappears after 6‑12 mo.<br>• Lean teams can’t afford “science projects” without clear business value.</td>
+</tr>
+<tr>
+<td><strong>Value Realization Framework</strong></td>
+<td><strong>Three‑phase model</strong>: <br>1. <strong>Identify Friction</strong> – locate high‑volume, low‑complexity manual tasks (e.g., account opening, loan processing, password resets). <br>2. <strong>Automation</strong> – deploy AI agents to automate those tasks, buying back capacity. <br>3. <strong>Transformation</strong> – freed resources can now focus on building differentiated products.</td>
+</tr>
+<tr>
+<td><strong>One United Bank – Real‑World Application</strong></td>
+<td>• Mission‑driven digital bank with ~150 staff. <br>• 2020 surge: customer base doubled in 60 days (COVID‑19, social unrest). <br>• <strong>Friction</strong>: outdated 7‑layer phone tree; callers stuck on voice channel. <br>• <strong>Solution</strong>: AI‑driven natural‑language routing using Dialogflow → intent‑based routing &amp; automatic authentication.</td>
+</tr>
+<tr>
+<td><strong>Results &amp; KPIs</strong></td>
+<td>• <strong>Call‑center efficiency</strong> – reduced training from weeks to days; less skilled staff handling routine intents. <br>• <strong>Automation gains</strong> – screen‑pop of 360° customer view, knowledge‑base answers delivered in‑call. <br>• <strong>Scalability</strong> – handled doubled call volume without additional headcount.</td>
+</tr>
+<tr>
+<td><strong>Extending the Success</strong></td>
+<td>• Leveraged same AI platform for <strong>fraud‑dispute handling</strong> (authentication, case linking in Salesforce, real‑time dispute API). <br>• Demonstrates how one successful AI deployment can seed multiple downstream use cases.</td>
+</tr>
+<tr>
+<td><strong>Demo Preview</strong></td>
+<td>“Army of AI agents” that autonomously manage <strong>cloud spend</strong>: <br>— Reporting<br>— Optimization<br>— Forecasting<br>— Allocation <br><em>(Demo not transcribed in full.)</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">3️⃣ Key Takeaways</h2>
+<table>
+<thead>
+<tr>
+<th>Takeaway</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start with business pain, not technology hype</strong></td>
+<td>ROI is realized only when the chosen AI solves a real, measurable friction point.</td>
+</tr>
+<tr>
+<td><strong>Three‑phase framework delivers repeatable value</strong></td>
+<td>Identifying friction → automating → transforming creates a virtuous cycle and justifies further investment.</td>
+</tr>
+<tr>
+<td><strong>AI agents can replace or augment human effort cost‑effectively</strong></td>
+<td>Even with a lean team, intent‑based routing and automated authentication cut training time dramatically.</td>
+</tr>
+<tr>
+<td><strong>Data collected from the first AI win fuels additional use cases</strong></td>
+<td>One implementation (call routing) generated the knowledge base and authentication flow later reused for fraud dispute handling.</td>
+</tr>
+<tr>
+<td><strong>Measurable ROI is essential for board approval</strong></td>
+<td>Track metrics such as time‑to‑train, call‑handle time, headcount saved, and volume handled to prove value.</td>
+</tr>
+<tr>
+<td><strong>AI is a necessity, not a novelty, especially during rapid demand spikes</strong></td>
+<td>One United’s 2020 surge proved that AI can be a critical enabler when scaling quickly is mandatory.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="notable-quotes">4️⃣ Notable Quotes</h2>
+<ul>
+<li><strong>Patik:</strong> “The answer lies somewhere with the two‑letter acronym <strong>AI and agents</strong>.”</li>
+<li><strong>Andre:</strong> “Every dollar spent must be tied to a business outcome – you can’t afford to run science projects without ROI.”</li>
+<li><strong>James (CIO, One United Bank):</strong>
+<ul>
+<li>“We turned a chaotic 7‑layer phone tree into <strong>intent‑based routing</strong> that sent callers straight to the right place.”</li>
+<li>“Training time for call‑center staff dropped <strong>from weeks to days</strong> thanks to AI‑driven intent handling.”</li>
+<li>“We leveraged the same authentication flow to <strong>deflect fraud disputes</strong>, showing the power of re‑using AI assets.”</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="action-checklist">5️⃣ Action Checklist</h2>
+<ol>
+<li><strong>Map friction points</strong> – list high‑volume, low‑complexity processes.</li>
+<li><strong>Select an AI platform</strong> (e.g., Google Dialogflow) and prototype a single use case.</li>
+<li><strong>Define KPIs</strong> (time‑to‑train, call‑handle time, headcount saved, cost per transaction).</li>
+<li><strong>Iterate &amp; expand</strong> – reuse data, models, and integration layers for new processes (e.g., fraud, compliance).</li>
+<li><strong>Report ROI</strong> to executives using the three‑phase framework to secure ongoing investment.</li>
+</ol>
+<hr />
+<p><strong>Bottom line:</strong> By anchoring AI initiatives in real business friction, automating with agents, and scaling the resulting capabilities, organizations can ship differentiated, global products faster—without ballooning headcount. The One United Bank story illustrates a repeatable pathway from crisis‑driven AI adoption to sustained competitive advantage.</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome to the show! I’m Jordan, here to dig into the nitty‑gritty of how AI agents can actually move the needle on speed and ROI.</p>
+<p><strong>MIKE:</strong> And I’m Mike, ready to explore why all this matters for real businesses trying to ship products faster and stay competitive. Let’s jump into the AI‑agents playbook we heard about from Google Cloud.</p>
+<p><strong>JORDAN:</strong> The first big point they made was the “innovation race” – companies pour billions into AI, then scramble six months later when the hard ROI just isn’t there.</p>
+<p><strong>MIKE:</strong> Right, it’s like sprinting without checking the finish line. Executives want to see actual savings, not just hype, before they write any code.</p>
+<p><strong>JORDAN:</strong> That’s why the framework breaks into three phases: find the loudest pain, automate with agents, then transform the freed‑up capacity into new products.</p>
+<p><strong>MIKE:</strong> Sounds simple enough, but I’m curious—how does a bank like One United actually identify that “loudest pain”?</p>
+<p><strong>JORDAN:</strong> James told us their biggest friction was the voice channel during the 2020 surge – a legacy phone tree that couldn’t handle a flood of new customers.</p>
+<p><strong>MIKE:</strong> And instead of hiring a massive call‑center army, they turned to AI agents to do intent‑based routing. That’s a classic “do more with less” story.</p>
+<p><strong>JORDAN:</strong> Exactly. By using natural language processing, they asked callers what they needed, then routed them automatically, cutting down the phone tree from seven layers to a single question.</p>
+<p><strong>MIKE:</strong> The result? Faster resolutions for customers and a richer data set on what people actually call about. That data becomes the fuel for the next automation step.</p>
+<p><strong>JORDAN:</strong> After routing, they layered on authentication bots and knowledge‑base suggestions, so agents walked into calls already armed with the customer’s 360‑view.</p>
+<p><strong>MIKE:</strong> Which let them bring in less‑skilled staff for routine issues, trimming training time from weeks to days. That’s a tangible ROI metric right there.</p>
+<p><strong>JORDAN:</strong> Speaking of metrics, they reported reduced average handle time, higher first‑call resolution, and the ability to repurpose agents for higher‑value work.</p>
+<p><strong>MIKE:</strong> Those are the hard numbers the board loves to see—cost per call down, capacity up, and a differentiated customer experience.</p>
+<p><strong>JORDAN:</strong> The next layer they added was fraud dispute handling, reusing the same authentication flow and pulling in real‑time data from external APIs.</p>
+<p><strong>MIKE:</strong> It’s a perfect illustration of the transformation phase: you start with friction, automate it, then expand the same engine to solve a whole new problem.</p>
+<p><strong>JORDAN:</strong> So the key takeaway is that AI agents aren’t just a shiny toy; they’re a systematic approach to capture value at each stage of the customer journey.</p>
+<p><strong>MIKE:</strong> And for any organization feeling the pressure to ship faster without blowing up headcount, the framework gives a roadmap to turn AI hype into measurable impact.</p>
+<p><strong>JORDAN:</strong> Thanks for tuning in, everyone. We hope you’re walking away with a clearer picture of how to spot friction, deploy agents, and unlock transformation.</p>
+<p><strong>MIKE:</strong> Absolutely. Keep asking the hard ROI questions, and keep experimenting with AI in a way that ties every dollar to a business outcome. Until next time, stay curious!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>
