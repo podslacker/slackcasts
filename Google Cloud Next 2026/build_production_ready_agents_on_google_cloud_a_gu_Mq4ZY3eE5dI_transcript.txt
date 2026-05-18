@@ -1,0 +1,1161 @@
+﻿[00:00] [music]
+[00:13] >> How everyone doing? You made it to the
+[00:15] last session of the last day?
+[00:19] Right, that's the energy. Come on.
+[00:22] >> [applause]
+[00:25] >> Promise you will not make this a boring
+[00:26] session. It'll be fun and you will have
+[00:28] something to take away.
+[00:30] Cool. With that said,
+[00:33] we are three speakers today. My name is
+[00:35] Sita and I'm a developer relations
+[00:38] engineer at Google Cloud.
+[00:40] In my previous life, far long ago, I was
+[00:42] a machine learning engineer.
+[00:44] Back when classification clustering used
+[00:46] to be the cool things. Anyone remembers?
+[00:49] Just I see hands.
+[00:51] And then I transitioned into cloud
+[00:52] security and now I'm bringing the best
+[00:54] of both worlds to build secure
+[00:56] production ready agents and that's what
+[00:59] I do and I have two wonderful
+[01:00] co-speakers here today. Kanchana Patola,
+[01:03] my colleague from Google Cloud.
+[01:05] And Siddharth Jain from Ford Credit. And
+[01:07] together, we are going to walk you
+[01:09] through
+[01:11] this agenda.
+[01:12] We'll share key principles with you,
+[01:14] architectures and best practices for
+[01:16] building production ready AI agents and
+[01:18] Siddharth then will share how Ford
+[01:20] Credit brings these AI agents to
+[01:23] production.
+[01:27] But before we go into the session
+[01:29] content itself, I want to take 30
+[01:30] seconds of your time
+[01:32] to set the gravity of the situation we
+[01:34] are in. I know most of you already
+[01:36] realized this.
+[01:37] The way that we build software from
+[01:40] last year to this year has changed,
+[01:42] right? Rapidly. And even the way we
+[01:44] consume software.
+[01:47] Tools and protocols that did not exist
+[01:49] last year do now
+[01:51] and that's becoming more mainstream.
+[01:54] Which is what we'll be focusing in on
+[01:56] the first section. If last year was
+[01:58] about building these agents, this year
+[02:01] is about building systems around them so
+[02:04] we can bring these agents into
+[02:06] production
+[02:08] in a resilient, robust, and secure
+[02:09] manner.
+[02:11] And I'll be focusing on building
+[02:13] components of the agents that would go
+[02:16] into production. And with that, let's
+[02:18] start with the first segment of the
+[02:20] session, which is path to production.
+[02:23] You might have seen these
+[02:25] uh boxes and slides. Don't worry, I'm
+[02:26] not going to make you read them. It's a
+[02:28] lot of boxes, and I promise I won't read
+[02:30] them to you all. It's not going to be a
+[02:32] catalog walk-through today. Instead, I'm
+[02:35] going to wear my engineer's hat and
+[02:37] share with you all five key principles
+[02:40] that we have learned from deploying and
+[02:43] building agents in prod.
+[02:46] And if you have to take away one thing
+[02:47] from this slide, it would be we've
+[02:49] broken down the agent development life
+[02:51] cycle into four buckets.
+[02:53] You have to build them, scale them,
+[02:56] govern them, and optimize them. That's
+[02:58] it.
+[03:00] With that, let's go into the first
+[03:02] principle here,
+[03:04] which is jump-starting your agent
+[03:05] building.
+[03:07] Just like we have different personas in
+[03:09] your organization, like few of them
+[03:11] could be coders, few of them are subject
+[03:13] matter experts, few of them in between,
+[03:16] there's no one tool that fits all when
+[03:18] you're trying to get more people to
+[03:20] adopt and use agents to improve the
+[03:23] productivity.
+[03:24] If someone is a subject matter expert
+[03:26] who doesn't code,
+[03:28] then we can give them some a visual
+[03:29] canvas like Agent Studio to build, drag,
+[03:32] drop components, build agents, and when
+[03:35] they are ready, they could export it to
+[03:36] an agent framework and share it with
+[03:38] your engineering team.
+[03:41] And if someone is in between, if they're
+[03:43] coded but not that much, then Agent
+[03:45] Garden could be a good starting point.
+[03:47] We have pre-built enterprise ready
+[03:49] samples that they can click deploy to
+[03:51] agent runtime or Gemini Enterprise and
+[03:55] share with your org instantly.
+[03:59] But, what if someone is a hardcore
+[04:00] coder? That's where in framework like
+[04:02] Agent Development Kit comes into play.
+[04:04] So, for those of you who haven't used
+[04:06] ADK, ADK is Google's homegrown agent
+[04:09] development framework.
+[04:12] It comes with a host of primitives that
+[04:13] you want for production agents, like
+[04:15] support for complex graphs, support for
+[04:17] human in the loop, even base triggers,
+[04:19] code sandbox, etc. And to jump-start
+[04:21] building with ADK, we have launched
+[04:23] recently Agent CLI, which is a
+[04:25] programmatic interface, a CLI tool for
+[04:28] building, evaluating, and deploying ADK
+[04:30] agents to agent platform.
+[04:33] But, these are several different
+[04:34] options, right? But, the underlying
+[04:35] principle stays the same. Provide the
+[04:38] right tools to the right people to
+[04:39] enable them to onboard to building
+[04:42] agents.
+[04:44] With that, we go to the second
+[04:46] principle, which is Once we've built the
+[04:48] agent, the next thing to think about is
+[04:51] How do you build tools around it? How do
+[04:53] you give your agent skills?
+[04:56] >> [cough]
+[04:57] >> Apologies, I have a bad throat.
+[05:01] And these principles are not something
+[05:02] that we are inventing new.
+[05:05] These have been forever from the
+[05:06] microservices uh concepts, right? But,
+[05:09] how we apply them to agents is what's
+[05:12] different.
+[05:13] And I want to talk about three things
+[05:15] under separating the concerns, MCP, A2A,
+[05:17] and skills.
+[05:20] MCP is a way to abstract your agents
+[05:22] from your tools.
+[05:24] Think about this. When we're building
+[05:26] agents last year or the year before,
+[05:28] we write a Python code to call an API or
+[05:31] a third-party database, but let's take a
+[05:33] step back and think what happens here.
+[05:35] We're tightly coupling our agent with
+[05:36] the tool.
+[05:38] What happens if an API schema changes?
+[05:40] If the database changes?
+[05:42] We are in no control of agent code. We
+[05:44] have to rebuild it again. We have to
+[05:45] make changes. But, this causes this
+[05:48] tightly couples our agent with the tool,
+[05:50] right?
+[05:51] So what we do is we adopt
+[05:53] we instead could adopt MCP as an
+[05:56] abstraction layer in between.
+[05:58] So what So your agent can talk to the
+[06:00] MCP server which then talks to the
+[06:01] endpoint. So
+[06:03] virtually isolating your agent from
+[06:05] external dependencies.
+[06:07] And second is is the same for A2A as
+[06:09] well.
+[06:10] When you want your agents to talk to
+[06:12] other agents in your organization,
+[06:15] we ideally shouldn't be writing these
+[06:17] integration pieces of code that we No
+[06:19] one wants to maintain. Instead, we could
+[06:21] use A2A protocol that would hand over
+[06:24] the task to the other agent, delegate
+[06:26] it, and get back the response.
+[06:28] Thus creating your second separation of
+[06:30] concern.
+[06:33] And the third one is agent skills. And
+[06:35] now skills is a hot topic that's going
+[06:37] on, right?
+[06:38] So skills is nothing but a markdown text
+[06:41] file. But it's so powerful.
+[06:43] It has rules. It has your
+[06:46] business rules, your data, your
+[06:48] resources, everything packaged into one
+[06:50] markdown file. But what's different is
+[06:53] when longer context windows came for
+[06:55] LLM, we started putting all of our
+[06:57] business rules and constraints and
+[06:58] everything into the context window. And
+[07:00] this blew up our context window, but but
+[07:02] also the latency, the cost, the
+[07:04] accuracy, like everything took a hit,
+[07:06] right? So skills is a way to separate
+[07:08] that concern. You're packaging all of
+[07:10] your custom rules and providing it to
+[07:13] your agent so that the agent can load it
+[07:15] on demand and not always.
+[07:19] In summarizing the second principle,
+[07:22] you adopt whether you adopt MCP, A2A, or
+[07:25] skills,
+[07:27] the concept is separate your agent's
+[07:29] reasoning and engine from whatever could
+[07:32] affect it.
+[07:33] Optimize for latency, optimize for cost,
+[07:36] optimize for context.
+[07:40] Which now makes us go to the third
+[07:42] principle. Well, before that I have a
+[07:43] slide which I forgot conveniently. 80K
+[07:46] is 80K provides all the support for
+[07:48] native support for MCP A2A and skills
+[07:51] out of the box and more if you're
+[07:53] building with 80K it has some good
+[07:54] stuff. Recommend you to check it out.
+[07:59] And so far we've seen how to build, how
+[08:02] to jump start building. How do you build
+[08:04] tools around this? So the next next one
+[08:06] is scaling the agent. What happens after
+[08:08] you build? What are the decisions build
+[08:10] versus by that you have to make, right?
+[08:12] So the two important choices that we
+[08:14] have to make here are what is the
+[08:15] strategy for
+[08:17] short-term and long-term memory?
+[08:19] What is the strategy for runtime?
+[08:21] Where are we running this?
+[08:25] Without sessions each message each
+[08:29] conversation with your agent is a new
+[08:30] message. The agent has no recollection.
+[08:32] It has no short-term memory.
+[08:34] And without long-term memory
+[08:37] your agent doesn't remember what
+[08:39] happened two days ago. There's no
+[08:40] context for it to retrieve.
+[08:43] But before you go down the route of
+[08:46] building these short-term and long-term
+[08:48] memories we should take a pause to
+[08:49] understand does my agent really need
+[08:52] memory?
+[08:53] Not all agents do. If you're building if
+[08:55] you're building a simple lookup agent or
+[08:56] a simple stateless agent that memory is
+[08:58] an overkill for the agent. But if you do
+[09:01] decide context matters for what you're
+[09:03] doing
+[09:04] then we're looking at two paths.
+[09:07] The first is a retrieval augmented
+[09:09] generation or rag which you're all
+[09:11] familiar by now. It's been around for
+[09:12] two years.
+[09:14] And this involves building complex rag
+[09:16] pipelines to implement long-term memory.
+[09:19] If you have if you have a niche use case
+[09:21] or if you have compliance-based
+[09:22] requirements then this path
+[09:25] makes more sense.
+[09:27] But if you want something out of the
+[09:30] box, if
+[09:31] your differentiation is not your memory
+[09:34] for what you're building then you could
+[09:36] adopt, you could use Agent Platform
+[09:39] sessions and Agent Platform Memory Bank,
+[09:41] which are short-term and long-term
+[09:43] memory solutions that are provided by
+[09:44] Agent Platform.
+[09:47] So, for
+[09:48] Agent Platform sessions, we are looking
+[09:49] at 365 days of default TTL, short-term
+[09:53] memory available on demand, and it is
+[09:56] auto-provisioned for 80K agents that are
+[09:58] deployed to Agent Runtime.
+[10:00] And for Agent Platform Memory Bank, this
+[10:02] is a ready-to-use vector database with a
+[10:04] semantic search, and it is asynchronous,
+[10:06] meaning it works in the background when
+[10:08] your agent is doing the task, so there's
+[10:09] no latency compromise there. And you can
+[10:11] also customize what information your
+[10:13] agent remembers, and also your TTLs. And
+[10:16] both of these again are natively
+[10:18] supported and wired to Agent Development
+[10:20] Kit.
+[10:23] Which then brings us to the next
+[10:25] important decision we have to make in
+[10:26] scaling, which is
+[10:28] where do we run this, right? There are
+[10:29] several different options,
+[10:32] including localhost, which I've run many
+[10:33] many of my applications at.
+[10:36] So, when we choose a runtime, we always
+[10:40] weigh it based on the basics, right? The
+[10:42] infrastructure, the scaling,
+[10:43] flexibility, cost. These are great
+[10:46] parameters to choose.
+[10:48] And this should still remain, but
+[10:50] additionally, when we're building
+[10:52] agents,
+[10:54] we might also want to look at
+[10:56] does my runtime support human in the
+[10:58] loop?
+[10:59] Does my runtime support long-running
+[11:01] operations that my agent might need?
+[11:03] What does the integration with memory,
+[11:06] security,
+[11:07] and guardrails look like? Like, does my
+[11:09] runtime offer native integration or do I
+[11:11] have to build it?
+[11:14] And our recommendation
+[11:17] is if you are starting to build agents,
+[11:20] and you want most of the features built
+[11:23] in, like memory and security, you can
+[11:25] start with Agent Platform's runtime.
+[11:29] Agent Platform Runtime now also supports
+[11:31] bring your own containers with a long
+[11:33] running TTL of 7 days.
+[11:35] But if you're a fan of Docker
+[11:37] and you like portable solutions, then
+[11:39] Cloud Run is an option.
+[11:42] And move to GKE only if you have a
+[11:45] massive high traffic swarms of agent
+[11:47] fleets that we're maintaining.
+[11:49] The key is to not over engineer a
+[11:51] runtime before there's an actual need
+[11:53] for it.
+[11:55] And the pro tip that we've seen many
+[11:57] customers use is to use their to to
+[12:00] deploy their agent and reasoning in
+[12:02] agent runtime.
+[12:04] But the MCP tools is part of Cloud Run,
+[12:07] and still maintaining it nimble and
+[12:09] separation of concerns with both these.
+[12:14] The key here again in the third
+[12:15] principle is, no matter what way you
+[12:17] choose for your sessions, your memory,
+[12:19] or your runtime,
+[12:21] build the logic and not the glue work or
+[12:23] the plumbing around it. Like weigh your
+[12:25] trade-offs. What are What are your P0s?
+[12:27] What is your strategy for build versus
+[12:29] buy?
+[12:30] And what are you willing to compromise
+[12:31] and build?
+[12:35] Which brings us to the fourth principle
+[12:36] and my favorite, which is govern through
+[12:38] infrastructure and not prompts.
+[12:42] Agent governance is not a prompt
+[12:44] engineering problem.
+[12:46] We can't just write in a prompt saying,
+[12:48] "You're a helpful assistant. Please
+[12:50] don't delete me database."
+[12:52] Yeah.
+[12:53] I've been a victim to it, too. I've
+[12:54] tried it. It doesn't work.
+[12:56] >> [laughter]
+[12:57] >> It might work a few times, but not every
+[12:58] time. And which is why we advocate for
+[13:01] governing through infrastructure.
+[13:04] And there are three class of problems
+[13:05] where which we have to think about here.
+[13:07] First is visibility. What does my agent
+[13:10] have?
+[13:11] Like what does my agent and tool domain
+[13:14] look like? Like what are the What are
+[13:15] the things that are available in my
+[13:16] domain? Second, control. Like what does
+[13:19] my agent and tools have access to? How
+[13:21] do I scope them?
+[13:22] And third, security.
+[13:24] How do I proactively detect malicious
+[13:27] rogue agents.
+[13:29] And agent platform answers this through
+[13:32] our new
+[13:33] and existing launches.
+[13:35] So, agent identity is our SPIFFE-backed
+[13:38] ID that gets automatically applied to
+[13:41] every agent that's being deployed to
+[13:44] agent runtime, GKE, etc. You just need
+[13:46] to enable a couple flags.
+[13:48] And agent identity actually also
+[13:50] supports auth providers, meaning it
+[13:52] automatically manages your OAuth 2 and
+[13:54] API keys, so you don't have to write
+[13:56] these refreshing your token logic.
+[14:00] In second, we have the agent registry,
+[14:02] which is actually a single pane of glass
+[14:04] for all of your agents and tools that
+[14:06] are in your domain, and you could also
+[14:08] additionally bring agents and tools from
+[14:10] external third-party services.
+[14:14] And third, we have agent policies, which
+[14:17] are the way to scope your agents'
+[14:19] permissions. Like you have IAM policies
+[14:21] and natural language policies that you
+[14:22] apply to your agent.
+[14:25] And fourth, we have agent gateway,
+[14:28] which is a single governance layer on
+[14:29] top of all of your agents.
+[14:32] So, it it sits between the ingress and
+[14:34] egress pathways from the agent, monitors
+[14:36] the traffic, and can enforce these IAM
+[14:38] policies and principles. And together,
+[14:41] it looks something like this.
+[14:44] Agent identity in the center, agent
+[14:46] registry, security, and authorization
+[14:48] policies all flows through the gateway.
+[14:52] Cool.
+[14:53] Let's go to the final principle, which
+[14:56] we have always observe and never assume.
+[14:59] So, agent observability and evaluation
+[15:01] go hand-in-hand. We can't just look at
+[15:03] an agent's output and say, "It looks
+[15:04] good to me," right?
+[15:06] You need We need logs, traces, metrics,
+[15:09] and all of these capabilities are
+[15:10] supported by the products that you see
+[15:12] on the screen here. And agent evaluation
+[15:15] is the other side of the coin,
+[15:17] where we're not just testing for the
+[15:19] agent's output, but we're testing for
+[15:20] the agent's trajectory. Did my agent do
+[15:22] the right thing? Did my agent take the
+[15:24] right path to do the right thing? And
+[15:26] these metrics can be human-defined, can
+[15:28] be LLM-defined, etc.
+[15:30] And three services that I want to
+[15:31] quickly call out before handing it over
+[15:33] to my colleague here for the next
+[15:34] section is
+[15:36] you can evaluate pre-production using
+[15:39] our synthetic data generation
+[15:40] capabilities
+[15:42] where which we have newly launched. This
+[15:43] is called simulator sessions. So, this
+[15:46] has a capability to uh synthetically
+[15:48] generate production traces that you can
+[15:50] run against your agent before you deploy
+[15:52] it to production.
+[15:54] Which brings us to the conclusion, and
+[15:57] this is the culmination of whatever
+[15:58] we've been discussing so far. You see
+[16:00] the agent at the center with an identity
+[16:03] which is deployed to runtime.
+[16:05] And it is also registered to the agent
+[16:07] registry there.
+[16:09] And all of this IAM policies are
+[16:11] governed by agent gateway, which you see
+[16:13] in the red box there.
+[16:14] And finally, we have the observability
+[16:16] and evaluation.
+[16:19] To recap, these are the five principles
+[16:21] we saw today.
+[16:23] Jump-start your agent building. Separate
+[16:25] your dependencies from your agents.
+[16:27] Focus on what are you built with as by
+[16:29] decisions during runtime and memory.
+[16:31] Govern through infrastructure or not
+[16:33] with prompts, and always observe and
+[16:35] evaluate.
+[16:37] Thank you very much, and I'm going to
+[16:39] hand it over to my colleague to focus on
+[16:42] deep dive into building your agent and
+[16:44] what are the decisions you have to make
+[16:45] when you do it. Thanks.
+[16:48] >> [applause]
+[16:50] >> Thank you, Sita.
+[16:53] That was great. Thanks, Sita.
+[16:55] Hi, everyone.
+[16:57] So, Sita walked through the components
+[17:00] of building an agent and, you know,
+[17:02] taking them to production.
+[17:04] My focus is going to be what are the
+[17:06] decision points or questions or
+[17:08] challenges or things of that nature when
+[17:11] you are taking it to production.
+[17:14] I first want to, you know, this is um a
+[17:17] an agent that was built internally in
+[17:19] Google and my team built it for
+[17:22] documentation purposes. The reason why I
+[17:25] bring this up is
+[17:27] I live this journey. I live the journey
+[17:30] of how production agents are complicated
+[17:33] when you It's easy to build a prototype,
+[17:36] but it's super hard to get it into
+[17:37] production and I understand that. And as
+[17:40] a product manager for Agent Garden, I
+[17:43] also talk to close to 10 to 15 customers
+[17:45] a week. Every week I hear problems of
+[17:48] pitfalls, challenges. So, I understand
+[17:52] the space we are in.
+[17:54] When Sita walked through the agents, the
+[17:57] tools, the models, all of those, that's
+[18:01] a powerful engine. We know it is a
+[18:03] powerful engine because of the
+[18:05] capabilities it exists.
+[18:07] But, it doesn't It's not a car to run
+[18:11] till you have a dashboard, till you have
+[18:13] a brake, till you have a transmission.
+[18:16] And the focus or the
+[18:18] the questions I'm going to walk you
+[18:19] through today is driving you towards
+[18:22] what are the things which you need to be
+[18:24] asking in your organization.
+[18:28] The first thing I want to walk through
+[18:30] is the personas of an an
+[18:33] in a organization who are available.
+[18:37] The builder. Notice my word of a
+[18:39] builder. I'm not calling them as a
+[18:41] developer.
+[18:43] The builder today is can be a developer
+[18:46] or a non-developer. So, it doesn't
+[18:47] matter.
+[18:49] The
+[18:49] builder, what do they care about? They
+[18:51] care about prototypes. They want to make
+[18:53] sure it's quick. They want to be able to
+[18:55] show the powerful agents. They want to
+[18:57] evaluate. They want to understand what
+[18:59] are the weak spots in their, you know,
+[19:01] the agent that they have built.
+[19:03] And then there is the operator who cares
+[19:05] about connecting to their data,
+[19:08] deploying it, fixing it to make sure if
+[19:11] there are any problems. And we have the
+[19:13] admin. The focus shifts from running an
+[19:17] agent to governing and policy making.
+[19:21] While the operator asks, "Is it
+[19:25] working?"
+[19:26] The admin asks, "Is it safe? Is it
+[19:29] compliant? Is it cost-effective?"
+[19:32] So, in your organization, these are the
+[19:34] three personas you would be working with
+[19:38] on agents.
+[19:39] So, together now we are going to walk
+[19:41] through this use case, which is probably
+[19:44] in your enterprise, you have this um as
+[19:46] part of your security team or something,
+[19:48] but we are going to build it together.
+[19:50] And I'm going to walk through with you
+[19:52] the questions which we need to ask as we
+[19:54] build this use case. So, it's a cyber
+[19:56] guardian agent we are building. It's
+[19:58] going to It's not a chatbot. It's not
+[20:00] just answering questions. It's triaging.
+[20:03] It's investigating. It's neutralizing.
+[20:05] So, it's taking action. All of those are
+[20:07] the agents which we are going to build
+[20:09] it.
+[20:10] So,
+[20:12] zero, the basic question, who's
+[20:13] building? Because in uh your
+[20:16] organization, maybe there is a SecOps
+[20:18] lead who is very comfortable in building
+[20:21] a low-code agent like for triage flows
+[20:23] and etc. And they probably are very
+[20:26] comfortable with it. Or there is a
+[20:29] security engineer who's very pro-code
+[20:31] and they're building uh MCP uh tools,
+[20:34] etc.
+[20:36] So, in Google Cloud, I'm sure you
+[20:38] probably have in the last 2 days seen
+[20:41] some of the you know uh all of these
+[20:43] demos. The leftmost is the business user
+[20:47] who can build it using Gemini Enterprise
+[20:49] app, Gemini Enterprise for CX, or a
+[20:53] developer pro which Seth walked through
+[20:55] with Agent CLI, Agent Runtime, Cloud
+[20:58] Run, GKE, all of that.
+[21:01] The first question is, "Who are you
+[21:03] building for?"
+[21:05] We have been this journey. Like, a
+[21:07] decades ago, computers only talked the
+[21:10] binary code.
+[21:11] Uh and then there was, you know, um
+[21:14] command line interface. And then we had
+[21:16] a GUI interface. And then now we are in
+[21:18] a conversational interface. So, we have
+[21:21] been through that journey. But we have
+[21:23] always built for human users.
+[21:27] But in today's world, we are building
+[21:30] for agent users as well. And that is a
+[21:34] clear distinction. And why does it
+[21:36] matter for a Cyber Guardian? Because for
+[21:38] Cyber Guardian, it doesn't wait for a
+[21:40] human to type. You want a alert that
+[21:44] comes in, and the agent should take
+[21:46] action. So, human is not in the loop. It
+[21:49] is taking an action by itself.
+[21:52] I hear you probably are thinking, "Oh,
+[21:54] we have always done that. My service A
+[21:56] calls service B, and it has always
+[21:58] worked. This is not new." is probably
+[22:01] what you are thinking. But
+[22:03] in an agentic world, it's different.
+[22:06] They get a natural question, "Secure
+[22:08] this endpoint." And then it determines
+[22:11] what the path is based on the context of
+[22:15] the threat of that situation. That is
+[22:18] completely different from a
+[22:19] deterministic workflow, which you have
+[22:21] always set up.
+[22:23] And
+[22:24] if you look at the left side, which is
+[22:27] uh essentially we had a user interface,
+[22:29] chatbot, and you probably set up home,
+[22:31] profile settings, etc. But in the future
+[22:34] world, the world where agents are the
+[22:38] users you're building for, which is a
+[22:40] headless UI, which is coming, you need
+[22:43] to worry about confidence score. You
+[22:45] need to worry about the reasoning logic.
+[22:47] You need to worry about the audit trail.
+[22:49] You need to worry about, "How do I show
+[22:51] that an agent is functioning? An agent
+[22:54] is progressing? How do I know I am 92%
+[22:57] sure this is the answer, and this is the
+[23:00] reasoning behind the answer. All of that
+[23:03] is a new user you're building it for.
+[23:06] And we are all building through this
+[23:09] journey, which is a new agentic UX
+[23:11] journey.
+[23:12] Next question I often get is, do I need
+[23:15] a framework?
+[23:17] Honestly speaking, you do not need a
+[23:19] framework. You can build a Gemini model
+[23:21] with tools and it is an agent. It is
+[23:23] functional. But there are a lot of agent
+[23:25] frameworks out there. Why do you need
+[23:27] it? For a production implementation, you
+[23:31] need a lot of the scaffolding in place
+[23:34] for it to be functional.
+[23:36] And the as a decision maker for a
+[23:39] technical debt reduction, you need to
+[23:42] care about what are the things which are
+[23:44] available out there and I can use.
+[23:48] Next question comes to, should I start
+[23:50] one? Because when Sita walked through,
+[23:52] she walked through an agent. And for our
+[23:54] case, it's a cyber agent we are
+[23:55] building. And this is actually an
+[23:58] anti-pattern. We do not think a god
+[24:02] agent is a
+[24:05] is a good way of architecting your
+[24:07] agents. But when are the times you can
+[24:10] use it in your organization?
+[24:13] Prototyping or type projects.
+[24:16] Simple task specific workflow. You're
+[24:19] creating one agent for a specific task.
+[24:23] Or a low stake internal, you know,
+[24:25] debugging, exploration kind of a thing.
+[24:28] Those are the only times I would suggest
+[24:30] you build this.
+[24:31] Next is, how do I specialize? Because
+[24:34] now it comes to how in a multi-agent
+[24:35] system, how do I specialize and bring
+[24:37] it? In my case, now I'm having Cyber
+[24:41] Guardian has two agents and specializing
+[24:44] in a policy agent and investigation
+[24:45] agent. Why should you do this? Because
+[24:48] risk containment. You want to make sure
+[24:50] the risk is contained to a specific
+[24:51] agent and each of that has its own
+[24:54] brain. So you can, you know, debug,
+[24:57] explore, all of those things.
+[25:01] How do I ensure the agent stays on
+[25:03] brand? This is one question because
+[25:06] the most important thing is we know LLMs
+[25:08] are unpredictable. So, how do you make
+[25:10] sure it is going through a journey or
+[25:13] what are the core principles I can go
+[25:15] through with? Say for cyber guardian,
+[25:17] assume it has a right access to
+[25:19] everything. You want to make sure it is
+[25:21] not crossing any of the core
+[25:23] restrictions you can set up.
+[25:25] And that's why you would have a
+[25:27] guardrail agent. A guardrail is where
+[25:29] you specify 10 or 15 core principles of
+[25:34] what are the things you want to be
+[25:35] deterministic. So, yes, your LLM can go
+[25:39] rogue, but it cannot go rogue for these
+[25:42] 10 points.
+[25:44] Then the next question comes to do we
+[25:45] trust the results? Yes, of course, you
+[25:47] would do evaluation, all of those which
+[25:49] you care about, but a basic bot say
+[25:53] would report a failure for cyber
+[25:54] guardian.
+[25:55] But in a production gated cyber
+[25:57] guardian, assume I want to do
+[26:00] a process where it investigates self and
+[26:03] then it determines what the challenge is
+[26:05] and then it creates an outcome. So, I
+[26:08] create a self-reflection agent. What it
+[26:11] does, it understands, "Oh, I tried this
+[26:14] service account. It did not work. I used
+[26:17] the wrong service account and maybe
+[26:19] that's what I should correct." So, these
+[26:21] are things which you should think about
+[26:23] including.
+[26:24] How do we think about safety? This is
+[26:27] another thing, particularly when you are
+[26:29] having a code execution or things of
+[26:31] that nature where you need a specific
+[26:34] agent that does work. So, say for our
+[26:38] investigation agent is running a Python
+[26:40] code, then you need a sandbox
+[26:43] environment. That's where we have a
+[26:45] ephemeral steel sandbox which is created
+[26:48] for that specific task, for this that
+[26:51] specific time frame for you to be able
+[26:54] to execute and run.
+[26:56] Then the next thing is single agent
+[26:59] myopia because we talked all like if you
+[27:01] see my screen, it is all Gemini 3.1 Pro
+[27:04] and I've been using only Gemini. But if
+[27:07] it's a high-stakes decision, say if you
+[27:09] are, you know, dealing with a
+[27:10] billion-dollar contract and you are
+[27:12] having an agent, you don't want to make
+[27:14] a decision, you don't want it to be a
+[27:16] single brain that makes a decision. So,
+[27:19] you create a council of agents. What is
+[27:21] a council of agent? It is multiple
+[27:23] brains which are debating, collaborating
+[27:27] with each other, trying to come up with
+[27:29] a consensus before it makes a decision.
+[27:33] So, you go with a council of agents.
+[27:36] Then the next comes to Now, I talked
+[27:37] about all of these agents, you know that
+[27:39] it is going to be costly. And cost is an
+[27:43] important decision and there are a lot
+[27:45] of ways you could save. Like here, I
+[27:48] changed the routing agent from Pro to
+[27:51] Flash.
+[27:53] But that is like the simplest thing to
+[27:55] do. There are so many things to do that,
+[27:58] you know, Cloud FinOps itself is a
+[27:59] thing. But if I were to do it, this is
+[28:02] the first thing because I've seen for
+[28:04] Cyber Guardian, say if it has
+[28:07] GBs of logs it has to process, you don't
+[28:09] want to send it through Pro, you could
+[28:10] send it through Flash which is a
+[28:13] least expensive model of in Google.
+[28:16] And you could also use skills as Sita
+[28:19] walked through so that you're not using
+[28:20] the token length. So, there are several
+[28:22] decisions you need to be talking with
+[28:25] respect to cost.
+[28:27] So, now we talked about multiple agents.
+[28:30] So, Cyber Guardian is overflowing and we
+[28:33] talked about these self-reflection
+[28:34] guardrails, council, like all of these
+[28:37] agents that kept adding up.
+[28:40] We know it's a sprawl. We know there is
+[28:42] going to be tools, there is going to be
+[28:44] agents, all of that happens. So, what do
+[28:47] I do? That's when you need an agent
+[28:49] registry or catalog. Agent chaos is real
+[28:53] in any organization. It won't happen in
+[28:55] your first agent, it won't probably
+[28:57] happen in your second agent, but it is
+[28:59] going to happen probably in 2 months if
+[29:02] you keep increasing. And the agent
+[29:04] registry helps you with your governance,
+[29:07] with your auditability, security gap,
+[29:10] wasted spend, all of that is is where it
+[29:14] makes a true difference.
+[29:17] So, I'm going to walk through all of
+[29:19] this in a architecture way.
+[29:21] We talked about the users. And this is a
+[29:23] layer which you all probably have in
+[29:26] your organization. You already have
+[29:28] data, you already have observability,
+[29:30] CICD, all of that should be there.
+[29:33] We talked about frameworks and LLMs
+[29:35] because we care about them and they are
+[29:37] important. And then we talked about the
+[29:39] trust and safety, which is essentially
+[29:42] evaluations, self-reflection,
+[29:44] guardrails, console. In my opinion, they
+[29:46] are the design patterns which you should
+[29:48] be thinking about. And last but not the
+[29:51] least, the registry and the security
+[29:53] because that's where you are controlling
+[29:56] what your agent is doing.
+[29:58] So, the all of these are decision points
+[30:02] in your organization as it walks through
+[30:05] the building of it.
+[30:07] Takeaways. In the last decade, we built
+[30:10] microservices to scale our code. In the
+[30:14] next decade, we are going to be building
+[30:17] agents to scale our reasoning. So, you
+[30:20] need to if you were to think about
+[30:22] modularity over monoliths, so use
+[30:25] specialist ones. Deterministic over
+[30:27] probabilistic, so make sure you
+[30:29] understand guardrails versus chaos of
+[30:31] LLMs. And observability over optimism,
+[30:35] so do not be optimistic, always be
+[30:37] pessimistic in observing your agents.
+[30:40] And now
+[30:41] Siddharth is going to walk through how
+[30:43] they have made this real in their
+[30:45] organization, Ford Credit.
+[30:51] >> [applause]
+[31:09] >> solve various business problems.
+[31:12] Um today I'll walk you through our
+[31:15] journey of building AI agents that can
+[31:17] survive contact with a highly regulated
+[31:20] enterprise production environment.
+[31:23] Um
+[31:24] all of you are familiar with Ford Motor
+[31:26] Company, but today I'm representing Ford
+[31:27] Credit. So, while Ford builds the
+[31:29] vehicles,
+[31:30] our ultimate purpose is to get as many
+[31:33] people in those vehicles as possible.
+[31:34] And we do that by providing
+[31:37] flexible, simple, affordable financial
+[31:39] solutions.
+[31:40] And given that we are in the financial
+[31:42] service sector,
+[31:44] we live in a world of strict compliance,
+[31:47] high security standards, and zero
+[31:49] tolerance for systematic risk. So, when
+[31:51] we look at technologies like generative
+[31:53] AI,
+[31:54] we make sure we balance the innovation
+[31:57] and the speed with absolute technical
+[31:59] rigor.
+[32:01] So, let's ground the journey that I want
+[32:03] to walk you through about bringing
+[32:05] production-ready AI agents with a real
+[32:08] use case.
+[32:09] Uh so, similar to many other companies,
+[32:12] our product managers have the
+[32:13] requirements in Confluence.
+[32:15] But for engineers to
+[32:17] create those products, they need
+[32:20] technical user stories.
+[32:22] And that's where that's what creates the
+[32:24] blank page problem. The product managers
+[32:26] have to start from scratch, which incurs
+[32:28] a high cognitive lift. And they have to
+[32:31] then convert those high-level
+[32:33] requirements into low-level technical
+[32:35] user stories.
+[32:36] Um and this creates
+[32:39] uh
+[32:41] This creates opportunity for, like,
+[32:42] variance in structure and details of the
+[32:44] user stories, and also it drains the
+[32:46] capacity of the PM.
+[32:48] So, to assist with that, we introduced a
+[32:51] simple user story agent.
+[32:53] Uh, so rather than PM starting from
+[32:54] scratch, the user story agent ingest all
+[32:57] the requirements, it understands the
+[32:59] context, and it creates the draft draft
+[33:01] stories for the PMs.
+[33:03] And the PMs can iterate on it, uh refine
+[33:06] it, and push it to backlog. So, we
+[33:09] change the role of PM, rather than
+[33:11] starting from scratch, to a high value
+[33:14] of editing and approval.
+[33:15] Which brings consistency.
+[33:18] So, given that we wanted to now build
+[33:20] this agent, this basically reflected a
+[33:22] paradigm shift if you think from an
+[33:23] architecture perspective. And Thomas
+[33:25] Kurian on Wednesday reflected on this.
+[33:28] The traditional architecture is
+[33:29] deterministic. You define your input
+[33:32] with a schema, you implement your
+[33:34] processing steps, and based on that you
+[33:36] get your deterministic output. It was
+[33:38] predictable, safe, and rigid.
+[33:40] But tomorrow's paradigm of architecture,
+[33:42] it revolves around agentic architecture.
+[33:45] Uh, rather than giving it an input, you
+[33:47] are now giving it a goal or objective.
+[33:49] And the AI agent is going to use all the
+[33:52] context and the data available to it
+[33:54] to reason through how to achieve that
+[33:56] goal, and then it will act on that plan
+[33:59] to give you the final solution.
+[34:01] So, it's adaptive, resilient, and
+[34:03] flexible.
+[34:05] But that does bring a core tension.
+[34:08] Because the blast radius of a single
+[34:10] user message can be unbounded.
+[34:12] Unless you architect for it.
+[34:15] Nobody wants to be in news for their AI
+[34:17] agent going rogue. And we have seen some
+[34:21] recent stories based on that, like, AI
+[34:23] agent deleting production database,
+[34:26] um bringing down live live environments,
+[34:29] or even deceiving the developers for
+[34:32] what it had accomplished.
+[34:34] So, and and this is the kind of risk
+[34:37] that we cannot accept at the enterprise
+[34:39] level.
+[34:40] And that brings the question,
+[34:42] then how do we actually create an agent
+[34:44] which is production ready and that meets
+[34:46] the high compliance and security
+[34:48] standards?
+[34:51] Um so, how do we go from POC to
+[34:52] production? Because many of you would
+[34:54] have seen like today, if you think about
+[34:56] this user story agent, probably someone
+[34:59] can build it in a couple of hours if
+[35:00] they have the data available.
+[35:02] But that doesn't mean that it's ready
+[35:03] for production.
+[35:05] So, in order to
+[35:07] deploy these AI agents safely, we had to
+[35:09] solve for three things:
+[35:11] control, observability, and
+[35:13] deterministic testing.
+[35:15] Um now, I'm not going to talk about
+[35:17] architectural patterns which are similar
+[35:19] between the traditional architecture,
+[35:21] which is deterministic, and the agentic
+[35:23] architecture. So, things like single
+[35:25] sign-on or how do you want to store user
+[35:28] tokens or how do front end and back end
+[35:30] should interact with each other. Like
+[35:32] they are they still apply to both of
+[35:34] them.
+[35:34] Rather, what I want to focus on is what
+[35:37] are the new architectural patterns that
+[35:39] we had to implement to deploy the AI
+[35:41] safely.
+[35:43] So, let's let's start with control.
+[35:46] Um prompt injection defense, this is
+[35:48] very standard nowadays.
+[35:49] Uh we don't want malicious input to
+[35:51] reach to our AI agent, so we use tools
+[35:53] like model armor, um
+[35:56] and we have our own sanitization flavor
+[35:58] on top of it to make sure that doesn't
+[35:59] happen.
+[36:01] Um compute circuit breakers.
+[36:03] Uh
+[36:05] we don't want our agents to run in
+[36:07] infinite loops. So, we implement token
+[36:10] budget for every single step of the
+[36:12] agent execution. So, when the agent
+[36:14] exceeds that token budget, it either
+[36:16] moves to the next step or it just fails
+[36:19] um easily.
+[36:21] And also, we don't want to open up for
+[36:24] mask action execution. Because as I
+[36:26] said, the user story agent will create
+[36:29] those stories for the PMs. Now, we don't
+[36:31] want a user to knowingly or unknowingly
+[36:34] create thousands of user stories in a
+[36:36] few minutes.
+[36:37] So, we we put rate limits like how many
+[36:40] actions can the agent take within a
+[36:41] given time span.
+[36:43] And then the human in the loop gate. The
+[36:45] concierge mentioned that like
+[36:47] prompting is not going to help you make
+[36:49] sure that when the AI agent needs to
+[36:51] create a story, it asks for user
+[36:53] approval.
+[36:54] So, we take that out of the AI agent's
+[36:56] hand. Rather, we put deterministic
+[36:58] guardrails so that whenever the agent
+[37:00] wants to
+[37:02] action on a critical tool, it has to the
+[37:05] system has to give
+[37:07] um the prompt to the user whether they
+[37:09] want to take that action or not.
+[37:12] The next thing is observability.
+[37:14] Uh end-to-end telemetry tracing. So, we
+[37:17] record everything that happens within a
+[37:19] single interaction between the user and
+[37:21] the AI agent starting from system
+[37:22] prompt, user's prompt, uh what tools the
+[37:26] AI agent used, what were the inputs
+[37:28] provided to the tool, what's output of
+[37:29] the tool, how it used to how it used the
+[37:32] output of the tool to reason through its
+[37:34] final goal,
+[37:35] and then the final output as well.
+[37:37] Because this helps us figure out when a
+[37:39] bug happens or the agent behaves in a
+[37:42] manner that it was not supposed to, we
+[37:44] can use the tracing to figure out the
+[37:46] root cause of it, pinpoint exactly when
+[37:49] it started.
+[37:51] Um FinOps for the LLM. This is very
+[37:53] important. And two points here. Number
+[37:55] one, um
+[37:57] we optimize our token usage. So, I think
+[37:59] as Kant mentioned like things like
+[38:01] uh skill, A2A, MCP,
+[38:04] um subagents, we use those when it
+[38:07] applies so that we don't add all of that
+[38:10] information in the agent system prompt.
+[38:13] And that helps you with the token cost.
+[38:15] And the second piece is the core cost
+[38:17] itself because you have to be able to
+[38:19] measure the measure the cost to figure
+[38:21] out what's the ROI of your AI agent.
+[38:24] Because from a leader perspective,
+[38:25] that's what they will need to
+[38:26] understand. Like I'm spending X amount
+[38:28] of money on this agent,
+[38:30] and the efficiency I'm getting from it,
+[38:31] what is the final ROI?
+[38:33] And if you can't track that cost, then
+[38:35] in future if you change your LLM, like
+[38:36] if you go from 3.1 flash to 3.5 3.1 pro,
+[38:41] or if you change your LLM provider, or
+[38:43] if the LLM provider increase the cost of
+[38:44] the tokens, you wouldn't you wouldn't
+[38:47] have
+[38:48] uh the ability to figure out what it and
+[38:50] how it impacts your ROI.
+[38:53] And then the user contact propagation.
+[38:55] Um we adopted on behalf of execution. So
+[38:59] when the AI agent is creating the user
+[39:01] story, it's still the PM's name who's
+[39:03] going that's going to appear on the Jira
+[39:05] story. It's not the agent's name.
+[39:07] So that makes sure that the PM is still
+[39:10] finally responsible to create the user
+[39:12] story that the engineer can then work
+[39:14] on.
+[39:16] And the final thing, which is probably
+[39:17] the most important, that I have not seen
+[39:20] yet people pay that much attention to,
+[39:21] or they probably ignore it, which is
+[39:23] testing the unpredictable.
+[39:26] Um any agentic system will have some
+[39:29] risk associated with it, and that's
+[39:31] because of the underlying
+[39:32] non-deterministic na- nature of the LLM
+[39:35] itself.
+[39:36] Uh
+[39:37] it's non-deterministic, and
+[39:40] there are many ways you can evaluate the
+[39:42] behavior of the agent. Uh Kanchan
+[39:44] mentioned a few ones like simulation.
+[39:46] You can use LLM as a judge and
+[39:48] everything.
+[39:50] But that's very important,
+[39:52] because unless you are evaluating your
+[39:54] agent, you are not able to measure the
+[39:56] risk level.
+[39:57] And if you can't measure the risk level,
+[39:58] then it's not production ready. And I'll
+[40:00] give you an example.
+[40:02] So if you think about the user story
+[40:03] agent in its current form, there is a
+[40:05] human in the loop aspect to it. So even
+[40:08] if the LLM goes rogue a bit, I can still
+[40:13] accept that. I can still accept a
+[40:14] lower-level accuracy or low or a higher
+[40:17] risk with my agent. But now think of a
+[40:20] situation where I want to automate that
+[40:23] workflow. I don't want the human in the
+[40:24] loop.
+[40:25] At that point, I want I would want to
+[40:27] make sure that the agent is as accurate
+[40:30] as possible.
+[40:31] But even at that point, I need to be
+[40:33] able to measure that risk.
+[40:35] Because unless I measure that risk, the
+[40:37] engineering and product leadership would
+[40:39] not be able to understand what are the
+[40:41] risk level they're accepting. Because
+[40:43] that that's what they need to understand
+[40:45] to figure out whether that level of
+[40:49] efficiency they are gaining is okay with
+[40:51] the risk they are accepting or not.
+[40:54] And
+[40:56] all of these evaluations, this cannot be
+[40:58] one and done. You have to make sure that
+[41:00] they are embedded within your deployment
+[41:02] gates. Because that's going to help you
+[41:04] make sure that when you make changes in
+[41:06] the future, your risk level are still
+[41:08] similar or they have not degraded. So,
+[41:10] any drift that you encounter with the
+[41:12] agent, you can capture that through your
+[41:14] deployment gates. And if your risk and
+[41:17] if your agent doesn't meet the risk
+[41:19] threshold, then it doesn't go to
+[41:21] production.
+[41:24] So, and that brings me to the payoff.
+[41:26] Like we we implemented all these new
+[41:28] architectural patterns, was it worth it?
+[41:31] Absolutely.
+[41:32] Um we track this across three KPIs.
+[41:36] Uh number one, high fidelity.
+[41:38] We measured about the user stories that
+[41:40] were created through the UI through the
+[41:43] user story agent. We were about 24%
+[41:46] better than the manual user stories
+[41:47] created in terms of structure, level of
+[41:49] details,
+[41:50] uh and how that unblocked the
+[41:52] engineering.
+[41:53] Um faster cycles.
+[41:55] We took drafting from hours to probably
+[41:58] minutes. And that helped PMs churn user
+[42:02] stories faster.
+[42:03] We observed about 40% improvement in
+[42:06] terms of how PMs are able to create
+[42:08] these user stories faster.
+[42:11] And number three, which is probably the
+[42:12] most important one, consistency.
+[42:15] Because if you think about the
+[42:16] non-deterministic nature of the user
+[42:18] story agent, one of the reason is the
+[42:21] variance in the input itself.
+[42:23] Because different people will ask the
+[42:25] questions differently. But if you think
+[42:27] about the output of the user story agent
+[42:29] now, given that we have higher fidelity,
+[42:31] which means more consistency,
+[42:33] that will help my downstream agent.
+[42:35] Because if you can control the variance
+[42:37] in your input,
+[42:38] your your next agent can be more
+[42:41] deterministic because you know what
+[42:43] structure you are going to accept as an
+[42:44] input.
+[42:46] So, overall, we are not just writing
+[42:48] stories faster. We are writing better
+[42:50] stories, which leads to better product
+[42:52] and faster execution.
+[42:55] So, I'll leave you with three takeaways.
+[42:57] Prompting does not prevent
+[42:58] non-deterministic behavior. You need
+[43:00] hard deterministic guardrails around
+[43:03] your agent.
+[43:06] Number two, govern the thinking, not
+[43:08] just the output.
+[43:10] The output is not the only thing that
+[43:11] matters. Every you you you must have
+[43:14] observability across the whole AI brain.
+[43:20] And number three, move from vibes to
+[43:21] rigorous evals.
+[43:23] Don't rely on it looks like it's working
+[43:27] as expected.
+[43:28] Have proper evaluations in place to
+[43:30] convert those vibes with hard numbers.
+[43:33] Because that's what's going to help you
+[43:35] make sure you can observe and control
+[43:38] your future development.
+[43:42] Thank you.
+[43:44] >> [applause]
+[43:47] [music]
