@@ -1,0 +1,470 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — What&#39;s new in Google Cloud&#39;s agent platform</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>What&#39;s new in Google Cloud&#39;s agent platform</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; FxnjRYo3fpU</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=FxnjRYo3fpU" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" loading="lazy" data-caption="Welcome everyone. Wow, this is a big room. We&#39;re so excited to be here today and share what&#39;s new in Agent…"><figcaption class="gal-caption">Welcome everyone. Wow, this is a big room. We&#39;re so excited to be here today and share what&#39;s new in Agent…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" loading="lazy" data-caption="with like the Gemini app, custom apps, the surfaces that your users interact things that partners may build…"><figcaption class="gal-caption">with like the Gemini app, custom apps, the surfaces that your users interact things that partners may build…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" loading="lazy" data-caption="Agent CLI is built with ADK and our deploying AI agents on Google Cloud. agent runtime in mind so that that…"><figcaption class="gal-caption">Agent CLI is built with ADK and our deploying AI agents on Google Cloud. agent runtime in mind so that that…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" loading="lazy" data-caption="are all of these different agents that I have across my business in the first you&#39;ve probably asked yourself…"><figcaption class="gal-caption">are all of these different agents that I have across my business in the first you&#39;ve probably asked yourself…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" loading="lazy" data-caption="The next thing I want to show is that built. So, I&#39;ll start with this. you can actually create your new agents…"><figcaption class="gal-caption">The next thing I want to show is that built. So, I&#39;ll start with this. you can actually create your new agents…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" loading="lazy" data-caption="or the span view sort of just to get to individually go and see the trace view the part where things have not…"><figcaption class="gal-caption">or the span view sort of just to get to individually go and see the trace view the part where things have not…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_07.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_07.jpg" loading="lazy" data-caption="agents and these agents can then be all your users can directly access these follow all the policies or the…"><figcaption class="gal-caption">agents and these agents can then be all your users can directly access these follow all the policies or the…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_08.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_08.jpg" loading="lazy" data-caption="At the top, our everyday business Think of it as a unified control tower. applications. and Levy. The one that…"><figcaption class="gal-caption">At the top, our everyday business Think of it as a unified control tower. applications. and Levy. The one that…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_09.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_09.jpg" loading="lazy" data-caption="we can reuse everything we build from Based on standard protocols, we ensure Then reuse. all our business and…"><figcaption class="gal-caption">we can reuse everything we build from Based on standard protocols, we ensure Then reuse. all our business and…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="whats-new-in-google-clouds-agent-platform">What's new in Google Cloud's agent platform</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=FxnjRYo3fpU">https://www.youtube.com/watch?v=FxnjRYo3fpU</a><br />
+<strong>Video ID:</strong> <code>FxnjRYo3fpU</code></p>
+<hr />
+<h1 id="summary-whats-new-in-the-agent-platform-google-cloud-io-2024">📦 Summary – “What’s New in the Agent Platform” (Google Cloud I/O 2024)</h1>
+<p><strong>Video:</strong> <a href="https://www.youtube.com/watch?v=FxnjRYo3fpU">Google I/O – Agent Platform Deep‑Dive</a><br />
+<strong>Presenter(s):</strong> Aman Khan (Group PM, Agent Governance) &amp; Lavi (DevRel) – plus partners from L’Oréal, Gaultier, Thomas.</p>
+<hr />
+<h2 id="overview">1️⃣ Overview</h2>
+<p>The session walks through the <strong>latest evolution of Google’s Agent Platform</strong>—the end‑to‑end stack that lets enterprises create, deploy, govern, and continuously optimize <em>autonomous AI agents</em> at scale.</p>
+<p>Key themes:</p>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>From chatbots → “race‑car” agents</strong></td>
+<td>Agents are now core business engines, not just conversational fronts.</td>
+</tr>
+<tr>
+<td><strong>Step‑function improvements</strong></td>
+<td>Organizations need discrete, high‑impact upgrades (governance, deployment, observability) to keep pace with exponential AI advances.</td>
+</tr>
+<tr>
+<td><strong>Unified stack</strong></td>
+<td>Gemini Enterprise (front‑end) + Agent Platform (dev‑back‑end) + Google Cloud AI core (runtime, data, security) = one seamless experience, no multi‑vendor stitching.</td>
+</tr>
+<tr>
+<td><strong>Three pillars</strong></td>
+<td><strong>Build</strong>, <strong>Govern</strong>, <strong>Optimize</strong> – each now has GA‑grade, production‑ready components.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="major-sections-topics-covered">2️⃣ Major Sections / Topics Covered</h2>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opening context</strong></td>
+<td>Recap of 2023 ADK/Agent Engine demos; now moving past “RAG chatbots” to full‑stack agents.</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Traditional software = reliable Toyota Camry; agents = Formula‑1 race car – powerful, but need guardrails.</td>
+</tr>
+<tr>
+<td><strong>Agent Platform Architecture</strong></td>
+<td><br>• <strong>Gemini Enterprise</strong> – portal for end‑users &amp; low‑code apps.<br>• <strong>Agent Platform layer</strong> – runtime, registry, gateway, identity, observability, evals.<br>• Built on <strong>Google Cloud AI stack</strong> (Hypercomputer, Agentic Data Cloud, Agent Defense).</td>
+</tr>
+<tr>
+<td><strong>Build Pillar – ADK &amp; New Tooling</strong></td>
+<td>• <strong>Graph‑based orchestration</strong> – model real business processes (loops, conditionals).<br>• <strong>Agent collaboration</strong> – split complex tasks across specialties.<br>• <strong>Batch &amp; event‑driven workflows</strong> – real‑time reactions.<br>• <strong>Native skill definitions</strong> – write‑once‑reuse‑anywhere.<br>• <strong>Agent CLI + skill packs</strong> – scaffolding, evaluation, deployment, observability (CLI works with Cloud Code, Gemini CLI, Code Acts, or stand‑alone).</td>
+</tr>
+<tr>
+<td><strong>Scale &amp; Runtime Enhancements</strong></td>
+<td>• <strong>Sub‑second cold starts</strong>.<br>• <strong>Bring‑Your‑Own‑Container (BYOC)</strong> for custom environments.<br>• <strong>Single‑plan long‑run agents</strong> – up to 7 days unattended.<br>• <strong>Bidirectional streaming</strong> – low‑latency interactive sessions.<br>• <strong>Session &amp; Memory Bank</strong> – persistent, framework‑agnostic memory; custom session fields for feedback signals.</td>
+</tr>
+<tr>
+<td><strong>Sandbox &amp; Execution Capabilities</strong></td>
+<td>• <strong>Code execution sandboxes</strong> – safe real‑world task execution.<br>• <strong>GUI interaction sandbox</strong> – agents can “use a computer”.</td>
+</tr>
+<tr>
+<td><strong>Governance Pillar</strong></td>
+<td>• <strong>Agent Identity (GA)</strong> – granular IAM‑style permissions, auditable actions.<br>• <strong>Agent Registry</strong> – inventory of all agents, tools &amp; services they can call.<br>• <strong>Model Armor</strong> – real‑time prompt‑injection and data‑leak protection.<br>• <strong>Proactive Threat Management</strong> – integrated monitoring.<br>• <strong>Agent Gateway</strong> – control plane for traffic, tool access, extensible policies.<br>• Governance is built‑in from prototype → production, not an after‑thought.</td>
+</tr>
+<tr>
+<td><strong>Optimization Pillar</strong></td>
+<td>• <strong>DeepMind‑backed eval framework</strong> – online/offline evals, continuous monitoring.<br>• Turn‑key research‑grade evaluation without needing an internal R&amp;D team.</td>
+</tr>
+<tr>
+<td><strong>Customer Showcase</strong></td>
+<td>Quick demos from <strong>L’Oréal</strong>, <strong>Gaultier</strong>, <strong>Thomas</strong> showing production‑grade agents in marketing, supply‑chain, and customer‑support workflows.</td>
+</tr>
+<tr>
+<td><strong>Next Steps &amp; Call‑to‑Action</strong></td>
+<td>• Try the <strong>Agent CLI</strong> today (public preview).<br>• Join the <strong>Agent Platform Community</strong> for deep‑dive labs.<br>• Reach out to product team for pilot‑level guidance.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">3️⃣ Key Takeaways</h2>
+<ol>
+<li><strong>Agents are the new “engine”</strong> of enterprise AI—think high‑performance, mission‑critical systems, not just chat interfaces.</li>
+<li><strong>End‑to‑end, vertically integrated stack</strong> eliminates the “hand‑off tax” of stitching together multiple vendors.</li>
+<li><strong>ADK 2.0</strong> adds graph orchestration, collaboration, event‑driven triggers, and reusable skill definitions.</li>
+<li><strong>Agent CLI</strong> makes the whole lifecycle (scaffold → evaluate → deploy → observe) a single command line experience.</li>
+<li><strong>Production‑ready runtime</strong> now offers sub‑second cold starts, BYOC, 7‑day autonomous runs, and bidirectional streaming.</li>
+<li><strong>Persistent memory</strong> (session service + memory bank) lets agents retain context across sessions, enabling true autonomy.</li>
+<li><strong>Governance is baked in</strong>—identity, registry, model armor, threat management, and a unified gateway give enterprises the compliance and security foundations they need.</li>
+<li><strong>Optimization leverages DeepMind research</strong>—built‑in evals and monitoring give teams a “research‑grade” feedback loop without hiring AI scientists.</li>
+<li>Real‑world customers are already using the platform in production, proving its viability for scaling AI‑driven workflows.</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">4️⃣ Notable Quotes</h2>
+<table>
+<thead>
+<tr>
+<th>Speaker</th>
+<th>Quote</th>
+<th>Why it sticks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aman Khan</td>
+<td>“Everyone can get in a Toyota Camry and drive it. With agents we’re building Formula 1 race cars.”</td>
+<td>Captures the shift from reliable “apps” to high‑performance autonomous agents.</td>
+</tr>
+<tr>
+<td>Aman Khan</td>
+<td>“You can’t put an electric car in self‑driving mode and just floor it. You need guardrails.”</td>
+<td>Emphasizes the necessity of governance and safety.</td>
+</tr>
+<tr>
+<td>Lavi (DevRel)</td>
+<td>“The Agent CLI handles scaffolding, evaluation, deployment, and observability—all in one place.”</td>
+<td>Highlights the developer‑experience breakthrough.</td>
+</tr>
+<tr>
+<td>Product Lead (Governance)</td>
+<td>“Governance is not bolted on as an afterthought; it’s architecturally integrated from prototype to production.”</td>
+<td>Reinforces the platform’s end‑to‑end security philosophy.</td>
+</tr>
+<tr>
+<td>DeepMind Researcher (cited)</td>
+<td>“Our eval framework gives you research‑grade measurement without needing an army of scientists.”</td>
+<td>Shows the strategic advantage of Google’s internal AI research integration.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-reference-how-to-get-started">5️⃣ Quick Reference – How to Get Started</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Action</th>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Explore</strong></td>
+<td>Sign up for the <strong>Agent Platform public preview</strong> (via Google Cloud Console).</td>
+<td><code>https://cloud.google.com/agent-platform</code></td>
+</tr>
+<tr>
+<td><strong>2. Install CLI</strong></td>
+<td><code>gcloud components install agent-cli</code> (or download from the Developer portal).</td>
+<td>CLI Docs</td>
+</tr>
+<tr>
+<td><strong>3. Scaffold</strong></td>
+<td><code>agent-cli init my‑agent --template=rag‑orchestration</code></td>
+<td>Sample templates</td>
+</tr>
+<tr>
+<td><strong>4. Define Skills</strong></td>
+<td>Write a JSON/YAML skill file, then <code>agent-cli skill register my‑skill.yaml</code>.</td>
+<td>Skill Spec</td>
+</tr>
+<tr>
+<td><strong>5. Deploy</strong></td>
+<td><code>agent-cli deploy --runtime=standard --memory=4Gi</code>.</td>
+<td>Deployment guide</td>
+</tr>
+<tr>
+<td><strong>6. Observe</strong></td>
+<td>Open the <strong>Agent Dashboard</strong> → monitor latency, errors, and memory usage.</td>
+<td>Observability UI</td>
+</tr>
+<tr>
+<td><strong>7. Govern</strong></td>
+<td>Add IAM policies via <strong>Agent Identity</strong> UI; enable <strong>Model Armor</strong> for prompt‑injection protection.</td>
+<td>Governance docs</td>
+</tr>
+<tr>
+<td><strong>8. Optimize</strong></td>
+<td>Run built‑in evals: <code>agent-cli eval run --suite=core‑benchmarks</code>.</td>
+<td>Eval Suite</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bottom-line">🎯 Bottom Line</h3>
+<p>Google’s refreshed <strong>Agent Platform</strong> transforms autonomous AI from experimental demos into <strong>production‑grade, governed, and continuously optimized services</strong>. By coupling Gemini Enterprise (front‑end) with a robust, Google‑owned backend (runtime, security, evaluation), enterprises can now <strong>launch race‑car‑level agents safely and at scale</strong>, turning AI into a core business engine.</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I'm Jordan, your go‑to for digging into the nitty‑gritty of new tech.</p>
+<p><strong>MIKE:</strong> And I’m Mike, here to keep the big picture in focus. Today we’re unpacking Google’s latest Agent Platform announcement—what they called the “step‑function” upgrade.</p>
+<p><strong>JORDAN:</strong> Right off the bat, they framed it as moving from “Camry‑style” chatbots to Formula 1 race‑cars. That metaphor tells us they see agents as high‑performance, mission‑critical workloads, not just friendly Q&amp;A bots.</p>
+<p><strong>MIKE:</strong> Which raises the question: if we’re handing out race cars to developers, what safety nets do we need? They spent a good chunk of the talk on governance and guardrails.</p>
+<p><strong>JORDAN:</strong> Exactly. The Platform now bundles Gemini Enterprise for user‑facing apps, then the Agent Platform itself—runtime, registry, gateway, observability—all sitting on Google Cloud’s AI stack. That vertical integration eliminates the “hand‑off tax” they keep mentioning.</p>
+<p><strong>MIKE:</strong> And for companies, that means fewer contracts with five different vendors. One unified stack could drastically cut integration headaches and speed up time‑to‑value.</p>
+<p><strong>JORDAN:</strong> They also announced a new agent CLI built on ADK, which scaffolds, evaluates, deploys, and monitors agents. From a developer’s standpoint, that could shrink the bootstrap time from days to hours.</p>
+<p><strong>MIKE:</strong> I can see product teams getting excited—especially since the CLI works whether you’re using Cloud Code, Gemini CLI, or just a plain terminal. No more “choose your own adventure” with tooling.</p>
+<p><strong>JORDAN:</strong> On the scalability front, sub‑second cold starts and support for bring‑your‑own containers mean you can serve millions of users out of the box, and even run agents continuously for up to seven days without human intervention.</p>
+<p><strong>MIKE:</strong> That’s huge for real‑world use cases—think automated order processing or continuous monitoring in IoT environments where downtime isn’t an option.</p>
+<p><strong>JORDAN:</strong> Memory got a boost too: persistent session banks, custom session fields, and framework‑agnostic storage let agents remember preferences and past interactions. That’s moving past “stateless chat” to truly autonomous assistants.</p>
+<p><strong>MIKE:</strong> And when you combine that with sandboxed code execution and GUI interaction, agents can actually perform tasks on a computer, not just answer questions. Imagine a sales bot that fills out a CRM entry for you.</p>
+<p><strong>JORDAN:</strong> Governance is now baked in—from agent identity and granular permissions to a full registry that shows every agent, its tools, and its service calls. Model armor for prompt‑injection protection also sounds like a game‑changer for compliance teams.</p>
+<p><strong>MIKE:</strong> For risk officers, the agent gateway acting as a control plane is a relief. They can set fine‑grained access rules without building custom middleware, which keeps the security stack lean.</p>
+<p><strong>JORDAN:</strong> Optimization is the final pillar they highlighted, leveraging DeepMind‑style evals—both online and offline—to continuously monitor performance without hiring a research lab yourself.</p>
+<p><strong>MIKE:</strong> So businesses get a built‑in “research arm” that keeps agents sharp, which could translate into better ROI over time as the agents learn and adapt.</p>
+<p><strong>JORDAN:</strong> To sum up, Google’s Agent Platform now offers a fully integrated stack: faster build tools, production‑grade scalability, persistent memory, robust governance, and continuous optimization.</p>
+<p><strong>MIKE:</strong> If you’re looking to graduate from simple chatbots to enterprise‑grade autonomous agents, this looks like the most comprehensive package on the market right now.</p>
+<p><strong>JORDAN:</strong> That’s all for today’s deep dive—thanks for listening, and be sure to check out the demo videos if you want a hands‑on feel.</p>
+<p><strong>MIKE:</strong> Thanks, everyone! Stay curious, keep building, and we’ll catch you on the next episode.</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

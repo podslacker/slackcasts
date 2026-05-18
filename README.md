@@ -15,4 +15,5 @@
 |-------|------------|
 | [Build Production Ready Agents On Google Cloud A Gu](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_transcript.txt) |
 | [Google Cloud Next 26 Opening Keynote](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_transcript.txt) |
+| [Whats New In Google Clouds Agent Platform](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt) |
 

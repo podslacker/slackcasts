@@ -1,0 +1,1033 @@
+﻿[00:13] Welcome everyone.
+[00:15] Wow, this is a big room.
+[00:18] We're so excited to be here today and
+[00:20] share what's new in Agent Platform and
+[00:22] do a deeper dive on what we just
+[00:24] announced in the keynote and show a
+[00:27] little bit about some how some of our
+[00:28] customers are adopting the Agent
+[00:30] Platform already.
+[00:32] My name's Aman Khan. I'm a group product
+[00:34] manager on the Agent Platform team
+[00:36] focusing on agent governance. And I'm
+[00:38] joined by Lavi on our DevRel team who's
+[00:40] going to be doing a demo of some of what
+[00:42] we talked about earlier today as well as
+[00:44] some amazing partners from L'Oréal,
+[00:47] Gautier and Thomas who are going to be
+[00:48] showing how they're already adopting the
+[00:50] Agent Platform for production workflows
+[00:53] today.
+[00:55] So, I want us to zoom out really quick
+[00:57] before we jump into all of this and
+[00:59] think about how exactly 1 year ago
+[01:02] you learned about ADK. We showed you all
+[01:05] Agent Engine. We wowed you with a bunch
+[01:07] of demos like the autonomous plant store
+[01:10] and we're really excited about what was
+[01:12] really possible with the Agentic AI
+[01:14] cloud that we launched last year.
+[01:16] But since then, we've actually made a
+[01:18] number of improvements like in November
+[01:21] when we launched the basics of additions
+[01:23] of governance
+[01:25] and the basics of deployment to allow
+[01:27] you to go from prototype to production.
+[01:31] And it feels like things are changing
+[01:33] again, right? This should feel familiar.
+[01:35] Your competitors are moving faster. The
+[01:39] industry is moving at an exponential
+[01:41] rate.
+[01:42] And technology isn't moving linear
+[01:44] anymore. It's advancing exponentially.
+[01:46] But everyone's organization is still in
+[01:48] this sort of logarithmic trend. The
+[01:50] curve sort of flattens out, right? Think
+[01:53] organizational challenges, compliance,
+[01:56] security, getting your whole org bought
+[01:58] in on a single stack.
+[02:00] That's why you have to think about step
+[02:02] functions in how you operate.
+[02:06] And that's what we're going to be
+[02:07] talking about. How the Agent Platform
+[02:09] enables these step function improvements
+[02:11] to how you can adopt Agentic AI
+[02:13] applications.
+[02:15] So, a year ago everything was sort of
+[02:17] centered around chatbots, right? Like
+[02:20] rag chat applications.
+[02:22] Every demo was a chatbot.
+[02:24] But now it's pretty clear that agents
+[02:27] are the engine of our business.
+[02:29] Think of it this way. I heard this
+[02:31] analogy earlier this week and it's
+[02:33] really stuck with me.
+[02:35] Everyone can get in a Toyota Camry and
+[02:37] drive it. It's a reliable car. It's
+[02:39] stable, runs well. That's traditional
+[02:42] software development. But with agents,
+[02:45] we're building race cars. We're building
+[02:46] Formula 1 race cars. These are highly
+[02:49] sophisticated instruments that can do
+[02:51] real work in your business.
+[02:53] But you can't just run a race car in
+[02:55] yolo mode. You wouldn't put an electric
+[02:57] car in self-driving mode and just floor
+[02:59] it, right? Actually, quick question for
+[03:01] folks in the room. How many people have
+[03:03] actually tried Open Claw and built
+[03:05] something with Open Claw?
+[03:07] How many folks have heard of Open Claw
+[03:09] at least? Okay, there we go.
+[03:11] Think of it this way.
+[03:13] What would you say if someone came up to
+[03:15] you and said, "Hey, maybe we should put
+[03:16] Open Claw in our business and let it
+[03:19] start running and see what happens?"
+[03:22] Yeah. That's kind of a crazy
+[03:24] proposition.
+[03:26] But what if it wasn't that crazy? What
+[03:28] if it actually worked?
+[03:31] Well, you need guardrails to make sure
+[03:32] that when you're building agents, you're
+[03:34] doing it in a way that's integrated with
+[03:36] an end-to-end stack with context in mind
+[03:39] from the start. And that's what we're
+[03:41] here to do today. We're going to show
+[03:43] you how to have an end-to-end ability
+[03:45] with building agents using the Agent
+[03:47] Platform.
+[03:49] To enable this shift, we're combining
+[03:51] Gemini Enterprise with the Agent
+[03:53] Platform in one story, one narrative,
+[03:56] and one seamless experience.
+[03:58] Gemini Enterprise is the doorstep for
+[04:00] everyone in your organization to get
+[04:03] started with AI
+[04:05] and Agent Platform is where your
+[04:07] developers build.
+[04:08] What this means is that your business's
+[04:11] processes stop being disconnected.
+[04:13] Agents and data can actually flow
+[04:16] through your enterprise without
+[04:17] friction.
+[04:18] There's no handoff tax between what your
+[04:20] developers are building on the back end
+[04:22] and what your employees and customers
+[04:25] actually use.
+[04:26] At the top,
+[04:28] the surfaces that your users interact
+[04:30] with like the Gemini app, custom apps,
+[04:32] things that partners may build. And then
+[04:34] in the middle, the Agent Platform which
+[04:36] is where your developers actually live.
+[04:38] The runtime, registry, gateway,
+[04:41] identity, observability, and evals.
+[04:43] All of that sits on top of Google
+[04:45] Cloud's AI stack, the hypercomputer,
+[04:48] Agentic Data Cloud, and Agent Defense.
+[04:51] This foundation is what gives you a real
+[04:54] edge in performance and security because
+[04:56] you don't need to stitch together five
+[04:58] different vendors to get this. Now,
+[05:00] let's zoom into the Agent Platform
+[05:02] layer.
+[05:03] Agent Platform is a vertically
+[05:05] integrated stack that lets you move from
+[05:07] basic idea to a production-ready agent
+[05:10] without having to rebuild the underlying
+[05:12] plumbing every single time you start a
+[05:14] new project.
+[05:16] With Agent Platform, you get
+[05:17] best-in-class support with open-source
+[05:20] native tooling to build agents the way
+[05:22] you want to build them.
+[05:24] Our goal centers on three areas. First,
+[05:27] deeper investment in a richer richer
+[05:29] ecosystem and interoperability.
+[05:32] Second, ease of use to get started so
+[05:35] that your entire team can collaborate in
+[05:37] one place. And third, customizability
+[05:40] because we know that off-the-shelf
+[05:41] agents don't just work. You have to hook
+[05:44] them up to your data, your tools, and
+[05:46] run within the bounds of your business.
+[05:49] So, that's the core foundation for your
+[05:51] developers, your AI engineers, your AI
+[05:53] product managers to get started with
+[05:55] building agents. Agent Platform lets you
+[05:57] build, scale, govern, and optimize
+[06:00] agents that can scale infinitely in the
+[06:02] cloud.
+[06:03] Now, we're going to get into the how.
+[06:04] We'll spend time on each part of the
+[06:06] stack, what's new and why it matters,
+[06:09] and then we'll talk you through this
+[06:10] from the perspective of a developer
+[06:11] that's planning agents in your business
+[06:14] this year. So, I want you to kind of put
+[06:15] yourself in that mindset, right? Like,
+[06:17] what are the agents that you're thinking
+[06:19] about in this next half that can really
+[06:21] move the needle for your business? And
+[06:24] let's see what it would take to actually
+[06:26] ship that with the Agent Platform. If
+[06:28] there's any parts that really stand out,
+[06:30] come and find one of us for a deeper
+[06:31] dive after this presentation.
+[06:34] Let's start from the beginning,
+[06:35] building.
+[06:37] ADK has been our foundation to help you
+[06:39] get started with building and this year
+[06:41] we've made some major advancements to
+[06:42] make it even more powerful and
+[06:44] extensible as an agent harness
+[06:46] framework. Google uses ADK widely
+[06:49] throughout the business from bets in
+[06:51] different parts of Alphabet to core
+[06:53] products and services you've probably
+[06:55] interacted with just today.
+[06:57] It's designed to help you scale from the
+[06:59] smallest agent to the most complex
+[07:01] multi-agent system and to enable
+[07:04] interoperability.
+[07:06] A few exciting launches where we're
+[07:08] excited to announce. Graph-based
+[07:09] orchestration means you can model real
+[07:12] business processes, real work branches
+[07:14] and loops and conditional paths.
+[07:17] You have agent collaboration which means
+[07:19] you can decompose complex problems
+[07:21] across specialized agents instead of
+[07:23] trying to cram everything into one
+[07:25] single monolithic agent. And then you
+[07:27] have batch and event-driven workflows so
+[07:29] that agents can actually react to things
+[07:31] in real time that are happening in your
+[07:33] system versus just reacting when a human
+[07:35] tells them to.
+[07:36] We also are excited to share that we
+[07:38] have native skill definitions in ADK
+[07:41] which means you can define a skill once
+[07:43] and reuse it everywhere else ADK is
+[07:46] being used in your business.
+[07:49] Getting started is also about to get a
+[07:51] whole lot easier.
+[07:52] We're excited to launch a new agent CLI
+[07:55] and skills for building, evaluating, and
+[07:58] deploying AI agents on Google Cloud.
+[08:01] Agent CLI is built with ADK and our
+[08:04] agent runtime in mind so that that
+[08:07] knowledge of our entire platform is
+[08:09] actually baked into these skills and
+[08:11] CLIs that you're getting to use. So, if
+[08:12] you're just getting started with
+[08:14] building an agent, the CLI can handle
+[08:16] everything around it like the
+[08:17] scaffolding, evaluation, deployment, and
+[08:19] observability. And it works in two ways.
+[08:22] You can either just pass the CLI and
+[08:24] skills to the coding agents that you're
+[08:26] already using like Cloud Code, Gemini
+[08:29] CLI, Code Acts, or others and the coding
+[08:31] agent can make the right decisions. Or
+[08:34] if you're not using a coding agent, you
+[08:35] can just run the CLI commands directly
+[08:37] from your terminal and every command
+[08:39] works standalone.
+[08:40] Personally, I found it incredibly
+[08:42] helpful to help get my agents stood up
+[08:44] in our environment and we're just
+[08:46] getting started with out-of-the-box
+[08:47] primitives for building on top of the
+[08:49] platform.
+[08:50] Next, let's talk about scale.
+[08:53] Building agents is step one, but running
+[08:55] agents in confidence in production is
+[08:58] the critical next step. This starts with
+[09:01] deploying your agent to a runtime that
+[09:03] enables you to serve thousands or even
+[09:05] millions of users right out of the box.
+[09:08] With Agent Platform, we're making the
+[09:10] runtime significantly more powerful with
+[09:13] sub-second cold starts. And we've added
+[09:15] the capability to bring your own
+[09:17] container for ultimate flexibility for
+[09:19] how you want to run those agents.
+[09:21] We also know that agents don't just run
+[09:22] out of the box on a task for a long
+[09:24] duration without some serious
+[09:26] configuration which is why we're excited
+[09:28] to share that the Agent Engine now also
+[09:30] supports individual agents to be able to
+[09:33] run on a single plan without any human
+[09:36] intervention for up to 7 days. And
+[09:38] that's alongside our already supported
+[09:41] advanced multi-agent orchestration.
+[09:44] Plus, we're adding bidirectional
+[09:46] streaming to handle more complex
+[09:48] real-time interactions like that Gemini
+[09:50] flash demo you saw earlier for
+[09:52] low-latency streaming interactions.
+[09:56] Agents shouldn't start from scratch with
+[09:58] every conversation.
+[10:00] Without memory, your agent has no idea
+[10:02] what happened yesterday, what the user
+[10:04] prefers, what failed last time. And now,
+[10:07] with sessions and memory bank, agents
+[10:09] get persistent memory so that they get
+[10:11] smarter over time by retaining contacts,
+[10:14] recalling preferences, and learning over
+[10:17] time so that you can build an
+[10:18] intelligence layer that compounds.
+[10:21] The session service is also
+[10:22] framework-agnostic, so you can define
+[10:24] custom session fields to capture signals
+[10:26] like user feedback.
+[10:29] Agents are most powerful when they can
+[10:30] act in the real world, so we're excited
+[10:33] to share a number of sandbox features in
+[10:35] GA.
+[10:37] Code execution sandboxes lets agents run
+[10:39] in the real world world on real-world
+[10:42] tasks, while bringing your own container
+[10:44] support allows you to define and use
+[10:46] custom environments when you have strict
+[10:48] requirements. Agents can now interact
+[10:50] with GUIs so that they can use the the
+[10:52] computer use sandbox as well.
+[10:55] Contexts makes agents smarter, and
+[10:57] sandboxes make agents more useful.
+[11:00] Together, you go from a chatbot that
+[11:02] answers questions to an autonomous
+[11:04] system that remembers what it's supposed
+[11:06] to be doing, how to do it, and can
+[11:08] actually go and execute tasks.
+[11:12] Next, let's talk about governance.
+[11:14] We're thinking about governance as an
+[11:16] end-to-end part of our stack. Your
+[11:18] governance story shouldn't be pieces
+[11:20] that you're going to pull together from
+[11:21] different vendors or legacy services you
+[11:23] already have. You really need to think
+[11:25] about governance as a critical part of
+[11:28] the stack that works through the runtime
+[11:30] all the way through to optimization,
+[11:32] evals, observability.
+[11:34] Agent platform provides that foundation
+[11:36] for trust for every agent that you
+[11:38] deploy. And we're excited to share that
+[11:41] the agent identity is now in GA. You can
+[11:44] manage permissions just like you would
+[11:46] any other user in your organization with
+[11:48] granular controls to ensure every action
+[11:51] is authorized and auditable.
+[11:53] Whether you're chief compliance officer
+[11:55] or a risk officer or just a developer,
+[11:57] you've probably asked yourself, "What
+[11:59] are all of these different agents that I
+[12:01] have across my business in the first
+[12:02] place?"
+[12:04] Agent registry helps you answer that
+[12:06] question by listing all the agents that
+[12:08] have been registered automatically via
+[12:10] our agent runtime or the agent registry
+[12:13] system.
+[12:14] When agents are registered, you're able
+[12:16] to see what tools those agents have
+[12:18] access to, what services they can call,
+[12:21] and it's just really this is a great
+[12:22] starting point to really see how agents
+[12:24] are being used across your enterprise.
+[12:27] On top of that, we've made some serious
+[12:29] enhancements to how you can secure your
+[12:31] agents in your environment using model
+[12:33] armor, which can block prompt injection,
+[12:36] prevent data leaks in real time. You
+[12:39] need to be able to monitor your agents'
+[12:40] interactions and actions, and that's why
+[12:42] we've launched proactive threat
+[12:44] management directly integrated within
+[12:46] the platform. And we're also launching
+[12:48] agent gateway, which is a control plane
+[12:51] for enterprise agents.
+[12:52] The agent gateway simplifies how you
+[12:54] secure and govern all of your agent
+[12:56] traffic so you can set granular controls
+[12:59] like access to specific tools. And if
+[13:01] you need something custom, it's fully
+[13:03] extensible. So, we're really thinking
+[13:05] about governance as an end-to-end story.
+[13:07] It's not bolted on as an afterthought.
+[13:09] We think governance should span from
+[13:11] prototype to production, and it includes
+[13:13] the perimeters and boundaries to define
+[13:15] what your agent can and cannot do in
+[13:17] your environment. Today, we're launching
+[13:19] those foundational components with
+[13:21] batteries included, but our vision is
+[13:23] that governance is architecturally
+[13:24] integrated throughout the platform. And
+[13:26] our goal is to build features so that
+[13:28] the users of our platform don't need to
+[13:30] be experts in governance to ship agents
+[13:32] that your organizations can trust. It's
+[13:34] really we think of it as like an agent
+[13:36] alignment problem.
+[13:38] So, we're excited to launch this
+[13:39] foundation, and we're going to use it to
+[13:40] build out a full governance story going
+[13:42] forward.
+[13:43] All right. We're rounding out here.
+[13:44] We're going to get into this last
+[13:46] pillar, optimization. Now, when it comes
+[13:49] to optimization, here's what makes our
+[13:51] approach different. You get the benefit
+[13:53] of the research of DeepMind and how they
+[13:56] build evals with a specialized set of
+[13:58] tools for online and offline evals and
+[14:01] continuous monitoring without having to
+[14:03] have an army of researchers inside your
+[14:05] own business. We provide you with that
+[14:08] army of researchers throughout the agent
+[14:10] platform because Google has invested
+[14:12] deeply in how to evaluate our own
+[14:14] agents, and you're getting the benefits
+[14:16] of that investment because it's the same
+[14:17] product.
+[14:19] We're shipping auto raters, which are
+[14:21] out-of-the-box scorers for offline and
+[14:23] online evals, as well as an evaluation
+[14:26] expert skill to make evaluation with the
+[14:28] coding agent even simpler by passing
+[14:30] them that skill and saying, "Hey, set up
+[14:32] evals for me in the system."
+[14:34] We're also shipping ADK optimization,
+[14:36] which is based on Jeppa prompt
+[14:38] optimization.
+[14:39] With agent platform optimization, you're
+[14:42] getting a single pane of glass because
+[14:44] your whole team is already in the agent
+[14:46] platform.
+[14:47] The things slowing down your agents
+[14:49] today aren't the model, it's tool calls,
+[14:51] it's contacts. And when you build,
+[14:53] govern, deploy, and optimize all in one
+[14:56] system, you get a continuous feedback
+[14:58] loop
+[14:59] to really improve the agent over time.
+[15:02] That means you get production quality
+[15:04] agents that get better over time without
+[15:06] needing to stitch together a bunch of
+[15:08] different vendors and tools to get this
+[15:10] out of the box.
+[15:12] All right. That was a lot of ground, and
+[15:14] with that, I'd like to welcome up Lavi
+[15:16] to the stage, and he's going to take us
+[15:17] through a demo of the agent platform.
+[15:23] >> [applause]
+[15:29] >> All right, let's switch to the demo.
+[15:33] Perfect. So, Aman did talk about a lot
+[15:35] of things. What we're going to do is
+[15:37] we're going to see live what is
+[15:38] available to you right now in your cloud
+[15:41] console. I'm going to go to one of my
+[15:43] projects,
+[15:45] and this is the agent studio. So, this
+[15:46] is the new studio that you see. So,
+[15:48] Vertex AI is now sort of called as agent
+[15:50] studio, where you have agents, you have
+[15:52] app builder, and rate media. As you can
+[15:54] see, you can actually add agents here
+[15:56] directly, whatever agents that you have
+[15:58] built. So, I'll start with this.
+[16:00] The next thing I want to show is that
+[16:02] you can actually create your new agents
+[16:03] right away. So, the moment I do this,
+[16:07] you can see that there's a UI now, and
+[16:09] you don't have to write code if you
+[16:10] don't want to, but if you wish to, you
+[16:12] can actually just do the UI designer
+[16:13] part of that. What we also have is bunch
+[16:17] of different agents which are available
+[16:19] as agent garden. So, if you have already
+[16:21] used model garden, you know that what it
+[16:23] allows you to do is access different
+[16:25] kinds of models beyond Gemini. Very
+[16:27] similarly, agent garden gives you access
+[16:29] to different kinds of agents which are
+[16:30] either built by Google or somebody
+[16:33] outside of that. So, you can actually
+[16:35] choose bunch of these different agents
+[16:37] right away, and then sort of build over
+[16:38] that or just use it as is. As you can
+[16:41] see, we have so many different options
+[16:43] available here, which you can use and
+[16:45] get started. We also have something
+[16:46] which is ADK 2.0, like Aman was
+[16:48] mentioning that we have introduced many
+[16:50] of the new features, especially the
+[16:51] graph-based workflows that you can
+[16:54] actually now build in ADK. So, you can
+[16:56] actually use that and see how you can
+[16:58] build over this.
+[17:02] Oops.
+[17:03] Sorry. So, the next is the ADK. So, this
+[17:06] is where you actually again get a lot of
+[17:08] access to ADK docs right in your
+[17:11] platform. And this is where you should
+[17:13] be able to start with any of the
+[17:15] documentations which are required. The
+[17:17] other thing which is very important, and
+[17:18] I'll I'll come back to this
+[17:20] at the other stage, which is at the the
+[17:22] agent registry part, but you now have a
+[17:25] centralized access where you can
+[17:26] actually see all the MCP servers that
+[17:29] you have, whether it's your server
+[17:30] outside, and you can sort of have a
+[17:32] central location where you can see this.
+[17:34] You also get vector search and rag
+[17:36] engine. So, this is again something that
+[17:37] we had before, but now it sort of all
+[17:39] comes under the build stage. So, you
+[17:41] have all of these accessible right to
+[17:43] you, and you can sort of define your
+[17:45] vector search, you can create new
+[17:46] indexes if you wish to, all the options
+[17:48] that are available to you. You can also
+[17:50] create rag engine if you wish to do
+[17:52] that, and you can sort of create corpus
+[17:54] around it.
+[17:55] And then the last one is the search. So,
+[17:57] search is very important because again
+[17:59] lot of
+[18:00] search that you want to do, a lot of
+[18:01] agents that you want to build, you need
+[18:03] inbuilt capability for them to search
+[18:05] through your documents. And that's what
+[18:07] search sort of gives you access to,
+[18:08] which is you can create a custom search
+[18:10] or you can sort of do a media search
+[18:13] as per that.
+[18:14] The next thing which is very important,
+[18:16] this is one of my favorite, which is the
+[18:18] agent engine part of it. So, once you're
+[18:20] done building, whether by designer or by
+[18:23] code, one of the very important thing
+[18:25] that you want to do is you want to use
+[18:27] the agent engine to scale your agents,
+[18:28] right? And we have new runtimes which
+[18:30] are there. The way this looks like is
+[18:32] that you have all the agents that you
+[18:34] see here. So, these are bunch of agents
+[18:36] that I was experimenting, and you can
+[18:37] see those agents here.
+[18:40] Once I click on this,
+[18:42] the best part you can actually see is
+[18:45] Let me sort of select this.
+[18:48] Oops, sorry.
+[18:59] I'm going to select one of the old
+[19:01] agents that I was playing with, and this
+[19:03] is where you can actually see bunch of
+[19:06] metrics. So, for example, you get the
+[19:07] overall view as to how many sessions
+[19:09] were there. You see the evaluations, you
+[19:11] see how many model calls were made. You
+[19:14] also see the tools that are there. For
+[19:16] example, I did close to 100 model calls
+[19:19] on this. You also get to see the tools.
+[19:22] So, this is again all the tools calls
+[19:23] that happen in your agent,
+[19:25] and the overall usage as well. So, this
+[19:27] is again very important because you need
+[19:29] that visibility into what your agent has
+[19:32] done, and this sort of
+[19:34] deployment sort of section gives you the
+[19:35] complete view of that.
+[19:37] The other very important things are the
+[19:39] traces. Traces are very important
+[19:41] because if something goes wrong in your
+[19:43] agent, you need to have a view of that.
+[19:46] The way that happens is if you're using
+[19:47] ADK, you have session IDs, and these
+[19:49] session IDs are very important. So, the
+[19:51] moment you click on this, you actually
+[19:53] get to see all the sessions and all that
+[19:55] has happened. And you can then
+[19:57] individually go and see the trace view
+[19:59] or the span view sort of just to get to
+[20:02] the part where things have not worked
+[20:05] out.
+[20:05] The other important thing is you have
+[20:07] access to sessions. So, if your users
+[20:09] are using and you have like thousands of
+[20:11] sessions, you can actually see all
+[20:12] individual sessions because now they
+[20:14] have IDs which are exposed to you. The
+[20:16] best part is you also have a playground.
+[20:18] So, it's not that you just do a local
+[20:20] testing. You actually have a way where
+[20:22] you can
+[20:22] test your agents right away in the
+[20:25] playground. So, just to show you a
+[20:26] couple of examples,
+[20:28] if you open, you can actually see all
+[20:30] the stuff that somebody has been playing
+[20:32] or you have played with this in that
+[20:34] sense. It also has memories now. So, if
+[20:37] you have written your own memories or
+[20:39] you have written skills or logic which
+[20:40] can extract these memories, you will see
+[20:42] that here as well.
+[20:44] Going to the next which is the memory
+[20:46] bank. This is again very important
+[20:48] because you do want to have memories in
+[20:51] your agents in terms of things which the
+[20:53] user wants you to remember.
+[20:56] And now you have a centralized place
+[20:57] where you can store all of these things
+[20:59] in a simple simple way.
+[21:01] Again, session I've shown you which is
+[21:03] very simple all the access to the
+[21:06] sessions. The next thing which is very
+[21:08] important is the governance part which
+[21:10] is where you have access to all the
+[21:12] agent registry. So, this is where I
+[21:13] wanted to show you that now you have a
+[21:15] centralized view where you have access
+[21:18] to all the agents which are available in
+[21:20] the agent platform. You also have all
+[21:22] the MCP servers. So, at least you now
+[21:24] get to have a centralized place where
+[21:26] you can govern them. The most important
+[21:28] part is that you get to see how many
+[21:30] tools are registered inside it and
+[21:32] there's a specific ID which is
+[21:33] associated which means you can sort of
+[21:35] create a governance chain around that.
+[21:38] Similarly, you have endpoints and you
+[21:40] can sort of add these MCP servers and
+[21:42] all of those things. Same with policies.
+[21:44] Again, because now you have all of this
+[21:46] as a central ID level which means that
+[21:48] you can actually add new policies and
+[21:50] you can define the access by the users
+[21:54] or by the organization at the higher
+[21:56] level. Similarly, you have gateways.
+[21:58] Gateways are very important because
+[21:59] again, you would want to restrict
+[22:01] certain things for certain users. You do
+[22:03] not want them to access certain things
+[22:04] which are not required. So, you can
+[22:07] define different gateways. You can
+[22:08] define different kinds of access path.
+[22:11] You can enforce policies. You can audit
+[22:13] policies and all of those things. One of
+[22:15] the cool things that you can do now is
+[22:17] you can enable the model armor by
+[22:19] default. You can sort of select the
+[22:20] agent and then you can enable those
+[22:22] model armors things.
+[22:24] We also have security access right
+[22:26] inside this and one of the coolest thing
+[22:28] that you get to see which is what I mean
+[22:29] was showing you that now you
+[22:32] preemptively get all the compliance
+[22:34] issues that are there in your agent. So,
+[22:36] if you notice on the bottom, you'll see
+[22:37] that there are a lot of failed
+[22:39] issues that has happened. And this is
+[22:41] again proactively
+[22:44] agent platform is trying to figure out
+[22:46] whether you know there has been issues
+[22:48] or not.
+[22:49] The last part is the evaluation which is
+[22:51] part of the optimize. What you see here
+[22:54] is different kinds of evaluation that
+[22:56] your models go through and you can do
+[22:59] couple of things. You can actually do
+[23:00] online monitors which essentially means
+[23:02] that you can define these logics and
+[23:04] these logics will keep on monitoring
+[23:06] each and every part of your agents
+[23:07] through the span and the traces that I
+[23:08] was showing you. And then you can
+[23:10] actually see the status of them. You can
+[23:12] see the traces where they have been
+[23:13] triggered or you can sort of define your
+[23:15] matrix. So, if you go to create metric,
+[23:18] you now have a way where you can define
+[23:19] metric either through prompt or through
+[23:21] code. So, you can actually define a code
+[23:23] and say that hey, this is what I want
+[23:24] you to
+[23:25] do this. So, this the part of
+[23:28] evaluation. Now, one last thing that I
+[23:29] want to show you is
+[23:32] the Gemini Enterprise. So, Gemini
+[23:33] Enterprise becomes the front of
+[23:36] everything that you do, right? So, this
+[23:38] is pretty much like saying you have
+[23:39] Gemini as a front end of everything that
+[23:41] you do in the back end. The way this
+[23:43] looks is very interesting because now
+[23:45] you can actually just
+[23:48] Oops.
+[23:52] So, this is how you see all the agents.
+[23:55] So, for example, if I do at the rate,
+[23:56] you can see my loan agent is there. And
+[23:58] all your users can directly access these
+[24:01] agents and these agents can then be
+[24:03] follow all the policies or the
+[24:04] guardrails and all of those things. And
+[24:07] that's all. With that, I'm going to
+[24:08] invite Thomas and Gautier to talk about
+[24:11] how they are using agent platform to do
+[24:12] some amazing stuff and scale things at
+[24:14] L'Oreal. Thank
+[24:25] Well, hello everyone. It's so good to be
+[24:27] there
+[24:28] for the third time in a row speaking
+[24:30] about AI at L'Oreal.
+[24:32] So, you have to know that the journey of
+[24:34] L'Oreal have started in AI thanks to
+[24:36] Google.
+[24:38] But before jumping into what we do with
+[24:39] Google, just a few words about who we
+[24:42] are at L'Oreal for the one who don't
+[24:44] know us.
+[24:45] We are the world's largest beauty
+[24:47] company in the world selling 7 billion
+[24:50] units every year through 150 countries
+[24:53] into with through 40 global brands.
+[24:57] Also, we are the fourth largest
+[25:00] advertiser worldwide.
+[25:01] So, you can imagine that we are the
+[25:03] leader in the world of beauty,
+[25:05] but we are also the experts in the world
+[25:07] of tech
+[25:08] able to seize what starts.
+[25:11] And to demonstrate you that, tell me let
+[25:13] me tell you our story.
+[25:16] Back in December '23,
+[25:18] like many of you in this room, we took
+[25:20] our first step into the GenAI era.
+[25:23] We launched our L'Oreal GPT,
+[25:26] a secure internal AI solution built for
+[25:29] our employees.
+[25:31] And honestly, we were proud.
+[25:34] 2,000 weekly users felt like a real
+[25:37] achievement at the beginning.
+[25:39] But we moved fast and we quickly
+[25:41] realized that keeping this solution
+[25:43] siloed won't be enough
+[25:46] if we truly wanted to scale AI across
+[25:49] the company.
+[25:50] We needed to open our own-made backend
+[25:53] to the tech teams
+[25:54] giving them the building blocks to
+[25:56] develop their own use cases in a unified
+[25:59] and scalable way.
+[26:01] So, we transformed L'Oreal GPT into a
+[26:03] set of reusable GenAI services.
+[26:06] And that was our story of next '24.
+[26:09] And those two small projects, they grew
+[26:11] up very fast.
+[26:13] And by September '25, we had already
+[26:16] 30,000 weekly users on L'Oreal GPT
+[26:19] and over 50 use cases in prod through
+[26:21] the GenAI services
+[26:23] sending approximately 15 million
+[26:25] messages every month to the platform.
+[26:29] And we started to have some zero code
+[26:30] agents developed by the employees
+[26:33] through L'Oreal GPT.
+[26:35] We had built some We had We had built
+[26:37] something real, something big.
+[26:40] But with that scale came our truth.
+[26:43] Continuing to build bulletproof
+[26:45] enterprise-grade technology
+[26:47] entirely at home was no longer the
+[26:50] smartest path forward.
+[26:52] So, we made a bold strategic decision
+[26:55] from make
+[26:56] to buy.
+[26:57] We chose to leverage the best tech
+[26:59] available, the Google Cloud Agent
+[27:01] Platform that we just saw just before,
+[27:03] to create the L'Oreal BeautyTech Agency
+[27:06] Platform.
+[27:07] Not because we couldn't build this,
+[27:09] but because partnering with the
+[27:11] best-in-class technology meant that we
+[27:14] could focus on what truly matter for us,
+[27:16] creating value for L'Oreal.
+[27:19] And today, here at next '26,
+[27:22] the results speak for themselves. 41,000
+[27:25] weekly users on L'Oreal GPT
+[27:27] and 30,000 zero code agents
+[27:30] developed by the employees through this
+[27:32] platform. All that running on ADK and
+[27:35] Agent Engine.
+[27:37] We're not just ready for the moon, we
+[27:38] already have the rocket and we are in
+[27:40] flight.
+[27:42] So, what exactly do we do?
+[27:45] At its core, the BeautyTech Agency
+[27:47] Platform is simple.
+[27:48] The single place where our L'Oreal tech
+[27:50] teams makes and buys agents
+[27:53] leveraging everything you saw from Aman
+[27:56] and Levy.
+[27:57] Think of it as a unified control tower.
+[28:00] At the top, our everyday business
+[28:02] applications.
+[28:04] The one that we make,
+[28:05] but also the one that we buy such as
+[28:07] Salesforce, ServiceNow, SuccessFactors
+[28:09] and so on.
+[28:11] All connected and all benefiting from
+[28:13] what sits underneath.
+[28:15] The heart of the platform is the
+[28:17] gateway.
+[28:18] The layer that governs every model,
+[28:21] every tool, every agent
+[28:23] with built-in guardrails.
+[28:25] Nothing goes through without control and
+[28:28] human oversight.
+[28:30] It's the place for the tech teams to
+[28:32] train models, to build and deploy agents
+[28:35] with ADK, Agent Engine and so on,
+[28:38] to build tools with the MCP,
+[28:40] and also to bring the knowledge that is
+[28:44] mainly plugged on our data platform on
+[28:46] BigQuery, but not only.
+[28:49] And critically, this platform is open.
+[28:51] External agents from our SaaS vendors,
+[28:55] external models such as the Anthropic
+[28:57] ones,
+[28:58] external MCP servers,
+[29:00] they are all plugged seamlessly
+[29:02] by leveraging standard protocols such as
+[29:05] A2A, MCP, UCP and so on.
+[29:09] And we have also two final superpowers,
+[29:11] the observability,
+[29:13] so we always know what's happening,
+[29:15] the discoverability, so every team can
+[29:18] find and reuse what already exists.
+[29:21] One platform, every agent, full control.
+[29:25] But Gautier,
+[29:27] can you tell us a bit more about what do
+[29:29] we do to empower the team?
+[29:31] Because you know, having the platform
+[29:33] and the technology is not enough. And
+[29:35] what do we need to bring that to life?
+[29:38] Thank you, Gautier.
+[29:39] Thank you, Thomas.
+[29:41] So, yes, the Agent Platform is where we
+[29:43] build agents, but building building
+[29:45] agents is only part of the challenge.
+[29:48] The real question is how do you move an
+[29:51] an entire company into the agentic era?
+[29:55] For that, we need five pillars. On the
+[29:58] technical side, we have the agentic
+[30:00] toolkit
+[30:01] and the AI gateway.
+[30:04] But the tech alone won't drive adoption.
+[30:07] We also need a human stack with it.
+[30:10] So we have a center of excellence,
+[30:13] a governance task force, and a
+[30:15] community. So
+[30:17] let's start with the tech.
+[30:20] The agentic toolkit is the bread and and
+[30:24] butter of the platform. So developer
+[30:27] must have everything they need to build,
+[30:30] to scale, and to monitor their agents.
+[30:34] We chose the GCP stack. Why?
+[30:37] Because of everything we saw earlier,
+[30:39] because it's the best stack.
+[30:41] But here's the real magic.
+[30:43] The platform evolves without us.
+[30:47] With agentic demand expanding,
+[30:50] we can't be on the critical path.
+[30:53] So Google Google develops, improves,
+[30:56] document services,
+[30:58] while our team can focus on bringing
+[31:01] value.
+[31:03] They can have access instantly to the
+[31:05] latest features.
+[31:07] They can upskill,
+[31:09] but they can also learn on industry
+[31:11] standards.
+[31:12] On our side, what is interesting is that
+[31:15] we can hire people that are ready from
+[31:18] day one.
+[31:21] So now that the developer can build
+[31:23] agents,
+[31:25] we need to make sure we need we can
+[31:27] handle all these.
+[31:30] And how do we make
+[31:31] how do we reuse components at scale?
+[31:34] That's what the gateway is for.
+[31:37] Think of it in three words:
+[31:40] discover, reuse, govern.
+[31:43] So discover.
+[31:45] Models, MCPs, agents, guardrails, all
+[31:48] registered in a single place.
+[31:51] Every team can find what's already
+[31:53] exists across the group.
+[31:56] Then reuse.
+[31:58] Based on standard protocols, we ensure
+[32:01] we can reuse everything we build from
+[32:03] all our business and technical
+[32:05] platforms.
+[32:07] And govern. We monitor usage in real
+[32:10] time. We validate what gets deployed,
+[32:14] and we drive
+[32:15] economies of scales, especially in terms
+[32:18] of model usage.
+[32:21] So let's see at the typical project.
+[32:25] Um so on the left, you have a growing
+[32:28] ecosystem of agents, tools, and models
+[32:32] made available through the gateway.
+[32:35] As a use case, you pick the model you
+[32:37] need, your MCP, your agents, and you
+[32:41] wire them together with ADK as the
+[32:43] backbone.
+[32:45] Then you plug you plug the GCP services
+[32:48] to handle sessions, memory, rag.
+[32:51] You deploy with agent engine, and you're
+[32:54] good to go.
+[32:55] No proprietary framework to maintain, no
+[32:58] waiting for the central team. You get
+[33:01] access to the latest models, internal
+[33:04] and external tools, and agents to build
+[33:07] faster.
+[33:09] It's that simple.
+[33:11] Then, as I was saying, we need a human
+[33:13] stack.
+[33:15] So starting with a center of excellence,
+[33:18] this is our team.
+[33:19] So we are the platform experts providing
+[33:22] global tools like starter packs, expert
+[33:25] supports, and we also manage
+[33:28] relationship with providers like
+[33:30] Anthropic and Google.
+[33:32] The key shift is that we went from
+[33:34] building services for everyone
+[33:37] to empowering everyone to build.
+[33:39] That's a fundamental change
+[33:42] in how we operate, and it's the only way
+[33:44] to scale to the entire company.
+[33:47] Then governance has to evolve, too.
+[33:51] As agentic bring new complexities, and
+[33:54] we move from overseeing the work of a
+[33:56] few teams to ensuring that
+[33:59] every AI builds across the company
+[34:03] meets our standards in terms of
+[34:06] enterprise architecture, cybersecurity,
+[34:09] trustworthy AI,
+[34:10] data privacy, and legal compliance.
+[34:15] Okay. So we have the global team.
+[34:18] And now how do we scale to all the 80
+[34:20] teams across the company?
+[34:22] That's where the community comes in.
+[34:25] We created what we call the lineup.
+[34:28] These are handpicked
+[34:30] AI champr- champions across the
+[34:33] organization.
+[34:34] They are both technical experts that can
+[34:37] tackle really complex use cases and
+[34:40] business experts with deep knowledge of
+[34:43] their business and organization.
+[34:46] They are a a really relay network to
+[34:49] make sure we cover all the company.
+[34:52] And then learning.
+[34:54] With AI, the the wall between IT and
+[34:57] business is fading.
+[35:01] It's now easier than ever to upskill, to
+[35:03] learn advanced concepts, to bring value.
+[35:07] And that is something we want to
+[35:08] embrace.
+[35:10] AI is not only for IT.
+[35:12] We encourage everyone to learn and
+[35:15] contribute.
+[35:17] The goal, let no one behind.
+[35:20] To make all of this accessible, we need
+[35:22] to go beyond the GCP console.
+[35:25] It's great for developers, but we need
+[35:28] something for everyone.
+[35:30] And that's why we why we are building
+[35:32] the agentic platform web app.
+[35:35] It will be the front door to the entire
+[35:37] platform
+[35:38] with a catalog to discover every
+[35:41] components available in the gateway,
+[35:43] easy access to training path,
+[35:46] our internal processes, global
+[35:49] monitoring dashboards, and a feed with
+[35:51] the latest news from the agentic world.
+[35:55] But here was here is what's the most
+[35:58] exciting.
+[35:59] We the we don't just build agents with
+[36:03] the platform, but agents are at its
+[36:06] core. The platform
+[36:08] it runs on agents.
+[36:10] And here's a first look of what it looks
+[36:12] like.
+[36:17] So in the platform, you have access to
+[36:19] the catalog,
+[36:21] the the
+[36:22] principal items, but also resources that
+[36:26] will come.
+[36:27] You have access to the agents, both
+[36:29] internal and external, that can be
+[36:31] reused in your use case, and MCPs.
+[36:35] Same thing.
+[36:36] You can see the details of every single
+[36:38] MCPs, the tools available, and how to
+[36:41] connect them in your use case.
+[36:45] And and you also have access to the
+[36:47] models. Here, we really want to be able
+[36:50] to compare, to really choose the right
+[36:52] one for the usage.
+[36:54] And finally, the guardrails.
+[36:57] So these these are guardrails we want to
+[36:59] share across multiple use cases.
+[37:03] So
+[37:04] uh just before finishing, I would like
+[37:06] to give a big thank you to all the
+[37:08] L'Oreal teams working on the agentic
+[37:11] platform.
+[37:12] And uh and uh yeah, big big kudos to the
+[37:16] teams.
+[37:17] Thank you.
+[37:20] >> [applause]
+[37:27] >> That was great. I that line that you had
+[37:30] earlier really resonated with me from
+[37:31] going from building services to enabling
+[37:34] teams to be able to build products. That
+[37:36] was really amazing. Well, if you're
+[37:38] looking for what to do after this,
+[37:40] there's a couple of quick QR codes you
+[37:41] can scan. On the left is a resource for
+[37:44] being able to check out the latest agent
+[37:47] platform and get started. Takes you
+[37:48] directly to our docs. And then there's
+[37:50] also
+[37:51] a uh sort of guidebook that we have on
+[37:54] learning how agent platform can enable
+[37:56] your team. So to bring it all together,
+[37:59] this year with agent platform, you're
+[38:00] getting a deeper ecosystem, investments
+[38:03] in interoperability,
+[38:05] ease of use so your entire team can work
+[38:07] in one place, and customizability so
+[38:10] that those agents actually work for your
+[38:11] business. Build, scale, govern, optimize
+[38:14] end to end in one platform. We can't
+[38:16] wait to see what you all will build.
+[38:18] Maybe come back again next year show us
+[38:20] how things have changed again.
+[38:24] >> [music]
