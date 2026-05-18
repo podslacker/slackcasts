@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — Google Cloud Next &#39;26 Opening Keynote</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>Google Cloud Next &#39;26 Opening Keynote</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; 11PBno-cJ1g</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=11PBno-cJ1g" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" loading="lazy" data-caption="[MUSIC PLAYING]"><figcaption class="gal-caption">[MUSIC PLAYING]</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" loading="lazy" data-caption="From the web to mobile to AI, every platform shift ago because of its ambitious mission. I was drawn to Google…"><figcaption class="gal-caption">From the web to mobile to AI, every platform shift ago because of its ambitious mission. I was drawn to Google…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" loading="lazy" data-caption="Citi Sky will provide an exemplary experience, Citi&#39;s global intelligence to clients&#39; fingertips. of the Citi…"><figcaption class="gal-caption">Citi Sky will provide an exemplary experience, Citi&#39;s global intelligence to clients&#39; fingertips. of the Citi…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" loading="lazy" data-caption="which autonomously orchestrates across agents, tools, and sources. Now, let&#39;s see Gemini Enterprise in action…"><figcaption class="gal-caption">which autonomously orchestrates across agents, tools, and sources. Now, let&#39;s see Gemini Enterprise in action…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" loading="lazy" data-caption="Man, I love seeing it snow in the desert. This is wild. All right. Oh, wow. Look, back when I was training…"><figcaption class="gal-caption">Man, I love seeing it snow in the desert. This is wild. All right. Oh, wow. Look, back when I was training…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" loading="lazy" data-caption="in performance over the 256-chip Ironwood pod. We are extending our infrastructure leadership This delivers…"><figcaption class="gal-caption">in performance over the 256-chip Ironwood pod. We are extending our infrastructure leadership This delivers…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_07.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_07.jpg" loading="lazy" data-caption="reasoning with trusted context enables autonomous agents, We fundamentally rebuilt this engine for the agentic…"><figcaption class="gal-caption">reasoning with trusted context enables autonomous agents, We fundamentally rebuilt this engine for the agentic…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_08.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_08.jpg" loading="lazy" data-caption="has dropped to minus seven days, meaning that today exploits routinely occur before a patch is The mean time…"><figcaption class="gal-caption">has dropped to minus seven days, meaning that today exploits routinely occur before a patch is The mean time…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_09.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_09.jpg" loading="lazy" data-caption="reinforcing customer trust. Morgan Stanley chose Wiz as a key component of its cloud enabling real-time threat…"><figcaption class="gal-caption">reinforcing customer trust. Morgan Stanley chose Wiz as a key component of its cloud enabling real-time threat…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_10.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_10.jpg" loading="lazy" data-caption="directly from a knowledge base, like the Agents Price Finder you can ensure that every answer is grounded…"><figcaption class="gal-caption">directly from a knowledge base, like the Agents Price Finder you can ensure that every answer is grounded…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_11.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_11.jpg" loading="lazy" data-caption="this really exciting vision, co-creating that with Google DAPHNE COATES: So my role is to operationalize to…"><figcaption class="gal-caption">this really exciting vision, co-creating that with Google DAPHNE COATES: So my role is to operationalize to…</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_12.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_12.jpg" loading="lazy" data-caption="to the Gemini Enterprise Application. productivity and transforming workflows all served up to users To each…"><figcaption class="gal-caption">to the Gemini Enterprise Application. productivity and transforming workflows all served up to users To each…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="google-cloud-next-26-opening-keynote">Google Cloud Next '26 Opening Keynote</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=11PBno-cJ1g">https://www.youtube.com/watch?v=11PBno-cJ1g</a><br />
+<strong>Video ID:</strong> <code>11PBno-cJ1g</code></p>
+<hr />
+<h1 id="google-cloud-next-gemini-enterprise-announcement">Google Cloud Next – Gemini Enterprise Announcement</h1>
+<p><strong>Speaker(s):</strong> Thomas Kurian (CEO, Google Cloud) &amp; Sundar Pichai (CEO, Google)<br />
+<strong>Event:</strong> Google Cloud Next 2024 (Keynote)<br />
+<strong>Video:</strong> <a href="https://www.youtube.com/watch?v=11PBno-cJ1g">https://www.youtube.com/watch?v=11PBno-cJ1g</a></p>
+<hr />
+<h2 id="overview">1️⃣ Overview</h2>
+<p>The keynote unveils <strong>Gemini Enterprise</strong>, Google’s end‑to‑end “agentic” platform that turns AI models into production‑ready, secure, and governed digital agents for every employee and workflow.</p>
+<ul>
+<li><p><strong>Why now?</strong></p>
+<ul>
+<li>75 % of Google Cloud customers already use Google AI in production.</li>
+<li>The shift is from pilots to enterprise‑wide deployment.</li>
+<li>Success hinges on a <em>unified stack</em> – chips, models, data, agents, and security all tightly integrated.</li>
+</ul>
+</li>
+<li><p><strong>Core promise:</strong> A single, secure “mission‑control” environment where data, business logic, and AI models converge to deliver autonomous, value‑adding action at scale.</p>
+</li>
+</ul>
+<hr />
+<h2 id="major-sections-topics">2️⃣ Major Sections &amp; Topics</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Key Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opening – The AI Transformation</strong></td>
+<td>- 1 year after the “new AI future” promise, production AI is at unprecedented scale. <br> - 75 % of Google Cloud customers leverage AI; the pilot phase is over.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai – Investment &amp; Real‑World Impact</strong></td>
+<td>- Capital‑expenditure up 6× (‑$31 B in 2022 → $175‑$185 B planned). <br> - By 2026, &gt;50 % of Google’s ML compute will serve the cloud business. <br> - Internal AI adoption: 75 % of new code at Google is AI‑generated; AI‑driven agents cut code‑migration time 6×. <br> - Marketing: AI‑generated creative assets → 70 % faster rollout, 20 % higher conversion. <br> - Security: AI triages 10k+ unstructured threat reports/month, slashing mitigation time &gt;90 %.</td>
+</tr>
+<tr>
+<td><strong>The Agentic Gemini Era</strong></td>
+<td>- Gemini Enterprise launched last fall as a “front‑door” to workplace AI. <br> - Growing need to <strong>manage thousands of agents</strong>, not just build one.</td>
+</tr>
+<tr>
+<td><strong>Thomas Kurian – Gemini Enterprise Platform</strong></td>
+<td><strong>Five stacked layers</strong> (the “blueprint” for the agentic enterprise): <br> 1. <strong>AI Hypercomputer</strong> – purpose‑built hardware for AI workloads. <br> 2. <strong>Agentic Data Cloud</strong> – trustworthy, contextual data for agents. <br> 3. <strong>Agentic Defense</strong> – zero‑trust security across the full AI lifecycle. <br> 4. <strong>Agentic Platform</strong> – low‑code tools to build, deploy, govern agents. <br> 5. <strong>Agentic Task Force</strong> – pre‑built, specialized agents ready to use.</td>
+</tr>
+<tr>
+<td><strong>Model Portfolio</strong></td>
+<td>- <strong>Gemini 3.1 Pro</strong> (complex workflow orchestration, preview). <br> - <strong>Gemini 3.1 Flash / Nano Banana 2</strong> – high‑fidelity image generation. <br> - <strong>Veo 3.1 Lite</strong> – cost‑effective video model. <br> - <strong>Lyria 3 Pro</strong> – professional audio/music. <br> - Support for Anthropic models (Claude Opus 4.7, Sonnet, Haiku).</td>
+</tr>
+<tr>
+<td><strong>Strategic Partnerships</strong></td>
+<td>- <strong>Apple</strong>: preferred cloud provider; Gemini‑based models will power next‑gen Siri &amp; Apple Intelligence. <br> - <strong>Citi Wealth</strong>: “Citi Sky” AI assistant (multilingual, always‑on). <br> - <strong>Honeywell</strong>: digital twins for building management. <br> - <strong>Liverpool</strong>: AI shopping assistant (10× ROI). <br> - <strong>NASA</strong>: Gemini agents used for Artemis II flight‑readiness and astronaut safety.</td>
+</tr>
+<tr>
+<td><strong>Agent Development &amp; Governance</strong></td>
+<td>- <strong>Agent Studio</strong> – low‑code, natural‑language authoring. <br> - <strong>Agent Registry</strong> – single source of truth for all agents/tools. <br> - <strong>Skills &amp; Tools Registry</strong> – reusable modules, includes every GCP &amp; Workspace service. <br> - <strong>Agent Marketplace</strong> – partner‑built agents (Atlassian, Box, Oracle, ServiceNow, Workday, etc.).</td>
+</tr>
+<tr>
+<td><strong>Inter‑Agent Orchestration</strong></td>
+<td>- Agents can delegate tasks, follow deterministic or generative orchestration patterns. <br> - Trigger types: real‑time, schedule‑based, event‑based, batch.</td>
+</tr>
+<tr>
+<td><strong>Security &amp; Trust</strong></td>
+<td>- <strong>Zero‑trust verification</strong> for every agent step. <br> - <strong>Agent Identity</strong> – cryptographic IDs, auditable policies. <br> - <strong>Agent Gateway</strong> – centralized policy enforcement. <br> - <strong>Model Armor</strong> – protects models &amp; proprietary data from leakage.</td>
+</tr>
+<tr>
+<td><strong>Observability &amp; Optimization</strong></td>
+<td>- OTel‑compliant telemetry for full execution tracing. <br> - Granular logging, tool‑use monitoring, reasoning‑loop diagnostics.</td>
+</tr>
+<tr>
+<td><strong>Front‑Door Application</strong></td>
+<td>- Gemini Enterprise <strong>application layer</strong> is the UI/experience where employees interact with agents, turning complex AI capabilities into everyday work tools.</td>
+</tr>
+<tr>
+<td><strong>Closing Vision</strong></td>
+<td>- Unified stack = “intelligence + automation = value”. <br> - Invitation to join the “agentic enterprise” era.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">3️⃣ Key Takeaways</h2>
+<ol>
+<li><strong>Scale‑first mindset</strong> – Google is moving from isolated AI pilots to enterprise‑wide production, backed by a purpose‑built hardware stack (AI Hypercomputer).</li>
+<li><strong>Unified, end‑to‑end platform</strong> – Gemini Enterprise ties together data, models, agents, and security, removing the “fragmented puzzle” of today’s AI implementations.</li>
+<li><strong>Security is baked in</strong> – Zero‑trust, cryptographic agent IDs, Model Armor, and a single management console protect sensitive workloads.</li>
+<li><strong>Low‑code, democratized AI</strong> – Agent Studio and natural‑language authoring let <em>any</em> employee become an AI builder, accelerating adoption and ROI.</li>
+<li><strong>Ecosystem &amp; partners</strong> – Deep integration with GCP services, Workspace, and a growing marketplace of third‑party agents expands capability instantly.</li>
+<li><strong>Real‑world impact</strong> – Partnerships with Apple, Citi, Honeywell, Liverpool, NASA demonstrate tangible business outcomes (faster code migrations, 70 % faster marketing, 90 % reduction in threat mitigation time, etc.).</li>
+<li><strong>Future‑proof investment</strong> – Google’s cap‑ex surge (up to $185 B) and commitment to allocate &gt;50 % of ML compute to cloud signals long‑term dominance in the agentic AI space.</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">4️⃣ Notable Quotes</h2>
+<table>
+<thead>
+<tr>
+<th>Speaker</th>
+<th>Quote</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thomas Kurian</strong></td>
+<td>“The answer is a <strong>unified stack</strong>. You cannot deliver AI by piecing together a puzzle piece of fragmented silicon and disconnected models.”</td>
+<td>Sets the philosophical foundation: integration, not stitching.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“Nearly <strong>75 % of all new code at Google is AI‑generated</strong>… we’re orchestrating fully autonomous digital task forces.”</td>
+<td>Shows internal confidence; validates the shift from assistance to autonomy.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“We are firmly in the <strong>agentic Gemini era</strong>—every employee can become a builder.”</td>
+<td>Highlights democratization of AI creation.</td>
+</tr>
+<tr>
+<td><strong>Thomas Kurian</strong></td>
+<td>“Intelligence plus automation must deliver value. <strong>Context and action</strong> are the two sides of the equation.”</td>
+<td>Emphasizes that raw model output isn’t enough—contextual grounding and execution are key.</td>
+</tr>
+<tr>
+<td><strong>Thomas Kurian</strong></td>
+<td>“Think of Gemini Enterprise as <strong>mission control</strong> for the agentic enterprise.”</td>
+<td>Positions the platform as central nervous system for AI‑driven business.</td>
+</tr>
+<tr>
+<td><strong>Thomas Kurian</strong></td>
+<td>“Zero‑trust verification to every agent and every orchestration step.”</td>
+<td>Reinforces security as a non‑negotiable core pillar.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tldr">TL;DR</h3>
+<p>Google Cloud’s <strong>Gemini Enterprise</strong> is a full‑stack, secure, low‑code platform that turns AI models into production‑ready, governed agents across the entire organization. Backed by massive hardware and capital investment, it aims to make <strong>every employee an AI builder</strong>, accelerate business outcomes, and provide the tooling needed to <strong>manage, secure, and observe thousands of autonomous agents</strong> at scale. The announcement is supported by high‑profile partnerships (Apple, Citi, NASA, etc.) that showcase immediate, real‑world value.</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, and with me as always is the ever‑curious Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re diving into the massive AI announcement from Google Cloud—Gemini Enterprise, the “agentic” platform they rolled out at Google Cloud Next.</p>
+<p><strong>JORDAN:</strong> Right, Sundar Pichai and Thomas Kurian laid out a whole new stack—from custom AI chips to a unified agent platform. Let’s break down why that matters.</p>
+<p><strong>MIKE:</strong> First off, they said 75 % of Google Cloud customers are already using their AI products. That’s a huge adoption rate—what do you think is driving it?</p>
+<p><strong>JORDAN:</strong> Mostly the shift from experimental pilots to production‑grade workloads. Companies can’t afford a patchwork of silicon, models, and tools; they need an end‑to‑end stack that’s secure and scalable.</p>
+<p><strong>MIKE:</strong> And they’re calling it a “unified stack.” So the idea is that chips are built for the models, models are grounded in your data, and agents execute with built‑in security. It’s like a single organism rather than a collection of limbs.</p>
+<p><strong>JORDAN:</strong> Exactly. The AI Hypercomputer is their purpose‑built hardware layer, optimized for the physics of the agentic era. That’s where the heavy lifting happens before the models even see the data.</p>
+<p><strong>MIKE:</strong> Speaking of models, they introduced Gemini 3.1 Pro, Flash Image, Veo 3.1 Lite, and Lyria 3 Pro—all in preview. Plus support for Anthropic’s Claude Opus 4.7. How does that model ecosystem help enterprises?</p>
+<p><strong>JORDAN:</strong> It gives a menu of specialized capabilities—complex reasoning, high‑fidelity visuals, cost‑effective video, and professional audio—so companies can pick the right tool without building their own from scratch.</p>
+<p><strong>MIKE:</strong> And the real kicker is the Agent Studio, a low‑code environment where “any employee can build and deploy agents using natural language.” That democratizes AI development across an organization.</p>
+<p><strong>JORDAN:</strong> But democratization comes with governance challenges. That’s why Google built the Agent Registry, Skills and Tools Registry, and an Agent Marketplace to keep everything discoverable and auditable.</p>
+<p><strong>MIKE:</strong> Security is a big theme too. They mentioned “Agent Identity” with cryptographic IDs and zero‑trust verification at every step, plus Model Armor to protect proprietary data from leakage.</p>
+<p><strong>JORDAN:</strong> Right, the Agent Gateway acts as a command center for policy enforcement, and the entire platform integrates with the Model Context Protocol so any service can be accessed securely.</p>
+<p><strong>MIKE:</strong> I love the real‑world examples they gave—Citi Sky for wealth management, Honeywell’s digital twins, Liverpool’s shopping assistant, and even NASA using agents for Artemis II flight readiness. That shows it’s not just hype.</p>
+<p><strong>JORDAN:</strong> Those case studies illustrate the “agentic workflow” in action: planners, orchestrators, coders—all collaborating like a digital task force that can complete a code migration six times faster than a year ago.</p>
+<p><strong>MIKE:</strong> So, to sum up, Google is betting on a fully integrated, secure, and observable AI stack that moves companies from isolated pilots to enterprise‑wide autonomous agents.</p>
+<p><strong>JORDAN:</strong> And the takeaways for listeners are clear: if you’re looking to scale AI, think about hardware‑model alignment, unified data context, low‑code agent creation, and robust governance.</p>
+<p><strong>MIKE:</strong> That’s a lot to digest, but it’s an exciting glimpse of the “agentic era.” Thanks for joining us, Jordan.</p>
+<p><strong>JORDAN:</strong> Thanks, Mike, and thank you all for listening—catch you next time!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="google_cloud_next_26_opening_keynote_11PBno-cJ1g_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

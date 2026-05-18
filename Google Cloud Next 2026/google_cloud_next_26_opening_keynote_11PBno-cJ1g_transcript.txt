@@ -1,0 +1,1833 @@
+﻿[00:24] [MUSIC PLAYING]
+[02:04] [CHEERING]
+[02:09] SPEAKER 1: Please welcome to the stage CEO
+[02:12] of Google Cloud, Thomas Kurian.
+[02:16] [UPBEAT MUSIC]
+[02:34] THOMAS KURIAN: Hello.
+[02:39] [CHEERING, APPLAUSE]
+[02:43] THOMAS KURIAN: Welcome everyone to Google Cloud Next.
+[02:46] Just one year ago, we stood on this same stage
+[02:50] and promised a new future for AI.
+[02:53] Today, that future is running in production at a scale
+[02:58] that the world has never seen.
+[03:00] Over the last year, we didn't just see adoption.
+[03:05] We saw transformation.
+[03:07] Nearly 75% of Google Cloud customers
+[03:11] now leverage our AI products to power their businesses.
+[03:15] We have thousands of agents and services across every industry,
+[03:20] reaching billions of people through the global scale
+[03:23] of our partner network.
+[03:25] You have moved beyond the pilot.
+[03:28] The experimenting phase is behind us.
+[03:31] And now, the real challenge begins.
+[03:34] How do you move AI into production
+[03:37] across your entire enterprise?
+[03:40] The answer is a unified stack.
+[03:43] You cannot deliver AI by piecing together a puzzle piece
+[03:47] of fragmented silicon and disconnected models.
+[03:51] To drive real value, you need an architecture
+[03:55] where chips are designed for the models,
+[03:58] models are grounded in your data, agents and applications
+[04:03] are built with models and secured by the infrastructure.
+[04:09] Google uses this exact same OpenStack
+[04:13] to reimagine how we serve users using our AI
+[04:17] tools across Search, YouTube, Chrome, and Android.
+[04:23] To take you inside that journey, let's hear from Sundar Pichai.
+[04:28] [APPLAUSE]
+[04:32] SUNDAR PICHAI: Thanks, Thomas, and hello, everyone.
+[04:34] We are so glad you are here.
+[04:37] The pace of technological change has
+[04:39] been faster than I've ever seen, and I've been around technology
+[04:43] for a while.
+[04:44] In fact, this Sunday, I'm celebrating my Googleversary--
+[04:49] 22 years, and I'm still feeling lucky.
+[04:52] And I hope that luck extends to all of you in Vegas this week.
+[04:56] I was drawn to Google all those years
+[04:57] ago because of its ambitious mission.
+[05:00] From the web to mobile to AI, every platform shift
+[05:05] has given us new opportunities to advance our mission
+[05:09] and to help our customers and partners achieve yours.
+[05:13] As we move into the agentic era, we
+[05:16] are taking this to the next level.
+[05:18] We are making big investments now and for the future.
+[05:22] In 2022, we were investing $31 billion in CapEx.
+[05:27] This year, we plan to invest between $175 to $185 billion
+[05:33] in total CapEx, a nearly 6x increase in just four years.
+[05:38] And for 2026, just over half of our machine learning compute
+[05:41] is expected to go towards the cloud business,
+[05:44] so it will greatly benefit all of you.
+[05:47] These investments are how we continue to stay at the frontier
+[05:51] and ensure you're at the cutting edge as well.
+[05:55] A big focus for us is to always be
+[05:57] customer 0 for our own technologies,
+[06:00] so we can be a better partner to all of you.
+[06:03] Let me share a few examples of how we
+[06:05] are rewiring our work with AI.
+[06:08] First, coding-- we've been using AI to generate code internally
+[06:12] at Google for a while.
+[06:14] Today, nearly 75% of all new code at Google
+[06:18] is AI-generated and approved by engineers,
+[06:21] up from 50% last fall.
+[06:23] We are now shifting to truly agentic workflows.
+[06:27] Our engineers are orchestrating fully autonomous digital task
+[06:31] forces, firing off agents, and accomplishing incredible things.
+[06:37] As one example of how we are using agents,
+[06:40] we recently executed a particularly complex code
+[06:43] migration.
+[06:45] Anyone familiar knows these migrations
+[06:47] can take a while to get done.
+[06:50] We created a system of agents taking on three different types
+[06:53] of roles--
+[06:54] planners, orchestrators, and coders.
+[06:58] Working together with engineers, we completed the migration 6x
+[07:01] faster than we could have a year ago.
+[07:04] And now we are applying that approach
+[07:06] across our entire development cycle,
+[07:09] from experimentation to testing to evals.
+[07:13] It's not just developers who are infusing AI
+[07:15] into their workflows.
+[07:17] Our marketing teams are fundamentally
+[07:19] rethinking the creative process from concept to launch.
+[07:23] Historically, adapting a campaign
+[07:25] for every audience, channel, and country took weeks.
+[07:28] For the recent launch of Gemini and Chrome,
+[07:31] teams used our models to rapidly generate thousands of variations
+[07:35] of our creative assets.
+[07:37] This enabled personalization at a massive scale.
+[07:41] It also led to 70% faster turnaround and a 20% increase
+[07:45] in conversion.
+[07:47] We are not only getting to market faster.
+[07:49] We are also doing it more effectively with AI.
+[07:52] Our security teams are also seeing significant gains
+[07:55] with AI.
+[07:57] Each month, our teams receive unstructured threat reports
+[08:00] at a scale that would take thousands of hours to review--
+[08:04] a nearly impossible task.
+[08:07] Today, our Security Operations Center agents automatically
+[08:11] triage tens of thousands of unstructured threat reports
+[08:14] each month.
+[08:15] By accelerating the extraction of critical intelligence
+[08:18] and filtering out the noise, it's
+[08:20] reduced threat mitigation time by over 90%
+[08:24] We are more on the front foot than ever before.
+[08:28] Those are just a few examples of what we are trying at Google.
+[08:31] We are moving in a bold and responsible way.
+[08:35] There's a lot of change happening.
+[08:37] And it can feel like we are in the messy part of the innovation
+[08:40] cycle.
+[08:40] But we are starting to see the foundational building
+[08:43] blocks coming together, unlocking
+[08:45] a new wave of innovation.
+[08:48] One thing that is super clear--
+[08:50] we are firmly in the agentic Gemini era.
+[08:53] Last fall, we introduced Gemini Enterprise as a front door
+[08:57] to agentic AI in the workplace.
+[09:00] What we have seen in just a few months since launch
+[09:03] is how every employee in every organization
+[09:06] can become a builder.
+[09:08] This is an incredible shift.
+[09:10] We are accomplishing bigger things faster,
+[09:13] but this comes with complexity.
+[09:15] The conversation has gone from can we build an agent to how
+[09:19] do we manage thousands of them?
+[09:22] Today, I'm excited to announce our new Gemini Enterprise Agent
+[09:26] Platform.
+[09:28] It provides the secure, full-stack connective tissue
+[09:32] you need to build, scale, govern, and optimize
+[09:35] your agents with confidence.
+[09:38] Think of it as mission control for the agentic enterprise
+[09:42] to help move your organization into the next phase
+[09:46] of the agentic era.
+[09:48] I'm going to turn it back over to Thomas to share more.
+[09:51] But first, thanks again for being here.
+[09:54] Together, we are building a blueprint for true business
+[09:57] transformation, and I'm excited to see where it takes us next.
+[10:01] Thomas, back to you.
+[10:05] [UPBEAT MUSIC]
+[10:20] THOMAS KURIAN: Thank you, Sundar.
+[10:22] Today, we're taking the next step
+[10:24] in bringing Google AI to every employee and every workflow.
+[10:29] Gemini Enterprise is now the end-to-end system
+[10:32] for the agentic era, the connective tissue
+[10:35] between your data, your people, and your goals.
+[10:38] It transforms disconnected processes
+[10:40] into a single intelligent flow.
+[10:43] This is our blueprint for the agentic enterprise.
+[10:47] It's also the answer to that fundamental question.
+[10:51] Intelligence plus automation must deliver value.
+[10:56] To make this work, you need context and action.
+[11:01] Intelligence comes from your data.
+[11:04] Automation is driven by agents.
+[11:06] To solve this equation at scale, you
+[11:09] need a complete integrated system.
+[11:13] Today, we will show you the layers of that system and all
+[11:17] the innovations we're introducing at every layer,
+[11:20] starting with the AI Hypercomputer,
+[11:23] the purpose-built foundation optimized
+[11:26] for the physics of the agentic era;
+[11:29] the Agentic Data Cloud, the engine that provides agents
+[11:34] with trusted business context; Agentic Defense, the autonomous
+[11:40] protection that secures your entire AI lifecycle;
+[11:45] the Agentic Platform, the system to build, deploy, and manage
+[11:49] agents; and finally, the Agentic Task
+[11:53] Force, the pre-built specialized agents that we
+[11:57] offer that are ready to transform your business.
+[12:02] Let's dive in.
+[12:03] Now, the Gemini Enterprise Agent platform
+[12:06] is the environment where your business logic, your data,
+[12:10] and your models converge to drive autonomous action.
+[12:14] It expands on the previous capabilities of Vertex AI
+[12:17] and brings new capabilities to enable your teams
+[12:22] to build, scale, govern, and optimize agents
+[12:26] with the same architectural rigor you apply to your most
+[12:30] mission-critical systems.
+[12:32] At its core, we build on our support for state-of-the-art
+[12:36] models.
+[12:37] Our most advanced reasoning model, Gemini 3.1 Pro,
+[12:41] is available in preview.
+[12:42] It's optimized for complex workflow orchestration.
+[12:46] It bridges the gap between strategy and autonomous
+[12:48] execution, interacting with your APIs and systems
+[12:52] with minimal tuning.
+[12:54] Industry leaders, including Databricks, JetBrains,
+[12:57] and Replit, have chosen Gemini 3.1 Pro.
+[13:01] We're also announcing Gemini 3.1 Flash Image,
+[13:06] also known as Nano Banana 2, for high-fidelity visual assets;
+[13:11] Veo 3.1 Lite, our most cost-effective video model,
+[13:16] designed to build high-volume video applications;
+[13:20] and Lyria 3 Pro, a state-of-the-art model
+[13:24] for enterprise and professional-grade audio
+[13:28] and music.
+[13:30] All of these models are available in preview.
+[13:33] Finally, we support all the leading models from Anthropic,
+[13:37] including Claude Opus, Sonnet, and Haiku.
+[13:41] And today, we're adding support for Anthropic's Claude Opus 4.7.
+[13:47] While all of these models represent a massive leap
+[13:51] in intelligence, their true value
+[13:53] is realized when they're operationalized to solve
+[13:56] mission-critical problems.
+[13:59] Earlier this year, we announced a monumental partnership
+[14:03] with one of the world's most iconic brands,
+[14:07] that will bring the power of our technology
+[14:09] to users everywhere around the world.
+[14:12] We're collaborating with Apple as their preferred cloud
+[14:15] provider to develop the next generation of Apple foundation
+[14:19] models based on Gemini technology.
+[14:22] These models will help power future Apple Intelligence
+[14:26] features, including a more personalized Siri coming
+[14:31] later this year.
+[14:33] Leading organizations aren't just
+[14:35] using Gemini Enterprise to work faster.
+[14:38] They're using it to redefine what their businesses can do.
+[14:43] Citi Wealth, in partnership with Google Cloud and DeepMind,
+[14:47] today unveiled Citi Sky, an always-on AI-powered member
+[14:53] of the Citi Wealth team that brings
+[14:56] Citi's global intelligence to clients' fingertips.
+[15:03] Citi Sky will provide an exemplary experience,
+[15:06] allowing clients and colleagues to ask
+[15:09] more of Citi Wealth whenever they need it,
+[15:12] and in multiple languages.
+[15:15] Honeywell generates billions of insights for managing buildings
+[15:20] by training digital twins on over a million product
+[15:23] specifications.
+[15:25] Liverpool is bringing their signature in-store
+[15:29] service online, projecting a 10 times return on investment
+[15:34] on their new shopping assistant.
+[15:36] And for a mission that's quite literally out of this world,
+[15:42] we were very proud to partner with NASA--
+[15:45] [CHEERING, APPLAUSE]
+[15:53] --to use Gemini Enterprise Agents to power flight readiness
+[15:58] and ensure astronaut safety for Artemis II, which
+[16:03] set the human spaceflight record for traveling
+[16:06] the furthest distance from Earth.
+[16:09] Now, we built the agent platform to manage the entire lifecycle
+[16:13] of an agent.
+[16:15] The low-code Agent Studio enables every employee
+[16:18] to build and deploy agents using natural language.
+[16:22] It grounds LLM reasoning in your specific business rules,
+[16:27] bringing predictable, autonomous action
+[16:30] to every workflow at scale.
+[16:33] To manage these assets, the agent registry
+[16:37] provides a single point of control,
+[16:39] indexing every internal agent and tool
+[16:42] across your organization to ensure they're
+[16:44] discoverable and governed.
+[16:47] Similarly, our Skills and Tools Registry
+[16:51] allows you to define modular, reusable packages
+[16:55] of instructions, scripts, and resources
+[16:58] to teach agents to perform specialized tasks or repeatable
+[17:02] workflows.
+[17:04] We also expose skills for every GCP service
+[17:09] and every service in Workspace in our skills registry.
+[17:14] All of this is also supported by our Agent Marketplace,
+[17:18] allowing you to search and deploy
+[17:21] specialized agents from our global partner ecosystem
+[17:25] directly in Gemini Enterprise, including Atlassian, Box,
+[17:31] Lovable, Oracle, ServiceNow, Workday, and many, many more.
+[17:38] Finally, with our native integration
+[17:41] of Model Context Protocol, or MCP,
+[17:44] you can connect our agent platform to any MCP server.
+[17:49] We're also exposing all of our GCP services
+[17:54] as MCP to allow you to interact seamlessly
+[17:57] with GCP from any agent.
+[18:01] In addition to developing this agent platform,
+[18:04] it also provides the framework to orchestrate and scale
+[18:08] your entire agentic workforce.
+[18:11] We enable agent-to-agent orchestration,
+[18:14] allowing agents to seamlessly delegate tasks from one
+[18:18] to another, including support for complex generative
+[18:24] and deterministic orchestration patterns.
+[18:27] This helps ensure that for your critical workflows,
+[18:31] such as those that need compliance,
+[18:34] your agents can follow well-specified paths
+[18:38] every single time, guaranteeing predictable outcomes.
+[18:44] Orchestration flows and agents can respond to events.
+[18:47] These events can be real-time.
+[18:49] They can be schedule-based.
+[18:51] They can be trigger-based, or they can be batch inference job.
+[18:56] We're bringing zero-trust verification
+[18:59] to every agent and every orchestration step.
+[19:04] And now with Agent Identity, every agent
+[19:09] has a unique cryptographic ID and well-defined authorization
+[19:15] policies that are traceable and auditable,
+[19:19] ensuring you can track every action in your company
+[19:24] and manage all your agents.
+[19:27] They're also centrally managed through our Agent Gateway, which
+[19:32] provides a single command center for policy enforcement
+[19:36] across the organization.
+[19:38] Paired with Model Armor, you protect your models.
+[19:42] You protect your proprietary enterprise data
+[19:45] from threats such as sensitive data leakage.
+[19:49] This integrated approach, from secure sandboxes
+[19:54] to a single management console, provides the visibility
+[19:57] and isolation you need to run your most-sensitive workloads
+[20:03] with a high degree of confidence.
+[20:06] Now, optimization and observability
+[20:08] are also built into the fabric of the platform.
+[20:12] Agent observability delivers granular instrumentation,
+[20:16] allowing you to visualize the full execution
+[20:19] path of any agent using OTel-compliant telemetry.
+[20:25] You can retrieve traces, monitor tool use,
+[20:28] quickly diagnose reasoning loops with fine-grained logging.
+[20:33] All of these capabilities that we've just detailed--
+[20:37] the orchestration, zero-trust security, and developer tools--
+[20:42] form the core engine of Gemini Enterprise.
+[20:46] While the agent platform is where your technical teams build
+[20:49] and govern agent, the Gemini Enterprise application
+[20:53] is the primary environment where your business actually operates.
+[20:58] It's that new front door to AI for all your employees,
+[21:02] turning complex agentic capabilities
+[21:04] into a simple, new way to work for every employee.
+[21:10] By unifying data across your entire stack,
+[21:13] including Google Workspace, coding tools,
+[21:17] and enterprise systems, we've created
+[21:20] a single intelligent flow for the entire organization.
+[21:24] To give your teams a permanent memory,
+[21:28] we're introducing Gemini Enterprise projects.
+[21:32] Projects give your agents a high-fidelity workspace
+[21:36] and the ability to use deep think
+[21:39] to solve your most complex business challenges
+[21:42] without context pollution.
+[21:45] We're also adding Microsoft 365 interoperability,
+[21:48] allowing you to export the Docs and Slides you've
+[21:51] created within Canvas into common Microsoft Office formats.
+[21:56] [APPLAUSE]
+[22:02] Leading innovators already use this platform
+[22:05] to redefine their industries.
+[22:07] Let's hear from one of them, Virgin Voyages.
+[22:11] [STIRRING MUSIC]
+[22:15] NIRMAL SAVERIMUTTU: Our people are a secret sauce.
+[22:17] So anytime we can use data to make our people more empowered,
+[22:21] we're all in.
+[22:23] Gemini Enterprise is a front door for AI in our business,
+[22:26] and we're using it to bring natural language intelligence
+[22:29] to our crew.
+[22:30] BILLY BOHAN CHINIQUE: Gemini Enterprise is helping us bring
+[22:32] Project 3D to life.
+[22:33] It's going to allow our crew to feel confident
+[22:36] with any question they're asked.
+[22:38] So for sailors, Rovey is a personal concierge
+[22:41] to maximize the value they get out of their vacation,
+[22:44] inspired at home all the way through the last day
+[22:46] of their voyage to make sure they have the best
+[22:48] time on vacation with us.
+[22:50] Our crew are already world-renowned and award-winning
+[22:53] for the exceptional service they deliver as humans.
+[22:55] We want Project 3D and Gemini Enterprise to be able to take
+[22:58] that even further.
+[23:00] So you can imagine when you're building
+[23:02] something for a cruise ship, there
+[23:03] are challenges that pop up.
+[23:05] There's not exactly a fiber cable running out
+[23:07] the back of the ship.
+[23:08] With Google Distributed Cloud Edge,
+[23:10] we had data resiliency at the core of the project.
+[23:13] And that means, even when we're offline,
+[23:15] our intelligence is still online.
+[23:17] Using our AI stack in Google Cloud has helped us
+[23:21] not only reduce our production timeline by up to 60%,
+[23:24] but we have contributed to a 28% increase month
+[23:27] on month for a record sales quarter.
+[23:31] We could truly see a day where you get on a Virgin Atlantic
+[23:34] flight, stay at a Virgin hotel, and end up
+[23:37] on a Virgin Voyage, all connected seamlessly by Project
+[23:40] Ruby and Gemini Enterprise.
+[23:41] NIRMAL SAVERIMUTTU: Google has been
+[23:43] a foundational partner for us.
+[23:44] The extension of Gemini.
+[23:45] Enterprise was the natural way to bring that mission to life.
+[23:53] [APPLAUSE]
+[23:58] THOMAS KURIAN: The era of the pilot is over.
+[24:00] The era of the agent is here.
+[24:03] But the true power comes from how it changes your workflow.
+[24:07] Let's see it in action.
+[24:09] Please welcome Erika Chuong.
+[24:11] [UPBEAT MUSIC]
+[24:21] ERIKA CHUONG: Thanks, Thomas.
+[24:23] Gemini Enterprise is a platform to build, manage,
+[24:27] and interact with agents.
+[24:28] I'll demonstrate how it can orchestrate multiple agents
+[24:31] across platforms, share context for seamless handoffs,
+[24:34] and streamline workflows.
+[24:36] Imagine I work for a global furniture retailer.
+[24:39] Here's my personalized homepage where
+[24:41] I can interact with internal business
+[24:43] context and external sources in a single pane of glass.
+[24:49] The agent gallery hosts my approved selection of agents,
+[24:52] including built-in ones by Google and my company's agents,
+[24:55] like this one for price and margin optimization,
+[24:58] which autonomously orchestrates across agents, tools,
+[25:02] and sources.
+[25:03] Now, let's see Gemini Enterprise in action.
+[25:07] To bring some less popular product lines back to life,
+[25:11] we'll ask our agent to analyze current interior design trends,
+[25:14] identify dead stock in our warehouse,
+[25:17] and orchestrate a relaunch campaign.
+[25:20] With that one prompt, multiple agents
+[25:22] complete a series of actions in minutes instead of hours.
+[25:26] My market research agent, powered by Deep Research,
+[25:29] analyzes the latest Google Search information
+[25:32] alongside my own sales and CSAT data.
+[25:36] My data insights agent is connecting to our global product
+[25:39] catalog, regardless of location or format.
+[25:43] It knows that dead stock refers to stale inventory,
+[25:46] and it uses our Agentic Data Cloud
+[25:48] to identify the right data sets.
+[25:51] And my product strategy agent pulls everything together.
+[25:55] I'll go ahead and approve this plan.
+[25:57] This can take a few minutes, so we'll fast-forward.
+[26:00] Here are the highlights.
+[26:03] Organic Modern is a huge trend, and customers
+[26:06] are paying top dollar.
+[26:08] Our Tuscany collection has leftover inventory
+[26:11] that actually fits right in, but sales haven't been great.
+[26:17] The recommendation-- rebrand and reprice it
+[26:20] above our current discount but below competitor pricing.
+[26:25] All of that with one simple prompt.
+[26:28] I can even see the sources that it analyzed
+[26:30] to make these recommendations.
+[26:33] Gemini Enterprise is also suggesting a new landing
+[26:36] page and new media to put front and center.
+[26:40] I'll ask my product strategy agent to generate some videos.
+[26:47] This part can also take a little bit of time,
+[26:49] so we'll look at some pre-generated options.
+[26:56] This looks amazing.
+[26:59] Veo 3.0 placed the exact pieces in a whole new organic living
+[27:03] style space.
+[27:05] Now, let's get that website updated.
+[27:08] I'll ask my dev agent to coordinate with our engineering
+[27:11] team.
+[27:13] It connects directly with Jira to give a developer full context
+[27:17] for a seamless handoff.
+[27:20] And on the developer's end, I'll automatically
+[27:23] get a notification right here in my Google Chat with that Jira
+[27:27] ticket.
+[27:28] I'll get this going with CLI.
+[27:33] Here, I'll ask my dev agent to start
+[27:35] working on that Jira ticket.
+[27:37] It's going to give me an overview of the strategy,
+[27:40] the assets, and how it plans to execute on this web page
+[27:44] using all of the context from the previous Gemini Enterprise
+[27:47] session, the ticket, and our brand and coding guidelines.
+[27:52] This is really easy.
+[27:53] Let's go ahead and get this built and deployed.
+[27:56] From here, this can take a little bit of time--
+[27:59] I'm sure the devs in the audience
+[28:00] know that-- so I gave it a little bit of a head start.
+[28:03] Let's check out that final product.
+[28:07] This looks perfect.
+[28:10] Now let's head back over to Gemini Enterprise
+[28:13] to prepare our stores for the launch.
+[28:16] Our store operations team would usually handle this piece,
+[28:20] so I'm in a brand-new session.
+[28:22] I'll ask for a deck to get our regional distributors up
+[28:25] to speed.
+[28:27] Gemini Enterprise uses my company's context
+[28:30] to find exactly what I need to know about that launch, how
+[28:33] I've managed these in the past, and my team's sales goals.
+[28:37] Then it works with the Google Workspace agent
+[28:39] to create a branded deck in my personal style.
+[28:42] Again, this can take a minute or two,
+[28:44] so we'll look at one I generated ahead of time.
+[28:47] Get this.
+[28:48] With our brand-new Canvas mode, I
+[28:50] can make edits and collaborate in Google Slides
+[28:53] without ever having to leave Gemini Enterprise.
+[28:57] Overall, I think this looks great,
+[28:59] but I actually prefer the word "reimagined" here.
+[29:05] Perfect, and I'll go ahead and share this with my team.
+[29:14] And it looks like some of them are already jumping in.
+[29:17] Let's recap.
+[29:18] We saw Gemini Enterprise orchestrate multiple agents
+[29:21] with a single prompt, share context,
+[29:24] and generate and collaborate content
+[29:26] with Google Workspace, all supported
+[29:29] by our enterprise-grade governance, which
+[29:31] gives organizations the power to manage and secure agents
+[29:35] at scale, all while maintaining control
+[29:37] over their business data.
+[29:39] That's the magic of the Gemini Enterprise Agent platform.
+[29:44] [UPBEAT MUSIC, APPLAUSE]
+[30:03] THOMAS KURIAN: Thank you, Erica.
+[30:05] Thousands of companies around the world and across industries
+[30:08] are choosing Gemini Enterprise to transform their business.
+[30:12] We're seeing a profound shift.
+[30:13] Companies aren't just redesigning workflows.
+[30:16] They're turning their everyday employees into AI builders,
+[30:20] empowering them to solve their own hardest problems.
+[30:25] Signal Iduna is redefining insurance in Germany
+[30:29] with Gemini Enterprise.
+[30:31] They hit 80% adoption within weeks,
+[30:34] making it their front door for AI.
+[30:37] 11,000 employees are now building specialized agents.
+[30:41] Their health agent automatically verifies coverage
+[30:45] against a century of complex policy data,
+[30:49] driving a 400% surge in weekly users
+[30:53] and providing answers 37% faster.
+[30:57] Bosch is adopting Gemini Enterprise globally.
+[31:00] From finance to engineering, employees
+[31:04] are deploying custom agents so that they can reclaim time
+[31:08] for complex research.
+[31:09] KPMG reached 90% adoption with over 100 agents
+[31:14] in just the first month.
+[31:17] The American Society for Clinical Oncology
+[31:19] is now delivering cancer expertise faster.
+[31:23] Merck is bringing Gemini Enterprise to 75,000 employees
+[31:28] to support their purpose to save and improve lives.
+[31:34] And Walmart is rolling out Gemini Enterprise--
+[31:38] [APPLAUSE]
+[31:41] Walmart is rolling out Gemini Enterprise
+[31:43] to help their store leaders spend more time with customers.
+[31:47] Let's take a look.
+[31:52] KIERAN SHANAHAN: At Walmart, we're
+[31:53] known for being people-led and tech-powered.
+[31:56] It's how we deliver on our promise
+[31:57] to help our customers save money and live better.
+[32:02] But in a retail landscape that's moving faster than ever,
+[32:05] there's one thing that's critical to our success--
+[32:09] trust.
+[32:10] It's the backbone of our relationship with our associates
+[32:12] and customers.
+[32:14] And our field leaders build trust
+[32:15] by being present on the sales floor,
+[32:18] not in their offices at a screen.
+[32:20] So we're giving our associates the latest tech
+[32:23] and tools at their fingertips so that they
+[32:25] can spend more time on the floor with their teams,
+[32:29] serving our customers.
+[32:31] By combining our data with advanced AI technology,
+[32:35] Google Cloud is helping our leaders make better decisions
+[32:38] with clearer insights.
+[32:40] Gemini Enterprise is helping us take an important step forward,
+[32:44] helping our leaders lead and solving problems
+[32:47] so we can serve our customers better.
+[32:49] Our store and supply chain leaders
+[32:51] now have a Pixel Fold connected to Walmart's enterprise data
+[32:56] and giving them the answers they need in seconds, not hours.
+[32:59] By putting people first and taking their hands,
+[33:03] we're building a stronger future.
+[33:05] Thanks to our partnership with Google Cloud,
+[33:07] we continue to transform retail every day.
+[33:11] I'm excited for what's next.
+[33:15] [APPLAUSE]
+[33:21] THOMAS KURIAN: This winter, ahead
+[33:23] of one of the biggest moments in global sports,
+[33:25] our world-class engineers collaborated
+[33:28] with world-class athletes.
+[33:30] We're incredibly proud of how Google Cloud is
+[33:33] helping athletes push the boundaries of their sport
+[33:37] with AI.
+[33:41] SARAH KENNEDY: There are sports that
+[33:43] have a limited amount of data that's captured.
+[33:45] And I think that's a beautifully perfect challenge
+[33:48] for a company like Google.
+[33:49] SPEAKER 2: Let's roll it.
+[33:50] SARAH KENNEDY: One of the really cool things that we're
+[33:53] partnering with Team USA to do is
+[33:54] to help them understand what's that edge that we can possibly
+[33:57] give them?
+[33:58] MICHAEL SANTORO: They understand what's happening in the moment
+[34:00] better than anybody.
+[34:01] KATHERINE LITINSKY: So to have their input and their say
+[34:03] can really help us create something that's of benefit.
+[34:06] SARAH KENNEDY: The side-by-side comparison thing
+[34:08] I'm excited for.
+[34:08] KATHERINE LITINSKY: Everything is running on Google Cloud.
+[34:11] The 3D model that we're using is a collaboration with Google
+[34:14] DeepMind.
+[34:15] We've moved so far past talking to an LLM with text.
+[34:18] SPEAKER 3: It's so clear as day right here.
+[34:20] It's amazing.
+[34:20] SARAH KENNEDY: Whoa.
+[34:21] Is that me?
+[34:22] That's crazy.
+[34:23] Operating at the speed of sports is
+[34:25] one of the greatest challenges that we could be helping solve.
+[34:28] If we can do that for the Winter Olympics in Milan,
+[34:31] we can do that for any industry all over the world.
+[34:36] SPEAKER 1: Please welcome three-time Olympic gold
+[34:39] medalist, entrepreneur, and snowboarding legend,
+[34:42] Shaun White.
+[34:44] [CHEERING, APPLAUSE]
+[34:46] [ROCK MUSIC]
+[34:49] SHAUN WHITE: What's up, Google Cloud Next?
+[34:55] Oh, wow.
+[34:59] Man, I love seeing it snow in the desert.
+[35:02] This is wild.
+[35:03] All right.
+[35:04] Look, back when I was training, our tools
+[35:07] were camcorders and basically guesswork.
+[35:10] You'd land a trick and watch it back,
+[35:12] and you'd be looking at it thinking, how can I
+[35:14] make that trick better?
+[35:16] Over time, I've seen the tricks get bigger
+[35:18] and the walls get higher.
+[35:20] And now, Google Cloud is bringing AI to the mountain.
+[35:23] This winter, I worked with some crazy-smart Google Cloud
+[35:26] engineers on some awesome tech.
+[35:29] And to show you how rad this is, give it up for Jason Davenport.
+[35:34] [APPLAUSE]
+[35:36] [ROCK MUSIC]
+[35:42] JASON DAVENPORT: What's up, Shaun?
+[35:43] SHAUN WHITE: What have we got for everyone?
+[35:45] JASON DAVENPORT: All right, Shaun.
+[35:46] This is going to be super fun.
+[35:48] Let's unleash the power of Google Cloud AI
+[35:50] into the half-pipe.
+[35:52] And to do that, we're going to pull up a trick from your 2017
+[35:56] Burton US Open.
+[35:57] SHAUN WHITE: Oh, wow.
+[35:58] JASON DAVENPORT: I'm sure you remember this one.
+[35:59] SHAUN WHITE: It's a throwback.
+[36:00] It's a throwback.
+[36:00] JASON DAVENPORT: It is.
+[36:01] So let's analyze this clip for the audience.
+[36:03] And so they can see all the cool things that AI sees.
+[36:06] SHAUN WHITE: All right.
+[36:06] JASON DAVENPORT: All right, let's start it off.
+[36:08] First, this trick is over in under three seconds.
+[36:12] You are literally-- it's a split-second blur.
+[36:14] And for everyone watching, what trick is this?
+[36:17] SHAUN WHITE: This is a switch cab double flip 1440.
+[36:20] JASON DAVENPORT: That is insane.
+[36:21] But for everyone else, what does that actually mean?
+[36:25] SHAUN WHITE: Basically, it's my unnatural way of riding.
+[36:28] I do four full rotations with two flips in the middle.
+[36:31] JASON DAVENPORT: I tried stopping using the camcorder,
+[36:34] and I couldn't do it.
+[36:35] So let's slow this down.
+[36:37] And to do this, we need to analyze this frame by frame
+[36:40] and see what Google Cloud sees.
+[36:42] And we're going to do this essentially
+[36:44] with every single stop in this.
+[36:46] So first, let's start with your pose.
+[36:49] So this is what's super cool.
+[36:51] We built a model in collaboration
+[36:53] with Google DeepMind that can track you spatially,
+[36:56] and it creates a three-dimensional,
+[36:57] essentially pose of you from a flat, two-dimensional video.
+[37:01] SHAUN WHITE: So awesome.
+[37:02] JASON DAVENPORT: I mean, I love it.
+[37:03] I can't even see you here.
+[37:05] How does it do it?
+[37:06] SHAUN WHITE: This was my tight pant, leather jacket phase.
+[37:09] So you got to really punch in on it.
+[37:11] JASON DAVENPORT: I know.
+[37:13] I got some out back, too.
+[37:14] SHAUN WHITE: It was a good look.
+[37:15] JASON DAVENPORT: I know.
+[37:16] It's still a good look.
+[37:17] All right.
+[37:17] Let's talk about the next thing.
+[37:19] These are stats powered by Gemini.
+[37:21] Here, we're tracking your flight dynamics, rotational velocity,
+[37:25] and even your tuck compression.
+[37:27] SHAUN WHITE: Yeah, this is amazing.
+[37:28] We didn't have this before.
+[37:29] I can see how much time I've spent in the air.
+[37:31] And now take old footage that I've done
+[37:34] and compare it with new footage of how much time was I
+[37:36] in the air when I landed the trick,
+[37:38] and when I didn't land the trick.
+[37:39] And I can compare the two.
+[37:40] And that data is really going to help me progress.
+[37:42] And obviously, the next generation
+[37:44] can use these tools too.
+[37:45] JASON DAVENPORT: It's true.
+[37:46] And what I love is I love seeing how
+[37:47] quickly your rotational velocity gets up here.
+[37:50] It's all about how you exit the pipe.
+[37:52] SHAUN WHITE: Torque-- exactly, and coming out of it.
+[37:54] JASON DAVENPORT: All right.
+[37:54] So let's look at one more cool thing that we've done here,
+[37:56] which is the ribbon overlay.
+[37:58] SHAUN WHITE: Oh, I love this.
+[37:58] JASON DAVENPORT: So here's what I love about this.
+[38:01] We're actually showing your cork here
+[38:02] with the whole visualization.
+[38:04] So what happens here?
+[38:05] We're moving from blue to green on the thing.
+[38:08] What is that?
+[38:08] SHAUN WHITE: When I was working with the engineers,
+[38:10] I was trying to describe this trick.
+[38:12] And there's a turning point where normally I
+[38:14] do one front flip and then come in for the second,
+[38:17] but then you have to pause and then go backflip.
+[38:20] If you miss that turning point in the trick, well,
+[38:23] it's not good.
+[38:25] It's not good.
+[38:26] But this really pinpoints it exactly.
+[38:28] JASON DAVENPORT: It is so cool to watch this.
+[38:29] And what I love is that this is making sports
+[38:31] more accessible for fans.
+[38:33] We can see all of the craziness that you're
+[38:35] putting into this sport.
+[38:36] SHAUN WHITE: Exactly.
+[38:37] JASON DAVENPORT: All right.
+[38:38] So let's bring this back and talk a little bit more tech.
+[38:41] Google Cloud is helping everyone innovate here
+[38:44] by creating new use-case specific models, even
+[38:46] for things like spatial analysis,
+[38:49] training these large amounts of data and even models
+[38:53] with Google Cloud TPUs, and helping everyone
+[38:56] to build a secure data and agent foundation with Gemini
+[38:59] Enterprise Agent Platform.
+[39:02] Compute, models, and platform-- this
+[39:05] is the power of Google Cloud AI.
+[39:07] SHAUN WHITE: And look, from my personal experience,
+[39:09] I can tell you, learning a trick on the mountain is one thing,
+[39:12] but actually understanding the physics of a trick
+[39:15] is a whole other thing.
+[39:16] And this is really going to help not only
+[39:18] the next generation of athletes learn new skills
+[39:21] but also help the fans at home understand the sport better.
+[39:24] And not just for snowboarding, but I think sports globally.
+[39:28] Look, I'm so stoked to see what's ahead.
+[39:30] Thank you, Jason.
+[39:31] And thank you, Google Cloud Next.
+[39:34] [APPLAUSE, UPBEAT MUSIC]
+[39:39] SPEAKER 1: Please welcome SVP and chief technologist,
+[39:42] AI and infrastructure, Amin Vahdat.
+[39:47] [UPBEAT MUSIC]
+[39:59] AMIN VAHDAT: Thank you, Shaun.
+[40:00] We're taking the exact same technology
+[40:03] that empowers athletes and applying it to the enterprise.
+[40:06] Because while athletes use data to understand the game,
+[40:08] the enterprise needs it to change the game.
+[40:11] That kind of scale is the ultimate stress test
+[40:14] for a unified system.
+[40:15] When you process massive video feeds, reaching over
+[40:18] decades of historical data, and defend
+[40:20] every byte in near real time, you
+[40:22] have a foundation built for anything.
+[40:26] But to solve this at a global scale,
+[40:28] we first have to solve a physics problem.
+[40:31] It is a constant struggle against the limits
+[40:33] of software architecture, hardware architecture, power,
+[40:37] cooling, and even the speed of light.
+[40:40] This is the foundation of our AI Hypercomputer.
+[40:43] We integrate clean energy, massive physical scale,
+[40:47] and our purpose-built infrastructure
+[40:48] into a single unified engine of efficiency and innovation.
+[40:54] Because in the agentic era, compute
+[40:55] is no longer defined by chip.
+[40:57] Compute is the entire data center.
+[41:02] We give you the ultimate flexibility
+[41:04] to pick the right architecture without compromise.
+[41:07] You can see this in how different
+[41:08] industry leaders are innovating on Google Cloud.
+[41:11] Axia Energia, Brazil's largest power company,
+[41:14] helps prevent power outages for millions of customers
+[41:17] by running advanced weather modeling on TPU clusters.
+[41:21] By forecasting severe weather conditions up
+[41:23] to 10 days in advance, the company
+[41:25] can proactively plan and execute preventative measures
+[41:28] before storms hit, significantly reducing service interruptions
+[41:33] year over year.
+[41:35] Thinking Machine Labs shows our NVIDIA-based infrastructure
+[41:38] to power Tinker, an open platform
+[41:41] for reinforcement learning and fine-tuning
+[41:43] of frontier models for specialized use cases.
+[41:47] Woven by Toyota achieved 42% faster training
+[41:50] for models that predict complex traffic events.
+[41:54] The US Department of Energy is powering AI coscientists
+[41:58] across all 17 national labs to accelerate the pace
+[42:02] of scientific discovery.
+[42:05] And Boston Dynamics is training and safely
+[42:08] deploying flexible vision-language models
+[42:10] to scale robotics across diverse industrial applications.
+[42:16] As we enter the agentic era, we see
+[42:18] that the demands of training and serving
+[42:20] have completely diverged.
+[42:22] To meet the performance needs of these explosive workloads,
+[42:26] I am proud to announce our eighth-generation TPUs.
+[42:31] [UPBEAT MUSIC]
+[42:43] [APPLAUSE]
+[42:51] These are things of beauty.
+[42:53] For the very first time, we are launching
+[42:55] two specialized platforms, each built
+[42:57] from the ground up for the distinct demands of training
+[43:00] and serving.
+[43:02] TPU 8t is a powerhouse optimized for training.
+[43:06] We have redefined performance capability
+[43:08] by moving block scale multiplication directly
+[43:11] inside the MXUs.
+[43:13] This native MXU quantization eliminates VPU overhead,
+[43:17] delivering nearly three times the compute performance per pod
+[43:19] over previous generations.
+[43:22] This allows us to push the absolute limits of model flops
+[43:25] utilization at a massive scale and reduces the training time
+[43:28] of frontier models.
+[43:31] It leverages our breakthrough inter-chip interconnect
+[43:33] technology, which now delivers twice the bandwidth compared
+[43:36] to Ironwood, scaling up to 9,600 TPUs connected via our 3D torus
+[43:42] topology.
+[43:45] This is a 2.8x improvement over Ironwood to deliver 1.21
+[43:49] exaflops of FP4 compute per pod.
+[43:55] 8t provides two petabytes of shared bandwidth memory
+[43:58] in a single superpod and utilizes the new TPUDirect
+[44:01] storage to enable high-speed data transfers from managed
+[44:05] storage.
+[44:07] To put that scale in perspective,
+[44:08] two petabytes is enough to hold the entire digital connection
+[44:12] of the Library of Congress 100 times over.
+[44:18] TPU 8i is optimized for the thinking part of the equation--
+[44:21] inference and reinforcement learning.
+[44:23] At the chip level, we have integrated a specialized
+[44:26] collectives acceleration engine, which reduces latency
+[44:29] by an additional 5x.
+[44:31] By hosting the memory cache entirely on silicon,
+[44:34] we've finally broken the memory wall that slows down
+[44:36] long-context decoding.
+[44:38] We then scaled this on-chip performance
+[44:40] through our new board flight topology,
+[44:43] which deploys 1152 TPUs into a single pod
+[44:47] to run millions of concurrent agents with near-zero latency.
+[44:52] This delivers 11.6 FP8 exaflops for a substantial 9.8x increase
+[44:58] in performance over the 256-chip Ironwood pod.
+[45:05] We are extending our infrastructure leadership
+[45:08] to general purpose workloads as well with Google Cloud Axion.
+[45:12] Our Google Axion N48 compute instances,
+[45:15] powered by a custom-designed ARM CPU,
+[45:17] deliver up to twice better price performance
+[45:20] and 80% better performance per watt
+[45:23] than comparable x86 instances.
+[45:25] This provides a sustained, continuous operation
+[45:28] designed to eliminate cold starts in logic apps,
+[45:31] ensuring your agents are always on and ready to respond.
+[45:36] We are the preferred cloud for NVIDIA GPUs
+[45:39] by some of the largest scale and most innovative customers
+[45:42] in the world.
+[45:43] Today, I am pleased to announce that Google Cloud will
+[45:46] be among the first to offer the NVIDIA Vera Rubin NVL72.
+[45:51] [APPLAUSE]
+[45:57] Vera Rubin NVL72 on Google Cloud achieves 10 times
+[46:01] performance efficiency, optimized for high interactivity
+[46:04] and long-context workloads.
+[46:06] Of course, silicon is only half the battle.
+[46:09] To feed these chips, we've redesigned our entire storage
+[46:12] and networking pipeline.
+[46:14] I am pleased to announce that Managed Lustre now supports
+[46:16] throughput up to an industry-leading 10
+[46:19] terabytes per second.
+[46:21] We tied it all together with our new Virgo Network.
+[46:24] Virgo doubles connectivity to scale training
+[46:27] beyond the superpod.
+[46:28] It links 134,000 chips with up to 47pb per second
+[46:33] of non-blocking bandwidth to deliver over 1.7 million
+[46:37] exaflops of compute.
+[46:40] We can now turn months of training
+[46:41] into weeks with the power of a million-plus TPU
+[46:44] chips in a single cluster, all orchestrated
+[46:48] by Pathways and JAX.
+[46:52] [APPLAUSE]
+[46:58] With up to four times the bandwidth
+[47:00] per accelerator over the previous generation,
+[47:02] this combination delivers near-linear scaling,
+[47:04] ensuring you get the full power of every chip you pay for.
+[47:08] We are also making Virgo available on NVIDIA, Vera Rubin,
+[47:11] and NVL72, supporting up to 960,000 GPUs.
+[47:18] Leading financial institutions are
+[47:19] using this exact combination of silicon networking
+[47:22] to gain a massive edge.
+[47:24] Let's hear from Citadel Securities on how
+[47:26] we are innovating together.
+[47:29] JOSH WOODS: We trade over half a trillion dollars per day.
+[47:32] But it's not just about volumes.
+[47:34] It's also about speed.
+[47:35] In financial markets, time is measured in nanoseconds.
+[47:40] We connect markets all around the world,
+[47:42] whether pension funds or somebody doing their first trade
+[47:45] as part of their retirement, meet their investment
+[47:48] objectives.
+[47:49] We've partnered with Google Cloud
+[47:50] to build what we think is the preeminent scalable, cloud-based
+[47:54] research environment.
+[47:56] For instance, we've been working in depth on TPU
+[47:59] to ensure that we get the efficiency we
+[48:02] need to run our business.
+[48:06] Today, we're able to run workloads two to four times
+[48:09] as fast with a 30% lower cost.
+[48:12] HARIS NAIR: With TPU Ironwood, we
+[48:14] can now run thousands of parallel chips
+[48:16] for a single workload.
+[48:17] And what that means for our business is workloads
+[48:20] that used to take weeks or days, we
+[48:23] can now execute those in hours or even minutes.
+[48:27] Imagine you're a quantitative researcher.
+[48:29] You have 100 novel ideas that you want to execute.
+[48:32] Can we empower our researchers to be
+[48:34] able to test all of their ideas and really
+[48:36] be limited by not the scale of the platform
+[48:39] or the economics of the problem, but by their own creativity?
+[48:44] JOSH WOODS: As we like to say, steel sharpens steel.
+[48:46] Google Cloud and Citadel Securities' collaboration
+[48:49] has been exactly that.
+[48:54] [APPLAUSE]
+[49:00] AMIN VAHDAT: Citadel Securities is just one example
+[49:02] of many innovators who are gaining a competitive edge
+[49:04] on our foundational AI Hypercomputer.
+[49:07] At this scale, you cannot have humans manually troubleshooting
+[49:10] configurations.
+[49:12] You need a cloud that drives itself.
+[49:15] We have used the Model Context Protocol to turn every Google
+[49:18] Cloud service into a tool that agents can orchestrate directly.
+[49:22] By integrating Gemini reasoning into our own telemetry,
+[49:26] the system now performs autonomous root cause analysis,
+[49:29] identifying and fixing misconfigurations
+[49:32] before you even realize there's a problem.
+[49:35] This is the AI Hypercomputer-- purpose-built infrastructure
+[49:39] to accelerate the entire AI lifecycle.
+[49:42] To show you how we feed this engine with your data,
+[49:44] please welcome Karthik Narain.
+[49:47] [UPBEAT MUSIC]
+[50:01] KARTHIK NARAIN: Thank you, Amin.
+[50:03] Amin just showed you how we built the world's most--powerful
+[50:06] reasoning engine.
+[50:08] But here's the reality.
+[50:09] Reasoning without context is just a guess.
+[50:13] And when you expect your AI to make decisions and your agents
+[50:16] to take actions, you cannot afford to guess.
+[50:20] Trusted context turns an intelligent guess
+[50:23] to a decisive action.
+[50:26] Today, we are completely rethinking the data platform.
+[50:29] We call it the Agenetic Data Cloud.
+[50:34] To make this real, I'm thrilled to share
+[50:37] four foundational innovations.
+[50:40] It all starts with the foundation of truth.
+[50:43] Right now, your data is trapped in PDFs, video calls,
+[50:47] multiple data stores, and SaaS applications.
+[50:51] How do we help AI make sense of it all?
+[50:54] Today, we are introducing the Knowledge Catalog,
+[50:57] a universal context engine for your enterprise.
+[51:01] Starting with your structured world,
+[51:03] the Knowledge Catalog natively integrates
+[51:06] with BigQuery, mapping tables and metadata
+[51:09] into unified business logic.
+[51:12] And we are going even further, extending the same capability
+[51:15] to the unstructured world as well through Smart Storage.
+[51:20] In the past, a file landing in your storage
+[51:22] sat passive, waiting for a pipeline.
+[51:25] Now, the second that image or PDF hits Google Cloud Storage,
+[51:30] they are instantly tagged, enriched, and made agent-ready--
+[51:34] zero manual data engineering.
+[51:37] Powered natively by Gemini, the Knowledge Catalog
+[51:40] goes even deeper, reading files, autonomously extracting
+[51:44] entities, mapping relationships, and learning
+[51:48] about your unique business semantics.
+[51:51] When an agent hears net revenue or risk,
+[51:54] it understands the exact meaning.
+[51:57] Take Virgin Media O2.
+[51:59] They had over 20,000 data assets,
+[52:01] many of which were untapped.
+[52:04] Knowledge Catalog is helping them
+[52:06] activate this data to empower their global product teams.
+[52:11] Now, combined with direct zero-copy access
+[52:14] to applications, operating systems, and AI platforms
+[52:17] like Palantir, Salesforce, SAP, ServiceNow, and Workday,
+[52:22] you now have instant context to your entire business.
+[52:28] [APPLAUSE]
+[52:30] That's right.
+[52:33] This trusted context enables agents to act with certainty.
+[52:39] Now imagine this power in the hands
+[52:41] of every employee, every day.
+[52:44] We've integrated the Knowledge Catalog with Gemini Enterprise's
+[52:48] Deep Research Agent.
+[52:50] You can now enable multi-step reasoning
+[52:53] across internal and web data for precise cited business answers.
+[52:58] What took weeks of manual effort now happens seamlessly.
+[53:05] This is the Knowledge Catalog.
+[53:08] Second, we are unveiling a Gemini-powered data science
+[53:12] authoring experience that fundamentally transforms
+[53:16] how data practitioners work with our new Data Agent Kit.
+[53:22] We didn't just want to build another platform
+[53:24] you have to learn.
+[53:25] Instead, the Data Agent Kit integrates comprehensively
+[53:31] with libraries of AI skills and plugins directly
+[53:34] into your workflows that you already use.
+[53:37] Your IDE, your notebook, your terminal,
+[53:40] whether you are in VS Code, Cloud Code, or Gemini CLI,
+[53:44] we instantly turn your everyday workspace
+[53:47] into a native data environment.
+[53:49] Here's how it works.
+[53:51] You just state your intent, predict customer churn,
+[53:56] and your environment simply takes over.
+[53:59] It autonomously builds the pipelines
+[54:01] and deploys the models right on Google's Agentic Data Cloud.
+[54:06] It handles all the complex orchestration for you,
+[54:09] creating a direct path from your business objective
+[54:12] straight to the business outcome.
+[54:15] For researchers at Bayer Crop Science,
+[54:17] this eliminates manual data management and analytics,
+[54:21] freeing them to focus on pioneering agricultural
+[54:24] innovations for a sustainable and productive future.
+[54:30] Third, the demand on data is extreme in this agentic era.
+[54:35] To address the scale challenge, we're
+[54:37] unleashing the Lightning Engine for Apache Spark.
+[54:41] It not only delivers industry-leading performance
+[54:44] for Spark.
+[54:45] Lightning Engine delivers up to 2x the price performance over
+[54:50] the previous market leader.
+[54:52] [APPLAUSE]
+[54:57] We fundamentally rebuilt this engine for the agentic era,
+[55:01] reasoning with trusted context enables autonomous agents,
+[55:05] and with the Lightning Engine, that autonomy
+[55:08] operates at massive scale.
+[55:12] Industry-leading organizations like Flipkart,
+[55:14] Lowe's, and Meesho are accelerating their Apache Spark
+[55:18] workloads with Lightning Engine.
+[55:23] Finally, let's address the biggest
+[55:25] and the longest-running debate of all.
+[55:28] Where should your data reside?
+[55:30] The reality is it lives everywhere--
+[55:33] at Google, at AWS, Azure, and across your SaaS applications.
+[55:38] Your old lakehouse expected the analytical engine and the data
+[55:42] storage to reside in the same cloud.
+[55:45] This approach is broken.
+[55:48] Today, we are introducing the Cross-Cloud Lakehouse,
+[55:53] where your analytical engine reasons over data in any cloud.
+[55:59] [APPLAUSE]
+[56:04] Built on the open Apache Iceberg standard,
+[56:07] it is completely borderless.
+[56:09] Instead of forcing you to accept complex networking hurdles
+[56:13] or massive egress fees, we deliver low-latency direct
+[56:16] connectivity to AWS and Azure as if the data sat natively
+[56:21] in Google Cloud--
+[56:23] no more moving data, no more vendor lock in-- just freedom.
+[56:29] [APPLAUSE]
+[56:33] No matter where your data lives, from traditional systems
+[56:36] to SaaS applications, we provide the trusted context
+[56:40] and connectivity your business needs to act upon.
+[56:44] This is why customers are choosing our Agentic Data
+[56:48] Cloud to drive their agentic transformation.
+[56:53] One example of this transformation is Vodafone.
+[56:57] Vodafone unified their data on BigQuery
+[57:00] to build a more resilient global network for their customers.
+[57:04] And with Gemini Enterprise, they are launching hundreds of agents
+[57:08] to proactively resolve outages and optimize infrastructure,
+[57:12] scaling network reliability and saving millions every year.
+[57:18] Macquarie Bank's goal was to securely scale
+[57:21] AI across their entire operation to deliver
+[57:24] more personalized customer experiences.
+[57:27] They deployed Gemini Enterprise to all staff
+[57:30] and supercharged productivity.
+[57:32] And for their two million customers,
+[57:34] Macquarie's 24 by 7 AI assistant queue autonomously
+[57:39] answers banking questions.
+[57:42] All of this was made possible by unifying their data
+[57:45] on BigQuery and Spanner.
+[57:48] With this foundation, Macquarie has already cut client losses
+[57:52] from scams by half.
+[57:55] That's secure, frictionless banking at scale.
+[58:00] American Express is redefining trust
+[58:03] by centralizing its core data on Google Cloud
+[58:06] to enable faster fraud and risk analysis at global scale.
+[58:11] Costco leverages BigQuery to accelerate member insights,
+[58:15] empowering associates to optimize experience and maximize
+[58:19] value for millions of members.
+[58:22] This is the Agentic Data Cloud.
+[58:25] You and your AI agents now have a platform
+[58:27] that operates with universal context,
+[58:30] is defined by your defined intent,
+[58:33] and scales autonomously across your borderless data
+[58:37] and the applications you already use today.
+[58:40] [APPLAUSE]
+[58:44] To show you how to bring trusted context to your business,
+[58:48] please welcome Yasmeen Ahmad.
+[58:51] [UPBEAT MUSIC]
+[59:02] YASMEEN AHMAD: Karthik gave us the recipe,
+[59:04] so now let's see how it all plates up.
+[59:07] Most companies take five weeks to turn a trend into a decision.
+[59:11] We're going to do it in five minutes.
+[59:14] To get there, we're breaking three barriers--
+[59:17] dark data with our Knowledge Catalog, data
+[59:20] silos with our Cross-Cloud Lakehouse, and manual code
+[59:23] with Google's new agentic tools and skills.
+[59:27] So let's get cooking.
+[59:29] Our new agentic workflow triggers
+[59:31] have detected a tasty trend--
+[59:33] Midnight Swirl froyo.
+[59:36] Looks delicious.
+[59:37] But with any new flavor, I need to know is it safe?
+[59:41] Are there any hidden allergens?
+[59:43] Is there a market?
+[59:44] Where are my hungry customers?
+[59:46] And is it worth it?
+[59:47] What's the real ROI?
+[59:49] But first, safety.
+[59:52] We have thousands of PDF recipes.
+[59:55] I'm going to search for soy.
+[59:57] It's a top food allergen, and safety is non-negotiable.
+[60:01] Zero results-- looks good so far.
+[60:05] But this recipe does contain an ingredient, base 204.
+[60:10] Let's check the supplier manual for base 204.
+[60:14] And here it is.
+[60:16] Base 204 actually contains soy.
+[60:19] A simple GenAI search would miss this connection
+[60:22] because the information is trapped
+[60:25] across two separate PDFs.
+[60:27] So how do we digest all of this data
+[60:30] to find those hidden connections?
+[60:32] Well, I need an agent that has the skill
+[60:35] to work with my PDF data combined with our Knowledge
+[60:38] Catalog.
+[60:40] Watch.
+[60:41] Our agent helps us find hidden allergens
+[60:43] in a recipe for Midnight Swirl.
+[60:46] And here it is.
+[60:48] Midnight Swirl contains soy, and it's giving me a data citation,
+[60:53] a schema called product specs.
+[60:55] Now, this schema was generated by our Knowledge Catalog,
+[60:59] working with Gemini to reason over our supplier and recipe
+[61:03] PDFs and extract entities like recipe, ingredient, and allergen
+[61:09] and mapping those previously invisible connections
+[61:12] between them.
+[61:13] This is trusted context built over dark data.
+[61:18] Next, market size-- to launch this globally,
+[61:22] I need a precision list of customers
+[61:24] with zero soy allergies.
+[61:27] However, I have two data sets that have never met.
+[61:30] Our allergen schema is here in Google,
+[61:33] while my loyalty list with millions
+[61:36] of customers and dietary preferences
+[61:38] is in AWS S3 Iceberg.
+[61:42] Now, usually you'd call your data engineer
+[61:44] and wait three days for a migration.
+[61:47] Not today.
+[61:48] No more slow churn.
+[61:51] With our cross-cloud Lakehouse, the data
+[61:53] stays exactly where it is while we dynamically build the list.
+[61:58] Before writing a single line of code,
+[62:00] Gemini builds a plan using our data engineering
+[62:03] tools while respecting my built-in security
+[62:06] and permissions.
+[62:07] As the data scientist, you're the chef.
+[62:11] You can review.
+[62:13] Let's accept and see what our agents serve up.
+[62:17] They execute on our Lightning Engine,
+[62:20] which is two times more price-performant than the market
+[62:23] proprietary alternative, filtering
+[62:26] our soy-sensitive customers in mere seconds.
+[62:32] AWS and BigQuery sources connected--
+[62:35] zero complexity.
+[62:36] It's as smooth as a batch of Midnight Swirl.
+[62:40] Finally, ROI-- is this worth a global launch?
+[62:44] An annual forecast would help.
+[62:48] Again, our agents don't guess.
+[62:50] Gemini builds a multi-step execution plan.
+[62:54] Can you make changes?
+[62:55] Yes, Chef.
+[62:57] So let's take a look and change the number of simulations from
+[63:02] 1,000 to 2,000.
+[63:06] And we will accept.
+[63:10] Acting as the orchestrator, Gemini delegates
+[63:13] to our specialized data science tools,
+[63:15] choosing the right models, and again,
+[63:17] executing on our Lightning Engine for Spark.
+[63:21] It's built an entire notebook for me.
+[63:24] Now, training usually takes a bit of time,
+[63:26] so here's one I ran earlier.
+[63:29] $15 million.
+[63:32] Even after protecting our soy-sensitive market,
+[63:35] the demand is massive.
+[63:37] Can we bring back the timer?
+[63:39] Look what we accomplished.
+[63:41] In less than five minutes, we turned a viral trend
+[63:44] into a $15 million decision.
+[63:47] First, Knowledge Catalog found the hidden soy connection.
+[63:51] Second, Cross-Cloud Lakehouse, powered by the Lightning Engine,
+[63:55] connected to AWS with zero complexity.
+[63:59] And third, our agentic skills and tools built the forecast
+[64:03] with zero manual code.
+[64:05] This is the Agentic Data Cloud.
+[64:08] [TIMER BEEPING]
+[64:10] [CHEERING, APPLAUSE]
+[64:17] We did it.
+[64:18] And now, here to share how we're securing
+[64:21] your agentic enterprise, please welcome Francis deSouza
+[64:26] [UPBEAT MUSIC]
+[64:40] FRANCIS DE SOUZA: In an agentic enterprise,
+[64:42] giving agents the power to act means
+[64:45] that security must become an autonomous force, moving faster
+[64:49] than the threats themselves.
+[64:51] Human analysts simply can't keep up with AI-driven attacks.
+[64:56] The mean time to exploit the vulnerability
+[64:59] has dropped to minus seven days, meaning
+[65:01] that today exploits routinely occur before a patch is
+[65:06] released, and the handoff time between initial access
+[65:10] and handover to a secondary threat group
+[65:13] has dropped from eight hours to 22 seconds.
+[65:17] Your security must operate at machine speed.
+[65:21] Now, to do that, we're moving the heavy lifting
+[65:24] to a Gemini-native agentic Security Operations
+[65:28] Center, or SOC.
+[65:30] And the results are already here.
+[65:32] Our triage agents are turning 30-minute investigations
+[65:36] into 60-second resolutions.
+[65:40] And our new threat hunting and detection agents
+[65:43] proactively sweep your environments
+[65:44] for risks at a scale and speed that no human team could match.
+[65:51] By leveraging Google's unparalleled telemetry,
+[65:54] including Mandiant, VirusTotal, and Chrome,
+[65:57] we are delivering a defense system
+[65:59] based on global intelligence.
+[66:02] And now, with our integrated dark web intelligence,
+[66:06] we can identify external threats with 98% accuracy.
+[66:11] Customers are already seeing big benefits
+[66:13] from Google Cloud's security offerings.
+[66:16] CME Group depends on a unified stack of Mandiant Security
+[66:21] Command Center and Google's SecOps
+[66:23] to protect the world's largest derivatives
+[66:26] system against novel threats.
+[66:30] In an ultra high-stakes environment,
+[66:33] Google's security offering is matched by speed.
+[66:37] CME Group achieves nanosecond precision
+[66:40] with Google's ultra low-latency solution,
+[66:43] supporting billions of transactions
+[66:46] daily and lowering the barrier of entry for new traders.
+[66:50] Now, the biggest threats today aren't just hackers.
+[66:53] It's also shadow AI, unauthorized models and agents
+[66:58] that are operating in your enterprise
+[67:00] but outside your control.
+[67:02] And to meet this challenge, we have
+[67:04] integrated the industry's deepest security context
+[67:08] directly into our AI fabric.
+[67:11] That is why I am thrilled to officially welcome
+[67:14] the Wiz team to Google Cloud.
+[67:17] [APPLAUSE]
+[67:24] Together, we are building a new security posture
+[67:27] for the agentic enterprise.
+[67:29] While the New agent platform in Gemini Enterprise
+[67:32] secures and governs your agents, with Wiz,
+[67:35] we're now extending that protection
+[67:37] to every asset on your premises and across all major clouds.
+[67:43] To explain how we're solving this,
+[67:45] I'm excited to introduce to the stage Wiz co-founder Yinon
+[67:49] Costica.
+[67:51] [UPBEAT MUSIC]
+[68:07] YINON COSTICA: Thank you, Francis.
+[68:09] At Wiz, our mission from day one has
+[68:12] been to help customers protect everything they build and run.
+[68:17] Wiz began by unifying code and cloud and runtime context
+[68:21] to move at developer speed.
+[68:23] But AI has fundamentally changed the environment.
+[68:28] With autonomous products, hyperscale code generation,
+[68:31] and AI-weaponized threats, the stakes have never been higher.
+[68:36] To protect this new frontier, security
+[68:39] must now move at machine speed.
+[68:42] And that is exactly why we built Wiz
+[68:45] as the first AI Application Protection
+[68:48] Platform, or in short, AI APP.
+[68:51] It solves four key security challenges for the AI era--
+[68:55] giving security unparalleled visibility into the AI stack,
+[69:00] finding and proactively remediating critical risks
+[69:05] before attackers can use them, enabling our builders
+[69:09] to start secure by design in their AI
+[69:12] enabled IDEs, and lastly, arming SecOps teams to stop threats
+[69:17] to cloud and AI environments.
+[69:19] In order to outpace attackers, Wiz
+[69:22] delivers a set of expert AI agents.
+[69:26] It's a really cool concept.
+[69:28] Our red, blue, and green agents are
+[69:32] named after the teams they help-- red, blue,
+[69:35] and green teams.
+[69:36] They form an AI layer to autonomously identify,
+[69:40] investigate, and then fix critical risks at machine speed,
+[69:44] leveraging context from our unique security graph.
+[69:49] Security starts with visibility, always.
+[69:52] But today.
+[69:53] Your AI footprint is an orbit of interconnected tools.
+[69:57] It spins models like Gemini, Claude, OpenAI.
+[70:01] Your teams are using agent studios
+[70:03] such as Gemini Enterprise Agent Platform, Lovable, Copilot
+[70:09] Studio, Salesforce's Agentforce.
+[70:12] And to secure all of these environments,
+[70:14] we examine every layer--
+[70:17] the clouds, the data, the models, the agents.
+[70:21] And we continuously correlate these risks
+[70:24] to find and fix the attack path that matter most.
+[70:28] Now let's see it in action.
+[70:31] [UPBEAT MUSIC]
+[70:40] So this is Wiz.
+[70:42] Wiz basically starts by automatically building
+[70:45] a dynamic inventory from your code and cloud,
+[70:48] completely agentlessly.
+[70:50] This means that you can see every visibility
+[70:54] into the environment, into everything
+[70:56] that your teams are building using AI, without any friction.
+[71:02] Wiz then builds the security graph.
+[71:05] The security graph-- think of it as a living map that
+[71:08] explains the architecture and the logic of any AI application
+[71:12] it sees.
+[71:13] Here we see an example of an agent that
+[71:15] is actually running on cloud.
+[71:18] It has tools to query a database and even execute code.
+[71:22] And you can see that Wiz actually
+[71:25] flags that this agent is internet-exposed.
+[71:29] And also, it has access to sensitive customer data.
+[71:33] Now, this is security moving at the speed of AI.
+[71:38] You don't need any reviews with your development teams.
+[71:41] It just works.
+[71:43] And in the AI era, the best defense
+[71:47] is to continuously use AI against ourselves
+[71:50] in order to give the defenders the first-mover advantage
+[71:55] over the attackers.
+[71:56] And this is exactly what the Wiz Red Agent does.
+[72:00] It validates every single exposure that Wiz identified.
+[72:04] And you can think of it as a friendly hacker
+[72:07] that continuously scans your outside like an elite red team.
+[72:12] And look, this is a finding that the Red Agent actually
+[72:16] found-- an authentication bypass vulnerability.
+[72:20] This means that it enables an attacker
+[72:23] to gain access to that agent but also to that sensitive database
+[72:28] behind it to exfiltrate sensitive information.
+[72:32] Now, it's not a potential risk anymore.
+[72:35] This is a validated risk.
+[72:37] And this gives our developers the prioritization
+[72:41] and the confidence in fixing it immediately.
+[72:44] Now, in the past, triage used to mean very, very long meetings
+[72:49] and waiting and spreadsheets.
+[72:51] And you don't need that anymore because we have the Wiz Green
+[72:56] Agent.
+[72:57] The Wiz Green Agent automates the entire triage process
+[73:02] from identifying the owner, suggesting the fix,
+[73:06] identifying the exact line of code that
+[73:09] caused the risk in the first place--
+[73:11] all automated-- no phone tag, no friction.
+[73:14] And from here, you have a choice.
+[73:15] You can send it to the developers as a PR,
+[73:18] or maybe better, send it to a coding agent like CodeMender
+[73:23] to execute the final fix at the source automatically.
+[73:26] And this is how we can move from a validated risk
+[73:30] to a verified fix, end-to-end visibility, control,
+[73:34] and full confidence.
+[73:36] So to summarize, whenever you have an AI team that
+[73:40] ships a new product or even someone in finance
+[73:44] that then codes a new agent, now, within minutes, security
+[73:48] is able to, one, identify the agent and its architecture, two,
+[73:53] automatically conduct a security review to find and validate
+[73:57] the risks, and three, automatically suggest the fix,
+[74:00] send it to the dev teams in their own native tools.
+[74:03] Ta-da.
+[74:04] This is how AI agents unlock secure innovation
+[74:08] with AI at scale.
+[74:11] Thank you, all.
+[74:12] Back to you, Francis.
+[74:14] [APPLAUSE, UPBEAT MUSIC]
+[74:23] FRANCIS DE SOUZA: The unique combination
+[74:24] of Google's agentic SOC and Wiz's deep cloud context
+[74:29] gives customers the confidence to build and deploy generative
+[74:32] AI everywhere safely.
+[74:35] We're helping the Los Angeles Department of Water and Power
+[74:38] secure critical infrastructure ahead of the LA 28 games,
+[74:43] while Singapore's CSIT enables proactive defense
+[74:47] against advanced digital threats.
+[74:50] DBS strengthens security by embedding Google Cloud's
+[74:53] protection directly into their architecture,
+[74:56] enabling real-time threat detection and response,
+[74:59] reinforcing customer trust.
+[75:02] Morgan Stanley chose Wiz as a key component of its cloud
+[75:06] security strategy and is expanding visibility and control
+[75:10] across its cloud environments.
+[75:12] Now, as part of this strategy, the firm
+[75:14] is deploying Google Cloud Security capabilities to support
+[75:18] its evolving cloud platforms.
+[75:21] And trusted global icons from Nestlé
+[75:24] to LVMH, from BMW to Shell, rely on Wiz
+[75:28] and Google Cloud Security to ensure their AI-driven future
+[75:32] is secure by design.
+[75:34] We have closed the loop between the defender and the builder.
+[75:38] Google and Wiz provide a unified agentic defense
+[75:43] that is secure by design and autonomous by nature.
+[75:47] Together, we are redefining cybersecurity for the AI era
+[75:52] so security teams can protect their organizations at machine
+[75:56] speed.
+[75:58] To share more about how our agents are
+[76:00] helping your customers, please welcome Carrie Tharp.
+[76:04] [UPBEAT MUSIC]
+[76:20] CARRIE THARP: Thank you, Francis.
+[76:22] A secure foundation gives you the confidence to innovate.
+[76:26] At Google, we are using that foundation
+[76:28] to solve two of your biggest challenges--
+[76:31] serving your customers and helping your employees
+[76:34] work smarter.
+[76:35] We do this by deploying a coordinated agentic task
+[76:39] force, specialized agents that don't just
+[76:43] assist your team-- they operate alongside them.
+[76:47] In the agentic era, an agent is no longer just a tool.
+[76:52] It's a strategic extension of your business, built
+[76:55] to expand your reach, deepen engagement, and personalized
+[77:00] service at scale.
+[77:02] Earlier this year, we launched Gemini Enterprise
+[77:05] for Customer Experience, a suite designed
+[77:09] to enhance the entire customer journey
+[77:11] from the first moment of discovery
+[77:14] to ongoing service interactions.
+[77:17] Central to this is agentic commerce.
+[77:20] We have introduced pre-built shopping and food
+[77:24] ordering agents that handle everything
+[77:27] from discovery to checkout entirely
+[77:30] through natural language.
+[77:31] By pairing these agents with our customer engagement agents,
+[77:36] we've created a seamless journey from search
+[77:39] to service, turning every interaction into revenue
+[77:43] and retention opportunities.
+[77:45] For example, with the food ordering agent,
+[77:48] Papa John's is building a hyper-personalized system
+[77:53] that remembers customer preferences to get
+[77:56] the food to your door faster.
+[77:58] During live interactions, Agent Assist
+[78:01] coaches employees to deliver fast and more accurate
+[78:05] answers to customer questions.
+[78:08] For example, Best Buy is guiding shoppers
+[78:11] through those complex tech specs,
+[78:13] issue resolution, and appointment scheduling,
+[78:17] all autonomously.
+[78:19] And our new omnichannel gateway helps
+[78:21] ensure your agents maintain contacts across every surface--
+[78:26] web, mobile, voice-- while preserving universal consumer
+[78:31] context.
+[78:33] If a customer moves from a text chat to a phone call,
+[78:37] the agent seamlessly remembers exactly where they left off,
+[78:41] and this scales globally, conversing
+[78:43] with human-like voice capabilities
+[78:46] in multiple languages.
+[78:48] Gemini Enterprise for Customer Experience
+[78:51] is the technology powering the Home Depot's Magic Apron
+[78:54] Assistant to reach customers across every channel.
+[78:58] Let's hear from the Home Depot.
+[79:00] JORDAN BROGGI: There's a customer journey
+[79:02] that often starts with inspiration, goes into research,
+[79:04] and then into shopping and buying and then into doing.
+[79:07] And Magic Apron is really a digital agent
+[79:09] to help through that whole journey,
+[79:11] and it is really there to provide that orange apron
+[79:15] experience for help and customer service, the same way
+[79:18] that as you come into a store, you're used
+[79:20] to that great customer service.
+[79:23] So we've had a partnership with Google for quite some time,
+[79:26] and the latest things that they're bringing to market
+[79:28] are incredibly exciting to us.
+[79:31] ANGIE BROWN: We're really excited about Magic Apron
+[79:34] Shopping Assistant.
+[79:36] Our relationship with Google has really made this possible
+[79:38] in a variety of different ways.
+[79:40] If you just focus for a second on Gemini Enterprise
+[79:43] and you think about how it's the bedrock of what we are doing
+[79:46] with Magic Apron, it gives us the power
+[79:49] and the speed in which we need in order to power
+[79:53] these great technologies.
+[79:54] JORDAN BROGGI: Now, with Gemini Enterprise,
+[79:56] we think that we can blend those channels because we'll
+[79:59] have an agentic back end.
+[80:01] Maybe most importantly, we see a higher conversion rate when they
+[80:05] leverage the tool versus when they don't.
+[80:08] When customers come into the store and they use Magic Apron,
+[80:10] typically it's about wayfinding.
+[80:12] It's about product knowledge.
+[80:13] It's about compatibility.
+[80:15] But they also use it at home on our website.
+[80:17] Those experiences should all get better-- easier
+[80:20] to be inspired, easier to find what I need, easier
+[80:23] to order it and get it, easier to get support after the fact.
+[80:26] ANGIE BROWN: The partnership really
+[80:27] keeps us at the forefront of building
+[80:29] great experiences for our customers and our associates.
+[80:35] [APPLAUSE]
+[80:41] CARRIE THARP: The same agentic approach
+[80:43] is also reshaping digital-first industries.
+[80:47] One example of this is Reliance.
+[80:49] Reliance is transforming retail for millions in India
+[80:53] with a shopping agent.
+[80:55] Customers can simply type "plan a birthday party,"
+[80:58] and the agent guides their journey across categories
+[81:01] and assembles their cart, which drives more revenue per visit.
+[81:06] Gemini-powered catalog enrichment
+[81:09] supports this, analyzing millions of images
+[81:12] in minutes instead of months.
+[81:15] Gemini Enterprise for Customer Experience
+[81:17] is hard at work across many industries and enterprises.
+[81:22] Internally, teams at Google, including Google Store,
+[81:26] Google Photos, Google One, and YouTube,
+[81:30] are partnering with us to power our own scaled customer
+[81:34] experiences.
+[81:35] Let's take a look at how one of our first internal customers
+[81:39] is doing this.
+[81:40] Over to you, Patrick.
+[81:42] [UPBEAT MUSIC]
+[81:51] PATRICK MARLOW: All right.
+[81:52] Thanks, Carrie.
+[81:53] Hey, y'all.
+[81:54] I'm Patrick Marlow, a senior product manager
+[81:56] here at Google Cloud.
+[81:57] YouTube TV customer support recently launched a voice agent
+[82:00] to help users with NFL Sunday Ticket and YouTube TV plan
+[82:04] subscriptions.
+[82:05] It's currently live in production,
+[82:07] serving 100% of their users.
+[82:09] We're going to take a look at it in action today.
+[82:11] I'm going to call the support number now.
+[82:18] SPEAKER 4: Thanks for calling the YouTube TV and NFL Sunday
+[82:21] Ticket Support Line.
+[82:22] So tell me, how can I help you today?
+[82:24] PATRICK MARLOW: Hey yeah, I've got
+[82:25] a bunch of my friends coming over tomorrow night for the NFL
+[82:27] draft.
+[82:28] I don't have cable.
+[82:29] And to be honest, I really only watch sports.
+[82:31] Does YouTube TV have a plan that's just for that?
+[82:37] SPEAKER 4: Yes, we do.
+[82:38] The YouTube TV Sports Plan has exactly what
+[82:41] you're looking for, plus over 30 other sports channels.
+[82:45] It's $18 less per month than the base plan.
+[82:48] Would you like me to text you a link to the number
+[82:50] you're calling from that will take you directly--
+[82:52] PATRICK MARLOW: Yeah, go ahead and send me a link.
+[82:53] I'll take a look at it.
+[83:00] SPEAKER 4: Great, I just sent the link to your mobile phone.
+[83:02] Is there anything else I can help with today?
+[83:05] PATRICK MARLOW: Yeah, I'm going to take a look at this now.
+[83:07] Actually, my father-in-law is hanging out with me here today.
+[83:10] He's been thinking about getting the sports plan for his account
+[83:12] as well.
+[83:13] I just wanted to see what he thinks about this.
+[83:15] [SPEAKING SPANISH]
+[83:19] Actually, could you just quickly summarize this plan for him
+[83:21] in Spanish?
+[83:22] I think he just wants to know that he can get both football e
+[83:25] football.
+[83:28] SPEAKER 4: [SPEAKING SPANISH]
+[83:42] PATRICK MARLOW: Look, one other question.
+[83:44] I was planning on setting up multiple TVs
+[83:46] throughout the house, like one in the living room,
+[83:48] one over on the patio.
+[83:49] Would that be OK with this plan?
+[83:53] SPEAKER 4: Definitely, with the Sports Plan,
+[83:55] you can stream on up to three screens at the same time.
+[83:58] Is there anything else?
+[83:59] PATRICK MARLOW: Awesome.
+[84:00] No, look, I'm actually in the middle
+[84:02] of a stadium full of people right now,
+[84:03] and I think there's millions watching me on the live stream.
+[84:06] So I kind of got to run.
+[84:07] All right.
+[84:07] You've been helpful.
+[84:08] Later.
+[84:11] [APPLAUSE]
+[84:16] All right.
+[84:17] Now, that was pretty easy.
+[84:19] The agent was able to handle complex product logic
+[84:21] and seamlessly pivoted languages.
+[84:23] But what happens if the team wants to make a change?
+[84:26] They don't need a bunch of software engineers updating
+[84:29] endless lines of code.
+[84:30] They just need CX Agent Studio.
+[84:33] Here, we have our Visual Builder, inside
+[84:35] of CX Agent Studio, which is designed
+[84:37] to give you complete transparency
+[84:39] and control over your entire agent-building experience.
+[84:42] This is the behind-the-scenes look
+[84:44] at the actual YouTube TV's agent that they put in production.
+[84:47] The orchestration is managed across
+[84:49] multiple specialized agents, which can handle even
+[84:52] the most complex requests.
+[84:54] And with our built-in test interface,
+[84:56] you can ensure that every answer is grounded, factual, and pulled
+[85:01] directly from a knowledge base, like the Agents Price Finder
+[85:04] tool here.
+[85:05] And the best part?
+[85:06] YouTube TV customer support built
+[85:09] and deployed this entire experience in just six weeks.
+[85:13] Now, let's say that the team wants to run a promotion.
+[85:16] It's really simple for me to add a new subagent here.
+[85:19] Click Add a New Subagent.
+[85:21] And I will make this our new promotions agent.
+[85:26] Say promotions.
+[85:28] I'll hit Save.
+[85:29] And then I'm going to quickly add
+[85:31] a set of business logic via instructions in natural language
+[85:36] to our agent.
+[85:37] I'll hit Create.
+[85:39] And just like that, our multi-agent system
+[85:42] has instantly adapted to this new specialized agent.
+[85:45] It's really that simple.
+[85:47] Finally, with conversational insights,
+[85:50] the YouTube TV team can instantly
+[85:51] see how these calls are performing,
+[85:53] all within the same platform.
+[85:55] Here's one of my test calls from earlier this morning.
+[85:58] Now, let's recap.
+[86:00] We just turned a routine support call
+[86:02] into a multilingual upgrade and a globally deployed promotion,
+[86:06] all in under four minutes.
+[86:08] This is the power of Gemini Enterprise
+[86:10] for Customer Experience.
+[86:12] It gives you enterprise-grade reasoning, deep tool
+[86:15] integration, a powerful Visual Builder, and insights
+[86:18] to iterate at the speed of your business.
+[86:21] We can't wait to see what you will build next.
+[86:25] Thank you.
+[86:26] [UPBEAT MUSIC, APPLAUSE]
+[86:30] SPEAKER 1: Please welcome VP of product,
+[86:32] Google Workspace, Yulie Kwon Kim.
+[86:36] [UPBEAT MUSIC]
+[86:50] YULIE KWON KIM: Google Workspace is the world's most popular
+[86:53] productivity tool.
+[86:54] But even with the best tools at our fingertips,
+[86:58] work can still feel incredibly fragmented.
+[87:01] We've all been there.
+[87:03] You're trying to answer one simple question,
+[87:05] and 10 minutes later, you have 15 tabs open.
+[87:09] You're jumping from a stale email
+[87:11] to a slide deck that's being edited as you watch
+[87:13] and digging through a spreadsheet
+[87:15] just to find a quick answer.
+[87:18] We all spend half our day finding information
+[87:21] and the other half figuring out what to do with it.
+[87:25] What if you could skip both?
+[87:29] Today, we're introducing Workspace Intelligence.
+[87:33] [APPLAUSE]
+[87:37] With the advanced reasoning capabilities of Gemini
+[87:40] and state-of-the-art embedding models,
+[87:42] we're eliminating context fragmentation across
+[87:45] the Workspace suite.
+[87:48] Think of it as a unified intelligence
+[87:50] layer that lives inside every Workspace app.
+[87:53] It connects the dots and lets AI do the heavy lifting.
+[87:57] Let's see it in action.
+[88:00] [UPBEAT MUSIC]
+[88:10] So remember that furniture rebrand you saw earlier?
+[88:14] Let's say I'm the regional distributor,
+[88:16] and here I am in Google Chat.
+[88:19] This is where I collaborate with my colleagues and now my agents,
+[88:22] all in one place.
+[88:24] I'm here in the Regional Managers chat space.
+[88:27] And look at this.
+[88:28] The Regional Operations Agent, which
+[88:31] we built in Gemini Enterprise, just
+[88:34] alerted the team that our new display kits are arriving early.
+[88:38] And as you can see, I have multiple chats blowing up.
+[88:44] What do I need to do next?
+[88:46] With Ask Gemini, Google Chat becomes my Command Center.
+[88:53] Look here.
+[88:54] Gemini tells me exactly what matters right now.
+[88:58] See?
+[89:01] It surfaced an urgent task.
+[89:02] It linked the pitch deck that I need to localize,
+[89:05] and it flagged my 4:00 PM deadline for the regional plan.
+[89:09] The gathering is done.
+[89:10] And I haven't opened a single extra tab.
+[89:14] Now, to build this plan, I remember
+[89:17] we had a great chart that showed regional sales last quarter--
+[89:22] somewhere.
+[89:23] Normally, this is where the hunt begins.
+[89:26] I jump into a folder and stare at dozens of files.
+[89:30] Instead, I'll ask Gemini.
+[89:34] Find the merchandising playbook from last quarter,
+[89:38] the one with the chart showing regional sales.
+[89:41] This isn't just keyword matching.
+[89:43] Workspace Intelligence understands
+[89:45] the context of my meetings and the content inside my files.
+[89:50] Here it is.
+[89:51] It pointed me directly to the dock with the exact graph
+[89:55] I need--
+[89:56] a needle in a haystack, solved in seconds.
+[90:00] Now I need to turn this scattered data
+[90:03] into a regional plan.
+[90:05] I have a standard format for briefing store managers,
+[90:08] and with Ask Gemini, I basically say just do it for me.
+[90:12] Watch this.
+[90:15] Let's see, use the regional campaign skill to-- oops,
+[90:25] create a deck with a plan for organic living.
+[90:29] By tagging that specific skill, Workspace Intelligence
+[90:33] goes to work.
+[90:34] It cross-references my emails, my chats, my other docs.
+[90:38] It pulls live HubSpot win-loss data.
+[90:40] It uses our corporate branding, all to generate a new Google
+[90:44] slide deck.
+[90:46] It's hard at work pulling that deck together.
+[90:49] And here it is.
+[90:51] And in the citations up here, you
+[90:53] can see all the sources Workspace Intelligence pulled in
+[90:57] without me having to ask--
+[90:59] the emails, the chats, the other files.
+[91:03] Should we take a look?
+[91:06] Yeah, look at this.
+[91:09] It's beautiful.
+[91:11] It matches my brand, and it's consistent with how
+[91:14] I've structured all of my regional plan decks in the past.
+[91:17] And it looks like it was designed by a creative pro, not
+[91:22] a terminal.
+[91:23] I'm ready to brief my team.
+[91:26] Workspace Intelligence is the end of the context tax.
+[91:30] It transforms how you work by turning fragmented information
+[91:34] into a clear path forward.
+[91:36] No complicated setup.
+[91:38] It's secure.
+[91:39] It's integrated.
+[91:40] It just works.
+[91:43] By moving from simple automation to full-scale AI orchestration,
+[91:47] industry leaders are using Workspace to fundamentally
+[91:50] redefine global productivity.
+[91:53] For example, customers like Colgate-Palmolive rolled out
+[91:57] Google Workspace to 34,000 employees.
+[92:00] AI agents built on Gemini helped their teams drive innovation,
+[92:04] turning data into new product concepts in minutes, not months.
+[92:09] And they drive business growth by unlocking actionable insights
+[92:12] from decades of sales history, empowering their teams
+[92:16] to help brighten millions of smiles every morning.
+[92:20] At Natura, custom agents are accelerating data-driven
+[92:24] reporting by 10x, while at Korean Air,
+[92:28] over 22,000 global employees use AI agents and tools
+[92:32] to accelerate high-impact operational and care tasks.
+[92:36] And at Compass Real Estate, Gemini
+[92:39] is managing tasks for employees so they
+[92:41] can focus on valuable client relationships.
+[92:45] We know many companies want to make the shift to Workspace
+[92:49] but worry about the complexity of migration.
+[92:52] I'm thrilled to announce that migrating
+[92:55] your entire organization, including complex and finance
+[92:59] teams from Microsoft 365 to Google Workspace,
+[93:03] is now up to five times faster, thanks to our new migration
+[93:08] and interoperability enhancements.
+[93:12] Today, you've seen what it looks like to fundamentally change
+[93:16] how your employees operate.
+[93:19] Go ahead, close those 15 tabs.
+[93:22] Workspace Intelligence is now ready to do
+[93:25] the heavy lifting for you.
+[93:27] Thomas, over to you.
+[93:29] [UPBEAT MUSIC, APPLAUSE]
+[93:43] THOMAS KURIAN: Wasn't that amazing?
+[93:45] [CHEERING, APPLAUSE]
+[93:50] Thank you, Yulie.
+[93:52] Before we close, let's take a look
+[93:54] at one of the most respected brands in the world.
+[93:57] Serving 3.7 billion people around the world,
+[94:01] Unilever chose Google Cloud to build and deploy agents
+[94:05] at scale.
+[94:06] Let's hear their story.
+[94:10] LEANDRO BARRETO: At Unilever, we serve 3.7 billion people
+[94:13] every day with our products.
+[94:15] We need to understand these individuals at a unique level,
+[94:19] and that's what the partnership with Google Cloud
+[94:22] allows us to do.
+[94:23] It's about personalization at scale, desire at scale,
+[94:28] and that's very unique.
+[94:29] And it's at the core of our strategy.
+[94:33] SAM KINI: We are connecting our business end-to-end
+[94:35] for faster AI deployment across the enterprise.
+[94:38] This means using AI to supercharge demand generation,
+[94:42] get early access to advanced AI and large language models,
+[94:45] and build even stronger partnerships with retailers,
+[94:47] connecting data in smarter ways so we can grow together.
+[94:50] Underpinning all of this is a strong digital backbone
+[94:54] powered by Google Cloud.
+[94:57] DAPHNE COATES: So my role is to operationalize
+[94:59] this really exciting vision, co-creating that with Google
+[95:02] to deliver our agentic foundations so
+[95:04] that our agents can be architected for performance,
+[95:08] scale, security, and observability right
+[95:10] from the outset.
+[95:12] The competitive buying multiagentic solution,
+[95:14] co-created with our Horizon3 Labs,
+[95:16] is leveraging core Google Cloud technologies such as Gemini
+[95:20] Enterprise and ADK, your Agent Development Kit,
+[95:22] and the underlying Gemini models.
+[95:25] So this solution orchestrates a multitude of agents
+[95:28] together through one single user interface.
+[95:30] This helps my procurement colleagues
+[95:32] make analysis and decisions in minutes instead of days.
+[95:36] This solution has enabled us to make smarter sourcing decisions.
+[95:40] SAM KINI: With Google Cloud, we are turning intelligence
+[95:42] into a growth engine.
+[95:47] [APPLAUSE]
+[95:53] THOMAS KURIAN: There's one final difference
+[95:55] in how we work with you.
+[95:56] We believe the future of AI must be open.
+[96:00] While others want to lock you into a wall garden that
+[96:03] owns your models, your data, and your agents,
+[96:06] we offer you an integrated stack,
+[96:09] but the freedom to choose the world's best chips and models,
+[96:13] the freedom to run AI wherever your data may live,
+[96:17] the freedom to control your own destiny with deep governance
+[96:20] features.
+[96:21] We scale this mission through our partners,
+[96:25] with whom we're building a broad and deep network
+[96:28] of forward-deployed engineers, including Accenture, BCG,
+[96:33] Deloitte, and McKinsey, who've announced
+[96:35] major expansion of their Google Gemini AI practices.
+[96:40] Along with AI-led service partners like Quantium, Distil
+[96:45] and Tribe.AI, we're helping independent software vendors
+[96:49] and SaaS companies transform their solutions with Gemini
+[96:53] Enterprise Agent Platform.
+[96:55] And we're bringing AI to small to medium-sized businesses
+[97:00] by helping them adopt Gemini Enterprise and our AI
+[97:04] advances in Workspace that work so seamlessly together now.
+[97:09] We've covered a lot of ground today.
+[97:11] We've introduced our agentic blueprint
+[97:13] as a foundation for agents to transform your companies--
+[97:18] first, the AI Hypercomputer, the purpose-built foundation
+[97:22] optimized for the physics of the agentic era; second,
+[97:26] the Agentic Data Cloud, the engine that provides agents with
+[97:30] trusted business context; Agentic Defense,
+[97:34] the autonomous protection that secures your entire AI
+[97:38] lifecycle; fourth, the Gemini Enterprise Agent Platform,
+[97:43] a new agentic platform with state-of-the-art models
+[97:47] to build, deploy, and manage agents; and finally,
+[97:50] the Agentic Task Force, the specialized agents that are
+[97:53] already transforming customer experience and employee
+[97:56] productivity and transforming workflows all served up to users
+[98:02] to the Gemini Enterprise Application.
+[98:05] To each of our customers and partners,
+[98:08] thank you, each of you, for being on this amazing journey
+[98:12] with us.
+[98:14] Our teams have worked so hard this last year
+[98:17] to prepare this amazing technology for you,
+[98:21] and we're all so proud of the work they've done.
+[98:24] This platform is ready.
+[98:27] So what will each of you build?
+[98:30] We have three fantastic days planned for you,
+[98:33] and a great set of sessions and spotlights still to come.
+[98:38] Thank you and have an amazing Cloud Next.
+[98:42] [CHEERING, APPLAUSE]
+[98:45] [MUSIC PLAYING]
