@@ -1,0 +1,1142 @@
+﻿[00:13] What a morning. We've had an incredible
+[00:16] set of announcements for Gemini
+[00:18] Enterprise today, including the launch
+[00:21] of the Gemini Enterprise Agent platform
+[00:24] and more on how Gemini Enterprise works
+[00:26] with Workspace in the spotlight session
+[00:28] immediately following Thomas's keynote.
+[00:31] Thank you so much for joining late in
+[00:33] the day and after a packed first day at
+[00:36] Next. Uh in this session we'll share
+[00:38] more details on what's new for Gemini
+[00:41] Enterprise, in particular the
+[00:43] application level solution that allows
+[00:46] employees to leverage AI and agents
+[00:48] throughout the enterprise.
+[00:50] I'll grab a clicker since I didn't grab
+[00:51] that.
+[00:53] I'll go to the next slide. Uh my name's
+[00:54] Jamie Deggeer. Uh I'm a product leader
+[00:57] on Google Cloud AI team working on
+[01:00] Gemini Enterprise, our agent platform,
+[01:02] developer tools.
+[01:04] And I'm joined by an esteemed panel of
+[01:07] uh colleagues today, including Dave
+[01:09] Teggart
+[01:11] who's our engineering leader for Gemini
+[01:13] Enterprise
+[01:14] and two of our most innovative customers
+[01:17] that are transforming how their
+[01:18] organizations work with Gemini
+[01:21] Enterprise.
+[01:22] Aaron Purcell is the managing director
+[01:24] of digital innovation at KPMG
+[01:28] and Lisa Nabb is the head of agentic use
+[01:31] case management at one of Germany's
+[01:33] largest insurance companies, Signal
+[01:35] Iduna.
+[01:38] So, let's dive in starting with Gemini
+[01:40] Enterprise.
+[01:42] We launched Gemini Enterprise in October
+[01:44] and have seen tremendous adoption across
+[01:47] industries.
+[01:49] Gemini Enterprise is that front door
+[01:51] to AI in the workplace.
+[01:54] It gives every employee the ability to
+[01:56] leverage AI and agents connected to all
+[01:59] of your enterprise data
+[02:01] and with the ability to take actions in
+[02:03] all of your enterprise systems.
+[02:07] Importantly, from day one Gemini
+[02:09] Enterprise has been built to be cloud
+[02:11] first and enterprise grade. And today we
+[02:14] announced the underlying platform for
+[02:16] that with the Gemini Enterprise Agent
+[02:18] platform and a bunch of expansions to
+[02:21] how we do that and govern that across
+[02:23] your organization.
+[02:26] Gemini Enterprise allows
+[02:28] your employees [clears throat] to
+[02:29] leverage a whole team of agents
+[02:31] to collaborate with other employees and
+[02:34] with agents in a persistent team memory
+[02:37] space
+[02:38] and it enables every employee to build
+[02:41] their own agents through no code.
+[02:46] And the impact of this is real.
+[02:49] We have customers like Anaplan that have
+[02:52] rolled this out across the organization
+[02:54] with 80% of employees using it
+[02:57] building thousands of no code agents.
+[03:00] Macquarie Bank in Australia who is
+[03:03] transforming to become an AI driven bank
+[03:06] um
+[03:08] literally envisioning a future where
+[03:11] everything can the whole bank can
+[03:12] operate through AI
+[03:14] and they've been able to drive a 40%
+[03:16] increase and help center self-service.
+[03:19] They're using agents to help with fraud
+[03:21] prevention, personalized recommendations
+[03:23] and more.
+[03:25] And both Aaron and Lisa will talk more
+[03:27] about how they're using it at their
+[03:29] organizations in a few moments.
+[03:33] Now, importantly, as I said, this is all
+[03:35] built to be cloud
+[03:37] first and enterprise grade. And the
+[03:40] enabler for that is the Gemini
+[03:42] Enterprise Agent platform.
+[03:45] The way you can think about this is that
+[03:47] the agent platform brings a few things.
+[03:50] It brings all of Vertex AI with the
+[03:52] ability to leverage
+[03:54] all the Google models, models like
+[03:56] Anthropic Claude, open source models and
+[03:59] more for your agents across your
+[04:01] organization.
+[04:03] You can connect those with all the
+[04:04] tooling you need to ground them with
+[04:06] data, connect them to systems, etc.
+[04:09] And then it adds a set of new
+[04:11] capabilities just launched today
+[04:14] for governing those at scale, including
+[04:17] an agent gateway, a new agent identity
+[04:20] service that's generally available
+[04:23] agent registry and tools and skills
+[04:25] registries
+[04:27] and more that come from other parts of
+[04:29] Google Cloud and are managed and made
+[04:31] available through this one agent
+[04:33] platform for you.
+[04:35] And it combines some new innovations
+[04:36] coming from our DeepMind team helping
+[04:39] with how you achieve quality at scale
+[04:41] with those agents and improve quality
+[04:43] over time.
+[04:46] But as the app on top of that, you can
+[04:49] think of it taking those building blocks
+[04:51] and putting them to work.
+[04:53] So, registry's great if it says that
+[04:55] Jamie has access to 100 agents.
+[04:58] But how as an employee do I see those
+[05:00] agents?
+[05:01] How do I share them with my team
+[05:03] members?
+[05:05] And how do we connect this to all of
+[05:06] your enterprise systems?
+[05:08] And this is the what Gemini Enterprise
+[05:10] app brings on top of this with built-in
+[05:12] connectors for over 50 first-party
+[05:14] integrations the ability to add a
+[05:16] connector from any MCP server
+[05:20] um personalized ranking for every
+[05:22] employee of how we bring the best data
+[05:24] to every interaction with AI or an agent
+[05:28] um and front-end surfaces to use this
+[05:31] through the Gemini Enterprise web
+[05:33] interface
+[05:34] mobile apps and third-party surfaces
+[05:37] like Slack, Workspace and more.
+[05:43] So, some of the new capabilities
+[05:45] coming to Gemini Enterprise at the
+[05:47] application layer this week include a
+[05:49] number of updates across how you work,
+[05:51] how we connect to data and then manage
+[05:54] and operate that.
+[05:56] Um I'm going to go through a few
+[05:57] highlights of those next. Um but we have
+[06:01] a lot more and
+[06:03] um happy to kind of cover those in in
+[06:05] follow-ups and additional materials for
+[06:07] you following the event.
+[06:09] The first is our no code agent designer.
+[06:13] This is really important because what we
+[06:15] hear from organizations is they want two
+[06:17] things. They're kind of almost the yin
+[06:19] and the yang.
+[06:20] They want the ability to have agentic
+[06:22] reasoning. They want to leverage AI to
+[06:24] do long-running, complicated tasks.
+[06:28] To do that
+[06:29] you need a full agent that can leverage
+[06:32] a sandbox environment, write their own
+[06:34] code, create their own tools on the fly,
+[06:36] connect to your systems, evaluate their
+[06:38] own work and iterate in the sandbox
+[06:40] environment to achieve a high-quality
+[06:43] outcome.
+[06:45] So, that's one. That's sort of
+[06:46] long-running agents. But two, they also
+[06:49] want the ability to put the outcomes of
+[06:51] that on guardrails in specific
+[06:54] operational policies
+[06:57] that are different for different
+[06:58] employees, different teams and different
+[07:00] scenarios.
+[07:02] And so with Gemini Enterprise and the
+[07:03] agent designer we allow you to do just
+[07:05] that. You can combine
+[07:07] long-running agents with a no code
+[07:10] editor that allows you to create those
+[07:12] guardrails and policies that the agent
+[07:14] operates within to have deterministic
+[07:16] outcomes for what you're doing with
+[07:18] those agents.
+[07:20] And I'll show an example of a
+[07:21] long-running agent
+[07:23] in my demo in a moment but these are
+[07:25] agents that can um
+[07:27] as I mentioned have a long-running
+[07:29] [clears throat] file system, carry on
+[07:31] for days of work or um maybe even run
+[07:34] forever across sessions with shared
+[07:37] context
+[07:38] execute code in a secure sandbox
+[07:42] leverage a computer use like a browser
+[07:44] or other application
+[07:46] but do so in secure sandboxes that are
+[07:49] in the cloud
+[07:50] and are governed by your secure policy
+[07:52] security policies and try instead of
+[07:54] trying to manage a world in which agents
+[07:57] can do that compilation of code and
+[07:59] creation of tools and access all your
+[08:01] systems on each of your employees'
+[08:04] desktops or laptops um which is much
+[08:07] harder to secure.
+[08:12] With both of those features, I think
+[08:14] what's really exciting is that the way
+[08:16] that every employee works with AI
+[08:18] shifts.
+[08:19] It shifts from a world in which
+[08:22] employees go to an agent or to the AI
+[08:24] assistant and chat with it in a
+[08:26] synchronous fashion to complete a task
+[08:29] to a world in which you have a team of
+[08:31] agents operating in the background for
+[08:33] you
+[08:34] and they only need to come to you when
+[08:36] they need input from you or when they
+[08:38] have results and updates for you.
+[08:41] And to give one central place to manage
+[08:43] all of those, we're introducing inbox
+[08:46] which gives you a view of
+[08:48] all of your agents operating in the
+[08:49] background and the ability to manage
+[08:51] notifications and respond with updates
+[08:53] to each of them.
+[08:55] Importantly, each employee can set up
+[08:57] their own preferences
+[08:59] for how they push those notifications to
+[09:01] the mobile apps
+[09:03] to chat or Slack
+[09:06] or email
+[09:07] or other clients and continue to
+[09:10] interact with those agents from those
+[09:12] clients as well and and manage through
+[09:14] multiple surfaces.
+[09:17] We're also adding support for skills.
+[09:18] So, every employee can build their own
+[09:21] skills to operationalize procedures that
+[09:23] they want to use regularly and leverage
+[09:26] those with their agents.
+[09:28] And Canvas, so you can create documents,
+[09:31] whether it be presentations, documents
+[09:34] or other things that you want to then
+[09:36] share and open inside of Workspace or
+[09:39] Microsoft PowerPoint, Word and Microsoft
+[09:42] 365.
+[09:45] And we're announcing projects.
+[09:49] Projects allow employees to work in one
+[09:51] shared space with a fixed set of context
+[09:54] and data and a shared conversation
+[09:56] history
+[09:57] that's long-running and kept over time.
+[10:00] And they can not only collaborate with
+[10:02] their human employee co-workers, but
+[10:05] also with their digital agent co-workers
+[10:07] in this space.
+[10:10] So, that's a quick overview of a few of
+[10:11] the highlights coming. Next, let me give
+[10:14] you a demo of what some of this looks
+[10:16] like
+[10:17] in a real scenario. So, if we switch to
+[10:20] the demo,
+[10:22] um
+[10:23] let's imagine that
+[10:27] we're a bank,
+[10:28] um and this bank wants to automate loan
+[10:31] processing. I'm told by some of our
+[10:33] customers loan processing is like the
+[10:35] most expensive part of the bank. There's
+[10:37] like thousands or tens of thousands of
+[10:38] loan officers in some cases. And
+[10:41] processing a loan might take weeks or a
+[10:43] month to go back and forth with a
+[10:45] consumer to get the right information,
+[10:48] go through the compliance checks, and
+[10:50] other regulatory steps.
+[10:53] So, to do this, the first thing that
+[10:54] this bank has done is to create a
+[10:57] long-running agent. They wrote this
+[10:59] agent in full code
+[11:01] with the ability to leverage a sandbox
+[11:02] and more.
+[11:04] And as an employee, I can use that agent
+[11:06] by coming into Gemini Enterprise and
+[11:08] asking, "Give me the latest 10
+[11:10] unprocessed mortgage loan applications."
+[11:13] Now, importantly, I didn't have to go
+[11:14] and browse the agent gallery to find the
+[11:17] right agent here. Gemini Enterprise
+[11:19] understands which agents are available
+[11:21] to me as an employee and understands the
+[11:23] query and says the the best agent for
+[11:26] this is the loan supervisor.
+[11:28] And I can say, "Confirm. Yes, I'd like
+[11:30] to ask that agent."
+[11:32] Now, as this runs, it'll come back with
+[11:34] a queue of um the loans for me, and I'll
+[11:38] go ahead and ask to process the first
+[11:39] one.
+[11:42] Now, at this point, this is kind of a
+[11:43] long-running task. This might take
+[11:45] hours or or a day or other longer amount
+[11:48] of time.
+[11:49] So, next, let me show you what this
+[11:51] looks like for the administrative team
+[11:53] if we go under the hood.
+[11:55] So, the administrative team inside of
+[11:57] the GCP console
+[11:59] can see and manage
+[12:01] the agent the agent runtime. They can
+[12:03] see the session for this. They see this
+[12:05] request for the processing the latest
+[12:06] loan application. They can see
+[12:09] what the agent does under the hood. It
+[12:11] calls document retriever, it validates
+[12:14] documents, it checks the user's credit,
+[12:16] has a risk assessment agent, compliance
+[12:19] agent, etc.
+[12:21] And when that comes back, if I go to the
+[12:22] next tab where I ran this in advance, in
+[12:24] this case, it comes back and says that
+[12:26] this is flagged for human review. So,
+[12:28] this is great. I'm using this
+[12:30] long-running agent through Gemini
+[12:31] Enterprise.
+[12:33] But now, what I really want to do is
+[12:34] automate the running of this inside of
+[12:36] my procedures. Let's imagine that I'm
+[12:39] the loan operations manager,
+[12:42] I might want to put this into a set of
+[12:44] policies that we run as an organization.
+[12:47] So, to do that, I'm going to go and I'm
+[12:49] going to create a no-code agent as that
+[12:51] loan officer.
+[12:53] And I've done this in advance, but just
+[12:55] to see how this works,
+[12:56] as a knowledge worker, I could come in
+[12:58] and say, "Okay, I want this to run on a
+[13:00] scheduled trigger daily,
+[13:03] grab all the latest loan applications,
+[13:06] and then call that full code agent with
+[13:08] the list of applications."
+[13:10] And from there, I want to put this into
+[13:12] a set of conditionals. And I can
+[13:14] actually refresh this.
+[13:17] >> [clears throat]
+[13:17] >> I can run and test this as an employee
+[13:21] inside of this environment and see how
+[13:23] it flows through each step, what
+[13:25] actually happens in the logic.
+[13:27] And with the conditionals I've set up,
+[13:29] if it flags for human review,
+[13:31] the loan officer would get a
+[13:33] notification through Gemini Enterprise,
+[13:35] and they could approve or deny that. And
+[13:37] we'll actually surface if they're
+[13:39] approving or denying that as a quality
+[13:41] signal to you as the IT team, and in the
+[13:44] future, over time, use that to help
+[13:45] self-improve how these agents run at
+[13:48] scale.
+[13:49] Now, in this case, this flows through to
+[13:52] a human review step, and uh it will
+[13:55] create an incident inside of ServiceNow,
+[13:58] and then email me a notification for
+[13:59] that. For the sake of time, I ran that
+[14:02] in advance in the next tab. You can see
+[14:04] how it came through and created that. If
+[14:06] I go to my email,
+[14:08] I can check
+[14:10] and open directly into ServiceNow the
+[14:12] issue that was created. So, what did we
+[14:14] see here?
+[14:15] We created a full code agent, that's
+[14:18] long-running agent, that works with the
+[14:20] sandbox to create its own tools, write
+[14:22] code, and evaluate its work and iterate
+[14:24] until high-quality outcomes are
+[14:26] achieved.
+[14:27] But then we put that inside of a set of
+[14:29] operational guardrails with a no-code
+[14:31] agent that kind of makes this real for a
+[14:34] real enterprise environment.
+[14:36] Okay.
+[14:37] Next, let's say that I would like to
+[14:40] um report on this. And so, next, I'll
+[14:43] ask,
+[14:46] "Let's summarize all the loan
+[14:47] applications from the latest batch."
+[14:49] And this is actually functionality we
+[14:51] built into the loan supervisor agent,
+[14:54] where it will actually come back with
+[14:55] some uh summary information for me, um
+[14:59] which looks really great here inside of
+[15:00] Gemini Enterprise. It even creates an
+[15:02] HTML report, so I could open that HTML
+[15:05] report, and this is something I could
+[15:06] copy into an email and send to my
+[15:08] leadership.
+[15:10] But now, let's say that I also want to
+[15:12] create uh a slide deck with this report.
+[15:16] Um that takes a couple of minutes, but
+[15:18] we can showcase the capability in the
+[15:20] next tab to
+[15:22] um [clears throat]
+[15:24] open that slide deck that's created
+[15:26] right inside of Gemini Enterprise
+[15:28] through Canvas.
+[15:31] So, here I have a fully interactive
+[15:33] environment where I can edit my slides,
+[15:35] and I can share them to my team through
+[15:36] Workspace or open directly into the
+[15:38] Workspace app.
+[15:40] And going further, we also want to
+[15:42] extend the ability to call these agents
+[15:45] from across Workspace and other surfaces
+[15:47] like Slack.
+[15:49] And so, here, if my manager has asked me
+[15:51] for the latest stats, I can go ahead
+[15:54] I'll go into this window so you can see
+[15:55] it better.
+[15:56] Um I can go ahead and at-mention the
+[15:58] loan supervisor agent. That's an agent
+[16:01] from Gemini Enterprise.
+[16:03] And I can ask it to
+[16:06] uh
+[16:07] summarize the latest loan applications
+[16:09] processed in the latest batch, and it
+[16:11] will respond to myself and my manager in
+[16:13] this chat with all that information, so
+[16:15] my manager can directly open that HTML
+[16:17] report themselves.
+[16:20] So,
+[16:21] with that, I mentioned how all of that
+[16:23] comes together to me in a new way of
+[16:25] working with AI. Employees now have a
+[16:27] team of agents that operate in the
+[16:29] background. And so, the upcoming update
+[16:31] to Gemini Enterprise is this. We're all
+[16:34] seeing right inside of my main window
+[16:36] updates that need my review. I can click
+[16:38] to view those in my inbox
+[16:41] and filter to say all of the
+[16:44] agentic tasks that are completed, those
+[16:47] that are currently running in progress,
+[16:49] and more. And so, that's a quick look at
+[16:51] some of what's coming to Gemini
+[16:52] Enterprise over the coming announcements
+[16:55] this week. Um next, I'm going to invite
+[16:58] our head of engineering on stage
+[17:00] on stage, Dave Tagare, who will walk us
+[17:02] through the underlying platform and how
+[17:04] we build this for quality. We can switch
+[17:06] back to slides. Dave.
+[17:16] All right, everyone.
+[17:19] Firstly, thank you for coming, and we
+[17:21] appreciate your support for Gemini
+[17:22] Enterprise. Thank you, Jamie. Wonderful
+[17:25] demo there.
+[17:26] Uh and actually not a demo, right? Like
+[17:27] we we're using some of these things or
+[17:29] most of these things.
+[17:31] Everyone, I'm Dave Tagare. I lead
+[17:33] engineering for Gemini Enterprise. Um
+[17:36] so, Jamie showed us an awesome demo.
+[17:38] Let's uh you know, take a sneak peek
+[17:40] under the hood and see what's actually
+[17:42] happening, right? Uh so, here I have
+[17:45] like what was the architecture as of
+[17:47] this week, and what will be the
+[17:49] architecture in in like the very near
+[17:51] future. So, as of the past week, we
+[17:54] actually switched to what I what we call
+[17:56] a flattened planner plus skills
+[17:58] architecture. Essentially, we moved away
+[18:00] from the agent to sub-agent model into a
+[18:02] more the planner is just a dispatcher,
+[18:05] everything to it in the ecosystem is a
+[18:07] tool,
+[18:08] uh where you the planner gets a query
+[18:11] and decomposes it into many, many
+[18:12] fan-out queries, and sees the world as a
+[18:14] tool. The tools execute uh
+[18:17] Additionally, we have added skills
+[18:19] support. It's already rolled out, uh
+[18:21] wherein we are centralizing all the
+[18:23] skills, so you every agent understands
+[18:25] its own capabilities, uh which help
+[18:27] prevent errors and hallucinations. Post
+[18:30] roll-out, what we've noticed is that
+[18:31] this architecture is actually giving
+[18:33] about uh 40%ish drop in latencies at P95
+[18:37] already. So, moving forward, how's the
+[18:39] how's this changing, right? Uh moving
+[18:41] forward, we're actually
+[18:43] going to enable something called the
+[18:45] agent mode. Uh this mode will support
+[18:47] long-running agents with CLI plus
+[18:49] dynamic skills, uh all the good stuff
+[18:51] that enable you to run, you know, agents
+[18:53] from like minutes or 20, 30-minute grain
+[18:56] today to many weeks at the same time. Uh
+[18:59] additionally, the architecture is also
+[19:00] going to support uh universal context
+[19:02] for longer-term memories, checkpointed
+[19:05] state, because these long-running
+[19:06] agents,
+[19:07] let's say over a span of 2 weeks, 3
+[19:09] weeks, 4 weeks, will have disaggregated
+[19:11] sessions, so you need to know where to
+[19:12] resume from, what your state was at that
+[19:14] point, keep context with between
+[19:17] different turns or sessions of this uh
+[19:19] specific agent type, and then take it up
+[19:21] from there.
+[19:22] We're also going to roll out heartbeats
+[19:24] and event and time-based triggers that
+[19:26] enable, you know, pretty complicated
+[19:28] functionality. The triggers can also be
+[19:30] modeled along the lines of like your own
+[19:32] custom policies and and feature sets. Um
+[19:35] You can do this today with uh high-code
+[19:37] agents on ADK 2.0, and these will soon
+[19:40] be available out of the box on Gemini
+[19:42] Enterprise in like in Q2 itself.
+[19:46] Um
+[19:46] >> [clears throat]
+[19:47] >> Taking a look further into, you know,
+[19:50] governance is a cornerstone of why we
+[19:53] have Gemini Enterprise to begin with.
+[19:54] So, to scale AI securely, we're bringing
+[19:57] in enterprise-grade governance to your
+[19:59] digital workforce. We're doing this
+[20:01] through investments in five key areas
+[20:03] that you see listed here.
+[20:05] First is agent observability and
+[20:06] traceability. We provide you with
+[20:08] detailed logs and traces to see exactly
+[20:11] what an which agents are being involved,
+[20:13] what are they doing, what actions they
+[20:15] are taking, and how your data is being
+[20:17] processed, handled, all within a single
+[20:19] console in GCP. Secondly, it's the agent
+[20:22] registry. You know, in practice, you
+[20:24] will have many, many agents
+[20:26] proliferating through your workforce. We
+[20:28] want to get them into a single pane of
+[20:29] glass so you can view all of your agents
+[20:32] within the Gemini Enterprise app. Admins
+[20:34] can discover, manage, invoke any any and
+[20:37] every agent across the workforce. Every
+[20:40] employee can see the agents available to
+[20:42] them and also initiate sharing following
+[20:44] the governance principles our policies
+[20:47] laid down by your organization.
+[20:49] Now, in practice, agents need tools to
+[20:51] do real work, right? We allow you to do
+[20:53] that by bringing in your own MCP
+[20:55] servers. B by your MCP is you know,
+[20:58] public preview as of today. Connect them
+[21:00] via our low-code, no-code agents into
+[21:03] the designer that Jamie showed just now
+[21:05] and instantly make them available
+[21:06] through the Gemini Enterprise app.
+[21:08] Fourth is agent identity. Just like
+[21:10] humans, agents need clear identities and
+[21:14] sort of like role-based access control
+[21:16] associated with it.
+[21:18] We give admins and users complete
+[21:20] visibility and control over who an agent
+[21:22] is, what it's supposed to do, and the
+[21:25] associated permissions with it. And
+[21:26] finally, you need a point of enforcement
+[21:29] to tie it all together. This is where
+[21:31] the agent gateway comes in,
+[21:33] which lets admins allow and set policies
+[21:36] within the GCP console and then enforce
+[21:38] it for all ingress and egress traffic.
+[21:41] So, if an agent goes rogue, it cannot
+[21:43] exfiltrate any data outside of your
+[21:45] organization.
+[21:47] Digging in a little bit more into agent
+[21:49] observability, uh
+[21:51] agent observability includes audit
+[21:53] logging, overview metrics, and agent
+[21:55] tracing. Here's a quick glance into
+[21:57] audit logging.
+[21:58] Um
+[21:59] and more importantly, what you get with
+[22:01] this is full hotel compliance, which
+[22:03] means you can export all of this data,
+[22:05] these metrics, and logs into your
+[22:07] favorite observability system and
+[22:09] analyze them further.
+[22:11] Uh a quick look here tells you like the
+[22:14] the sessions you've had for a given
+[22:15] agent, the number of turns per session,
+[22:18] how many invocations, the traffic
+[22:20] patterns, input-output token
+[22:21] distribution,
+[22:22] so on and so forth.
+[22:24] Um
+[22:25] on the agent management front, I think
+[22:26] the big callouts here are
+[22:29] effectively for agent security and
+[22:31] registry. Let me focus on identity here
+[22:34] a little bit more than the registry cuz
+[22:36] Jamie sort of covered the registry
+[22:38] pieces in his uh
+[22:39] in his slides. Uh we're deploying GCP
+[22:42] wide identity framework, which is based
+[22:43] on SPIFFE as the standard. This is a
+[22:46] huge differentiator against any
+[22:48] competitive product in this space.
+[22:50] Essentially, it gives you the security
+[22:52] you need to trust running your agents
+[22:54] across organizations with access to all
+[22:56] of your data. It allows you to
+[22:58] differentiate between Dave's agent, what
+[23:01] Dave's agent did, meaning something the
+[23:03] agent did on my behalf versus me doing
+[23:05] something directly, right? Uh
+[23:07] additionally, the ability to leverage my
+[23:09] access or access on my behalf is
+[23:11] ephemeral, which means after the session
+[23:13] goes away, the access goes away and, you
+[23:15] know, everything is closed and gated
+[23:17] down after that point.
+[23:18] Um
+[23:20] Let me jump over to agentic security a
+[23:21] little bit more. Here, we've released
+[23:23] two sets of features and products or two
+[23:26] sets of integrations into other product
+[23:28] portfolios. First is Model Armor, which
+[23:31] is already GA.
+[23:32] Model Armor protects you and your
+[23:34] application from prompt injections,
+[23:36] jailbreaks, malicious content, bad URLs,
+[23:39] stuff like that. It plugs directly into
+[23:41] the gateway, which means it monitors all
+[23:44] ingress and egress traffic in line with
+[23:46] your company's policies. Similarly, SDP
+[23:49] or sensitive data protection gives you
+[23:50] PII
+[23:52] uh detection and prevention policies
+[23:54] right into your workflow so you can mask
+[23:56] sensitive data uh before it crosses uh
+[23:59] the client side.
+[24:01] Jumping over a little bit more, how does
+[24:03] the how does it all get together into a
+[24:06] single point of enforcement? That's
+[24:07] where the agent gateway comes into the
+[24:09] picture.
+[24:10] Uh agent gateway is already in preview
+[24:12] and it serves as a single point of
+[24:14] policy enforcement. Architecturally, the
+[24:16] gateway sits between any client or your
+[24:18] client, uh such as the Gemini Enterprise
+[24:20] app, uh and your backend resources,
+[24:22] which could include your models, your
+[24:24] APIs, your tools, B by your MCP, so on
+[24:27] and so forth.
+[24:28] Its core function or functionality is to
+[24:31] give you the ability to author policies,
+[24:33] apply them in order to secure, govern,
+[24:35] and monitor any agent to external system
+[24:37] interactions.
+[24:39] Whether an agent is communicating with
+[24:40] another agent, executing a tool, or any
+[24:43] kind of APIs outside of the GE
+[24:45] environment, the gateway ensures that
+[24:47] access authorization, security policies
+[24:50] are consistently applied for all ingress
+[24:52] and egress at a single request level.
+[24:55] It also gives you the ability to capture
+[24:56] logs, traces, and metrics at the gateway
+[24:59] level itself, so you know what's
+[25:00] happening and these are all pulled
+[25:02] together into a single view in Pantheon.
+[25:05] Um
+[25:06] Now, let's connect all like I'm going to
+[25:07] skip over to the demo now, which is
+[25:09] going to be fun because I want to show
+[25:10] you how all of these tie into your agent
+[25:13] development life cycle.
+[25:17] And thankfully, the session has not
+[25:18] timed out. I see you didn't put it on
+[25:20] the right tab, are you? All right. Thank
+[25:21] you, sir.
+[25:22] All right, perfect.
+[25:25] As you can tell, this is Jamie's laptop,
+[25:26] so I've no idea how to operate it. All
+[25:28] right. So,
+[25:30] when I
+[25:32] All right. So, when I think about the
+[25:33] agent development life cycle, right? I
+[25:35] think about it in terms of like
+[25:37] four categories. Category one is really
+[25:40] you want to build an agent, you want to
+[25:42] scale the deployments as in like scale
+[25:44] the agent which is deployed in
+[25:45] production. You want to have governance
+[25:47] and control over what the agent is
+[25:49] supposed to do, and you want to optimize
+[25:51] over time to make sure there is no
+[25:52] regressions, data skews change, traffic
+[25:55] patterns change, your external
+[25:57] integrations change. So, you want to
+[25:58] make sure that what is in production
+[26:00] keeps on running and humming along
+[26:02] smoothly. So, that that's how like the
+[26:04] agent platform is designed into these
+[26:05] four phases: build, scale, govern, and
+[26:07] operate. And we're continuing to add
+[26:09] more and more features in each of these
+[26:10] categories. Um
+[26:12] in in the build phase, I think Agent
+[26:14] Garden is is like the point where you
+[26:16] start from. This gives you like
+[26:18] pre-curated templates and recipes for
+[26:20] spinning up an agent. All of these are
+[26:22] ADK based, but you could bring in
+[26:24] arbitrary recipes that your company may
+[26:26] want to have into this and they don't
+[26:28] need to be just ADK, they can be
+[26:30] whichever framework of choice for
+[26:31] authoring an agent. Um I personally like
+[26:34] uh the LLM auditor and the travel agent.
+[26:37] It's kind of nifty. I use it in personal
+[26:38] capacity. Uh I also like the chatbot
+[26:41] agent which gives you like a nice
+[26:43] starting point to to build a chatbot.
+[26:47] Skipping forward to what it means in
+[26:49] production side, right? If I go, I can
+[26:52] see all the deployments of the agents
+[26:53] I've done. Seems like someone's been
+[26:56] enthusiastic to spin up an agent 2
+[26:57] minutes ago, which is awesome, perfect
+[26:59] time for a demo.
+[27:01] Uh but here you can see like a bunch of
+[27:02] agents that are in production. Let me
+[27:04] see what the travel orchestrator agent
+[27:06] is doing. Uh you have a bunch of details
+[27:09] when you click through the agent here.
+[27:11] It gives you when it's created, it gives
+[27:13] you the name, where it's deployed, so on
+[27:15] and so forth. I can tell it's an A2A
+[27:17] agent by the the card here in terms of
+[27:19] the protocols and the minute. Uh and I
+[27:21] can also tell that it has an external
+[27:23] OAuth app associated with it. Uh it's
+[27:27] leveraging three skills: Confluence,
+[27:29] Trello, and Loom.
+[27:30] Uh so, now you kind of get a picture of
+[27:32] like what is all connected into it. You
+[27:34] have a protocol, you have the skills
+[27:35] associated, you have where it's
+[27:37] deployed, so on and so forth.
+[27:39] Um I personally like to
+[27:41] you know, jump over to uh
+[27:44] some of the
+[27:45] observability elements of this where I
+[27:47] can see all of the observability metrics
+[27:49] in a single tab. Uh I can see my average
+[27:51] latency, I can see agentic traffic.
+[27:54] From what I can tell, this sawtooth wave
+[27:57] represents a scheduled agent or a
+[27:58] trigger-based agent. So, someone's
+[28:00] running it ever so frequently, probably
+[28:02] to figure out what the best pricing for
+[28:04] a given thing is. Um and then, you can
+[28:07] also see what the execution semantics of
+[28:10] this uh agent are, what frequencies, so
+[28:12] on and so forth. That's actually done
+[28:14] via the session management tab. Uh so,
+[28:16] session essentially represents an
+[28:18] interaction between you and the agent
+[28:20] itself. Like we basically keep track of
+[28:23] the conversational history that you've
+[28:24] had with the agent, any actions that
+[28:26] your agent has taken
+[28:28] in that course during the course of the
+[28:29] execution, and we also allow uh we also
+[28:33] retain memory for long-term agent
+[28:35] execution, so we don't miss context in
+[28:37] the subsequent turn or in the subsequent
+[28:39] iteration of the session, right? Um
+[28:42] Now, you could say like what is a
+[28:43] memory? A memory is effectively a custom
+[28:46] recipe that you might give in addition
+[28:48] to us saving your prompts, histories,
+[28:50] the agent outcomes, so on and so forth.
+[28:52] I could say, you know what, I want to
+[28:53] personalize my travel agent by only
+[28:55] looking at memberships that I have with
+[28:58] you know, my frequent flyer cards and
+[29:00] tickets and so on and so forth. That can
+[29:02] be modeled as a memory. It learns that,
+[29:04] you know, Dave prefers to fly whatever
+[29:06] Alaska Airlines. Um so on and so forth.
+[29:10] Uh let me skip forward to
+[29:13] the governance side of it where you get
+[29:15] to see all of your agents in one view.
+[29:17] Some are A2A agents, some are non-A2A
+[29:20] agents. Gives you like the endpoint that
+[29:22] it's going against. It tells you what
+[29:24] the runtime is. For example, the
+[29:26] internal ID assistant is on the agent
+[29:28] platform runtime, and the marketing
+[29:31] copywriter is a direct Gemini Enterprise
+[29:33] agent as in it was created from within
+[29:35] Gemini Enterprise. Uh something called
+[29:37] the agent one seems directly on GKE. I'm
+[29:40] going to assume it is still an A2A
+[29:42] agent, but probably the underlying uh
+[29:45] authoring framework could be like
+[29:46] LangChain, LangGraph, what what have
+[29:47] you. Um
+[29:49] And that that sort of gives you like a
+[29:50] perspective on,
+[29:53] you know, what the registry is, how it
+[29:54] ties back into the gateways, how it ties
+[29:56] back into other associated policies, and
+[29:59] how you build, deploy, govern and scale
+[30:01] over time. All right?
+[30:03] That's That's me. I am going to hand it
+[30:05] over to our awesome partner from KPMG,
+[30:08] Aaron, now.
+[30:09] And they will walk you through their
+[30:11] experiences with G.
+[30:14] >> [applause]
+[30:16] >> Thank you, sir.
+[30:17] Awesome. Thank you.
+[30:21] Hopefully y'all can hear me. Um thanks,
+[30:23] Dave. Uh
+[30:24] really excited to be up here. Appreciate
+[30:26] Google inviting us. We're going to talk
+[30:28] a little bit about our journey at KPMG
+[30:31] uh with a I almost said Asia space. Do
+[30:33] you want to enterprise?
+[30:34] Uh it's been about 7 months. So, we're
+[30:36] going to talk a little bit about our
+[30:38] approach to Gemini Enterprise.
+[30:41] First of all, just to give you a little
+[30:42] bit of a high-level architecture
+[30:43] thinking. Um we we look at Gemini
+[30:46] Enterprise as a concierge layer.
+[30:50] And we broke it down into really three
+[30:51] components. Find and understand. So, the
+[30:54] data fields or the data connectors.
+[30:56] Being able to find information,
+[30:58] understand information with Gemini.
+[31:01] Then act. We're moving into the act
+[31:03] phase.
+[31:04] Being able to take action. When When I
+[31:06] see something, when I find it, I
+[31:07] understand it, I want to take action.
+[31:09] And being able to do that, as as Jamie
+[31:12] pointed out, across our enterprise
+[31:13] systems. So, you can see here, this is
+[31:16] how we're thinking about Gemini
+[31:17] Enterprise and being able to use it to
+[31:20] manage our enterprise space.
+[31:23] The other thing we think about with
+[31:25] Gemini Enterprise is that it's
+[31:26] ultimately going to help us abstract a
+[31:28] lot of things that are going on. A lot
+[31:30] of us are going through digital
+[31:31] transformations. A lot of us are going
+[31:33] through journey to the cloud. A lot of
+[31:35] us are dealing with the constant influx
+[31:37] of agents. The idea of being, can we
+[31:39] abstract that with Gemini Enterprise and
+[31:42] be able to make it simple for the user?
+[31:44] They don't need to know what agent it is
+[31:45] they're talking to necessarily because
+[31:46] Gemini Enterprise is invoking that
+[31:48] agent. They don't need to know what
+[31:50] system they're talking to. If you think
+[31:52] about the previous slide, we've kind of
+[31:53] abstracted that for them. So, ultimately
+[31:56] they are just interacting with Gemini
+[31:58] Enterprise to find, understand, and take
+[32:00] action on a variety of different things
+[32:02] that they're looking to do. Reducing the
+[32:05] cognitive load off of folks, so they
+[32:07] don't need to know, hey, I I just
+[32:09] transitioned to a new SAP system, I've
+[32:11] transitioned to a new Salesforce system.
+[32:13] The idea of being that they're just
+[32:14] interacting with Gemini Enterprise and
+[32:16] at the end of the day, they're simply
+[32:18] simplifying those interactions.
+[32:24] So, give you a little sense of what our
+[32:27] stats look like over the last 7 months.
+[32:29] So,
+[32:30] we rolled this out in September to about
+[32:33] 38,000 users. As you can see, that
+[32:36] second row, our adoption rate was about
+[32:38] 90%. You heard a little bit about that
+[32:40] on the keynote this morning.
+[32:42] We've since extended it to some of our
+[32:44] offshore resources.
+[32:46] Roughly about 50,000 now total. Um we're
+[32:48] increasing those numbers, but you can
+[32:51] see we're rolling this out, the adoption
+[32:52] is super high, it's super sticky, and
+[32:55] we're really excited about the fact that
+[32:57] that strategy is starting to take hold
+[32:59] across the US.
+[33:02] This gives you a sense of what we've
+[33:03] seen in volumes since we rolled this
+[33:05] out. Uh about 28,000 prompts a day.
+[33:09] Uh we're These numbers are actually
+[33:12] already been exceeded because it's a
+[33:13] couple months old. Uh we're we're almost
+[33:15] at 40 45,000 notebooks created.
+[33:18] Um we've seen about 15,000 low-code
+[33:22] agents get created. And we've also
+[33:24] shared about 800 agents. This shows 600,
+[33:27] but we've seen an increase to about 800
+[33:30] agents being shared using the shared
+[33:31] feature. So, we're really promoting that
+[33:34] organic innovation. People building
+[33:36] their own agents. You saw a lot about
+[33:37] those agents, but being able to promote
+[33:39] sharing of those agents, so we can
+[33:41] capture a lot of that organic innovation
+[33:44] activity coming from the ground up.
+[33:47] This will show you a little bit about
+[33:49] the prompt usage. We're trajecting up.
+[33:51] Uh again,
+[33:53] uh a little bit outdated, but you can
+[33:54] see that that trend is moving to to the
+[33:56] right place for us.
+[33:58] Seemingly giving us a lot of that value
+[34:00] and stickiness from from that Gemini
+[34:02] Enterprise experience.
+[34:05] Then we focus a little bit on some of
+[34:07] the value. Uh for us, the value is seen
+[34:10] in really two key areas. Number one,
+[34:12] time saved in finding information. You
+[34:14] think about that slide we started with,
+[34:16] find and understand. This gives you a
+[34:18] sense of we're able to really find that
+[34:20] information and we're also ultimately
+[34:22] able to uh decrease the amount of time
+[34:25] people are out there looking for things.
+[34:27] The other thing is is that the sentiment
+[34:30] metrics is super high. Uh people are
+[34:32] very excited about it. As you can see,
+[34:34] they have confidence. They are
+[34:36] definitely finding it useful, usable,
+[34:39] and they have a high satisfaction rate.
+[34:41] Uh so, this is really giving us a sense
+[34:43] of what the the user sentiment is. Not
+[34:46] only how much they're using it, but how
+[34:47] much they enjoy using it and how much
+[34:49] they have confidence in their use of it.
+[34:54] Real-world application.
+[34:56] >> [clears throat]
+[34:56] >> We talked a little bit about organic
+[34:58] innovation and some of the things that
+[35:00] Jamie and and and Dave talked about. For
+[35:02] us, this is a real-world example. We had
+[35:04] someone go out and build an agent around
+[35:07] IP risk. And in this particular case,
+[35:09] the idea was we build marketing
+[35:11] material, build a variety of different
+[35:13] things that go out into the marketplace.
+[35:15] Using this agent and the orchestrated
+[35:16] functions in the agent designer to be
+[35:19] able to create stages, steps, sub-agents
+[35:23] to be able to manage those agents across
+[35:25] the board. But ultimately being able to
+[35:27] produce a document review agent that
+[35:29] looks and finds any IP infringement,
+[35:32] looks and finds any risk in content. So,
+[35:34] ultimately the the people producing the
+[35:37] the PDFs, producing the the marketing
+[35:40] material, at the end of the day,
+[35:42] validated whether or not there was any
+[35:43] IP infringements or risk with releasing
+[35:45] that data out into the market.
+[35:49] So, in conclusion, some key takeaways.
+[35:52] AI is a core team member. As you can
+[35:54] see, for us, we really want to build
+[35:57] from the bottom up, automate the work we
+[35:59] do,
+[36:00] uh be able to drive that organic
+[36:01] innovation.
+[36:03] That unified platform. Trying to create
+[36:05] that abstraction. Being able to
+[36:07] ultimately take it to a place where you
+[36:09] no longer have to worry about what the
+[36:11] systems are underneath. And then lastly,
+[36:14] you know,
+[36:15] find, understand, act. Create shorter
+[36:17] timelines to be able to take action and
+[36:20] be able to measure that that capability.
+[36:24] All right. Now, I'd like to turn over to
+[36:25] Lisa uh from Signal Iduna.
+[36:30] >> [applause]
+[36:36] >> I am very looking forward to
+[36:38] use all the new features, I think, as
+[36:41] you also do. But let's do a reality
+[36:44] check how it's going with Gemini
+[36:46] Enterprise in a large and old insurance
+[36:50] company, which maybe is not so
+[36:53] innovative sometimes.
+[36:56] So,
+[36:58] last year, exactly 1 year ago, we
+[37:00] decided to give Gemini Enterprise a
+[37:02] chance.
+[37:03] And 6 months later, last October, we
+[37:06] went live with Gemini Enterprise. We
+[37:08] went live with 11,000 people, so all
+[37:11] over employees.
+[37:13] Why everyone? Because we believe in our
+[37:16] strategy, first use, then case, and then
+[37:20] value.
+[37:21] Because we believe everyone in a company
+[37:24] should use AI, should learn how to
+[37:27] integrate AI in their daily working
+[37:30] life.
+[37:31] And then personal productivity leads
+[37:35] automatically into use cases,
+[37:38] for example, into agents, and into
+[37:40] value.
+[37:44] Last October, we had our big marketing
+[37:46] campaign.
+[37:47] You can see it there. You can see our
+[37:49] office.
+[37:50] And
+[37:52] it was
+[37:54] our biggest marketing campaign and a
+[37:56] change management. So, to everyone to
+[37:59] get everyone on board, we had a big day,
+[38:03] but it's an ongoing journey. And this
+[38:05] ongoing journey you can see in the
+[38:07] numbers, and I think they speak for
+[38:09] themselves. We have 80% monthly active
+[38:13] user.
+[38:14] We have 12 high-code agents that
+[38:17] everyone in the company can use.
+[38:21] And we have over 100 AI ambassadors. And
+[38:24] these AI ambassadors are really really
+[38:27] crucial for our AI adoption in our
+[38:30] company.
+[38:33] But a very good example for our success
+[38:36] in Signal Iduna is our custom-built
+[38:39] health care agent,
+[38:41] which supports our employees with every
+[38:44] health related inquiry from our
+[38:47] customers. So, it's
+[38:50] an custom-built agent. It's embedded in
+[38:53] Gemini Enterprise, and it uses our very
+[38:56] very large
+[38:58] and sometimes old health care related
+[39:02] database
+[39:03] that every inquiry from customers can be
+[39:07] answered. So, the database is used as a
+[39:09] point uh
+[39:12] uh ground truth to
+[39:15] answer every inquiry from point of sale
+[39:18] to claims management.
+[39:21] And this example shows that the
+[39:23] combination of AI agents and employees
+[39:27] lead to very high value both on internal
+[39:31] side and on the customer face.
+[39:34] So,
+[39:35] with this agent, our custom-built health
+[39:37] care agent, we saw a 400% increase of
+[39:41] usage within the first three months
+[39:44] after launch, which showed that we
+[39:46] really have hit a right spot
+[39:49] for our employees.
+[39:51] Also, the time answering our client
+[39:54] injuries went significantly down. We're
+[39:56] now
+[39:57] 7 37% faster. And last but not least,
+[40:02] the transfer rate went down to only 3%.
+[40:06] So, an employee don't has to ask someone
+[40:10] else.
+[40:11] He can chat with our agent and get
+[40:13] quickly an answer.
+[40:15] So, if you want to take one point from
+[40:18] my talk, please involve everyone you can
+[40:22] possibly get in our AI journey that you
+[40:25] can first have use and then case and
+[40:28] value.
+[40:29] Jamie, back to you.
+[40:32] >> [applause]
+[40:36] >> Amazing. Thank you. Thank you both.
+[40:38] Thank you, Aaron. Thank you, Lisa. I
+[40:39] think it's uh great to hear about all
+[40:42] the new capabilities, but seeing it put
+[40:44] to be practice across an organization
+[40:47] with all the challenges that an
+[40:49] enterprise has at scale for doing that
+[40:51] data in a governed way, in a regulated
+[40:54] environment, and with real people that
+[40:57] have to change their way of working is
+[40:59] is where this really kind of rubber
+[41:01] meets the road. So, incredible examples.
+[41:03] Thank you both for sharing those.
+[41:06] Just to wrap up, there's a couple more
+[41:08] capabilities that we announced this
+[41:10] morning, and one of those is around our
+[41:12] ecosystem and partnerships. We launched
+[41:15] a major update to our agent marketplace
+[41:19] with key partners like you see on screen
+[41:21] here from ServiceNow to Workday to Box
+[41:24] to Lovable, everything from startups to
+[41:27] uh large systems integrators and ISVs.
+[41:30] And employees get access to that
+[41:33] marketplace right inside of the Gemini
+[41:35] Enterprise uh dashboard
+[41:38] where they can then browse those agents,
+[41:41] request access to new agents from the
+[41:43] marketplace, and your IT team can govern
+[41:45] the policy to give them access.
+[41:48] So, I'll welcome my team back on stage.
+[41:50] You can you can get started now with
+[41:52] this. Um
+[41:53] there's a number of resources available
+[41:56] to you
+[41:57] um to leverage these through agents
+[41:59] um to leverage context across your
+[42:01] organization, to govern and manage it at
+[42:04] scale,
+[42:05] um and to connect it to to all of your
+[42:07] knowledge.
+[42:09] And um we have a number of sessions here
+[42:12] at Cloud Next this week to continue to
+[42:16] dive deeper into these capabilities with
+[42:18] Gemini Enterprise, and we'd love your
+[42:20] feedback on the session.
+[42:24] >> [music]

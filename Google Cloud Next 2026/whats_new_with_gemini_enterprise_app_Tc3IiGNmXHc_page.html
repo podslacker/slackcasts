@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — What&#39;s new with Gemini Enterprise app</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>What&#39;s new with Gemini Enterprise app</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; Tc3IiGNmXHc</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://youtu.be/Tc3IiGNmXHc" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_01.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_01.jpg" loading="lazy" data-caption="What a morning. We&#39;ve had an incredible set of announcements for Gemini Enterprise today, including the launch…"><figcaption class="gal-caption">What a morning. We&#39;ve had an incredible set of announcements for Gemini Enterprise today, including the launch…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_02.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_02.jpg" loading="lazy" data-caption="and two of our most innovative customers Enterprise that are transforming how their organizations work with…"><figcaption class="gal-caption">and two of our most innovative customers Enterprise that are transforming how their organizations work with…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_03.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_03.jpg" loading="lazy" data-caption="agents? But how as an employee do I see those How do I share them with my team members? Jamie has access to…"><figcaption class="gal-caption">agents? But how as an employee do I see those How do I share them with my team members? Jamie has access to…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_04.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_04.jpg" loading="lazy" data-caption="And they can not only collaborate with that&#39;s long-running and kept over time. their human employee…"><figcaption class="gal-caption">And they can not only collaborate with that&#39;s long-running and kept over time. their human employee…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_05.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_05.jpg" loading="lazy" data-caption="Gemini Enterprise. It even creates an which looks really great here inside of HTML report, so I could open…"><figcaption class="gal-caption">Gemini Enterprise. It even creates an which looks really great here inside of HTML report, so I could open…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_06.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_06.jpg" loading="lazy" data-caption="digital workforce. We&#39;re doing this through investments in five key areas in enterprise-grade governance to…"><figcaption class="gal-caption">digital workforce. We&#39;re doing this through investments in five key areas in enterprise-grade governance to…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_07.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_07.jpg" loading="lazy" data-caption="level itself, so you know what&#39;s happening and these are all pulled together into a single view in Pantheon…"><figcaption class="gal-caption">level itself, so you know what&#39;s happening and these are all pulled together into a single view in Pantheon…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_08.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_08.jpg" loading="lazy" data-caption="how you build, deploy, govern and scale over time. All right? back into other associated policies, and That&#39;s…"><figcaption class="gal-caption">how you build, deploy, govern and scale over time. All right? back into other associated policies, and That&#39;s…</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_09.jpg" alt="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_frame_09.jpg" loading="lazy" data-caption="Jamie and and and Dave talked about. For innovation and some of the things that us, this is a real-world…"><figcaption class="gal-caption">Jamie and and and Dave talked about. For innovation and some of the things that us, this is a real-world…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="whats-new-with-gemini-enterprise-app">What's new with Gemini Enterprise app</h1>
+<p><strong>Source:</strong> <a href="https://youtu.be/Tc3IiGNmXHc">https://youtu.be/Tc3IiGNmXHc</a><br />
+<strong>Video ID:</strong> <code>Tc3IiGNmXHc</code></p>
+<hr />
+<h1 id="gemini-enterprise-product-platform-update-next-2024">Gemini Enterprise – Product &amp; Platform Update (Next 2024)</h1>
+<p><strong>Video:</strong> <a href="https://youtu.be/Tc3IiGNmXHc">Google Cloud Next – Gemini Enterprise announcements</a><br />
+<strong>Presenter:</strong> Jamie Deggeer, Product Leader, Google Cloud AI<br />
+<strong>Panelists:</strong> Dave Teggart (Engineering Lead, Gemini Enterprise), Aaron Purcell (MD, Digital Innovation, KPMG), Lisa Nabb (Head of Agentic Use‑Case Management, Signal Iduna)</p>
+<hr />
+<h2 id="overview">1️⃣ Overview</h2>
+<p>Google unveiled the <strong>Gemini Enterprise Agent Platform</strong> and a suite of new application‑level features that turn every employee into a creator and consumer of AI agents.</p>
+<ul>
+<li><strong>Gemini Enterprise</strong> is the “front‑door” for AI in the workplace: a cloud‑first, enterprise‑grade hub that connects AI models, enterprise data, and business systems.</li>
+<li>The new <strong>Agent Platform</strong> adds a unified, governed stack for building, registering, and operating agents at scale.</li>
+<li>Real‑world customers (Anaplan, Macquarie Bank, KPMG, Signal Iduna) are already using the solution to drive massive adoption and measurable efficiency gains.</li>
+</ul>
+<hr />
+<h2 id="major-sections-topics">2️⃣ Major Sections &amp; Topics</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Core Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intro &amp; Context</strong></td>
+<td>Gemini Enterprise launched Oct 2023 → rapid cross‑industry adoption.</td>
+</tr>
+<tr>
+<td><strong>Agent Platform Architecture</strong></td>
+<td>• Leverages Vertex AI, Google‑owned and third‑party models (Anthropic Claude, open‑source). <br>• New governance services: Agent Gateway, Agent Identity Service, Agent Registry, Skills Registry. <br>• DeepMind quality‑at‑scale innovations.</td>
+</tr>
+<tr>
+<td><strong>Gemini Enterprise App Layer</strong></td>
+<td>• 50+ first‑party connectors + any MCP server connector.<br>• Personalized ranking of agents &amp; data per employee.<br>• Multi‑surface UI: web, mobile, Slack, Workspace, etc.</td>
+</tr>
+<tr>
+<td><strong>New Application‑Level Features</strong></td>
+<td>1. <strong>No‑Code Agent Designer</strong> – combine long‑running sandboxed agents with policy guardrails. <br>2. <strong>Inbox</strong> – unified view &amp; notification hub for all background agents. <br>3. <strong>Skills</strong> – reusable procedural building blocks. <br>4. <strong>Canvas</strong> – generate docs, slides, etc., directly from agents. <br>5. <strong>Projects</strong> – shared, persistent context spaces for humans + digital agents.</td>
+</tr>
+<tr>
+<td><strong>Live Demo: Loan‑Processing Use Case</strong></td>
+<td>• Long‑running “Loan Supervisor” agent (full‑code, sandbox, tool creation). <br>• Employee queries for “latest 10 unprocessed mortgages”. <br>• Admin view shows agent runtime, sub‑agents (document retriever, risk, compliance). <br>• No‑code guardrails schedule daily runs, add conditional human‑review step, auto‑create ServiceNow incident. <br>• Summarization → HTML report → Canvas slide deck → share via Workspace/Slack.</td>
+</tr>
+<tr>
+<td><strong>Customer Stories</strong></td>
+<td>• <strong>Anaplan</strong> – 80 % employee adoption, thousands of no‑code agents. <br>• <strong>Macquarie Bank</strong> – 40 % lift in help‑center self‑service; agents for fraud detection, recommendations, etc.</td>
+</tr>
+<tr>
+<td><strong>Next Steps &amp; Resources</strong></td>
+<td>Follow‑up material, documentation, and early‑access programs will be shared after the event.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">3️⃣ Key Takeaways</h2>
+<ol>
+<li><p><strong>Enterprise‑grade AI is now a platform, not a single product.</strong></p>
+<ul>
+<li>Gemini Enterprise Agent Platform provides a <em>single, governed surface</em> for every model, data source, and tool a company needs.</li>
+</ul>
+</li>
+<li><p><strong>No‑code + code‑first hybrid empowers all roles.</strong></p>
+<ul>
+<li>Power users can craft sophisticated, sandboxed agents (full code).</li>
+<li>Business users can assemble the same capabilities with a drag‑and‑drop/no‑code designer and policy guardrails.</li>
+</ul>
+</li>
+<li><p><strong>Agents become background collaborators.</strong></p>
+<ul>
+<li>The <strong>Inbox</strong> flips the interaction model: agents work silently, interrupting the user only when needed.</li>
+</ul>
+</li>
+<li><p><strong>Cross‑system orchestration is native.</strong></p>
+<ul>
+<li>50+ built‑in connectors + custom MCP connectors let agents act on CRM, ERP, ServiceNow, etc., without bespoke integration work.</li>
+</ul>
+</li>
+<li><p><strong>Governance is baked in.</strong></p>
+<ul>
+<li>Agent Identity Service, Registry, and Gateway enforce identity, access, and compliance at scale—critical for regulated sectors (finance, insurance).</li>
+</ul>
+</li>
+<li><p><strong>Real ROI is already visible.</strong></p>
+<ul>
+<li>Early adopters report <strong>80 % employee adoption</strong> and <strong>40 % efficiency gains</strong> in customer‑service contexts.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">4️⃣ Notable Quotes</h2>
+<table>
+<thead>
+<tr>
+<th>Speaker</th>
+<th>Quote</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jamie Deggeer</strong></td>
+<td>“Gemini Enterprise is the front door to AI in the workplace… built to be cloud‑first and enterprise‑grade from day one.”</td>
+</tr>
+<tr>
+<td><strong>Jamie Deggeer</strong></td>
+<td>“With the no‑code designer you can combine long‑running agents with guardrails and policies so the outcome is deterministic for each team, scenario, or employee.”</td>
+</tr>
+<tr>
+<td><strong>Jamie Deggeer</strong></td>
+<td>“We’re shifting from a world where employees <em>talk</em> to a single AI assistant to a world where a <strong>team of agents works in the background</strong> and only surfaces when it needs your input.”</td>
+</tr>
+<tr>
+<td><strong>Aaron Purcell (KPMG)</strong></td>
+<td>“Our digital‑innovation practice uses Gemini Enterprise to let every consultant spin up a custom workflow in minutes, dramatically cutting delivery time.”</td>
+</tr>
+<tr>
+<td><strong>Lisa Nabb (Signal Iduna)</strong></td>
+<td>“Agents have become our ‘digital claim adjusters,’ handling routine checks while our experts focus on complex cases.”</td>
+</tr>
+<tr>
+<td><strong>Dave Teggart</strong></td>
+<td>“The Agent Identity Service gives each agent a unique, auditable identity—essential for compliance in finance and health care.”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-reference-feature-cheat-sheet">5️⃣ Quick Reference – Feature Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What It Does</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agent Gateway</strong></td>
+<td>Secure, scalable API entry point for all agents.</td>
+<td>Centralized access control &amp; monitoring.</td>
+</tr>
+<tr>
+<td><strong>Agent Identity Service</strong></td>
+<td>Assigns immutable IDs, supports RBAC &amp; audit logs.</td>
+<td>Compliance‑heavy industries.</td>
+</tr>
+<tr>
+<td><strong>Agent Registry &amp; Skills Registry</strong></td>
+<td>Catalogs agents &amp; reusable skills; searchable per employee.</td>
+<td>Discoverability &amp; reuse across org.</td>
+</tr>
+<tr>
+<td><strong>No‑Code Agent Designer</strong></td>
+<td>Drag‑and‑drop workflow builder + policy guardrails.</td>
+<td>Business‑user automation without coding.</td>
+</tr>
+<tr>
+<td><strong>Inbox</strong></td>
+<td>Consolidated notification hub for background agents.</td>
+<td>Reduce interruptive chatter, streamline approvals.</td>
+</tr>
+<tr>
+<td><strong>Canvas</strong></td>
+<td>Generate docs, presentations, HTML reports from agent output.</td>
+<td>Turn data insights into shareable deliverables.</td>
+</tr>
+<tr>
+<td><strong>Projects</strong></td>
+<td>Shared persistent workspace (context + conversation history).</td>
+<td>Cross‑functional teams collaborating with agents.</td>
+</tr>
+<tr>
+<td><strong>Connectors (50+)</strong></td>
+<td>Pre‑built integrations (Google Workspace, Microsoft 365, ServiceNow, etc.).</td>
+<td>Plug‑and‑play data &amp; action connectivity.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-to-get-started">6️⃣ How to Get Started</h2>
+<ol>
+<li><strong>Request access</strong> to the Gemini Enterprise preview via the Google Cloud sales desk.</li>
+<li><strong>Explore the Agent Registry</strong> to see the pre‑built agents (e.g., Loan Supervisor, Document Retriever).</li>
+<li><strong>Use the No‑Code Designer</strong> to prototype a simple workflow (e.g., daily sales report).</li>
+<li><strong>Enable the Inbox</strong> in your user profile to start receiving agent notifications.</li>
+<li><strong>Integrate with your existing tools</strong> via the 50+ connectors or create a custom MCP connector for legacy systems.</li>
+</ol>
+<hr />
+<p><em>Prepared by the AI Content Summarizer – May 2026</em></p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the AI Workplace podcast. I’m Jordan, your detail‑driven host, and with me as always is the ever‑curious Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re diving into the fresh announcements from Google’s Gemini Enterprise—think AI agents, no‑code tools, and a whole new way to work across the enterprise.</p>
+<p><strong>JORDAN:</strong> Right, the keynote introduced the Gemini Enterprise Agent platform, which essentially sits on top of Vertex AI and adds governance layers like an agent gateway and identity service.</p>
+<p><strong>MIKE:</strong> So it’s not just another chatbot; it’s a full‑stack platform that lets any employee spin up their own AI agents without writing code. That could be a game‑changer for non‑technical teams.</p>
+<p><strong>JORDAN:</strong> Exactly. The platform supports models from Google, Anthropic, even open‑source options, and it plugs into over 50 first‑party integrations—think Salesforce, ServiceNow, you name it.</p>
+<p><strong>MIKE:</strong> And because it’s cloud‑first and enterprise‑grade, the security folks can actually breathe easier. No more trying to secure AI on individual laptops.</p>
+<p><strong>JORDAN:</strong> One of the most compelling features is the no‑code agent designer. It lets you combine “long‑running” agents—capable of sandboxed code execution—with guardrails you set via a visual editor.</p>
+<p><strong>MIKE:</strong> That’s the yin‑yang you heard about: powerful, autonomous agents on one side, and strict policy control on the other. It sounds perfect for regulated industries.</p>
+<p><strong>JORDAN:</strong> Speaking of regulated, the demo showed a bank automating loan processing. A long‑running agent pulls unprocessed applications, triggers compliance checks, and flags items for human review—all while staying inside a secure sandbox.</p>
+<p><strong>MIKE:</strong> Then a no‑code wrapper schedules the whole thing daily and routes exceptions to ServiceNow. It’s like a self‑service workflow that still respects audit trails.</p>
+<p><strong>JORDAN:</strong> And the output isn’t just data. The system can generate an HTML report, spin up a slide deck in Canvas, and push the final product straight into Google Workspace or Microsoft 365.</p>
+<p><strong>MIKE:</strong> Imagine the time saved—no more copy‑pasting numbers into PowerPoint. Your AI does the heavy lifting and hands you a polished presentation.</p>
+<p><strong>JORDAN:</strong> They also introduced an “Inbox” view where each employee can see all their background agents, manage notifications, and respond from Slack, email, or mobile.</p>
+<p><strong>MIKE:</strong> That flips the script from “I’m the one constantly checking the AI” to “the AI nudges me only when it needs input.” It feels more like a digital teammate than a tool.</p>
+<p><strong>JORDAN:</strong> Real‑world adoption is already impressive—Anaplan reports 80% of its workforce using Gemini agents, and Macquarie Bank saw a 40% boost in help‑center self‑service after deploying the platform.</p>
+<p><strong>MIKE:</strong> Those numbers suggest the technology isn’t just hype; it’s actually moving the needle on productivity and customer experience.</p>
+<p><strong>JORDAN:</strong> And for developers, the platform offers an agent registry, skills registry, and the ability to add custom connectors via MCP servers—so you can extend it to virtually any on‑prem system.</p>
+<p><strong>MIKE:</strong> Which means the platform can grow with the organization, rather than hitting a wall when legacy tools need to be integrated.</p>
+<p><strong>JORDAN:</strong> To sum up, Gemini Enterprise blends powerful, sandboxed AI agents with no‑code governance, unified inboxes, and seamless integration across the enterprise stack.</p>
+<p><strong>MIKE:</strong> If you’re looking to turn AI from a novelty into a day‑to‑day collaborator, this is the kind of infrastructure that can make that happen.</p>
+<p><strong>JORDAN:</strong> That’s all for today’s deep dive. Thanks for listening, and stay tuned for more AI workplace insights.</p>
+<p><strong>MIKE:</strong> Thanks, everyone! Catch you next time.</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>
