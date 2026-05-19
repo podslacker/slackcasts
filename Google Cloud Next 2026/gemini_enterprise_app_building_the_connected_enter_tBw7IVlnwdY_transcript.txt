@@ -1,0 +1,1151 @@
+﻿[00:14] Okay.
+[00:16] Hello and welcome to building the
+[00:18] connected enterprise.
+[00:20] I'm Demetri, director of product for
+[00:23] Gemini enterprise agents. I'm joined
+[00:25] today by Sammy.
+[00:28] Hi folks. My name is Sammy Akram. I'm a
+[00:30] product manager in Gemini enterprise. My
+[00:33] focus is on context and collaboration.
+[00:35] Now we have Florian.
+[00:37] Hi. I'm Florian.
+[00:39] I'm from Signal Iduna. I'm data
+[00:42] scientist working on Gemini enterprise
+[00:44] and building agents at Signal Iduna.
+[00:49] Excellent.
+[00:51] Let's start with a quick reality check.
+[00:53] AI was supposed to automate the toil of
+[00:55] our day-to-day work.
+[01:01] And agent deployments are certainly
+[01:04] accelerating.
+[01:05] Check out this hockey stick graph from
+[01:07] Google Trends.
+[01:08] Last year
+[01:09] 35% of employees cited broad adoption of
+[01:12] agents and over a quarter of executives
+[01:15] have increased spending by more than 25%
+[01:17] year on year.
+[01:19] So enterprise agents are really picking
+[01:21] up. You can see this measured by
+[01:23] interest, adoption, and spend.
+[01:27] However, this is only half of the
+[01:29] picture.
+[01:30] AI deployments are creating new and
+[01:32] unfamiliar challenges that I'm sure
+[01:34] you're all aware of. End users have to
+[01:36] deal with siloed data, multiple tools
+[01:39] for the same job, and agents that run in
+[01:41] many places.
+[01:43] It's difficult to track budgets. End
+[01:45] users lack real continuity across their
+[01:48] workflows.
+[01:49] And on top of this, cybersecurity and
+[01:52] governance are messier than ever before.
+[01:55] I'm going to pass it on to
+[01:57] over to Sammy to cover how the Gemini
+[01:59] Enterprise app addresses these critical
+[02:02] pain points.
+[02:05] Awesome. Thank you, Demetri.
+[02:09] So, the solution to this fragmentation
+[02:13] or tool fatigue
+[02:15] isn't just another app.
+[02:17] It's fundamentally new approach we need
+[02:19] to think through.
+[02:21] So, we call this concept the fabric of
+[02:23] universal intelligence.
+[02:25] It is the underlying framework that
+[02:27] makes the Gemini Enterprise app the
+[02:30] single front door for your whole
+[02:32] organization.
+[02:34] Instead of forcing you to learn yet
+[02:37] another AI system, it adapts to your
+[02:40] workflow.
+[02:42] The vision comes to life
+[02:44] through three core pillars.
+[02:47] One, ask and create anything. Second,
+[02:49] deploy agents to get job done.
+[02:52] And third, harnessing your unique
+[02:55] context.
+[02:56] We thread these pillars together with
+[02:59] meaningful personalization
+[03:01] and frictionless collaboration.
+[03:04] And we anchor it all
+[03:06] with something non-negotiable.
+[03:08] Enterprise compliance and governance.
+[03:13] First, ask and create anything.
+[03:16] We need to break down the creation
+[03:17] silos. By leveraging Gemini 3.1 Pro and
+[03:20] Flash, you're getting models explicitly
+[03:23] optimized for high-frequency complex
+[03:26] enterprise reasoning.
+[03:28] We're giving you generative media to
+[03:31] instantly turn ideas into images using
+[03:34] Nano Banana 2 or to video using Veo 3.
+[03:38] You get a real-time voice assistant for
+[03:41] hands-free execution.
+[03:43] You also get multimodal mastery.
+[03:46] It analyzes PDFs, CSVs, and repositories
+[03:50] without manual uploads.
+[03:52] Now, let's get the details of one of
+[03:54] those creation mechanism in Gemini
+[03:57] Enterprise.
+[03:59] The era of copy-pasting from an AI chat
+[04:02] chat window is behind us. Meet Canvas,
+[04:06] an interactive space built directly into
+[04:09] the Gemini Enterprise app that lives
+[04:11] side by side with your chat.
+[04:14] It is smart enough to know when you need
+[04:16] it.
+[04:17] Start working on a long-form document,
+[04:19] and Gemini automatically triggers
+[04:21] Canvas.
+[04:22] It instantly grabs your chat context,
+[04:25] your connectors, and your sources to
+[04:28] build a complete first draft.
+[04:30] From there, editing is a breeze, no
+[04:33] matter which ecosystem you use.
+[04:35] If you are a Workspace user, we embed
+[04:38] Google Docs directly into the interface.
+[04:42] Full features, auto-saved in your Drive.
+[04:45] If you don't use Workspace, you get a
+[04:47] robust native editor equipped with AI
+[04:50] sliders that you can tweak to change
+[04:52] your tone or length of the document.
+[04:55] You get full version tracking, one-click
+[04:57] exports.
+[05:00] But, we didn't just stop at text
+[05:01] documents. Canvas is also built to to
+[05:05] transform your ideas
+[05:07] into slide decks.
+[05:09] Using that exact same conversational
+[05:11] context, Gemini can instantly generate a
+[05:14] structured 8-to-12 slides
+[05:17] doc
+[05:18] deck
+[05:19] on the fly.
+[05:20] Just like with documents, Google
+[05:22] Workspace users get an embedded Google
+[05:24] Slides editor right inside the Gemini
+[05:27] Enterprise app.
+[05:29] You can make full manual edits,
+[05:32] adjust text formatting, styles, colors,
+[05:35] without disrupting your workflow. You
+[05:37] don't have to kind of jump between
+[05:38] different tabs.
+[05:40] For those without Workspace licenses,
+[05:42] our native HTML editor still allows you
+[05:46] to generate those professional looking
+[05:47] slide decks,
+[05:49] easily export them
+[05:50] uh into PDF or PowerPoint and share with
+[05:53] your team.
+[05:54] Now, Dimitri will discuss the second
+[05:56] pillar of the universal intelligence.
+[06:01] Great. Our second pillar is get it done
+[06:04] with the agents. This pillar is really
+[06:07] uh for me it's it's really close to my
+[06:09] heart. Um
+[06:11] this is the moment we move beyond
+[06:14] passive chat and introduce an active
+[06:16] execution engine.
+[06:18] Think of what we're building as a single
+[06:20] pane of glass for your entire
+[06:21] organization.
+[06:23] A central registry or set of registries
+[06:26] where you can manage all of your agents,
+[06:27] your tools, your skills in one place.
+[06:30] You can manage
+[06:32] agents that are Google native, all of
+[06:34] our pre-built agents like the data
+[06:35] insights agent,
+[06:37] third-party agents, or even your own
+[06:39] custom-built agents.
+[06:42] The Gemini Enterprise app allows you to
+[06:44] design bespoke workflows that mirror
+[06:46] your exact business processes.
+[06:49] And your deployment, it takes just one
+[06:51] click to roll them out company-wide.
+[06:54] Governance is built right in and your
+[06:56] IAM roles are seamlessly maintained. You
+[06:59] can assign gateways and policies. All of
+[07:02] this works together,
+[07:03] which is a really critical insight here.
+[07:07] Um this is what my team's been working
+[07:09] uh really hard on over the past couple
+[07:11] of months, and that's overhauling our
+[07:14] agent designer, the one that's
+[07:15] integrated directly inside of Gemini
+[07:17] Enterprise.
+[07:18] Between our natural language approach
+[07:20] and our template gallery,
+[07:22] anyone in your organization can build
+[07:24] agents fast.
+[07:27] But simple doesn't mean basic. This
+[07:29] interface still gives you total command
+[07:31] over complex logic.
+[07:33] You can effortlessly snap together
+[07:36] conditional loops, agentic reasoning,
+[07:39] specific organizational skills,
+[07:41] and you can combine both agentic and
+[07:44] deterministic orchestration to really
+[07:46] balance the creativity that you get from
+[07:49] agentic orchestration with the control
+[07:50] you have from more deterministic logic.
+[07:54] You can also enable human-in-the-loop
+[07:55] checks to really build trust in your
+[07:57] agents when they take critical actions.
+[08:00] And there's much more for you to to try
+[08:02] out. This is available now in preview.
+[08:08] An agent building is it's not one and
+[08:11] done. It's really an iterative process.
+[08:13] This is This is something that we
+[08:14] believe very strongly. And it's really
+[08:16] important that humans stay in the
+[08:17] driver's seat.
+[08:19] So, users can instantly improve their
+[08:22] agents just by providing feedback and
+[08:24] the system will automatically suggest
+[08:25] smarter prompts.
+[08:27] You can play back agent runs, really
+[08:30] step through each of the actions that
+[08:31] took place to make sure that they're
+[08:33] behaving as expected.
+[08:37] In preview, we're coming up with a
+[08:38] couple of other ways for you to be able
+[08:40] to debug in even greater level of
+[08:42] granularity.
+[08:43] All of this is going to be in an EAP
+[08:45] soon.
+[08:47] And next, Sammy will cover the critical
+[08:49] role that context plays in effective
+[08:52] agent deployments.
+[08:55] Thanks, Dimitri. By the way, I built a
+[08:58] agent to look through my email to figure
+[09:00] out which emails I should not miss.
+[09:02] Um it worked wonderfully last night.
+[09:05] Thank you for for your tip.
+[09:08] Awesome, folks.
+[09:09] Um so, this is a space that really I'm
+[09:12] really passionate about. It's really
+[09:15] understanding your context.
+[09:17] Um let's level set for a minute.
+[09:21] So,
+[09:22] um the
+[09:23] the current reality of the enterprise
+[09:26] LLMs, they're out of the box super
+[09:28] capable, right? They know the world, but
+[09:32] they do not know your world.
+[09:36] An off-the-shelf AI doesn't know your
+[09:38] company's internal acronyms, your
+[09:40] quarterly objectives, or the specific
+[09:43] way your team pharmacy brief.
+[09:47] And without that grounding, even the
+[09:50] most powerful AI can only give you
+[09:52] generic boilerplate.
+[09:55] That brings us to our third pillar, deep
+[09:58] integrated context.
+[10:00] True intelligence starts with
+[10:02] understanding who you are and how you
+[10:05] work.
+[10:06] We have to move beyond the manual work
+[10:08] of constantly pasting reference
+[10:10] documents,
+[10:11] writing a lot of uh prompts in the chat
+[10:14] window just to get a subtle like useful
+[10:17] answer.
+[10:19] Gemini Enterprise solves this by acting
+[10:22] as a living extension of your workspace.
+[10:25] It has access
+[10:27] to Drive, Gmail, Calendar, Outlook,
+[10:29] OneDrive, etc. It continuously learns
+[10:32] your patterns, your meeting cadences,
+[10:36] your important projects, your
+[10:38] collaborators, and the topics that
+[10:40] matter to you.
+[10:43] And it goes beyond just inferring.
+[10:45] You can give it explicit saved memories,
+[10:48] like sort of the brand voice that you
+[10:50] like to use,
+[10:51] or different formatting that you like to
+[10:53] use.
+[10:55] And it will listen to you.
+[10:57] Because Gemini Enterprise is integrated
+[10:59] deeply into your workflow, it is
+[11:01] grounded in your reality. For example,
+[11:05] when you ask to draft a project update,
+[11:07] it already knows who are working in that
+[11:09] project and what is the current focus of
+[11:12] that project. You get a specific,
+[11:14] relevant answer.
+[11:18] Everything we just mentioned is
+[11:20] incredible for individual productivity,
+[11:23] but work doesn't happen in a vacuum.
+[11:26] Work is a team sport.
+[11:28] And this brings us to the multiplier
+[11:30] effect.
+[11:32] Let's address the elephant in the room.
+[11:33] Current enterprise AI has two major
+[11:35] limitations. First, lack of persistence.
+[11:39] Temporary isolated chats force you to
+[11:42] constantly re-upload files and rebuild
+[11:45] context every time you start a new
+[11:47] session.
+[11:48] Second, there is no team-wide
+[11:50] collaboration.
+[11:51] AI tools restrict users to solo
+[11:53] interactions,
+[11:54] even though enterprise work requires
+[11:57] fluid teamwork.
+[11:59] Without a thoughtful, shared workplace
+[12:01] for teams and AI, knowledge is lost
+[12:06] and alignment suffers.
+[12:08] To solve this, we're introducing Gemini
+[12:11] enterprise projects.
+[12:13] This is a persistent, logically bounded
+[12:15] workspace that acts as your team's
+[12:18] knowledge hub.
+[12:20] When you create a Gemini enterprise
+[12:21] project, it establishes a strict context
+[12:25] boundary. You upload or attach file to
+[12:28] this project, and the AI's output is
+[12:32] uniquely grounded on these provided
+[12:34] files and chat that happens inside of
+[12:36] the project.
+[12:38] If a file is not explicitly added to the
+[12:40] project, it does not exist to the
+[12:43] project AI.
+[12:45] You can share this secure space with
+[12:47] teammates and deploy specific agents and
+[12:50] skills inside of it.
+[12:54] This transforms the workspace into a
+[12:56] shared brain.
+[12:57] If a late-joining stakeholder or
+[12:59] executive enters the project, they don't
+[13:01] need a manual catch-up meeting anymore.
+[13:05] They instantly read a AI-generated
+[13:08] project overview that talks about the
+[13:10] current state of the project. They can
+[13:12] have a dialogue with the AI inside of
+[13:14] the project to get answers to their
+[13:16] question.
+[13:18] The answers will be fully informed by
+[13:20] the project data
+[13:21] and chats that has happened inside of
+[13:23] the project so far.
+[13:26] This frees up the core team from
+[13:28] answering questions that may not be that
+[13:31] relevant to make progress.
+[13:34] Um
+[13:35] Does anyone remember TPS reports?
+[13:38] If you don't, just Google it. Yeah, no
+[13:40] more of that.
+[13:43] Okay, so now
+[13:45] once your team is aligned, you need a
+[13:48] place to actually execute.
+[13:50] You need a team space to iterate
+[13:52] together. Now, this iteration happens
+[13:55] through chat, like we talked, like I'll
+[13:56] tell Demetriou, "Hey man, we need this."
+[13:58] Demetriou like, "Okay, let's create a
+[14:00] slide deck and send it to me." All of
+[14:02] this happens in many fragmented planes,
+[14:04] many different tools.
+[14:06] But now, enter co-creation. We have
+[14:09] built a shared group chat directly into
+[14:11] the project where humans and AI
+[14:15] build assets side-by-side.
+[14:17] Imagine your team iterating in a single
+[14:20] thread in a project. It is shared
+[14:22] thread.
+[14:23] As you fire off instructions, like one
+[14:24] person asking for a launch email or a
+[14:26] doc, another person immediately adding,
+[14:29] "Make it more urgent." The AI The AI
+[14:32] acts as a real-time co-author. It
+[14:35] synthesizes the feedback, instantly
+[14:37] updates the artifact.
+[14:40] This is the unmatched alignment of human
+[14:43] creativity and AI execution.
+[14:48] But as we scale from individual tasks to
+[14:50] complex team-wide workflows, there is
+[14:53] one non-negotiable requirement.
+[14:56] Trust.
+[14:57] Ungoverned AI is a security risk, full
+[15:00] stop.
+[15:01] This is why we built Gemini Enterprise
+[15:04] to be a centralized governance hub just
+[15:07] as much as an AI platform.
+[15:10] We put administrators completely in
+[15:12] charge.
+[15:13] Every action is backed by deep
+[15:15] observability and audit logs,
+[15:18] tracking every invocation and tool
+[15:20] calls.
+[15:21] You are actively defended by model
+[15:23] armor, which
+[15:26] neutralizes prompt injections,
+[15:28] filters harmful content, and
+[15:30] automatically masks PII.
+[15:33] And currently
+[15:35] And
+[15:36] And crucially, you don't have to rebuild
+[15:38] your security architecture.
+[15:40] Gemini
+[15:41] simply inherits your existing IAM roles
+[15:45] to enforce the principle of least
+[15:47] privilege,
+[15:48] giving you granular custom controls over
+[15:51] every user, tool, and agent interaction.
+[15:55] Now, Florian is going to show you how
+[15:57] Signal Iduna has been leveraging the
+[15:59] power of Gemini Enterprise.
+[16:03] Thank you, Sami.
+[16:08] So, uh
+[16:10] Who is Signal Iduna? Um Signal Iduna is
+[16:13] a large German insurance company and one
+[16:16] of the biggest private uh
+[16:18] private health insurance uh insurance in
+[16:21] Germany.
+[16:22] Um
+[16:23] if you're not from Germany, you probably
+[16:25] also know Signal Iduna if you're a
+[16:27] soccer fan because uh we are a sponsor
+[16:29] of Borussia Dortmund.
+[16:31] Um and they play uh at the Signal Iduna
+[16:34] Park, which is basically
+[16:36] next door from our headquarter in in
+[16:38] Dortmund.
+[16:40] So, if you if you like European soccer,
+[16:42] you probably
+[16:43] uh already know Signal Iduna.
+[16:49] As you can see um
+[16:51] on the right-hand side,
+[16:52] uh we have a long heritage
+[16:55] um of over 120 years.
+[16:58] And we come from a world of paper
+[17:01] uh and strict regulations as an
+[17:03] insurance company.
+[17:05] Um governance is is no buzzword for us.
+[17:09] Um there's actually my colleague uh
+[17:10] around here somewhere who's who's in
+[17:12] charge of of the whole governance
+[17:13] process
+[17:14] for Gemini Enterprise.
+[17:16] Um
+[17:17] it's not a buzzword, it's a fundamental
+[17:19] pillar
+[17:20] um for our customers' trust.
+[17:23] And the challenge is how do we transform
+[17:27] Signal Iduna into the age um of AI?
+[17:33] And one building block um of our
+[17:36] transformation uh into the the AI age is
+[17:40] T-Mobile Enterprise. So, in October uh
+[17:43] 2025,
+[17:45] we introduced T-Mobile Enterprise as our
+[17:48] central AI platform and our window um
+[17:52] to AI for the whole whole company.
+[17:55] Um
+[17:57] but AI is not only a tool and T-Mobile
+[17:59] Enterprise is not only a tool,
+[18:02] but um
+[18:03] we also have to drive drive AI literacy
+[18:07] in the whole company.
+[18:08] Um
+[18:10] and that that's what we we're trying to
+[18:12] do.
+[18:14] Um
+[18:20] As I said in uh October 2025, we rolled
+[18:23] out uh Cozy, how we call um T-Mobile
+[18:26] Enterprise internally, um to all of our
+[18:29] users.
+[18:30] And um
+[18:33] it was not just
+[18:34] an email, we're live, but we actually
+[18:38] made a whole day event out of it.
+[18:40] And I'll show you some uh impressions uh
+[18:43] in the video.
+[18:45] Um
+[18:48] as I said,
+[18:49] it was not just a tool launch, um it was
+[18:52] with the
+[18:54] total commitment uh of our executive
+[18:57] board.
+[18:58] Um
+[19:00] we had a lot of different sessions the
+[19:02] whole day about AI, about T-Mobile
+[19:04] Enterprise,
+[19:06] and agents.
+[19:07] And
+[19:09] yeah, just try to get get the word out
+[19:12] that uh everyone can use German
+[19:14] Enterprise in Cosi.
+[19:17] That they're starting the day.
+[19:19] We also introduce Cosima, which you can
+[19:22] see on the on the right hand side, which
+[19:24] is our mascot for everything related to
+[19:28] AI at Signal Iduna.
+[19:31] And in front of
+[19:33] Cosima, you can see
+[19:35] our quite impressive
+[19:37] adoption numbers.
+[19:39] So, we reached 90 over 90% of our
+[19:43] employees
+[19:44] with German Enterprise. So,
+[19:47] almost everyone at Signal Iduna
+[19:50] used Cosi and German Enterprise.
+[19:53] We have over 80% monthly active users
+[19:56] currently.
+[19:58] And
+[19:59] started with around 10 agents, which and
+[20:02] the number is is still growing. So,
+[20:04] we're ramping up
+[20:05] agents basically as we as we speak.
+[20:11] To drive the
+[20:13] AI adoption, we also introduced
+[20:17] Yeah, got 110 AI champions throughout
+[20:20] the whole whole organization
+[20:23] who are driving
+[20:25] AI literacy, AI use cases,
+[20:28] and also collecting use case ideas in in
+[20:33] their lines of of business.
+[20:38] And our strategy relies on a wide range
+[20:41] of agents
+[20:43] starting from very simple
+[20:46] basically prompt-based agents
+[20:48] going to really complex agents like our
+[20:52] health insurance agent Cosica Vao.
+[20:56] For the simple agents, one example is
+[20:59] corporate language
+[21:01] agent, which basically helps to
+[21:03] translate
+[21:05] I would say Florian
+[21:07] to Signal Iduna German.
+[21:09] So, that that the whole communication uh
+[21:13] matches our brand guidelines and brand
+[21:15] values.
+[21:17] Um
+[21:20] Complexity-wise, in the middle is
+[21:22] something like our HR agent, which has
+[21:24] access to um all of our um HR knowledge
+[21:28] and answers questions related
+[21:32] to vacation policies, benefits, and
+[21:35] everything around HR,
+[21:38] um reducing the workload for our HR
+[21:41] teams uh dramatically.
+[21:44] And as I said, uh
+[21:46] when it comes to more complex agents,
+[21:48] um there's Kosika Frau, which is our
+[21:51] health insurance agent,
+[21:53] um
+[21:54] which is
+[21:56] very capable in answering uh health
+[21:58] insurance-related questions, and is
+[22:02] deeply integrated into the core core
+[22:04] business of uh Signal Iduna and our our
+[22:07] health insurance.
+[22:09] And it's supporting experts uh
+[22:11] navigating the highly complex topic of
+[22:13] health insurance,
+[22:15] and uh yeah, answers questions around uh
+[22:19] processes and and all other topics.
+[22:23] Now,
+[22:25] let's dive deeper into um Kosika Frau.
+[22:28] Um
+[22:32] the goal of Kosika Frau is mastering the
+[22:34] complexity um
+[22:37] of health health insurance.
+[22:39] Um
+[22:41] it has access to a lot of knowledge, so
+[22:44] we have over 600 different uh
+[22:47] insurance tariffs, or health insurance
+[22:49] tariffs,
+[22:50] which have
+[22:52] yeah, completely different uh different
+[22:54] benefits and and regulations, basically.
+[22:58] And we also gave it access to over 800
+[23:01] documents and data sources from
+[23:03] different systems. So, it really has
+[23:05] access to the the company's
+[23:08] knowledge
+[23:10] of of health insurance.
+[23:11] And that's internal guidelines.
+[23:14] It's systems like
+[23:16] which which health insurance policies
+[23:20] a customer has and so on.
+[23:24] And it seems to integrate it into
+[23:26] Chemona Enterprise to give yeah every
+[23:29] every health insurance employee
+[23:31] easy access to to Corsica FO.
+[23:35] And providing that domain knowledge
+[23:37] where it's needed. So, no matter if you
+[23:38] are
+[23:40] call center service agent working in
+[23:43] customer service or managing claims,
+[23:47] you have access to to
+[23:49] Chemona Enterprise
+[23:51] in
+[23:52] to to Corsica FO in Chemona Enterprise.
+[23:55] And it's grounded in truth. So, every
+[23:57] answer
+[23:58] is explained
+[24:00] how Corsica FO comes to the the
+[24:02] conclusion or the the result.
+[24:05] And you get
+[24:07] links to the data sources the the answer
+[24:10] relies on or is based on.
+[24:13] And there's always a human in the loop.
+[24:15] So, currently we don't do
+[24:18] automation here.
+[24:20] That's that's really important for us
+[24:21] that
+[24:22] still a human is in charge of of
+[24:24] decisions
+[24:25] in in health insurance.
+[24:29] So, how do we manage the complexity
+[24:31] under the hood?
+[24:33] Corsica FO consists actually
+[24:37] of different sub agents.
+[24:39] And they are broke down
+[24:43] a breakdown basically the whole
+[24:44] insurance journey. So, there's one sub
+[24:46] agent who's who's in charge of all the
+[24:48] operations topics. So, that's all topics
+[24:51] related to your to your contract.
+[24:55] Then there's
+[24:57] benefits agent
+[24:59] who
+[25:00] knows exactly
+[25:02] which
+[25:03] services and benefits are ensured in
+[25:05] your in your policy.
+[25:08] And
+[25:10] yeah,
+[25:10] the benefits agents manage actually the
+[25:13] the complexity of our
+[25:15] 600 600 tariffs that are
+[25:18] in
+[25:19] available in in Kosika 4.
+[25:23] And then then then there's the customer
+[25:25] communication
+[25:26] agent, which makes it easy for our
+[25:28] employees to
+[25:30] write empathetic
+[25:32] and also efficient
+[25:35] yeah, messages
+[25:37] and correspondence to to our customers.
+[25:44] Having a great agent is one thing, but
+[25:46] the ultimate test is reality. So
+[25:49] we're probably some of you also building
+[25:51] agents and know that adoption is
+[25:54] sometimes quite challenging.
+[25:56] Um,
+[25:58] it was the case for for Kosika 4 2.
+[26:01] Um,
+[26:02] but in Q4,
+[26:05] we had
+[26:06] premium adjustments for a lot of our our
+[26:09] policies and customers,
+[26:11] um,
+[26:12] which was really a huge challenge that
+[26:15] we could foresee
+[26:17] because we we anticipated that we get a
+[26:19] lot of customer inquiries
+[26:21] um, about the the premium adjustment.
+[26:25] And so what do we do in the times of
+[26:27] agents? Of course,
+[26:29] you build an agent supporting our
+[26:32] supporting our your employees. And
+[26:34] that's exactly what we did.
+[26:35] Um,
+[26:38] we build an
+[26:40] another agent for for the premium
+[26:42] adjustment, which we
+[26:44] integrated into Kosika 4,
+[26:47] which basically answers all questions
+[26:49] around the the premium adjustment.
+[26:53] Um starting from the uh
+[26:55] being very efficient in
+[26:57] answering recurring questions,
+[27:00] um but also going really deep into
+[27:02] providing information about really
+[27:05] customized
+[27:07] uh uh uh
+[27:08] tips and and
+[27:10] uh yeah,
+[27:12] ideas maybe how to adjust your your
+[27:15] coverage um
+[27:18] during the the the premium adjustment.
+[27:21] And
+[27:22] as I said, we needed a solution that
+[27:23] supported our um our our colleagues
+[27:26] because uh of the high volume of of
+[27:30] inquiries we we expected.
+[27:35] And as I said, that's what we basically
+[27:36] did. We built an sub-agent for the
+[27:38] premium adjustment um
+[27:40] and
+[27:42] having built the the base with Kosika
+[27:45] VAU and the other sub-agent, it was uh
+[27:48] we could quite quickly develop the the
+[27:50] premium adjustment agent.
+[27:52] And giving it in into the hands of of
+[27:55] our um domain experts, basically.
+[27:58] And the impact was really really
+[28:00] staggering
+[28:01] um
+[28:02] because
+[28:06] before we had a a lot of knowledge in
+[28:08] the in the heads of of our our health
+[28:10] insurance experts. So, they didn't
+[28:13] really need an agent to answer the
+[28:15] questions because they had a lot of
+[28:16] experience.
+[28:17] With the premium adjustment and the lot
+[28:19] of uh special special and and uh
+[28:22] customized questions uh the customers
+[28:25] had,
+[28:26] um it was totally different.
+[28:28] So, they really needed information they
+[28:31] couldn't have at hand at that time.
+[28:34] And
+[28:35] not only could uh the the benefits agent
+[28:38] uh the the premium adjustment agent
+[28:41] assist our employees uh with the complex
+[28:44] cases and and conversations,
+[28:46] um
+[28:48] but it also
+[28:50] drove the adoption of of Cosiga FO by
+[28:53] 400%. So, we see saw a dramatic spike in
+[28:57] uh in usage there.
+[29:01] But as successful the the agents have
+[29:03] been,
+[29:04] um
+[29:05] we really want to integrate them uh more
+[29:08] deeply more and more deeply in in Chemna
+[29:10] Enterprise.
+[29:11] And that's what we we're currently uh
+[29:14] working on.
+[29:17] And that's basically building custom UI
+[29:18] UIs with uh A2UI integration uh in
+[29:22] Chemna Enterprise.
+[29:24] And so, what does it do?
+[29:27] It basically gives you the the
+[29:29] it gives us the possibility to have
+[29:32] custom UI elements in Chemna Enterprise
+[29:36] like a drop-down of for our uh 600
+[29:39] tariffs.
+[29:41] So, uh as you can see they are also uh
+[29:44] often quite similar
+[29:46] uh similar names of of our tariffs. And
+[29:48] it's really hard to uh to do all that uh
+[29:51] just in in a text conversation. So, we
+[29:54] are really looking forward to building
+[29:56] uh custom UIs with A2UI in Chemna
+[29:58] Enterprise.
+[30:04] So, what are our what are our
+[30:06] key takeaways
+[30:08] um for Chemna Enterprise and and uh what
+[30:11] we saw with with the premium adjustment
+[30:13] agent?
+[30:17] It sounds simple, but capable agents
+[30:20] actually get adopted.
+[30:22] So, if you if you really need the pain
+[30:24] and the the business need of your your
+[30:26] uh
+[30:27] company,
+[30:29] the agents will will get adopted really
+[30:31] easily.
+[30:34] Second,
+[30:35] um
+[30:38] it's so something like uh introducing
+[30:42] Gemini Enterprise or
+[30:45] specialized agents for employees is a
+[30:48] journey. It's not a project.
+[30:50] So, you really have to start a movement
+[30:52] in inside your company.
+[30:55] And uh
+[30:57] yeah, provide continuous information,
+[30:59] continuous training, and support for
+[31:02] employees to drive drive adoption and um
+[31:07] drive adoption.
+[31:09] Third,
+[31:12] laying down organizational and technical
+[31:15] and governance foundations feels slow at
+[31:18] the beginning,
+[31:20] but it actually makes it quicker at the
+[31:22] end.
+[31:23] So, if you have strong foundations, you
+[31:25] really can
+[31:27] uh
+[31:29] uh
+[31:32] you react you can
+[31:33] easily react
+[31:35] quickly to business needs and uh support
+[31:39] your your whole company um
+[31:41] and business demands.
+[31:45] That's it from uh yeah, our customer
+[31:47] experience talk.
+[31:49] Back to Dimity. Dimity. Thank you.
+[31:56] Thank you so much Florian for making
+[31:57] that concrete. And to zoom way out and
+[32:00] to wrap up, here's what I want to leave
+[32:02] you with.
+[32:03] AI agents are evolving rapidly and will
+[32:05] soon reshape how every organization
+[32:08] operates.
+[32:10] But their success depends on the access
+[32:12] to the right tools, data, and context.
+[32:15] It's critical that users and admins
+[32:18] trust their agents and love to use them.
+[32:21] And Gemini Enterprise is the platform
+[32:23] that integrates those essentials into a
+[32:25] secure and governed place.
+[32:27] We look forward to seeing how you use it
+[32:29] to transform your organizations.
+[32:31] And with that, we're happy to answer
+[32:33] questions. Thank you again.
+[32:44] >> We have a couple of mic runners if folks
+[32:46] have questions about
+[32:48] anything related to Gemini Enterprise
+[32:50] app.
+[33:01] Uh yes, thank you for the presentation.
+[33:04] Just I got one question.
+[33:07] Uh so we got Gemini Enterprise in
+[33:10] private preview for a few weeks. And one
+[33:13] of the problem we found out is that
+[33:16] uh we needed to deploy MCP for every uh
+[33:21] tools and internal app here that we
+[33:23] have. And so we became the bottleneck of
+[33:27] our users. And uh
+[33:30] what I did not found on this is for for
+[33:33] example with tools like Cloud Code and
+[33:35] whatever where you have code execution
+[33:37] and and uh
+[33:40] uh skills. Yes. Uh
+[33:42] you I did not see this kind of stuff in
+[33:46] Gemini for Enterprise. So
+[33:47] is it will this be available?
+[33:50] Yes. Uh
+[33:51] the short answer is on connectors, we're
+[33:54] rapidly expanding our pre-built
+[33:56] connectors and then we're making it
+[33:58] easier to bring your own MCP through
+[34:01] um
+[34:01] our integrations with a number of like
+[34:03] API gateway tools. Um on skills, we have
+[34:06] a preview of skills across Gemini
+[34:08] Enterprise both agent building and usage
+[34:10] in assistance.
+[34:12] Um
+[34:15] and then uh code execution, we have kind
+[34:18] of a basic version of it that's in the
+[34:21] agent designer but we're going to expand
+[34:24] and do much more with code execution
+[34:25] shortly.
+[34:27] So.
+[34:29] Stay tuned.
+[34:31] Awesome. Hey, thank you guys very much
+[34:33] and enjoyed that. Uh
+[34:35] Maybe a follow-on to that and and then
+[34:37] an additional question. So,
+[34:39] do the agents have the ability to take
+[34:41] action within the other connections and
+[34:43] systems, right? Like, you know, execute
+[34:45] a snow ticket or something like that.
+[34:47] And then along those lines,
+[34:49] how does the the privileges work for all
+[34:52] of these different tools? Like, if I'm
+[34:54] connected to Drive and ServiceNow and
+[34:57] SharePoint or something like that, how
+[34:58] does the privileges flow through?
+[35:01] Yeah.
+[35:02] In general, the authorization follows
+[35:05] the user. So, as a user that's invoking
+[35:07] an agent, I if I haven't already
+[35:10] authorized access to a given
+[35:13] data source or tool, I'll have to.
+[35:16] We do support a mix of both kind of read
+[35:19] and kind of write
+[35:21] or execution sort of base tools.
+[35:24] Execution or tools that are
+[35:28] potentially destructive
+[35:29] require human approval. And so, that's
+[35:31] all surfaced kind of seamlessly through
+[35:32] the Gemini Enterprise app. But, we
+[35:34] absolutely like feel very strongly that
+[35:38] agents should be able to not just
+[35:40] get back data, but also do useful things
+[35:42] with it.
+[35:43] And then lastly, we're we're adding
+[35:45] support for triggers. So, you can run
+[35:46] these agents on either schedules or
+[35:49] external events. Like, an example would
+[35:51] be when when a whenever a new Jira
+[35:53] ticket is created, we're going to run
+[35:55] the specific agents processes that Jira
+[35:57] ticket.
+[36:00] Hey.
+[36:01] Hi, good morning. Here.
+[36:03] So, I have like couple of questions.
+[36:06] Like, first question is
+[36:08] when when we have this like last year
+[36:11] when Gemini Enterprise was in preview,
+[36:14] you guys have
+[36:16] used index-based search mechanism.
+[36:20] And then recently, you are trending
+[36:22] towards mostly federated search, right?
+[36:26] One pain point that we have like with
+[36:29] some of the products that
+[36:31] people use here like Atlassian products
+[36:33] or like some such products.
+[36:35] Right?
+[36:36] The search is not great, right? And um,
+[36:39] the first thing the second thing is like
+[36:40] when we
+[36:42] when we send the request to
+[36:44] um, uh, Gemini, Gemini is forwarding the
+[36:47] request to
+[36:49] uh, maybe Atlassian products example,
+[36:51] right?
+[36:52] So, if they send the response back which
+[36:55] is not great.
+[36:56] So, Gemini is going to use the same data
+[36:59] and then it tries to provide the
+[37:00] reasoning on information to user.
+[37:03] Uh, is it not a great user experience?
+[37:06] That's the first thing.
+[37:07] The second thing is like
+[37:10] there are like two types of use cases
+[37:12] that we see in general with Gemini
+[37:13] Enterprise in my organization
+[37:15] especially. Like one
+[37:17] where people
+[37:19] uh, there is a public information where
+[37:20] everybody can access like policies in
+[37:23] the company.
+[37:24] There is a private information which is
+[37:26] probably tied up to a person, right?
+[37:29] Federated search probably is okay when
+[37:31] the user we ask user to go login and get
+[37:33] the data, right? Through through forward
+[37:36] forwarding the request. But when there
+[37:37] is a a public data where for example,
+[37:41] the user Y doesn't have an even access
+[37:43] to let's say Confluence.
+[37:46] With this
+[37:48] federated search, are we not forcing the
+[37:50] users to you know use
+[37:52] or like get the license of the
+[37:53] Confluence?
+[37:55] Rather than I have this private data or
+[37:57] public data available for my company,
+[37:58] why are we even forcing the users to
+[38:00] login?
+[38:01] So, these are two questions I have.
+[38:03] Thank you.
+[38:04] Thank you for the questions. Uh, I I
+[38:06] think the short answer is the the shift
+[38:08] towards
+[38:09] uh, federated connectors was largely
+[38:11] driven by both performance on specific
+[38:14] evals and making sure that we can kind
+[38:17] of scale up to many other data sources.
+[38:20] Um, if if you are experiencing issues or
+[38:22] have instances where it's not performing
+[38:24] as expected, I'm happy to like follow up
+[38:26] specifically on that. Um, and then as
+[38:28] far as like mixing public and private
+[38:30] data sources, um, we do want to make it
+[38:32] more seamless. So, uh, we'd love
+[38:34] feedback on how we can
+[38:36] potentially prevent users from needing
+[38:38] to sign in when they don't need to. Um,
+[38:41] but it it in general, I think we're
+[38:43] going to support
+[38:44] kind of more varieties of auth. I think
+[38:47] right now agents, the way I think of
+[38:48] them is they kind of run on your behalf.
+[38:51] But I think the future looks much more
+[38:52] like you have agents that run as an
+[38:54] extension of you, and then there's
+[38:56] agents that have their own sort of
+[38:57] service account identities, where I
+[38:59] think a lot of what you're describing
+[39:00] would would sort of take place. Um,
+[39:03] but yeah, that's definitely a vision
+[39:04] that we're moving towards very quickly,
+[39:06] so uh Right. It It sometimes, uh, you
+[39:09] know,
+[39:11] also it depends on the other side,
+[39:12] right? Where they don't want us to
+[39:14] ingest, right? Going that they
+[39:17] they're also updating their policies to
+[39:19] like, "Hey, don't do ingestion, just do
+[39:21] federation." So, it's a mix of things.
+[39:23] So, definitely would like to hear more
+[39:24] in-depth feedback on this.
+[39:30] Right.
+[39:35] That's right. That's right.
+[39:38] Hey there. I have two questions
+[39:40] regarding to the Zoomdata Enterprise
+[39:42] with the A2A integration. Uh, my first
+[39:45] question is we uh we have a use case
+[39:47] which our A2A server is dep- loyed
+[39:50] within our private network. And when we
+[39:54] trying to integrate the this A2A with
+[39:56] the Zoomdata Enterprise, we find like
+[39:59] the Zoomdata Enterprise unable to do the
+[40:02] configuration to connect with our
+[40:04] internal service within our network. So,
+[40:07] this is like we'd like to understand how
+[40:11] this one can be addressed. This is my
+[40:12] question one. The question two is uh we
+[40:15] also use the ADK to build our founda- uh
+[40:19] uh foundation engine and then explore
+[40:21] the ADK as the A2A engine. Within the A2
+[40:24] ADK engine, we
+[40:26] uh use that for example open API tool or
+[40:28] NCP tool, which we define the native
+[40:32] credential measure within the ADK by
+[40:35] using the off ski- schema and off
+[40:38] credential. But when we use this measure
+[40:41] and we deploy our agent to the Gemini
+[40:43] Enterprise, it looks like the Gemini
+[40:46] Enterprise unable to understand the
+[40:48] event come from the ADK and A2A
+[40:52] integration. Uh are there any better
+[40:54] solution for this one? Thank you.
+[40:58] Yeah, I'm happy to follow up on the
+[40:59] second question because I think I would
+[41:01] need a little bit more context, but um
+[41:04] by and large, I think the way to think
+[41:05] about how to plug in external agents is
+[41:07] going to be through what we're calling
+[41:09] the agent registry.
+[41:11] This is part of kind of the new
+[41:13] expanded Gemini Enterprise agent
+[41:15] platform. So, you can think of Gemini
+[41:17] Enterprise as sort of two layers.
+[41:19] There's the platform layer, which is the
+[41:21] registry,
+[41:22] it's kind of the high-code experience,
+[41:24] it's a management plane. And then Gemini
+[41:26] Enterprise the app is the end user
+[41:28] experience. Um A- A2A, internal A2A, all
+[41:33] of that should be able to plug into the
+[41:34] registry,
+[41:36] and be defined as kind of one entry
+[41:37] that's governable that you can assign a
+[41:39] policy to, and then then that's exposed
+[41:42] into Gemini Enterprise.
+[41:43] Um
+[41:45] And so, whatever connectivity issues
+[41:48] you're facing,
+[41:49] um
+[41:50] we should be able to address those at
+[41:51] that like platform layer. Um so, there
+[41:54] should be much less of a dependence on
+[41:55] anything that's
+[41:57] Gemini Enterprise app specific.
+[42:03] Hi. Um so, first of all, thanks for the
+[42:04] great talk to you guys. Um
+[42:07] we are really excited about the overhaul
+[42:08] of the agent builder. So, I have uh two
+[42:11] questions regarding that.
+[42:13] Uh the first one is um when it comes to
+[42:15] the human in the loop feature. For for
+[42:17] instance, if I have a team um I I want
+[42:20] to build an agent to automate a decision
+[42:22] process in the team.
+[42:23] And I have for instance two two persons
+[42:25] which are
+[42:26] then
+[42:28] um should should should have the
+[42:29] decision in the end and be integrated
+[42:31] into this human in the loop step. Would
+[42:33] it be possible to build in a process
+[42:36] where an agent um
+[42:38] um results to for instance those two
+[42:42] persons being um
+[42:45] maybe prompted by an email to actually
+[42:50] work on this decision and
+[42:53] on this human in the loop step. Yeah.
+[42:55] Yeah, I mean this is very in line with
+[42:57] how we're thinking about collaborative
+[42:58] projects
+[42:59] where you can deploy your agents not
+[43:01] just to kind of your own space but to
+[43:03] your shared workspace with team members.
+[43:06] You can jointly take actions or kick off
+[43:08] agents all with shared context, files,
+[43:10] skills within a sort of predefined
+[43:13] context boundary. Right. And also like
+[43:16] over time we we will build the
+[43:18] governance like more complete. I think
+[43:20] if you want to have multi-step
+[43:22] permissioning, right? Something totally
+[43:24] makes sense.
+[43:26] Right.
+[43:27] Not sure if it is in the road map right
+[43:28] now, but you know.
+[43:30] We'll definitely think through that.
+[43:31] Great to hear.
+[43:32] Uh second question would be
+[43:34] so when we look at the agent builder in
+[43:37] Gemini CX um it has uh functions which I
+[43:40] haven't seen yet in this overhaul um for
+[43:44] the workflow agent designer in Gemini
+[43:46] Enterprise. For instance, there is a
+[43:47] possibility I think to integrate custom
+[43:50] code
+[43:51] directly as as in as it as within the
+[43:55] low code agent builder. So, is that
+[43:57] something which will also come to the
+[43:59] work workflow agent designer in Gemini
+[44:01] Enterprise?
+[44:03] It it's it's it's on the road map. Uh
+[44:05] the
+[44:06] you you'll hear here first, but um
+[44:09] we we do want to play
+[44:11] um
+[44:12] much more nicely but with high code
+[44:14] inside of the low code agent designer
+[44:17] and to be able to run arbitrary code
+[44:19] blocks is definitely something that's in
+[44:22] line with our vision and it's something
+[44:23] that we're prioritizing pretty pretty
+[44:25] soon. And just one one last question.
+[44:28] Um
+[44:29] so in in terms of feature parity between
+[44:31] those two products, Gemini CX and Gemini
+[44:33] Enterprise app um will it be aligned or
+[44:37] will it always be uh
+[44:39] developed separately?
+[44:41] I think in general we want to be a super
+[44:44] set of what's supported in
+[44:45] Gemini Enterprise for customer
+[44:46] experience because
+[44:49] the agent designer supports sort of two
+[44:50] styles of workflows. It supports both
+[44:52] workflows that are chat-based, that are
+[44:54] interactive, and so we want to have all
+[44:56] of the goodness that GE for CX has. And
+[44:59] separately, we want to support workflows
+[45:01] that are like kind of headless
+[45:03] background tasks that are doing work um
+[45:06] on a schedule, creating reports, or
+[45:09] responding to events. So there's a
+[45:11] different set of capabilities needed to
+[45:13] support those kinds of workflows. So in
+[45:15] short, we want to be
+[45:17] have all of the features that GE for CX
+[45:19] has and more
+[45:20] uh within the agent designer.
+[45:22] And I we're investing very heavily on it
+[45:23] on kind of closing that gap.
+[45:25] Makes sense. Thanks.
+[45:28] Awesome. Thank you so much for for
+[45:29] joining us here. Uh please ask us if you
+[45:31] have any more questions. Uh we'll we'll
+[45:33] we'll be around.
+[45:35] Thank you, folks.
