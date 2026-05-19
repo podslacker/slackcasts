@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — From pilot to production: Scaling Gemini with proven practices</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>From pilot to production: Scaling Gemini with proven practices</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; dBRPi41nrJw</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://youtu.be/dBRPi41nrJw" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" loading="lazy" data-caption="[music] &gt;&gt; Hi everyone. Thank you so much for being here. My name is Donna. I&#39;m a applied AI leader at Google…"><figcaption class="gal-caption">[music] &gt;&gt; Hi everyone. Thank you so much for being here. My name is Donna. I&#39;m a applied AI leader at Google…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" loading="lazy" data-caption="I want to give like actual one one Um bets. interesting example. language models to to making the right Um one…"><figcaption class="gal-caption">I want to give like actual one one Um bets. interesting example. language models to to making the right Um one…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" loading="lazy" data-caption="You can impress everybody with these right? The initial prototypes are easy. large models, but taking it to…"><figcaption class="gal-caption">You can impress everybody with these right? The initial prototypes are easy. large models, but taking it to…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" loading="lazy" data-caption="ideal scenario will be if we will be Well, in our use case, able to measure it, let&#39;s say from the How do you…"><figcaption class="gal-caption">ideal scenario will be if we will be Well, in our use case, able to measure it, let&#39;s say from the How do you…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" loading="lazy" data-caption="you know, this this real world evaluations which are highly We have made huge progress in getting…"><figcaption class="gal-caption">you know, this this real world evaluations which are highly We have made huge progress in getting…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" loading="lazy" data-caption="to predict and manage your workload and the consumption of tokens touched by Naren already, is being able…"><figcaption class="gal-caption">to predict and manage your workload and the consumption of tokens touched by Naren already, is being able…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_07.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_07.jpg" loading="lazy" data-caption="a budget to manage as well. And you know, we we also need to think it, right? Because you know, we all have…"><figcaption class="gal-caption">a budget to manage as well. And you know, we we also need to think it, right? Because you know, we all have…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_08.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_08.jpg" loading="lazy" data-caption="that&#39;s like with a combination of both We developed a single pane of glass, but the in-house tools as well as…"><figcaption class="gal-caption">that&#39;s like with a combination of both We developed a single pane of glass, but the in-house tools as well as…</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_09.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_09.jpg" loading="lazy" data-caption="We also welcome any feedback on this session. Please do complete the survey Ready Learning Program. check out…"><figcaption class="gal-caption">We also welcome any feedback on this session. Please do complete the survey Ready Learning Program. check out…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="from-pilot-to-production-scaling-gemini-with-proven-practices">From pilot to production: Scaling Gemini with proven practices</h1>
+<p><strong>Source:</strong> <a href="https://youtu.be/dBRPi41nrJw">https://youtu.be/dBRPi41nrJw</a><br />
+<strong>Video ID:</strong> <code>dBRPi41nrJw</code></p>
+<hr />
+<h1 id="scaling-gemini-with-proven-practices-panel-summary">Scaling Gemini with Proven Practices – Panel Summary</h1>
+<p><strong>Event:</strong> Google Developer Keynote (AI/ML track)<br />
+<strong>Moderator:</strong> Donna (Applied AI Leader, Google)<br />
+<strong>Panelists:</strong></p>
+<ul>
+<li><strong>Arca</strong> – Lead, Applied AI Group, DeepMind (Google)</li>
+<li><strong>Nick</strong> – Engineer, JetBrains (creator of the <em>Junior</em> AI development agent)</li>
+<li><strong>Naren Koneru</strong> – Head of Engineering for Safety, Roblox</li>
+</ul>
+<hr />
+<h2 id="overview">1. Overview</h2>
+<p>The panel explored how three very different organizations are <strong>integrating Google’s Gemini models</strong> into production‑grade systems. Each speaker shared concrete use‑cases, the engineering obstacles they hit when moving from prototype to scale, and the “best‑practice” playbook they’ve built around prompt engineering, observability, latency, cost, and evaluation.</p>
+<hr />
+<h2 id="key-topics-takeaways">2. Key Topics &amp; Takeaways</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Naren – Roblox</th>
+<th>Nick – JetBrains</th>
+<th>Arca – DeepMind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Core Use‑case</strong></td>
+<td>Real‑time user‑generated content safety (text, images, video, 3‑D). Gemini handles ambiguous moderation cases.</td>
+<td><em>Junior</em> – an AI‑powered coding assistant. Gemini Flash chosen for best quality‑to‑cost ratio.</td>
+<td>Applied‑AI consultancy: Gemini assists in domain‑specific problem framing, brainstorming, code generation, vulnerability detection, synthetic user‑studies.</td>
+</tr>
+<tr>
+<td><strong>Model Choice</strong></td>
+<td>Mix of in‑house specialized models + Gemini for “uncertain” decisions.</td>
+<td>Gemini Flash (default) – cheaper, still hits top‑tier benchmark scores.</td>
+<td>Gemini (various versions) used as “partner” for research &amp; product teams.</td>
+</tr>
+<tr>
+<td><strong>From Pilot → Production</strong></td>
+<td>1️⃣ Define precision/recall metrics for safety. <br>2️⃣ Prompt‑tuning to keep hallucinations low. <br>3️⃣ Load‑/stress‑test for latency (P90 ≈ 1 s after Gemini, P75 ≈ 300 ms). <br>4️⃣ Cost controls – never route all traffic to Gemini.</td>
+<td>• Agentic software has fluid scope → need deep model behavior analysis. <br>• Augment dev team with ML researchers to monitor trajectories, token usage, inference steps. <br>• Continuous prompt/parameter optimization, not a “set‑and‑forget” approach.</td>
+<td>• Scaffolding still immature → invest in observability, drift detection, uptime guarantees. <br>• Provide customers with robust migration paths (e.g., Gemini 1.5 → 2.0 vs. 2.0 → 3.0).</td>
+</tr>
+<tr>
+<td><strong>Observability &amp; Reliability</strong></td>
+<td>Custom dashboards for recall, false‑positive rate, latency; rapid rollback when a release broke after 2 h.</td>
+<td>Deep dive into inference latency, token counts, step‑wise rollout.</td>
+<td>Emphasize “model‑level” health signals, drift monitoring, quick root‑cause analysis &amp; patching.</td>
+</tr>
+<tr>
+<td><strong>Cost Management</strong></td>
+<td>Tiered routing: Majority of traffic stays on internal models; Gemini only for edge cases.</td>
+<td>10× cost difference between models; Gemini Flash cut per‑task cost dramatically.</td>
+<td>Cost‑efficiency baked into migration recommendations and Vertex‑AI serving options.</td>
+</tr>
+<tr>
+<td><strong>Evaluation Philosophy</strong></td>
+<td>Build <strong>hard, realistic eval sets</strong> (privacy, harassment, PII). Metrics are “gameable” – must keep the test set evolving.</td>
+<td>Benchmarks (Terminal, SW ReBench) useful but complemented by real‑world usage data.</td>
+<td>Academic benchmarks ≠ ROI; focus on end‑to‑end impact and customer‑facing SLAs.</td>
+</tr>
+<tr>
+<td><strong>Notable Quote</strong></td>
+<td>“The initial prototype can wow people, but scaling it is <em>hard work</em>.” – Naren</td>
+<td>“We don’t just implement one prompt and forget it; we constantly optimise how we work with the model.” – Nick</td>
+<td>“The lack of mature scaffolding is the biggest source of stress moving from pilot to production.” – Arca</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="practical-frameworks-mentioned">3. Practical Frameworks Mentioned</h2>
+<ol>
+<li><p><strong>Four‑Metric Guardrails (Roblox)</strong></p>
+<ul>
+<li><strong>Recall</strong> (detecting unsafe content)</li>
+<li><strong>False‑Positive Rate</strong> (avoiding over‑blocking)</li>
+<li><strong>Latency</strong> (P90, P75 targets)</li>
+<li><strong>Cost per Request</strong></li>
+</ul>
+</li>
+<li><p><strong>Prompt‑Tuning as an Art</strong></p>
+<ul>
+<li>Broad prompts → high recall but more hallucinations.</li>
+<li>Iterative refinement with DeepMind help; balance precision vs. recall per use‑case.</li>
+</ul>
+</li>
+<li><p><strong>Observability Stack</strong> (recommended by DeepMind)</p>
+<ul>
+<li>Model drift detection</li>
+<li>End‑to‑end latency tracing</li>
+<li>Automated alerting + rapid patch deployment</li>
+</ul>
+</li>
+<li><p><strong>Evaluation Pipeline (Roblox)</strong></p>
+<ul>
+<li><strong>Phase 1:</strong> Assemble a “hard” evaluation dataset reflective of production edge cases.</li>
+<li><strong>Phase 2:</strong> Run batch evaluation to surface recall/fp trade‑offs.</li>
+<li><strong>Phase 3:</strong> Continuous online A/B testing with live traffic, feeding back into the dataset.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="conclusions">4. Conclusions</h2>
+<ul>
+<li><strong>Gemini is a versatile safety and productivity layer</strong> when paired with specialized in‑house models.</li>
+<li><strong>Success at scale hinges on disciplined observability, prompt engineering, and cost‑routing strategies.</strong></li>
+<li><strong>Academic benchmarks are only a starting point</strong>; real ROI is measured by domain‑specific metrics (recall/precision, latency, cost).</li>
+<li><strong>Maturing infrastructure (Vertex AI, serving platforms, migration tooling)</strong> is rapidly closing the gap between rapid MVPs and production‑grade deployments.</li>
+</ul>
+<hr />
+<p><em>Prepared from the YouTube panel transcript (May 2026).</em></p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the AI Horizons podcast. I’m Jordan, your resident detail‑digger, and with me is the always‑curious Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re unpacking a panel on “Scaling Gemini with Proven Practices,” straight from the Google DeepMind folks. Let’s dive into what those leaders are actually doing with Gemini.</p>
+<p><strong>JORDAN:</strong> The panel kicked off with introductions: Arca from DeepMind leads the applied AI group, Nick from JetBrains builds the Junior AI development agent, and Naren heads safety engineering at Roblox. Each uses Gemini differently.</p>
+<p><strong>MIKE:</strong> Right, and the common thread is that Gemini isn’t just a research toy—it’s powering real‑time, high‑scale user experiences. I’m especially curious about Roblox’s safety pipeline.</p>
+<p><strong>JORDAN:</strong> Naren explained that Roblox handles up to 700 k requests per second, mixing text, images, video, and 3D assets. They run their own high‑precision models first, then defer ambiguous cases to Gemini for higher recall.</p>
+<p><strong>MIKE:</strong> That makes sense—use the fast, cheap models for the easy stuff, and let Gemini handle the gray area. It’s a classic cascade architecture, but at massive scale.</p>
+<p><strong>JORDAN:</strong> Nick’s team at JetBrains chose Gemini Flash as their default for the Junior agent because of its quality‑to‑cost ratio. Their benchmarks showed Flash on par with Claude 2 and Opus 4.6, while slashing per‑task cost by tenfold.</p>
+<p><strong>MIKE:</strong> Ten times cheaper is huge for a development tool that runs inside IDEs every day. It shows that the “cheapest model that meets the performance bar” can be a winning strategy.</p>
+<p><strong>JORDAN:</strong> Arca highlighted how DeepMind’s applied AI group uses Gemini across the whole workflow: from decoding industry jargon like “block trade” to generating synthetic user studies for product strategy. They even use it for code generation and vulnerability detection.</p>
+<p><strong>MIKE:</strong> That breadth is impressive—Gemini becomes a teammate that can switch from business analyst to security auditor on the fly. It raises the question of how they keep it reliable across domains.</p>
+<p><strong>JORDAN:</strong> When asked about moving from pilot to production, Nick pointed out that agentic software isn’t “set‑and‑forget.” They monitor inference time, token usage, and model trajectories, iterating on prompts and instructions continuously.</p>
+<p><strong>MIKE:</strong> It’s a reminder that prompt engineering is an ongoing practice, not a one‑time tweak. The deeper telemetry they collect seems essential for that feedback loop.</p>
+<p><strong>JORDAN:</strong> Naren shared a cautionary tale: he built a Gemini‑powered text filter prototype over a Thanksgiving break, only to see it break in two hours and require a full rebuild. Their final system tracks recall, false‑positive rate, latency, and cost at every stage.</p>
+<p><strong>MIKE:</strong> Oof, that’s a reminder that speed of development doesn’t guarantee stability. Their four‑metric framework—recall, FP rate, latency, cost—looks like a solid checklist for anyone scaling LLMs.</p>
+<p><strong>JORDAN:</strong> Arca added that the biggest obstacle right now is the immature scaffolding: observability, drift detection, and rapid rollback mechanisms are still evolving. Google’s investments in Vertex AI and serving platforms aim to close that gap.</p>
+<p><strong>MIKE:</strong> So the ecosystem is catching up, but organizations still need to build their own safety nets until the platform matures.</p>
+<p><strong>JORDAN:</strong> On evaluation, Naren warned that benchmark scores are easily gamed. He advocates building ever‑harder, domain‑specific eval sets in three phases to truly stress the model.</p>
+<p><strong>MIKE:</strong> That aligns with what we’ve seen elsewhere—real‑world ROI comes from task‑specific testing, not generic academic scores.</p>
+<p><strong>JORDAN:</strong> To sum up, the panelists showed that scaling Gemini requires a hybrid model stack, rigorous metrics (recall, FP rate, latency, cost), continuous prompt tuning, and robust observability.</p>
+<p><strong>MIKE:</strong> And the takeaway for our listeners: pick the right Gemini variant for cost‑performance, treat prompts as living code, and don’t skip the hard‑core eval sets. Thanks for joining us, and we’ll see you next time on AI Horizons!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

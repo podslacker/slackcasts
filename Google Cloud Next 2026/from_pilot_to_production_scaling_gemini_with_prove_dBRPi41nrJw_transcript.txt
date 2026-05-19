@@ -1,0 +1,1255 @@
+﻿[00:00] [music]
+[00:13] >> Hi everyone. Thank you so much for being
+[00:15] here. My name is Donna. I'm a applied AI
+[00:18] leader at Google and I will be
+[00:20] moderating moderating today's panel on
+[00:23] scaling Gemini with proven practices. On
+[00:25] our panel we have three incredible
+[00:27] leaders and experts. Arca from DeepMind,
+[00:31] Nick from JetBrains, and Naren from
+[00:33] Roblox.
+[00:35] So with that, let's start off with brief
+[00:37] introductions.
+[00:38] Uh can each of you uh tell us a little
+[00:40] bit more about the company that you work
+[00:42] for and your role. Uh Arca, let's start
+[00:44] with you.
+[00:44] >> Um I work for DeepMind. So I think
+[00:47] Google DeepMind. I lead the applied AI
+[00:49] group at DeepMind. So I work with a lot
+[00:51] of enterprises and governments helping
+[00:54] them
+[00:55] um get the most out of our models.
+[00:58] Sure.
+[00:59] Uh well, good morning everyone. Thanks
+[01:00] for coming to us and not to developer
+[01:02] keynote.
+[01:03] Uh
+[01:04] I'm Nick from uh JetBrains. I'm working
+[01:06] on Junior, our AI uh development agent.
+[01:10] Uh you most likely know JetBrains if
+[01:12] you're in software engineering. Uh
+[01:14] that's the company behind Kotlin, behind
+[01:16] IntelliJ, PyCharm, and many other IDEs
+[01:19] for professional development. And with
+[01:21] Junior,
+[01:22] uh we utilizing the power of those IDEs
+[01:25] to uh apply it to agentic workflows.
+[01:29] Hey folks, I'm Naren Koneru. I lead
+[01:31] engineering for safety at Roblox.
+[01:33] Uh you probably know about Roblox if you
+[01:35] have some kids, right? Uh
+[01:37] uh
+[01:38] uh we are the largest
+[01:40] gaming platform uh on the world,
+[01:41] probably. You know, we get around 150
+[01:43] million users. Um our mission is to keep
+[01:46] uh the environment safe for everybody.
+[01:48] Um and uh yeah, I've been there just
+[01:51] over 5 years. And before that I spent
+[01:53] like 20 years in large scale distributed
+[01:55] systems.
+[01:58] All right. So let's start with how are
+[02:00] you using Gemini in your organization?
+[02:02] Uh Naren, would you like to go first?
+[02:04] Yeah. Uh
+[02:05] you know, if you think about Roblox, uh
+[02:07] we are uh
+[02:09] building games or we're building a
+[02:10] platform where people can come and build
+[02:12] games. And it is 100% user generated
+[02:15] content, right? And our content ranges
+[02:17] from a text to an image to a video to a
+[02:21] 3D environment like this. And how do we
+[02:23] make sure that all of this is safe?
+[02:25] Right? And um
+[02:27] our our systems operate at
+[02:31] um anywhere from a thousand Q uh
+[02:32] requests per second to a 700k requests
+[02:35] per second. So we have to build any of
+[02:38] these models with latency in mind, of
+[02:41] course cost because of the scale as
+[02:42] well. And
+[02:45] And where we Gemini comes in is we have
+[02:47] a variety of these models, right? Some
+[02:49] are built in house. They're super
+[02:50] special models that are really good at
+[02:52] what they do. But sometimes, you know,
+[02:54] for the ambiguous things they they can't
+[02:56] make these decisions. So we almost
+[02:58] always have like a high recall and a
+[03:00] high precision model.
+[03:02] Um so we start with our own specialized
+[03:04] models. They can make all the confident
+[03:06] decisions that they can. And where
+[03:07] they're unsure, that's when we send them
+[03:09] to Gemini. And we use it for uh a
+[03:13] variety of these models, right? Like for
+[03:15] text as well as videos um
+[03:18] as well. And we can talk more about the
+[03:20] use cases later. Yeah.
+[03:22] Um Nick? Sure. Um
+[03:24] yeah. In Junior, we have the development
+[03:27] agentic case. And most of you familiar
+[03:30] that Gemini Pro is uh a
+[03:33] great model for uh development. But in
+[03:36] our case we actually selected uh Gemini
+[03:38] Flash as our default model.
+[03:41] And the reason for that is uh it really
+[03:43] stands out as a quality to cost ratio.
+[03:48] We really think it's uh the best model
+[03:50] right now on the market. We've been able
+[03:53] to get
+[03:54] uh great results with it
+[03:56] uh this year. Like on two benchmarks, on
+[03:59] terminal benchmark we got the second
+[04:00] place with Gemini Flash.
+[04:03] Uh and on SW Rebench, which is the
+[04:06] Nabius um
+[04:08] bench for software development agents,
+[04:09] we've been able to get pretty much on
+[04:11] par results with Claude 2 and Opus 4.6
+[04:15] uh
+[04:16] while we've been running on Gemini
+[04:18] Flash. And because we've been using
+[04:21] different models, we had like a 10 times
+[04:24] uh different cost per task. So that was
+[04:26] pretty impressive and we're really happy
+[04:28] about that.
+[04:30] That's great. Arca.
+[04:31] >> talk about how we use Gemini at at
+[04:33] DeepMind or or in my team. Um so when
+[04:36] you think about an applied organization,
+[04:38] you know,
+[04:39] pretty much every one of us, we are
+[04:41] engineers or researchers with with not
+[04:43] really an industry specific background.
+[04:46] Like we have been working in software
+[04:47] engineering
+[04:48] or or research. So but now we have to
+[04:51] work with experts like these guys who
+[04:53] actually understand their industry
+[04:54] inside out. Um and and we don't. So, you
+[04:57] know, throughout the entire kind of
+[04:59] workflow of understanding the industry,
+[05:01] the problem, like your technology your
+[05:04] your technical base, the problem that
+[05:06] you're trying to solve, all the way kind
+[05:08] of figuring out the PRD that has to be
+[05:09] put together for my engineering team,
+[05:11] like Gemini and our our models are a are
+[05:14] really a great partner. Um we often end
+[05:16] up in meetings where we get interesting
+[05:19] terms thrown thrown at us. Like I I very
+[05:21] recently learned about this concept of
+[05:23] block trade,
+[05:24] which are half a billion dollar trades
+[05:26] that happen every day. Um And I had no
+[05:28] idea that it it uh it defines pretty
+[05:31] much every macroeconomic
+[05:33] indicators that exist. Like it impacts
+[05:35] us and I had no idea about it. And
+[05:37] Gemini was a really good partner helping
+[05:38] us break down what block trade is, what
+[05:41] are the inefficiencies in that system,
+[05:43] and also like as a brainstorming partner
+[05:44] on how we can actually leverage large
+[05:46] language models to to making the right
+[05:48] bets.
+[05:49] Um
+[05:50] I want to give like actual one one
+[05:51] interesting example.
+[05:53] Um one of my one of my colleagues in my
+[05:55] team, he built this user simulator.
+[05:58] Um
+[05:58] And the idea was
+[06:00] I'm not going to use the word annoy, but
+[06:02] I keep asking him to do a ton of user
+[06:04] studies. He does a ton of user studies.
+[06:06] I keep asking him for more. So he ended
+[06:08] up uh designing this system where you
+[06:10] can give the model a personality very
+[06:12] quickly and all the marketing
+[06:14] attribution. So, you know,
+[06:16] really defining the model's uh cohort
+[06:18] and you're able to get this this model
+[06:20] to to give you feedback on a product
+[06:23] strategy that you're building.
+[06:24] And it's almost like a synthetic user
+[06:26] study that you can do to validate um
+[06:28] some of the learnings you have from the
+[06:29] market. So really across the board, all
+[06:31] the way through engineering as well, we
+[06:32] are we are using our models for code
+[06:34] gen, vulnerability detection, kind of
+[06:36] figuring out bugs, making systems more
+[06:38] efficient. Um yeah, across the board.
+[06:41] Yeah. Okay, great variety of different
+[06:43] applications.
+[06:45] Um
+[06:46] so as you moved from pilot to
+[06:48] production, what are some of the
+[06:49] engineering constraints that you faced
+[06:51] and how did you overcome them? Uh Nick,
+[06:54] let's start with you. Um sure. So I
+[06:56] think again the agentic projects are
+[06:59] very different from your traditional
+[07:01] software. And
+[07:03] in traditional software you have
+[07:05] kind of a clear scope and clear use
+[07:08] cases. And the moment you kind of
+[07:11] implement it and cover these use cases
+[07:13] with uh with tests, you're kind of done.
+[07:16] And that's not really the case with
+[07:18] agentic software. Uh because we have
+[07:20] much more complexity. We have different
+[07:23] behavior for different models. We have
+[07:24] different behavior for different prompts
+[07:28] uh and instructions. And that's very
+[07:30] different game. So I think our way to
+[07:34] uh deal with these constraints was
+[07:36] really augment our team with the
+[07:38] research team with ML specialist who
+[07:41] really help us to do uh a lot of
+[07:44] insights into how the model actually
+[07:46] performs. Not just the
+[07:48] bare results in terms of uh
+[07:50] this benchmark gets so many percents of
+[07:53] the successful cases or what. But really
+[07:55] go deeper, looking at the trajectories,
+[07:57] looking at the model behavior, looking
+[07:59] into inference time, number of steps,
+[08:02] input and output tokens. So really go
+[08:04] deeper on that. And really that's I
+[08:06] think the the reason which we've been
+[08:07] able to succeed on those benchmarks
+[08:10] because we're not just
+[08:11] uh implementing one prompt and forget
+[08:14] about it. We really uh run the system
+[08:16] which optimize how we work with that.
+[08:20] Yeah.
+[08:20] Naren.
+[08:21] Yeah. Um
+[08:23] I think, you know, going from a POC to
+[08:26] production is really hard. I want to
+[08:28] tell you guys a story, right? So in in
+[08:29] Roblox we have this thing called a text
+[08:31] filter where um you know, you can type
+[08:33] in any sentence that you want, but we
+[08:35] don't let you swear on the platform. You
+[08:37] can't bully people. You can't harass
+[08:38] people. You can't share PII and things
+[08:40] like that, right? So it has to work in
+[08:42] real time. And of course there are false
+[08:44] positives and, you know, there are
+[08:46] misses. So I built this prototype over
+[08:49] Thanksgiving break to say, you know, can
+[08:51] we leverage Gemini for unsure cases and,
+[08:54] you know, how how well can we uh do
+[08:56] better, right? And I was able to build
+[08:58] it over the Thanksgiving break in like 3
+[09:00] 4 days. I took it to my team and I was
+[09:03] so excited about it. Like let's ship
+[09:04] this next week.
+[09:06] And they just broke it in like 2 hours,
+[09:09] right? Um and then we had to throw
+[09:11] everything away
+[09:12] and start from scratch. And then we were
+[09:14] able to ship it in a couple of months.
+[09:16] But then here's the four concrete things
+[09:17] that I'd say.
+[09:19] You know, when we are shipping uh
+[09:20] anything at scale,
+[09:22] we first need to know how well the model
+[09:23] is performing, right? So and there are
+[09:26] going to be metrics that you need to
+[09:27] measure yourself on. We measure on
+[09:29] recall and false positive rate,
+[09:32] right?
+[09:33] So uh we have to really do that. And
+[09:35] then the the challenge with uh large
+[09:38] models, either Gemini or any of the
+[09:40] state of the art models, is you can make
+[09:42] the prompt very broad.
+[09:44] That'll give you really good recall, but
+[09:46] also
+[09:47] it will hallucinate like hell, right?
+[09:49] And uh the false positives just
+[09:51] increase. And we can't we can't afford
+[09:53] that, right? That just uh you know, the
+[09:55] user experience suffers. So that's the
+[09:58] first constraint on how do you make sure
+[10:00] that okay, you know, your prompt tuning
+[10:02] is still an art. You know, we get a lot
+[10:04] of help from
+[10:05] from the DeepMind teams to you know,
+[10:07] help us tune the prompts better, but
+[10:09] it's still an art to get to really very
+[10:11] very high-level super precision.
+[10:13] And once you're done with that, latency,
+[10:16] availability
+[10:18] is also important, right? Because we
+[10:19] don't want the system to ever go down
+[10:21] and you know, making sure that okay, how
+[10:24] do you test it? How do you load test it?
+[10:25] How do you stress test it?
+[10:27] And what are the latencies? Our latency
+[10:29] used to be
+[10:30] P90 was like 30 milliseconds. And
+[10:33] because we introduced Gemini, our P90
+[10:35] went to a second, which we could afford
+[10:37] in this case, but it is going to
+[10:38] increase and is that good for you or
+[10:40] not? I think it depends on the use case,
+[10:42] right?
+[10:43] And our P75 still
+[10:45] 300 milliseconds because we still use
+[10:47] our models for majority of our
+[10:48] decisions.
+[10:49] So,
+[10:51] so that's the latency and finally cost
+[10:53] matters as well, right?
+[10:56] And you know, we have to be very like if
+[10:58] you send all of our traffic to
+[11:01] Gemini, we won't make any money.
+[11:04] I mean, we we won't have money enough
+[11:05] money to pay for Gemini. So, we have to
+[11:07] manage that as well, right? So, those
+[11:09] are the four metrics that we always look
+[11:10] for and being very diligent about
+[11:14] measuring it and optimizing every single
+[11:16] step of the way, that's the hard work,
+[11:18] right? The initial prototypes are easy.
+[11:20] You can impress everybody with these
+[11:22] large models, but taking it to
+[11:23] production is is is really hard.
+[11:26] Yeah. Arka, what are some of the other
+[11:28] best practices you've seen with other
+[11:29] customers? Um
+[11:31] so, you know, I'll start with saying
+[11:33] this. I think look that the the
+[11:34] technology is fairly new.
+[11:36] It it's still new. A lot of the
+[11:37] scaffolding is still maturing around the
+[11:40] systems, right? So,
+[11:42] and us, all the labs, we are not going
+[11:45] any slower in getting newer models with
+[11:47] newer capabilities out into the market.
+[11:49] So, I think that that presents almost
+[11:51] like this perfect storm. And then along
+[11:53] with this perfect storm, you have this
+[11:55] incredible agentic coding systems that
+[11:58] that allows you to have a proliferation
+[12:00] of MVPs within within your organization
+[12:02] and we want to encourage that as well.
+[12:04] Um
+[12:05] but
+[12:06] to get this MVP to production ready to
+[12:09] the to the to what Nick and Naren was
+[12:11] saying, like you need a lot of
+[12:13] observability systems, you need to be
+[12:15] able to measure drift well,
+[12:17] ensuring the uptime that you're actually
+[12:19] promising your customers, you're able to
+[12:21] manage that.
+[12:22] You're able to
+[12:24] like when things actually go wrong, you
+[12:26] are able to do your due diligence very
+[12:28] quickly, find the root cause and be able
+[12:30] to like get land a patch. And if you
+[12:32] find something that is actually off with
+[12:34] the model, then you can't just patch it,
+[12:36] right? So, so I think there are all
+[12:38] these kind of lessons that we're
+[12:39] learning, but
+[12:41] I'm quite excited to see like at GDM and
+[12:44] at Cloud, we're making a ton of
+[12:45] investments on on those layers as well,
+[12:47] everything from Vertex to to to the
+[12:49] different kind of serving platforms we
+[12:51] have.
+[12:52] Um
+[12:53] so
+[12:54] I I don't want to say that it's on any
+[12:56] organization. I think it's really the
+[12:58] lack of of the maturity of the
+[12:59] scaffolding that is causing a lot of the
+[13:02] stress from going to pilot to
+[13:03] production. And as those best practices
+[13:05] get get implemented through systems,
+[13:07] which is the best way of doing it, um
+[13:09] that that is getting solved quite quite
+[13:11] significantly. We're getting much better
+[13:13] at migration.
+[13:14] Um Donna and I got to manage a bunch of
+[13:17] customers migrating from 1.5 to 2.0.
+[13:20] Um I think we both aged 20, 30 years
+[13:23] through that through that process. But
+[13:25] then when we look at 2.0 to 3, it's a
+[13:26] very different experience. So, I think
+[13:28] things are things are definitely
+[13:29] maturing, but it's it's not been
+[13:30] straightforward.
+[13:32] Yeah.
+[13:33] Uh we touched on this a little bit
+[13:35] already.
+[13:36] We know that
+[13:37] academic benchmarks, they don't reflect
+[13:39] real-world ROI.
+[13:42] Can you share your framework for how you
+[13:44] think about evaluation? Naren, let's
+[13:46] start with you.
+[13:48] Yeah, um I think when you're evaluating
+[13:50] any model, whenever you look at the
+[13:51] metrics,
+[13:52] they're all gameable, right?
+[13:55] I think the metrics are just a function
+[13:56] of how hard your evaluation set is.
+[13:59] So, we need to keep building this eval
+[14:01] set that is really really hard and then
+[14:04] measure the model performance on that,
+[14:06] right? Um
+[14:08] as an example, yesterday there was a
+[14:09] privacy model that that was out there.
+[14:12] Somebody released it and you know,
+[14:14] immediately you know, I got like 50
+[14:16] pings from people saying, "Hey, there's
+[14:17] this amazing model, you know, how does
+[14:18] it perform?" And we were able to run the
+[14:20] eval set and you know, the recall was
+[14:22] like 20%. Um right? But again, you know,
+[14:25] building the eval set is really the
+[14:27] hardest one and we do it in like three
+[14:30] phases, if you will,
+[14:32] in terms of measurement. We have an
+[14:34] offline eval set, right? So, that's what
+[14:36] we measure our models on before we
+[14:38] launch anything in production, anything
+[14:39] in shadow. And this offline eval set
+[14:42] gets better and better every day. And a
+[14:44] good really good function of this
+[14:47] offline eval set getting harder is the
+[14:49] existing model should be performing
+[14:50] worse and worse every day as the eval
+[14:53] set gets better, right? So, that's a
+[14:54] really good principle to have and if
+[14:56] not, you're just not trying hard enough
+[14:58] to build the eval set.
+[15:00] So, that's what we build as an offline
+[15:02] eval set and we evaluate our models on
+[15:04] that before we put it into production.
+[15:06] But once you put it in production,
+[15:08] especially in safety, it adversarial,
+[15:10] right? People change behaviors.
+[15:13] And how do we adapt to those changing
+[15:16] behaviors? And this is where we we have
+[15:19] a combination of
+[15:21] sampling the production data,
+[15:23] if you will, right? And then use that to
+[15:26] sample the production data in like
+[15:27] different kinds of samplers, right? You
+[15:29] can't just take a random sample, that
+[15:31] won't be representative of the of the
+[15:33] of the bypasses. So, we have to use
+[15:35] different techniques to sample the right
+[15:37] data, use a combination of humans and
+[15:40] LLMs to label it properly
+[15:43] and then really assess what the
+[15:45] performance is.
+[15:46] On top of that, we also build
+[15:49] a bunch of AI agents to go and try to
+[15:51] break our systems on a continuous basis
+[15:53] online, right? Based on what what you're
+[15:56] saying and that gives us yet another
+[15:58] sample data and that's how we measure
+[16:00] it, right? And there's always going to
+[16:01] be that the model's performance on the
+[16:03] offline will look really good because
+[16:04] that's what otherwise you wouldn't
+[16:06] launch it and the online will look bad
+[16:08] and then we measure the threshold in
+[16:10] which we set a threshold saying, "Hey,
+[16:11] if the online is less than let's say 5%,
+[16:14] 10% worse, it's time to deploy a new
+[16:16] model with the new data." Right? So,
+[16:18] that's kind of the framework that we
+[16:19] have and of course, we have to combine
+[16:22] this with some kind of a qualitative
+[16:23] measure of how users are actually
+[16:26] feeling about this model, right? And
+[16:27] that's where you know, you need to get
+[16:29] some real-world use cases and you know,
+[16:30] have some people try this out to say how
+[16:33] long does it really take for someone to
+[16:35] swear on a platform,
+[16:37] right? Um
+[16:38] And so, those are the three frameworks
+[16:40] that we use to
+[16:42] to measure performance of the overall
+[16:43] system.
+[16:45] How do you do it at JetBrains? Sure.
+[16:48] Well, in our use case,
+[16:50] ideal scenario will be if we will be
+[16:52] able to measure it, let's say from the
+[16:55] a Jira ticket all the way to pull
+[16:57] request, but we don't always have this
+[16:59] data. Our approach is very similar to
+[17:01] what Naren described. We start with
+[17:03] offline evals. We maintain the list of
+[17:06] evals and we constantly
+[17:08] extend it with either render data with
+[17:11] our own research data and then
+[17:15] we also have a public benchmark,
+[17:18] public data set. We call it developer
+[17:21] productivity AI arena and we use this
+[17:24] benchmark essentially all the agents
+[17:27] which are accessible within JetBrains
+[17:30] IDEs to select the the best one. But in
+[17:34] addition to offline evals, um
+[17:36] we have
+[17:38] when we deploy the
+[17:39] the new harness, the new version of our
+[17:42] agent with model, with an obviously
+[17:46] there is a data from user sentiment and
+[17:48] we have EAP program where we actively
+[17:51] collaborate with users. We can ask them
+[17:52] to look at the
+[17:54] specific functionality, they give us
+[17:55] feedback whether something degrades or
+[17:57] something gets better.
+[17:59] We ourselves use our own agent. We use
+[18:02] Juni to write Juni, so we have
+[18:04] first-hand experience with how the
+[18:07] the model and a harness behave.
+[18:10] And then you have since we have
+[18:13] a special situation that case that our
+[18:16] software, our agent is
+[18:20] being shipped to the users and we adhere
+[18:23] to zero data retention for many of the
+[18:27] factors. So, we have to
+[18:29] kind of infer signals from user behavior
+[18:32] without storing any of the data. So, we
+[18:35] can look at if our agent made a
+[18:37] suggestion, did user accepted the
+[18:39] suggestion or did they
+[18:41] kind of skipped it or or edited it. If
+[18:45] user, for example, reverted the changes
+[18:48] of the file,
+[18:49] that also give us some indication about
+[18:50] the success.
+[18:52] And the last part for small part of our
+[18:55] Alexus program users, we do get the
+[18:57] trajectories and we use this data in
+[19:00] order to be able to improve our bench
+[19:03] benchmarks further. So, it becomes the
+[19:06] the kind of the closed loop of of this
+[19:08] to to improve that.
+[19:10] Yeah.
+[19:11] Arka, what is your Yeah, you see like I
+[19:13] spent so much time thinking about
+[19:15] academic benchmarks, so I want to I
+[19:16] don't want to like completely dismiss
+[19:18] them. I'm going to I'm going to say a
+[19:20] few things for them and then against
+[19:21] them. Um I think academic benchmarks are
+[19:24] very important for research to make sure
+[19:26] our models are improving on a single
+[19:27] axis, right? So, for example, if you
+[19:30] want Gemini to be really good at looking
+[19:32] through huge amounts of data in in its
+[19:35] uploaded context and be able to answer
+[19:37] questions, like the multi-needle QA eval
+[19:39] becomes very very important for us to
+[19:41] for us to like individually track,
+[19:42] manage and get better at.
+[19:44] Um but it's also absolutely true to say
+[19:46] that those benchmarks do not necessarily
+[19:48] reflect the complexity of a of an actual
+[19:51] enterprise within which these models are
+[19:53] getting deployed. Um
+[19:55] Like a very anecdotal thing to say would
+[19:57] be, you know,
+[19:58] like if you look at how we manage
+[20:00] performance of us humans working in
+[20:02] organizations, we have kind of perfected
+[20:05] the art of of doing performance reviews
+[20:07] over decades and decades at
+[20:09] organizations. And now we are having to
+[20:10] figure that figure out how to do that
+[20:12] for all this like agentic colleagues who
+[20:14] we are going to have in our
+[20:15] organizations. And it's not
+[20:16] straightforward. It's not
+[20:18] straightforward because none of us write
+[20:21] a prompt that is like testing the model
+[20:23] on a single axis.
+[20:25] Right? So you rarely will ever in
+[20:27] production write a prompt which is going
+[20:29] to be a perfect fit for tool use or a
+[20:31] perfect fit for multi-needle QA. It's
+[20:34] going to be always a very composite
+[20:35] prompt that you write. And where the
+[20:37] model might have to trigger the search
+[20:39] API, it has to get those tokens in,
+[20:41] reason on them, and then actually maybe
+[20:43] do a tool call, and then do a
+[20:45] summarization because you have a
+[20:47] particular preference.
+[20:48] And that's where we start seeing some
+[20:51] failure cases where over-optimizing on a
+[20:53] benchmark just doesn't work. The other
+[20:56] interesting area is
+[20:57] like you know,
+[21:00] I feel like since the advent like since
+[21:02] internet proliferated, like
+[21:04] the number of polymaths have gone down.
+[21:07] Because you just know more, so you know
+[21:08] that you know less.
+[21:10] Um
+[21:11] and
+[21:12] I have a point to make here. So just
+[21:14] follow me. Um
+[21:16] Polymaths have gone down. And what's
+[21:18] happening now is you have this one model
+[21:20] which is the entire complexity of
+[21:22] world's information.
+[21:23] Right? So you're literally training a
+[21:25] polymath which has
+[21:28] huge amount of chemical engineering
+[21:29] understand understanding. It understands
+[21:32] laws. It understands societal
+[21:35] like behavior behavioral finance. It has
+[21:38] all this kind of information in there.
+[21:40] So when you're writing a prompt, more
+[21:42] often than not it's going to kind of
+[21:43] bleed into this this common areas of
+[21:46] knowledge.
+[21:48] So
+[21:49] it presents an even more difficult eval
+[21:51] job on how do you get a human evaluator
+[21:54] to first agree with the author you write
+[21:56] because this person might be an expert
+[21:58] in finance, but might not understand
+[21:59] this
+[22:00] this amino acid chain you're talking
+[22:02] about. So there are and you know, and
+[22:04] the and the pure synthetic strategy
+[22:06] might just inflate whatever errors you
+[22:08] have in the model that you're using to
+[22:10] generate the the synthetic data. So
+[22:13] evals are hard and no one has really
+[22:16] solved it.
+[22:17] We have made huge progress in getting
+[22:20] you know, this this real world
+[22:21] evaluations which are highly
+[22:23] representative of the of the of what's
+[22:25] happening in the enterprise,
+[22:27] but we are a long way from from any kind
+[22:29] of perfection. But I think especially in
+[22:32] 2026, it it really feels like the world
+[22:35] is pivoting.
+[22:36] Like even in organizations, we see that
+[22:38] they're going beyond this well-known
+[22:40] documented, you know, research led
+[22:42] academic benchmarks to creating
+[22:45] evals which almost look like
+[22:48] a representation of the of a product
+[22:50] requirement doc at the at the at the
+[22:52] company. So I think
+[22:55] like you know, the the faster we are
+[22:56] able to generate this kind of high
+[22:58] fidelity high signal
+[23:01] very very high quality evals which are
+[23:04] like looking at it, a user just says
+[23:06] these are the exact prompts that I write
+[23:07] and this is how I would
+[23:08] evaluate. That's becoming very very
+[23:10] important.
+[23:12] It's not easy, but it is absolutely the
+[23:13] P0 thing to do to to take anything to
+[23:16] production. That's what helps you
+[23:18] understand if you're drifting.
+[23:20] I also wanted to give a huge plus 100 to
+[23:22] what what Naren was saying around the
+[23:25] headroom has to be always there. The
+[23:26] evals have to keep creeping up in
+[23:28] complexity.
+[23:29] Because I feel like it's a inherent
+[23:32] human nature. Like first we start
+[23:34] talking about very simple things, and
+[23:36] then we start talking about exceedingly
+[23:37] more complex things. And that's going to
+[23:39] continue. And as more complex tokens get
+[23:42] loaded on the on the in the model's
+[23:44] context window, the conversation just
+[23:46] just matures. So
+[23:48] this creeping difficulty is very very
+[23:50] important to do. So it's never a
+[23:51] one-time build it, ship it eval. It's an
+[23:55] always improving flywheel is what you're
+[23:56] trying to develop. And the closer to
+[23:59] sampling a production data you are, the
+[24:01] closer to reality your eval sets are.
+[24:03] Yeah, 100%. Like a year ago we had we
+[24:06] launched a model in in the text domain.
+[24:09] When we launched it on the on the eval
+[24:11] set at that time, the offline eval set,
+[24:13] our recall was like 98%. Right? The same
+[24:16] models recall on the on today's eval set
+[24:20] is 20%.
+[24:21] Right? So it's like, you know, useless
+[24:24] that model. So but that's a function of
+[24:26] how hard we are making this eval sets on
+[24:27] every day. And that's not because Gemini
+[24:30] kept getting better, but the eval got
+[24:31] much harder just to clarify.
+[24:33] >> [laughter]
+[24:35] >> You talked a little bit about the
+[24:37] flywheel. So Arca, how do you partner
+[24:39] with customers to improve the quality of
+[24:41] the model for the best customer
+[24:43] outcomes? Yeah. So the the applied team,
+[24:45] we are organized by industries.
+[24:47] Um
+[24:48] And our mandate is is kind of twofold.
+[24:50] One is we are here to prove the stack to
+[24:53] the organi to to us and to making to
+[24:55] making sure that it's actually adding a
+[24:57] ton of value. What I mean by proving the
+[24:59] stack is everything from you know,
+[25:01] Google is really a full stack operation.
+[25:02] We are everything. We're designing our
+[25:04] own chips. We own our own data centers.
+[25:06] We train our own models. We own the
+[25:08] products through which these models are
+[25:10] getting deployed.
+[25:11] Um
+[25:12] So we want to understand deeply what
+[25:15] does it take for
+[25:16] a deployment to be successful within an
+[25:18] enterprise to actually add the business
+[25:20] ROI. And what are these like missing
+[25:22] links in the stack that will actually
+[25:24] make it a whole lot easier. And we take
+[25:26] that feedback and build better evaling
+[25:28] tools. A lot of inputs go back to
+[25:29] Vertex. A lot of inputs go back to to
+[25:31] the to the modeling world. Um
+[25:34] Maybe an example will be will be
+[25:36] helpful. I'll go back to this block
+[25:37] trade
+[25:38] problem that I was talking about where,
+[25:41] you know, if you dump 500 million
+[25:42] dollars worth of stock in one go, you
+[25:45] might trigger some circuit breakers and
+[25:47] you might destroy the market just a
+[25:49] little bit. So a lot of financial
+[25:50] organizations, they have to figure out
+[25:52] the specific percentage of the average
+[25:55] daily value kind of
+[25:56] volume that they are allowed or that
+[25:58] they should be selling or buying in the
+[26:00] market. And it was predominantly run by
+[26:03] Let's
+[26:05] call them not so smart bots. So very
+[26:07] very deterministic bots which will look
+[26:09] at the market.
+[26:10] And we realized that that some of the
+[26:11] best humans who are doing this kind of
+[26:13] work, their superpower is they're able
+[26:15] to parse through huge amounts of data
+[26:17] from different sources. Everything from
+[26:19] public sources like the internet, their
+[26:22] local corpus, able to understand other
+[26:24] behaviors that that was kind of
+[26:26] instituted within the organization.
+[26:28] And they use those data points to
+[26:30] actually make this ADR this percentage
+[26:32] decision.
+[26:33] Um
+[26:34] This is not something that that you
+[26:36] know, Google or DeepMind would ever be
+[26:38] thinking about or optimizing for. But it
+[26:40] turns out that it really tests the model
+[26:43] on some very specific capabilities,
+[26:46] improving which actually makes our model
+[26:49] kind of totally better at whole bunch of
+[26:51] other use cases.
+[26:52] So our team really works with a lot of
+[26:55] organizations in the gaming industry, in
+[26:56] finance, banking, insurance, retail,
+[27:00] and and all the way through public
+[27:02] sector to understand what it takes for
+[27:05] these models to be successful within
+[27:07] these enterprises installed base. And
+[27:09] then bringing a lot of that insight back
+[27:10] to to cloud and GDM to kind of
+[27:13] build this flywheel of improvement.
+[27:15] Yeah.
+[27:16] So you talked about evaluation. We
+[27:18] talked about pilot to production, the
+[27:20] feedback loop.
+[27:22] Let's move to scaling production
+[27:24] workloads.
+[27:26] So maybe Nick, let's start with you.
+[27:27] What did you learn from moving to 100 to
+[27:30] thousands to millions of users?
+[27:33] Um sure. Well, first of all, I think
+[27:36] once we get to the real production use,
+[27:38] it becomes
+[27:39] besides all the challenges of
+[27:41] evaluations which we already covered,
+[27:43] the other part I think it was partially
+[27:46] touched by Naren already, is being able
+[27:49] to predict and manage your workload
+[27:53] and the consumption of tokens
+[27:55] because the hardware is limited. And
+[28:01] you can to to a degree forecast what
+[28:04] will be the consumption. There are
+[28:05] certain patterns, cyclicality within the
+[28:08] day or day of the week. But it's still
+[28:11] very hard. So the best scenario is
+[28:13] really to monitor your real workloads
+[28:17] and monitor your API responses. You
+[28:21] really don't want to get to
+[28:23] rate limit errors. So you need to make
+[28:27] sure that you proactively update your
+[28:30] throughput provisions. And
+[28:33] we've been very happy with our
+[28:34] collaboration with our Google partners
+[28:37] to
+[28:38] find a solutions here which are cost
+[28:41] efficient and which allow us to both
+[28:44] move, scale, and at the same time not to
+[28:47] burn the hole in the
+[28:49] in this process. Yeah.
+[28:51] Yeah. And I wanted to chat actually on
+[28:54] the
+[28:55] on the thing which Arca said about the
+[28:58] working with the customers. We've seen a
+[29:00] lot of support from
+[29:03] Google Cloud team.
+[29:05] We
+[29:06] honored to be part of the
+[29:09] early access program and work with
+[29:12] alpha versions of the models and provide
+[29:14] a feedback. I think that's really helped
+[29:16] us to actually improve the Gemini flash
+[29:19] performance. And I think some of our
+[29:21] comments even postponed the release of
+[29:24] Gemini Pro for a week. So
+[29:26] Well done.
+[29:28] Yeah.
+[29:29] Yeah. And very valuable for us as well.
+[29:32] Naren, do you have any
+[29:34] >> Yeah. Scaling?
+[29:35] Before I I talk about the scaling
+[29:37] production workers, just piggybacking on
+[29:39] what Arca said,
+[29:41] you know, the model the industry is
+[29:42] moving at such a rapid pace, right? So
+[29:44] that, you know, there are these models
+[29:46] out there all the time.
+[29:48] And you know, when there whenever there
+[29:49] is a new version of any of the
+[29:50] state-of-the-art models,
+[29:52] when we try to adopt it, you know, we we
+[29:55] have to assume that okay, you know, the
+[29:56] model is getting better every day. But
+[29:58] that's not always the case, right? And
+[30:00] this is statistics, you know, it's not
+[30:03] deterministic. So, the models can
+[30:06] hallucinate and stuff. And sometimes we
+[30:08] do see that the new versions actually
+[30:09] perform worse
+[30:10] on our existing sets. And but I think
+[30:13] that's something that we have to
+[30:15] The only way to know is having a very
+[30:17] robust evaluation set, right? If you
+[30:20] don't have a robust evaluation set, if
+[30:21] you don't have a way to measure this
+[30:23] continuously and you know, be in a day,
+[30:25] you know, you can get the results, then
+[30:27] it's really hard because I think the
+[30:28] industry is just changing and you just
+[30:30] don't know which one is the right thing
+[30:32] to do, right thing to use, right? So,
+[30:35] and that's part of
+[30:37] moving stuff into production as well,
+[30:38] right? Like when you are in production
+[30:40] and there is something new out there
+[30:41] that you want to go try it out, you need
+[30:43] to have a really good observability
+[30:45] platform. You need to have a good
+[30:47] experimentation platform so that you can
+[30:48] actually start testing this live in
+[30:50] production as well, right?
+[30:52] You know, provisioning and throughput
+[30:54] was a big deal. I mean, we when we were
+[30:55] launching this in production, we did our
+[30:57] math wrong in terms of how many servers
+[31:00] we actually need.
+[31:02] And then you know, that that cost us an
+[31:04] outage, right? And you know, those those
+[31:05] are things that we need to be really
+[31:07] really careful about. Um
+[31:09] and especially, you know, when you're
+[31:11] trying to serve at over 100 million
+[31:13] users
+[31:15] and you know,
+[31:16] between 10 to 20 million QPS of some of
+[31:19] the for services, so these things become
+[31:21] even harder and harder, right? Now, one
+[31:24] one example, one concrete example that
+[31:25] we can talk about when we were starting
+[31:27] using Gemini is it's just the shape of
+[31:29] the workload also will determine the
+[31:32] throughput, right? So, our shape of the
+[31:33] workload is mostly we give a long
+[31:35] sequence, but the output is
+[31:38] is just a classification, right? We we
+[31:40] just want to know which policy it's
+[31:41] violating, which is very different than
+[31:44] a typical Gemini use case where it's a
+[31:46] very generative model, right? And that
+[31:48] just pre-filled all the buffers and you
+[31:50] know, our latencies just started spiking
+[31:52] when we start provisioning on Google
+[31:54] Cloud.
+[31:56] And I think but that's something that we
+[31:57] were able to work with the team to get
+[31:58] through.
+[32:00] But again, you know, having that
+[32:01] framework of
+[32:03] launching it in production in shadow
+[32:06] so that you know, you can recover from
+[32:07] failures easily. So, so those are some
+[32:09] of the
+[32:11] things that we need to build as an
+[32:12] infrastructure before we can go all in.
+[32:15] Yeah,
+[32:16] >> [snorts]
+[32:16] >> that makes sense.
+[32:17] Diving a little bit into monitoring, how
+[32:20] are you monitoring your production
+[32:21] workloads? And what advice would you
+[32:23] have for the audience?
+[32:24] Yeah, so I I I mentioned the metrics
+[32:26] that we talked about in the past, right?
+[32:28] So, the latency, the availability,
+[32:31] recall and false positive rates. And you
+[32:33] know, for latency and availability, we
+[32:35] just get like live charts and we have
+[32:37] alerts, right? If something goes on my
+[32:39] pager duty may just go off right now.
+[32:41] Right? So, and but then the
+[32:44] the recall and the false positive
+[32:46] metrics, we get that on a daily basis.
+[32:49] Right? So, so those are the four metrics
+[32:51] that we typically watch out every day.
+[32:54] The last one I would say is also
+[32:56] important is the cost, right?
+[33:00] Something maybe a spicy take, but
+[33:01] sometimes you know, the cost
+[33:03] just goes up, right? With the new
+[33:05] version of the model. What's happening
+[33:07] with that, Arka?
+[33:08] >> [laughter]
+[33:09] >> And in that case, you know, we have to
+[33:11] go back to our first principles and
+[33:13] really think about how how to deal with
+[33:16] it, right? Because you know, we all have
+[33:18] a budget to manage as well. And
+[33:21] you know, we we also need to think
+[33:23] through it. So, so
+[33:25] we're not too worried about costs on
+[33:27] like on a daily basis, but that's
+[33:28] something that we constantly keep an eye
+[33:30] on. But the other four are
+[33:34] are live in in seconds. We need to know
+[33:36] what what those metrics are. Yeah.
+[33:39] Nick?
+[33:40] Sure. I I I think I'm very much aligned
+[33:42] here with Naren in terms of
+[33:44] measuring the the latency and
+[33:46] availability. For us, we also do measure
+[33:49] the the response of APIs.
+[33:52] And we actually had to implement even
+[33:55] the measures to be able to
+[33:58] do a quick switch the the the model
+[34:00] routing where where some availability of
+[34:02] the models are lacking or we we hitting
+[34:05] the the rate limits. But the rest of the
+[34:07] things as I mentioned also
+[34:09] important for us these signals which I
+[34:11] mentioned on the evil side uh
+[34:14] really telling for us if the users are
+[34:18] switching the model, something is not
+[34:20] right. So, that that's also a great
+[34:22] indicator to to to follow up on.
+[34:24] Yeah. Yeah, I I I was just going to say
+[34:26] I really like that. So, I think it's
+[34:27] really the whole system monitoring,
+[34:29] right? Like the whole solution
+[34:30] monitoring is not is not just running
+[34:33] the evals on the model. It's the it's
+[34:34] the telemetry to the entire product's
+[34:37] performance, efficiency,
+[34:40] latency goals that you have. And if
+[34:41] there is any any kind of drift. What
+[34:43] I've also seen is a always a combination
+[34:45] of things where I've even seen companies
+[34:48] do
+[34:49] a fixed percentage of production data
+[34:51] gets sampled, goes through a human
+[34:53] labeling process to kind of see if it's
+[34:55] agreeing with the with the with the
+[34:56] standards they have set for themselves.
+[34:58] And they use that data to then train an
+[35:00] auto rater to automate so that they can
+[35:02] sample more of the production data. All
+[35:05] the way through to LLM powered unit
+[35:07] tests
+[35:08] as well for edge cases which the which a
+[35:10] user might have given some kind of a
+[35:13] signal towards either through like a
+[35:14] thumbs down or or something like that.
+[35:16] So, it's really a combination of tooling
+[35:18] that is often used, right? To to be
+[35:20] monitoring production workloads.
+[35:22] I feel like just in the last 12 16 18
+[35:25] months, like huge progress has happened
+[35:27] in
+[35:28] in in monitoring production workloads.
+[35:30] But yeah, yeah, that would be it. Yeah,
+[35:32] definitely.
+[35:33] Okay, we will now open the floor to
+[35:36] audience questions. So, if you have a
+[35:38] question that you would like to ask,
+[35:39] please raise your hand. And there are
+[35:41] mic runners
+[35:42] that will run to you.
+[35:46] It's way too early in the morning.
+[35:49] Any question? Yeah.
+[35:55] Hi everybody. Thanks for the session.
+[35:57] Gadi, CEO of Bright Security.
+[36:00] You talked a lot about scalability and
+[36:02] different aspects of testing. What about
+[36:05] the security aspect? You didn't touch on
+[36:07] that.
+[36:08] Yeah, great question.
+[36:11] Who would like to touch on that?
+[36:13] Yeah, I would I would answer it like
+[36:15] everything that we talked about is
+[36:17] inside the security bubble.
+[36:19] So, I think like we're in engulfed in
+[36:21] any system that we designed, it goes
+[36:22] through significant
+[36:24] testing for any kind of readiness. And
+[36:27] then I think to your point is becoming
+[36:29] abundantly clear
+[36:30] that that you know, establishing your
+[36:32] security controls and having the same
+[36:34] kind of telemetry into system
+[36:36] performance is becoming even more
+[36:37] important. So,
+[36:39] sorry if you didn't bring that topic up,
+[36:41] but that's the that's kind of like the
+[36:43] the surface on which all of this is
+[36:45] sitting. Very very important, yeah. I
+[36:47] actually have something to build up on
+[36:48] on what Arka said.
+[36:50] Like in our case, for example, there is
+[36:52] a lot of situation where
+[36:54] agentic development is being constantly
+[36:57] augmented with a different skill set
+[36:59] with external kind of prompt collections
+[37:02] which users add in order to work with a
+[37:07] specific projects. And that has inherent
+[37:11] risk of prompt injections which might be
+[37:14] introduced. So, having a special
+[37:19] monitoring
+[37:20] us between the agents and between models
+[37:24] is super important. We we do have some
+[37:27] experience with that.
+[37:29] Yeah, I will also add like a a ton of
+[37:30] red teaming is often done to any kind of
+[37:32] solution before it ends up in the
+[37:34] market. And then you have special
+[37:36] classifiers that you are training and
+[37:38] running on your production workload just
+[37:40] to kind of track different behaviors
+[37:42] that you want to
+[37:43] be able to flag and and take into
+[37:45] account. But I think it's a it's a very
+[37:47] important topic. Thanks for flagging it.
+[37:50] Yeah, it is top of mind. And you know,
+[37:51] that's one of the reasons why our
+[37:53] velocity could also be lower, but I
+[37:54] think it is important. And unless we
+[37:56] feel really really secure, you know, we
+[37:59] can't apply it. And some of the
+[38:00] techniques that we use is to make sure
+[38:02] that you know, we have enough
+[38:03] protections against the jailbreaking,
+[38:06] like a prompt injections,
+[38:09] but also try to put them in like sandbox
+[38:11] environments these agents so that you
+[38:13] know, they have limited access to the
+[38:15] systems.
+[38:17] Yeah, I mean,
+[38:18] it's it's top of mind for before
+[38:21] deploying any workload. Yeah.
+[38:24] Thank you.
+[38:25] My name is Ravinder. I'm a principal
+[38:27] architect with Tech Mahindra.
+[38:29] I have a question that
+[38:31] do we have a single pane of glass for
+[38:34] our observability?
+[38:35] Does this exist? If not, what different
+[38:38] tools, leading tools that do you guys
+[38:40] use?
+[38:42] Um
+[38:43] well, I'll I'll tell you
+[38:45] how we do it at our at Roblox.
+[38:48] We developed a single pane of glass, but
+[38:50] that's like with a combination of both
+[38:52] the in-house tools as well as you know,
+[38:55] a bunch of open source tools that we
+[38:56] use, right? Like Grafana is the one that
+[38:58] we
+[38:59] use to
+[39:00] you know, monitor all of our production
+[39:02] service workloads.
+[39:04] But then for internal eval sets, how
+[39:06] they're performing, you know, how
+[39:07] they're continuously getting harder and
+[39:09] harder, this is something we developed
+[39:11] in-house and that's what we use, right?
+[39:15] I don't know if there is a single tool
+[39:16] out there to get all the observability
+[39:18] of all the models.
+[39:20] Maybe there is out there, but
+[39:22] for us, you know, what we see is
+[39:25] anytime we try to adopt any vendor
+[39:28] specific things that typically don't
+[39:30] scale at our
+[39:31] for our workloads.
+[39:33] So, we end up developing most of this
+[39:34] in-house.
+[39:36] Yeah, I I think that's a real challenge
+[39:37] in that because there is no
+[39:39] ready-for-use tool because this problem
+[39:41] didn't exist in like 6 months 16 months
+[39:44] before.
+[39:46] And in our case we started to make our
+[39:48] own tool for that and this year
+[39:52] about a month ago we even productized it
+[39:54] we call it JetBrains Central which is
+[39:56] basically
+[39:57] a monitoring system and an analytics
+[39:59] system on top of all your
+[40:01] models conception which
+[40:03] serve exactly that point to provide
+[40:05] observability for that.
+[40:10] Hi, it's Eric here from Vitality in the
+[40:13] Discovery Group in South Africa.
+[40:15] Just want to ask for smaller teams when
+[40:18] you speak about observability eval's,
+[40:21] you know, when you don't have many
+[40:23] people working on all of these different
+[40:24] functions, how to make that trade-off
+[40:27] well if you've got a smaller team of
+[40:29] four or five
+[40:30] technical people working on a a solution
+[40:33] that's going to production.
+[40:36] Yeah, I can I can take a stab at it. I
+[40:37] would say, you know,
+[40:39] um
+[40:40] this might be a controversial thing to
+[40:41] say but instead of focusing on a PRD get
+[40:43] them to write eval sets
+[40:46] to kind of describe the product. I would
+[40:47] just I think just having a set of eval's
+[40:50] which represent your use case is the P0
+[40:52] requirement that should be the starting
+[40:54] point of anything and everything you do
+[40:57] all the way from like you know you're
+[40:58] making a model selection decision
+[41:00] having some highly curated eval's that
+[41:02] help you through the development process
+[41:04] and then to production. So I would just
+[41:06] kind of map out the right eval's that
+[41:07] you need through the development
+[41:09] journey.
+[41:10] And I think there are ton of best
+[41:11] practices now on how to scale eval data
+[41:13] generation methods. There's a lot of
+[41:15] research that has already happened.
+[41:17] There's good tooling available at Google
+[41:18] and outside of Google to to help you do
+[41:20] that. Um and I think there are
+[41:22] sufficiently
+[41:24] you know, right sized model where you
+[41:26] can have a human maybe produce even 50
+[41:30] order of like 50 examples that you can
+[41:32] then synthetically explode to a more
+[41:34] statistically significant eval set. But
+[41:36] I would I would just bring a lot of
+[41:38] centricity on eval's defining the
+[41:39] product that you're trying to build.
+[41:42] Yeah, very much agree with Arkon that.
+[41:44] If you have a small team
+[41:46] obviously we have a luxury of doing the
+[41:48] research and testing and finding the the
+[41:51] the best sweet spot in terms of
+[41:53] efficiency but yeah, teams don't always
+[41:55] have that. Having eval's and using
+[41:58] structured outputs from the models will
+[42:01] basically make your baseline.
+[42:03] Yes, maybe you could
+[42:05] do some
+[42:07] evaluation with that and do some
+[42:08] research with that and optimize it but
+[42:10] if you don't have a budget for that you
+[42:11] already have a working solution if it
+[42:14] solves the the evaluation which you
+[42:16] have.
+[42:19] Yeah,
+[42:19] the only thing to add there is I think
+[42:21] small teams is actually becoming an
+[42:22] advantage as opposed to
+[42:26] yeah, the other way around. Right? In
+[42:28] fact I think some of the recent projects
+[42:30] that we've been doing we're trying to
+[42:31] always find the smallest number of
+[42:33] people that we can get this project with
+[42:36] and typically what we find is the sweet
+[42:37] spot is between four to six people that
+[42:39] are involved. You know, we just lock
+[42:41] them up in a room and
+[42:42] you know, they'll come up with some
+[42:43] magic in a week.
+[42:45] You know, that's been kind of
+[42:47] the principle we've been going by. Yeah,
+[42:49] that's such a good point like you will
+[42:50] reach consensus on what eval to build
+[42:52] way faster than many others who are
+[42:54] larger.
+[42:56] All right, I think with that we are
+[42:58] actually at time. So thank you so much
+[43:01] for joining this panel and all the great
+[43:03] insights on evaluation, moving from
+[43:05] pilot to production and scaling.
+[43:08] For developers in the audience that are
+[43:09] interested in learning more about
+[43:11] building, deploying and scaling agents
+[43:13] with Gemini and Agent Platform you can
+[43:15] check out our Gemini Enterprise Agent
+[43:17] Ready Learning Program.
+[43:20] We also welcome any feedback on this
+[43:22] session. Please do complete the survey
+[43:25] and thank you again. We'll be around for
+[43:26] any questions.
+[43:29] Thank you.
+[43:31] >> [music]
