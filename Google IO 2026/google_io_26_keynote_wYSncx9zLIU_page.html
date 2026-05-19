@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — Google I/O &#39;26 Keynote</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>Google I/O &#39;26 Keynote</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; wYSncx9zLIU</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=wYSncx9zLIU" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" loading="lazy" data-caption="&gt;&gt; Take a second to realize how far we&#39;ve come. Empowered by all the things we&#39;ve made together. &gt;&gt; How many…"><figcaption class="gal-caption">&gt;&gt; Take a second to realize how far we&#39;ve come. Empowered by all the things we&#39;ve made together. &gt;&gt; How many…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" loading="lazy" data-caption="And also, I think the school sent me an e-mail. so it will be a more engaging talk for the students? Maybe can…"><figcaption class="gal-caption">And also, I think the school sent me an e-mail. so it will be a more engaging talk for the students? Maybe can…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" loading="lazy" data-caption="but over time, Omni will be able to generate any output from any input. This was always our goal with Gemini…"><figcaption class="gal-caption">but over time, Omni will be able to generate any output from any input. This was always our goal with Gemini…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" loading="lazy" data-caption="You could see a cool locomotive passing through the screen with the Antigravity logo on it. It works. Without…"><figcaption class="gal-caption">You could see a cool locomotive passing through the screen with the Antigravity logo on it. It works. Without…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" loading="lazy" data-caption="and turn them all hot pink so I don&#39;t miss them. The first one, find all the upcoming meetings with Sundar The…"><figcaption class="gal-caption">and turn them all hot pink so I don&#39;t miss them. The first one, find all the upcoming meetings with Sundar The…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" loading="lazy" data-caption="You&#39;ll be able to put information agents to work for you this summer. Just ask Search to keep you updated on…"><figcaption class="gal-caption">You&#39;ll be able to put information agents to work for you this summer. Just ask Search to keep you updated on…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_07.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_07.jpg" loading="lazy" data-caption="allows all of the key players to work across the entire shopping It&#39;s an open-source standard that journey…"><figcaption class="gal-caption">allows all of the key players to work across the entire shopping It&#39;s an open-source standard that journey…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_08.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_08.jpg" loading="lazy" data-caption="model, which is unlocking a new set of features we&#39;re rolling out our new Gemini 3.5 Flash that I&#39;m going to…"><figcaption class="gal-caption">model, which is unlocking a new set of features we&#39;re rolling out our new Gemini 3.5 Flash that I&#39;m going to…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_09.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_09.jpg" loading="lazy" data-caption="so we make a good first impression. recent vaccines and make this e-mail sound friendly All right. I&#39;m going…"><figcaption class="gal-caption">so we make a good first impression. recent vaccines and make this e-mail sound friendly All right. I&#39;m going…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_10.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_10.jpg" loading="lazy" data-caption="like transforming all of these scenes from early morning to late at night. The agent can also handle…"><figcaption class="gal-caption">like transforming all of these scenes from early morning to late at night. The agent can also handle…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_11.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_11.jpg" loading="lazy" data-caption="&gt;&gt; NISHTHA BHATIA: No pulling out my phone. All I have to do Now is ask. with Personal Intelligence…"><figcaption class="gal-caption">&gt;&gt; NISHTHA BHATIA: No pulling out my phone. All I have to do Now is ask. with Personal Intelligence…</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_12.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_12.jpg" loading="lazy" data-caption="process with the goal of one day solving all disease. Something that would have seemed impossible just a few…"><figcaption class="gal-caption">process with the goal of one day solving all disease. Something that would have seemed impossible just a few…</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="google-io-26-keynote">Google I/O '26 Keynote</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=wYSncx9zLIU">https://www.youtube.com/watch?v=wYSncx9zLIU</a><br />
+<strong>Video ID:</strong> <code>wYSncx9zLIU</code></p>
+<hr />
+<h1 id="google-io-2024-key-highlights-video-google-io-2024-the-future-of-ai-gemini">📺 Google I/O 2024 – Key Highlights (Video: <em>“Google I/O 2024 – The Future of AI &amp; Gemini”</em>)</h1>
+<p><strong>Speaker(s):</strong> Sundar Pichai (CEO, Google), Matteo (guest), Demis Hassabis (DeepMind), plus crowd‑generated demos.<br />
+<strong>Length:</strong> ~45 min (keynote + product demos).<br />
+<strong>Main Theme:</strong> Google’s <strong>full‑stack AI strategy</strong>—custom silicon, next‑gen Gemini models, and new consumer/enterprise experiences—fueling a wave of “AI‑first” products that aim to solve real‑world problems.</p>
+<hr />
+<h2 id="overview">1. Overview</h2>
+<ul>
+<li><strong>AI‑first pivot:</strong> 10‑year anniversary of Google’s shift to AI‑first.</li>
+<li><strong>Full‑stack approach:</strong> Custom TPUs, secure foundations, world‑class research → billions‑scale products.</li>
+<li><strong>Scale of adoption:</strong>
+<ul>
+<li><strong>Tokens processed:</strong> 3.2 quadrillion/month (≈ × 7 YoY).</li>
+<li><strong>API usage:</strong> 19 B tokens/minute; 8.5 M devs building new apps monthly.</li>
+<li><strong>Product reach:</strong> 13 products &gt; 1 B users; 5 products &gt; 3 B users.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><em>“What matters is what we choose to build.”</em> – Sundar Pichai</p>
+</blockquote>
+<hr />
+<h2 id="major-sections-topics">2. Major Sections &amp; Topics</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Core Content</th>
+<th>Notable Numbers / Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opening &amp; Vision</strong></td>
+<td>Inspirational montage + call to “make something that matters.”</td>
+<td>Emphasis on AI as <strong>ultimate problem‑solver</strong> (solvable disease, climate, etc.).</td>
+</tr>
+<tr>
+<td><strong>Growth Metrics</strong></td>
+<td>Token counts, API usage, user‑base explosion.</td>
+<td>3.2 Q tokens/mo, 19 B tokens/min, 8.5 M monthly developers.</td>
+</tr>
+<tr>
+<td><strong>Search &amp; Gemini App</strong></td>
+<td>AI Overviews, AI Mode, conversational Search, Gemini app growth.</td>
+<td>AI Overviews → 2.5 B monthly users; Gemini app → 900 M MAU (↑ &gt; 2× YoY).</td>
+</tr>
+<tr>
+<td><strong>New Product Experiences</strong></td>
+<td>- <strong>Ask Maps</strong> – long‑form, contextual queries.<br>- <strong>Ask YouTube</strong> – AI‑curated video snippets &amp; tables.<br>- <strong>Docs Live</strong> – real‑time voice‑driven doc creation &amp; editing.</td>
+<td>• 50 B images generated by Nano‑Banana.<br>• Docs Live debut for Pro/Ultra (summer).</td>
+</tr>
+<tr>
+<td><strong>Infrastructure Investment</strong></td>
+<td>Massive CAPEX boost, 8th‑gen TPUs (8t training, 8i inference).</td>
+<td>$180‑190 B capex forecast (≈ × 6 YoY).<br>• 8t: 3× prior generation, &gt;1 M TPUs globally.<br>• 8i: ~1,500 tokens/sec latency, 2× perf/watt.</td>
+</tr>
+<tr>
+<td><strong>World Models &amp; AGI</strong></td>
+<td>DeepMind demo → <strong>Gemini Omni</strong> (multimodal world‑model).</td>
+<td>Omni can generate video, 3‑D simulation, physics‑aware outputs (e.g., clay‑mation of protein folding).</td>
+</tr>
+<tr>
+<td><strong>Developer &amp; Creator Ecosystem</strong></td>
+<td>Showcased how educators, marketers, musicians, developers leverage Gemini.</td>
+<td>Matteo’s story: AI assistant for menus, marketing, inventory; no coding needed.</td>
+</tr>
+<tr>
+<td><strong>Future Roadmap</strong></td>
+<td>Voice‑first Docs, Gmail, Keep; broader rollout of Ask‑YouTube; scaling to trillion‑job workloads.</td>
+<td>“Tomorrow you’ll create Docs entirely by voice.”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">3. Key Takeaways</h2>
+<ol>
+<li><strong>Scale &amp; Momentum</strong> – Google processes <strong>quadrillions of tokens</strong> a month, showing AI is now core to everyday user interactions.</li>
+<li><strong>Full‑Stack Advantage</strong> – Owning silicon (TPU 8t/8i), training frameworks (JAX, Pathways), and product integration gives Google a speed edge in both <strong>training</strong> (weeks vs. months) and <strong>inference</strong> (≈ 1,500 tokens/s).</li>
+<li><strong>Consumer‑Ready AI</strong> – Features like <strong>Ask Maps</strong>, <strong>Ask YouTube</strong>, and <strong>Docs Live</strong> turn conversational AI into practical daily tools.</li>
+<li><strong>Multimodal World Models</strong> – <strong>Gemini Omni</strong> extends Gemini from text‑centric to <strong>video, simulation, and physics‑aware generation</strong>, a stepping stone toward AGI.</li>
+<li><strong>Developer Empowerment</strong> – Over <strong>8 M developers</strong> are building on Google’s models; the ecosystem now supports <strong>trillion‑token workloads</strong> across industries.</li>
+<li><strong>Investment Outlook</strong> – $180‑190 B capex this year signals <strong>long‑term commitment</strong> to AI hardware, data centers, and sustainability (2× performance per watt).</li>
+<li><strong>Human‑Centric Narrative</strong> – The keynote repeatedly stresses that <strong>technology must serve meaningful problems</strong>—education, health, climate, disease, creativity.</li>
+</ol>
+<hr />
+<h2 id="notable-quotes">4. Notable Quotes</h2>
+<table>
+<thead>
+<tr>
+<th>Speaker</th>
+<th>Quote</th>
+<th>Context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“What matters is what we choose to build.”</td>
+<td>Opening call to purposeful AI.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“Never imagined I would say <em>quadrillion</em> in an I/O keynote.”</td>
+<td>Highlighting token‑scale growth.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“Search has become less about individual queries and more like an ongoing conversation.”</td>
+<td>Describing AI Mode in Search.</td>
+</tr>
+<tr>
+<td><strong>Demis Hassabis</strong></td>
+<td>“Artificial General Intelligence is just a few years away.”</td>
+<td>Vision for Gemini Omni &amp; world models.</td>
+</tr>
+<tr>
+<td><strong>Matteo (guest)</strong></td>
+<td>“I do not know personally how to code, but given the option to create something just opens up so many doors for me as an educator.”</td>
+<td>Demonstrating creator‑friendly AI.</td>
+</tr>
+<tr>
+<td><strong>Sundar Pichai</strong></td>
+<td>“In the future, you’ll be able to create new Docs and edit them directly all with your voice.”</td>
+<td>Teasing upcoming Docs Live rollout.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-reference-product-metrics-q2-2024">5. Quick Reference – Product Metrics (Q2 2024)</h2>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Users (monthly)</th>
+<th>Growth YoY</th>
+<th>Highlight Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Search AI Overviews</strong></td>
+<td>2.5 B</td>
+<td>+ ~120%</td>
+<td>Conversational answers</td>
+</tr>
+<tr>
+<td><strong>Gemini App</strong></td>
+<td>900 M</td>
+<td>+ &gt; 120%</td>
+<td>Personal Intelligence, Nano‑Banana image gen</td>
+</tr>
+<tr>
+<td><strong>Ask Maps</strong></td>
+<td>–</td>
+<td>–</td>
+<td>Long‑form contextual queries</td>
+</tr>
+<tr>
+<td><strong>Ask YouTube</strong> (U.S. pilot)</td>
+<td>–</td>
+<td>–</td>
+<td>Video‑segment jump‑to‑relevant</td>
+</tr>
+<tr>
+<td><strong>Docs Live</strong> (Pro/Ultra)</td>
+<td>–</td>
+<td>–</td>
+<td>Voice‑first doc creation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="implications-outlook">6. Implications &amp; Outlook</h2>
+<ul>
+<li><strong>For developers:</strong> Expect richer APIs (multimodal, video, world‑model) and a push toward <em>voice‑first</em> workflows.</li>
+<li><strong>For enterprises:</strong> Massive token‑processing capacity means AI can be embedded in high‑throughput pipelines (e.g., real‑time analytics, large‑scale simulations).</li>
+<li><strong>For users:</strong> The line between search, productivity, and creative tools continues to blur—AI becomes an <em>assistant</em> that can <em>create</em> as well as <em>retrieve</em>.</li>
+<li><strong>Strategic:</strong> Google’s investment in custom silicon and distributed training (Pathways) positions it to stay ahead of the hardware‑AI race, while sustainable design (2× perf/watt) addresses growing energy concerns.</li>
+</ul>
+<hr />
+<p><strong>Bottom line:</strong> Google’s I/O 2024 showcases a <strong>mature, integrated AI ecosystem</strong>—from billions of everyday users to developers building trillion‑token services—driven by next‑gen TPUs and world‑model‑ready Gemini. The narrative isn’t just “more AI”; it’s <strong>AI that enables people to solve the world’s biggest challenges</strong>. 🚀</p>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I'm Jordan, your detail‑delver, and I'm sitting down with my co‑host Mike.</p>
+<p><strong>MIKE:</strong> Hey folks! Mike here, ready to explore the big picture of the latest AI breakthroughs that just dropped at Google I/O.</p>
+<p><strong>JORDAN:</strong> So let’s kick things off with Sundar Pichai’s opening. He talked about moving Google to an “AI‑first” mindset ten years ago and now boasting a full‑stack approach—from custom silicon to models that reach billions.</p>
+<p><strong>MIKE:</strong> Right, and that’s huge because it means the same AI engine is powering everything from Search to the Gemini app, hitting over a billion users on a few products. Imagine that scale in everyday life.</p>
+<p><strong>JORDAN:</strong> The numbers are mind‑blowing: they went from 9.7 trillion tokens a month two years ago to 3.2 quadrillion tokens now. That’s a 300‑plus‑fold jump, and it reflects how much data the models are ingesting.</p>
+<p><strong>MIKE:</strong> And it’s not just raw data. Over 8.5 million developers are building new apps with those models, processing 19 billion tokens per minute. That’s the kind of developer ecosystem that can spark all‑sorts of real‑world solutions.</p>
+<p><strong>JORDAN:</strong> Speaking of solutions, Sundar highlighted specific product upgrades—like AI Overviews in Search hitting 2.5 billion monthly users, and the Gemini app doubling its MAU to 900 million in a year. The integration of generative AI into Search is turning queries into ongoing conversations.</p>
+<p><strong>MIKE:</strong> Which is exactly what people want—fast, conversational answers that feel like a dialogue. I can already picture a student asking a complex math question and getting step‑by‑step help right in Search.</p>
+<p><strong>JORDAN:</strong> Then there’s the new “Ask YouTube” feature. It can surface the most relevant video segment and even present a summary table. That’s a massive productivity boost for anyone trying to learn something quickly.</p>
+<p><strong>MIKE:</strong> And the Docs Live demo showed us voice‑first document creation. Sundar asked the AI to pull a resume, draft talking points, format analogies into a table, all in real time. It’s a glimpse of a future where we’ll draft reports by just talking.</p>
+<p><strong>JORDAN:</strong> To support all that speed, Google rolled out the eighth‑generation TPUs—TPU 8t for training and TPU 8i for inference. The 8t is three times more powerful than the previous gen, and the 8i can handle about 1,500 tokens per second, which explains those lightning‑fast responses.</p>
+<p><strong>MIKE:</strong> And they’re not just faster; they’re more energy‑efficient, delivering up to double the performance per watt. That’s crucial if we want AI scaling to be sustainable as usage explodes.</p>
+<p><strong>JORDAN:</strong> The infrastructure investment is massive—Sundar mentioned moving from $31 billion in capex last year to roughly $180 billion this year. That kind of budget underwrites not only the silicon but also the Pathways training system that can coordinate over a million TPUs globally.</p>
+<p><strong>MIKE:</strong> Which brings us to the “world models” talk from Demis Hassabis. Gemini Omni can now generate videos, images, and simulations from any input, even simulating physics like gravity and kinetic energy. That’s a step toward the AGI vision.</p>
+<p><strong>JORDAN:</strong> Exactly. Omni blends multimodal generation with reasoning, allowing prompts like “claymation explainer of protein folding” to produce a coherent, physics‑aware animation. It’s a clear sign that models are moving from static prediction to dynamic simulation.</p>
+<p><strong>MIKE:</strong> And that has huge implications—think of engineers visualizing protein structures on the fly, or educators creating immersive lessons without ever touching a graphics program. The barrier to creation is dropping dramatically.</p>
+<p><strong>JORDAN:</strong> So to sum up, we’ve got unprecedented token throughput, a booming developer ecosystem, custom hardware that’s both faster and greener, and on the horizon, world models that simulate reality. All of this is converging to make AI a truly universal tool.</p>
+<p><strong>MIKE:</strong> And for our listeners, the takeaway is that these advances aren’t just tech talk—they’re reshaping how we learn, work, and solve big problems like disease, climate, and education. Keep an eye on Gemini, Ask YouTube, and Docs Live; they’ll be the next tools you’ll hear about.</p>
+<p><strong>JORDAN:</strong> That’s a wrap for today’s deep dive. Thanks for joining us, and thanks to our audience for staying curious.</p>
+<p><strong>MIKE:</strong> Stay inspired, stay informed, and we’ll catch you on the next episode. Bye!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="google_io_26_keynote_wYSncx9zLIU_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">google_io_26_keynote_wYSncx9zLIU_podcast.wav</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="google_io_26_keynote_wYSncx9zLIU_podcast.wav" type="audio/wav"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

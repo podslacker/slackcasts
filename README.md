@@ -24,3 +24,9 @@
 | [Whats New In Google Clouds Agent Platform](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt) |
 | [Whats New With Gemini Enterprise App](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_transcript.txt) |
 
+## Google IO 2026
+
+| Video | Transcript |
+|-------|------------|
+| [Google Io 26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
+
