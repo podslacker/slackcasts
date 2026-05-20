@@ -28,5 +28,5 @@
 
 | Video | Transcript |
 |-------|------------|
-| [Google Io 26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
+| [Google I/O '26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
 
