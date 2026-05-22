@@ -147,5 +147,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html": {
+    "title": "What\u0027s new with Gemini Enterprise app",
+    "video_url": "https://www.youtube.com/watch?v=Tc3IiGNmXHc",
+    "published_at": "2026-05-22T23:14:46.3238009+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
