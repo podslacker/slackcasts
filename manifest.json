@@ -121,5 +121,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_page.html": {
+    "title": "The agentic shift in software development life cycle",
+    "video_url": "https://www.youtube.com/watch?v=161TA9Z0vxk",
+    "published_at": "2026-05-22T22:21:31.9227941+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
