@@ -134,5 +134,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html": {
+    "title": "What\u0027s new in Google Cloud\u0027s agent platform",
+    "video_url": "https://www.youtube.com/watch?v=FxnjRYo3fpU",
+    "published_at": "2026-05-22T22:47:20.1030986+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }

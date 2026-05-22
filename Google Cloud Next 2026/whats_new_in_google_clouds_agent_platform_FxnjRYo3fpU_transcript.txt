@@ -1,4 +1,4 @@
-﻿[00:13] Welcome everyone.
+﻿﻿[00:13] Welcome everyone.
 [00:15] Wow, this is a big room.
 [00:18] We're so excited to be here today and
 [00:20] share what's new in Agent Platform and
