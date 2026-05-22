@@ -14,5 +14,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html": {
+    "title": "How To Reduce Client Churn Insurance Tips For Rene",
+    "video_url": "",
+    "published_at": "2026-05-22T14:00:38.5495743+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
