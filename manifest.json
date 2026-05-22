@@ -69,5 +69,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_page.html": {
+    "title": "From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent",
+    "video_url": "https://www.youtube.com/watch?v=fkCTifAqVGg",
+    "published_at": "2026-05-22T19:59:28.6145146+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
