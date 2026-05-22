@@ -95,5 +95,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html": {
+    "title": "Google Cloud Next \u002726 Opening Keynote",
+    "video_url": "https://www.youtube.com/watch?v=11PBno-cJ1g",
+    "published_at": "2026-05-22T21:29:28.4365825+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
