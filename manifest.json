@@ -108,5 +108,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_page.html": {
+    "title": "The agentic ROI framework for lean teams",
+    "video_url": "https://www.youtube.com/watch?v=GcQs3qf-AAE",
+    "published_at": "2026-05-22T21:55:57.5342123+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
