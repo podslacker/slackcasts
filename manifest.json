@@ -28,5 +28,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html": {
+    "title": "Agentic commerce: Transform the shopping experience with Google agents and open standards",
+    "video_url": "https://www.youtube.com/watch?v=GNlWClpVtcQ",
+    "published_at": "2026-05-22T16:14:26.8993835+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
