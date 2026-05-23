@@ -1,0 +1,1232 @@
+﻿[00:00] [MUSIC PLAYING]
+[00:09] JOSH WOODWARD: All right, welcome back, developers.
+[00:11] How's everybody doing?
+[00:12] [CHEERING]
+[00:14] All right.
+[00:15] It's great to see you again, and it's
+[00:17] wild to think back about where we were just a year ago.
+[00:20] This morning, you've heard all about the advancements
+[00:23] across Gemini.
+[00:24] We've got the new Omni model, the new Gemini 3.5
+[00:28] series of models.
+[00:29] And last month, we also shipped Gemma 4
+[00:33] under an Apache 2.0 license.
+[00:35] [APPLAUSE]
+[00:38] It's our smartest open model yet.
+[00:40] It's purpose-built for advanced reasoning, agentic workflows,
+[00:45] and the response has been incredible.
+[00:47] 100 million downloads in the first month,
+[00:50] and it's pushing Gemma downloads past half a billion.
+[00:56] [APPLAUSE]
+[00:59] Gemma 4 packs massive intelligence
+[01:02] into a footprint small enough to run offline on your phone.
+[01:07] And it's deployed in everything from robots
+[01:10] to satellites in outer space.
+[01:12] And as you saw this morning, the big shift
+[01:15] is our move towards agents, from AI that simply assists you
+[01:20] to agents that help you get stuff
+[01:22] done, under your direction and faster.
+[01:25] At the center of it all is Google Antigravity.
+[01:28] It's our agentic development platform
+[01:30] that enables you to build with agents.
+[01:33] The core platform is the Antigravity agent itself.
+[01:37] And today, we're going to show you
+[01:38] how you can build with it anywhere,
+[01:41] on our infrastructure or your own, on Android or the web.
+[01:46] And when you step back, you can see how all of these pieces
+[01:50] are coming together across Google,
+[01:52] from the cutting-edge models, to the agentic tools
+[01:56] like Antigravity, to the platforms where users experience
+[02:00] the magic, and to the infrastructure that
+[02:03] makes it all possible.
+[02:05] We're working up and down the stack to help you build.
+[02:09] So let's jump into some demos and keep the launches rolling.
+[02:12] Please welcome Logan to the stage.
+[02:14] [MUSIC PLAYING]
+[02:16] [APPLAUSE]
+[02:21] LOGAN KILPATRICK: Thanks, Josh.
+[02:22] Our latest models help you build for the next era of agents.
+[02:26] And we're putting the full power of agents
+[02:28] directly into your hands, no matter what you're building.
+[02:32] Need complex research done?
+[02:34] Check.
+[02:35] A data science task?
+[02:36] Check.
+[02:38] Your own personal radio show?
+[02:40] We'll get to that one.
+[02:42] Last December, we introduced the Interactions API.
+[02:45] It gives you one simple and powerful interface
+[02:48] for both models and agents.
+[02:51] Deep Research was the first agent we made available
+[02:53] through the Interactions API.
+[02:55] It showed what's possible when you
+[02:57] give a model a goal and the freedom to go find the answer.
+[03:02] But Deep Research was just the beginning.
+[03:04] Inside Google, we're using the Antigravity
+[03:07] harness to empower our agents to intelligently tackle
+[03:10] the most complex tasks.
+[03:12] It's the same technology behind Gemini Spark and our coding
+[03:15] agent in Google AI Studio.
+[03:18] And today, we're making that same Antigravity
+[03:21] harness available to you with managed agents in the Gemini
+[03:24] API.
+[03:25] [APPLAUSE]
+[03:30] You can easily start creating your agents
+[03:32] by adding custom instructions, tools,
+[03:34] and data through a single call to the Gemini API.
+[03:38] But building agents is one part of the puzzle.
+[03:41] In production, these workloads need secure, isolated execution.
+[03:45] And solving that on your own is an infrastructure nightmare.
+[03:49] That's why every managed agent comes paired with a remote Linux
+[03:53] environment hosted by Google.
+[03:56] In a single API call, you get an agent and the sandbox.
+[04:00] We handle the infrastructure so you can focus on building.
+[04:04] We've been testing this with developers both internally
+[04:07] and externally.
+[04:08] To give you an example, the team at Stitch,
+[04:10] our vibe design product and labs,
+[04:12] used managed agents to enable their users
+[04:15] to import their project's design system directly from their code
+[04:18] base.
+[04:19] Their managed agent connects to a user's GitHub repo,
+[04:22] analyzes the code base, and generates
+[04:24] a ready-to-use design.md file, giving Stitch
+[04:27] everything it needs to create on-brand designs.
+[04:31] And because it's a managed agent,
+[04:33] we handle the infrastructure so Stitch
+[04:35] can scale to millions of users.
+[04:38] Now, Stitch is just one example of how powerful
+[04:40] managed agents can be.
+[04:43] Externally, early access customers
+[04:44] like Ramp, Resemble AI, and Klipy
+[04:47] are also seeing the power of building agents
+[04:49] at a pace like never before.
+[04:51] And we can't wait to see what you build.
+[04:54] Managed agents are available starting today.
+[04:57] And thanks to our ecosystem partners,
+[04:59] you can start building with your preferred stack from day one.
+[05:02] Let's jump into a demo.
+[05:05] I'm here in the AI Studio playground,
+[05:07] where earlier this year, we added support
+[05:09] for interacting with agents.
+[05:11] To help you get started, we've added a set of new custom agents
+[05:14] that you can run instantly.
+[05:20] These open-source agent templates
+[05:22] come preloaded with instructions, skills, and tools
+[05:25] as markdown so you can customize the source files,
+[05:27] like in this customer support agent.
+[05:33] So I told you I'd come back to my own personal radio show.
+[05:37] So let's select AI Talk Radio agent.
+[05:40] This agent can produce a complete talk radio
+[05:43] show about anything you want.
+[05:45] You give it a topic, and it handles the rest.
+[05:48] Of course, I want mine to cover today's top tech news.
+[05:51] So let's see what the Hacker News comments have to say.
+[06:00] I've asked it to generate a 5-minute radio show based
+[06:02] on the latest from Hacker News.
+[06:05] What's happening right now is the agent's environment
+[06:07] is provisioning, and it's getting ready to run.
+[06:09] While that happens, let me show you what's under the hood.
+[06:17] In the AGENTS.md file, you can see we created a specific set
+[06:21] of skills for the agent to produce the show--
+[06:24] research to pull top tech stories from Hacker News,
+[06:27] script writing to compose the show's script,
+[06:29] TTS generation to generate multiple speaker voices,
+[06:32] music generation with Lyria to create dynamic background music,
+[06:36] and audio mixing to bring it all together.
+[06:39] Finally, it generates metadata, uses Nano Banana for cover art,
+[06:42] and saves a complete ready-to-stream
+[06:45] MP3 in its sandbox environment.
+[06:47] I didn't write any orchestration logic.
+[06:50] I simply define the skills and tools in Markdown files,
+[06:53] and the agent does the rest.
+[06:55] Honestly, it feels like the hottest new programming
+[06:57] language is Markdown, and I'm here for it.
+[07:01] Since the agent is taking care of everything,
+[07:03] it's going to take a few minutes.
+[07:04] Let's switch to a tab where the agent finished and left
+[07:07] us a nice summary of its work.
+[07:15] Research, script, speech, music, mixing, and image generation
+[07:20] completed all from one API call.
+[07:24] The playground and AI Studio is great to see what Gemini models
+[07:27] and agents can do.
+[07:28] But the real magic begins when you bring this to real apps.
+[07:32] And to show you that magic, here's Paige.
+[07:35] [MUSIC PLAYING]
+[07:36] [APPLAUSE]
+[07:41] PAIGE BAILEY: Awesome.
+[07:42] Thank you, Logan.
+[07:44] Google AI Studio is the fastest path from prompt to app.
+[07:48] So let's dive in.
+[07:50] I've always wanted to build my own personalized radio
+[07:53] station to get the latest news that I care about.
+[07:56] And it's not just because Logan just showed us what his AI Talk
+[08:00] Radio agent can do.
+[08:02] OK, maybe.
+[08:05] Earlier today, I took the AI Radio Show agent
+[08:08] and wrapped it in a real app with just a few prompts.
+[08:12] Since I'm also a fan of Hacker News, let's go ahead
+[08:15] and give it a try.
+[08:17] Just like Logan showed in the playground,
+[08:19] my app is calling a managed agent on the Gemini API.
+[08:23] The agent spins up in a sandbox environment,
+[08:26] reads through the skills, makes a plan,
+[08:29] and then assembles the complete episode.
+[08:33] This is going to take a minute to generate,
+[08:35] so I'll switch over to where I ran it
+[08:37] a little bit earlier today.
+[08:39] And let's hear what Hacker News has to say.
+[08:43] [VIDEO PLAYBACK]
+[08:43] - If you can go from writing 200 lines of code a day to 2,000
+[08:49] with an AI agent, are you actually a better engineer,
+[08:54] or are you just vibing?
+[08:56] Good afternoon.
+[08:57] [END PLAYBACK]
+[08:58] PAIGE BAILEY: Awesome.
+[08:59] Pretty cool, right?
+[09:00] [APPLAUSE]
+[09:02] Excellent.
+[09:04] As you can see, the agent generated the MP3 for the show
+[09:09] and created metadata to display the script.
+[09:12] So now I can even jump to different speakers in the show.
+[09:15] [VIDEO PLAYBACK]
+[09:15] - --the new one.
+[09:16] And for the accessibility community, it's massive.
+[09:20] You can--
+[09:21] [END PLAYBACK]
+[09:22] PAIGE BAILEY: This is so cool.
+[09:23] The app defines the UX, and then the agent
+[09:26] creates the content and metadata needed for it on the fly.
+[09:30] And I love this fun cover art that
+[09:32] was generated with Nano Banana.
+[09:35] So Logan showed you how the playground lets you experiment.
+[09:39] And what I just showed you is how build lets you ship.
+[09:43] And speaking of shipping, let's go ahead and deploy my app so I
+[09:48] can share it with the world.
+[09:52] Deploying from AI Studio to Cloud Run is just a few clicks.
+[09:58] You can either pick an existing Google Cloud project,
+[10:01] or if you don't have one, AI Studio
+[10:03] will generate one for you.
+[10:06] And starting today, brand new users
+[10:10] can deploy to a live URL on Cloud Run instantly.
+[10:14] No credit card required.
+[10:17] [APPLAUSE]
+[10:20] Awesome.
+[10:22] Now, while we're waiting, Cloud Run
+[10:25] is just our latest integration.
+[10:28] We recently rebuilt our coding agent with Antigravity
+[10:31] and added Firebase and Firestore support,
+[10:34] so you can easily build real world full-stack apps backed
+[10:39] with databases and OAuth.
+[10:41] And today, we're officially announcing
+[10:44] support for Google Workspace.
+[10:47] Woo!
+[10:48] Yeah.
+[10:49] Clap, clap, clap.
+[10:50] [APPLAUSE]
+[10:51] You can just prompt to connect apps
+[10:52] like Docs and Gmail and Calendar and stay completely in the flow.
+[10:56] And if you combine that with multi-chat, web search,
+[10:59] and image generation with Nano Banana,
+[11:02] we are completely redefining what you can build with agents.
+[11:06] And, oh awesome, it looks like my app has deployed.
+[11:10] So you can see right here the status, the live URL,
+[11:14] and even unpublish right here without leaving
+[11:16] AI Studio for a second.
+[11:18] That really was pretty magical.
+[11:21] Awesome.
+[11:23] I love that I can deploy my web app in minutes.
+[11:26] But what good is a radio show if I can't listen on the go?
+[11:30] So starting today, you can go from an idea to an Android app
+[11:37] directly in AI Studio.
+[11:39] No software to install, no SDKs to manage,
+[11:43] and no local environment needed.
+[11:46] [APPLAUSE]
+[11:47] Yes.
+[11:48] Hallelujah.
+[11:50] Awesome.
+[11:51] Yep.
+[11:52] To start, all you have to do is select Build an Android App
+[11:55] and start prompting.
+[11:57] So let's switch over to one I baked a little bit earlier
+[12:00] today.
+[12:01] I used the same exact prompts, but this time asked the app
+[12:05] to build an Android app.
+[12:08] And notice the app is built entirely in Kotlin.
+[12:13] AUDIENCE: Woo!
+[12:14] PAIGE BAILEY: Woo.
+[12:14] Yeah.
+[12:15] [APPLAUSE]
+[12:16] You can even preview your app with the Android Emulator
+[12:19] directly in AI Studio.
+[12:22] And when I'm ready to start testing on my own device,
+[12:25] I simply plug in my phone to install it.
+[12:29] We're also adding support for Google Play Store publishing
+[12:33] in AI Studio.
+[12:35] Yeah, keep clapping.
+[12:37] [APPLAUSE]
+[12:38] I just open Publish, connect my Play Developer Account,
+[12:42] and push the app straight to the test track in minutes.
+[12:44] And after that, it's ready to install on my phone
+[12:47] without ever leaving AI Studio.
+[12:49] You can start testing it on your own device
+[12:51] today, and sharing with trusted testers will roll out
+[12:54] later this summer.
+[12:55] [APPLAUSE]
+[12:58] But speaking of apps, great ideas
+[13:03] don't just happen at your desk.
+[13:06] And that's why we're bringing the AI Studio build experience
+[13:10] to your pocket with our brand new mobile app.
+[13:14] Woo.
+[13:15] Yeah.
+[13:16] [APPLAUSE]
+[13:16] The app rolls out in a few weeks,
+[13:18] and you can pre-register today.
+[13:21] With managed agents, you get serious power
+[13:24] without the complex setup.
+[13:26] But if you want total programmatic control
+[13:28] to customize and deploy on your own terms,
+[13:32] today we're launching the Antigravity SDK.
+[13:36] Yeah.
+[13:36] [APPLAUSE]
+[13:38] It gives developers and researchers the exact same agent
+[13:42] harness optimized for Gemini, but
+[13:44] with the ultimate flexibility to run it wherever
+[13:47] and however you want.
+[13:49] And now, of course, building a great agent
+[13:52] isn't just a single event.
+[13:54] It's an entire lifecycle, from that first spark of an idea
+[13:57] to a deployed application.
+[14:00] And while Google AI Studio is the fastest path
+[14:03] from prompt to app, as your team evolves,
+[14:06] moving to a local development platform
+[14:08] can help with faster iterations.
+[14:10] And moving y'all's projects used to mean copying files,
+[14:15] losing context, and completely rebuilding state.
+[14:18] But not anymore.
+[14:21] Today, we're launching a one-click export to Antigravity.
+[14:25] And we aren't just sending snippets.
+[14:27] We are porting the complete file system and every single ounce
+[14:31] of context, so you can pick up exactly where you left off
+[14:35] in AI Studio.
+[14:37] [APPLAUSE]
+[14:39] And now, to show you what we're cooking in an Antigravity
+[14:42] itself, please welcome Anshul.
+[14:45] [MUSIC PLAYING]
+[14:47] [APPLAUSE]
+[14:56] ANSHUL RAMACHANDRAN: All right, let's talk more about agents,
+[14:59] shall we?
+[15:00] We aren't just making it easier to build agents.
+[15:04] We're making it easier to build with agents.
+[15:07] As you heard earlier today, we're
+[15:09] introducing Google Antigravity 2.0, a new desktop
+[15:13] application that is unabashedly agent first.
+[15:17] You can kick off multiple agents in multiple projects
+[15:20] simultaneously.
+[15:21] One agent vibe codes your marketing website,
+[15:24] another generates brand assets, and a third plans your project
+[15:27] architecture, operating in multiple work trees,
+[15:31] collaborating without collisions.
+[15:33] For coding tasks, you can use Antigravity 2.0
+[15:36] alongside your IDE of choice.
+[15:39] But we all know there is much more to do than just code.
+[15:43] Antigravity 2.0 is your mission control for orchestrating agents
+[15:48] for all sorts of tasks.
+[15:51] Now, we've all seen single agents get
+[15:54] overwhelmed by massive tasks.
+[15:57] That's why, today, we're introducing dynamic subagents.
+[16:02] Now your agent can spin up specialized helpers,
+[16:05] like a QA or data science subagent, that
+[16:08] worked in parallel to get the job done faster and more
+[16:11] effectively.
+[16:13] Now, that might sound impressive.
+[16:15] But what if you want the process to run autonomously?
+[16:17] For example, you might have tasks
+[16:19] that you want agents to repeat on a predefined schedule.
+[16:23] Today, we are making that a reality with Scheduled Tasks.
+[16:28] You can now use standard cron schedules
+[16:31] to put your agents on autopilot.
+[16:34] So tell your agent to summarize pending PRs every morning,
+[16:38] or monitor your cloud health every hour.
+[16:41] And this is just the beginning of making
+[16:43] your agents truly proactive.
+[16:47] To show you Antigravity 2.0 in action, let's
+[16:50] invite Kevin to stage.
+[16:51] [APPLAUSE]
+[16:56] KEVIN HOU: Thanks, Anshul.
+[16:57] Let's give Antigravity 2.0 a challenge.
+[17:00] As you heard from Josh at the beginning,
+[17:02] the momentum we're seeing behind Gemma 4
+[17:04] is absolutely incredible.
+[17:07] Democratizing AI means allowing anyone
+[17:09] to take open models, like Gemma 4, and fine tune them.
+[17:13] Historically, that meant complex pipeline wrangling
+[17:16] by ML engineers.
+[17:18] Not anymore.
+[17:19] With Antigravity, anyone can do it.
+[17:22] Let me show you.
+[17:24] The other day, my CI pipeline broke, which gave me this idea.
+[17:28] Why not have an LLM automatically
+[17:30] self-heal the pipeline?
+[17:32] I'd just feed it the stack trace with the build error
+[17:34] and say, fix this, to generate a remediation Bash command.
+[17:38] Anshul, can you explain while I get this set up?
+[17:40] ANSHUL RAMACHANDRAN: Yeah.
+[17:41] So the challenge here is that LLMs, as we know,
+[17:43] have trained to be conversational.
+[17:46] So they bury the Bash command in paragraphs of explanation.
+[17:49] In fact, when we asked for a simple Git work tree command
+[17:52] earlier, the response came back with two separate code blocks,
+[17:56] a conversational introduction, and a detailed breakdown
+[17:58] explaining how to choose branch names.
+[18:01] But all Kevin cares about is the command.
+[18:04] And so what he needs to do is fine tune
+[18:06] Gemma 4 to not return the fluff and just give him the command.
+[18:10] KEVIN HOU: Exactly.
+[18:11] So rather than watch me type, let's go ahead
+[18:13] and use the mic, powered by our latest audio understanding
+[18:16] capabilities.
+[18:21] OK, so I want to fine tune Gemma 4 to directly give me
+[18:25] a Bash command response with no additional fluff,
+[18:28] so that I can use the response directly in my CI pipeline.
+[18:32] I have a data set of prompt to Bash commands.
+[18:35] Write the training and eval code for doing a LoRA fine
+[18:37] tuning over this data set, as well as
+[18:40] the code to deploy my custom Gemma 4 model on my laptop.
+[18:44] ANSHUL RAMACHANDRAN: So as Kevin runs
+[18:45] that, I want to highlight a couple of things.
+[18:48] He was able to just use his voice,
+[18:50] and the audio model could recognize terms like LoRA.
+[18:54] It seems like the agent is doing some research
+[18:56] and has generating an entire implementation
+[18:58] plan for the training code.
+[19:01] KEVIN HOU: OK, so I approved the implementation plan,
+[19:03] and now it's writing a bit of code to make this happen.
+[19:06] Once this is done, I'm going to take this and push it
+[19:08] to my repo.
+[19:09] And because we're training a model,
+[19:11] I'll need a GPU-enabled cloud machine.
+[19:13] ANSHUL RAMACHANDRAN: Great.
+[19:14] So while Kevin does that, you just
+[19:16] saw Antigravity 2.0, our new standalone app
+[19:20] that is your mission control for orchestrating agents.
+[19:23] But we know that for a lot of developers,
+[19:26] the real magic happens in the terminal.
+[19:28] So that's why we're thrilled to announce the Antigravity CLI.
+[19:33] [APPLAUSE]
+[19:38] It's a lightweight way to spin up these same Antigravity agents
+[19:42] right from the terminal.
+[19:44] So it gives you the exact same harness and same models,
+[19:47] but with a product experience that is
+[19:49] tailored for the command line.
+[19:51] It adapts entirely to you--
+[19:53] your themes, your workflows, your key bindings.
+[19:57] Kevin, we're good to go?
+[19:58] KEVIN HOU: We are all set.
+[19:59] So let's pick up where I left off.
+[20:01] As you can see, I have SSH'ed into my GPU-enabled VM,
+[20:04] and I'm going to pull down the code from main that we just
+[20:07] wrote in Antigravity 2.0.
+[20:09] I already have the Antigravity CLI installed on this machine,
+[20:12] and it's running in a separate tab, no GUI necessary.
+[20:16] ANSHUL RAMACHANDRAN: Yeah, so we know that GUI versus CLI is
+[20:19] mostly a matter of preference.
+[20:21] But since Kevin's already in the terminal SSH'ed into a machine,
+[20:25] the CLI is perfect.
+[20:27] KEVIN HOU: So I just asked the agent
+[20:28] to start the training job that we just wrote.
+[20:30] And to give you a little bit of context,
+[20:32] this is a lightweight LoRA fine-tune.
+[20:34] But even so, it's going to take some time before we get results.
+[20:38] So while this is cooking, let's just take a step back
+[20:40] for a minute.
+[20:41] In minutes, we used Antigravity to go
+[20:43] from no code to fine tuning Gemma 4 on our own custom use
+[20:47] case.
+[20:48] And if all that seems a little bit too simple,
+[20:51] that is the point.
+[20:52] Antigravity makes building something
+[20:54] of this scale not just possible, but way easier than you'd
+[20:57] expect.
+[20:58] All right, now that it's been a few moments,
+[21:00] I'm going to use the CLI to do a quick sanity
+[21:02] check on the first few steps to make
+[21:03] sure the loss is trending in the right direction
+[21:05] and everything is healthy.
+[21:07] I'll head over to my agent and just
+[21:08] ask, how is the training run going?
+[21:12] Is everything healthy?
+[21:16] And as you can see, it's going to look through some
+[21:18] of the output files, actually read the code that it wrote
+[21:20] in 2.0, tell us that it needs to look
+[21:23] at a couple of the log files.
+[21:24] And hopefully it should give us some indication
+[21:26] of how training is going.
+[21:29] Looking like it's looking through the test logs.
+[21:32] And you see that "sleep 10."
+[21:34] It looks like training has not progressed
+[21:36] long enough for us to actually get meaningful results.
+[21:39] So let's come back in a couple of seconds.
+[21:41] ANSHUL RAMACHANDRAN: Sure.
+[21:42] OK, so if we have some time, let's ask Gemini for a joke.
+[21:45] Using the brand new /btw command.
+[21:49] It did give us the results.
+[21:50] Let's ask for the joke anyways.
+[21:51] KEVIN HOU: It already came back, but we'll get the joke anyway.
+[21:52] ANSHUL RAMACHANDRAN: Let's just get the joke.
+[21:54] Why not?
+[21:54] We have some time.
+[21:58] KEVIN HOU: So I used /btw, which, in the same conversation,
+[22:00] will effectively fork.
+[22:02] And now you can see this amazing joke.
+[22:04] Why did the neural network refuse to run on the TPU?
+[22:08] Because it heard the TPU was always a bit too tensor.
+[22:11] [LAUGHTER]
+[22:13] ANSHUL RAMACHANDRAN: Eh.
+[22:15] I think we'll give it 5 out of 10.
+[22:17] We'll talk to the Gemini team about humor.
+[22:19] But let's scroll back up, because I
+[22:21] think we saw some of the training results.
+[22:23] KEVIN HOU: OK.
+[22:24] So it looks like it did about 1%.
+[22:26] It says the gradient norm is stable.
+[22:28] So it looks things are going well.
+[22:30] I imagine this will probably take some time to finish.
+[22:33] ANSHUL RAMACHANDRAN: Yeah.
+[22:33] I mean, so the loss is turning down nicely.
+[22:35] The run is perfectly healthy.
+[22:36] But we'll fast forward a bit and keep this one
+[22:39] cooking in the background.
+[22:40] KEVIN HOU: Sure.
+[22:41] In fact, I actually kicked off this same exact run earlier.
+[22:45] I let it run for a few hours, so I'm just
+[22:47] going to use that checkpoint and ask
+[22:49] my agent to deploy that resulting model to my laptop
+[22:52] so that we can all see that this does, indeed, work.
+[22:54] So I'll head back over to Antigravity 2.0.
+[22:57] I'm going to start a new conversation.
+[22:59] And I'm just going to instruct it to run the playground using
+[23:02] the fine-tuned model that is specified
+[23:04] at this particular path from earlier.
+[23:07] As you can see, it is running the server.
+[23:08] And if we click over here, you can see the logs.
+[23:11] Looks like it's running this particular model.
+[23:14] It's also starting the client.
+[23:16] And if I just go ahead and click on the link
+[23:18] that it's telling me to click and try that same exact prompt
+[23:20] in the same playground that you saw earlier,
+[23:23] we now see a fine tune where we just get the command, none
+[23:27] of the additional fluff.
+[23:28] [APPLAUSE]
+[23:33] So we just fine tuned Gemma 4 on stage,
+[23:35] which is pretty remarkable.
+[23:36] And this really is the new reality
+[23:38] of building-- your workflows across surfaces you already use.
+[23:42] ANSHUL RAMACHANDRAN: Awesome.
+[23:43] Thanks, Kevin.
+[23:44] KEVIN HOU: Thank you.
+[23:46] [APPLAUSE]
+[23:51] ANSHUL RAMACHANDRAN: Wrapping up on the Antigravity CLI,
+[23:53] we are unifying on Antigravity as the only platform you need
+[23:57] for agent-first development.
+[23:59] So we took everything we learned from how you use Gemini CLI
+[24:02] and rolled those insights into the Antigravity CLI as well.
+[24:06] So starting today, the Antigravity CLI
+[24:08] is available to all Gemini CLI users.
+[24:11] We've published the migration guides
+[24:13] to help you port your custom skills over.
+[24:15] And as always, send us your feedback as you get started.
+[24:19] You'll now get the same harness as Antigravity 2.0
+[24:23] and a unified agentic experience across all of your surfaces.
+[24:28] All right, let's move along.
+[24:30] Antigravity is completely stack agnostic, letting
+[24:33] you use the tools you love with zero vendor lock-in.
+[24:37] However, if you are building in the Google ecosystem,
+[24:41] we've made it easy, with one-click setup across Android,
+[24:44] Firebase, and building on the web.
+[24:47] [APPLAUSE]
+[24:52] We're also making it easier to push agents
+[24:54] into highly specialized fields by introducing
+[24:57] domain-specific skills bundles.
+[25:00] So starting today, our first release
+[25:02] is a new Science Skill bundle, equipping your agents
+[25:06] with the specific primitives needed
+[25:08] to accelerate health, biology, and scientific research
+[25:11] workflows.
+[25:13] [APPLAUSE]
+[25:18] So everything you just saw is incredible
+[25:21] for individual developers, but we are not stopping there.
+[25:25] So today, for enterprises, we're allowing Antigravity
+[25:28] to be connected directly to your Google Cloud projects,
+[25:32] applying the same enterprise terms that you expect.
+[25:37] And for our existing Gemini Enterprise customers,
+[25:39] you'll soon see Antigravity rolled out in the coming months.
+[25:43] [APPLAUSE]
+[25:47] From cutting-edge research to standard enterprise apps,
+[25:50] whether you're one developer with an idea or an organization
+[25:54] deploying at scale, Antigravity is your platform.
+[25:58] Now let's take a deep dive into these agentic workflows
+[26:01] for your Android development.
+[26:03] Here to show us how that's done, please
+[26:05] welcome Florina and Adarsh.
+[26:07] [MUSIC PLAYING]
+[26:09] [APPLAUSE]
+[26:21] FLORINA MUNTENESCU: No matter where
+[26:23] you are in your development journey,
+[26:25] we want to make it fast and easy to build high quality Kotlin
+[26:29] Android apps.
+[26:31] As Paige showed you earlier, native Android development
+[26:35] is fully supported in AI Studio.
+[26:38] Today, we're also bringing official Android support
+[26:41] to Antigravity so you can more easily deliver
+[26:45] the most performant experiences for your users,
+[26:48] no matter where they are or what kind of devices they have.
+[26:53] We want to ensure you have access
+[26:55] to the latest innovations on the Android platform
+[26:59] and that building for the newer form factors is frictionless.
+[27:03] ADARSH FERNANDO: OK, we'll have a few demos that we
+[27:06] need to cover in the next few minutes, but not that much time.
+[27:09] So let's rely on our latest skill, time travel, travel,
+[27:14] travel, travel.
+[27:15] We'll use it every once in a while to jump into the future
+[27:18] and check out the results.
+[27:20] Now, for the demos, we've created a travel app.
+[27:23] You can use it to view all of your travel plans in one place
+[27:27] or transcribe audio diary entries
+[27:29] using our latest on-device model, Gemini Nano 4.
+[27:33] FLORINA MUNTENESCU: So using Antigravity, let's show you
+[27:35] how you can build an augmented experience today
+[27:38] for display glasses.
+[27:40] AUDIENCE: Woo!
+[27:40] [APPLAUSE]
+[27:43] ADARSH FERNANDO: Now, setting up the environment
+[27:45] without Android Studio is kind of a pain.
+[27:48] But now Antigravity has our new Android CLI built in.
+[27:53] Now that it's stable, it comes with a set of tools for agents
+[27:57] to handle everything from downloading the SDK to creating
+[28:00] a project and running your app on devices, all
+[28:04] much more easily and efficiently.
+[28:08] OK, Flor, for this app, we've heard from our users
+[28:10] that they really wish there was an easier way
+[28:13] to view important travel info when they're on the go.
+[28:16] So let's try this out.
+[28:18] In a single prompt, let's add the capability
+[28:21] to display updated flight and travel information directly
+[28:24] on the glasses, which could be pretty useful for users
+[28:27] at the airport with their hands full.
+[28:29] FLORINA MUNTENESCU: Building for display glasses is new,
+[28:31] so most LLMs don't know how to do this yet.
+[28:35] So as part of Android CLI, we're giving our models
+[28:38] access to the latest information with two key resources.
+[28:42] First, the Android Knowledge Base-- it's our specialized data
+[28:46] source that enables agents to search and fetch
+[28:49] the latest developer guidance.
+[28:52] And second, we open source the Android
+[28:54] skills to help LLMs understand and execute best practices.
+[28:59] For example, you've told us that building support for edge
+[29:03] to edge, migrating from XML to Compose or to Jetpack Navigation
+[29:07] 3 is time-consuming.
+[29:10] So we made sure to add skills to help with just that.
+[29:15] ADARSH FERNANDO: We saw in our internal testing agents
+[29:18] leveraging Android CLI, Skills, and Knowledge Base
+[29:22] use about 70% fewer tokens and complete tasks up to three times
+[29:27] faster.
+[29:29] Now, Android CLI also provides access
+[29:31] to the powerful capabilities of Android Studio,
+[29:34] like finding usages and declarations,
+[29:37] analyzing files for issues, and looking up the latest
+[29:40] info on dependencies.
+[29:42] By running Android Studio alongside Antigravity,
+[29:46] the agent can leverage these capabilities to run tasks
+[29:49] much more quickly and efficiently,
+[29:51] all while under your control.
+[29:54] OK, let's jump forward in time to see what the agent did
+[29:57] to build our new glasses UI.
+[30:01] OK, so the agent's done its thing,
+[30:03] and I can see that it used the recommended Skill
+[30:05] to build the UI using Jetpack Compose Glimmer, which
+[30:09] is part of the Android XR SDK.
+[30:11] If I scroll a little further, I can
+[30:14] see it's also using Android Studio to look up versions
+[30:17] of dependencies it needs.
+[30:19] And then a little further, it's also analyzing files
+[30:23] that it's modified for issues.
+[30:26] Finally, it deployed the app to the emulator
+[30:29] so that I can try it out myself and see flight information,
+[30:34] hotel information, and more.
+[30:36] [APPLAUSE]
+[30:43] FLORINA MUNTENESCU: We're just scratching
+[30:45] the surface of the Android capabilities in Antigravity.
+[30:48] How about adding a helpful AI summary of the entire trip
+[30:54] and asking Antigravity to give us before and after screenshots
+[30:58] of the app?
+[31:00] ADARSH FERNANDO: OK, so switching to an earlier result,
+[31:04] I can see that the agent has implemented hybrid mode
+[31:09] by using Firebase AI logic, which is great
+[31:14] because that way the app only uses the cloud device
+[31:17] model as a fallback when an on-device model isn't available.
+[31:21] FLORINA MUNTENESCU: OK.
+[31:22] But did it actually work?
+[31:23] ADARSH FERNANDO: That's a good question.
+[31:25] So if I scroll a little further down,
+[31:28] I can see the before and after screenshots
+[31:30] that we asked for, with the feature implemented.
+[31:32] I can also see that the agent used the Android
+[31:35] CLI to deploy the app, navigate the UI,
+[31:39] and take those screenshots.
+[31:40] So yeah, I think it worked.
+[31:42] FLORINA MUNTENESCU: So these screenshots are nice and all,
+[31:44] but we need to see how this looks
+[31:45] across multiple configurations and whether that AI
+[31:49] summary really works offline.
+[31:51] Antigravity enables you to orchestrate your agents,
+[31:54] but the ideal setup is to use Antigravity
+[31:58] alongside Android Studio.
+[31:59] ADARSH FERNANDO: That's right.
+[32:00] And you can easily transition to Android Studio at any time
+[32:05] and get that production grade polish.
+[32:07] For example, with the agent, I can ask,
+[32:10] open the Compose previews for the home
+[32:12] screen in Android Studio.
+[32:15] And then, pixels percolating, there it is.
+[32:20] [APPLAUSE]
+[32:25] FLORINA MUNTENESCU: We can see how
+[32:27] the UI looks across multiple themes
+[32:30] and also how it adapts to different screen sizes.
+[32:33] And then if there's anything we need to tweak,
+[32:35] we just go to AI Actions.
+[32:37] Now, we need a real phone to test the on-device AI
+[32:41] capabilities.
+[32:42] ADARSH FERNANDO: I agree.
+[32:44] In Android Studio, I can deploy to a number of real Android
+[32:48] devices, whether I own them or not.
+[32:50] For example, here's the app running on a real Samsung Galaxy
+[32:54] S26 Ultra, which is coming to Android Device Streaming
+[32:57] a little later this summer.
+[32:59] While the device is in airplane mode,
+[33:02] I can easily check that the AI trip summary feature
+[33:06] uses the on-device Gemini Nano.
+[33:09] [APPLAUSE]
+[33:14] FLORINA MUNTENESCU: All right.
+[33:15] Now, a high quality app needs to be performant.
+[33:19] Since I'm in Android Studio, I can view the App Quality
+[33:22] Insights window.
+[33:24] And I can see that my app has been crashing
+[33:26] too much in production.
+[33:28] And on top of that, we also want to be
+[33:30] ready for some of the memory limit changes
+[33:33] for performance optimization in Android 17.
+[33:36] So let's get that fixed.
+[33:38] I'm going to go to the agent and say, OK, Gemini,
+[33:43] fix and analyze my app's optimization and performance.
+[33:48] The agent knows that one of the main ways an app can improve
+[33:51] its performance is with R8.
+[33:54] It streamlines your app by removing unused code
+[33:57] and resources and rewrites bytecode
+[34:00] to optimize runtime performance.
+[34:03] Effective R8 configurations lead to fewer ANRs, reduced app size,
+[34:08] and quicker startup times.
+[34:11] ADARSH FERNANDO: Let's use that time machine and jump
+[34:13] to the results.
+[34:15] OK, the agent's done its thing, and I
+[34:17] can see that it's used the R8 Analyzer Skill to actually
+[34:21] recommend changes to the build configuration
+[34:23] to enable R8's full mode.
+[34:25] That's great.
+[34:26] So if I scroll down a little further,
+[34:28] I can see that it's using the new R8 Configuration
+[34:31] Analyzer, which means in the final report, great,
+[34:35] I have my updated optimization, obfuscation,
+[34:39] and shrinking scores.
+[34:41] Now, to achieve these scores, the agent
+[34:44] has audited and suggested updates to my
+[34:46] keep rules to maximize the effectiveness of R8.
+[34:50] Previously, almost none of the app's code was optimized.
+[34:54] With these changes, R8 was able to optimize almost all
+[34:57] of the code.
+[34:58] It's now faster and smaller, all from a single prompt.
+[35:02] FLORINA MUNTENESCU: This app is getting better and better.
+[35:04] But let's add one more feature before we ship it.
+[35:08] We need deep links to maximize engagement and ensure
+[35:12] that our users are taken directly to their upcoming trip
+[35:15] right inside the app.
+[35:17] So if I click on this link in the booking confirmation,
+[35:21] this doesn't currently go anywhere.
+[35:23] In the latest version of Android Studio,
+[35:25] we have a dedicated App Links Assistant
+[35:28] to help you implement the deep links in your app.
+[35:30] So if I go to Tools, App Links Assistant, open the URL Mapping
+[35:34] Editor, and then I have my host, Jetpacker Demo, then I
+[35:39] can select which activity to handle my intents,
+[35:43] my deep links.
+[35:44] And then I pass a sample URL to process.
+[35:47] And that's it.
+[35:48] AI is doing its job now.
+[35:50] ADARSH FERNANDO: All right, you all know the drill.
+[35:52] Let's jump over to the results.
+[35:55] OK, so here, I can see that the agent has analyzed
+[35:58] that URL along with the app's code
+[36:03] to recommend a custom implementation plan.
+[36:06] And with that plan, it's implemented
+[36:08] the exact routing logic that uses the trip data from that URL
+[36:12] it parsed.
+[36:13] So if I go back to that device and click
+[36:17] on that action in the email, it goes to the personalized trip
+[36:20] right in the app.
+[36:21] FLORINA MUNTENESCU: Nice.
+[36:22] Ship it, ship it, ship it.
+[36:24] ADARSH FERNANDO: Are all PMs like that or just me?
+[36:25] FLORINA MUNTENESCU: Just you.
+[36:26] ADARSH FERNANDO: OK.
+[36:27] Well, the good news is that now you
+[36:30] can publish updates of your app from Android Studio
+[36:34] directly to Google Play.
+[36:35] Check this out.
+[36:37] All I need to do to get started is go to Build and Generate
+[36:41] a Signed App Bundle.
+[36:42] Then after a couple of clicks and making
+[36:45] sure to check this new option that I want to upload to Play,
+[36:51] I'm ready to upload a new version of my app to Play.
+[36:55] And after I click Next, it's off to the internal test track
+[36:58] so testers can test while I get the Play Store page ready.
+[37:02] FLORINA MUNTENESCU: OK.
+[37:03] Now, one last thing.
+[37:06] ADARSH FERNANDO: Let's give you an early sneak peek--
+[37:09] FLORINA MUNTENESCU: Like, really early.
+[37:11] ADARSH FERNANDO: Super early--
+[37:12] into a suite of tools we're building
+[37:14] to easily migrate and extend your app to Android, regardless
+[37:18] of whether your source is React Native, a web framework, or even
+[37:22] iOS.
+[37:23] FLORINA MUNTENESCU: So let's say your company is looking
+[37:25] to expand an existing iOS app to Android's over 3 billion users.
+[37:31] To make this a matter of hours rather than weeks,
+[37:34] we're experimenting with a new migration
+[37:36] assistant in Android Studio.
+[37:39] Here's how we're thinking for doing this.
+[37:41] Go to File, New Project, and then select
+[37:45] Migrate to a New Project.
+[37:47] I can choose which app I want to migrate.
+[37:55] OK.
+[37:56] Then I can decide whether I want to let the AI make decisions
+[38:00] for me, or whether I prefer to be more involved
+[38:03] by selecting Guided Migration.
+[38:06] I can attach reference images or even some custom skills.
+[38:10] But then, instead of doing the validation myself,
+[38:14] I can let the agent handle that for me with Journeys.
+[38:17] It creates a set of natural language instructions following
+[38:20] our app's user journeys.
+[38:22] And then the agent executes, evaluates,
+[38:25] and iterates on the app.
+[38:27] ADARSH FERNANDO: Just for this demo,
+[38:29] we've selected this open-source project called Metropolis.
+[38:32] It's a gamified companion for the public transit
+[38:35] network in Paris.
+[38:36] It's really fun.
+[38:37] You get points when you track your routes and badges
+[38:40] when you ride the full length of a transit line.
+[38:42] FLORINA MUNTENESCU: We ran the migration earlier
+[38:44] and then spend a bit of time on a few polish tasks,
+[38:48] like adding Maps SDK support and fancier animations.
+[38:56] Do you want to see?
+[38:58] ADARSH FERNANDO: I want to see.
+[38:59] Do you all want to see?
+[39:01] [APPLAUSE]
+[39:03] FLORINA MUNTENESCU: All right.
+[39:05] So here's the iOS simulator and the app
+[39:09] running in the iOS simulator, and then the Android
+[39:11] app in an emulator.
+[39:13] So let's say that we want to take the metro number one.
+[39:19] Then we press Start Travel.
+[39:24] And then we go to from La Défense to Les Sabions.
+[39:32] And then Confirm Journey.
+[39:37] Wow.
+[39:37] Look at all the progress the agent made for us.
+[39:40] [APPLAUSE]
+[39:46] OK, let's see how we got here.
+[39:48] So the Android Studio's Migration Assistant first
+[39:51] creates the feature mapping, and only
+[39:53] afterwards, the project plan.
+[39:57] Since the agent knows the typical iOS and Android
+[40:00] projects, the agent looks at the Xcode
+[40:03] storyboard to create the corresponding Android screens.
+[40:07] It knows how to handle things like migrating strings
+[40:11] from iOS to Android, and even how
+[40:13] to convert assets like SVGs and PDFs to vector drawables.
+[40:19] And then, when implementing the Android code,
+[40:22] libraries like Jetpack Compose, Room, and ViewModels
+[40:26] are used together with best practices,
+[40:29] like predictive back navigation.
+[40:32] To perfect your app and make it production-ready,
+[40:35] you can use all the great agents and tools
+[40:37] that are already within Android Studio, since this
+[40:41] is a native Android app.
+[40:43] The Migration Assistant is coming to Android Studio
+[40:46] later this year.
+[40:48] We are also planning on providing support for migration
+[40:51] to Kotlin Multiplatform to make it
+[40:53] even easier to maintain shared business logic for Android
+[40:57] and iOS.
+[40:59] ADARSH FERNANDO: By combining Antigravity and Android CLI
+[41:02] with the pro capabilities and production-grade polish
+[41:05] of Android Studio, we're unifying
+[41:07] our most powerful tools for incredible productivity gains.
+[41:12] No matter what form factor you're building for,
+[41:14] you can bring your ideas to life easier than ever,
+[41:17] while maintaining Android best practices.
+[41:20] Teams of all sizes and skill levels
+[41:23] can build cutting-edge Kotlin apps
+[41:25] and deploy them to Google Play in record time.
+[41:29] And in this new era of development with Google,
+[41:32] we're extending that same level of agentic coding
+[41:35] across every platform.
+[41:38] Now, let's hear from Una to tell us
+[41:41] how this digital workforce is delivering incredible new web
+[41:45] experiences.
+[41:46] [MUSIC PLAYING]
+[41:48] [APPLAUSE]
+[41:52] UNA KRAVETS: Hello.
+[41:53] [MUSIC PLAYING]
+[42:01] AI agents are transforming the landscape of development
+[42:05] everywhere.
+[42:06] And nowhere is that transformation happening
+[42:08] faster than on the web.
+[42:10] Take the browser.
+[42:12] With Gemini now built in, Chrome has
+[42:14] evolved to put AI assistants right at your fingertips,
+[42:18] unlocking a new era of interactivity and possibility
+[42:22] for users and developers.
+[42:25] It's an exciting time to experiment without barriers,
+[42:29] to build with confidence, to finally
+[42:32] bring to life all those ideas you've envisioned,
+[42:35] now with a clarity and a velocity that
+[42:38] just a few months ago seemed impossible.
+[42:42] What it means to build for the web is rapidly evolving.
+[42:46] Today, you'll see how you can harness agentic coding tools
+[42:50] to orchestrate all-new web experiences
+[42:54] with intelligent guidance, automated debugging,
+[42:57] and powerful new APIs.
+[43:00] This is the future of the web, imagined by you
+[43:05] and supercharged by AI.
+[43:07] Let's dive in.
+[43:09] When I talk about modern web capabilities, the question
+[43:12] that I hear the most from fellow developers is,
+[43:15] how do I even keep up with all of these new features?
+[43:18] Yes, it's exciting to see the web platform accelerate
+[43:22] with dozens of new APIs added every few months.
+[43:26] But first, you have to figure out if they'll even
+[43:28] work for your users.
+[43:30] And then you have to learn how to use them.
+[43:33] Baseline solves that first problem.
+[43:36] With 100% of web platform features now mapped,
+[43:40] Baseline is a definitive industry standard
+[43:42] that gives you visibility into web feature availability
+[43:46] across the major browsers.
+[43:48] Now, for that second problem, there really
+[43:50] hasn't been a solution to keeping up with new features
+[43:54] until now.
+[43:56] Today, we're launching a new tool
+[43:58] to supercharge your agents, Modern Web Guidance,
+[44:02] a comprehensive and expert-vetted set of skills
+[44:06] providing AI agents with a blueprint for modern web
+[44:09] features.
+[44:10] Building on our experience with Baseline,
+[44:13] it ensures that your agent isn't using yesterday's technology,
+[44:16] but implementing the latest web platform features
+[44:19] and most recent Chrome innovations
+[44:21] compatible with your Baseline target.
+[44:24] Modern Web Guidance empowers you to stay
+[44:27] in the flow of experimenting and iterating
+[44:30] while the agent handles the implementation.
+[44:33] You can target a specific Baseline version,
+[44:36] and the agent will constrain its suggestions.
+[44:39] The guidance even contains fallback solutions
+[44:41] and alternatives for the newest platform features that don't
+[44:45] have wide browser support yet.
+[44:47] To show you how powerful and easy
+[44:49] it is to use Modern Web Guidance with your coding agent, let's
+[44:53] welcome Matthias to the demo desk.
+[44:56] [APPLAUSE]
+[45:01] MATTHIAS ROHMER: Thanks, Una.
+[45:02] Here's something I've been working on, Dynorun,
+[45:05] our Chrome dyno-inspired car site built in React.
+[45:09] Using CSS scroll-driven animations,
+[45:12] our site unfolds as a fluid, narrative-lead experience,
+[45:16] and after that, leads us into the Model Configurator.
+[45:18] Let's check it out.
+[45:24] Give it a second to load.
+[45:27] All right.
+[45:28] So what color should we pick, Una?
+[45:30] What do you think about this green,
+[45:32] or should we rather go for cerulean?
+[45:35] UNA KRAVETS: Now, Matthias, this looks amazing.
+[45:37] But you know what?
+[45:38] All of these menus, options, and sliders--
+[45:42] if I was really using this, I'd want a shortcut like a browser
+[45:45] agent to do the heavy lifting and just help
+[45:47] me build a car to fit my needs.
+[45:50] So you know what I'm going to ask.
+[45:51] Can we make this work seamlessly with agents?
+[45:54] MATTHIAS ROHMER: You know, a few months ago,
+[45:56] that would be a really hard question
+[45:57] to answer, but not anymore.
+[46:00] With WebMCP, we can now make this web page agent-ready
+[46:04] in minutes.
+[46:05] This proposed browser standard lets you expose web capabilities
+[46:09] to browser-based agents.
+[46:11] In other words, it lets you tell agents
+[46:13] how and where to interact with your site,
+[46:16] making those interactions more precise and reliable.
+[46:20] UNA KRAVETS: Now, we could implement this ourselves
+[46:22] on the stage, but with Modern Web Guidance,
+[46:25] our agent has the skills to do it on its own.
+[46:28] All we need to do is ask.
+[46:29] Matthias, could you give it a try?
+[46:31] MATTHIAS ROHMER: Absolutely.
+[46:32] Let me open Antigravity, where I can just prompt.
+[46:35] Please implement WebMCP tools for the car configurator
+[46:39] on this page.
+[46:41] And off we go.
+[46:44] Modern Web Guidance is a set of text-based skills
+[46:47] that are internally tested, benchmark-proven, and
+[46:50] token-efficient.
+[46:52] So for web development tasks, the jump
+[46:54] in pass rates in guided compared to unguided coding
+[46:58] is an average of 37 percentage points.
+[47:02] And you can even read the Markdown files yourself.
+[47:07] Well, let's go ahead and allow this all.
+[47:10] There we go.
+[47:12] Let me pull up an example for a guide.
+[47:15] This Skill contains knowledge about WebMCP
+[47:18] so your coding agent can jump start the development process
+[47:22] and handle the groundwork with confidence, giving you
+[47:25] a solid foundation to test and refine.
+[47:28] Here you can see how it explains that WebMCP is made up
+[47:32] of JavaScript functions that are exposed
+[47:34] to agents through an API.
+[47:37] We've made accessing and implementing
+[47:40] Modern Web Guidance as easy as possible.
+[47:43] In Antigravity, it's easy to install with one click
+[47:46] during onboarding or later on from Settings.
+[47:49] But if Antigravity is not your coding agent of choice,
+[47:52] you can install it as a ready-made package of skills
+[47:55] for other coding tools.
+[47:57] And because the guidance is explaining core platform
+[48:00] features, it adapts to your framework
+[48:02] of choice, no matter if it's Angular, React, or any other.
+[48:08] All right, let's check on progress in Antigravity.
+[48:11] All right, looks like it's finished.
+[48:14] So I'm switching back to Chrome, and I'm
+[48:17] going to click Ask Gemini in the top right.
+[48:21] This brings up a prototype of Gemini
+[48:24] in Chrome with experimental WebMCP support.
+[48:28] Since this is still in active development,
+[48:30] the final version may differ from what we'll see today.
+[48:33] And while this demo is Chrome-specific for now,
+[48:35] once WebMCP stabilizes, these tools
+[48:38] will be compatible with any browser-based agent that
+[48:42] supports WebMCP.
+[48:43] Una, let's prompt away.
+[48:46] UNA KRAVETS: OK, let's have some fun.
+[48:48] Can you prompt in Gemini in Chrome,
+[48:51] configure the ultimate party car.
+[48:53] I want immersive audio, and some interior lighting
+[48:56] would be great.
+[48:58] Plus, enhanced visibility for night driving to keep me safe.
+[49:01] And I don't want to go too crazy, so keep it under $40,000.
+[49:05] But give me as many add-ons as you can under that.
+[49:09] MATTHIAS ROHMER: All right, this sounds like an excellent build.
+[49:11] I'm briefly double checking the prompt.
+[49:14] And here we go.
+[49:15] Now Gemini in Chrome creates an auto browse plan
+[49:18] and briefly passes it back to me for confirmation.
+[49:21] I'll briefly approve the task, and then off it goes.
+[49:26] UNA KRAVETS: With WebMCP, Gemini in Chrome and other browser
+[49:29] agents have one more tool in their box
+[49:32] to interact with a website.
+[49:34] In test runs with this site, Antigravity
+[49:36] has implemented an imperative tool called Update Car
+[49:40] Configuration, with all configuration options listed
+[49:43] in the schema definition.
+[49:45] Now, Gemini in Chrome can use this specific targeted WebMCP
+[49:50] tool for the job.
+[49:51] MATTHIAS ROHMER: And through Modern Web Guidance,
+[49:53] we were able to implement it and make
+[49:55] this app ready for the agentic web in no time.
+[49:59] Una, your build has finished, meanwhile.
+[50:01] What do you think?
+[50:03] UNA KRAVETS: Let's talk about the color later on.
+[50:05] But this is so much easier than finding all of the right options
+[50:09] myself.
+[50:10] Modern Web Guidance, with support for over 100 use cases
+[50:14] for dozens of the latest features,
+[50:16] is available for early preview today.
+[50:20] [APPLAUSE]
+[50:25] I'm also excited to announce that the experimental WebMCP
+[50:29] API will enter origin trial starting in Chrome 149.
+[50:34] [APPLAUSE]
+[50:38] And Gemini in Chrome will soon support your WebMCP tools,
+[50:42] building on the active experiments we're running
+[50:44] with our ecosystem partners.
+[50:47] [APPLAUSE]
+[50:49] It's exciting.
+[50:52] OK, so we've added some new features to our website.
+[50:54] But could we have the coding agent now
+[50:57] test this like a real user would?
+[50:59] MATTHIAS ROHMER: Yes, we could.
+[51:00] I think by now most folks here have tried building with agents.
+[51:04] They've gotten a lot better, but you still don't always
+[51:07] get what you prompted for.
+[51:09] And that's because your coding agent can't actually
+[51:12] see what it's coding.
+[51:14] That all changes with the new Chrome DevTools for agents.
+[51:18] Thanks to-- go ahead.
+[51:20] [APPLAUSE]
+[51:24] Thanks to incredible feedback from our early preview,
+[51:27] we've evolved it to do even more.
+[51:30] Now your agent can finally see how the code that has written
+[51:33] performs at runtime.
+[51:35] With the MCP server, the CLI, and a set of tailored Skills,
+[51:39] it finally creates a closed feedback loop for agents.
+[51:43] That's phenomenal for building, validating, and debugging.
+[51:47] To see its capabilities, let's go back to Antigravity,
+[51:50] where I again prompt, please check the WebMCP implementation
+[51:55] with Lighthouse.
+[51:59] Now, what will happen in a second is
+[52:01] you'll see Chrome popping up, loading our page,
+[52:05] basically the same thing that would
+[52:06] happen if you ran a Lighthouse audit through the DevTools UI.
+[52:10] But I think I need to allow one more tool call.
+[52:14] There we go.
+[52:16] There is Lighthouse running.
+[52:18] And Lighthouse runs with a new agentic browsing category,
+[52:23] which enables Lighthouse to run a comprehensive health
+[52:25] check for the agentic web.
+[52:27] It validates your WebMCP tool registrations
+[52:30] and ensures your forums have the declarative metadata that agents
+[52:34] need to be successful.
+[52:37] UNA KRAVETS: It also verifies your llms.txt file,
+[52:40] a new standard for giving models a clear map of your site's
+[52:44] content.
+[52:45] And it's reevaluating a lot of the familiar Lighthouse
+[52:48] accessibility audits.
+[52:50] Because most agents navigate the web using
+[52:53] the accessibility tree, every ARIA role or label
+[52:56] that you optimize doesn't just help a human.
+[52:59] It makes your site more actionable for an agent, too.
+[53:03] When an issue is surfaced through Lighthouse,
+[53:05] you don't need to be the human clipboard anymore,
+[53:08] copying an error from DevTools, passing it into a chat,
+[53:11] and hoping that the agent guesses the right fix.
+[53:14] The agent reads the report for itself, attempts a solution,
+[53:18] and can rerun audits to see if that solution worked.
+[53:22] It's a supercharged workflow that
+[53:24] automates the busy work, leaving you free to spend your time
+[53:27] innovating.
+[53:29] If you want to give it a try, Chrome DevTools for agents
+[53:32] is available today for Antigravity
+[53:35] and more than 20 other coding agents of your choice.
+[53:38] [APPLAUSE]
+[53:44] OK, Matthias, I think that we have one more surprise hidden
+[53:47] away in our car configurator.
+[53:49] MATTHIAS ROHMER: Yeah, we do.
+[53:50] Let's go back to your party car running in Canvas.
+[53:53] Let me switch to the interior view.
+[53:56] Do you see the screen in the center?
+[53:58] UNA KRAVETS: Yep.
+[53:58] MATTHIAS ROHMER: It's actually interactive.
+[54:00] I can click through to the Settings screen of our car
+[54:03] and adjust the ambient lighting just by pulling the sliders.
+[54:07] And you know what?
+[54:08] If we do a quick inspect in DevTools
+[54:11] and select those elements, the full display UI
+[54:15] is actually native.
+[54:16] Those are native HTML elements rendered into the Canvas.
+[54:21] UNA KRAVETS: Woo!
+[54:22] [APPLAUSE]
+[54:24] I know what some of you out there might be thinking.
+[54:28] HTML elements inside of a Canvas?
+[54:30] Well, that shouldn't be possible.
+[54:33] MATTHIAS ROHMER: The new HTML in Canvas API
+[54:35] now does the impossible.
+[54:37] With this, you can now integrate real DOM elements directly
+[54:40] into your Canvas environment.
+[54:42] Now, you no longer have to choose
+[54:44] between visually complex and stunning or interactable and
+[54:47] accessible.
+[54:48] UNA KRAVETS: Exactly.
+[54:49] Because it's part of the DOM, every element in your Canvas
+[54:53] is now searchable, accessible, selectable, translatable,
+[54:57] and interacts with your built-in browser features like Autofill.
+[55:02] And that creates some really interesting possibilities.
+[55:04] MATTHIAS ROHMER: Yeah.
+[55:05] For example, you can style them just like any other DOM element
+[55:09] by adding a little class like this one.
+[55:14] UNA KRAVETS: Nice.
+[55:15] We've already seen the community build amazing demos with WebGL
+[55:19] textures, 3D interfaces, and entirely new modalities
+[55:23] for interaction with real DOM content.
+[55:27] HTML in Canvas is an origin trial now,
+[55:30] so you can test, experiment and build.
+[55:34] [APPLAUSE]
+[55:40] Now, I know a lot of web developers
+[55:41] are really excited to try this out,
+[55:43] and that's because this is more than just a new feature.
+[55:47] Alongside everything else you've seen today,
+[55:50] it represents a fundamental shift in how we build,
+[55:54] who can build, and even what we can build.
+[55:57] In this new era of agentic web development,
+[56:00] there's never been a more inspiring time to create.
+[56:04] With tools like Modern Web Guidance
+[56:07] to help you quickly and reliably implement new features
+[56:10] like WebMCP, HTML in Canvas to truly expand
+[56:15] accessible, interactive, creative new UI on the web,
+[56:19] and Chrome DevTools for agents to autonomously debug and test
+[56:24] performance, the future of the web is imagined by you
+[56:28] and supercharged by AI.
+[56:31] But this isn't just about the web.
+[56:33] It's about how we build everything.
+[56:36] So to bring it all together, please welcome back Josh.
+[56:39] [MUSIC PLAYING]
+[56:41] [APPLAUSE]
+[56:47] JOSH WOODWARD: All right.
+[56:48] What a show.
+[56:49] From Google AI Studio to Antigravity,
+[56:51] from Android to the open web, today you've
+[56:55] seen agents completely transform the developer experience.
+[56:59] The common thread across all of this is simple.
+[57:02] You focus on the big idea, and the agents
+[57:04] can do the heavy lifting.
+[57:06] And it's never been a better time to build.
+[57:09] We hope you'll take what you've seen today
+[57:11] and push it to the limits.
+[57:13] To get you started, we've created the ultimate platform
+[57:16] to make an impact.
+[57:17] We are officially launching the Build
+[57:19] with Gemini XPRIZE hackathon.
+[57:22] This global hackathon is going to offer up $2 million
+[57:26] in prizes for builders who create apps that solve
+[57:30] actual real world challenges.
+[57:33] And the premise is simple.
+[57:35] Pick a problem worth solving.
+[57:37] Build with Gemini.
+[57:38] And let's all try to positively impact
+[57:40] the lives of a billion people.
+[57:43] To build at that scale, you're going
+[57:45] to need some serious power.
+[57:47] And as you heard this morning, we
+[57:49] announced a new $100 per month Google AI Ultra plan,
+[57:53] alongside a simplified pricing structure,
+[57:56] based on your feedback.
+[57:57] And to keep those agents humming over the long weekend,
+[58:01] we're giving all Ultra subscribers
+[58:02] $100 in bonus credits today.
+[58:05] You can claim the offer right in the Antigravity app.
+[58:10] And the credits will kick in when you hit your limits.
+[58:12] So let's get going.
+[58:14] You can visit io.google for the live stream
+[58:17] sessions and all on-demand content
+[58:19] we'll be releasing over the next few days.
+[58:22] Thanks for coming, and have an amazing IO.
+[58:24] [APPLAUSE]
+[58:26] [MUSIC PLAYING]

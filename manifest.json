@@ -160,5 +160,18 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html": {
+    "title": "Developer Keynote (Google I/O \u002726)",
+    "video_url": "https://www.youtube.com/watch?v=aqmpZocmR8o",
+    "published_at": "2026-05-23T03:51:33.6008591+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael"
   }
 }
