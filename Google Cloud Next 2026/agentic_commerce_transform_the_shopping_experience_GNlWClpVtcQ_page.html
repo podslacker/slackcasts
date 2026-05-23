@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_01.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_01.jpg" loading="lazy" data-caption="The presenter opens the session, introducing themselves and the focus on AI‑driven commerce."><figcaption class="gal-caption">The presenter opens the session, introducing themselves and the focus on AI‑driven commerce.</figcaption></figure>
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_02.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_02.jpg" loading="lazy" data-caption="An overview of Google&#39;s unified commerce toolkit is given, highlighting product discovery, shopping agents, and seamless checkout capabilities."><figcaption class="gal-caption">An overview of Google&#39;s unified commerce toolkit is given, highlighting product discovery, shopping agents, and seamless checkout capabilities.</figcaption></figure>
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_03.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_03.jpg" loading="lazy" data-caption="The speaker walks through a live demo of Wayfair&#39;s integration, showing how agents can browse catalogs and add items to carts in real time."><figcaption class="gal-caption">The speaker walks through a live demo of Wayfair&#39;s integration, showing how agents can browse catalogs and add items to carts in real time.</figcaption></figure>
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_04.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_04.jpg" loading="lazy" data-caption="A deep dive into the agentic payment architecture explains tokenization, identity linking, and the layers that enable secure autonomous transactions."><figcaption class="gal-caption">A deep dive into the agentic payment architecture explains tokenization, identity linking, and the layers that enable secure autonomous transactions.</figcaption></figure>
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_05.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_05.jpg" loading="lazy" data-caption="Discussion of emerging standards and trust frameworks emphasizes the need for open APIs and consistent security models across platforms."><figcaption class="gal-caption">Discussion of emerging standards and trust frameworks emphasizes the need for open APIs and consistent security models across platforms.</figcaption></figure>
-<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_06.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_06.jpg" loading="lazy" data-caption="The talk concludes with a summary of key takeaways, encouraging merchants to adopt the presented solutions and prepare for future AI commerce."><figcaption class="gal-caption">The talk concludes with a summary of key takeaways, encouraging merchants to adopt the presented solutions and prepare for future AI commerce.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_01.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_01.jpg" loading="lazy" data-caption="The presenter opens with an introduction to the session and outlines the opportunity AI brings to retail commerce." data-yt-ts="0"><figcaption class="gal-caption">The presenter opens with an introduction to the session and outlines the opportunity AI brings to retail commerce.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_02.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_02.jpg" loading="lazy" data-caption="Discussion shifts to how developers can use high‑code tools to build seamless, AI‑driven shopping experiences." data-yt-ts="143"><figcaption class="gal-caption">Discussion shifts to how developers can use high‑code tools to build seamless, AI‑driven shopping experiences.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_04.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_04.jpg" loading="lazy" data-caption="A Wayfair demo showcases a frictionless, catalog‑driven shopping agent that integrates product discovery, cart actions, and checkout." data-yt-ts="683"><figcaption class="gal-caption">A Wayfair demo showcases a frictionless, catalog‑driven shopping agent that integrates product discovery, cart actions, and checkout.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_03.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_03.jpg" loading="lazy" data-caption="The speaker envisions future AI‑powered commerce, highlighting use cases such as personalized grocery shopping and next‑generation recommendations." data-yt-ts="683"><figcaption class="gal-caption">The speaker envisions future AI‑powered commerce, highlighting use cases such as personalized grocery shopping and next‑generation recommendations.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_05.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_05.jpg" loading="lazy" data-caption="The talk outlines the broader merchant‑solution ecosystem, including fintech partners, large financial institutions, and quick‑service restaurant integrations." data-yt-ts="1479"><figcaption class="gal-caption">The talk outlines the broader merchant‑solution ecosystem, including fintech partners, large financial institutions, and quick‑service restaurant integrations.</figcaption></figure>
+<figure class="gal-item"><img src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_06.jpg" alt="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_frame_06.jpg" loading="lazy" data-caption="The presenter emphasizes the need for standards and trust frameworks to secure agentic payments and ensure reliable, tokenized transactions." data-yt-ts="2095"><figcaption class="gal-caption">The presenter emphasizes the need for standards and trust frameworks to secure agentic payments and ensure reliable, tokenized transactions.</figcaption></figure>
 
 </div>
 </section>
@@ -169,81 +186,66 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>GNlWClpVtcQ</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The session introduces <strong>agentic commerce</strong> – a new way to let AI agents handle product discovery, recommendation, and checkout directly within a retailer’s or payment provider’s ecosystem. Google Cloud explains the market opportunity, showcases early customer successes (Wayfair and Fiserv), and walks through the core building blocks: the <strong>Gemini Shopping Agent</strong>, the open <strong>Universal Commerce Protocol (UCP)</strong>, and the <strong>Agent Payments Protocol (AP2)</strong>. The goal is to give brands and payments partners a transparent, standards‑based stack that removes friction and enables secure, AI‑driven purchases without vendor lock‑in.</p>
+<p>In this breakout session Google Cloud introduces <strong>Agentic Commerce</strong>, a new way to let shoppers interact with retail and payment services through conversational AI agents. Jesse, an AI incubation lead, outlines the market opportunity, showcases Google’s tooling (Gemini Enterprise, Shopping Agent, Universal Commerce Protocol [UCP] and Agent Payments Protocol [AP2]), and shares real‑world case studies from Wayfair and Fiserv. The goal is to demonstrate how open, standards‑based APIs can enable seamless, secure buying experiences that live wherever the consumer is—search, Gemini, or a merchant’s own site.</p>
 <h2 id="new-features-announcements">New Features &amp; Announcements</h2>
 <ul>
-<li><p><strong>Gemini Shopping Agent (preview)</strong> – A managed AI shopping assistant that can reason over multimodal inputs, suggest complete solutions, and complete purchases with user consent.<br />
-Timeline: preview (pilot customers)<br />
-Availability: Private preview</p>
-</li>
-<li><p><strong>Universal Commerce Protocol (UCP)</strong> – Open‑source standard that defines a common schema and API contract for AI agents to interact with retailers, identity providers, and payment services across the full purchase journey.<br />
-Availability: Public on ucp.dev / GitHub</p>
-</li>
-<li><p><strong>Agent Payments Protocol (AP2)</strong> – Secure, token‑based payment protocol designed for AI‑mediated transactions, adding tamper‑proof mandates to prevent fraud and hallucinated pricing.<br />
-Availability: Internal pilot (timeline not disclosed)</p>
-</li>
+<li><strong>Gemini Enterprise for Customer Experience (GECX)</strong> – A managed suite that lets brands embed Gemini‑powered AI experiences (discovery, commerce, support) on their own properties.</li>
+<li><strong>Shopping Agent (preview)</strong> – A Google‑managed, multimodal shopping assistant that can understand complex requests, suggest products, manage carts, and complete consent‑based checkout.</li>
+<li><strong>Universal Commerce Protocol (UCP)</strong> – Open‑source, vendor‑agnostic standard for end‑to‑end AI‑driven commerce (catalog, cart, checkout, order, identity linking, extensions).</li>
+<li><strong>Agent Payments Protocol (AP2)</strong> – Open protocol that adds tamper‑proof, tokenized payment mandates to protect against fraud and hallucinated pricing in agent interactions.</li>
 </ul>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><p><strong>Why agentic commerce now?</strong><br />
-<em>LLMs dramatically improve product discovery; 30 % of shoppers already start searches with AI and 40 % of AI‑driven sessions land on product detail pages.</em></p>
-</li>
-<li><p><strong>The shopper’s pain point illustrated</strong> – A personal “cargo‑box” story shows how AI can collapse many browsing steps (search, filters, reviews) into a single conversational request.</p>
-</li>
-<li><p><strong>Business opportunity for retailers &amp; payment providers</strong><br />
-<em>Brands must optimize catalogs for AI agents; payment processors that offer tokenized checkout will capture the emerging channel.</em></p>
-</li>
-<li><p><strong>Gemini Enterprise for Customer Experience (GECX)</strong><br />
-<em>A suite of managed AI tools that lets brands embed Gemini‑powered discovery, commerce, and support directly on their sites.</em></p>
-</li>
-<li><p><strong>Shopping Agent capabilities</strong><br />
-<em>Real‑time product suggestions, cart management, checkout with consent, handling of abstract requests (e.g., “outfit a graduation party”).</em></p>
-</li>
-<li><p><strong>Open standards: UCP</strong><br />
-<em>Defines interactions among four actors (platform/agent, merchant of record, credential provider, payment service). Layers include Services, Common, Capabilities (catalog, cart, checkout, order, identity linking), Extensions (discounts, fulfillment), and Transport (REST/JSON, MCP, A2A, iframe).</em></p>
-</li>
-<li><p><strong>Open standards: AP2</strong><br />
-<em>Provides tamper‑proof payment mandates for AI agents, addressing fraud, chargebacks, and hallucinated pricing.</em></p>
-</li>
-<li><p><strong>Customer case studies</strong><br />
-<em>Wayfair onboarded 30 M products to multiple agent services; Fiserv demonstrated how a payments platform can securely enable AI‑driven checkout.</em></p>
-</li>
-<li><p><strong>Ecosystem vision</strong><br />
-<em>UCP is vendor‑agnostic, extensible to other verticals (groceries, travel), and encourages a federated commerce layer across any surface—search, Gemini app, or third‑party agents.</em></p>
-</li>
+<li><strong>Why agentic commerce matters</strong> – LLMs compress the purchase funnel, turning many search/filter steps into a single conversational thread; research shows a 10× rise in AI‑driven brand discovery and 30 % of shoppers now start product searches with AI.</li>
+<li><strong>Consumer expectations &amp; retailer responsibility</strong> – Brands must curate clean, AI‑ready catalogs; payment providers need secure tokenized checkout to win in an agent‑first world.</li>
+<li><strong>Gemini Enterprise &amp; Shopping Agent</strong> – Demonstrated how a managed shopping assistant can handle complex queries (e.g., “outfit an entire graduation party”), suggest alternatives, and execute consented purchases.</li>
+<li><strong>Open standards: UCP architecture</strong> – Describes the four actors (platform/agent, merchant of record, credential provider, payment service provider) and the layered stack (service, common, capabilities, extensions, transport). Emphasizes minimal custom code, REST/JSON, MCP, A2A, or iframe transports.</li>
+<li><strong>Open‑source nature</strong> – UCP is published at ucp.dev and GitHub, encouraging community contributions and federation across any surface or agent.</li>
+<li><strong>Payments security with AP2</strong> – Introduces tamper‑proof mandates and tokenization to mitigate fraud, chargebacks, and AI hallucinations during checkout.</li>
+<li><strong>Case studies</strong> – Wayfair’s onboarding of 30 M products into multiple agent channels; Fiserv’s integration of secure tokenized payments for AI‑driven checkout.</li>
+<li><strong>Future outlook</strong> – Plans to extend UCP to verticals like groceries and travel, and to broaden the set of capabilities (discounts, fulfillment, etc.).</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>AI agents are already reshaping discovery; retailers must adapt or lose a fast‑growing purchase channel.</li>
-<li>Gemini Shopping Agent (preview) offers a turnkey, consent‑driven shopping assistant that can handle end‑to‑end transactions on a brand’s own property.</li>
-<li>UCP provides an open, extensible contract that eliminates bespoke integrations and supports a plug‑and‑play commerce layer across retailers, identity providers, and payment processors.</li>
-<li>AP2 adds the necessary security guarantees for AI‑mediated payments, mitigating hallucination and fraud risks.</li>
-<li>Google’s approach is deliberately open‑source to avoid lock‑in and to foster industry‑wide adoption of common commerce standards.</li>
-<li>Early adopters (Wayfair, Fiserv) show that large catalogs and complex payment ecosystems can be integrated quickly, validating the model.</li>
+<li>AI agents are already reshaping discovery; retailers must adapt or lose traffic to AI‑first experiences.</li>
+<li>Google’s Shopping Agent (preview) shows that a single conversational interface can replace traditional search, filters, and cart pages.</li>
+<li>The <strong>Universal Commerce Protocol (UCP)</strong> provides a common, extensible schema that eliminates bespoke, fragile integrations across retailers and payment providers.</li>
+<li><strong>AP2</strong> adds a secure, tokenized layer to protect both merchants and consumers in an agent‑driven checkout flow.</li>
+<li>All protocols are open source, ensuring interoperability, avoiding vendor lock‑in, and allowing developers to build on any tech stack.</li>
+<li>Real‑world pilots (Wayfair, Fiserv) prove the model works at scale—tens of millions of SKUs and secure payments across multiple agent surfaces.</li>
+<li>The ecosystem is designed to be vertically extensible, paving the way for AI‑powered commerce in groceries, travel, and beyond.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
 <li>“LLMs can help us sift through large amounts of data as well as constraints and preferences, and they can help us organize information from many different places, and ultimately help by driving decision.”</li>
-<li>“We can collapse things like search bars, filters, browser tabs, product specs, product reviews… into a highly adaptive conversational thread.”</li>
-<li>“By leveraging these transparent, vendor‑agnostic standards, you can actually build a seamless shopping ecosystem… with complete flexibility and absolutely no vendor lock‑in whatsoever.”</li>
-<li>“AP2… builds trust through this agentic interface with tamper‑proof mandates, protecting against hallucinated prices and fraud.”</li>
+<li>“40 % of all AI‑driven e‑commerce sessions land directly on product‑detail pages – AI is actually helping develop a fully formed purchase intent.”</li>
+<li>“We built UCP with industry leaders so it’s not an isolated Google‑only solution – it’s a vendor‑agnostic standard for AI commerce.”</li>
+<li>“AP2 creates tamper‑proof mandates to ensure agents can’t hallucinate prices or intent, keeping the checkout experience trustworthy.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey folks, welcome back to the show! I’m Jordan, and today we’re diving into something that’s reshaping how we shop online—agenda commerce and the AI agents that are making it happen.</p>
-<p><strong>JORDAN:</strong> Imagine you’re planning a family road trip, juggling strollers, a golden retriever, and a million product options for a roof‑top cargo box. I was buried under tabs and reviews until I tossed all my constraints into Google’s Gemini, and in seconds it served up the perfect match. That’s the power of large language models: they can sift through oceans of data, align it with your preferences, and hand you a decision on a silver platter.</p>
-<p><strong>JORDAN:</strong> And it’s not just my personal saga. Recent research shows a ten‑fold jump in brand discovery through LLMs this year, with 30 % of shoppers kicking off product hunts via AI. In fact, 40 % of AI‑driven e‑commerce sessions land straight on product detail pages, meaning the AI is already building purchase intent before you even click “add to cart.”</p>
-<p><strong>JORDAN:</strong> So, what does this mean for retailers and payment providers? The opportunity is massive, but it comes with a responsibility to make sure AI agents can safely surface and transact on your catalog. That’s where Google Cloud’s toolkit steps in, offering open‑source protocols and managed services to bridge the gap between AI and the checkout flow.</p>
-<p><strong>JORDAN:</strong> One of the flagship offerings is Gemini Enterprise for Customer Experience—aka GECX. It’s a unified suite that lets brands embed AI‑powered discovery, commerce, and support directly into their own properties, keeping the experience on‑brand while leveraging Google’s massive AI horsepower.</p>
-<p><strong>JORDAN:</strong> At the heart of GECX is the Shopping Agent, currently in preview. Think of it as a super‑savvy concierge that can understand multimodal inputs, reason through complex requests like “outfit a graduation party,” and seamlessly move items into a cart and checkout with explicit user consent. It’s designed to strip away the endless filtering and browsing steps we all dread.</p>
-<p><strong>JORDAN:</strong> While the Shopping Agent gives you a managed, end‑to‑end solution, Google also released two open protocols: UCP—the Universal Commerce Protocol—and AP2, the Agent Payments Protocol. These standards let you build high‑code agents on top of any existing tech stack, ensuring you stay vendor‑agnostic and avoid lock‑in.</p>
-<p><strong>JORDAN:</strong> UCP tackles a major pain point: the need for bespoke integrations every time you want an AI agent to talk to a retailer or payment system. By defining a common schema for everything from product discovery to order tracking, UCP lets you plug into multiple AI surfaces—think Gemini, AI‑mode search, or even a custom chatbot—without rewriting code.</p>
-<p><strong>JORDAN:</strong> The protocol sits between the consumer‑facing surface and your back‑end, orchestrating interactions among four actors: the AI platform, the merchant of record, the credential provider, and the payment service provider. Its layered architecture—services, common, capabilities, extensions, and transport—means you can add verticals like groceries or travel without overhauling the whole stack.</p>
-<p><strong>JORDAN:</strong> And because UCP is fully open source on ucp.dev and GitHub, developers can contribute, raise issues, and even customize implementations. Google also offers an opinionated version that ships with Gemini and AI‑mode, giving early adopters a turnkey path while the community builds the surrounding ecosystem.</p>
-<p><strong>JORDAN:</strong> On the payments side, AP2 introduces tamper‑proof mandates and tokenized checkout flows to mitigate the risks of hallucinated prices or fraudulent intents that AI agents could introduce. It’s essentially the modern version of the trust infrastructure that got us past the early days of fearing to type our credit card numbers online.</p>
-<p><strong>JORDAN:</strong> To ground all this in real‑world success, Wayfair recently onboarded 30 million products across various AI services using these tools, and fintech leader Fiserv is leveraging the same protocols to streamline payments. Their stories illustrate how the blend of AI, open standards, and secure checkout can unlock scale without sacrificing control.</p>
-<p><strong>JORDAN:</strong> So, what’s the takeaway? AI agents are already reshaping discovery, and with open protocols like UCP and AP2, retailers can meet shoppers where they are, reduce friction, and keep the transaction secure—all while staying flexible and future‑proof.</p>
-<p><strong>JORDAN:</strong> That’s it for today’s deep dive into agenda commerce. Thanks for listening, and as always, keep experimenting with the new tools on the horizon. Until next time, I’m Jordan—stay curious and happy shopping!</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast. I’m Jordan, your detail‑driven host, and with me as always is the big‑picture guy, Mike.</p>
+<p><strong>MIKE:</strong> Hey folks! Today we’re diving into “agenda commerce” and how AI agents are reshaping the whole shopping experience, straight from a Google Cloud breakout session.</p>
+<p><strong>JORDAN:</strong> The session kicked off with Jesse, an AI incubation lead at Google Cloud, laying out the agenda: opportunity, building blocks, a Wayfair case study, and a Fiserv payment story.</p>
+<p><strong>MIKE:</strong> Right, and the hook was a personal story about packing a cargo box for a family road trip—until an LLM named Gemini whipped up the perfect recommendation in seconds.</p>
+<p><strong>JORDAN:</strong> That anecdote illustrates the core argument: large language models can sift through massive product catalogs, constraints, and reviews to surface a single, hyper‑relevant suggestion.</p>
+<p><strong>MIKE:</strong> Which is exactly what shoppers are already doing—research shows a 10× jump in brand discovery via LLMs and 30% of shoppers start product discovery with AI.</p>
+<p><strong>JORDAN:</strong> Those numbers are backed by stats like 40% of AI‑driven e‑commerce sessions landing directly on product detail pages, indicating strong purchase intent.</p>
+<p><strong>MIKE:</strong> So the question is, how do retailers meet shoppers where they are, without creating a new, fragmented checkout flow?</p>
+<p><strong>JORDAN:</strong> Google’s answer is the Gemini Enterprise for Customer Experience—GECX—a managed suite that includes a “shopping agent” preview. It can handle multimodal queries, suggest whole outfits, and even move items to cart with consent.</p>
+<p><strong>MIKE:</strong> And the real kicker is that it’s not a closed black box; Google also released open protocols—UCP and AP2—to let anyone build their own agents on top of existing back‑ends.</p>
+<p><strong>JORDAN:</strong> The Universal Commerce Protocol (UCP) standardizes the schema between four actors: the platform (the agent), the merchant of record, the credential provider, and the payment service provider. That eliminates the need for bespoke integrations.</p>
+<p><strong>MIKE:</strong> It’s like giving every AI assistant a common language, so whether you’re on Gemini, AI‑mode search, or a retailer’s own site, the transaction flow stays consistent and secure.</p>
+<p><strong>JORDAN:</strong> UCP’s architecture splits into a services layer, a common layer, capabilities (catalog, cart, checkout, order, identity linking), and extensions like discounts. All communicated via JSON over REST, MCP, A2A, or even an iframe for human‑in‑the‑loop scenarios.</p>
+<p><strong>MIKE:</strong> And because it’s open source—ucp.dev and on GitHub—developers can contribute, fork, or adapt it, keeping the ecosystem transparent and vendor‑agnostic.</p>
+<p><strong>JORDAN:</strong> On the payments side, AP2 (Agent Payments Protocol) adds tamper‑proof mandates to prevent hallucinated prices or unintended purchases, building on the trust infrastructure the payment industry established years ago.</p>
+<p><strong>MIKE:</strong> In practice that means a shopper can say “buy this” to an AI, and the payment token is verified against a credential provider before any funds move—reducing fraud and chargeback risk.</p>
+<p><strong>JORDAN:</strong> Wayfair’s case study showed they successfully onboarded 30 million products into multiple agenda services using these tools, proving the model scales to massive catalogs.</p>
+<p><strong>MIKE:</strong> And Fiserv’s involvement highlighted how payment processors can leverage AP2 to offer tokenized checkout across any AI surface, turning a potential security nightmare into a competitive advantage.</p>
+<p><strong>JORDAN:</strong> So the takeaway: AI agents are compressing the buying funnel, but to do it responsibly retailers need standardized, open protocols for catalog, checkout, and payments.</p>
+<p><strong>MIKE:</strong> And for shoppers, that means less friction, more personalized recommendations, and a safer checkout—even if you’re just trying to find the perfect cargo box for a road trip.</p>
+<p><strong>JORDAN:</strong> That wraps up our deep dive into agenda commerce—thanks to the Google Cloud team for the insights and to you for listening.</p>
+<p><strong>MIKE:</strong> Stay curious, stay secure, and we’ll see you next time. Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -258,17 +260,17 @@ Availability: Internal pilot (timeline not disclosed)</p>
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="GNlWClpVtcQ"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -296,15 +298,72 @@ Availability: Internal pilot (timeline not disclosed)</p>
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {

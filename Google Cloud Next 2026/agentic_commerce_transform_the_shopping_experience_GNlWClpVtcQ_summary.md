@@ -5,90 +5,85 @@
 
 ---
 
-## Overview  
-The session introduces **agentic commerce** – a new way to let AI agents handle product discovery, recommendation, and checkout directly within a retailer’s or payment provider’s ecosystem. Google Cloud explains the market opportunity, showcases early customer successes (Wayfair and Fiserv), and walks through the core building blocks: the **Gemini Shopping Agent**, the open **Universal Commerce Protocol (UCP)**, and the **Agent Payments Protocol (AP2)**. The goal is to give brands and payments partners a transparent, standards‑based stack that removes friction and enables secure, AI‑driven purchases without vendor lock‑in.
+## Overview
+In this breakout session Google Cloud introduces **Agentic Commerce**, a new way to let shoppers interact with retail and payment services through conversational AI agents. Jesse, an AI incubation lead, outlines the market opportunity, showcases Google’s tooling (Gemini Enterprise, Shopping Agent, Universal Commerce Protocol [UCP] and Agent Payments Protocol [AP2]), and shares real‑world case studies from Wayfair and Fiserv. The goal is to demonstrate how open, standards‑based APIs can enable seamless, secure buying experiences that live wherever the consumer is—search, Gemini, or a merchant’s own site.
 
-## New Features & Announcements  
-- **Gemini Shopping Agent (preview)** – A managed AI shopping assistant that can reason over multimodal inputs, suggest complete solutions, and complete purchases with user consent.  
-  Timeline: preview (pilot customers)  
-  Availability: Private preview  
+## New Features & Announcements
+- **Gemini Enterprise for Customer Experience (GECX)** – A managed suite that lets brands embed Gemini‑powered AI experiences (discovery, commerce, support) on their own properties.  
+- **Shopping Agent (preview)** – A Google‑managed, multimodal shopping assistant that can understand complex requests, suggest products, manage carts, and complete consent‑based checkout.  
+- **Universal Commerce Protocol (UCP)** – Open‑source, vendor‑agnostic standard for end‑to‑end AI‑driven commerce (catalog, cart, checkout, order, identity linking, extensions).  
+- **Agent Payments Protocol (AP2)** – Open protocol that adds tamper‑proof, tokenized payment mandates to protect against fraud and hallucinated pricing in agent interactions.
 
-- **Universal Commerce Protocol (UCP)** – Open‑source standard that defines a common schema and API contract for AI agents to interact with retailers, identity providers, and payment services across the full purchase journey.  
-  Availability: Public on ucp.dev / GitHub  
+## Topics Covered
+- **Why agentic commerce matters** – LLMs compress the purchase funnel, turning many search/filter steps into a single conversational thread; research shows a 10× rise in AI‑driven brand discovery and 30 % of shoppers now start product searches with AI.  
+- **Consumer expectations & retailer responsibility** – Brands must curate clean, AI‑ready catalogs; payment providers need secure tokenized checkout to win in an agent‑first world.  
+- **Gemini Enterprise & Shopping Agent** – Demonstrated how a managed shopping assistant can handle complex queries (e.g., “outfit an entire graduation party”), suggest alternatives, and execute consented purchases.  
+- **Open standards: UCP architecture** – Describes the four actors (platform/agent, merchant of record, credential provider, payment service provider) and the layered stack (service, common, capabilities, extensions, transport). Emphasizes minimal custom code, REST/JSON, MCP, A2A, or iframe transports.  
+- **Open‑source nature** – UCP is published at ucp.dev and GitHub, encouraging community contributions and federation across any surface or agent.  
+- **Payments security with AP2** – Introduces tamper‑proof mandates and tokenization to mitigate fraud, chargebacks, and AI hallucinations during checkout.  
+- **Case studies** – Wayfair’s onboarding of 30 M products into multiple agent channels; Fiserv’s integration of secure tokenized payments for AI‑driven checkout.  
+- **Future outlook** – Plans to extend UCP to verticals like groceries and travel, and to broaden the set of capabilities (discounts, fulfillment, etc.).
 
-- **Agent Payments Protocol (AP2)** – Secure, token‑based payment protocol designed for AI‑mediated transactions, adding tamper‑proof mandates to prevent fraud and hallucinated pricing.  
-  Availability: Internal pilot (timeline not disclosed)
+## Key Takeaways
+- AI agents are already reshaping discovery; retailers must adapt or lose traffic to AI‑first experiences.  
+- Google’s Shopping Agent (preview) shows that a single conversational interface can replace traditional search, filters, and cart pages.  
+- The **Universal Commerce Protocol (UCP)** provides a common, extensible schema that eliminates bespoke, fragile integrations across retailers and payment providers.  
+- **AP2** adds a secure, tokenized layer to protect both merchants and consumers in an agent‑driven checkout flow.  
+- All protocols are open source, ensuring interoperability, avoiding vendor lock‑in, and allowing developers to build on any tech stack.  
+- Real‑world pilots (Wayfair, Fiserv) prove the model works at scale—tens of millions of SKUs and secure payments across multiple agent surfaces.  
+- The ecosystem is designed to be vertically extensible, paving the way for AI‑powered commerce in groceries, travel, and beyond.
 
-## Topics Covered  
-- **Why agentic commerce now?**  
-  *LLMs dramatically improve product discovery; 30 % of shoppers already start searches with AI and 40 % of AI‑driven sessions land on product detail pages.*  
-
-- **The shopper’s pain point illustrated** – A personal “cargo‑box” story shows how AI can collapse many browsing steps (search, filters, reviews) into a single conversational request.  
-
-- **Business opportunity for retailers & payment providers**  
-  *Brands must optimize catalogs for AI agents; payment processors that offer tokenized checkout will capture the emerging channel.*  
-
-- **Gemini Enterprise for Customer Experience (GECX)**  
-  *A suite of managed AI tools that lets brands embed Gemini‑powered discovery, commerce, and support directly on their sites.*  
-
-- **Shopping Agent capabilities**  
-  *Real‑time product suggestions, cart management, checkout with consent, handling of abstract requests (e.g., “outfit a graduation party”).*  
-
-- **Open standards: UCP**  
-  *Defines interactions among four actors (platform/agent, merchant of record, credential provider, payment service). Layers include Services, Common, Capabilities (catalog, cart, checkout, order, identity linking), Extensions (discounts, fulfillment), and Transport (REST/JSON, MCP, A2A, iframe).*  
-
-- **Open standards: AP2**  
-  *Provides tamper‑proof payment mandates for AI agents, addressing fraud, chargebacks, and hallucinated pricing.*  
-
-- **Customer case studies**  
-  *Wayfair onboarded 30 M products to multiple agent services; Fiserv demonstrated how a payments platform can securely enable AI‑driven checkout.*  
-
-- **Ecosystem vision**  
-  *UCP is vendor‑agnostic, extensible to other verticals (groceries, travel), and encourages a federated commerce layer across any surface—search, Gemini app, or third‑party agents.*  
-
-## Key Takeaways  
-- AI agents are already reshaping discovery; retailers must adapt or lose a fast‑growing purchase channel.  
-- Gemini Shopping Agent (preview) offers a turnkey, consent‑driven shopping assistant that can handle end‑to‑end transactions on a brand’s own property.  
-- UCP provides an open, extensible contract that eliminates bespoke integrations and supports a plug‑and‑play commerce layer across retailers, identity providers, and payment processors.  
-- AP2 adds the necessary security guarantees for AI‑mediated payments, mitigating hallucination and fraud risks.  
-- Google’s approach is deliberately open‑source to avoid lock‑in and to foster industry‑wide adoption of common commerce standards.  
-- Early adopters (Wayfair, Fiserv) show that large catalogs and complex payment ecosystems can be integrated quickly, validating the model.  
-
-## Notable Quotes  
+## Notable Quotes
 - “LLMs can help us sift through large amounts of data as well as constraints and preferences, and they can help us organize information from many different places, and ultimately help by driving decision.”  
-- “We can collapse things like search bars, filters, browser tabs, product specs, product reviews… into a highly adaptive conversational thread.”  
-- “By leveraging these transparent, vendor‑agnostic standards, you can actually build a seamless shopping ecosystem… with complete flexibility and absolutely no vendor lock‑in whatsoever.”  
-- “AP2… builds trust through this agentic interface with tamper‑proof mandates, protecting against hallucinated prices and fraud.”
+- “40 % of all AI‑driven e‑commerce sessions land directly on product‑detail pages – AI is actually helping develop a fully formed purchase intent.”  
+- “We built UCP with industry leaders so it’s not an isolated Google‑only solution – it’s a vendor‑agnostic standard for AI commerce.”  
+- “AP2 creates tamper‑proof mandates to ensure agents can’t hallucinate prices or intent, keeping the checkout experience trustworthy.”
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Hey folks, welcome back to the show! I’m Jordan, and today we’re diving into something that’s reshaping how we shop online—agenda commerce and the AI agents that are making it happen.
+**JORDAN:** Hey everyone, welcome back to the podcast. I’m Jordan, your detail‑driven host, and with me as always is the big‑picture guy, Mike.
 
-**JORDAN:** Imagine you’re planning a family road trip, juggling strollers, a golden retriever, and a million product options for a roof‑top cargo box. I was buried under tabs and reviews until I tossed all my constraints into Google’s Gemini, and in seconds it served up the perfect match. That’s the power of large language models: they can sift through oceans of data, align it with your preferences, and hand you a decision on a silver platter.
+**MIKE:** Hey folks! Today we’re diving into “agenda commerce” and how AI agents are reshaping the whole shopping experience, straight from a Google Cloud breakout session.
 
-**JORDAN:** And it’s not just my personal saga. Recent research shows a ten‑fold jump in brand discovery through LLMs this year, with 30 % of shoppers kicking off product hunts via AI. In fact, 40 % of AI‑driven e‑commerce sessions land straight on product detail pages, meaning the AI is already building purchase intent before you even click “add to cart.”
+**JORDAN:** The session kicked off with Jesse, an AI incubation lead at Google Cloud, laying out the agenda: opportunity, building blocks, a Wayfair case study, and a Fiserv payment story.
 
-**JORDAN:** So, what does this mean for retailers and payment providers? The opportunity is massive, but it comes with a responsibility to make sure AI agents can safely surface and transact on your catalog. That’s where Google Cloud’s toolkit steps in, offering open‑source protocols and managed services to bridge the gap between AI and the checkout flow.
+**MIKE:** Right, and the hook was a personal story about packing a cargo box for a family road trip—until an LLM named Gemini whipped up the perfect recommendation in seconds.
 
-**JORDAN:** One of the flagship offerings is Gemini Enterprise for Customer Experience—aka GECX. It’s a unified suite that lets brands embed AI‑powered discovery, commerce, and support directly into their own properties, keeping the experience on‑brand while leveraging Google’s massive AI horsepower.
+**JORDAN:** That anecdote illustrates the core argument: large language models can sift through massive product catalogs, constraints, and reviews to surface a single, hyper‑relevant suggestion.
 
-**JORDAN:** At the heart of GECX is the Shopping Agent, currently in preview. Think of it as a super‑savvy concierge that can understand multimodal inputs, reason through complex requests like “outfit a graduation party,” and seamlessly move items into a cart and checkout with explicit user consent. It’s designed to strip away the endless filtering and browsing steps we all dread.
+**MIKE:** Which is exactly what shoppers are already doing—research shows a 10× jump in brand discovery via LLMs and 30% of shoppers start product discovery with AI.
 
-**JORDAN:** While the Shopping Agent gives you a managed, end‑to‑end solution, Google also released two open protocols: UCP—the Universal Commerce Protocol—and AP2, the Agent Payments Protocol. These standards let you build high‑code agents on top of any existing tech stack, ensuring you stay vendor‑agnostic and avoid lock‑in.
+**JORDAN:** Those numbers are backed by stats like 40% of AI‑driven e‑commerce sessions landing directly on product detail pages, indicating strong purchase intent.
 
-**JORDAN:** UCP tackles a major pain point: the need for bespoke integrations every time you want an AI agent to talk to a retailer or payment system. By defining a common schema for everything from product discovery to order tracking, UCP lets you plug into multiple AI surfaces—think Gemini, AI‑mode search, or even a custom chatbot—without rewriting code.
+**MIKE:** So the question is, how do retailers meet shoppers where they are, without creating a new, fragmented checkout flow?
 
-**JORDAN:** The protocol sits between the consumer‑facing surface and your back‑end, orchestrating interactions among four actors: the AI platform, the merchant of record, the credential provider, and the payment service provider. Its layered architecture—services, common, capabilities, extensions, and transport—means you can add verticals like groceries or travel without overhauling the whole stack.
+**JORDAN:** Google’s answer is the Gemini Enterprise for Customer Experience—GECX—a managed suite that includes a “shopping agent” preview. It can handle multimodal queries, suggest whole outfits, and even move items to cart with consent.
 
-**JORDAN:** And because UCP is fully open source on ucp.dev and GitHub, developers can contribute, raise issues, and even customize implementations. Google also offers an opinionated version that ships with Gemini and AI‑mode, giving early adopters a turnkey path while the community builds the surrounding ecosystem.
+**MIKE:** And the real kicker is that it’s not a closed black box; Google also released open protocols—UCP and AP2—to let anyone build their own agents on top of existing back‑ends.
 
-**JORDAN:** On the payments side, AP2 introduces tamper‑proof mandates and tokenized checkout flows to mitigate the risks of hallucinated prices or fraudulent intents that AI agents could introduce. It’s essentially the modern version of the trust infrastructure that got us past the early days of fearing to type our credit card numbers online.
+**JORDAN:** The Universal Commerce Protocol (UCP) standardizes the schema between four actors: the platform (the agent), the merchant of record, the credential provider, and the payment service provider. That eliminates the need for bespoke integrations.
 
-**JORDAN:** To ground all this in real‑world success, Wayfair recently onboarded 30 million products across various AI services using these tools, and fintech leader Fiserv is leveraging the same protocols to streamline payments. Their stories illustrate how the blend of AI, open standards, and secure checkout can unlock scale without sacrificing control.
+**MIKE:** It’s like giving every AI assistant a common language, so whether you’re on Gemini, AI‑mode search, or a retailer’s own site, the transaction flow stays consistent and secure.
 
-**JORDAN:** So, what’s the takeaway? AI agents are already reshaping discovery, and with open protocols like UCP and AP2, retailers can meet shoppers where they are, reduce friction, and keep the transaction secure—all while staying flexible and future‑proof.
+**JORDAN:** UCP’s architecture splits into a services layer, a common layer, capabilities (catalog, cart, checkout, order, identity linking), and extensions like discounts. All communicated via JSON over REST, MCP, A2A, or even an iframe for human‑in‑the‑loop scenarios.
 
-**JORDAN:** That’s it for today’s deep dive into agenda commerce. Thanks for listening, and as always, keep experimenting with the new tools on the horizon. Until next time, I’m Jordan—stay curious and happy shopping!
+**MIKE:** And because it’s open source—ucp.dev and on GitHub—developers can contribute, fork, or adapt it, keeping the ecosystem transparent and vendor‑agnostic.
+
+**JORDAN:** On the payments side, AP2 (Agent Payments Protocol) adds tamper‑proof mandates to prevent hallucinated prices or unintended purchases, building on the trust infrastructure the payment industry established years ago.
+
+**MIKE:** In practice that means a shopper can say “buy this” to an AI, and the payment token is verified against a credential provider before any funds move—reducing fraud and chargeback risk.
+
+**JORDAN:** Wayfair’s case study showed they successfully onboarded 30 million products into multiple agenda services using these tools, proving the model scales to massive catalogs.
+
+**MIKE:** And Fiserv’s involvement highlighted how payment processors can leverage AP2 to offer tokenized checkout across any AI surface, turning a potential security nightmare into a competitive advantage.
+
+**JORDAN:** So the takeaway: AI agents are compressing the buying funnel, but to do it responsibly retailers need standardized, open protocols for catalog, checkout, and payments.
+
+**MIKE:** And for shoppers, that means less friction, more personalized recommendations, and a safer checkout—even if you’re just trying to find the perfect cargo box for a road trip.
+
+**JORDAN:** That wraps up our deep dive into agenda commerce—thanks to the Google Cloud team for the insights and to you for listening.
+
+**MIKE:** Stay curious, stay secure, and we’ll see you next time. Bye!
 
