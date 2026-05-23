@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" loading="lazy" data-caption="Opening title slide introducing the Cloud Next event and the theme of AI‑driven enterprise transformation."><figcaption class="gal-caption">Opening title slide introducing the Cloud Next event and the theme of AI‑driven enterprise transformation.</figcaption></figure>
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" loading="lazy" data-caption="Thomas Kuran explains the new optimization and observability tools that let users visualize full agent execution and diagnose reasoning loops with fine‑grained logging."><figcaption class="gal-caption">Thomas Kuran explains the new optimization and observability tools that let users visualize full agent execution and diagnose reasoning loops with fine‑grained logging.</figcaption></figure>
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" loading="lazy" data-caption="Amin Vahdat describes the security‑focused architecture, highlighting how the agentic era requires zero‑trust verification, cryptographic IDs and rapid, automated response to threats."><figcaption class="gal-caption">Amin Vahdat describes the security‑focused architecture, highlighting how the agentic era requires zero‑trust verification, cryptographic IDs and rapid, automated response to threats.</figcaption></figure>
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" loading="lazy" data-caption="Yasmeen Ahmad demonstrates a food‑safety use case where an agent extracts ingredient and allergen data from PDFs to ensure recipes comply with safety standards."><figcaption class="gal-caption">Yasmeen Ahmad demonstrates a food‑safety use case where an agent extracts ingredient and allergen data from PDFs to ensure recipes comply with safety standards.</figcaption></figure>
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" loading="lazy" data-caption="The presentation showcases the Magic Apron retail assistant, showing how agents guide shoppers across categories, surface product images and personalize the in‑store experience."><figcaption class="gal-caption">The presentation showcases the Magic Apron retail assistant, showing how agents guide shoppers across categories, surface product images and personalize the in‑store experience.</figcaption></figure>
-<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" loading="lazy" data-caption="Thomas Kuran closes the session, summarizing the Gemini Enterprise platform’s capabilities and inviting attendees to adopt the ready‑to‑use AI foundation."><figcaption class="gal-caption">Thomas Kuran closes the session, summarizing the Gemini Enterprise platform’s capabilities and inviting attendees to adopt the ready‑to‑use AI foundation.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_01.jpg" loading="lazy" data-caption="Opening title slide introduces the Cloud Next event and sets the stage for the keynote." data-yt-ts="0"><figcaption class="gal-caption">Opening title slide introduces the Cloud Next event and sets the stage for the keynote.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_02.jpg" loading="lazy" data-caption="Thomas Kurian explains the need for optimization and observability, highlighting tools that visualize execution and diagnose reasoning loops." data-yt-ts="80"><figcaption class="gal-caption">Thomas Kurian explains the need for optimization and observability, highlighting tools that visualize execution and diagnose reasoning loops.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_03.jpg" loading="lazy" data-caption="Google unveils the next‑generation TPU 8i hardware and new pod topology that delivers multiple‑fold performance gains for frontier AI models." data-yt-ts="80"><figcaption class="gal-caption">Google unveils the next‑generation TPU 8i hardware and new pod topology that delivers multiple‑fold performance gains for frontier AI models.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_05.jpg" loading="lazy" data-caption="Yulie Kwon Kim demonstrates Google Workspace’s AI‑driven assistance, showing live generation of decks, data pulls, and deadline alerts." data-yt-ts="3282"><figcaption class="gal-caption">Yulie Kwon Kim demonstrates Google Workspace’s AI‑driven assistance, showing live generation of decks, data pulls, and deadline alerts.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_04.jpg" loading="lazy" data-caption="Financial services leaders discuss how the Gemini Enterprise platform powers high‑speed trading and rapid model execution across global markets." data-yt-ts="3282"><figcaption class="gal-caption">Financial services leaders discuss how the Gemini Enterprise platform powers high‑speed trading and rapid model execution across global markets.</figcaption></figure>
+<figure class="gal-item"><img src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" alt="google_cloud_next_26_opening_keynote_11PBno-cJ1g_frame_06.jpg" loading="lazy" data-caption="The keynote closes with a summary of the Gemini Enterprise Application and an invitation to adopt the agentic AI platform." data-yt-ts="5874"><figcaption class="gal-caption">The keynote closes with a summary of the Gemini Enterprise Application and an invitation to adopt the agentic AI platform.</figcaption></figure>
 
 </div>
 </section>
@@ -169,92 +186,93 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>11PBno-cJ1g</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The opening keynote at Google Cloud Next '26 highlighted how Google Cloud is moving from AI pilots to widescale production with the <strong>Gemini Enterprise Agent Platform</strong>. Sundar Pichai and Thomas Kurian outlined massive infrastructure investments, real‑world AI successes inside Google, and showcased new tools that let enterprises build, govern, and secure “agentic” AI workflows across the entire organization.</p>
+<p>The opening keynote of Google Cloud Next ’26, delivered by CEO Thomas Kurian (with remarks from Sundar Pichai), announced Google’s “agentic” AI strategy and introduced <strong>Gemini Enterprise</strong>, a full‑stack platform that lets enterprises build, scale, govern, and secure AI agents across every workflow. The speakers highlighted the massive scale of AI adoption on Google Cloud, massive cap‑ex investments, and real‑world customer successes ranging from code migration to spaceflight readiness.</p>
 <h2 id="new-features-announcements">New Features &amp; Announcements</h2>
 <ul>
-<li><p><strong>Gemini Enterprise Agent Platform</strong> – End‑to‑end system that connects data, models, and agents to deliver autonomous, secure business flows.<br />
-Timeline: announced today (preview available)<br />
-Availability: Private preview (early customer access)</p>
+<li><p><strong>Gemini Enterprise Agent Platform</strong> – End‑to‑end system that connects data, people, and goals to create autonomous, secure, and governed AI agents.<br />
+Timeline: Announced at Next ’26 (available now in preview)</p>
 </li>
-<li><p><strong>Gemini 3.1 Pro (preview)</strong> – Advanced reasoning model optimized for complex workflow orchestration.</p>
+<li><p><strong>Gemini 3.1 Pro (preview)</strong> – Advanced reasoning model optimized for complex workflow orchestration.<br />
+Availability: Preview</p>
 </li>
-<li><p><strong>Gemini 3.1 Flash Image (Nano Banana 2)</strong> – High‑fidelity visual‑asset generation model (preview).</p>
+<li><p><strong>Gemini 3.1 Flash Image (Nano Banana 2)</strong> – High‑fidelity visual‑asset generation model (preview).</p>
 </li>
-<li><p><strong>Veo 3.1 Lite</strong> – Cost‑effective video generation model for high‑volume use cases (preview).</p>
+<li><p><strong>Veo 3.1 Lite</strong> – Cost‑effective video generation model for high‑volume applications (preview).</p>
 </li>
 <li><p><strong>Lyria 3 Pro</strong> – Enterprise‑grade audio and music model (preview).</p>
 </li>
-<li><p><strong>Claude Opus 4.7 support</strong> – Added Anthropic model integration.</p>
+<li><p><strong>Support for Anthropic models</strong> – Added Claude Opus 4.7 to the portfolio.</p>
 </li>
-<li><p><strong>Agent Studio (low‑code)</strong> – Natural‑language UI for building and deploying agents.</p>
+<li><p><strong>Partnership with Apple</strong> – Google Cloud will be Apple’s preferred cloud provider for next‑generation Apple foundation models and a more personalized Siri (later this year).</p>
 </li>
-<li><p><strong>Agent Registry &amp; Skills/Tools Registry</strong> – Centralized catalog for agents, reusable skills, and GCP/Workspace services.</p>
+<li><p><strong>Agent Studio (low‑code)</strong> – Natural‑language interface for any employee to create and deploy agents.</p>
 </li>
-<li><p><strong>Agent Marketplace</strong> – Access to pre‑built agents from partners such as Atlassian, Box, Oracle, ServiceNow, Workday, etc.</p>
+<li><p><strong>Agent Registry, Skills &amp; Tools Registry, Agent Marketplace</strong> – Centralized governance, reusable skill packages, and partner‑driven agent catalog.</p>
 </li>
-<li><p><strong>Model Context Protocol (MCP) integration</strong> – Allows agents to call any MCP‑compatible service, including all GCP APIs.</p>
+<li><p><strong>Model Context Protocol (MCP) integration</strong> – Allows any MCP‑compatible server to communicate with agents; GCP services exposed via MCP.</p>
 </li>
-<li><p><strong>Agent Identity &amp; Agent Gateway</strong> – Cryptographic IDs and central policy enforcement for zero‑trust security.</p>
+<li><p><strong>Agent Identity &amp; Agent Gateway</strong> – Cryptographic IDs and centralized policy enforcement for zero‑trust agent operations.</p>
 </li>
-<li><p><strong>Model Armor</strong> – protects proprietary models and data from leakage.</p>
+<li><p><strong>Model Armor</strong> – Protection against data leakage and model‑specific threats.</p>
 </li>
-<li><p><strong>Agent Observability (OTel‑compliant)</strong> – Full telemetry, tracing, and logging for debugging and performance tuning.</p>
+<li><p><strong>Agent Observability (OTel‑compliant)</strong> – Granular tracing, logging, and telemetry for debugging and performance tuning.</p>
+</li>
+<li><p><strong>Gemini Enterprise Application</strong> – Front‑door UI that turns complex agentic capabilities into a simple work experience for all employees.</p>
 </li>
 </ul>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>AI at Google Scale</strong> – 75 % of Google Cloud customers now use AI; internal Google teams generate ~75 % of new code with AI, achieving 6× faster migrations and 90 % reduction in threat‑mitigation time.</li>
-<li><strong>Investment Roadmap</strong> – Capital‑expenditure up from $31 B (2022) to $175–185 B this year, with &gt;50 % of ML compute earmarked for the cloud by 2026.</li>
-<li><strong>Agentic Era Vision</strong> – Shift from “can we build an agent?” to “how do we manage thousands of agents?” and the need for a unified stack (chips, models, data, agents, security).</li>
-<li><strong>Gemini Enterprise Launch</strong> – Described as “mission control” for the agentic enterprise; integrates data, agents, and business goals into a single flow.</li>
-<li><strong>Model Portfolio</strong> – Preview releases of Gemini 3.1 Pro, Flash Image, Veo Lite, Lyria Pro, and Anthropic models, plus partnership with Apple for next‑gen Siri‑like intelligence.</li>
-<li><strong>Customer Success Stories</strong> – Citi Sky (AI wealth advisor), Honeywell digital twins, Liverpool shopping assistant (10× ROI), NASA Artemis II flight‑readiness agents.</li>
-<li><strong>Platform Architecture</strong> – Layers: AI Hypercomputer (hardware), Agentic Data Cloud (trusted context), Agentic Defense (security), Agentic Platform (build/deploy/manage), Agentic Task Force (pre‑built agents).</li>
-<li><strong>Governance &amp; Security</strong> – Zero‑trust verification, Agent Identity, Model Armor, centralized Agent Gateway, and robust observability.</li>
+<li><strong>AI adoption at scale</strong> – 75 % of Google Cloud customers now use AI; AI is moving from pilots to production across enterprises.</li>
+<li><strong>Unified AI stack philosophy</strong> – Chips, models, data, agents, and security must be tightly integrated; Google’s internal “OpenStack” powers Search, YouTube, Chrome, Android.</li>
+<li><strong>Sundar Pichai on investment &amp; impact</strong> – 6× increase in cap‑ex (to $175‑$185 B) and expectation that &gt;50 % of ML compute will serve the cloud by 2026.</li>
+<li><strong>Internal AI‑driven productivity</strong> – Code generation (75 % of new code), autonomous digital task forces, marketing creative acceleration (70 % faster, 20 % higher conversion), security triage (90 % reduction in mitigation time).</li>
+<li><strong>Shift from “can we build an agent?” to “how do we manage thousands?”</strong> – Need for governance, security, and observability at enterprise scale.</li>
+<li><strong>Customer showcases</strong> – Citi Sky (AI‑powered wealth assistant), Honeywell digital twins, Liverpool shopping assistant (10× ROI), NASA Artemis II flight‑readiness agents.</li>
+<li><strong>Technical architecture layers</strong> – AI Hypercomputer, Agentic Data Cloud, Agentic Defense, Agentic Platform, Agentic Task Force.</li>
+<li><strong>Developer experience</strong> – Low‑code Agent Studio, registries, marketplace, MCP integration, orchestration patterns, zero‑trust verification.</li>
+<li><strong>Security &amp; compliance</strong> – Agent Identity, Model Armor, sandboxing, centralized policy via Agent Gateway.</li>
+<li><strong>Observability &amp; optimization</strong> – OTel‑based tracing, tool‑use monitoring, fine‑grained logging for rapid diagnosis.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>The AI transition is now at enterprise production scale; the focus is on <strong>unified, secure agentic workflows</strong>.</li>
-<li><strong>Gemini Enterprise</strong> provides the full stack—from specialized hardware to low‑code tooling—to build, govern, and scale agents across any organization.</li>
-<li>New models (Gemini 3.1 Pro, Flash Image, Veo Lite, Lyria Pro) are in preview, delivering higher quality output with optimized cost.</li>
-<li>Security is baked in: cryptographic agent IDs, zero‑trust policies, and Model Armor protect data and models throughout the lifecycle.</li>
-<li>Observability and governance tools (Agent Registry, Skills Registry, Marketplace, OTel telemetry) give enterprises visibility and control over thousands of agents.</li>
-<li>Real‑world partners (Apple, Citi, Honeywell, Liverpool, NASA) are already leveraging Gemini Enterprise to create market‑differentiating AI products.</li>
+<li>The AI era has moved from experimentation to production; enterprises now need a <strong>unified, secure stack</strong> to operationalize agents at scale.</li>
+<li><strong>Gemini Enterprise</strong> is Google’s answer—a full‑stack platform that combines data, models, and autonomous agents with built‑in governance and security.</li>
+<li>New <strong>Gemini 3.1 family models</strong> (Pro, Flash Image, Veo Lite, Lyria 3) are available in preview, covering reasoning, vision, video, and audio.</li>
+<li>Partnerships (Apple, NASA, Citi, Honeywell, Liverpool) illustrate how the platform can power everything from personalized assistants to spaceflight safety.</li>
+<li>Zero‑trust principles (Agent Identity, Model Armor, Agent Gateway) are baked in, addressing enterprise concerns about data leakage and compliance.</li>
+<li>Low‑code tools and a marketplace enable <strong>any employee</strong> to become an AI builder, democratizing AI across the organization.</li>
+<li>Extensive observability (OTel telemetry) and orchestration capabilities ensure predictable, auditable outcomes for mission‑critical workflows.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“The experimenting phase is behind us. And now, the real challenge begins… How do you move AI into production across your entire enterprise?” – Thomas Kurian</li>
-<li>“We are firmly in the agentic Gemini era… every employee in every organization can become a builder.” – Sundar Pichai</li>
-<li>“Our Security Operations Center agents automatically triage tens of thousands of unstructured threat reports each month… reducing threat mitigation time by over 90%.” – Sundar Pichai</li>
-<li>“Think of it as mission control for the agentic enterprise to help move your organization into the next phase of the agentic era.” – Sundar Pichai</li>
-<li>“Intelligence plus automation must deliver value. To make this work, you need context and action.” – Thomas Kurian</li>
+<li>“You cannot deliver AI by piecing together a puzzle piece of fragmented silicon and disconnected models.” – Thomas Kurian</li>
+<li>“We’re moving in a bold and responsible way… we are firmly in the agentic Gemini era.” – Sundar Pichai</li>
+<li>“Intelligence plus automation must deliver value. To make this work, you need context and action.” – Thomas Kurian</li>
+<li>“Our Security Operations Center agents automatically triage tens of thousands of unstructured threat reports each month… reduced threat mitigation time by over 90 %.” – Sundar Pichai</li>
+<li>“Think of it as mission control for the agentic enterprise… the new front door to AI for all your employees.” – Thomas Kurian</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, your go‑to for digging into the nitty‑gritty of tech announcements.</p>
-<p><strong>MIKE:</strong> And I’m Mike, here to explore what all this means for you, the listeners. Today we’re unpacking Google Cloud’s massive AI rollout from their recent Next event.</p>
-<p><strong>JORDAN:</strong> The key headline: Google says 75 % of its Cloud customers are now using its AI tools—so the adoption curve has gone from pilot to production in just a year.</p>
-<p><strong>MIKE:</strong> That’s huge. It sounds like businesses are finally moving past “just testing AI” and actually trying to embed it into day‑to‑day operations.</p>
-<p><strong>JORDAN:</strong> Thomas Kurian framed the problem as a “unified stack.” He warned that piecing together fragmented silicon, models, and data won’t scale—so Google built an end‑to‑end platform they call Gemini Enterprise.</p>
-<p><strong>MIKE:</strong> I like the analogy of a “mission control” for agents. It promises a single place to build, govern, and run AI assistants across an entire enterprise.</p>
-<p><strong>JORDAN:</strong> Under the hood, they introduced several layers: the AI Hypercomputer for raw compute, the Agentic Data Cloud for trusted context, Agentic Defense for security, the Agentic Platform for building agents, and pre‑built Agentic Task Forces.</p>
-<p><strong>MIKE:</strong> In plain English, that’s Google saying they’ve got the hardware, the data, the safety nets, the dev tools, and ready‑made bots all bundled together.</p>
-<p><strong>JORDAN:</strong> One technical highlight is Gemini 3.1 Pro, a reasoning model tuned for complex workflow orchestration, now in preview. They also added visual, video, and audio models—Flash Image, Veo Lite, and Lyria 3 Pro.</p>
-<p><strong>MIKE:</strong> So it’s not just one big language model; they’re offering specialists for different media, which could help companies avoid paying for a one‑size‑fits‑all solution.</p>
-<p><strong>JORDAN:</strong> Security gets a big boost with “Agentic Defense” and “Model Armor,” providing zero‑trust verification, cryptographic IDs for each agent, and sandboxed execution to prevent data leakage.</p>
-<p><strong>MIKE:</strong> That’s reassuring for regulated industries—if you can audit every agent’s action, you’re less likely to run into compliance nightmares.</p>
-<p><strong>JORDAN:</strong> On the productivity side, Sundar Pichai shared internal stats: roughly 75 % of new Google code is AI‑generated, and marketing teams cut campaign turnaround by 70 % using AI‑driven creative variations.</p>
-<p><strong>MIKE:</strong> Imagine your own dev team shaving weeks off a code migration or your marketing crew cranking out localized ads in minutes. That’s a real competitive edge.</p>
-<p><strong>JORDAN:</strong> Real‑world use cases were sprinkled throughout—Citi Sky for wealth management, Honeywell’s digital twins, Liverpool’s AI shopping assistant, and even NASA using Gemini agents for Artemis II flight readiness.</p>
-<p><strong>MIKE:</strong> If the space agency trusts it for astronaut safety, that says a lot about reliability. Plus, it shows the platform isn’t limited to “business apps” but can handle mission‑critical tasks.</p>
-<p><strong>JORDAN:</strong> The platform also offers a low‑code “Agent Studio” where non‑engineers can spin up agents with natural language, plus an Agent Registry, Skills &amp; Tools Registry, and an Agent Marketplace for third‑party extensions.</p>
-<p><strong>MIKE:</strong> That democratizes AI building—any employee could become a creator, not just the data scientists. It aligns with the “agentic era” they keep mentioning.</p>
-<p><strong>JORDAN:</strong> From an architectural standpoint, the integration of Model Context Protocol (MCP) lets any GCP service act as a skill, creating seamless API calls from within agents.</p>
-<p><strong>MIKE:</strong> In practice, that could mean your finance bot instantly pulling real‑time data from BigQuery, or your HR assistant updating Workday without you writing code.</p>
-<p><strong>JORDAN:</strong> To sum up, Google is betting on a fully integrated, secure, and observable AI stack that moves companies from isolated experiments to enterprise‑wide automation.</p>
-<p><strong>MIKE:</strong> And for listeners, the takeaway is clear: if you’re looking to scale AI, you’ll need a platform that handles compute, data, security, and governance all at once—something Google is now packaging as Gemini Enterprise.</p>
-<p><strong>JORDAN:</strong> That wraps up our deep dive. Thanks for joining us, and stay curious about how these tech shifts will reshape your work.</p>
-<p><strong>MIKE:</strong> Appreciate the company, everyone! Keep asking the big questions, and we’ll keep breaking down the headlines. Until next time, peace out.</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I’m Jordan, and with me as always is the ever‑curious Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re diving into Google’s latest AI unveil at Cloud Next – the Gemini Enterprise Agent Platform. It sounds like a massive leap for enterprises, right?</p>
+<p><strong>JORDAN:</strong> Absolutely. Thomas Kurian framed it as moving from “pilot” projects to production‑scale AI across entire organizations. The key idea is a unified stack where chips, models, data, and security are all tightly integrated.</p>
+<p><strong>MIKE:</strong> So instead of cobbling together separate tools, companies get a single “mission control” for their AI agents. That could be a game‑changer for folks who’ve struggled with fragmented workflows.</p>
+<p><strong>JORDAN:</strong> Sundar Pichai emphasized the scale of the investment – up to $185 billion in capex over the next four years, with more than half of Google’s ML compute earmarked for the cloud. It’s a clear signal that AI is moving from research to the backbone of Google’s business.</p>
+<p><strong>MIKE:</strong> And it’s not just Google’s internal ops. He mentioned real‑world use cases – code generation, marketing creative, even security triage – all slashing time and boosting outcomes. Imagine a marketing team cutting campaign launch time by 70%.</p>
+<p><strong>JORDAN:</strong> The technical core is the AI Hypercomputer and the Agentic Data Cloud. Those layers provide the compute horsepower and trusted data context that agents need to act autonomously.</p>
+<p><strong>MIKE:</strong> Right, and they’re bundling it with a low‑code “Agent Studio” so non‑engineers can build agents using natural language. That could democratize AI building across a company, not just the data science team.</p>
+<p><strong>JORDAN:</strong> Security is another focus. They introduced Agent Identity and Model Armor, which attach cryptographic IDs and zero‑trust policies to each agent, ensuring auditable actions.</p>
+<p><strong>MIKE:</strong> That addresses a big fear many execs have – loss of control when you let AI make decisions. If you can trace every step, compliance becomes feasible.</p>
+<p><strong>JORDAN:</strong> The platform also supports a marketplace of pre‑built agents from partners like Atlassian, Box, and ServiceNow, plus the ability to plug in any model via the Model Context Protocol.</p>
+<p><strong>MIKE:</strong> So a retailer could instantly drop in a shopping‑assistant agent, while a bank could pull a risk‑analysis agent from a partner, all within the same unified environment.</p>
+<p><strong>JORDAN:</strong> Real‑world pilots are already out there: Citi Sky for wealth management, Honeywell’s digital twins for building operations, Liverpool’s in‑store AI assistant, and even NASA using agents for Artemis II flight readiness.</p>
+<p><strong>MIKE:</strong> That breadth—from finance to aerospace—shows the platform isn’t just a niche tool. It’s designed to be the operating system for any AI‑driven workflow.</p>
+<p><strong>JORDAN:</strong> One nuance I noticed is the shift from “can we build an agent?” to “how do we manage thousands of them?” Governance, orchestration, and observability are baked in, with OTel telemetry and a central Agent Gateway.</p>
+<p><strong>MIKE:</strong> Which means enterprises can scale agent fleets without drowning in complexity. It’s like moving from handling a single smart thermostat to controlling an entire smart building.</p>
+<p><strong>JORDAN:</strong> To sum up, Gemini Enterprise is a full‑stack, secure, low‑code platform that unifies compute, data, and governance for enterprise AI agents. Its success will hinge on how easily organizations can adopt it and keep control.</p>
+<p><strong>MIKE:</strong> And if they can, we’ll likely see a wave of autonomous workflows that cut costs, speed up innovation, and maybe even redefine what work looks like. Thanks for tuning in, folks!</p>
+<p><strong>JORDAN:</strong> That’s a wrap for today’s deep dive. I’m Jordan.</p>
+<p><strong>MIKE:</strong> I’m Mike. Stay curious, stay critical, and we’ll catch you on the next episode. Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -269,17 +287,17 @@ Availability: Private preview (early customer access)</p>
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="11PBno-cJ1g"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -307,15 +325,72 @@ Availability: Private preview (early customer access)</p>
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {
