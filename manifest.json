@@ -182,6 +182,7 @@
     "title": "The agentic shift in software development life cycle",
     "video_url": "https://www.youtube.com/watch?v=161TA9Z0vxk",
     "published_at": "2026-05-22T22:21:31.9227941+00:00",
+    "last_republished_at": "2026-05-23T18:47:21.5676311+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -189,7 +190,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_podcast.mp3",
+    "audio_file_size_bytes": 1798560,
+    "audio_duration_seconds": 206,
+    "episode_summary": "The session explores the agentic shift in the software development life\u2011cycle \u2013 how AI agents are being adopted, coordinated, and moved from prototype to production. After reviewing recent adoption statistics, the speakers introduce Cyan, an open\u2011source container\u2011based orchestration framework that\u2026"
   },
   "Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html": {
     "title": "What\u0027s new in Google Cloud\u0027s agent platform",

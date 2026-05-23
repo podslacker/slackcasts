@@ -1,0 +1,18 @@
+﻿JORDAN: Hey everyone, welcome back to the show! I’m Jordan, and with me as always is the ever‑curious Mike.
+MIKE: Hey folks! Today we’re diving into the wild world of AI agents in the software development lifecycle—yeah, the stuff Google just dropped at Cloud Next.
+JORDAN: First off, the data is staggering: roughly 90 % of developers say they’re using AI at work, and about 70 % rely on it for brand‑new code. That’s what they call “green‑field” development.
+MIKE: Which makes me wonder—if AI is that pervasive, how does it actually boost a developer’s output? The speakers called it an “amplifier.”
+JORDAN: Right, an amplifier takes a clean signal and makes it louder—but if your input is noisy, the output gets noisy too. In other words, good prompts, good results; bad prompts, a mess across your whole codebase.
+MIKE: That’s a huge “human in the loop” issue. If we’re feeding agents fuzzy requirements, we’re just amplifying confusion.
+JORDAN: Exactly. And remember how they said AI code generation at Google jumped from 25 % a year ago to 75 % today? That jump coincides with moving from simple retrieval to true reasoning—agents that can plan, not just answer.
+MIKE: So instead of typing a prompt, getting a snippet, and iterating, you give a high‑level goal and the agent asks follow‑up questions—like “What language?” or “What layout?”
+JORDAN: The catch is that multiple agents can start stepping on each other’s toes. Isolation, security, and model‑agent coupling become real challenges.
+MIKE: Which leads us to the solution they showcased: an open‑source framework called *Cyan* that acts like a hypervisor for agents, sandboxing each one in its own container.
+JORDAN: The demo showed a single agent spawning a Python script for Fibonacci numbers, running inside an isolated container, completely separate from the developer’s main workspace.
+MIKE: And even when the agent was detached and later stopped, the generated file persisted—so you can review, accept, or discard the code without any side effects.
+JORDAN: What’s clever is that Cyan isn’t tied to any specific model. It supports Gemini, Claude, OpenAI, you name it, and you can orchestrate dozens of agents in parallel.
+MIKE: That parallelism is a game‑changer for large projects—imagine multiple agents handling different microservices simultaneously, all safely compartmentalized.
+JORDAN: The big takeaways: AI agents are now mainstream, but we need robust orchestration and isolation to keep them productive and secure.
+MIKE: And with tools like Cyan, we can finally push that AI‑generated code all the way into production without bottlenecks. Thanks for listening, and we’ll see you next time!
+JORDAN: Stay analytical, stay secure, and keep questioning the “how.”
+MIKE: Stay curious, stay experimental, and keep building the future—one agent at a time. Bye!
