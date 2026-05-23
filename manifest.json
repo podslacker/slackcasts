@@ -38,7 +38,7 @@
     "title": "How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively",
     "video_url": "https://www.youtube.com/watch?v=3TKSVb7VOcQ",
     "published_at": "2026-05-22T14:00:38.5495743+00:00",
-    "last_republished_at": "2026-05-22T17:54:08.9631629+00:00",
+    "last_republished_at": "2026-05-23T18:00:41.0703967+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -46,7 +46,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_podcast.mp3",
+    "audio_file_size_bytes": 1726680,
+    "audio_duration_seconds": 202,
+    "episode_summary": "The video teaches insurance agency owners how to\u202Freduce client churn and boost revenue at policy renewal time. It stresses that most losses stem from silence, missed opportunities, and poor renewal strategy\u2014not price. By moving from reactive to proactive renewal conversations, handling cancellations\u2026"
   },
   "Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html": {
     "title": "Agentic commerce: Transform the shopping experience with Google agents and open standards",
