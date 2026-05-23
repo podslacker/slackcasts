@@ -116,6 +116,18 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .lightbox-prev { left: 16px; }
 .lightbox-next { right: 16px; }
 .lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -158,15 +170,15 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_01.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_01.jpg" loading="lazy" data-caption="Opening title slide introduces the percussive blues guitar style."><figcaption class="gal-caption">Opening title slide introduces the percussive blues guitar style.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_06.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_06.jpg" loading="lazy" data-caption="Discussion of groove‑based blues emphasizes the danceable, rhythmic foundation."><figcaption class="gal-caption">Discussion of groove‑based blues emphasizes the danceable, rhythmic foundation.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_09.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_09.jpg" loading="lazy" data-caption="Final focus on plucking the index finger upward to accentuate beats two and four."><figcaption class="gal-caption">Final focus on plucking the index finger upward to accentuate beats two and four.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_04.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_04.jpg" loading="lazy" data-caption="Close‑up of the right‑hand technique highlights the heavy groove and finger positioning."><figcaption class="gal-caption">Close‑up of the right‑hand technique highlights the heavy groove and finger positioning.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_03.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_03.jpg" loading="lazy" data-caption="A shift to full‑band context shows how the percussive rhythm integrates with other instruments."><figcaption class="gal-caption">A shift to full‑band context shows how the percussive rhythm integrates with other instruments.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_07.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_07.jpg" loading="lazy" data-caption="The presenter points out the thumb motion essential for maintaining the percussive pulse."><figcaption class="gal-caption">The presenter points out the thumb motion essential for maintaining the percussive pulse.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_05.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_05.jpg" loading="lazy" data-caption="The lesson references Junior Kimbrough, illustrating his influence on the style."><figcaption class="gal-caption">The lesson references Junior Kimbrough, illustrating his influence on the style.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_08.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_08.jpg" loading="lazy" data-caption="An audio‑visual example demonstrates the characteristic &quot;chunka&quot; sound pattern."><figcaption class="gal-caption">An audio‑visual example demonstrates the characteristic &quot;chunka&quot; sound pattern.</figcaption></figure>
-<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_02.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_02.jpg" loading="lazy" data-caption="The instructor describes how riffs are layered to create a hypnotic boogie feel."><figcaption class="gal-caption">The instructor describes how riffs are layered to create a hypnotic boogie feel.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_01.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_01.jpg" loading="lazy" data-caption="Opening title slide introducing the percussive guitar style lesson." data-yt-ts="0"><figcaption class="gal-caption">Opening title slide introducing the percussive guitar style lesson.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_09.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_09.jpg" loading="lazy" data-caption="Final focus on the backbeat, demonstrating how to pluck the index finger on beats two and four for emphasis." data-yt-ts="47"><figcaption class="gal-caption">Final focus on the backbeat, demonstrating how to pluck the index finger on beats two and four for emphasis.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_06.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_06.jpg" loading="lazy" data-caption="A look at different guitars, introducing a drone‑style sound that underpins the percussive rhythm." data-yt-ts="47"><figcaption class="gal-caption">A look at different guitars, introducing a drone‑style sound that underpins the percussive rhythm.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_04.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_04.jpg" loading="lazy" data-caption="Close‑up demonstration of the right‑hand technique, showing the thumb’s motion for a heavy groove." data-yt-ts="47"><figcaption class="gal-caption">Close‑up demonstration of the right‑hand technique, showing the thumb’s motion for a heavy groove.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_05.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_05.jpg" loading="lazy" data-caption="Explanation of alternating the index finger to create a steady alternating pattern in the rhythm." data-yt-ts="47"><figcaption class="gal-caption">Explanation of alternating the index finger to create a steady alternating pattern in the rhythm.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_02.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_02.jpg" loading="lazy" data-caption="The presenter describes how riffs are built and layered in a percussive, hypnotic boogie feel." data-yt-ts="47"><figcaption class="gal-caption">The presenter describes how riffs are built and layered in a percussive, hypnotic boogie feel.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_08.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_08.jpg" loading="lazy" data-caption="Counting the rhythm (one‑two‑three‑four) while using a thumb pick to reinforce the percussive pulse." data-yt-ts="47"><figcaption class="gal-caption">Counting the rhythm (one‑two‑three‑four) while using a thumb pick to reinforce the percussive pulse.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_03.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_03.jpg" loading="lazy" data-caption="Emphasis on the percussive style’s role in a full band setting, highlighting the groove’s importance." data-yt-ts="47"><figcaption class="gal-caption">Emphasis on the percussive style’s role in a full band setting, highlighting the groove’s importance.</figcaption></figure>
+<figure class="gal-item"><img src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_07.jpg" alt="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_frame_07.jpg" loading="lazy" data-caption="Discussion of groove‑based music, linking the rhythm to dancing and the overall feel of the piece." data-yt-ts="47"><figcaption class="gal-caption">Discussion of groove‑based music, linking the rhythm to dancing and the overall feel of the piece.</figcaption></figure>
 
 </div>
 </section>
@@ -177,97 +189,59 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>a0z-2s5BRBs</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The video introduces <strong>Hill Country blues</strong>, a rhythmic, dance‑oriented offshoot of Mississippi blues distinct from Delta blues. The instructor explains the two main approaches—<strong>Delta Drone</strong> and <strong>Hypnotic Boogie</strong>—and breaks down the percussive right‑hand techniques that give the style its signature groove. By analyzing three genre pioneers (Fred McDowell, Junior Kimbrough, and R.L. Burnside), the lesson shows how to emulate their sound on electric or resonator guitars.</p>
+<p>The video introduces <strong>Hill Country blues</strong>, a fast‑paced, dance‑oriented offshoot of Mississippi blues distinct from Delta blues.<br />
+It explains the two main guitar approaches—<strong>Delta Drone</strong> and <strong>Hypnotic Boogie</strong>—and demonstrates how the per‑cussive right‑hand technique creates the genre’s signature groove.<br />
+Through close‑up examples of three pioneers (Fred McDowell, Junior Kimbrough, and R.L. Burnside), the instructor breaks down hand positioning, picking patterns, tuning choices, and practice tips for achieving the authentic Hill Country sound.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><p><strong>What is Hill Country blues?</strong></p>
-<ul>
-<li>Originated in Mississippi juke‑joints, upbeat and built for dancing.</li>
-<li>Emphasizes percussive strumming rather than melodic soloing.</li>
-</ul>
+<li><strong>Hill Country blues vs. Delta blues</strong> – upbeat, party‑ready music played in juke joints, relying heavily on rhythmic strumming.</li>
+<li><strong>Two core guitar styles</strong>
+<ol>
+<li><em>Delta Drone</em> – slower, drone‑note‑centered riffs (often on electric guitar), built on a monotonic bass and minor‑pentatonic licks.</li>
+<li><em>Hypnotic Boogie</em> – groove‑based, highly percussive strumming with a repeating riff that “locks in” the rhythm.</li>
+</ol>
 </li>
-<li><p><strong>Two core styles</strong></p>
-<ul>
-<li><strong>Delta Drone</strong> – slower, drone‑like bass note with repeating minor‑pentatonic/ blues‑scale riffs; often played on electric guitar.</li>
-<li><strong>Hypnotic Boogie</strong> – groove‑centric, aggressive, rhythmic strumming that feels almost percussive; the thumb drives the low “bass” strings while the index finger adds syncopation.</li>
-</ul>
-</li>
-<li><p><strong>Key right‑hand technique</strong></p>
-<ul>
-<li>Thumb + thumb‑pick (optional) hits low strings firmly; index finger plucks higher strings on the off‑beats.</li>
-<li>Alternating pattern: down‑stroke on the bass, then a “chuck” on the treble strings, then mute.</li>
-<li>Emphasis on strong attack, especially on beats 2 and 4, to create the driving pulse.</li>
-</ul>
-</li>
-<li><p><strong>Fred McDowell (solo, open‑E resonator)</strong></p>
-<ul>
-<li>Uses thumb pick + index finger, heavy low‑string attack, and slide embellishments.</li>
-<li>Demonstrates alternating bass‑chuck pattern and muting for syncopation.</li>
-</ul>
-</li>
-<li><p><strong>Junior Kimbrough (band setting, Eb‑standard electric)</strong></p>
-<ul>
-<li>Shows the “drone” approach: a constant bass note with repetitive riffs on top.</li>
-<li>Right hand runs continuously, delivering a solid groove that fuels dancing.</li>
-</ul>
-</li>
-<li><p><strong>R.L. Burnside (solo electric, tuned up to F)</strong></p>
-<ul>
-<li>Relies on pure percussive strumming without a thumb pick; thumb attack is crucial.</li>
-<li>Demonstrates the same 1‑2‑3‑4 rhythmic feel, with strong slaps on the top strings.</li>
-</ul>
-</li>
-<li><p><strong>Practice tips</strong></p>
-<ul>
-<li>Start by alternating low‑E and a higher string, then add the “chuck” on beats 2/4.</li>
-<li>Use a thumb pick if long sessions cause thumb fatigue.</li>
-<li>Keep hand relaxed; positioning can be low and comfortable—not exaggerated.</li>
-</ul>
-</li>
-<li><p><strong>Future content teaser</strong></p>
-<ul>
-<li>The instructor promises more detailed song lessons and deeper technique breakdowns in upcoming videos.</li>
-</ul>
-</li>
+<li><strong>Percussive right‑hand technique</strong> – alternating thumb (often with a thumb pick) on low strings and index finger on higher strings, emphasizing strong attacks on beats 2 and 4 and muting unused strings.</li>
+<li><strong>Fred McDowell demo</strong> – open‑E tuning, slide use, thumb‑pick technique, and syncopated thumb/index alternation.</li>
+<li><strong>Junior Kimbrough demo</strong> – electric guitar in Eb‑standard, drone bass note, steady thumb‑driven groove with band accompaniment.</li>
+<li><strong>R.L. Burnside demo</strong> – solo electric in F tuning, relaxed hand position, thumb‑only attack, and the same “two‑three‑four” percussive pattern.</li>
+<li><strong>Practice advice</strong> – start with simple low‑string to high‑string alternation, increase attack, use thumb picks to protect the thumb, and gradually incorporate slides and syncopated notes.</li>
+<li><strong>Future content tease</strong> – promise of more detailed song lessons and deeper technique breakdowns in upcoming videos.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Hill Country blues is defined by its <strong>percussive, groove‑first guitar style</strong>, not by virtuosic soloing.</li>
-<li>Master the <strong>thumb‑driven bass + index‑finger syncopation</strong> pattern to capture the sound.</li>
-<li>Two main approaches: <strong>Delta Drone</strong> (steady drone + riffs) and <strong>Hypnotic Boogie</strong> (rhythmic strumming).</li>
-<li>Studying the masters—<strong>McDowell, Kimbrough, Burnside</strong>—reveals variations in tuning, picking, and band vs. solo contexts.</li>
-<li>A <strong>thumb pick</strong> can protect the thumb during the aggressive low‑string attacks.</li>
-<li>Consistent practice of the 1‑2‑3‑4 “down‑up‑chuck” rhythm is essential for authentic feel.</li>
+<li>Hill Country blues is defined by its <strong>percussive, rhythmic strumming</strong> rather than complex chord changes.</li>
+<li>Mastering the <strong>right‑hand pattern (thumb on low strings, index on high strings, strong beats 2 &amp; 4)</strong> is essential.</li>
+<li>The style splits into <strong>Delta Drone</strong> (drone‑based, slower) and <strong>Hypnotic Boogie</strong> (groove‑driven, faster).</li>
+<li>Open tunings (E, C, F, etc.) and slide work are common but not mandatory; focus first on rhythm.</li>
+<li>Thumb picks are optional but can <strong>prevent thumb fatigue</strong> during the aggressive attack required.</li>
+<li>Listening to the three pioneers provides a practical template for tone, feel, and arrangement.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“The most important thing in Hill Country blues is the percussive feel with the right hand.”</li>
-<li>“If you just play the bass line without the percussive right‑hand, it doesn’t sound anything like it.”</li>
-<li>“They don’t do that as much in any other style of blues; this is the most percussive style.”</li>
-<li>“You don’t have to use a thumb pick, but it helps save your thumb when you’re slamming hard on those top strings.”</li>
+<li>“<strong>The most important thing</strong> is the percussive feel with the right hand—that’s what makes Hill Country blues different.”</li>
+<li>“<strong>If you just play the bass line, it doesn’t sound like it.</strong> You have to add the percussive right‑hand to get the groove.”</li>
+<li>“<strong>You don’t have to hold your hand crazy; keep it comfortable</strong>—the power comes from the thumb attack, not the hand shape.”</li>
+<li>“<strong>This style is all about dancing and having a good time</strong>; without that groove people can’t dance to it.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, and today we’re diving into the raw, hypnotic world of Mississippi hill country blues.</p>
-<p><strong>MIKE:</strong> And I’m Mike—thanks for joining us. We’re about to unpack what makes this style so different from the Delta blues you might already know.</p>
-<p><strong>JORDAN:</strong> First off, hill country blues isn’t just a regional label; it’s a whole vibe built around danceable grooves and percussive guitar work.</p>
-<p><strong>MIKE:</strong> Right, those juke‑joint nights where the music is meant to keep people moving—no sad slide licks, just relentless rhythm.</p>
-<p><strong>JORDAN:</strong> The core technique is a percussive right‑hand strum, often using a thumb pick and alternating between a low bass note and a chunky “chunka” on the higher strings.</p>
-<p><strong>MIKE:</strong> So it’s less about intricate soloing and more about creating a steady pulse that feels almost like a drumbeat, right?</p>
-<p><strong>JORDAN:</strong> Exactly. There are essentially two flavors: the “Delta drone,” which is a faster, electric take on traditional blues riffs, and the “hypnotic boogie,” a groove‑centric, repetitive pattern.</p>
-<p><strong>MIKE:</strong> And those repeats aren’t boring—they’re hypnotic because the guitarist layers a simple bass line with syncopated strums, giving the music that trance‑like quality.</p>
-<p><strong>JORDAN:</strong> To illustrate, let’s talk about the three pioneers: Fred McDowell, Junior Kimbrough, and R.L. Burnside, each with their own twist on the percussive approach.</p>
-<p><strong>MIKE:</strong> I love how Fred McDowell used open E tuning and a slide, while his right hand hammered the low strings with a thumb pick, almost like a built‑in metronome.</p>
-<p><strong>JORDAN:</strong> Junior Kimbrough took it electric, often in Eb standard, and kept that drone note constant—his thumb churned out a steady bass while the fingers added thin, blues‑scale riffs on top.</p>
-<p><strong>MIKE:</strong> And Burnside, he cranked the tuning up to F, abandoned the thumb pick, and still managed that relentless “one‑two‑three‑four” chug, showing you don’t need fancy gear, just raw energy.</p>
-<p><strong>JORDAN:</strong> The common thread across all three is that aggressive, percussive attack on the high strings and tight muting on the lows, which creates that signature groove.</p>
-<p><strong>MIKE:</strong> For listeners who want to try it, the takeaway is simple: start with a steady low‑note pulse, then slap the top strings in a syncopated pattern, and let your thumb do the heavy lifting.</p>
-<p><strong>JORDAN:</strong> Remember, the goal isn’t to play fast solos but to keep the rhythm driving so dancers can lose themselves in the groove.</p>
-<p><strong>MIKE:</strong> And that’s what makes hill country blues a party starter—it's music you feel in your chest as much as you hear with your ears.</p>
-<p><strong>JORDAN:</strong> So to sum up, focus on the right‑hand percussive strum, experiment with open tunings, and keep that bass drone steady.</p>
-<p><strong>MIKE:</strong> Mix in those hypnotic boogie patterns, and you’ve got the backbone of a style that’s both simple and endlessly captivating.</p>
-<p><strong>JORDAN:</strong> Thanks for hanging out, folks. Keep practicing those thumb‑pick chukas, and you’ll be bringing that Mississippi groove to any jam session.</p>
-<p><strong>MIKE:</strong> That’s a wrap from us—stay curious, keep the music moving, and we’ll catch you on the next episode.</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I'm Jordan, and today Mike and I are diving into the gritty world of Hill Country blues from Mississippi.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! I’m Mike, and I’m excited because this style is all about that unstoppable groove that gets people dancing in juke joints. Let’s unpack what makes it different from the more familiar Delta blues.</p>
+<p><strong>JORDAN:</strong> Right off the bat, Hill Country blues swaps the mellow fingerpicking of Delta for a percussive, almost rhythmic strumming. The guitarist often uses the thumb like a pick while the index finger adds syncopated accents.</p>
+<p><strong>MIKE:</strong> That percussive feel is the secret sauce for the “party” vibe. It’s fascinating how a single guitarist can create a full band feel just by slapping those low strings and chopping the highs.</p>
+<p><strong>JORDAN:</strong> The lesson breaks it into two core techniques: the &quot;Delta drone&quot; and the &quot;hypnotic boogie.&quot; The drone is essentially a repeating bass note, often on an open tuning, with minor pentatonic riffs floating on top.</p>
+<p><strong>MIKE:</strong> And the hypnotic boogie? That’s where the real groove lives—a steady, pulse‑like rhythm that can lock in with drums or stand alone. It’s the kind of rhythm that makes you want to stomp your feet even if you’re just listening solo.</p>
+<p><strong>JORDAN:</strong> Let’s talk gear for a second. Many of these players use open tunings—like open E or even up‑tuned to F—to get that resonant drone. Fred McDowell, for example, played a slide on an open E resonator.</p>
+<p><strong>MIKE:</strong> And he didn’t need a full band; his thumb pick and aggressive right‑hand attack gave the whole room a pounding heartbeat. It’s a great reminder that technique can outweigh equipment.</p>
+<p><strong>JORDAN:</strong> Speaking of technique, McDowell’s right hand alternates a low‑string thump with a quick, muted strum of the higher strings. The thumb hits the bass, the index finger “chucks” the treble, creating that syncopated groove.</p>
+<p><strong>MIKE:</strong> I love how that pattern—low, mute, high, mute—creates a loop that’s both simple and hypnotic. It’s the kind of thing a beginner can nail quickly, but mastering the dynamics takes years.</p>
+<p><strong>JORDAN:</strong> Junior Kimbrough pushes it further with electric guitars in Eb standard tuning. He locks into a drone on the low A string while layering repetitive, blues‑scale riffs on top.</p>
+<p><strong>MIKE:</strong> That’s the “Delta drone” in action—steady, almost mantra‑like bass that lets the band (or just the audience) feel the groove while the lead riffs dance around it. It’s perfect for dancing without getting overly busy.</p>
+<p><strong>JORDAN:</strong> Then there’s R.L. Burnside, who favors a higher tuning, often up to F, and a more aggressive thumb slapping technique. He emphasizes the &quot;2 and 4&quot; backbeat, really hammering those top strings for a punchy feel.</p>
+<p><strong>MIKE:</strong> Burnside’s approach shows how tweaking the thumb attack and using a thumb pick can protect the hand while still delivering that raw, percussive energy. It’s a practical tip for anyone looking to play long gigs.</p>
+<p><strong>JORDAN:</strong> So, to sum up, Hill Country blues hinges on a percussive right hand, open tunings for drones, and a relentless groove that can stand alone or mesh with a band.</p>
+<p><strong>MIKE:</strong> And the real takeaway for listeners is that this style is built for dancing and community—if you can feel the pulse, you’re doing it right. Thanks for joining us, and we’ll catch you on the next episode!</p>
 </div>
 </section>
 <section class="section">
@@ -292,7 +266,7 @@ details[open] .transcript-summary::before { content: "▼ "; }
   <audio id="audioEl" preload="metadata"><source src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="a0z-2s5BRBs"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -320,14 +294,23 @@ details[open] .transcript-summary::before { content: "▼ "; }
 }());
 
 (function () {
-  var lb     = document.getElementById('lightbox');
-  var lbImg  = document.getElementById('lightboxImg');
-  var lbCap  = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  var lbPrev = lb.querySelector('.lightbox-prev');
-  var lbNext = lb.querySelector('.lightbox-next');
-  var imgs   = Array.from(document.querySelectorAll('.gal-item img'));
-  var cur    = 0;
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
   function updateArrows() {
     var solo = imgs.length <= 1;
     if (lbPrev) lbPrev.classList.toggle('hidden', solo);
@@ -335,19 +318,45 @@ details[open] .transcript-summary::before { content: "▼ "; }
   }
   function show(idx) {
     cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
     lbImg.src = imgs[cur].src;
     if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
     updateArrows();
   }
   function open(idx) { show(idx); lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
   imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
   if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
   if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
   document.addEventListener('keydown', function (e) {
     if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape')      close();
+    if (e.key === 'Escape')          close();
     else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
     else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
   });
