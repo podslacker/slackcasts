@@ -36,5 +36,6 @@
 | Video | Published | Transcript |
 |-------|-----------|------------|
 | [Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt) |
+| [Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_transcript.txt) |
 | [The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt) |
 

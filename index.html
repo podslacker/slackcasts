@@ -33,32 +33,38 @@
     .ps-entry {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem 1rem;
       padding: 0.75rem 1rem;
       border-bottom: 1px solid rgba(48,54,61,0.5);
-      min-width: 0;
+      /* Allow meta to wrap below title when the viewport is too narrow
+         for them to coexist on one line */
+      flex-wrap: wrap;
     }
     .ps-entry:last-child { border-bottom: none; }
 
-    /* Title fills available width and wraps naturally */
+    /* Title: grows to fill space; flex-basis 12rem means it requests
+       ~192 px before wrapping — stops it from collapsing to a sliver */
     .ps-title-link {
-      flex: 1 1 0;
+      flex: 1 1 12rem;
       min-width: 0;
       color: var(--ps-accent);
       text-decoration: none;
       font-weight: 500;
       line-height: 1.4;
+      /* overflow-wrap handles genuinely long single words (URLs, IDs).
+         word-break: break-word is intentionally omitted — it triggers
+         character-by-character breaking when the flex item is narrow. */
       overflow-wrap: break-word;
-      word-break: break-word;
     }
     .ps-title-link:hover { text-decoration: underline; }
 
-    /* Meta cluster (dates + download) sits on the right, wraps if needed */
+    /* Meta cluster (dates + download) stays together on the right.
+       flex-shrink: 1 lets it yield space to the title when needed. */
     .ps-entry-meta {
       display: flex;
       align-items: center;
       gap: 0.4rem 1rem;
-      flex-shrink: 0;
+      flex: 0 1 auto;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -68,10 +74,13 @@
     .ps-dl { font-size: 0.82rem; color: var(--ps-muted); text-decoration: none; white-space: nowrap; }
     .ps-dl:hover { color: var(--ps-accent); }
 
-    /* Narrow screens: stack title above meta */
-    @media (max-width: 640px) {
-      .ps-entry { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-      .ps-entry-meta { justify-content: flex-start; width: 100%; }
+    /* Narrow screens (phones): force column so the title always has
+       the full card width.  align-items: stretch is critical — without
+       it the title measures its own intrinsic min-width and collapses
+       to ~1 character wide, causing vertical character waterfalls. */
+    @media (max-width: 600px) {
+      .ps-entry { flex-direction: column; align-items: stretch; gap: 0.4rem; }
+      .ps-entry-meta { justify-content: flex-start; flex-wrap: wrap; }
     }
 
     footer { border-top: 1px solid var(--ps-border); color: var(--ps-muted); }
@@ -82,7 +91,7 @@
 <body>
   <nav class="py-3 mb-4" style="background:linear-gradient(135deg,#1a1f35,var(--ps-bg));border-bottom:1px solid var(--ps-border)">
     <div class="container d-flex align-items-center gap-3">
-      <img src="https://podslacker.com/PodSlackerLogo.png" alt="PodSlacker" class="ps-nav-logo" />
+      <img src="https://podslacker.com/images/PodSlackerLogo.png" alt="PodSlacker" class="ps-nav-logo" />
       <span class="ps-nav-title">PodSlacker</span>
       <span class="ps-nav-subtitle ms-auto">Published SlackCasts</span>
     </div>
@@ -114,6 +123,7 @@
     <h2 class="ps-section-heading">Hill Country Guitar Lessons</h2>
     <div class="ps-card mb-4">
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T05:15:32.7565488+00:00" class="ps-date ps-local-time">2026-05-23 05:15 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T15:43:39.1382399+00:00" class="ps-date ps-local-time">2026-05-23 15:43 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html">Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T16:58:24.5518200+00:00" class="ps-date ps-local-time">2026-05-23 16:58 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html">The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T14:58:43.6027151+00:00" class="ps-date ps-local-time">2026-05-23 14:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T16:38:39.7384113+00:00" class="ps-date ps-local-time">2026-05-23 16:38 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt" download>📄 Transcript</a></div></div>
     </div>
   </main>
