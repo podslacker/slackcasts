@@ -1,4 +1,4 @@
-﻿﻿[00:13] welcome to Google Cloud. Next,
+﻿﻿﻿[00:13] welcome to Google Cloud. Next,
 [00:16] we are going to be talking about
 [00:19] something that we are often asked which
 [00:22] is impossible to do.

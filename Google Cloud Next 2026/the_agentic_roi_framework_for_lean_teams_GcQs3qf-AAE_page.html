@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" loading="lazy" data-caption="The opening slide introduces the discussion on applying AI to banking operations."><figcaption class="gal-caption">The opening slide introduces the discussion on applying AI to banking operations.</figcaption></figure>
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" loading="lazy" data-caption="The speaker describes how automating loan‑originating processes reduces complexity and speeds up account opening."><figcaption class="gal-caption">The speaker describes how automating loan‑originating processes reduces complexity and speeds up account opening.</figcaption></figure>
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" loading="lazy" data-caption="A key point is made about achieving ROI by giving agents a 360‑degree view of the customer, enabling less‑skilled staff to handle inquiries."><figcaption class="gal-caption">A key point is made about achieving ROI by giving agents a 360‑degree view of the customer, enabling less‑skilled staff to handle inquiries.</figcaption></figure>
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" loading="lazy" data-caption="The team showcases a personal financial‑coach chatbot that uses generative AI to guide customers through budgeting and literacy content."><figcaption class="gal-caption">The team showcases a personal financial‑coach chatbot that uses generative AI to guide customers through budgeting and literacy content.</figcaption></figure>
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" loading="lazy" data-caption="A live demo highlights the cost‑monitoring dashboard that alerts when cloud spend exceeds predefined thresholds."><figcaption class="gal-caption">A live demo highlights the cost‑monitoring dashboard that alerts when cloud spend exceeds predefined thresholds.</figcaption></figure>
-<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" loading="lazy" data-caption="The presenter explains how AI‑driven infrastructure‑as‑code automatically right‑sizes workloads, reducing vCPU and memory waste."><figcaption class="gal-caption">The presenter explains how AI‑driven infrastructure‑as‑code automatically right‑sizes workloads, reducing vCPU and memory waste.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_01.jpg" loading="lazy" data-caption="The video opens with the title slide introducing the discussion on AI‑enabled financial services at a community bank." data-yt-ts="0"><figcaption class="gal-caption">The video opens with the title slide introducing the discussion on AI‑enabled financial services at a community bank.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_02.jpg" loading="lazy" data-caption="Around the 7‑minute mark the speaker describes how a sudden influx of new customers during the pandemic strained the call center and prompted the first automation effort." data-yt-ts="101"><figcaption class="gal-caption">Around the 7‑minute mark the speaker describes how a sudden influx of new customers during the pandemic strained the call center and prompted the first automation effort.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_03.jpg" loading="lazy" data-caption="Near 15 minutes the conversation shifts to integrating Gemini‑powered AI into the dispute‑resolution workflow, highlighting how multiple data sources are synthesized automatically." data-yt-ts="552"><figcaption class="gal-caption">Near 15 minutes the conversation shifts to integrating Gemini‑powered AI into the dispute‑resolution workflow, highlighting how multiple data sources are synthesized automatically.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_04.jpg" loading="lazy" data-caption="At roughly 23 minutes the presenter emphasizes AI as a workforce multiplier, enabling lean teams to handle more complex financial‑literacy and coaching use cases." data-yt-ts="1010"><figcaption class="gal-caption">At roughly 23 minutes the presenter emphasizes AI as a workforce multiplier, enabling lean teams to handle more complex financial‑literacy and coaching use cases.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_05.jpg" loading="lazy" data-caption="Around the 30‑minute mark the demo shows the cost‑optimization engine suggesting instance right‑sizing and budget alerts based on real‑time usage metrics." data-yt-ts="1656"><figcaption class="gal-caption">Around the 30‑minute mark the demo shows the cost‑optimization engine suggesting instance right‑sizing and budget alerts based on real‑time usage metrics.</figcaption></figure>
+<figure class="gal-item"><img src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" alt="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_frame_06.jpg" loading="lazy" data-caption="The final segment wraps up the demonstration, summarizing key takeaways and inviting viewers to explore the AI platform further." data-yt-ts="2294"><figcaption class="gal-caption">The final segment wraps up the demonstration, summarizing key takeaways and inviting viewers to explore the AI platform further.</figcaption></figure>
 
 </div>
 </section>
@@ -169,65 +186,68 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>GcQs3qf-AAE</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The session introduces the <strong>Agentic ROI framework</strong> as a practical way for lean teams to turn AI hype into measurable business value.  Through a mix of theory, a real‑world case study from One United Bank, and a live demo of AI agents managing cloud spend, the presenters show how to identify high‑friction tasks, automate them with AI agents, and then use the freed‑up capacity for strategic product development.</p>
+<p>The video introduces the <strong>Agentic ROI Framework</strong>, a structured approach for lean teams to turn AI initiatives into measurable business value. Patik (Google Cloud Ops) and Andre (Google Financial Services) walk through a value‑realization model, illustrate it with a real‑world case study from One United Bank, and demo an AI‑agent solution for cloud‑spend management. The session emphasizes moving from AI hype to hard ROI, automating repetitive work, and using the freed capacity for differentiated product development.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>The value‑realization problem</strong> – Companies often pour billions into AI without first proving ROI, leading to projects that stall after six‑to‑twelve months.</li>
-<li><strong>Three‑phase framework</strong>
+<li><strong>Why ROI matters for AI projects</strong> – Companies often invest billions in AI without first quantifying business outcomes, leading to “failed” pilots once the hype fades.</li>
+<li><strong>Three‑phase Agentic ROI Framework</strong>
 <ol>
-<li><strong>Identify friction</strong> – Pinpoint repetitive, low‑complexity tasks (e.g., account opening, loan processing, password resets).</li>
+<li><strong>Identify friction</strong> – Spot high‑volume, low‑complexity manual tasks (e.g., account opening, loan processing, password resets).</li>
 <li><strong>Automation with agents</strong> – Deploy AI agents to handle those tasks, buying back employee capacity.</li>
-<li><strong>Transformation</strong> – Reallocate saved capacity to building differentiated, competitive products.</li>
+<li><strong>Transformation</strong> – Redirect the reclaimed capacity toward building competitive products and services.</li>
 </ol>
 </li>
 <li><strong>One United Bank case study</strong>
 <ul>
-<li>Rapid customer‑base growth in 2020 created a surge of voice‑channel support requests.</li>
-<li>Legacy phone tree could not scale; the bank introduced intent‑based routing using Dialogflow, turning free‑form speech into actionable intents.</li>
-<li>Automation of authentication and knowledge‑base retrieval gave agents a 360° view before the call, reducing handling time.</li>
-<li>Result: training time cut from weeks to days, lower‑skill staff could handle routine queries, and overall call‑center efficiency improved dramatically.</li>
+<li>Rapid customer‑base growth (doubling in 60 days) strained a lean call‑center.</li>
+<li>Implemented intent‑based routing and natural‑language processing via Google Dialogflow to replace a cumbersome phone‑tree.</li>
+<li>Resulted in faster authentication, richer customer context for agents, and the ability to handle routine calls with less‑skilled staff.</li>
 </ul>
 </li>
-<li><strong>Extending the success</strong> – The same AI stack was reused to combat “friendly fraud” disputes, integrating real‑time APIs and Salesforce case management for faster, more accurate resolutions.</li>
-<li><strong>Demo preview</strong> – An “army of AI agents” that continuously monitors cloud spend, generates reports, forecasts usage, and recommends optimizations—illustrating how the framework applies beyond contact‑center use cases.</li>
+<li><strong>Key performance impacts</strong>
+<ul>
+<li>Training time reduced from weeks to days.</li>
+<li>Call‑handling efficiency improved; agents spent less time on repetitive tasks.</li>
+<li>Enabled fraud‑dispute automation by re‑using authentication flows and integrating with external dispute APIs.</li>
+</ul>
+</li>
+<li><strong>Demo preview</strong> – An “army of AI agents” that continuously monitors, reports, forecasts, and optimizes cloud spend across an organization, illustrating the framework in a cloud‑cost‑management context.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li><strong>Start with ROI</strong>: Quantify the business outcome before writing any code; otherwise projects risk becoming sunk cost.</li>
-<li><strong>Focus on high‑volume, low‑complexity work</strong> to achieve quick wins and measurable impact.</li>
-<li><strong>AI agents can replace manual steps</strong> (authentication, routing, knowledge retrieval) and free up skilled staff for higher‑value activities.</li>
-<li><strong>Intent‑based routing turns unstructured voice input into actionable data</strong>, improving both customer experience and internal analytics.</li>
-<li><strong>Reusing the same AI components across different problems</strong> (e.g., support and fraud) multiplies ROI and accelerates time‑to‑value.</li>
-<li><strong>Lean teams can compete with larger rivals</strong> by leveraging AI to automate at scale rather than adding headcount.</li>
+<li><strong>Start with business value</strong>: Define the ROI question before writing any code.</li>
+<li><strong>Target high‑volume, low‑complexity work</strong> to gain quick wins and demonstrate impact.</li>
+<li><strong>AI agents can replace or augment human labor</strong>, allowing lean teams to do more with fewer people.</li>
+<li><strong>Data captured during automation feeds subsequent use cases</strong>, creating a virtuous cycle of improvement (e.g., moving from call routing to fraud‑dispute handling).</li>
+<li><strong>Transformational impact comes after automation</strong>, when the saved capacity is redirected to strategic product work.</li>
+<li><strong>Real‑world proof</strong>: One United Bank achieved faster onboarding, reduced training overhead, and expanded fraud‑handling capabilities without adding headcount.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“The hardest thing is not building the technology; it’s <strong>asking the business‑value question before the first line of code is written</strong>.”</li>
-<li>“We cut training from <strong>weeks to days</strong> by focusing on <strong>one intent, one purpose</strong> per low‑skill agent.”</li>
-<li>“When you <strong>buy back capacity</strong> with automation, you can invest that time into building products that <strong>actually differentiate you from the competition</strong>.”</li>
+<li>“It wasn’t that the technology failed; it was that no one asked the business‑value question before the first line of code was written.”</li>
+<li>“Every dollar that is spent is tied to business outcome… you have to answer the question ‘where’s the ROI?’”</li>
+<li>“We took training from multiple weeks down to days by focusing on one intent, one purpose.”</li>
+<li>“We’re not throwing money or people at a problem; we’re using AI because it’s a necessity to meet the surge.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the Tech Edge podcast. I’m Jordan, your detail‑driven host, and with me as always is the big‑picture thinker, Mike.</p>
-<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re diving into a story that’s been buzzing in the fintech world—how One United Bank used AI agents to ship product faster, cut friction, and actually see ROI.</p>
-<p><strong>JORDAN:</strong> The conversation we’re basing this on started with a question: “How do we ship globally, quickly, with a differentiator, without just adding headcount?” The answer? AI and agents.</p>
-<p><strong>MIKE:</strong> Right, and they framed it as a “value realization framework” — moving from hype to hard numbers. That’s something every exec and board member is demanding these days.</p>
-<p><strong>JORDAN:</strong> The framework has three phases: identify the loudest pain points, automate with AI agents, then use the freed capacity for transformation. It’s a clean, repeatable model.</p>
-<p><strong>MIKE:</strong> Let’s unpack the first phase. For a digital bank, the biggest friction was handling a flood of new customer calls during 2020. Their legacy phone tree just couldn’t keep up.</p>
-<p><strong>JORDAN:</strong> Exactly. They realized the highest‑volume, low‑complexity tasks—like password resets or account openings—were perfect candidates for automation. So they turned to Google Dialogflow for natural language processing.</p>
-<p><strong>MIKE:</strong> What’s clever is they didn’t just automate the call; they used intent‑based routing to steer callers directly to the right place. It cut down the layers of the phone tree and gave them data on what customers actually needed.</p>
-<p><strong>JORDAN:</strong> That data became a goldmine. By capturing intent and authentication details up front, agents got a 360‑degree view before the call even connected, which slashed handling time.</p>
-<p><strong>MIKE:</strong> And the ROI? Training that used to take weeks dropped to days, and they could bring in less‑skilled staff for routine issues. That means lower labor costs and faster scaling during spikes.</p>
-<p><strong>JORDAN:</strong> After the initial win, they didn’t stop. They reused the same AI stack to tackle fraud disputes, integrating with Salesforce and a real‑time disputes API. That’s a classic example of building on a platform rather than building from scratch each time.</p>
-<p><strong>MIKE:</strong> It also shows the “greater good” angle they mentioned—using AI not just for profit but to protect customers from fraud, which aligns with their mission‑driven banking model.</p>
-<p><strong>JORDAN:</strong> One key takeaway is the importance of asking the business value question before writing a single line of code. Otherwise you risk that innovation race where you spend billions only to find no ROI six months later.</p>
-<p><strong>MIKE:</strong> Absolutely. And for any lean team listening, the message is clear: start with the biggest friction, automate it, then reinvest the saved capacity into building differentiated products. That’s how you stay competitive without a massive headcount.</p>
-<p><strong>JORDAN:</strong> So if you’re a CTO or product leader, map out your pain points, pick a high‑volume, low‑complexity use case, and let AI agents handle the grunt work. Measure the impact, then iterate.</p>
-<p><strong>MIKE:</strong> And remember, the goal isn’t just faster shipping—it’s shipping something your customers haven’t seen before, backed by real ROI. That’s the sweet spot.</p>
-<p><strong>JORDAN:</strong> To wrap up, we’ve seen how One United Bank turned a crisis—doubling their customer base in 60 days—into an AI‑powered transformation that cut costs, improved experience, and opened new fraud‑prevention capabilities.</p>
-<p><strong>MIKE:</strong> It’s a playbook any organization can adapt: identify friction, automate with agents, and then transform. Thanks for tuning in, and we’ll be back soon with more stories of tech turning into tangible value.</p>
-<p><strong>JORDAN:</strong> Thanks for listening. Stay analytical, stay curious, and keep building.</p>
-<p><strong>MIKE:</strong> Catch you next time on Tech Edge!</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, your detail‑oriented host, and with me is the ever‑curious Mike.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we’re diving into that impossible‑sounding goal every exec chases—shipping products faster, globally, and with a real differentiator. We’ve got a transcript from a Google Cloud talk about AI agents, so let’s unpack it.</p>
+<p><strong>JORDAN:</strong> Right, the speakers start by framing the problem: companies pour billions into AI, but six months later the promised ROI can disappear because nobody asked the “business value” question before writing the first line of code.</p>
+<p><strong>MIKE:</strong> That’s the classic hype‑versus‑reality gap. It makes me wonder—how do we shift from hype to hard numbers that the board actually cares about?</p>
+<p><strong>JORDAN:</strong> They introduced a three‑phase value realization framework: pinpoint the loudest friction, automate with AI agents, then transform the organization by freeing capacity for new products. It’s a logical progression, but the devil’s in the details.</p>
+<p><strong>MIKE:</strong> Absolutely. And the real‑world example they used was One United Bank, a mission‑driven digital bank with just 150 employees. When COVID hit, their customer base doubled in 60 days—talk about a sudden surge!</p>
+<p><strong>JORDAN:</strong> Exactly. Their biggest friction point turned out to be the voice channel. A legacy phone tree with seven layers was bottlenecking support, and they couldn’t just hire more agents overnight.</p>
+<p><strong>MIKE:</strong> So they pivoted to AI agents—first using Dialogflow for intent‑based routing. Instead of pushing customers through a maze of buttons, the system asked “How can we help you?” and routed calls based on intent. That’s a classic natural language processing win.</p>
+<p><strong>JORDAN:</strong> The cool part is they didn’t stop at routing. They layered authentication into the dialog, pre‑populating the agent’s screen with a 360° view of the customer. That reduced handling time and even allowed less‑skilled staff to resolve routine issues.</p>
+<p><strong>MIKE:</strong> From a metrics standpoint, they reported faster training—weeks trimmed down to days—and a measurable pull‑back of call‑center workload. Those are the concrete ROI signals executives love to see.</p>
+<p><strong>JORDAN:</strong> Then they leveraged the data they’d collected to tackle fraud disputes. By reusing the same authentication flow and integrating with a real‑time disputes API, they built a second use case without starting from scratch.</p>
+<p><strong>MIKE:</strong> That’s the “double‑down” you mentioned, Jordan—turning a single success into a platform for multiple business problems. It shows AI agents can be a strategic lever, not just a novelty.</p>
+<p><strong>JORDAN:</strong> So the takeaway: identify the highest‑volume, low‑complexity pain points, automate them with AI agents, and then use the freed capacity to innovate further. It’s a virtuous cycle rather than a one‑off project.</p>
+<p><strong>MIKE:</strong> And for our listeners wondering how to start—maybe look at your own phone trees, email triage, or repetitive internal tickets. Those are low‑hanging fruits where AI agents can deliver quick wins and data for the next round.</p>
+<p><strong>JORDAN:</strong> Precisely. If you can prove ROI on the first friction, you’ll have the credibility and data to expand the effort—just like One United did with fraud detection.</p>
+<p><strong>MIKE:</strong> Alright, that wraps up our deep dive into AI agents as a fast‑track to shipping better products. Thanks for tuning in!</p>
+<p><strong>JORDAN:</strong> Thanks, everyone. Remember, the fastest way to ship is to automate the boring, then build the brilliant. See you next time!</p>
 </div>
 </section>
 <section class="section">
@@ -242,17 +262,17 @@ details[open] .transcript-summary::before { content: "▼ "; }
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="GcQs3qf-AAE"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -280,15 +300,72 @@ details[open] .transcript-summary::before { content: "▼ "; }
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {

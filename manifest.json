@@ -164,6 +164,7 @@
     "title": "The agentic ROI framework for lean teams",
     "video_url": "https://www.youtube.com/watch?v=GcQs3qf-AAE",
     "published_at": "2026-05-22T21:55:57.5342123+00:00",
+    "last_republished_at": "2026-05-23T18:42:39.1219056+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -171,7 +172,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.mp3",
+    "audio_file_size_bytes": 2142648,
+    "audio_duration_seconds": 246,
+    "episode_summary": "The video introduces the Agentic ROI Framework, a structured approach for lean teams to turn AI initiatives into measurable business value.\u202FPatik (Google Cloud\u202FOps) and Andre (Google Financial Services) walk through a value\u2011realization model, illustrate it with a real\u2011world case study from One\u2026"
   },
   "Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_page.html": {
     "title": "The agentic shift in software development life cycle",
