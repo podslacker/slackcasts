@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,8 +23,25 @@
     .ps-nav-title { font-weight: 700; font-size: 1.05rem; color: var(--ps-text); letter-spacing: -0.01em; }
     .ps-nav-subtitle { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--ps-muted); }
 
+    /* ── Table of contents ── */
+    .ps-toc { padding: 1rem 1.25rem; }
+    .ps-toc-title { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--ps-muted); margin-bottom: 0.6rem; }
+    .ps-toc-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .ps-toc-pill {
+      display: inline-flex; align-items: center;
+      padding: 0.22rem 0.75rem; border-radius: 20px;
+      background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.22);
+      color: var(--ps-accent); font-size: 0.82rem; font-weight: 500;
+      text-decoration: none; transition: background .15s, border-color .15s;
+    }
+    .ps-toc-pill:hover { background: rgba(88,166,255,0.18); border-color: rgba(88,166,255,0.5); color: var(--ps-accent); text-decoration: none; }
+
     /* ── Section heading ── */
-    .ps-section-heading { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--ps-muted); margin: 2rem 0 0.6rem; }
+    .ps-section-heading {
+      font-size: 1.05rem; font-weight: 700; color: var(--ps-text);
+      border-left: 3px solid var(--ps-accent); padding-left: 0.65rem;
+      margin: 2.25rem 0 0.75rem; line-height: 1.3; scroll-margin-top: 1.5rem;
+    }
 
     /* ── Card shell ── */
     .ps-card { background: var(--ps-surface); border: 1px solid var(--ps-border); border-radius: 10px; overflow: hidden; }
@@ -97,12 +114,21 @@
     </div>
   </nav>
   <main class="container pb-5">
-    <h2 class="ps-section-heading">3 Minute Videos</h2>
+    <div class="ps-card ps-toc mb-5">
+      <p class="ps-toc-title">Jump to section</p>
+      <div class="ps-toc-pills">
+        <a class="ps-toc-pill" href="#3-minute-videos">3 Minute Videos</a>
+        <a class="ps-toc-pill" href="#google-cloud-next-2026">Google Cloud Next 2026</a>
+        <a class="ps-toc-pill" href="#google-io-2026">Google IO 2026</a>
+        <a class="ps-toc-pill" href="#hill-country-guitar-lessons">Hill Country Guitar Lessons</a>
+      </div>
+    </div>
+    <h2 id="3-minute-videos" class="ps-section-heading">3 Minute Videos</h2>
     <div class="ps-card mb-4">
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html">3min Vlog - 5 things you can do to improve yourself</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T15:19:39.3338105+00:00" class="ps-date ps-local-time">2026-05-22 15:19 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-22T17:14:22.7335123+00:00" class="ps-date ps-local-time">2026-05-22 17:14 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html">How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T14:00:38.5495743+00:00" class="ps-date ps-local-time">2026-05-22 14:00 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-22T17:54:08.9631629+00:00" class="ps-date ps-local-time">2026-05-22 17:54 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_transcript.txt" download>📄 Transcript</a></div></div>
     </div>
-    <h2 class="ps-section-heading">Google Cloud Next 2026</h2>
+    <h2 id="google-cloud-next-2026" class="ps-section-heading">Google Cloud Next 2026</h2>
     <div class="ps-card mb-4">
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html">Agentic commerce: Transform the shopping experience with Google agents and open standards</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T16:14:26.8993835+00:00" class="ps-date ps-local-time">2026-05-22 16:14 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-22T16:55:42.1103064+00:00" class="ps-date ps-local-time">2026-05-22 16:55 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html">Build production-ready agents on Google Cloud: A guide for architects and CTOs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T18:57:52.4485983+00:00" class="ps-date ps-local-time">2026-05-22 18:57 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_transcript.txt" download>📄 Transcript</a></div></div>
@@ -115,14 +141,14 @@
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html">What&#39;s new in Google Cloud&#39;s agent platform</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T22:47:20.1030986+00:00" class="ps-date ps-local-time">2026-05-22 22:47 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html">What&#39;s new with Gemini Enterprise app</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T23:14:46.3238009+00:00" class="ps-date ps-local-time">2026-05-22 23:14 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_transcript.txt" download>📄 Transcript</a></div></div>
     </div>
-    <h2 class="ps-section-heading">Google IO 2026</h2>
+    <h2 id="google-io-2026" class="ps-section-heading">Google IO 2026</h2>
     <div class="ps-card mb-4">
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html">Developer Keynote (Google I/O &#39;26)</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T03:51:33.6008591+00:00" class="ps-date ps-local-time">2026-05-23 03:51 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html">Google I/O &#39;26 Keynote</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><span class="ps-date">—</span></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt" download>📄 Transcript</a></div></div>
     </div>
-    <h2 class="ps-section-heading">Hill Country Guitar Lessons</h2>
+    <h2 id="hill-country-guitar-lessons" class="ps-section-heading">Hill Country Guitar Lessons</h2>
     <div class="ps-card mb-4">
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T05:15:32.7565488+00:00" class="ps-date ps-local-time">2026-05-23 05:15 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T15:43:39.1382399+00:00" class="ps-date ps-local-time">2026-05-23 15:43 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T05:15:32.7565488+00:00" class="ps-date ps-local-time">2026-05-23 05:15 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:16:46.8255645+00:00" class="ps-date ps-local-time">2026-05-23 17:16 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html">Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T16:58:24.5518200+00:00" class="ps-date ps-local-time">2026-05-23 16:58 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_transcript.txt" download>📄 Transcript</a></div></div>
       <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html">The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T14:58:43.6027151+00:00" class="ps-date ps-local-time">2026-05-23 14:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T16:38:39.7384113+00:00" class="ps-date ps-local-time">2026-05-23 16:38 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt" download>📄 Transcript</a></div></div>
     </div>
