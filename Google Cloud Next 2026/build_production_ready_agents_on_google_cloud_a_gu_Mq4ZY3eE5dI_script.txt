@@ -1,0 +1,20 @@
+﻿JORDAN: Hey everyone, welcome back to the podcast! I'm Jordan, your go‑to for the nitty‑gritty of how things actually work under the hood.
+MIKE: And I'm Mike, here to connect the dots to the big picture and why you should care. Today we’re diving into a recent Google Cloud session on building production‑ready AI agents.
+JORDAN: The speaker, Sita, broke the agent lifecycle into four buckets: build, scale, govern, and optimize. It's a clean way to think about moving from a prototype to a fully‑managed service.
+MIKE: Right, and she emphasized that this year isn’t just about building agents—it’s about building the surrounding systems that keep them resilient, secure, and cost‑effective.
+JORDAN: Let’s start with the first principle: jump‑starting agent building. She mentioned three personas—non‑coders, low‑code folks, and hardcore developers—each getting a different tool: Agent Studio, Agent Garden, and the Agent Development Kit (ADK).
+MIKE: I love that approach. It means you can get a subject‑matter expert dragging and dropping components while the engineering team works with the ADK and the new Agent CLI for programmatic builds.
+JORDAN: The second principle focused on separating concerns using MCP, A2A, and “skills.” MCP is an abstraction layer so agents don’t call APIs directly, reducing breakage when schemas change.
+MIKE: And A2A—agent‑to‑agent communication—lets you delegate tasks without hard‑coding integration logic. It’s basically microservice‑style decoupling, but for LLM agents.
+JORDAN: The “skills” concept is essentially a markdown file containing business rules, data, and resources that agents can load on demand. This avoids stuffing everything into the LLM’s context window, which would blow up latency and cost.
+MIKE: That’s a game‑changer for enterprises. Instead of paying for massive prompt tokens, you keep the knowledge external and only fetch what you need, when you need it.
+JORDAN: Moving on to scaling, Sita warned us to ask if an agent even needs memory. If it’s a simple lookup, skip short‑term and long‑term storage. Otherwise, you have two paths: a custom RAG pipeline or the built‑in Agent Platform Memory Bank.
+MIKE: The Memory Bank is a managed vector store with asynchronous updates, so you get semantic search without the latency hit. It’s perfect for teams that want out‑of‑the‑box long‑term recall.
+JORDAN: Runtime choices were also covered—local development, Agent Platform Runtime, Cloud Run, or GKE for massive fleets. The key is to avoid over‑engineering until you hit real traffic thresholds.
+MIKE: And the “bring your own container” option gives you up to a 7‑day TTL, which is handy for workloads that need longer processing windows, like batch analytics or compliance checks.
+JORDAN: Governance was the fourth principle, and the speaker was clear: don’t rely on prompt engineering to enforce policies. Instead, use infrastructure—SPIFFE‑backed agent identities, a centralized agent registry, and policy enforcement via an agent gateway.
+MIKE: That’s huge for security teams. You get IAM‑style controls, token management, and a single pane of glass for visibility, so rogue agents can be detected before they cause damage.
+JORDAN: Finally, observability and evaluation. It’s not enough to glance at outputs; you need logs, traces, metrics, and evaluation of the agent’s decision path. The platform ties all of that together for continuous monitoring.
+MIKE: Which means you can set both human‑defined and LLM‑defined metrics, ensuring agents stay on the right trajectory—not just producing the right answer, but arriving there safely and efficiently.
+JORDAN: To sum up, building production AI agents today is a disciplined process: pick the right tooling for your users, abstract away dependencies, decide wisely on memory and runtime, lock down governance, and instrument everything for observability.
+MIKE: Exactly. If you follow those five principles, you’ll move from a cool demo to a resilient, secure service that scales with your business. Thanks for listening, and we’ll catch you on the next episode!
