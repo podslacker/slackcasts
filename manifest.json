@@ -218,6 +218,7 @@
     "title": "What\u0027s new with Gemini Enterprise app",
     "video_url": "https://www.youtube.com/watch?v=Tc3IiGNmXHc",
     "published_at": "2026-05-22T23:14:46.3238009+00:00",
+    "last_republished_at": "2026-05-23T18:57:45.2420956+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -225,7 +226,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_podcast.mp3",
+    "audio_file_size_bytes": 2080800,
+    "audio_duration_seconds": 237,
+    "episode_summary": "The session announced new capabilities for Gemini Enterprise, focusing on the launch of the Gemini Enterprise Agent platform and a suite of application\u2011level features that let every employee create, run, and manage AI agents across the company. Jamie Deggeer (Google Cloud AI) and a panel of\u2026"
   },
   "Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html": {
     "title": "Developer Keynote (Google I/O \u002726)",

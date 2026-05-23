@@ -1,0 +1,20 @@
+﻿JORDAN: Hey everyone, welcome back to the podcast! I’m Jordan, your go‑to for the nitty‑gritty of new tech.
+MIKE: And I’m Mike, here to chew on the big picture and what it means for you at work. Today we’re diving into Google’s Gemini Enterprise launch from the recent Next conference.
+JORDAN: The headline is the Gemini Enterprise Agent platform—basically a cloud‑first, enterprise‑grade hub that lets any employee spin up AI agents without writing code.
+MIKE: That’s huge because it moves AI from a “specialist tool” to something every desk can tap into, like emailing a teammate but with an AI on the other end.
+JORDAN: Exactly. The platform bundles Vertex AI, access to models like Anthropic’s Claude, and a whole suite of governance features—an agent gateway, identity service, and registries.
+MIKE: And those governance bits are crucial for large orgs; they can finally keep a lid on what agents can do, where they pull data, and who they talk to.
+JORDAN: They also announced a no‑code agent designer. It lets you build long‑running agents that can code, browse, and even create tools inside a secure sandbox, all while you set policy guardrails.
+MIKE: So a loan officer could have an AI that processes applications overnight, but the bank still dictates the compliance checks and escalation paths.
+JORDAN: Right, and the demo showed a bank creating a “loan supervisor” agent that fetched unprocessed mortgages, flagged risky cases, and even opened a ServiceNow ticket for human review.
+MIKE: That workflow illustrates the shift from “ask‑and‑wait” chats to background agents that work autonomously and only ping you when you’re needed.
+JORDAN: To keep track of all those silent helpers, Gemini introduces an “Inbox” view—think of it as a control center where you see every agent’s status, notifications, and can reply from Slack, email, or the mobile app.
+MIKE: That multi‑surface integration is key for adoption; people can stay in the tools they already love while the AI does the heavy lifting.
+JORDAN: They also rolled out “Skills” for reusable procedures, “Canvas” for generating documents and decks, and “Projects” for shared, long‑running contexts that blend human and digital teammates.
+MIKE: In practice, a marketing team could co‑author a campaign brief with an AI, have it auto‑populate slides in PowerPoint, and push updates straight to Google Workspace—all from one project space.
+JORDAN: Customer anecdotes reinforce the impact: Anaplan reports 80 % employee usage and thousands of no‑code agents, while Macquarie Bank saw a 40 % boost in help‑center self‑service after deploying Gemini agents.
+MIKE: Those numbers suggest real productivity gains, not just a shiny demo. It’ll be interesting to see how quickly other sectors—like healthcare or manufacturing—catch on.
+JORDAN: So to sum up, Gemini Enterprise gives enterprises a secure, cloud‑native stack for building, governing, and scaling AI agents, with no‑code tools and deep integration into existing workflows.
+MIKE: And for the rest of us, that means AI assistants could become as routine as Outlook or Slack, handling complex tasks behind the scenes while we focus on the strategic work.
+JORDAN: That’s a wrap on today’s deep dive. Thanks for listening, and keep an eye on how AI agents evolve in your own organization.
+MIKE: Thanks, everybody! Until next time, stay curious and keep experimenting with the future of work.
