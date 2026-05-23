@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" loading="lazy" data-caption="The presenter opens the talk, introducing the session on scaling Gemini for Roblox development."><figcaption class="gal-caption">The presenter opens the talk, introducing the session on scaling Gemini for Roblox development.</figcaption></figure>
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" loading="lazy" data-caption="A discussion of real‑time filtering mechanisms highlights challenges with false positives and how they impact user experience."><figcaption class="gal-caption">A discussion of real‑time filtering mechanisms highlights challenges with false positives and how they impact user experience.</figcaption></figure>
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" loading="lazy" data-caption="The speaker explains how offline evaluation is complemented by user‑sentiment data to improve model performance before release."><figcaption class="gal-caption">The speaker explains how offline evaluation is complemented by user‑sentiment data to improve model performance before release.</figcaption></figure>
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" loading="lazy" data-caption="They describe the use of public internet sources and ADR metrics to rigorously test the model across diverse real‑world scenarios."><figcaption class="gal-caption">They describe the use of public internet sources and ADR metrics to rigorously test the model across diverse real‑world scenarios.</figcaption></figure>
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" loading="lazy" data-caption="Key operational concerns are covered, including latency targets, rate‑limit settings, and monitoring strategies for large‑scale deployments."><figcaption class="gal-caption">Key operational concerns are covered, including latency targets, rate‑limit settings, and monitoring strategies for large‑scale deployments.</figcaption></figure>
-<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" loading="lazy" data-caption="The session concludes with final thoughts on Gemini’s roadmap, the Agent Platform, and an invitation for further collaboration."><figcaption class="gal-caption">The session concludes with final thoughts on Gemini’s roadmap, the Agent Platform, and an invitation for further collaboration.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_01.jpg" loading="lazy" data-caption="The presenter opens the talk, introducing the session on scaling Gemini for Roblox development." data-yt-ts="0"><figcaption class="gal-caption">The presenter opens the talk, introducing the session on scaling Gemini for Roblox development.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_02.jpg" loading="lazy" data-caption="Discussion of real‑time filtering mechanisms, highlighting how false‑positive rates are monitored and mitigated during live inference." data-yt-ts="153"><figcaption class="gal-caption">Discussion of real‑time filtering mechanisms, highlighting how false‑positive rates are monitored and mitigated during live inference.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_03.jpg" loading="lazy" data-caption="Explanation of the hybrid evaluation approach that blends offline benchmark suites with user‑sentiment signals to gauge model improvements." data-yt-ts="643"><figcaption class="gal-caption">Explanation of the hybrid evaluation approach that blends offline benchmark suites with user‑sentiment signals to gauge model improvements.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_04.jpg" loading="lazy" data-caption="Overview of leveraging public internet sources as external test data to stress‑test the model and uncover edge‑case failures." data-yt-ts="1224"><figcaption class="gal-caption">Overview of leveraging public internet sources as external test data to stress‑test the model and uncover edge‑case failures.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_05.jpg" loading="lazy" data-caption="Details on latency measurement, rate‑limit enforcement, and sampling production traffic to ensure performance targets are met." data-yt-ts="1759"><figcaption class="gal-caption">Details on latency measurement, rate‑limit enforcement, and sampling production traffic to ensure performance targets are met.</figcaption></figure>
+<figure class="gal-item"><img src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" alt="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_frame_06.jpg" loading="lazy" data-caption="Closing remarks summarizing the Gemini Agent Platform’s capabilities and outlining next steps for the audience." data-yt-ts="2605"><figcaption class="gal-caption">Closing remarks summarizing the Gemini Agent Platform’s capabilities and outlining next steps for the audience.</figcaption></figure>
 
 </div>
 </section>
@@ -169,68 +186,76 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>dBRPi41nrJw</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The panel, moderated by Google Applied AI leader <strong>Donna</strong>, brings together experts from DeepMind, JetBrains, and Roblox to discuss how they moved Gemini from experimental pilots to large‑scale production. Each speaker describes their organization’s use‑cases, the engineering challenges they faced—latency, cost, reliability, and prompt tuning—and the practices that helped them turn promising prototypes into reliable services.</p>
+<p>The panel, moderated by Google Applied‑AI leader <strong>Donna</strong>, explored how three large‑scale tech companies move Gemini from a pilot experiment to production‑grade services.  DeepMind’s <strong>Arca</strong>, JetBrains’ <strong>Nick</strong>, and Roblox’s <strong>Naren</strong> each described their organization’s use‑cases, the engineering constraints they hit (latency, cost, precision, observability, etc.), and the practices that helped them ship reliable, cost‑effective Gemini‑powered solutions.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Introductions &amp; company context</strong> – Arca (DeepMind), Nick (JetBrains), Naren (Roblox) outline their roles and why Gemini matters to them.</li>
-<li><strong>How Gemini is used today</strong>
+<li><strong>Company introductions &amp; roles</strong> – brief context about DeepMind’s applied AI team, JetBrains’ Junior AI development agent, and Roblox’s safety engineering.</li>
+<li><strong>How Gemini is used</strong>
 <ul>
-<li><strong>Roblox</strong>: safety pipeline (text, image, video, 3‑D) that routes ambiguous content to Gemini for high‑recall/precision decisions.</li>
-<li><strong>JetBrains</strong>: the <strong>Junior</strong> AI development assistant uses <strong>Gemini Flash</strong> as its default model for cost‑effective code generation, achieving top‑rank benchmark scores.</li>
-<li><strong>DeepMind Applied AI</strong>: Gemini assists in domain‑expert discovery, synthetic user studies, code generation, vulnerability detection, and brainstorming product strategy.</li>
+<li><strong>Roblox:</strong> safety‑filter pipeline, routing ambiguous content to Gemini for higher‑recall decisions on text, images, video, and 3D assets.</li>
+<li><strong>JetBrains:</strong> selects <strong>Gemini Flash</strong> as the default model for the Junior coding assistant, achieving strong benchmark results and a ten‑fold cost reduction versus larger models.</li>
+<li><strong>DeepMind:</strong> leverages Gemini for product‑spec brainstorming, synthetic user‑study simulations, code generation, vulnerability detection, and other engineering‑assist tasks.</li>
 </ul>
 </li>
 <li><strong>From pilot to production – engineering constraints</strong>
 <ul>
-<li><strong>JetBrains</strong>: agentic software brings variable model behavior; solution = close partnership with ML research, deep analysis of inference paths, token usage, and iterative prompt optimization.</li>
-<li><strong>Roblox</strong>: real‑time content moderation required precise recall/false‑positive control, latency budgeting, and cost containment; they iterated on prompt engineering, load‑testing, and traffic routing.</li>
-<li><strong>DeepMind</strong>: maturity of supporting scaffolding (observability, drift detection, serving infra) is still evolving; investments in Vertex AI and other serving platforms are crucial.</li>
+<li><strong>Nick (JetBrains):</strong> complexity of agentic workflows, need for deep model behavior analysis (token usage, inference steps, latency) and continuous prompt/parameter tuning.</li>
+<li><strong>Naren (Roblox):</strong> four core metrics—recall, false‑positive rate, latency, and cost; challenges of prompt engineering, load‑testing, and cost containment at &gt;700 k RPS.</li>
+<li><strong>Arca (DeepMind):</strong> immature scaffolding around serving‑infrastructure; importance of observability, drift detection, rapid root‑cause analysis, and robust serving platforms (Vertex AI, etc.).</li>
 </ul>
 </li>
-<li><strong>Best practices &amp; observability</strong> – need for robust monitoring, drift tracking, rapid root‑cause analysis, and patching mechanisms; migration from Gemini 1.5 → 2.0 taught hard lessons, but moving to 3.0 feels smoother.</li>
-<li><strong>Evaluating models for real‑world ROI</strong> – academic benchmarks don’t reflect production needs; evaluate against <strong>hard, domain‑specific test sets</strong>, measure recall/false‑positive rates, and treat metrics as “gameable” unless the evaluation data is sufficiently challenging.</li>
+<li><strong>Best‑practice recommendations</strong>
+<ul>
+<li>Treat Gemini as a <strong>partner</strong> in the product development loop, not just a black‑box service.</li>
+<li>Invest in <strong>observability</strong> (metrics, logs, alerts) and <strong>drift monitoring</strong> to detect model regressions early.</li>
+<li>Build <strong>real‑world evaluation suites</strong> that are harder than academic benchmarks; iterate on them to avoid over‑optimizing on easy test sets.</li>
+<li>Adopt a <strong>tiered model architecture</strong>: high‑precision in‑house models for confident cases, fall‑back to Gemini for ambiguous or high‑recall scenarios.</li>
+<li>Allocate dedicated <strong>ML research/ML‑ops resources</strong> to continuously tune prompts, measure token efficiency, and manage latency budgets.</li>
+</ul>
+</li>
+<li><strong>Evaluation framework discussion</strong> – Naren emphasized that metrics can be gamed; the hard part is constructing a challenging, representative evaluation set and measuring recall, false‑positive, latency, and cost on it.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li><strong>Hybrid approach works best</strong> – combine specialized in‑house models for high‑confidence decisions with Gemini for ambiguous cases.</li>
-<li><strong>Prompt engineering is an art</strong>; ongoing collaboration with DeepMind’s experts (or internal ML researchers) is essential to achieve the required precision without exploding false positives.</li>
-<li><strong>Latency and cost are trade‑offs</strong>; monitor P90/P75 latency distributions and keep Gemini traffic proportionate to budget constraints.</li>
-<li><strong>Observability stacks must evolve</strong> – drift detection, uptime dashboards, and rapid rollback/patching are non‑negotiable for production‑grade agentic systems.</li>
-<li><strong>Benchmarks alone are insufficient</strong>; build internal, hard evaluation suites that mirror the live workload to prevent “gameable” metric pitfalls.</li>
-<li><strong>Maturity of serving infrastructure is catching up</strong>; leveraging Google Cloud services (Vertex AI, dedicated serving platforms) eases migration and scaling.</li>
+<li><strong>Hybrid model stacks</strong> (internal specialized models + Gemini) give the best balance of precision, recall, latency, and cost at massive scale.</li>
+<li><strong>Prompt engineering is an art</strong>; close collaboration with DeepMind’s applied‑AI team helped Roblox tighten precision without sacrificing recall.</li>
+<li><strong>Observability and drift detection</strong> are essential; without mature serving scaffolding, moving from MVP to production is the main source of risk.</li>
+<li><strong>Cost awareness</strong> drives model choice—JetBrains found Gemini Flash to be the optimal price‑performance point for development assistance.</li>
+<li><strong>Real‑world evaluation</strong> must be harder than academic benchmarks; building and maintaining a rigorous eval set is the most valuable engineering effort.</li>
+<li><strong>Latency budgets differ by use‑case</strong>; Roblox tolerates a second P90 for uncertain content moderation but keeps most traffic under 300 ms with their own models.</li>
+<li><strong>Cross‑functional teams (engineers + ML specialists)</strong> are critical for continuous performance monitoring and rapid iteration.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“<strong>We almost always have a high‑recall and a high‑precision model.</strong> When they’re unsure, that’s when we send them to Gemini.” – Naren, Roblox</li>
-<li>“<strong>Prompt tuning is still an art.</strong> We get a lot of help from the DeepMind teams, but achieving super‑high precision requires manual iteration.&quot; – Naren, Roblox</li>
-<li>“<strong>The initial prototypes are easy.</strong> Taking them to production is really hard.&quot; – Naren, Roblox</li>
-<li>“<strong>Observability, drift measurement, and quick root‑cause analysis</strong> are the pillars that turn an MVP into a reliable service.&quot; – Arca, DeepMind</li>
-<li>“<strong>Academic benchmarks don’t reflect real‑world ROI.</strong> Building a hard evaluation set is the hardest part.&quot; – Naren, Roblox</li>
+<li>“<em>Gemini was a really good partner helping us break down what block trade is, what are the inefficiencies…</em>” – Arca (DeepMind)</li>
+<li>“<em>We built a prototype over Thanksgiving break in 3‑4 days, shipped it in a couple of months, and learned that the initial prototypes are easy; taking them to production is really hard.</em>” – Naren (Roblox)</li>
+<li>“<em>The technology is fairly new; a lot of the scaffolding is still maturing. That’s the perfect storm we’re navigating.</em>” – Arca (DeepMind)</li>
+<li>“<em>We measured a ten‑times cost per task difference when we switched to Gemini Flash.</em>” – Nick (JetBrains)</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast. I’m Jordan, your go‑to for the nuts and bolts of how these AI systems actually work.</p>
-<p><strong>MIKE:</strong> And I’m Mike, here to explore why it matters for you, the developer or product leader listening in. Today we’re breaking down a panel on “Scaling Gemini with Proven Practices.”</p>
-<p><strong>JORDAN:</strong> The panel featured Arca from DeepMind, Nick from JetBrains, and Naren from Roblox. They each gave quick intros—DeepMind’s applied AI team, JetBrains’ Junior AI development agent, and Roblox’s safety engineering.</p>
-<p><strong>MIKE:</strong> Right, and the common thread was how they’re using Google’s Gemini models in production, not just in labs.</p>
-<p><strong>JORDAN:</strong> Let’s start with Naren. He explained that Roblox streams up to 700 k requests per second, needing both high recall and high precision for content safety. They use their own specialized models for confident decisions, and fall back to Gemini for the ambiguous cases.</p>
-<p><strong>MIKE:</strong> That’s a clever cascade—keep your cheap, fast models in the front line, and only call Gemini when you really need its broader knowledge. Makes sense for a platform with user‑generated text, images, videos, and even 3D worlds.</p>
-<p><strong>JORDAN:</strong> Nick’s story from JetBrains was all about cost‑effectiveness. They chose Gemini Flash as the default because the quality‑to‑cost ratio nailed their budget, letting them hit top‑two on terminal benchmarks and match Claude 2 on software‑dev tasks—all while slashing per‑task cost by tenfold.</p>
-<p><strong>MIKE:</strong> Ten times cheaper and still competitive on real dev workloads? That’s the kind of ROI developers care about. It shows you don’t always need the biggest model to get the biggest impact.</p>
-<p><strong>JORDAN:</strong> Arca from DeepMind painted a broader picture—Gemini as a partner throughout the product lifecycle, from understanding domain terminology like “block trade” to generating synthetic user studies for product validation. They also use it for code generation, vulnerability detection, and bug triage.</p>
-<p><strong>MIKE:</strong> So it’s not just a content filter or a coding assistant; it’s a full‑stack collaborator that helps engineers and product teams talk the language of their business domains.</p>
-<p><strong>JORDAN:</strong> When the panel moved to engineering constraints, Nick highlighted that agentic software isn’t like traditional apps. You have to monitor prompt behavior, inference latency, token usage, and iterate on prompts constantly. That deep observability let them succeed on benchmarks.</p>
-<p><strong>MIKE:</strong> That resonates with anyone who’s tried to ship an LLM feature—prompt engineering is an ongoing art, not a set‑and‑forget step.</p>
-<p><strong>JORDAN:</strong> Naren added that scaling from a prototype to production introduced four hard metrics: recall, false‑positive rate, latency, and cost. Their P90 latency jumped from 30 ms to a second after adding Gemini, which was acceptable for some use cases but required careful budgeting.</p>
-<p><strong>MIKE:</strong> It’s a classic trade‑off: you get higher recall, but you pay in latency and dollars. The key is to measure those numbers yourself and decide where the premium is worth it.</p>
-<p><strong>JORDAN:</strong> Arca pointed out that the ecosystem is still maturing—observability, drift detection, and automated patching aren’t fully baked yet. Google’s Vertex AI and other serving platforms are trying to fill those gaps, but organizations still need to build internal scaffolding.</p>
-<p><strong>MIKE:</strong> In other words, the tools are getting better, but the responsibility to stitch them together still sits on the engineering team.</p>
-<p><strong>JORDAN:</strong> The panel also touched on evaluation. Naren warned that benchmark scores are gameable and emphasized building hard, realistic eval sets in three phases to truly test recall and false positives.</p>
-<p><strong>MIKE:</strong> That’s a solid framework—don’t rely on public leaderboards; craft your own test suite that mirrors the messiness of production data.</p>
-<p><strong>JORDAN:</strong> Summing up, the takeaways are: use a layered model approach for cost and latency, invest in prompt observability, treat evaluation as a custom, evolving process, and expect to build your own production scaffolding around Gemini.</p>
-<p><strong>MIKE:</strong> And from a big‑picture view, those practices let you turn a shiny LLM into a reliable product feature that actually moves the needle for users—whether they’re building games, writing code, or launching new services.</p>
-<p><strong>JORDAN:</strong> Thanks for tuning in, everyone. Keep digging into the how, and we’ll see you next time.</p>
-<p><strong>MIKE:</strong> Appreciate you listening. Stay curious, stay practical, and catch you on the next episode.</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I'm Jordan, your detail‑driven host, and with me is Mike, our big‑picture explorer.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan! Today we're diving into a panel on scaling Gemini—Google’s new AI model—and how companies are turning it from a prototype into production.</p>
+<p><strong>JORDAN:</strong> Right, the panel featured Arca from DeepMind, Nick from JetBrains, and Naren from Roblox. Each has a unique take on using Gemini in real systems.</p>
+<p><strong>MIKE:</strong> Let's start with the basics. Naren, Roblox deals with a massive amount of user‑generated content. How are they actually using Gemini?</p>
+<p><strong>JORDAN:</strong> Naren explained that Roblox runs anywhere from a thousand to 700,000 requests per second, so latency and cost are huge constraints. They use their own specialized models for confident decisions, and hand off ambiguous cases to Gemini for higher recall.</p>
+<p><strong>MIKE:</strong> That sounds like a classic high‑precision, high‑recall pipeline. Nick, JetBrains took a different route, right? They chose Gemini Flash over Pro. Why?</p>
+<p><strong>JORDAN:</strong> Nick said Gemini Flash gave the best quality‑to‑cost ratio for their Junior AI development assistant. On benchmarks like the terminal test and SW Rebench, Flash performed on par with Claude 2 and Opus 4.6, while cutting task cost by tenfold.</p>
+<p><strong>MIKE:</strong> Impressive savings! And Arca from DeepMind talked about using Gemini for everything from brainstorming product strategies to synthetic user studies. How does that differ from the more engineering‑focused use cases?</p>
+<p><strong>JORDAN:</strong> Arca highlighted that Gemini acts as a partner across the entire product lifecycle—helping non‑technical domain experts understand concepts like “block trade,” and assisting engineers with code generation, vulnerability detection, and even creating simulated users for rapid feedback.</p>
+<p><strong>MIKE:</strong> So across all three, Gemini is the glue between specialized systems and the fuzzy, human‑centric problems. What hurdles did they face moving from pilot to production?</p>
+<p><strong>JORDAN:</strong> Nick pointed out that agentic software isn’t static; you have many models, prompts, and instruction variations. Their solution was to embed ML researchers in the product team, drilling down into inference latency, token usage, and trajectory analysis—not just headline benchmark scores.</p>
+<p><strong>MIKE:</strong> Naren added that in production, metrics like recall, false‑positive rate, latency, and cost become non‑negotiable. He even shared the story of a Thanksgiving‑week prototype that broke in two hours, forcing a full rebuild.</p>
+<p><strong>JORDAN:</strong> That's a great illustration of the “prototype is easy, production is hard” rule. Arca mentioned that the surrounding scaffolding—observability, drift detection, uptime guarantees—is still maturing across the industry.</p>
+<p><strong>MIKE:</strong> It seems the common thread is rigorous evaluation. How are these teams measuring real‑world ROI beyond academic benchmarks?</p>
+<p><strong>JORDAN:</strong> Naren emphasized building ever‑harder evaluation sets that mimic production edge cases. He noted that metrics can be gamed, so the key is continuously evolving the test data to stress the model’s recall and precision.</p>
+<p><strong>MIKE:</strong> And Nick’s approach was to look at end‑to‑end system behavior—prompt tuning, token economics, and step‑by‑step latency—so they could quantify cost per task and make informed trade‑offs.</p>
+<p><strong>JORDAN:</strong> Arca added that as Google rolls out newer Gemini versions, they’re seeing smoother migrations because the underlying serving platforms—Vertex AI, custom serving layers—are getting more robust.</p>
+<p><strong>MIKE:</strong> Bottom line: scaling Gemini isn’t just about picking the right model, it’s about building the whole ecosystem—observability, adaptive prompts, cost monitoring, and rigorous, realistic testing.</p>
+<p><strong>JORDAN:</strong> Exactly. If you’re thinking about adopting Gemini or any large language model, start with a clear metric framework, involve ML experts early, and expect to iterate on prompts as much as code.</p>
+<p><strong>MIKE:</strong> And remember, the payoff isn’t just a cooler demo—it’s real‑world savings, safer user experiences, and the ability to ship AI‑powered features at scale. Thanks for joining us, and we’ll catch you next time!</p>
+<p><strong>JORDAN:</strong> Thanks, everyone! Stay analytical, stay curious.</p>
+<p><strong>MIKE:</strong> Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -245,17 +270,17 @@ details[open] .transcript-summary::before { content: "▼ "; }
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="dBRPi41nrJw"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -283,15 +308,72 @@ details[open] .transcript-summary::before { content: "▼ "; }
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {
