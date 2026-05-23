@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; a0z-2s5BRBs</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=a0z-2s5BRBs" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="the-hypnotic-sound-of-hill-country-blues-a-guitar-lesson-with-a-guitar-teacher">The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=a0z-2s5BRBs">https://www.youtube.com/watch?v=a0z-2s5BRBs</a><br />
+<strong>Video ID:</strong> <code>a0z-2s5BRBs</code></p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The video explores <strong>Hill Country blues</strong>, a rhythm‑driven, upbeat variant of Mississippi blues that evolved for dancing in juke‑joints. The instructor explains the two main sub‑styles—<strong>Delta Drone</strong> and <strong>Hypnotic Boogie</strong>—and demonstrates the distinctive percussive right‑hand technique that gives the genre its “hypnotic” feel. By analyzing three pioneering musicians (Fred McDowell, Junior Kimbrough, and R.L. Burnside), the lesson shows how to recreate their sound on guitar.</p>
+<h2 id="topics-covered">Topics Covered</h2>
+<ul>
+<li><strong>Hill Country blues vs. Delta blues</strong> – Emphasis on fast, percussive strumming for party atmospheres rather than the slower, mournful Delta style.</li>
+<li><strong>Two core approaches</strong>
+<ol>
+<li><strong>Delta Drone</strong> – Drone‑based, often electric, with repetitive minor‑pentatonic riffs layered over a steady bass note.</li>
+<li><strong>Hypnotic Boogie</strong> – Groove‑centric, heavily percussive right‑hand strumming that mimics a bass line while adding syncopated accents.</li>
+</ol>
+</li>
+<li><strong>Right‑hand technique</strong> – Alternating thumb‑pick (or thumb) on low strings with index‑finger picking on higher strings; aggressive attack, muting, and syncopation are essential.</li>
+<li><strong>Fred McDowell</strong> – Open‑E tuning, slide use, thumb‑pick plus index finger pattern; demonstration of “alternating bass‑chuck” motion.</li>
+<li><strong>Junior Kimbrough</strong> – Often in Eb‑standard tuning; monochord drone underneath repeating riffs; visual focus on continuous thumb motion in a band setting.</li>
+<li><strong>R.L. Burnside</strong> – Solo electric, tuned up to F; thumb‑only attack without a pick, showing a comfortable hand position and the same four‑beat percussive cycle.</li>
+<li><strong>Practice tips</strong> – Simplify by alternating low E (or the tuned root) with a higher string, emphasizing the strong beats (2 &amp; 4) with the thumb and syncopated index‑finger lifts.</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Hill Country blues is defined by a <strong>driving, percussive strum</strong> that can stand alone or sit under a full band.</li>
+<li>Master the <strong>thumb‑plus‑index pattern</strong>: thumb hits the low (bass) string, then “chucks” the higher strings while the index finger adds syncopated lifts.</li>
+<li>Use <strong>open or lowered tunings</strong> (Open E, Eb‑standard, F) to achieve the characteristic drone and slide tones.</li>
+<li>A <strong>thumb pick</strong> is helpful for long‑hour playing but not mandatory; the style is hard on the thumb.</li>
+<li>Study the three pioneers—<strong>McDowell, Kimbrough, Burnside</strong>—to understand variations in hand position, tuning, and band vs. solo contexts.</li>
+<li>Practicing the basic <strong>1‑2‑3‑4 rhythm</strong> with heavy emphasis on beats 2 &amp; 4 will develop the hypnotic groove central to the genre.</li>
+</ul>
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li>“The most important thing… is the percussive feel with the right hand.”</li>
+<li>“If you just play that [bass line] it doesn’t sound anything like it—you’ve got to add the percussive feel.”</li>
+<li>“They don’t do that as much in any other styles of blues—this is the most percussive style.”</li>
+<li>“The thumb pick is really going to help save your thumb from getting torn up because this style is really going to tear your thumb up.”</li>
+</ul>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey folks, welcome back to the show! I’m Jordan, and today we’re digging into a gritty, foot‑stomping slice of Mississippi music that most people overlook—Hill Country blues. Think of it as the party cousin of Delta blues, born in juke joints where the only rule was “keep dancing.”</p>
+<p><strong>JORDAN:</strong> First off, let’s set the scene. While Delta blues is famous for its mournful, finger‑picked storytelling, Hill Country is all about a relentless groove, a percussive strum that can fill a room even when you’re flying solo. The guitar becomes both rhythm and lead, driving a hypnotic pulse that makes you want to move.</p>
+<p><strong>JORDAN:</strong> The right‑hand technique is the heart of this style. You’re not just picking notes—you’re treating the strings like a drum kit, using a thumb pick or even just your thumb to thump low strings, then slapping the higher ones with the index finger. The key is a steady “one‑two‑three‑four” feel, with extra emphasis on the backbeat to lock in that dance‑floor energy.</p>
+<p><strong>JORDAN:</strong> There are essentially two flavors you’ll run into. The first, called the “Delta drone,” leans on a single bass note that repeats like a mantra while you layer minor‑pentatonic riffs on top. It’s often played on electric guitar, a bit faster than traditional Delta, and it creates that trance‑like foundation you hear in classic Hill Country tracks.</p>
+<p><strong>JORDAN:</strong> The second flavor is the “hypnotic boogie.” This one abandons the drone for a more active, groove‑centric approach. You’ll hear a driving, percussive strum that sounds almost like a bass line meshed with a rhythm guitar, all while keeping the tempo tight enough for a crowd to lose themselves in the beat.</p>
+<p><strong>JORDAN:</strong> To really get a feel for it, listen to Mississippi Fred McDowell’s “Shake ‘Em On Down.” He plays solo, in an open E tuning, using a thumb pick to nail that chunky low‑end thump, then lets his index finger dance across the higher strings. Notice how his right hand alternates—thumb hits the bass, then a quick index flick—creating a syncopated groove that’s unmistakably Hill Country.</p>
+<p><strong>JORDAN:</strong> Fred’s technique highlights a crucial tip: you have to hit those strings with enough force. A soft strum won’t cut it; the whole point is that percussive snap that makes the guitar sound like it’s got its own drum kit. And don’t forget the muting—right‑hand or left‑hand palms deaden the strings just enough to keep the rhythm tight.</p>
+<p><strong>JORDAN:</strong> Next up, Junior Kimbrough brings the electric side of the genre to life. He often tuned down to E♭ and let a single drone note ring out while he layered repetitive, slightly off‑kilter riffs on top. In a band setting, you can hear his thumb chugging a steady pulse, the rest of the group feeding off that relentless groove.</p>
+<p><strong>JORDAN:</strong> Kimbrough’s style shows why the “drone” is so effective—it creates a sonic floor you can bounce on. Even when the guitar is doing simple, looping phrases, the constant bass note keeps the music moving, and the whole band locks into that vibe. The result is a hypnotic, almost trance‑inducing experience that’s perfect for a juke joint crowd.</p>
+<p><strong>JORDAN:</strong> Then there’s R.L. Burnside, the third pillar of Hill Country blues. Burnside’s solo electric work, like “See My Jumper Hanging on the Line,” is a masterclass in percussive strumming without a thumb pick. He uses his bare thumb to pound the low strings and his fingers to chop the treble, keeping the pattern tight—one‑two‑three‑four, with a heavy accent on beats two and four.</p>
+<p><strong>JORDAN:</strong> Burnside also tuned his guitar up to F, which gives his tone a bright, cutting edge while preserving that heavy rhythmic drive. The lesson here is that you don’t need exotic gear—just a solid right‑hand groove, consistent muting, and a willingness to let the guitar do the drumming.</p>
+<p><strong>JORDAN:</strong> So, what’s the takeaway? Hill Country blues is all about rhythm first, melody second. Focus on that percussive right‑hand pattern, lock in a drone or a simple bass groove, and let the repeated riffs spin around it. Whether you’re solo or with a band, the goal is to make people want to get up and dance.</p>
+<p><strong>JORDAN:</strong> That’s it for today’s deep dive into the groove‑filled world of Hill Country blues. Try out the thumb‑and‑index patterns, experiment with open tunings, and let the rhythm take over. Thanks for listening—keep the music alive, stay curious, and I’ll catch you on the next episode. Cheers!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3" type="audio/mpeg"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb     = document.getElementById('lightbox');
+  var lbImg  = document.getElementById('lightboxImg');
+  var lbCap  = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  var lbPrev = lb.querySelector('.lightbox-prev');
+  var lbNext = lb.querySelector('.lightbox-next');
+  var imgs   = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur    = 0;
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

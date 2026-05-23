@@ -191,5 +191,22 @@
     "audio_file_size_bytes": 2623224,
     "audio_duration_seconds": 292,
     "episode_summary": "In this lesson the instructor breaks down the hill\u2011country blues classic \u201CGoin\u2019 Down South\u201D (popularized by R.L.\u202FBurnside and the Black Keys). He explains how the style relies on short, groove\u2011oriented riffs rather than complex chord changes, and teaches the main eight\u2011bar pattern using two\u2026"
+  },
+  "Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html": {
+    "title": "The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher",
+    "video_url": "https://www.youtube.com/watch?v=a0z-2s5BRBs",
+    "published_at": "2026-05-23T14:58:43.6027151+00:00",
+    "hosts": 1,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3",
+    "audio_file_size_bytes": 2487168,
+    "audio_duration_seconds": 274,
+    "episode_summary": "The video explores Hill Country blues, a rhythm\u2011driven, upbeat variant of Mississippi blues that evolved for dancing in juke\u2011joints. The instructor explains the two main sub\u2011styles\u2014Delta Drone and Hypnotic Boogie\u2014and demonstrates the distinctive percussive right\u2011hand technique that gives the genre\u2026"
   }
 }
