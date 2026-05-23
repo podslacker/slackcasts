@@ -1,0 +1,18 @@
+﻿JORDAN: Hey everyone, welcome back to the podcast! I’m Jordan, ready to dig into the latest AI buzz.
+MIKE: And I’m Mike, excited to explore what all this means for developers and everyday users. Today we’re unpacking Google’s new Antigravity platform and those crazy managed agents they just launched.
+JORDAN: Right, the keynote highlighted Gemma 4—an open‑source model that fits on a phone yet powers robots and satellites. The real kicker is the Antigravity agent harness that lets you run an agent in a secure sandbox with a single API call.
+MIKE: That sounds like a game‑changer. Imagine a startup just pulling up a Linux VM behind the scenes, no dev‑ops nightmare, and instantly having an AI agent that can comb through code, design assets, or even produce a radio show.
+JORDAN: Speaking of radio shows, Logan demonstrated an “AI Talk Radio” agent that pulls the latest Hacker News, writes a script, generates TTS, composes background music, and spits out an MP3—all defined in a Markdown file.
+MIKE: And the coolest part? You don’t write any orchestration code. Just describe the skills in Markdown, and the agent figures out the workflow. It's like turning a README into a full production pipeline.
+JORDAN: The demo also showed the agent’s sandbox environment. By provisioning a remote Linux container, Google handles isolation, scaling, and security, which is huge for compliance‑sensitive apps.
+MIKE: Exactly, developers can focus on the prompt and the data, not on firewall rules or container orchestration. That lowers the barrier for small teams to build sophisticated AI‑driven services.
+JORDAN: Paige Bailey took it a step further by wrapping the same radio agent into a full‑stack app, deploying it to Cloud Run with a couple of clicks—no credit card required for new users.
+MIKE: That seamless “prompt‑to‑app” flow is massive. It means a product can go from idea to live URL in minutes, which is something we’ve only dreamed about a few years ago.
+JORDAN: Plus, the integration now supports building Android apps directly in AI Studio, generating Kotlin code, and even publishing to the Play Store—all from the same interface.
+MIKE: So you could prototype a data‑science tool on the web, then instantly spin up a native Android companion—everything staying in sync thanks to the one‑click export to Antigravity.
+JORDAN: Anshul’s Antigravity 2.0 adds dynamic subagents and scheduled tasks, letting a primary agent spin up specialized helpers or run cron‑style jobs autonomously.
+MIKE: That opens up real‑world use cases like nightly PR summaries, continuous cloud health monitoring, or even automated content generation pipelines that never sleep.
+JORDAN: To recap, we have open models like Gemma 4, managed agents with sandboxed execution, a Markdown‑driven skill definition language, and a full dev‑to‑deploy stack from AI Studio to Cloud Run and Android.
+MIKE: The takeaway is that building AI‑powered agents is becoming as easy as writing a doc, and deploying them is as simple as hitting “publish.” Thanks for tuning in, and we’ll see you next time!
+JORDAN: Stay curious, stay analytical, and keep building. Bye!
+MIKE: Catch you later, everyone! Bye!

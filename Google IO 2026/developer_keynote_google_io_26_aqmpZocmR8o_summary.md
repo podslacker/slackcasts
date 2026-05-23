@@ -6,100 +6,97 @@
 ---
 
 ## Overview  
-Google’s I/O 2026 developer keynote introduced the next generation of AI agents built on the **Gemini** and **Gemma** model families. The company unveiled **Google Antigravity**, a unified agent‑centric development platform, along with managed‑agent APIs, new AI Studio capabilities, and tools for rapid deployment to web, Android, and Cloud Run. Live demos showed agents creating a full‑stack radio‑show app, generating code, assets, and even publishing to the Play Store, illustrating how developers can now build, run, and scale AI‑powered agents end‑to‑end.
+Google’s I/O ‘26 developer keynote showcased the company’s shift toward **agentic AI**.  New Gemini models, the open‑source Gemma 4, and the **Google Antigravity** platform were presented as the backbone for building, deploying, and managing AI agents that can complete complex, end‑to‑end tasks.  Live demos illustrated how developers can create agents in the Gemini API, run them in secure sandboxes, and ship full‑stack applications—from web services to Android apps—directly from AI Studio.
 
 ## New Features & Announcements  
 
-- **Managed Agents (Gemini API)** – One‑call creation of an agent together with a secure remote Linux sandbox.  
-  Timeline: Available today  
-  Availability: Public  
-
-- **AI Studio – Agent Playground & Build** – Pre‑built open‑source agent templates (e.g., AI Talk Radio) that run instantly; one‑click deployment to Cloud Run, Android, and future Play Store publishing.  
+- **Managed Agents (Gemini API)** — Agents can be created with a single Gemini API call, automatically paired with a remote Linux sandbox hosted by Google.  
   Timeline: Available today  
 
-- **Antigravity SDK** – Local‑run version of the agent harness optimized for Gemini, giving developers full programmatic control over agent execution.  
+- **AI Studio Agent Templates** — Open‑source markdown‑based agent definitions (e.g., AI Talk Radio) that include pre‑wired skills and tools.  
   Timeline: Available today  
 
-- **Antigravity 2.0 Desktop App** – Multi‑agent workspace, dynamic sub‑agents, and scheduled‑task (cron) support for autonomous workflows.  
+- **One‑click Export to Antigravity** — Moves the entire AI Studio project (file system and context) to the Antigravity desktop environment for local development.  
   Timeline: Available today  
 
-- **Integration Add‑ons** – Built‑in support for Firebase/Firestore, Google Workspace (Docs, Gmail, Calendar), and Nano Banana image generation.  
+- **Google Antigravity 2.0** — Desktop app focused on multi‑agent orchestration, dynamic sub‑agents, and scheduled (cron‑style) tasks.  
   Timeline: Available today  
 
-- **One‑Click Export from AI Studio to Antigravity** – Moves the entire project file system and context to the local SDK without losing state.  
+- **Cloud Run Integration & Instant Deploy** — AI Studio can deploy apps to Cloud Run with a single click, no credit‑card needed for new users.  
   Timeline: Available today  
+
+- **Android‑App Generation in AI Studio** — Prompt‑driven creation of native Kotlin apps, previewable in‑studio and publishable to Google Play.  
+  Timeline: Rolling out later this summer  
+
+- **Firebase, Firestore, and Google Workspace Connectors** — Built‑in agents can now access databases, authentication, and productivity apps (Docs, Gmail, Calendar).  
+  Timeline: Announced today  
 
 ## Topics Covered  
 
-- **Recap of Gemini advances** – Introduction of the Omni model, Gemini 3.5 series, and the open‑source Gemma 4 model (Apache 2.0).  
-- **Agentic shift** – Moving from “AI assists” to “AI agents that execute tasks under developer direction.”  
-- **Antigravity platform** – Core agent runtime, remote sandboxing, and how it powers Gemini Spark and the coding agent.  
-- **Managed agents** – API design, security model, and real‑world example (Stitch importing design systems from GitHub).  
-- **AI Studio demos** – Creating a talk‑radio agent, generating scripts, TTS, music, cover art, and publishing the MP3.  
-- **From prototype to production** – Deploying the radio‑show app to Cloud Run, then generating a native Android app in Kotlin, previewing in‑studio, and publishing to the Play Store.  
-- **Mobile AI Studio app** – Upcoming Android client for building agents on the go (pre‑registration open).  
-- **Antigravity 2.0 deep dive** – Multi‑agent projects, dynamic sub‑agents, scheduled tasks, and IDE‑agnostic workflow.  
-- **Fine‑tuning open models** – Demonstration of using Antigravity to fine‑tune Gemma 4 without complex pipelines.  
+- **Gemini & Gemma Model Updates** – Introduction of Gemini 3.5 series, Omni model, and Gemma 4 (Apache 2.0, 100 M+ downloads, runs on‑device).  
+- **Agentic Development Philosophy** – Transition from “AI assists” to “AI agents get stuff done under user direction.”  
+- **Antigravity Platform** – Core agent harness, remote sandbox execution, and the new Antigravity 2.0 desktop app for multi‑agent workflows.  
+- **Managed Agents** – How the Gemini API now delivers agents + secure sandbox in a single call; example with Stitch importing design systems from GitHub.  
+- **AI Studio Playground & Custom Agents** – Demonstration of a markdown‑defined “AI Talk Radio” agent that pulls Hacker News, writes scripts, generates TTS, music, covers, and outputs an MP3.  
+- **From Prototype to Production** – Paige builds a personalized radio‑show app, deploys it to Cloud Run, then creates a native Android version, all from AI Studio.  
+- **Developer Experience Enhancements** – Integrated Firebase/Firestore, Google Workspace connectors, one‑click export to Antigravity, and upcoming mobile AI Studio app.  
+- **Dynamic Sub‑Agents & Scheduled Tasks** – Antigravity 2.0 can spin up specialized helper agents and run recurring jobs via cron syntax.  
 
 ## Key Takeaways  
 
-- Google is delivering a **full stack** for AI agents: models, managed execution, developer tooling, and cloud/edge deployment.  
-- **Managed agents** remove the infrastructure burden, letting developers focus on prompts, custom instructions, and tool integration.  
-- **AI Studio** provides a no‑code/low‑code path from prompt to deployable web, serverless, or mobile app in minutes.  
-- **Antigravity SDK & 2.0** give power users the ability to run, orchestrate, and schedule agents locally or on any infrastructure.  
-- The **Gemma 4** open model enables on‑device, offline AI with a tiny footprint, expanding use cases to robots, satellites, and edge devices.  
-- Integration with **Google Workspace, Firebase, Firestore, and Nano Banana** dramatically widens the ecosystem of data sources and content generation capabilities.  
-- Google emphasizes **developer velocity**: one‑click exports, instant sandbox provisioning, and automated publishing aim to shrink the time from idea to production to under an hour.  
+- Google is unifying its AI stack around **agents** that can execute end‑to‑end workflows.  
+- **Managed agents** remove the infrastructure burden; developers receive a secure Linux sandbox with every API call.  
+- **AI Studio** now supports rapid prototyping, full‑stack deployment (web, Cloud Run, Android), and direct publishing to Google Play.  
+- **Antigravity 2.0** gives power users a desktop‑grade environment for multi‑agent orchestration, sub‑agents, and scheduled automation.  
+- Open‑source **Gemma 4** democratizes high‑performance models, runnable on‑device and in edge contexts (robots, satellites).  
+- Integration with **Firebase, Firestore, and Google Workspace** expands agents’ ability to interact with data stores and productivity tools.  
+- The end‑to‑end workflow—from markdown‑defined agent to live app—demonstrates a dramatically faster development cycle for AI‑driven products.  
 
 ## Notable Quotes  
 
-- “The biggest shift is our move towards agents, from AI that simply assists you to agents that help you get stuff done, under your direction and faster.”  
-- “Honestly, it feels like the hottest new programming language is Markdown, and I’m here for it.”  
-- “Managed agents are available starting today… you get an agent and the sandbox in a single API call.”  
-- “If you can go from writing 200 lines of code a day to 2,000 with an AI agent, are you actually a better engineer, or are you just vibing?”  
-- “Dynamic subagents… your agent can spin up specialized helpers… and scheduled tasks let agents run on autopilot.”
+- “**The hottest new programming language is Markdown**… I simply define the skills and tools in Markdown files, and the agent does the rest.” – Logan Kilpatrick  
+- “**We’re moving from AI that simply assists you to agents that help you get stuff done, under your direction and faster.**” – Josh Woodward  
+- “**With managed agents, you get serious power without the complex setup.**” – Logan Kilpatrick  
+- “**Antigravity 2.0 is your mission control for orchestrating agents for all sorts of tasks.**” – Anshul Ramachandran  
+- “**If you can go from writing 200 lines of code a day to 2,000 with an AI agent, are you actually a better engineer, or are you just vibing?**” – Paige Bailey (demo)
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Hey everyone, welcome back to the show! I'm Jordan, your go‑to for the nitty‑gritty of AI tech.
+**JORDAN:** Hey everyone, welcome back to the podcast! I’m Jordan, ready to dig into the latest AI buzz.
 
-**MIKE:** And I'm Mike, here to bring the big picture into focus. Today we're diving into Google’s latest buzz—Gemma 4, Antigravity agents, and that crazy AI‑driven radio show demo.
+**MIKE:** And I’m Mike, excited to explore what all this means for developers and everyday users. Today we’re unpacking Google’s new Antigravity platform and those crazy managed agents they just launched.
 
-**JORDAN:** Right, so Gemma 4 is this open‑source model under Apache 2.0 that packs high‑level reasoning into a tiny footprint—small enough to run on a phone, even on satellites.
+**JORDAN:** Right, the keynote highlighted Gemma 4—an open‑source model that fits on a phone yet powers robots and satellites. The real kicker is the Antigravity agent harness that lets you run an agent in a secure sandbox with a single API call.
 
-**MIKE:** Which is wild because it means developers can now ship AI that works offline, no cloud dependency. Imagine a robot on Mars that can reason without a data link!
+**MIKE:** That sounds like a game‑changer. Imagine a startup just pulling up a Linux VM behind the scenes, no dev‑ops nightmare, and instantly having an AI agent that can comb through code, design assets, or even produce a radio show.
 
-**JORDAN:** Exactly. And the real kicker is the Antigravity platform. It's essentially a managed agent harness that lets you spin up an agent and a secure Linux sandbox with a single Gemini API call.
+**JORDAN:** Speaking of radio shows, Logan demonstrated an “AI Talk Radio” agent that pulls the latest Hacker News, writes a script, generates TTS, composes background music, and spits out an MP3—all defined in a Markdown file.
 
-**MIKE:** So you get the brain and the body in one package—no need to wrestle with infrastructure. That's a huge win for startups that can’t afford DevOps staff.
+**MIKE:** And the coolest part? You don’t write any orchestration code. Just describe the skills in Markdown, and the agent figures out the workflow. It's like turning a README into a full production pipeline.
 
-**JORDAN:** Logan’s demo showed an “AI Talk Radio” agent that pulls the latest Hacker News, scripts a five‑minute show, generates TTS voices, background music, even cover art, and spits out a ready‑to‑stream MP3. All defined in a Markdown file.
+**JORDAN:** The demo also showed the agent’s sandbox environment. By provisioning a remote Linux container, Google handles isolation, scaling, and security, which is huge for compliance‑sensitive apps.
 
-**MIKE:** And the fact that you can do all that just by editing Markdown feels like a new programming language for content creators. No more glue code, just declarative skill blocks.
+**MIKE:** Exactly, developers can focus on the prompt and the data, not on firewall rules or container orchestration. That lowers the barrier for small teams to build sophisticated AI‑driven services.
 
-**JORDAN:** Paige took that same agent and wrapped it in a real app, then deployed it to Cloud Run with a few clicks from AI Studio. The whole pipeline—from prompt to live URL—was under a minute.
+**JORDAN:** Paige Bailey took it a step further by wrapping the same radio agent into a full‑stack app, deploying it to Cloud Run with a couple of clicks—no credit card required for new users.
 
-**MIKE:** That’s the kind of frictionless experience that could turn AI prototypes into consumer products overnight. No credit card needed for the first deployment, too.
+**MIKE:** That seamless “prompt‑to‑app” flow is massive. It means a product can go from idea to live URL in minutes, which is something we’ve only dreamed about a few years ago.
 
-**JORDAN:** And they didn’t stop at web apps. AI Studio now builds Android apps directly, outputting Kotlin code, launching an emulator, even pushing to the Play Store test track.
+**JORDAN:** Plus, the integration now supports building Android apps directly in AI Studio, generating Kotlin code, and even publishing to the Play Store—all from the same interface.
 
-**MIKE:** Which means developers can target phones without ever opening Android Studio. That could democratize mobile AI experiences for non‑engineers.
+**MIKE:** So you could prototype a data‑science tool on the web, then instantly spin up a native Android companion—everything staying in sync thanks to the one‑click export to Antigravity.
 
-**JORDAN:** On the tooling side, Antigravity 2.0 introduces dynamic subagents and scheduled tasks—think agents that spin up specialist helpers or run cron‑style jobs autonomously.
+**JORDAN:** Anshul’s Antigravity 2.0 adds dynamic subagents and scheduled tasks, letting a primary agent spin up specialized helpers or run cron‑style jobs autonomously.
 
-**MIKE:** That opens the door for truly proactive AI assistants, like an agent that summarizes PRs every morning or monitors cloud health hourly without human prompting.
+**MIKE:** That opens up real‑world use cases like nightly PR summaries, continuous cloud health monitoring, or even automated content generation pipelines that never sleep.
 
-**JORDAN:** Plus, they added a one‑click export from AI Studio to the Antigravity SDK, preserving the full file system and context. So you can keep iterating locally without losing any of that prompt history.
+**JORDAN:** To recap, we have open models like Gemma 4, managed agents with sandboxed execution, a Markdown‑driven skill definition language, and a full dev‑to‑deploy stack from AI Studio to Cloud Run and Android.
 
-**MIKE:** It’s a seamless bridge between low‑code prototyping and full‑stack development, which is exactly what many teams need to scale from an idea to production.
+**MIKE:** The takeaway is that building AI‑powered agents is becoming as easy as writing a doc, and deploying them is as simple as hitting “publish.” Thanks for tuning in, and we’ll see you next time!
 
-**JORDAN:** So the takeaway: Gemma 4 brings powerful, offline AI; Antigravity makes building and deploying agents as simple as a single API call; and the new tooling lets you go from Markdown to live apps in minutes.
+**JORDAN:** Stay curious, stay analytical, and keep building. Bye!
 
-**MIKE:** If you’re a developer, a content creator, or just a tech enthusiast, there’s a lot to get excited about. Thanks for listening, and we’ll catch you next time!
-
-**JORDAN:** Stay curious, stay building.
-
-**MIKE:** And stay tuned for more AI breakthroughs. Bye!
+**MIKE:** Catch you later, everyone! Bye!
 
