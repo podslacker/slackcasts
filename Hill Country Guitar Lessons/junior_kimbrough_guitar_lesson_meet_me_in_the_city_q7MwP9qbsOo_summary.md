@@ -6,60 +6,60 @@
 ---
 
 ## Overview  
-In this tutorial the instructor breaks down Junior Kimbrough’s blues classic **“Meet Me In The City.”** The lesson focuses mainly on mastering the 18‑bar intro, which is built around a steady monotonic bass pattern and call‑and‑response melodic phrases. After the intro, the video walks through the verse, chorus, bridge (shuffle), and the short ending tag, highlighting variations, timing tricks, and percussive techniques needed to capture the song’s feel.
+The tutorial breaks down Junior Kimbrough’s blues‑rock tune **“Meet Me In The City.”** The instructor focuses primarily on mastering the 18‑bar intro, which is ideal for practicing monotonic bass patterns that underpin the melody. After the intro, he walks through the verse, chorus, bridge (shuffle), and the short ending tag, highlighting variations, rhythmic feels, and simple percussion techniques.
 
-## Topics Covered
-- **Intro (bars 1‑18)** – Detailed fingerings, barre‑chord positioning on the 2nd fret, hammer‑ons, slides, and the call‑answer phrase structure.  
-- **Verse sections** – How the vocal melody syncopates with the bass line, handling occasional 5‑beat, 6‑beat, or 3‑beat measures while keeping a 4/4 framework for practice.  
-- **Verse outro → Chorus transition** – Shift of the bass root from A to D, specific fingering (5th‑fret B‑string pinky) and timing for the lead‑in.  
-- **Chorus (6 bars)** – Simplified pattern over the D chord, thumb‑doubling on beat 4, and movement back to the A‑root.  
-- **Shuffle/bridge** – Percussive “hand‑slap” technique (X‑marks in the tabs), emphasis on beats 2 and 4, and a D‑major‑7 vibe.  
-- **Ending tag** – Short two‑measure blues turnaround that caps the piece, often followed by a final strummed A chord.  
-- **Practice advice** – Emphasizes slow metronome work, patience, and regular practice; acknowledges that the groove can take weeks or months to internalize.
+## Topics Covered  
+- **Intro (bars 1‑18)** – Detailed finger positioning, bar‑chord shape on the 2nd fret, hammer‑ons, slides, and the call‑and‑response structure (call phrase → answer phrase).  
+- **Verse sections** – Same melodic material as the intro but with syncopated placement of melody notes between bass notes; occasional metric changes (4/4, 6/4, 5/4, 3/4) to match lyric length.  
+- **Verse outro leading to Chorus** – Slightly altered call phrase, transitions that set up a bass‑note change to D for the chorus.  
+- **Chorus** – Six‑measure pattern, new bass root on D, use of pinky on the 5th‑fret B‑string, thumb‑doubling technique on beat 4.  
+- **Shuffle/Bridge** – Re‑uses the answer phrase with added percussive “hand‑slap” on beats 2 & 4 (notated as “X” in the tabs), creating a rhythmic drive.  
+- **Ending tag** – Short two‑measure lick that caps the song, often returning to the intro feel before a final sustained A chord.  
+- **Practice advice** – Emphasizes slow, patient learning; the piece can take weeks or months to internalize, especially for beginners.
 
-## Key Takeaways
-- Master the intro’s monotonic bass pattern first; it forms the foundation for the rest of the song.  
-- Use a full‑bar barre on the 2nd fret to simplify the repeated root‑note movement.  
-- Call‑and‑response phrases consist of a “call” (bass‑driven) and an “answer” (melodic) that repeat throughout the track.  
-- Be prepared for variable measure lengths (4/4, 5/4, 6/4) when singing; keep practice in steady 4/4 and add extra beats as needed.  
-- The chorus switches the low‑E bass note from A to D, requiring a pinky on the 5th fret of the B string.  
-- Incorporate percussive hand‑slaps on beats 2 and 4 during the shuffle section for authentic rhythmic drive.  
-- Patience is essential—this style often takes months to feel comfortable, so practice slowly and be kind to yourself.
+## Key Takeaways  
+- Master the intro’s bar‑chord shape and monotonous bass pattern first; it forms the foundation for the whole song.  
+- Call‑and‑response phrasing is central—understand the “call” (first two bars) and the “answer” (following bars).  
+- Use hammer‑ons, slides, and occasional finger rolls to add expression without extra fretwork.  
+- Be prepared for irregular measure lengths; Kimbrough stretches or compresses bars to fit his vocal phrasing.  
+- In the bridge, incorporate simple percussive hand‑slaps on the guitar body to mimic the original’s rhythmic feel.  
+- Transition smoothly to the chorus by shifting the bass root to D and employing thumb‑doubling for a fuller sound.  
+- Patience is key—regular, slow practice will eventually make the piece click and it becomes very rewarding to play.
 
-## Notable Quotes
-- “**Focus most of your effort on that intro phrase**; the other parts are a lot easier if you can do that first.”  
-- “**He’s always matching his lyric length, so sometimes you’ll see extra beats**—just keep the underlying 4/4 feel for practice.”  
-- “**Give yourself plenty of time to learn it; it’s not super easy but it’s worth it.**”
+## Notable Quotes  
+- “Focus most of your effort on that intro phrase; the other parts of the song are a lot easier if you can do that first.”  
+- “He plays it differently every single time… sometimes he adds extra beats… because he’s always matching his lyric.”  
+- “Be kind to yourself; it’s not super easy and it can take months to get comfortable with this type of thing.”
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Hey everyone, welcome back to the show! I'm Jordan, and today we're diving into one of my favorite deep‑south blues gems – Junior Kimbrough’s “Meet Me in the City.” We'll break down why this track is perfect for mastering monotonic bass patterns and, of course, walk through the whole thing so you can start playing it yourself.
+**JORDAN:** Hey everyone, it’s Jordan here, and today we’re diving into a gorgeous blues number by Junior Kimbrough called “Meet Me in the City,” a perfect track to work on those hypnotic, monotonic bass patterns.
 
-**JORDAN:** First things first, let’s set the scene with the intro. Those first 18 bars are the heart of the song, a looping call‑and‑response that’s both hypnotic and deceptively simple. The trick is to lock down a steady root‑note pulse while the melody weaves around it, and that’s exactly what we’ll focus on today.
+**JORDAN:** First off, let’s set the scene—the song is built around a simple, repeating call-and-response structure, and the intro alone spans the first 18 bars, which is where we’ll focus our practice.
 
-**JORDAN:** The intro starts with a two‑fret bar across the top four strings, essentially a barre on the second fret. Think of it like shuffling a deck of cards – you keep returning to the same spot, which makes the groove feel relentless and, honestly, pretty fun to jam on. Add a quick hammer‑on on the second beat and you’ve got that signature vibe right away.
+**JORDAN:** The key to nailing that intro is getting comfortable with a steady root‑note groove while the melody weaves in and out on top; think of it as a bass line you can almost click away on without losing the feel.
 
-**JORDAN:** Measures three and four introduce a little rhythmic twist. You’ll use two fingers to avoid an awkward finger roll, giving the phrase a cleaner, tighter feel. It’s a tiny detail, but it makes the whole thing sit nicely in the pocket, especially when you start layering the melody on top.
+**JORDAN:** To start, you’ll barre the second fret across the top four strings for the first two bars, letting you stay anchored on that root note while you add a little hammer‑on for texture.
 
-**JORDAN:** Now, the “answer phrase” rolls in at measure five. Here we start sliding up the neck – first to the fourth fret, then to the sixth – before landing back on that second‑fret root. This slide‑and‑resolve pattern is what gives the song its soulful call‑and‑response feel, and it repeats with slight variations throughout the piece.
+**JORDAN:** In measures three and four, the pattern shifts a bit—you’ll use two fingers instead of a full barre to keep things smooth, avoiding any awkward finger rolls that can trip you up.
 
-**JORDAN:** Speaking of variations, measures ten and eleven tweak the ending a bit. You’ll slide to the sixth fret with your third finger, then pop in the fifth‑fret B‑string note with your second finger. It’s a subtle change, but it keeps the groove from getting stale and adds a touch of bluesy tension.
+**JORDAN:** Then we get to the “answer” phrase, where the melody slides up to the sixth fret the first time, then pulls back to the fourth, and lands back at the second fret, creating a satisfying call‑and‑response loop.
 
-**JORDAN:** After those first seven bars, the intro basically repeats itself up through measure eighteen. That repetition is intentional – it builds a solid foundation for the rest of the song, which, trust me, is a lot easier to tackle once you’ve nailed this groove.
+**JORDAN:** The cool thing is that the rest of the song recycles these ideas with slight variations, so once you lock in the intro, the verse, chorus, and bridge feel like natural extensions.
 
-**JORDAN:** Moving beyond the intro, the verse follows the same chord shape but adds syncopation. Junior layers vocal phrasing between the bass notes, so you’ll hear the melody pop in and out like a conversation. Think of it as a musical dialogue: the bass asks a question, the vocals answer.
+**JORDAN:** When Junior sings, he often stretches the measures—sometimes slipping into six‑four or adding an extra beat to match the lyric length—so don’t worry if you notice those little timing quirks.
 
-**JORDAN:** One of the quirkiest things about “Meet Me in the City” is how Junior bends the time feel. While we’ll stick to a straight 4/4 for practice, the original sometimes stretches to six‑beat or five‑beat measures, matching the length of his lyrics. When you’re comfortable, try experimenting with those extra beats – it adds a whole new level of expressiveness.
+**JORDAN:** In the chorus, the bass note shifts to a D, and you’ll hear a pinky‑bent fifth‑fret on the B string, giving the section a fresh tonal color before we launch into the shuffle bridge.
 
-**JORDAN:** The chorus is where the bass shifts down to a D note, and the vibe brightens just a tad. You’ll hear a pinky on the fifth‑fret B‑string held for a full bar, giving the chord a richer texture. It’s a short six‑measure section, but those D‑tonic changes make the whole song feel like it’s moving forward.
+**JORDAN:** The shuffle part adds a percussive element—think of lightly slapping the guitar body on beats two and four—to emulate the rhythmic hand‑clap feel that’s a hallmark of Kimbrough’s style.
 
-**JORDAN:** After the chorus, we slide into the shuffle bridge – a fun, percussive part where Junior actually slaps his hand on the guitar body for that clicky rhythm. You can replicate that by striking the body with the thumb or a fleshy part of your hand on beats two and four, then following up with a light strum. It creates a gritty, almost drum‑like feel that drives the song home.
+**JORDAN:** Finally, the song wraps up with a short ending tag, a simple descending major blues lick that settles on a lingering A, leaving that resonant after‑glow you’ll want to replay over and over.
 
-**JORDAN:** Finally, the piece wraps up with a two‑measure ending tag. It’s a classic blues turnaround: a quick descent through a major blues run, ending on a sustained A note. It’s short, but it leaves a lingering resonance that sticks in your head long after the track ends.
+**JORDAN:** So, to recap: master the steady root‑note groove in the intro, pay attention to the call‑and‑response phrasing, embrace the occasional metric twists, and sprinkle in some percussive slaps for that authentic blues vibe.
 
-**JORDAN:** So, what should you take away from today’s deep dive? Focus on that intro groove – lock in the monotonic bass, add the slides and hammer‑ons, and let the call‑and‑response pattern become second nature. Once you’ve got that down, the verses, chorus, and shuffle fall into place, and you can start experimenting with those time‑signature quirks and percussive slaps.
+**JORDAN:** Keep patient with yourself—this isn’t a quick‑learn piece, and it can take weeks to feel natural, but the payoff is a soulful, sticky groove that sticks in listeners’ heads.
 
-**JORDAN:** That’s it for today’s episode. Thanks for hanging out and exploring Junior Kimbrough’s “Meet Me in the City” with me. Keep practicing, be kind to yourself, and remember – the blues are all about feeling, not perfection. Catch you next time!
+**JORDAN:** That’s it for today’s deep dive into “Meet Me in the City.” Thanks for hanging out, keep practicing, and I’ll catch you on the next episode. Happy playing!
 
