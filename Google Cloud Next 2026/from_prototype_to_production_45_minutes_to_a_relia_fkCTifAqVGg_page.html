@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" loading="lazy" data-caption="The presenter opens with a brief welcome and introduces the session’s focus on building reliable AI agents for travel experiences."><figcaption class="gal-caption">The presenter opens with a brief welcome and introduces the session’s focus on building reliable AI agents for travel experiences.</figcaption></figure>
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" loading="lazy" data-caption="A key segment explains how selecting the appropriate generative model is crucial for different use cases, emphasizing trade‑offs in performance and cost."><figcaption class="gal-caption">A key segment explains how selecting the appropriate generative model is crucial for different use cases, emphasizing trade‑offs in performance and cost.</figcaption></figure>
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" loading="lazy" data-caption="The speaker details the exact‑match evaluation method, showing how precise metric comparison helps determine the best tool for a given query."><figcaption class="gal-caption">The speaker details the exact‑match evaluation method, showing how precise metric comparison helps determine the best tool for a given query.</figcaption></figure>
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" loading="lazy" data-caption="Discussion turns to the advantages of integrated tooling, highlighting how shared components reduce duplicated effort across multiple agents."><figcaption class="gal-caption">Discussion turns to the advantages of integrated tooling, highlighting how shared components reduce duplicated effort across multiple agents.</figcaption></figure>
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" loading="lazy" data-caption="The talk covers observability, describing built‑in signal collection and a unified dashboard that surfaces latency and safety alerts across cloud providers."><figcaption class="gal-caption">The talk covers observability, describing built‑in signal collection and a unified dashboard that surfaces latency and safety alerts across cloud providers.</figcaption></figure>
-<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" loading="lazy" data-caption="In the closing recap, the presenter summarizes the four main topics: trajectory evaluation, proper agent governance, threat mitigation, and scaling best practices."><figcaption class="gal-caption">In the closing recap, the presenter summarizes the four main topics: trajectory evaluation, proper agent governance, threat mitigation, and scaling best practices.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_01.jpg" loading="lazy" data-caption="The presenter opens with an introduction to the session and outlines the focus on building reliable AI agents for the platform." data-yt-ts="0"><figcaption class="gal-caption">The presenter opens with an introduction to the session and outlines the focus on building reliable AI agents for the platform.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_02.jpg" loading="lazy" data-caption="A key segment explains how the team categorises model tiers and experiments to choose the right model for specific travel‑related use cases." data-yt-ts="103"><figcaption class="gal-caption">A key segment explains how the team categorises model tiers and experiments to choose the right model for specific travel‑related use cases.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_03.jpg" loading="lazy" data-caption="The speaker details the evaluation framework, highlighting the use of an LLM as a judge to assess response quality and exact‑match metrics." data-yt-ts="758"><figcaption class="gal-caption">The speaker details the evaluation framework, highlighting the use of an LLM as a judge to assess response quality and exact‑match metrics.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_05.jpg" loading="lazy" data-caption="The talk covers observability, describing built‑in signal collection, dashboards, and latency monitoring for production agents." data-yt-ts="1574"><figcaption class="gal-caption">The talk covers observability, describing built‑in signal collection, dashboards, and latency monitoring for production agents.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_04.jpg" loading="lazy" data-caption="Discussion turns to integrating tooling with agents, emphasizing how shared components reduce duplicate effort across the development workflow." data-yt-ts="1574"><figcaption class="gal-caption">Discussion turns to integrating tooling with agents, emphasizing how shared components reduce duplicate effort across the development workflow.</figcaption></figure>
+<figure class="gal-item"><img src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" alt="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_frame_06.jpg" loading="lazy" data-caption="In the closing recap, the presenter summarises the four main topics—trajectory evaluation, guardrails, threat mitigation, and scaling—before ending the session." data-yt-ts="2675"><figcaption class="gal-caption">In the closing recap, the presenter summarises the four main topics—trajectory evaluation, guardrails, threat mitigation, and scaling—before ending the session.</figcaption></figure>
 
 </div>
 </section>
@@ -169,63 +186,60 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>fkCTifAqVGg</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>In this session, Booking.com’s AI Platform team shares how they moved from early Gen‑AI experiments to a production‑grade, agent‑centric solution built on Google Gemini and Vertex AI. Alibek introduces the company’s scale and AI maturity, while Maria walks through four real‑world use cases (customer‑facing, internal, partner analytics, and multimodal). The talk then shifts to practical guidance from Google engineers on evaluating, deploying, securing, and observing agents in production.</p>
+<p>In this session, Booking.com engineers explain how they moved from early generative‑AI experiments to a production‑grade, agent‑centric AI platform built on Gemini and Vertex AI. They walk through several customer‑facing and internal use cases, share practical lessons about model serving, governance, and developer enablement, and then hand off to Google Cloud specialists who outline best‑practice principles for evaluating, deploying, securing, and monitoring agents in production.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Booking.com’s AI journey</strong> – From a simple ChatGPT‑style wrapper in 2023 to a governed, multi‑provider AI ecosystem with built‑in safety and lifecycle management.</li>
-<li><strong>Use‑case showcase</strong>
-<ol>
-<li><strong>Know Before You Go</strong> – Customer‑facing travel assistant that combines Gemini with Google Maps and search grounding to generate itineraries and airport‑to‑hotel directions.</li>
-<li><strong>Big Bot</strong> – Internal data‑registry chatbot that lets employees locate data assets and create workflows via natural language.</li>
-<li><strong>Partner Analytics</strong> – Host‑facing tool that extracts traveler pain points from reviews, turning unstructured feedback into actionable themes.</li>
-<li><strong>Reels to Reality</strong> – Multimodal agent that ingests short‑form travel videos (YouTube URLs) and turns the inspiration into concrete itineraries on the Booking.com app.</li>
-</ol>
-</li>
-<li><strong>Serving strategies on Vertex AI</strong> – Comparison of on‑demand, provisioned throughput, and priority processing tiers; importance of matching the tier to latency and scale requirements of each use case.</li>
-<li><strong>Platform ownership vs. self‑service</strong> – The AI platform team provides the infrastructure, documentation, hackathons, and support to enable product teams to move from prototype to production independently.</li>
-<li><strong>Google Cloud best practices</strong> (presented by Manasa &amp; Naz)
-<ul>
-<li>Evaluating agents: response‑level (LLM‑as‑judge) vs. trajectory‑level metrics that inspect tool calls and workflow.</li>
-<li>Rapid code‑to‑cloud migration using Agent Engine and Model Armor.</li>
-<li>Defining agent identity at deployment time for governance and traceability.</li>
-<li>Security controls for production agents (IAM, VPC Service Controls, secrets management).</li>
-<li>Observability &amp; auditability: logging, tracing, and debugging tools for non‑deterministic agent behavior.</li>
-</ul>
-</li>
+<li><strong>Booking.com AI maturity journey</strong> – From a simple ChatGPT‑style wrapper in 2023 to a multi‑provider, governed AI ecosystem with built‑in safety, monitoring, and lifecycle management.</li>
+<li><strong>Customer‑facing agent “Know Before You Go”</strong> – Uses Gemini, Google Maps, and search grounding to generate personalized itineraries, transport links, and travel advice between booking and departure.</li>
+<li><strong>Internal “Big Bot” data‑registry chatbot</strong> – Allows employees to query internal data assets and create workflows via natural language, boosting developer productivity.</li>
+<li><strong>Partner analytics bot</strong> – Extracts pain‑points and themes from guest reviews, helping partners prioritize improvements (e.g., pool quality, breakfast variety).</li>
+<li><strong>Multimodal “Reels to Reality”</strong> – Takes short‑form travel videos (YouTube URLs) as input, converts visual inspiration into concrete itineraries on the Booking.com app.</li>
+<li><strong>Serving‑tier experimentation</strong> – Comparison of Vertex AI serving options (on‑demand, provisioned throughput, priority processing) and how the team matched each tier to a specific use case’s latency and scalability needs.</li>
+<li><strong>Platform ownership &amp; knowledge sharing</strong> – Emphasizes the need for self‑service tooling, up‑to‑date docs, hackathons, and community support to move teams from prototype to production.</li>
+<li><strong>Google Cloud agent‑deployment principles</strong> (presented by Manasa &amp; Naz) – Evaluation methods (response vs. trajectory), using “LLM as judge,” automated metrics, identity &amp; security at deployment, and observability/auditability for production agents.</li>
+<li><strong>Demo overview</strong> – A travel‑concierge demo featuring a London itinerary agent that orchestrates weather services, ticketing, and activity agents, illustrating end‑to‑end agent orchestration on Google Cloud (Agent Engine, Model Armor, etc.).</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Successful production agents require <strong>both the right model and the right serving strategy</strong>; default on‑demand serving is often insufficient for latency‑sensitive or multimodal workloads.</li>
-<li><strong>Governance and visibility</strong> are as critical as model performance—centralized monitoring, safety guardrails, and clear documentation enable scalable self‑service across the organization.</li>
-<li>Multi‑modal capabilities (e.g., processing YouTube URLs) unlock novel travel experiences and illustrate Gemini’s strength in grounding visual content to actionable recommendations.</li>
-<li><strong>Evaluation must go beyond surface responses</strong>; trajectory metrics that track tool usage and data flow provide deeper insight into agent reliability.</li>
-<li>Google Cloud offers a suite of tools (Vertex AI, Agent Engine, Model Armor) that streamline the end‑to‑end lifecycle—from prototyping to secure, observable production deployments.</li>
+<li><strong>Governed, multi‑provider AI is essential for scale</strong> – Booking.com now runs a unified gateway with built‑in safety guards and usage monitoring, enabling rapid rollout of diverse LLM‑based agents.</li>
+<li><strong>One serving tier does not fit all</strong> – Choose Vertex AI serving mode (on‑demand, provisioned throughput, priority) based on each agent’s latency, throughput, and multimodal requirements.</li>
+<li><strong>Agent evaluation must consider both output quality and internal “trajectory”</strong> – Combine human review, LLM‑as‑judge scoring, and automated metrics (groundedness, coherence, tool‑call correctness).</li>
+<li><strong>Developer enablement is half the platform job</strong> – Continuous documentation, tutorials, hackathons, and clear onboarding accelerate the move from experimentation to production.</li>
+<li><strong>Multimodality unlocks new travel experiences</strong> – Directly feeding video URLs to Gemini enables creative use cases like turning social‑media reels into booking‑ready itineraries.</li>
+<li><strong>Production agents need robust identity, security, and observability</strong> – Use Google Cloud tools (Agent Engine, Model Armor, audit logs) to enforce least‑privilege access, protect data, and debug failures.</li>
+<li><strong>Collaboration with Google is a strategic advantage</strong> – Booking.com’s partnership provides access to cutting‑edge models (Gemini) and infrastructure that accelerate agentic product development.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“<em>It’s not just about choosing the right model. It’s about how we serve the LLMs and make them easy to use across our organization.</em>” – Maria</li>
-<li>“<em>One size does not fit all when it comes to serving tiers.</em>” – Maria</li>
-<li>“<em>If I had to summarize our journey in one sentence, it would be this: Booking.com has been moving from isolated GenAI experiments to a governed multi‑provider production‑ready AI ecosystem.</em>” – Maria</li>
-<li>“<em>Agents are non‑deterministic, which brings unique challenges to evaluation—hence the need for trajectory‑level metrics.</em>” – Naz Bayraktar</li>
+<li>“It’s not just about choosing the right model. It’s about how we serve the LLMs and make them easy to use across our organization.”</li>
+<li>“One size does not fit all when it comes to serving tiers; we match the serving strategy with the production need rather than assume the default will do the trick.”</li>
+<li>“Building the platform is only half the job; the other half is helping users understand what’s available, when to use which tool, and how to get started.”</li>
+<li>“If I had to summarize our journey in one sentence: Booking.com has been moving from isolated Gen AI experiments to a governed multi‑provider production‑ready AI ecosystem.”</li>
 </ul>
 <hr />
-<p><em>This summary captures the main points of the 45‑minute presentation on moving from prototype to production with Gemini Enterprise Agent Platform agents.</em></p>
-<hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, your go‑to for the nitty‑gritty of how these AI systems actually work.</p>
-<p><strong>MIKE:</strong> And I’m Mike, here to keep an eye on the big picture and what all of this means for travelers and developers alike. Today we’re diving into Booking.com’s journey from a prototype AI agent to a production‑grade, Google‑powered platform.</p>
-<p><strong>JORDAN:</strong> Right, Alibek kicked things off by showing how Booking.com isn’t just a hotel site—they’ve moved 6.8 billion guest arrivals across 175 k destinations, handling half a million requests per second with sub‑50 ms latency. That’s the kind of scale where any AI hiccup shows up fast.</p>
-<p><strong>MIKE:</strong> Exactly, and that massive traffic is why they needed a robust AI ecosystem, not just a single chatbot. They evolved from a simple wrapper in 2023 to a full‑blown multi‑provider gateway with governance and monitoring baked in.</p>
-<p><strong>JORDAN:</strong> Governance is key. They built a single gateway that logs every model call, enforces safety guardrails, and lets internal teams pick the best model for the job. It’s a classic “serve the model, not the model serves you” approach.</p>
-<p><strong>MIKE:</strong> Speaking of “best model,” Maria walked us through four real use cases—‘Know Before You Go,’ ‘Big Bot,’ partner analytics, and the multimodal ‘Reels to Reality.’ Each one leverages Gemini in a different way, from grounding travel itineraries with Google Maps to parsing YouTube videos into booking recommendations.</p>
-<p><strong>JORDAN:</strong> What stood out to me was the serving strategy shift. For the itinerary bot they moved from on‑demand Vertex AI to provisioned throughput because latency mattered. Then for the video‑to‑itinerary pipeline they tried priority processing to handle the multimodal load. It’s a reminder that “default” is rarely good enough at scale.</p>
-<p><strong>MIKE:</strong> And the internal “Big Bot” is a neat example of AI boosting developer productivity. A natural‑language data‑registry chatbot that can spin up workflows—imagine cutting down weeks of onboarding to minutes for a new data engineer.</p>
-<p><strong>JORDAN:</strong> They also emphasized knowledge sharing. The platform team isn’t just building the tech; they’re curating docs, running hackathons, and making sure every product team knows which serving tier to pick and how to add guardrails. That cultural layer often gets ignored but is vital for production success.</p>
-<p><strong>MIKE:</strong> From a user standpoint, the multimodal “Reels to Reality” is exciting. Travel inspiration is visual, and letting a traveler drop a short YouTube clip and get a ready‑to‑book itinerary flips the traditional search model on its head. That’s the kind of frictionless experience people actually talk about on social media.</p>
-<p><strong>JORDAN:</strong> The underlying lesson is that agent reliability is a stack: model selection, serving tier, governance, observability, and finally, user‑centric design. Booking.com’s partnership with Google gave them the tooling—Gemini, Vertex AI, and Model Armor—to align all those layers.</p>
-<p><strong>MIKE:</strong> So if we sum it up, the key takeaways are: match your serving strategy to the use case, build a self‑service platform with strong governance, and always keep the end‑user experience front and center. That’s how you turn a prototype into a production‑ready travel assistant.</p>
-<p><strong>JORDAN:</strong> Thanks for listening! I’m Jordan, and I hope you got a deeper understanding of the “how” behind reliable AI agents.</p>
-<p><strong>MIKE:</strong> And I’m Mike—keep asking the big questions about how these tech moves impact real travelers and developers. Until next time, stay curious!</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome to the podcast! I’m Jordan, your resident deep‑diver into the “how” and “why” of tech.</p>
+<p><strong>MIKE:</strong> And I’m Mike, ready to bring the big picture and real‑world impact into the mix. Today we’re unpacking a talk from Booking.com about turning AI prototypes into production‑ready agents.</p>
+<p><strong>JORDAN:</strong> The speaker, Alibek, started with some impressive stats—over 6.8 billion guest arrivals, 175 000 destinations, and half a million requests per second at sub‑50 ms latency. That sets a massive scale for any AI system.</p>
+<p><strong>MIKE:</strong> Right, and they’ve been doing AI for over a decade, but the real focus is on generative AI—specifically Gemini on Vertex AI. It’s a classic “ChatGPT moment” turning into a full‑blown ecosystem.</p>
+<p><strong>JORDAN:</strong> Their evolution went from a simple wrapper in 2023 to a single gateway with governance and usage monitoring by early 2024. That governance layer is key for reliable production.</p>
+<p><strong>MIKE:</strong> Governance sounds bureaucratic, but it’s what keeps a global travel platform from spitting out weird answers or leaking data—something users would notice instantly.</p>
+<p><strong>JORDAN:</strong> Maria, their engineer, highlighted four use cases. First up, “Know Before You Go,” an agent that stitches together travel itineraries using Google Maps and search grounding. It’s essentially a reasoning pipeline that pulls external knowledge.</p>
+<p><strong>MIKE:</strong> I love that because it solves a pain point for travelers: turning the abstract excitement of a trip into concrete steps. Imagine asking, “What’s the best way from the airport to my hotel?” and getting a live, personalized plan.</p>
+<p><strong>JORDAN:</strong> Next is “Big Bot,” an internal data registry chatbot. It lets employees query data assets and even generate workflows from natural language. That’s a huge productivity booster for a company of 7,000 people.</p>
+<p><strong>MIKE:</strong> And it shows the dual benefit of LLMs—enhancing both customer‑facing and internal workflows. More efficient dev teams mean faster feature rollouts for travelers.</p>
+<p><strong>JORDAN:</strong> The third case, “Partner Analytics,” extracts pain points from reviews with LLM‑driven signal extraction. It’s not just text generation; it’s knowledge mining at scale.</p>
+<p><strong>MIKE:</strong> That directly feeds into product improvements. If a bunch of guests complain about “breakfast variety,” the partner can act, turning AI insights into better service.</p>
+<p><strong>JORDAN:</strong> Finally, “Reels to Reality” leverages multimodal AI: feed a YouTube travel reel URL, and the model produces a concrete itinerary. That’s a sophisticated use of video understanding and grounding.</p>
+<p><strong>MIKE:</strong> It taps into how modern travelers discover places—through short videos. Turning that inspiration into a bookable plan could be a game‑changer for conversion rates.</p>
+<p><strong>JORDAN:</strong> The team ran into serving challenges on Vertex AI. They tried on‑demand, then provisioned throughput, and finally priority processing for multimodal workloads. It underscores that “one size fits all” doesn’t work at scale.</p>
+<p><strong>MIKE:</strong> Exactly, and that’s a lesson for any org: match the serving tier to the latency and throughput requirements of each use case, otherwise you’ll hit bottlenecks or waste resources.</p>
+<p><strong>JORDAN:</strong> They also stressed platform adoption—building tools is half the battle, the other half is making them discoverable, providing tutorials, hackathons, and clear documentation.</p>
+<p><strong>MIKE:</strong> Which is why many companies struggle with AI adoption. If the internal community can’t find or trust the tool, it never moves from experiment to production.</p>
+<p><strong>JORDAN:</strong> To sum up, Booking.com’s journey shows a shift from isolated GenAI experiments to a governed, multi‑provider AI ecosystem, with Google’s Gemini and Vertex AI as core enablers.</p>
+<p><strong>MIKE:</strong> And the real takeaway for our listeners is that reliable agents need robust governance, the right serving strategy, and a strong internal enablement program.</p>
+<p><strong>JORDAN:</strong> That’s a wrap on today’s deep dive. Thanks for listening, and keep questioning the “how” behind the tech.</p>
+<p><strong>MIKE:</strong> Absolutely—thanks for joining us, and stay tuned for more stories on turning AI ideas into production reality. Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -240,17 +254,17 @@ details[open] .transcript-summary::before { content: "▼ "; }
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="fkCTifAqVGg"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -278,15 +292,72 @@ details[open] .transcript-summary::before { content: "▼ "; }
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {
