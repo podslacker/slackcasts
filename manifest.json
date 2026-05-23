@@ -196,17 +196,18 @@
     "title": "The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher",
     "video_url": "https://www.youtube.com/watch?v=a0z-2s5BRBs",
     "published_at": "2026-05-23T14:58:43.6027151+00:00",
-    "hosts": 1,
+    "last_republished_at": "2026-05-23T15:10:55.6447798+00:00",
+    "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
-    "num_frames": 6,
+    "num_frames": 9,
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3",
-    "audio_file_size_bytes": 2487168,
-    "audio_duration_seconds": 274,
-    "episode_summary": "The video explores Hill Country blues, a rhythm\u2011driven, upbeat variant of Mississippi blues that evolved for dancing in juke\u2011joints. The instructor explains the two main sub\u2011styles\u2014Delta Drone and Hypnotic Boogie\u2014and demonstrates the distinctive percussive right\u2011hand technique that gives the genre\u2026"
+    "audio_file_size_bytes": 1814016,
+    "audio_duration_seconds": 208,
+    "episode_summary": "The video introduces Hill Country blues, a rhythmic, dance\u2011oriented offshoot of Mississippi blues distinct from Delta blues. The instructor explains the two main approaches\u2014Delta Drone and Hypnotic Boogie\u2014and breaks down the percussive right\u2011hand techniques that give the style its signature groove\u2026"
   }
 }
