@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_01.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_01.jpg" loading="lazy" data-caption="Opening title introduces the session on Gemini Enterprise and its role in modern AI workflows."><figcaption class="gal-caption">Opening title introduces the session on Gemini Enterprise and its role in modern AI workflows.</figcaption></figure>
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_02.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_02.jpg" loading="lazy" data-caption="The presenter explains how Gemini Enterprise eliminates manual context gathering by continuously learning from connected files and drives."><figcaption class="gal-caption">The presenter explains how Gemini Enterprise eliminates manual context gathering by continuously learning from connected files and drives.</figcaption></figure>
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_03.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_03.jpg" loading="lazy" data-caption="A discussion of built‑in governance features, including automatic PII masking for all user, tool, and agent interactions."><figcaption class="gal-caption">A discussion of built‑in governance features, including automatic PII masking for all user, tool, and agent interactions.</figcaption></figure>
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_04.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_04.jpg" loading="lazy" data-caption="Case study of Signal Iduna showing how the platform supports health‑insurance knowledge, claim handling, and policy queries."><figcaption class="gal-caption">Case study of Signal Iduna showing how the platform supports health‑insurance knowledge, claim handling, and policy queries.</figcaption></figure>
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_05.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_05.jpg" loading="lazy" data-caption="Explanation of continuous training and support loops that keep agents up‑to‑date and improve response speed."><figcaption class="gal-caption">Explanation of continuous training and support loops that keep agents up‑to‑date and improve response speed.</figcaption></figure>
-<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_06.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_06.jpg" loading="lazy" data-caption="Feedback mechanisms and extended authentication options are highlighted to ensure secure, reliable agent operations."><figcaption class="gal-caption">Feedback mechanisms and extended authentication options are highlighted to ensure secure, reliable agent operations.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_01.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_01.jpg" loading="lazy" data-caption="The opening slide introduces the Gemini Enterprise presentation and sets the stage for the discussion on AI agents for businesses." data-yt-ts="0"><figcaption class="gal-caption">The opening slide introduces the Gemini Enterprise presentation and sets the stage for the discussion on AI agents for businesses.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_02.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_02.jpg" loading="lazy" data-caption="The speaker explains how Gemini Enterprise grounds large language models in company-specific context, eliminating the need for manual copy‑pasting of reference material." data-yt-ts="163"><figcaption class="gal-caption">The speaker explains how Gemini Enterprise grounds large language models in company-specific context, eliminating the need for manual copy‑pasting of reference material.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_03.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_03.jpg" loading="lazy" data-caption="A rollout overview is shown, highlighting the October 2025 launch, user adoption metrics, and the breadth of AI use cases across the organization." data-yt-ts="703"><figcaption class="gal-caption">A rollout overview is shown, highlighting the October 2025 launch, user adoption metrics, and the breadth of AI use cases across the organization.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_04.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_04.jpg" loading="lazy" data-caption="The team demonstrates a specialized premium‑adjustment agent, illustrating how domain experts can encode complex insurance calculations into autonomous workflows." data-yt-ts="1509"><figcaption class="gal-caption">The team demonstrates a specialized premium‑adjustment agent, illustrating how domain experts can encode complex insurance calculations into autonomous workflows.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_05.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_05.jpg" loading="lazy" data-caption="Challenges with enterprise search are discussed, including limitations of the current index‑based mechanism and plans to improve relevance for policy retrieval." data-yt-ts="2185"><figcaption class="gal-caption">Challenges with enterprise search are discussed, including limitations of the current index‑based mechanism and plans to improve relevance for policy retrieval.</figcaption></figure>
+<figure class="gal-item"><img src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_06.jpg" alt="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_frame_06.jpg" loading="lazy" data-caption="The closing segment previews upcoming capabilities such as an enhanced agent designer, event‑driven workflow automation, and broader feature parity across Gemini tools." data-yt-ts="2725"><figcaption class="gal-caption">The closing segment previews upcoming capabilities such as an enhanced agent designer, event‑driven workflow automation, and broader feature parity across Gemini tools.</figcaption></figure>
 
 </div>
 </section>
@@ -169,104 +186,66 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>tBw7IVlnwdY</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The video introduces <strong>Gemini Enterprise</strong>, a unified AI platform designed to turn the growing wave of enterprise agents into a cohesive, secure, and context‑aware work environment. Hosted by product leaders Demetri, Sammy, and guest Florian from Signal Iduna, the session walks through the three foundational pillars of the solution—creation, agent execution, and deep contextual integration—and demonstrates how these elements together solve fragmentation, tool fatigue, and governance challenges for modern organizations.</p>
+<p>The video introduces <strong>Gemini Enterprise</strong>, a unified AI‑driven platform designed to eliminate tool‑fragmentation and boost productivity across organizations.  Demetri, Sammy, and Dimitri explain how the app’s “fabric of universal intelligence” combines generative creation, agent automation, and deep contextual awareness while meeting strict enterprise governance requirements.  Real‑world usage is illustrated with a case study from Signal Iduna, showing how the platform powers collaborative projects, persistent workspaces, and secure AI deployments.</p>
 <h2 id="new-features-announcements">New Features &amp; Announcements</h2>
 <ul>
-<li><p><strong>Canvas (Interactive Creation Space)</strong> – An in‑app, side‑by‑side editor that auto‑launches from chat, pulls context, connectors, and sources to generate drafts of documents or slide decks, with native Google Workspace embedding or a robust proprietary editor.<br />
-Availability: <strong>Public Preview</strong></p>
-</li>
-<li><p><strong>Integrated Agent Designer</strong> – A low‑code, natural‑language interface with a template gallery that lets anyone build, test, and iterate on sophisticated agents, supporting conditional logic, loops, human‑in‑the‑loop checks, and debugging tools.<br />
-Availability: <strong>Preview (EAP coming soon)</strong></p>
-</li>
-<li><p><strong>Gemini Enterprise Projects</strong> – Persistent, bounded workspaces that act as a shared “brain” for teams, preserving context, versioned files, and enabling co‑creation chats where AI and humans iterate on assets together.<br />
-Availability: <strong>Available now in preview</strong></p>
-</li>
+<li><strong>Canvas</strong> – An interactive side‑by‑side editor inside Gemini Enterprise that auto‑generates drafts, slide decks, and other media from chat context.<br />
+Availability: Public Preview</li>
+<li><strong>Integrated Agent Designer</strong> – A low‑code, natural‑language workflow builder with template gallery, conditional logic, human‑in‑the‑loop checks, and iterative feedback loops.<br />
+Availability: Preview, moving to Early Access Program (EAP) soon</li>
+<li><strong>Gemini Enterprise Projects</strong> – Persistent, bounded workspaces that act as shared team knowledge hubs, supporting file attachment, project‑wide context, and co‑creation chat.<br />
+Availability: Currently in preview</li>
 </ul>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Market reality &amp; pain points</strong> – Rapid rise in agent adoption (35 % employee usage) creates silos, tool overload, budget opacity, and heightened security/governance risk.</li>
-<li><strong>Fabric of universal intelligence</strong> – The overarching framework that makes Gemini Enterprise the single front‑door, adapting to existing workflows while ensuring compliance.</li>
-<li><strong>Pillar 1 – Ask &amp; Create Anything</strong>
-<ul>
-<li>Utilises Gemini 3.1 Pro &amp; Flash models for complex reasoning.</li>
-<li>Provides generative media (Nano Banana 2 for images, Veo 3 for video).</li>
-<li>Introduces <strong>Canvas</strong> for automatic document/slide generation, with seamless Google Workspace integration or native editors that include AI‑driven tone/length sliders, versioning, and one‑click export.</li>
-</ul>
-</li>
-<li><strong>Pillar 2 – Deploy Agents to Get Work Done</strong>
-<ul>
-<li>Central registry for native, pre‑built, third‑party, and custom agents.</li>
-<li>One‑click company‑wide rollout with built‑in IAM, policies, and gateways.</li>
-<li>New agent designer supports both agentic (creative) and deterministic (controlled) orchestration, human‑in‑the‑loop checks, iterative feedback loops, and playback debugging.</li>
-</ul>
-</li>
-<li><strong>Pillar 3 – Harness Deep Integrated Context</strong>
-<ul>
-<li>Continuous access to enterprise data sources (Drive, Gmail, Outlook, OneDrive, etc.).</li>
-<li>Ability to store “saved memories” such as brand voice or formatting preferences.</li>
-<li><strong>Projects</strong> provide persistent, bounded contexts that keep files and chats together, enabling AI‑generated overviews for new stakeholders and eliminating repetitive uploads.</li>
-</ul>
-</li>
-<li><strong>Co‑creation &amp; Team Collaboration</strong>
-<ul>
-<li>Shared group chat inside a Project where humans and AI co‑author assets in real time, preserving alignment and reducing back‑and‑forth across tools.</li>
-</ul>
-</li>
-<li><strong>Enterprise Governance &amp; Security</strong>
-<ul>
-<li>Centralized admin console with audit logs, model‑armor protection (prompt‑injection mitigation, PII masking, harmful‑content filtering).</li>
-<li>Leverages existing IAM roles for least‑privilege access controls.</li>
-</ul>
-</li>
-<li><strong>Customer case study – Signal Iduna</strong>
-<ul>
-<li>Overview of a large German insurer adopting Gemini Enterprise (renamed “Cozy” internally) to modernize AI use while maintaining strict regulatory governance and fostering AI literacy across the organization.</li>
-</ul>
-</li>
+<li><strong>Market reality &amp; pain points</strong> – Rapid rise in enterprise AI adoption creates siloed data, tool fatigue, budgeting opacity, and governance challenges.</li>
+<li><strong>Fabric of universal intelligence</strong> – Three pillars (Ask &amp; Create, Deploy Agents, Harness Context) that together form a single front‑door AI experience.</li>
+<li><strong>Ask &amp; Create</strong> – Leveraging Gemini 3.1 Pro/Flash models, generative media (Nano Banana 2, Veo 3), real‑time voice, and multimodal document analysis. Canvas enables seamless drafting of docs and slide decks, with native or Google‑Workspace editors.</li>
+<li><strong>Deploy Agents</strong> – Central registry for Google‑native, pre‑built, third‑party, and custom agents; one‑click company‑wide rollout; built‑in governance, IAM, and policy gates. The new Agent Designer lets anyone build sophisticated workflows with loops, conditional logic, and human‑in‑the‑loop validation.</li>
+<li><strong>Deep Integrated Context</strong> – Continuous learning from Drive, Gmail, Calendar, Outlook, OneDrive, etc.; saved “memories” for brand voice, formatting, and project‑specific knowledge; eliminates the need for repeated file uploads and prompt engineering.</li>
+<li><strong>Team‑wide collaboration</strong> – Introduction of <strong>Gemini Enterprise Projects</strong> as persistent, secure workspaces where all chat, files, and agents share a bounded context. Co‑creation chat allows AI to act as a real‑time co‑author, updating artifacts instantly based on team feedback.</li>
+<li><strong>Governance &amp; Security</strong> – Centralized admin console, audit logs, model‑armor protection (prompt‑injection defense, PII masking), and inheritance of existing IAM roles to enforce least‑privilege access.</li>
+<li><strong>Customer case study – Signal Iduna</strong> – How a large German insurer adopted Gemini Enterprise (branded “Cozy”) to drive AI literacy, meet strict regulatory governance, and modernize its workflow after a legacy paper‑based environment.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>AI agent adoption is surging, but without a unifying platform organizations face data silos, tool fatigue, and governance nightmares.</li>
-<li>Gemini Enterprise’s “fabric of universal intelligence” offers a single, compliant front door that adapts to any workflow.</li>
-<li><strong>Canvas</strong> turns conversational prompts into fully‑featured documents or slide decks without leaving the app.</li>
-<li>The integrated agent designer empowers non‑technical users to create powerful, controllable agents and iterate them quickly.</li>
-<li>Persistent <strong>Projects</strong> preserve context and enable true team‑wide AI collaboration, turning AI from a solo assistant into a shared knowledge hub.</li>
-<li>Security is baked in: model‑armor, audit trails, and seamless IAM integration ensure AI usage meets enterprise compliance standards.</li>
-<li>Real‑world adoption (Signal Iduna) demonstrates how large, regulated enterprises can leverage Gemini Enterprise to drive AI literacy and operational transformation.</li>
+<li>Enterprise AI adoption is soaring, but fragmented tools hinder productivity and governance.</li>
+<li>Gemini Enterprise acts as a <strong>single front‑door</strong> that adapts to existing workflows rather than forcing a new system.</li>
+<li><strong>Canvas</strong> streamlines content creation, turning conversational prompts into polished documents and slide decks without leaving the app.</li>
+<li>The <strong>Agent Designer</strong> empowers users of any skill level to build, test, and iterate sophisticated automation while keeping humans in control.</li>
+<li>Persistent <strong>Projects</strong> provide a shared, context‑rich environment that eliminates “chat‑reset” problems and enables real‑time human‑AI co‑creation.</li>
+<li>Security and compliance are baked in: audit trails, model armor, and seamless integration with corporate IAM.</li>
+<li>Real‑world deployment at Signal Iduna demonstrates the platform’s ability to modernize a highly regulated, legacy‑heavy organization.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
 <li>“The era of copy‑pasting from an AI chat window is behind us.” – Sammy Akram</li>
 <li>“We built a shared group chat directly into the project where humans and AI build assets side‑by‑side.” – Sammy Akram</li>
-<li>“Trust is non‑negotiable – ungoverned AI is a security risk, full stop.” – Demetri, Director of Product</li>
-<li>“It’s not a buzzword, it’s a fundamental pillar for our customers’ trust.” – Florian, Signal Iduna</li>
+<li>“Trust is non‑negotiable. Ungoverned AI is a security risk, full stop.” – Dimitri</li>
+<li>“Deep integrated context… turns Gemini Enterprise into a living extension of your workspace.” – Sammy Akram</li>
 </ul>
 <hr />
-<p><em>Gemini Enterprise positions itself as the connective tissue that turns fragmented AI tools into a unified, governed, and context‑rich enterprise intelligence platform.</em></p>
-<hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the Connected Enterprise podcast. I’m Jordan, your resident detail geek.</p>
-<p><strong>MIKE:</strong> And I’m Mike, here to keep the big picture in focus. Today we’re diving into the Gemini Enterprise platform and how it’s tackling the AI agent explosion.</p>
-<p><strong>JORDAN:</strong> The hype is real—Google Trends shows a hockey‑stick rise in agent interest, and over a third of employees say AI is already part of their daily workflow.</p>
-<p><strong>MIKE:</strong> Right, but that rapid adoption is also spawning “tool fatigue”: siloed data, dozens of apps, and governance nightmares.</p>
-<p><strong>JORDAN:</strong> That’s where Gemini’s “fabric of universal intelligence” comes in. It’s billed as a single front‑door for the whole organization, adapting to existing workflows instead of forcing a new one.</p>
-<p><strong>MIKE:</strong> And they built it on three pillars: ask‑and‑create, deploy agents, and deep context. Let’s unpack the first one—creating anything on the fly.</p>
-<p><strong>JORDAN:</strong> Gemini 3.1 Pro and Flash power the generation of text, images, even video, while the Canvas feature auto‑launches alongside a chat to draft documents or slide decks.</p>
-<p><strong>MIKE:</strong> I love that it can embed Google Docs or Slides directly, so you don’t have to jump between tabs. And for non‑Workspace users there’s a native editor with AI sliders for tone and length.</p>
-<p><strong>JORDAN:</strong> Moving to the second pillar, the agent engine. Gemini positions itself as a “single pane of glass” where you register, design, and roll out agents company‑wide with a single click.</p>
-<p><strong>MIKE:</strong> What’s striking is the blend of natural‑language building blocks with a template gallery, letting anyone craft agents yet still drill down to conditional loops and human‑in‑the‑loop checks.</p>
-<p><strong>JORDAN:</strong> And governance is baked in—IAM roles, policy gateways, audit logs, even model‑armor to block prompt injections and mask PII.</p>
-<p><strong>MIKE:</strong> So enterprises get the flexibility of custom agents without losing control. That’s essential when you’re dealing with regulated data, like in insurance or healthcare.</p>
-<p><strong>JORDAN:</strong> The third pillar is context. Gemini integrates with Drive, Gmail, Outlook, OneDrive, and continuously learns your meeting cadence, project owners, and preferred brand voice.</p>
-<p><strong>MIKE:</strong> In practice that means if I ask the system to draft a project update, it already knows the stakeholders and current milestones—no more copy‑pasting long briefs.</p>
-<p><strong>JORDAN:</strong> They also introduced “Projects,” persistent workspaces that bound context, store files, and let teams co‑create assets in a shared chat thread.</p>
-<p><strong>MIKE:</strong> It’s basically a shared brain: a new stakeholder can hop in, get an AI‑generated project overview, and start contributing without a lengthy catch‑up meeting.</p>
-<p><strong>JORDAN:</strong> Security stays front‑and‑center. All actions are logged, prompts are filtered, and the platform inherits your existing IAM policies to enforce least‑privilege access.</p>
-<p><strong>MIKE:</strong> That alignment of AI freedom and strict governance is what makes Gemini Enterprise a viable option for heavily regulated firms—like the German insurer Signal Iduna they mentioned.</p>
-<p><strong>JORDAN:</strong> So the takeaways: a unified front‑door UI, powerful yet controllable agents, and living context that eliminates the need for endless manual prompt engineering.</p>
-<p><strong>MIKE:</strong> Exactly. If you’re wrestling with fragmented AI tools, Gemini promises to bring everything under one roof while keeping compliance solid.</p>
-<p><strong>JORDAN:</strong> That’s all for today’s deep dive. Thanks for listening, and we’ll be back next week with more enterprise AI insights.</p>
-<p><strong>MIKE:</strong> Stay curious, stay safe, and keep building the connected enterprise. Bye!</p>
+<p><strong>JORDAN:</strong> Hey everybody, welcome back to the Connected Enterprise podcast. I’m Jordan, your go‑to for the nuts‑and‑bolts of how these AI platforms actually work.</p>
+<p><strong>MIKE:</strong> And I’m Mike, here to paint the big picture of why it matters to the rest of us. Today we’re diving into Google’s Gemini Enterprise app—what it promises, how it tackles the chaos of today’s AI agents, and what real‑world teams are already doing with it.</p>
+<p><strong>JORDAN:</strong> The backdrop is that AI agent adoption is soaring—Google Trends shows a hockey‑stick rise, and over a third of employees say they’re using agents daily. But that growth brings a mess: siloed data, tool fatigue, and a nightmare of governance.</p>
+<p><strong>MIKE:</strong> Right, it’s like giving everyone a new superhero gadget without a shared playbook. The big question is: how do you turn that scattered power into a cohesive, secure workflow? That’s where Gemini’s “fabric of universal intelligence” comes in.</p>
+<p><strong>JORDAN:</strong> The fabric rests on three pillars. First, “ask and create anything” – essentially a generative engine built on Gemini 3.1 Pro and Flash, plus multimodal hookups to PDFs, CSVs, and even code repos. It even throws in real‑time voice assistance.</p>
+<p><strong>MIKE:</strong> Which means you’re not stuck copy‑pasting answers from a chat window. The app has this Canvas feature that auto‑opens when you start a long‑form doc, pulls in the chat context, and lets you edit directly in Google Docs or a native editor. No more tab‑hopping.</p>
+<p><strong>JORDAN:</strong> And it goes beyond text. Canvas can spin up an 8‑to‑12 slide deck from the same conversation, embedding Google Slides for Workspace users or exporting to PowerPoint for others. The UI basically lives side‑by‑side with your AI chat.</p>
+<p><strong>MIKE:</strong> That’s the first pillar. The second is all about agents—moving from passive Q&amp;A to active execution. Gemini Enterprise offers a central registry where you can manage Google‑native agents, pre‑built data‑insight agents, third‑party tools, or even custom‑built bots.</p>
+<p><strong>JORDAN:</strong> The agent designer uses natural language templates but still lets power users snap together conditional loops, agentic reasoning, and deterministic logic. You can embed human‑in‑the‑loop checks, audit runs, and even get prompt suggestions automatically as you iterate.</p>
+<p><strong>MIKE:</strong> In other words, you build a workflow once and roll it out company‑wide with a single click, while governance stays baked in—IAM roles, policy gateways, audit logs—so security teams actually breathe a sigh of relief.</p>
+<p><strong>JORDAN:</strong> Which brings us to the third pillar: deep, persistent context. Off‑the‑shelf LLMs know the world, but not your world. Gemini hooks into Drive, Gmail, Calendar, Outlook, OneDrive, and learns your meeting cadence, project tags, even brand voice.</p>
+<p><strong>MIKE:</strong> The result is a “living extension” of your workspace. Ask it to draft a project update, and it already knows the team members, current milestones, and the tone you prefer. No more dragging files into every new chat.</p>
+<p><strong>JORDAN:</strong> They also introduced “Projects” as bounded, shared workspaces. All files and chats inside a Project stay together, creating a persistent knowledge hub that new stakeholders can jump into without a catch‑up meeting.</p>
+<p><strong>MIKE:</strong> And within a Project you get a co‑creation chat where humans and AI iterate on assets in real time—think drafting an email, then instantly tweaking the urgency, with the AI updating the document on the fly. That’s the real‑time alignment teams have been craving.</p>
+<p><strong>JORDAN:</strong> Security isn’t an afterthought either. Gemini Enterprise inherits your existing IAM roles, enforces least‑privilege access, and adds model armor to block prompt injection, filter harmful content, and mask PII. Every action is logged for audit.</p>
+<p><strong>MIKE:</strong> To see it in action, Florian from Signal Iduna shared how their 120‑year‑old insurance firm is rolling out a central AI platform—called T‑Mobile Enterprise internally—to drive AI literacy and compliance across the organization. It’s a concrete example of the fabric in practice.</p>
+<p><strong>JORDAN:</strong> So, the takeaways: Gemini Enterprise tries to solve fragmentation with a unified front‑door, gives creators a powerful yet controllable agent designer, and anchors everything in persistent, collaborative context—all while keeping governance airtight.</p>
+<p><strong>MIKE:</strong> If you’re dealing with tool fatigue, scattered data, or compliance headaches, this could be the switch you need to move from “AI in silos” to “AI as the connective tissue” of your enterprise. Thanks for listening!</p>
+<p><strong>JORDAN:</strong> We’ll keep tracking how these universal‑intelligence fabrics evolve, so stay tuned.</p>
+<p><strong>MIKE:</strong> Until next time, keep building that connected enterprise. Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -281,17 +260,17 @@ Availability: <strong>Available now in preview</strong></p>
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="tBw7IVlnwdY"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -319,15 +298,72 @@ Availability: <strong>Available now in preview</strong></p>
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {

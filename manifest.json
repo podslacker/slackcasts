@@ -128,6 +128,7 @@
     "title": "Gemini Enterprise app: Building the connected enterprise",
     "video_url": "https://www.youtube.com/watch?v=tBw7IVlnwdY",
     "published_at": "2026-05-22T20:29:22.4792503+00:00",
+    "last_republished_at": "2026-05-23T18:31:05.6287757+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -135,7 +136,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.mp3",
+    "audio_file_size_bytes": 2942016,
+    "audio_duration_seconds": 334,
+    "episode_summary": "The video introduces Gemini Enterprise, a unified AI\u2011driven platform designed to eliminate tool\u2011fragmentation and boost productivity across organizations.  Demetri, Sammy, and Dimitri explain how the app\u2019s \u201Cfabric of universal intelligence\u201D combines generative creation, agent automation, and deep\u2026"
   },
   "Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html": {
     "title": "Google Cloud Next \u002726 Opening Keynote",
