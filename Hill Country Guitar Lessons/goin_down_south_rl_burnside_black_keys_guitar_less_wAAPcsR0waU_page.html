@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; wAAPcsR0waU</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=wAAPcsR0waU" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" loading="lazy" data-caption="Opening title slide introduces the hill‑country style blues lesson."><figcaption class="gal-caption">Opening title slide introduces the hill‑country style blues lesson.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" loading="lazy" data-caption="The instructor demonstrates the transition to the second and third strings, highlighting a new finger‑placement pattern."><figcaption class="gal-caption">The instructor demonstrates the transition to the second and third strings, highlighting a new finger‑placement pattern.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" loading="lazy" data-caption="A key visual cue shows the &quot;pop&quot; technique, emphasizing the percussive element of the riff."><figcaption class="gal-caption">A key visual cue shows the &quot;pop&quot; technique, emphasizing the percussive element of the riff.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" loading="lazy" data-caption="The presenter compares two techniques, illustrating how the combined approach changes the sound texture."><figcaption class="gal-caption">The presenter compares two techniques, illustrating how the combined approach changes the sound texture.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" loading="lazy" data-caption="Eight‑bar structure is reviewed, summarizing the full riff and reinforcing timing for learners."><figcaption class="gal-caption">Eight‑bar structure is reviewed, summarizing the full riff and reinforcing timing for learners.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" loading="lazy" data-caption="A rotational motion is demonstrated, showing how altering hand angle creates a different tonal effect."><figcaption class="gal-caption">A rotational motion is demonstrated, showing how altering hand angle creates a different tonal effect.</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="goin-down-south-rl-burnside-black-keys-guitar-lesson-with-tabs">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=wAAPcsR0waU">https://www.youtube.com/watch?v=wAAPcsR0waU</a><br />
+<strong>Video ID:</strong> <code>wAAPcsR0waU</code></p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The lesson teaches the hill‑country blues riff from “Going Down South” (R.L. Burnside / The Black Keys). The instructor explains the style’s groove‑oriented, riff‑based nature, breaks the eight‑bar pattern into two sections, and demonstrates two right‑hand techniques: a traditional finger‑pop and a back‑hand strum with a thumb slap. By the end you should be able to play the full loop at tempo and understand how to add percussive groove.</p>
+<h2 id="topics-covered">Topics Covered</h2>
+<ul>
+<li><strong>Hill‑country blues characteristics</strong> – Emphasizes repetitive riffs, minimal chord changes, and a strong groove.</li>
+<li><strong>Riff structure</strong> – First four bars (8‑beat pattern) followed by a second three‑bar riff; the full song loops these eight bars.</li>
+<li><strong>Detailed tab walk‑through</strong> – Shows each note (e.g., D‑string 5th fret, open high E, tiny quarter‑step bend) and timing (1‑2‑3‑4, with the fourth bar extended to six beats).</li>
+<li><strong>Right‑hand approach #1: Finger pops</strong> – Thumb‑index pluck the low strings, then “pop” the high E and B strings with two fingers; emphasizes short, muted pops using the left hand to silence the strings quickly.</li>
+<li><strong>Right‑hand approach #2: Back‑hand strum + thumb slap</strong> – Rotate the wrist to strike the top two strings with the back of the hand while the thumb hits the low E, creating a percussive click together with the note attack.</li>
+<li><strong>Technique comparison</strong> – The back‑hand method adds extra rhythmic feel and is useful beyond this song; the finger‑pop method is simpler for beginners.</li>
+<li><strong>Practice tips</strong> – Start with the finger‑pop version, then add the back‑hand strum, finally combine both; keep the wrist rotation small (key‑turn motion) and avoid excessive force on the slap.</li>
+<li><strong>Metronome play‑through</strong> – Slow‑tempo run‑through of the full eight‑bar loop in both styles to practice timing and groove.</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Hill‑country blues relies on repetitive, groove‑centric riffs rather than chord changes.</li>
+<li>The main riff is eight bars: four bars with a 6‑beat fourth measure, then a three‑bar secondary riff.</li>
+<li>Small quarter‑step bends give the riff its bluesy flavor.</li>
+<li>Right‑hand technique #1 uses quick finger pops; mute notes with the left hand for a tight sound.</li>
+<li>Technique #2 adds a back‑hand strum and thumb slap, delivering a percussive groove useful in many styles.</li>
+<li>Practice slowly with a metronome, mastering each hand’s motion before combining them.</li>
+<li>The wrist motion for the back‑hand strum is a rotary “key‑turn” movement, not a large arm swing.</li>
+</ul>
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li>“Hill country blues is really more riff‑based or groove‑based – they won’t change the chords as much.”</li>
+<li>“That tiny quarter‑step bend… just to give it that blues bend.”</li>
+<li>“The back‑hand strum … gives it a little more rhythm, a little more groove – that’s a big concept for hill‑country style blues.”</li>
+<li>“Your wrist is basically staying put; it’s a rotational motion, like opening a key at a lock.”</li>
+</ul>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I'm Jordan, your detail‑oriented host, and with me is the ever‑curious Mike.</p>
+<p><strong>MIKE:</strong> What’s up, folks! Today we’re diving into that hill‑country blues riff that’s been blowing up on YouTube—specifically the one from the “Going Down South” tutorial.</p>
+<p><strong>JORDAN:</strong> The video breaks down the groove as a two‑part, eight‑bar pattern that repeats over and over. It’s fundamentally riff‑based, meaning the chord changes are minimal, which is perfect for building hand independence.</p>
+<p><strong>MIKE:</strong> Right, and that repetition is actually the hallmark of hill‑country blues—it's all about that hypnotic groove rather than flashy chord progressions. Listeners, think about how that could shape a jam session.</p>
+<p><strong>JORDAN:</strong> The instructor starts with the first four bars, counting three measures to four beats and the fourth measure to six beats. He emphasizes a tiny quarter‑step bend on the D string’s fifth fret to add that bluesy flavor.</p>
+<p><strong>MIKE:</strong> That bend is subtle but essential; it gives the riff that “wailing” character without sounding like a full‑on whammy bar dive. It’s a great tip for players who want nuance without overcomplicating.</p>
+<p><strong>JORDAN:</strong> He also demonstrates a thumb‑index “pinch” on the low E and D strings, then pops the high E and B strings in between. The rhythm is laid out as “one‑two‑three‑four” for each beat, with the fourth bar getting a double‑hit on the fifth fret.</p>
+<p><strong>MIKE:</strong> I love that visual—thumb and index doing a steady pulse while the other fingers add those percussive pops. It kind of feels like a drum kit on the guitar, which is why it grooves so well.</p>
+<p><strong>JORDAN:</strong> After the first half, he moves to the second riff, which repeats three times before returning to the opening pattern. The right hand here uses simple two‑finger pops, but he also offers a one‑finger alternative for those with limited finger independence.</p>
+<p><strong>MIKE:</strong> That’s a smart adaptation. Not everyone can juggle two fingers cleanly, so giving a solo‑finger option widens the audience. Plus, the repetitive nature makes it easier to lock into that pocket.</p>
+<p><strong>JORDAN:</strong> The “alternate” right‑hand technique is where things get interesting—a backhand strum with a rotation motion, hitting the low string with the thumb simultaneously. This adds a percussive click to the groove.</p>
+<p><strong>MIKE:</strong> Exactly, it’s like adding a snare hit on top of the strum. That extra click makes the riff feel more layered, especially in a live band setting where you need that extra drive.</p>
+<p><strong>JORDAN:</strong> He cautions that the backhand motion should come from the wrist rotation, not the whole arm—think of it as opening a key lock rather than swinging a hammer. Keeping the wrist stable preserves the tone and speed.</p>
+<p><strong>MIKE:</strong> That imagery really helps. If you picture unlocking a door, you avoid the excess motion that can muddy the attack. Listeners, try practicing that rotation slowly with a metronome at 60 BPM.</p>
+<p><strong>JORDAN:</strong> Speaking of tempo, the video ends with a slow play‑through of all eight bars, first with the standard pop technique, then with the backhand strum. That side‑by‑side comparison highlights the tonal difference.</p>
+<p><strong>MIKE:</strong> And it shows that you don’t have to choose one over the other—you can blend both approaches for a dynamic performance. Imagine switching mid‑solo to keep the audience on their toes.</p>
+<p><strong>JORDAN:</strong> To wrap up, the key takeaways are: master the basic eight‑bar riff, experiment with both right‑hand styles, and focus on wrist rotation for the backhand strum. Consistent practice will make the groove feel natural.</p>
+<p><strong>MIKE:</strong> And don’t forget to listen to different versions—from R.L. Burnside to The Black Keys—to hear how each artist puts their own spin on the same foundation. Thanks for tuning in, everyone!</p>
+<p><strong>JORDAN:</strong> That’s it for today’s deep dive into hill‑country blues technique. Keep those strings humming and stay analytical.</p>
+<p><strong>MIKE:</strong> Keep it curious, stay groovy, and we’ll catch you on the next episode. Peace!</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_podcast.mp3</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_podcast.mp3" type="audio/mpeg"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb    = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
+  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
+  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+</body>
+</html>

@@ -173,5 +173,22 @@
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael"
+  },
+  "Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html": {
+    "title": "Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs",
+    "video_url": "https://www.youtube.com/watch?v=wAAPcsR0waU",
+    "published_at": "2026-05-23T05:15:32.7565488+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_podcast.mp3",
+    "audio_file_size_bytes": 2319024,
+    "audio_duration_seconds": 265,
+    "episode_summary": "The lesson teaches the hill\u2011country blues riff from \u201CGoing Down South\u201D (R.L.\u202FBurnside / The Black Keys). The instructor explains the style\u2019s groove\u2011oriented, riff\u2011based nature, breaks the eight\u2011bar pattern into two sections, and demonstrates two right\u2011hand techniques: a traditional finger\u2011pop and a\u2026"
   }
 }

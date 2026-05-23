@@ -31,3 +31,9 @@
 | [Developer Keynote (Google I/O '26)](https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_transcript.txt) |
 | [Google I/O '26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | — | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
 
+## Hill Country Guitar Lessons
+
+| Video | Published | Transcript |
+|-------|-----------|------------|
+| [Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt) |
+
