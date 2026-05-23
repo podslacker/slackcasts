@@ -29,7 +29,7 @@
 | Video | Published | Transcript |
 |-------|-----------|------------|
 | [Developer Keynote (Google I/O '26)](https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_transcript.txt) |
-| [Google I/O '26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | — | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
+| [Google I/O '26 Keynote](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt) |
 
 ## Hill Country Guitar Lessons
 

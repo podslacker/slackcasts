@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,18 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" loading="lazy" data-caption="&gt;&gt; Take a second to realize how far we&#39;ve come. Empowered by all the things we&#39;ve made together. &gt;&gt; How many…"><figcaption class="gal-caption">&gt;&gt; Take a second to realize how far we&#39;ve come. Empowered by all the things we&#39;ve made together. &gt;&gt; How many…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" loading="lazy" data-caption="Maybe grab the details from there, throw them at the top of the Doc, so I know where to go I think the subject…"><figcaption class="gal-caption">Maybe grab the details from there, throw them at the top of the Doc, so I know where to go I think the subject…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" loading="lazy" data-caption="and why we built it to be multimodal from the very start. It was a harder path but the foundation is now…"><figcaption class="gal-caption">and why we built it to be multimodal from the very start. It was a harder path but the foundation is now…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" loading="lazy" data-caption="and keyboard drivers. Turns out that this is missing some necessary video So let&#39;s just try to fix it in the…"><figcaption class="gal-caption">and keyboard drivers. Turns out that this is missing some necessary video So let&#39;s just try to fix it in the…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" loading="lazy" data-caption="And you can see at the speed of my voice, We&#39;ll send that in. All right. it&#39;s taking that one task, and it I…"><figcaption class="gal-caption">And you can see at the speed of my voice, We&#39;ll send that in. All right. it&#39;s taking that one task, and it I…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" loading="lazy" data-caption="To show you how this works, here&#39;s Robby. for your questions. to Search so it can build you custom experiences…"><figcaption class="gal-caption">To show you how this works, here&#39;s Robby. for your questions. to Search so it can build you custom experiences…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_07.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_07.jpg" loading="lazy" data-caption="They&#39;re going to help continue steering this open standard. It may just be the first time we&#39;ve all agreed on…"><figcaption class="gal-caption">They&#39;re going to help continue steering this open standard. It may just be the first time we&#39;ve all agreed on…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_08.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_08.jpg" loading="lazy" data-caption="greeted you with a stunning new design language From the moment you open it, we&#39;ve we call Neural Expressive…"><figcaption class="gal-caption">greeted you with a stunning new design language From the moment you open it, we&#39;ve we call Neural Expressive…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_09.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_09.jpg" loading="lazy" data-caption="These new voice capabilities in Gemini Spark will be coming to the Mac app this summer, as well. This is the…"><figcaption class="gal-caption">These new voice capabilities in Gemini Spark will be coming to the Mac app this summer, as well. This is the…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_10.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_10.jpg" loading="lazy" data-caption="Visual magic is only half the story. Google Flow Music brings the same creative control to help artists create…"><figcaption class="gal-caption">Visual magic is only half the story. Google Flow Music brings the same creative control to help artists create…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_11.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_11.jpg" loading="lazy" data-caption="&gt;&gt; SHAHRAM IZADI: On the screen behind me you can see from Koopa Cafe on Doordash. Nishtha&#39;s phone in her…"><figcaption class="gal-caption">&gt;&gt; SHAHRAM IZADI: On the screen behind me you can see from Koopa Cafe on Doordash. Nishtha&#39;s phone in her…</figcaption></figure>
-<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_12.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_12.jpg" loading="lazy" data-caption="[Applause] Thank you and enjoy the rest of Google I/O. We look forward to building the future with all of you."><figcaption class="gal-caption">[Applause] Thank you and enjoy the rest of Google I/O. We look forward to building the future with all of you.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_01.jpg" loading="lazy" data-caption="The opening title slide introduces the I/O keynote and sets the stage for Google’s AI announcements." data-yt-ts="0"><figcaption class="gal-caption">The opening title slide introduces the I/O keynote and sets the stage for Google’s AI announcements.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_02.jpg" loading="lazy" data-caption="Around the 22‑minute mark the presenter unveils Gemini Spark, highlighting its ability to generate clear, contextual responses and its potential for everyday tasks." data-yt-ts="33"><figcaption class="gal-caption">Around the 22‑minute mark the presenter unveils Gemini Spark, highlighting its ability to generate clear, contextual responses and its potential for everyday tasks.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_04.jpg" loading="lazy" data-caption="Near 66 minutes the demo showcases Omni’s multimodal video creation, where the model understands physics and lets users remix and edit footage with simple prompts." data-yt-ts="2250"><figcaption class="gal-caption">Near 66 minutes the demo showcases Omni’s multimodal video creation, where the model understands physics and lets users remix and edit footage with simple prompts.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_03.jpg" loading="lazy" data-caption="At roughly 44 minutes the talk shifts to AI‑augmented Search, demonstrating how conversational queries and real‑time agents can surface personalized information instantly." data-yt-ts="2250"><figcaption class="gal-caption">At roughly 44 minutes the talk shifts to AI‑augmented Search, demonstrating how conversational queries and real‑time agents can surface personalized information instantly.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_05.jpg" loading="lazy" data-caption="Around 88 minutes the partnership with Samsung is highlighted, presenting intelligent eyewear that combines Google AI with fashion‑forward design." data-yt-ts="4890"><figcaption class="gal-caption">Around 88 minutes the partnership with Samsung is highlighted, presenting intelligent eyewear that combines Google AI with fashion‑forward design.</figcaption></figure>
+<figure class="gal-item"><img src="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" alt="google_io_26_keynote_wYSncx9zLIU_frame_06.jpg" loading="lazy" data-caption="In the final minutes the keynote looks ahead to AGI, emphasizing safety investments, open‑source standards, and the transformative impact of advanced AI on humanity." data-yt-ts="6658"><figcaption class="gal-caption">In the final minutes the keynote looks ahead to AGI, emphasizing safety investments, open‑source standards, and the transformative impact of advanced AI on humanity.</figcaption></figure>
 
 </div>
 </section>
@@ -175,76 +186,82 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>wYSncx9zLIU</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The <strong>Google I/O ’26 keynote</strong> showcases how Google is leveraging its AI‑first strategy to reshape products, developer tools, and infrastructure. Sundar Pichai opens with a reminder of the company’s AI journey, then highlights explosive growth in AI usage, the latest Gemini models, new generative‑AI experiences across Search, Maps, YouTube, Docs, and the next‑generation TPU hardware. DeepMind’s Demis Hassabis announces <strong>Gemini Omni</strong>, a world‑model that can generate multimodal content and moves Google closer to AGI.</p>
+<p>Google’s I/O 2026 keynote, led by CEO Sundar Pichai and DeepMind lead Demis Hassabis, showcased the company’s AI‑first strategy and the rapid expansion of its Gemini models across products. Highlights included staggering growth in AI usage, new generative‑AI features in Search, Maps, YouTube, Docs, and the announcement of <strong>Gemini Omni</strong>, a multimodal world‑model capable of creating realistic videos and simulations. The talk also detailed massive investments in custom TPU hardware and infrastructure that power these advances.</p>
 <h2 id="new-features-announcements">New Features &amp; Announcements</h2>
 <ul>
-<li><p><strong>Gemini Omni</strong> – A multimodal “world‑model” that can create videos, images, and simulations from any input, demonstrating physics‑aware reasoning.<br />
+<li><p><strong>Gemini Omni</strong> – A next‑generation multimodal model that can generate and edit images, video, and interactive simulations from any input, pushing toward world‑model AI.<br />
 Timeline: announced at I/O 2026<br />
-Availability: Private preview (initial rollout to researchers and select partners)</p>
+Availability: Private preview (roll‑out details to be shared later)</p>
 </li>
-<li><p><strong>Ask YouTube</strong> – Conversational search that surfaces the most relevant video segment and keeps context for follow‑up questions.<br />
-Timeline: limited US rollout summer 2026<br />
-Availability: Public preview (U.S. users)</p>
+<li><p><strong>Docs Live (Voice‑first Docs)</strong> – Real‑time voice dictation that creates and formats Docs, with plans to extend the same capability to Gmail and Google Keep.<br />
+Timeline: Summer 2026 for Pro &amp; Ultra subscribers<br />
+Availability: Public preview for eligible users</p>
 </li>
-<li><p><strong>Docs Live</strong> – Real‑time voice‑driven document creation and editing; integrates Gemini for drafting, formatting, and contextual suggestions.<br />
-Timeline: summer 2026 for Pro &amp; Ultra; later for Gmail/Keep<br />
-Availability: Pro &amp; Ultra subscribers (rollout)</p>
+<li><p><strong>Ask YouTube</strong> – Conversational search that surfaces the most relevant video segments, provides summaries, and keeps context for follow‑up questions.<br />
+Timeline: Summer 2026 rollout in the U.S.<br />
+Availability: Public preview (U.S.)</p>
 </li>
-<li><p><strong>TPU‑8t &amp; TPU‑8i</strong> – 8th‑generation Tensor Processing Units; 8t optimized for pre‑training (≈3× previous generation), 8i for inference with ~1,500 tokens/sec latency and up to 2× performance‑per‑watt.<br />
-Timeline: announced now, shipping Q4 2026<br />
-Availability: Google Cloud customers, internal use</p>
+<li><p><strong>Ask Maps</strong> – Expanded conversational AI for Google Maps, handling complex, multi‑step queries (e.g., “buy a dress after a pond incident”).<br />
+Timeline: Already live (latest upgrade)<br />
+Availability: General</p>
 </li>
-<li><p><strong>Personal Intelligence (Gemini app)</strong> – Customizable, user‑specific responses that make the Gemini assistant feel tailored.<br />
-Timeline: already live, continued iteration</p>
+<li><p><strong>TPU 8t &amp; 8i (8th‑gen TPUs)</strong> – Dual‑chip architecture: 8t for training (≈3× previous generation) and 8i for inference (≈1,500 tokens/sec, 2× performance‑per‑watt).<br />
+Timeline: Announced at Cloud Next 2026, shipping later this year<br />
+Availability: Cloud customers, internal use</p>
 </li>
 </ul>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>AI‑first corporate vision</strong> – 10‑year pivot to AI, full‑stack approach from custom silicon to consumer products.</li>
-<li><strong>Scale of adoption</strong> – Tokens processed grew from 9.7 trillion/month (2021) to 3.2 quadrillion/month (2026); 13 Google products have &gt;1 B users, 5 exceed 3 B.</li>
-<li><strong>Search &amp; Gemini app growth</strong> – AI Overviews at 2.5 B monthly users; Gemini app up from 400 M to 900 M MAU in a year.</li>
-<li><strong>Generative AI in Maps &amp; YouTube</strong> – “Ask Maps” for complex location queries; “Ask YouTube” for conversational video discovery.</li>
-<li><strong>Voice‑first productivity</strong> – Docs Live demo turning spoken ideas into structured Docs; future voice integration for Gmail &amp; Keep.</li>
-<li><strong>Infrastructure investment</strong> – CAPEX jump to ~$180‑190 B; dual‑chip TPU strategy and Pathways‑enabled training on &gt;1 M TPUs globally.</li>
-<li><strong>World models &amp; AGI roadmap</strong> – Introduction of Gemini Omni; deep‑model capabilities for physics‑aware media generation; discussion of upcoming AGI milestones.</li>
+<li><strong>AI‑first company transformation</strong> – Ten‑year journey to a full‑stack AI approach built on custom silicon, secure foundations, research, and product integration.</li>
+<li><strong>Scale of AI adoption</strong> – Monthly token processing grew from 9.7 trillion (2021) to 3.2 quadrillion (2024), 8.5 M developers building apps, 19 billion tokens/minute via APIs.</li>
+<li><strong>Gemini ecosystem growth</strong> – Search AI Overviews reached 2.5 B MAU; Gemini app jumped from 400 M to 900 M MAU; 50 B images generated with Nano Banana.</li>
+<li><strong>Product‑level AI integration</strong> – Search, Maps, YouTube, Docs, Keep, Gmail now embed conversational AI, turning single queries into ongoing dialogues.</li>
+<li><strong>Infrastructure investments</strong> – Capital expenditure rising to ~$180‑190 B; focus on next‑gen TPUs, distributed training with JAX &amp; Pathways, and energy‑efficient compute.</li>
+<li><strong>World‑model research</strong> – DeepMind’s progress toward AGI via Gemini Omni, demonstrating physics‑aware generation (kinetic energy, gravity) and multimodal editing.</li>
+<li><strong>Developer ecosystem</strong> – Emphasis on APIs, model “Agents”, and tools that let developers build custom AI assistants and experiences.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Google’s AI usage has exploded to <strong>quadrillion‑scale token processing</strong>, reflecting massive consumer and developer adoption.</li>
-<li><strong>Gemini Omni</strong> marks a strategic shift from text‑only generation to true multimodal world modeling, a step toward artificial general intelligence.</li>
-<li>New conversational features—<strong>Ask Maps</strong>, <strong>Ask YouTube</strong>, and <strong>Docs Live</strong>—integrate Gemini directly into daily products, making AI a continuous assistant rather than a one‑off query.</li>
-<li>The <strong>8th‑gen TPU family</strong> dramatically improves training speed and inference latency while boosting energy efficiency, underpinning the rapid rollout of larger models.</li>
-<li>Google is committing <strong>≈$180 B</strong> in capex this year, signaling long‑term confidence in AI‑driven growth and infrastructure.</li>
-<li>Developer ecosystem is thriving: <strong>8.5 M</strong> active developers, <strong>19 B tokens/min</strong> processed via Model APIs, and hundreds of enterprise customers handling &gt;1 trillion tokens each.</li>
+<li>Google’s AI usage is expanding exponentially, now processing <strong>quadrillions of tokens per month</strong>.</li>
+<li>Gemini models are the core driver of user growth across Search, Maps, YouTube, and the standalone Gemini app.</li>
+<li><strong>Gemini Omni</strong> marks a significant step toward a true world model, enabling realistic video and simulation generation.</li>
+<li>New voice‑first productivity tools (Docs Live, Gmail, Keep) will let users create content entirely by speaking.</li>
+<li>The 8th‑generation TPUs dramatically increase training speed and inference latency while halving power consumption.</li>
+<li>Google is committing roughly <strong>$180 B</strong> this year to AI infrastructure, underscoring the strategic importance of custom silicon.</li>
+<li>The developer community is crucial: <strong>8.5 M</strong> developers are building on Google’s models, processing <strong>19 B tokens per minute</strong>.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“<strong>AI is the ultimate tool to solve the world’s most complex scientific problems.</strong>” – Opening montage</li>
-<li>“<strong>We’re taking a differentiated, full‑stack approach to AI innovation</strong> – from custom silicon to products that reach billions.” – Sundar Pichai</li>
-<li>“<strong>Our biggest upgrade to Search ever – AI mode – already has over 1 billion monthly users.</strong>” – Sundar Pichai</li>
-<li>“<strong>Gemini Omni can create anything from any input, combining world‑model reasoning with generative media.</strong>” – Demis Hassabis</li>
-<li>“<strong>Latency matters. 1,500 tokens per second feels like the model is thinking in real time.</strong>” – Demonstration of TPU‑8i speed</li>
+<li>“We’re taking a differentiated, full‑stack approach to AI innovation… from our custom silicon and secure foundation, to our world‑class research and models.” – Sundar Pichai</li>
+<li>“It’s the stories of how people are using AI that are the best measure of progress.” – Sundar Pichai</li>
+<li>“We are seeing incredible demand across our products… 13 products with over 1 billion users each.” – Sundar Pichai</li>
+<li>“Gemini Omni… can create anything from any input… a step‑change in simulating kinetic energy and gravity.” – Demis Hassabis</li>
+<li>“If you learn anything in 27 years of working on Search, it’s that latency matters.” – Sundar Pichai (on TPU 8i)</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I’m Jordan, here to unpack the details.</p>
-<p><strong>MIKE:</strong> And I’m Mike—ready to dive into the big picture of what Google just announced at I/O. Buckle up!</p>
-<p><strong>JORDAN:</strong> So, the headline? Google’s Gemini family is now powering billions of users across Search, Maps, YouTube, and even a brand‑new ‘Omni’ model that can generate videos, images, and simulations from any prompt.</p>
-<p><strong>MIKE:</strong> That sounds like sci‑fi, but the numbers are real—over 3.2 quadrillion tokens processed per month, and more than 8.5 million developers building on their APIs every month. It’s not just hype; it’s scale.</p>
-<p><strong>JORDAN:</strong> Right, and the growth isn’t linear. Tokens jumped from 9.7 trillion a couple of years ago to 480 trillion last year, then to 3.2 quadrillion now—a seven‑fold increase in just one year.</p>
-<p><strong>MIKE:</strong> Which translates to real‑world impact: students using Gemini for exam prep, musicians creating tracks with Lyria, and doctors—well, at least one exec using Gemini to decode his parents’ medical notes.</p>
-<p><strong>JORDAN:</strong> Let’s talk hardware. Google just rolled out their eighth‑generation TPUs—TPU 8t for training and TPU 8i for inference. The ‘t’ chip is three times more powerful than the previous gen, and the ‘i’ chip pushes latency down to about 1,500 tokens per second.</p>
-<p><strong>MIKE:</strong> Faster inference means features like “Ask Maps” and “Ask YouTube” feel more like a conversation than a search. Imagine asking, “My kid fell in the duck pond, where can I get a dress for the wedding?” and getting a contextual route in seconds.</p>
-<p><strong>JORDAN:</strong> The “Ask YouTube” demo showed a continuous dialog—asking follow‑up questions, getting video snippets highlighted, even tables for side‑by‑side comparison. It’s a step toward truly interactive AI assistants.</p>
-<p><strong>MIKE:</strong> And there’s a productivity angle: the new Docs Live lets you dictate entire documents, pull in emails, format tables—all by voice. That demo turned a career‑day prep request into a polished doc in real time.</p>
-<p><strong>JORDAN:</strong> Under the hood, Google’s Pathways system lets them distribute training across more than a million TPUs globally. That’s how they can train massive multimodal models like Gemini Omni in weeks instead of months.</p>
-<p><strong>MIKE:</strong> Which brings us to the “world model” claim. Omni can simulate physics—kinetic energy, gravity—so you can ask it to make a clay‑mation explainer of protein folding and get a coherent video. That’s moving from pure text prediction to visual reasoning.</p>
-<p><strong>JORDAN:</strong> Still, it’s not perfect. The demo showed some glitches in the animation, but the ability to generate realistic media from text is a huge indicator of progress toward AGI, as Demis Hassabis put it.</p>
-<p><strong>MIKE:</strong> From a user perspective, the takeaway is that AI is becoming a universal interface—search, maps, docs, video creation—all wrapped in a conversational layer. It lowers the barrier for non‑programmers to build with AI.</p>
-<p><strong>JORDAN:</strong> And from an industry angle, the massive capex—up to $190 billion this year—signals Google’s commitment to custom silicon and scaling infrastructure to keep this growth sustainable.</p>
-<p><strong>MIKE:</strong> So, whether you’re a teacher, a developer, or just someone wanting a quick video of a pug in a accountant’s tie, the toolbox is expanding faster than ever.</p>
-<p><strong>JORDAN:</strong> Bottom line: AI is shifting from a niche research project to a full‑stack platform that powers everyday tasks for billions, and the hardware, data, and models are all accelerating together.</p>
-<p><strong>MIKE:</strong> Thanks for tuning in! We’ll keep watching how these tools evolve and what that means for the world.</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the pod! I'm Jordan, here to dig into the details of Google's latest I/O keynote.</p>
+<p><strong>MIKE:</strong> And I'm Mike, ready to chat about what all this AI hype means for you and me. Let’s jump in—what’s the biggest headline you caught?</p>
+<p><strong>JORDAN:</strong> Sundar Pichai announced that the Gemini models are now processing 3.2 quadrillion tokens a month—that's a seven‑fold jump from last year.</p>
+<p><strong>MIKE:</strong> Wow, that’s massive. But why should we care about tokens? Does it translate to anything we can feel in daily life?</p>
+<p><strong>JORDAN:</strong> Tokens are basically the building blocks of AI queries. More tokens mean more interactions across Google’s products—Search, Maps, YouTube, you name it.</p>
+<p><strong>MIKE:</strong> So basically, everyone’s talking to AI more often, from students prepping for exams to musicians using generative tools. That’s a cultural shift.</p>
+<p><strong>JORDAN:</strong> Exactly. And the rollout isn’t just on the surface. Google’s new TPU 8t and 8i chips are three times more powerful and twice as energy‑efficient, letting them train larger models in weeks instead of months.</p>
+<p><strong>MIKE:</strong> Faster training means cooler features hitting us sooner. I’m curious—what’s the most exciting new feature they demoed?</p>
+<p><strong>JORDAN:</strong> “Docs Live.” You can dictate a full document, pull in data from Drive, and have Gemini format it, all by voice. The demo even generated a table of analogies for a career‑day talk.</p>
+<p><strong>MIKE:</strong> That sounds like a game‑changer for productivity. Imagine a teacher prepping lesson plans on the fly or a startup founder drafting a pitch without typing a word.</p>
+<p><strong>JORDAN:</strong> And it’s not limited to Docs. The same voice capabilities are coming to Gmail and Keep later this summer, expanding the conversational AI ecosystem.</p>
+<p><strong>MIKE:</strong> Speaking of ecosystems, they mentioned “Ask YouTube.” How does that differ from just searching YouTube?</p>
+<p><strong>JORDAN:</strong> Instead of a list of videos, you get a conversational summary, relevant timestamps, and even a comparison table—so you can ask follow‑up questions without leaving the thread.</p>
+<p><strong>MIKE:</strong> That could cut down endless scrolling. But with all this AI everywhere, any concerns about the scale of compute?</p>
+<p><strong>JORDAN:</strong> Google’s capex is projected at around $180‑$190 billion this year, six times last year, to fund custom silicon and data centers. The investment underpins the TPU rollout and the massive token processing volume.</p>
+<p><strong>MIKE:</strong> Massive spending, but if it fuels tools that help solve “solvable disease” and climate simulations, the payoff could be huge. Any hints on what’s next?</p>
+<p><strong>JORDAN:</strong> Demis Hassabis introduced Gemini Omni—a multimodal model that can generate videos, images, and simulations from any input, moving us closer to true world models and, as they say, AGI.</p>
+<p><strong>MIKE:</strong> So we’re heading toward AI that not only chats but actually visualizes concepts—like a clay‑mation of protein folding. That’s mind‑blowing for education and research.</p>
+<p><strong>JORDAN:</strong> Bottom line: faster chips, larger models, and deeper integration into everyday apps. The token numbers show adoption; the hardware investments show commitment.</p>
+<p><strong>MIKE:</strong> And for listeners, that means more AI‑powered tools at your fingertips, from drafting docs by voice to getting instant video explanations. Exciting times!</p>
+<p><strong>JORDAN:</strong> Thanks for tuning in. We’ll keep dissecting the tech as it unfolds.</p>
+<p><strong>MIKE:</strong> Catch you next episode—stay curious and keep asking, “What can AI do for me today?” Bye!</p>
 </div>
 </section>
 <section class="section">
@@ -259,17 +276,17 @@ Timeline: already live, continued iteration</p>
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">google_io_26_keynote_wYSncx9zLIU_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">google_io_26_keynote_wYSncx9zLIU_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="google_io_26_keynote_wYSncx9zLIU_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="google_io_26_keynote_wYSncx9zLIU_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="wYSncx9zLIU"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -297,15 +314,72 @@ Timeline: already live, continued iteration</p>
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {

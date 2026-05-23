@@ -1,0 +1,22 @@
+﻿JORDAN: Hey everyone, welcome back to the pod! I'm Jordan, here to dig into the details of Google's latest I/O keynote.
+MIKE: And I'm Mike, ready to chat about what all this AI hype means for you and me. Let’s jump in—what’s the biggest headline you caught?
+JORDAN: Sundar Pichai announced that the Gemini models are now processing 3.2 quadrillion tokens a month—that's a seven‑fold jump from last year.
+MIKE: Wow, that’s massive. But why should we care about tokens? Does it translate to anything we can feel in daily life?
+JORDAN: Tokens are basically the building blocks of AI queries. More tokens mean more interactions across Google’s products—Search, Maps, YouTube, you name it.
+MIKE: So basically, everyone’s talking to AI more often, from students prepping for exams to musicians using generative tools. That’s a cultural shift.
+JORDAN: Exactly. And the rollout isn’t just on the surface. Google’s new TPU 8t and 8i chips are three times more powerful and twice as energy‑efficient, letting them train larger models in weeks instead of months.
+MIKE: Faster training means cooler features hitting us sooner. I’m curious—what’s the most exciting new feature they demoed?
+JORDAN: “Docs Live.” You can dictate a full document, pull in data from Drive, and have Gemini format it, all by voice. The demo even generated a table of analogies for a career‑day talk.
+MIKE: That sounds like a game‑changer for productivity. Imagine a teacher prepping lesson plans on the fly or a startup founder drafting a pitch without typing a word.
+JORDAN: And it’s not limited to Docs. The same voice capabilities are coming to Gmail and Keep later this summer, expanding the conversational AI ecosystem.
+MIKE: Speaking of ecosystems, they mentioned “Ask YouTube.” How does that differ from just searching YouTube?
+JORDAN: Instead of a list of videos, you get a conversational summary, relevant timestamps, and even a comparison table—so you can ask follow‑up questions without leaving the thread.
+MIKE: That could cut down endless scrolling. But with all this AI everywhere, any concerns about the scale of compute?
+JORDAN: Google’s capex is projected at around $180‑$190 billion this year, six times last year, to fund custom silicon and data centers. The investment underpins the TPU rollout and the massive token processing volume.
+MIKE: Massive spending, but if it fuels tools that help solve “solvable disease” and climate simulations, the payoff could be huge. Any hints on what’s next?
+JORDAN: Demis Hassabis introduced Gemini Omni—a multimodal model that can generate videos, images, and simulations from any input, moving us closer to true world models and, as they say, AGI.
+MIKE: So we’re heading toward AI that not only chats but actually visualizes concepts—like a clay‑mation of protein folding. That’s mind‑blowing for education and research.
+JORDAN: Bottom line: faster chips, larger models, and deeper integration into everyday apps. The token numbers show adoption; the hardware investments show commitment.
+MIKE: And for listeners, that means more AI‑powered tools at your fingertips, from drafting docs by voice to getting instant video explanations. Exciting times!
+JORDAN: Thanks for tuning in. We’ll keep dissecting the tech as it unfolds.
+MIKE: Catch you next episode—stay curious and keep asking, “What can AI do for me today?” Bye!

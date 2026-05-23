@@ -1,6 +1,20 @@
 {
   "Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html": {
-    "title": "Google I/O \u002726 Keynote"
+    "title": "Google I/O \u002726 Keynote",
+    "video_url": "https://www.youtube.com/watch?v=wYSncx9zLIU",
+    "published_at": "2026-05-23T17:51:18.7163406+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_podcast.mp3",
+    "audio_file_size_bytes": 2088600,
+    "audio_duration_seconds": 241,
+    "episode_summary": "Google\u2019s I/O\u202F2026 keynote, led by CEO Sundar Pichai and DeepMind lead Demis Hassabis, showcased the company\u2019s AI\u2011first strategy and the rapid expansion of its Gemini models across products. Highlights included staggering growth in AI usage, new generative\u2011AI features in Search, Maps, YouTube, Docs\u2026"
   },
   "3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html": {
     "title": "3min Vlog - 5 things you can do to improve yourself",
