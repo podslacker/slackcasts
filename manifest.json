@@ -200,6 +200,7 @@
     "title": "What\u0027s new in Google Cloud\u0027s agent platform",
     "video_url": "https://www.youtube.com/watch?v=FxnjRYo3fpU",
     "published_at": "2026-05-22T22:47:20.1030986+00:00",
+    "last_republished_at": "2026-05-23T18:52:33.6846938+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -207,7 +208,11 @@
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
-    "voice_host2": "am_michael"
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.mp3",
+    "audio_file_size_bytes": 2434656,
+    "audio_duration_seconds": 280,
+    "episode_summary": "The session provides a deep dive into Google\u202FCloud\u2019s Agent Platform, showing how it has evolved from the early Agent Development Kit (ADK) demos to a full\u2011stack, production\u2011grade solution. Aman Khan (Product\u202FManager) and Lavi (DevRel) walk through new capabilities, real\u2011world customer use cases, and\u2026"
   },
   "Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html": {
     "title": "What\u0027s new with Gemini Enterprise app",

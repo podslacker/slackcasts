@@ -106,11 +106,28 @@ details[open] .transcript-summary::before { content: "▼ "; }
 .transcript-download-link:hover { background: rgba(88,166,255,.2); }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
 .lightbox.open { display: flex; }
-.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 92vw; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
 .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
 .lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
 .lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
 .lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
 .player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
 .player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
 .play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
@@ -153,12 +170,12 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" loading="lazy" data-caption="The presenter opens the session, welcoming the audience and introducing the focus on agentic AI platforms."><figcaption class="gal-caption">The presenter opens the session, welcoming the audience and introducing the focus on agentic AI platforms.</figcaption></figure>
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" loading="lazy" data-caption="Discussion shifts to how agents can decompose complex problems and define reusable skills, highlighting the modularity of the platform."><figcaption class="gal-caption">Discussion shifts to how agents can decompose complex problems and define reusable skills, highlighting the modularity of the platform.</figcaption></figure>
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" loading="lazy" data-caption="The demo begins, showing the console where users can create new agents, design UI components, and integrate external tools."><figcaption class="gal-caption">The demo begins, showing the console where users can create new agents, design UI components, and integrate external tools.</figcaption></figure>
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" loading="lazy" data-caption="Explanation of built‑in evaluation and monitoring features, emphasizing traceability, session IDs, and memory extraction for debugging agents."><figcaption class="gal-caption">Explanation of built‑in evaluation and monitoring features, emphasizing traceability, session IDs, and memory extraction for debugging agents.</figcaption></figure>
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" loading="lazy" data-caption="The team outlines the technology stack choice, describing why GCP services are used and how the platform supports scalable, low‑code development."><figcaption class="gal-caption">The team outlines the technology stack choice, describing why GCP services are used and how the platform supports scalable, low‑code development.</figcaption></figure>
-<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" loading="lazy" data-caption="Closing remarks recap the platform’s governance, integration capabilities, and next steps for developers to adopt the agentic era."><figcaption class="gal-caption">Closing remarks recap the platform’s governance, integration capabilities, and next steps for developers to adopt the agentic era.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_01.jpg" loading="lazy" data-caption="Opening title slide introducing the Agent Platform overview." data-yt-ts="0"><figcaption class="gal-caption">Opening title slide introducing the Agent Platform overview.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_02.jpg" loading="lazy" data-caption="The presenter introduces Gemini Enterprise with the Agent platform, highlighting its role as the engine of the business." data-yt-ts="0"><figcaption class="gal-caption">The presenter introduces Gemini Enterprise with the Agent platform, highlighting its role as the engine of the business.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_03.jpg" loading="lazy" data-caption="Discussion of governance features, including permission management and risk oversight for enterprise agents." data-yt-ts="8"><figcaption class="gal-caption">Discussion of governance features, including permission management and risk oversight for enterprise agents.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_04.jpg" loading="lazy" data-caption="Demonstration of the agent trace view, showing how session IDs and memory extraction help debug agent behavior." data-yt-ts="14"><figcaption class="gal-caption">Demonstration of the agent trace view, showing how session IDs and memory extraction help debug agent behavior.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_05.jpg" loading="lazy" data-caption="Explanation of the platform’s core components—ADK, Agent Engine, and integration with BigQuery—for scalable agent deployment." data-yt-ts="20"><figcaption class="gal-caption">Explanation of the platform’s core components—ADK, Agent Engine, and integration with BigQuery—for scalable agent deployment.</figcaption></figure>
+<figure class="gal-item"><img src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" alt="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_frame_06.jpg" loading="lazy" data-caption="Closing remarks on how developers can access the web app, training paths, and documentation to continue building agents." data-yt-ts="31"><figcaption class="gal-caption">Closing remarks on how developers can access the web app, training paths, and documentation to continue building agents.</figcaption></figure>
 
 </div>
 </section>
@@ -169,108 +186,82 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>FxnjRYo3fpU</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The session introduces the latest advancements in Google Cloud’s <strong>Agent Platform</strong>, showing how it has evolved from early chatbot‑centric demos to a full‑stack, production‑ready environment for building, deploying, and governing autonomous AI agents. Aman Khan (Product Manager, Agent Governance) and Lavi (DevRel) walk through new capabilities, real‑world customer adoptions, and the integrated “Gemini Enterprise + Agent Platform” experience that links end‑user surfaces with a unified backend. Emphasis is placed on stepping‑function improvements—governance, scalability, observability, and optimization—that let enterprises move safely from prototype to large‑scale, mission‑critical agents.</p>
+<p>The session provides a deep dive into Google Cloud’s <strong>Agent Platform</strong>, showing how it has evolved from the early Agent Development Kit (ADK) demos to a full‑stack, production‑grade solution. Aman Khan (Product Manager) and Lavi (DevRel) walk through new capabilities, real‑world customer use cases, and the integrated governance, scaling, and optimization tools that let enterprises move agents from prototype to enterprise‑wide deployment. The talk emphasizes the platform’s end‑to‑end nature—combining Gemini Enterprise, a unified runtime, and built‑in security—to turn “race‑car” AI agents into reliable, governed business assets.</p>
 <h2 id="new-features-announcements">New Features &amp; Announcements</h2>
 <ul>
-<li><p><strong>Graph‑Based Orchestration</strong> – Model business processes with branches, loops, and conditionals.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Agent Collaboration</strong> – Decompose complex tasks across specialized agents rather than a monolith.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Batch &amp; Event‑Driven Workflows</strong> – Enable agents to react to real‑time system events.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Native Skill Definitions in ADK</strong> – Define a skill once and reuse it across all agents.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Agent CLI &amp; Built‑In Skills</strong> – Command‑line tool for scaffolding, evaluating, deploying, and observing agents; works with Cloud Code, Gemini CLI, etc.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Improved Runtime</strong> – Sub‑second cold starts, “bring‑your‑own‑container” support, and single‑plan execution for up to 7 days without human intervention.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Bidirectional Streaming</strong> – Low‑latency, real‑time interaction streams for complex use cases.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Sessions &amp; Memory Bank</strong> – Persistent, framework‑agnostic memory for agents to retain context, preferences, and feedback across conversations.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Code Execution &amp; GUI Sandboxes (GA)</strong> – Secure environments where agents can run code or interact with graphical interfaces.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Agent Identity (GA)</strong> – Granular, auditable permission management for agents, similar to user IAM.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Agent Registry (GA)</strong> – Central inventory of all deployed agents, their tools, and service accesses.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Model Armor &amp; Proactive Threat Management</strong> – Real‑time protection against prompt injection and data leakage.<br />
-Availability: General</p>
-</li>
-<li><p><strong>Agent Gateway</strong> – Control plane for securing and governing agent traffic with extensible policies.<br />
-Availability: General</p>
-</li>
-<li><p><strong>DeepMind‑Backed Eval Framework</strong> – Integrated online/offline evaluation and continuous monitoring tools for optimization.<br />
-Availability: General</p>
-</li>
+<li><strong>Graph‑based orchestration</strong> – Model business processes with branches, loops, and conditional paths.</li>
+<li><strong>Agent collaboration</strong> – Decompose complex tasks across specialized agents instead of a single monolith.</li>
+<li><strong>Batch &amp; event‑driven workflows</strong> – Enable real‑time reactions to system events, not just human prompts.</li>
+<li><strong>Native skill definitions</strong> – Define a skill once in ADK and reuse it across all agents.</li>
+<li><strong>Agent CLI &amp; built‑in skills</strong> – One‑stop command‑line tool for scaffolding, evaluating, deploying, and observing agents; works with Cloud Code, Gemini CLI, etc., or directly from a terminal.</li>
+<li><strong>Sub‑second cold‑start runtime</strong> – Faster start‑up for production agents serving thousands to millions of users.</li>
+<li><strong>Bring‑Your‑Own‑Container support</strong> – Run agents in custom environments when strict requirements exist.</li>
+<li><strong>Long‑running single‑plan execution (up to 7 days)</strong> – Agents can operate autonomously without human intervention.</li>
+<li><strong>Bidirectional streaming</strong> – Low‑latency, two‑way communication for more interactive use cases.</li>
+<li><strong>Session service &amp; memory bank</strong> – Persistent, framework‑agnostic memory so agents retain context across sessions.</li>
+<li><strong>Code‑execution sandboxes &amp; GUI interaction sandbox</strong> – Secure environments where agents can run code or control desktop‑style interfaces.</li>
+<li><strong>Agent Identity (GA)</strong> – Granular, auditable permission management for agents, like any other org user.</li>
+<li><strong>Agent Registry (GA)</strong> – Central inventory of all registered agents, their tools, and service access.</li>
+<li><strong>Model armor</strong> – Real‑time protection against prompt injection and data leakage.</li>
+<li><strong>Proactive threat management</strong> – Built‑in monitoring for suspicious agent behavior.</li>
+<li><strong>Agent Gateway (GA)</strong> – Control plane for routing and securing agent traffic with fine‑grained tool access and extensibility.</li>
 </ul>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Recap of the past year</strong> – From ADK and early Agent Engine demos to the Agentic AI Cloud launch.</li>
-<li><strong>Why agents now matter</strong> – Analogy of race cars vs. regular cars; agents as high‑performance business engines needing guardrails.</li>
-<li><strong>Unified stack vision</strong> – Gemini Enterprise as the entry point for users; Agent Platform as the developer layer; underlying Google Cloud AI stack (Hypercomputer, Agentic Data Cloud, Agent Defense).</li>
-<li><strong>Three pillar strategy</strong> – Ecosystem &amp; interoperability, ease of use/collaboration, and deep customizability.</li>
-<li><strong>ADK enhancements</strong> – Graph orchestration, collaboration, batch/event workflows, native skill definitions.</li>
-<li><strong>Developer experience</strong> – New Agent CLI, integration with existing coding agents, out‑of‑the‑box primitives.</li>
-<li><strong>Production scaling</strong> – Fast cold starts, container flexibility, long‑running single‑plan agents, bidirectional streaming.</li>
-<li><strong>Memory &amp; context</strong> – Sessions, memory banks, custom session fields, enabling cumulative intelligence.</li>
-<li><strong>Sandbox capabilities</strong> – Code execution, custom containers, GUI interaction for real‑world task execution.</li>
-<li><strong>Governance end‑to‑end</strong> – Agent identity, registry, model armor, threat management, Agent Gateway; governance built into runtime, not an afterthought.</li>
-<li><strong>Optimization &amp; evaluation</strong> – Leveraging DeepMind research, built‑in eval tools for continuous performance monitoring.</li>
-<li><strong>Customer showcase</strong> – Brief mentions of L’Oréal, Gautier, and Thomas using the platform in production workflows.</li>
+<li><strong>Historical context</strong> – Recap of ADK launch, early demos (autonomous plant store), and the shift from chatbot‑centric demos to full‑stack agents.</li>
+<li><strong>Strategic vision</strong> – Analogy of “race‑car” agents vs. traditional software; need for step‑function improvements and integrated governance.</li>
+<li><strong>Architecture overview</strong> – How Gemini Enterprise feeds users, while the Agent Platform provides runtime, registry, gateway, identity, observability, and evaluation on top of Google Cloud’s AI stack (Hypercomputer, Agentic Data Cloud, Agent Defense).</li>
+<li><strong>Developer experience</strong> – Emphasis on ease of use, open‑source tooling, and collaborative environment for AI engineers, product managers, and developers.</li>
+<li><strong>ADK enhancements</strong> – Graph orchestration, agent collaboration, event‑driven workflows, reusable skill definitions.</li>
+<li><strong>Agent CLI</strong> – Scaffolding, evaluation, deployment, observability; integration paths with existing coding agents or direct terminal use.</li>
+<li><strong>Production scalability</strong> – Sub‑second cold starts, BYOC, long‑running autonomous plans, bidirectional streaming.</li>
+<li><strong>Memory &amp; context</strong> – Session service, persistent memory bank, custom session fields for feedback signals.</li>
+<li><strong>Sandbox capabilities</strong> – Secure code execution, custom containers, GUI automation sandbox.</li>
+<li><strong>Governance stack</strong> – End‑to‑end identity, registry, model armor, threat management, and Agent Gateway as a unified control plane; focus on making governance built‑in rather than an afterthought.</li>
+<li><strong>Optimization &amp; evaluation</strong> – Leveraging DeepMind research tools for online/offline evals, continuous monitoring, and automated performance tuning.</li>
+<li><strong>Customer examples</strong> – Brief mentions of L’Oréal, Gautier, and Thomas using the platform in production workflows.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>The Agent Platform now provides a <strong>complete, vertically integrated stack</strong> that takes agents from idea to production without stitching together multiple vendors.</li>
-<li><strong>Governance, security, and compliance</strong> are baked into the platform (identity, registry, model armor, gateway), making enterprise adoption safer.</li>
-<li>New <strong>developer tooling</strong> (Agent CLI, native skill definitions) dramatically lowers the barrier to build, test, and deploy agents.</li>
-<li><strong>Scalability improvements</strong> (sub‑second cold starts, BYOC, 7‑day autonomous runs) enable agents to serve thousands to millions of users reliably.</li>
-<li>Persistent <strong>memory and session services</strong> give agents long‑term context, turning them from simple chatbots into autonomous workhorses.</li>
-<li><strong>Sandboxed execution</strong> and GUI interaction expand agents’ ability to perform real‑world tasks while staying secure.</li>
-<li>Integrated <strong>evaluation and optimization</strong> (DeepMind‑backed) lets teams continuously monitor and improve agent performance without deep research expertise.</li>
+<li>The Agent Platform is now a vertically integrated, production‑ready stack that lets enterprises build, scale, govern, and optimize AI agents without stitching together multiple vendors.</li>
+<li>New ADK features (graph orchestration, collaboration, event‑driven flows) enable modeling of real‑world business processes.</li>
+<li>The Agent CLI dramatically simplifies the end‑to‑end lifecycle—from scaffolding to observability.</li>
+<li>Runtime improvements (sub‑second cold starts, BYOC, 7‑day autonomous execution) make large‑scale deployments feasible.</li>
+<li>Persistent memory and sandboxed execution turn agents from simple chatbots into autonomous, context‑aware workers.</li>
+<li>Governance is baked in: identity, registry, model armor, threat management, and the Agent Gateway provide enterprise‑grade security and auditability out of the box.</li>
+<li>Optimization tools inherited from DeepMind give teams research‑grade evaluation without needing internal AI‑labs.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“Everyone can get in a Toyota Camry and drive it… but with agents, we’re building Formula 1 race cars.”</li>
-<li>“You can’t just put an electric car in self‑driving mode and floor it—that’s why we need guardrails.”</li>
-<li>“Governance shouldn’t be bolted on as an afterthought; it has to span from prototype to production.”</li>
-<li>“Agents shouldn’t start from scratch with every conversation—memory lets them remember yesterday’s preferences and learn over time.”</li>
+<li>“Everyone can get in a Toyota Camry and drive it… but with agents we’re building Formula 1 race cars.”</li>
+<li>“Agents shouldn’t start from scratch with every conversation. Without memory, your agent has no idea what happened yesterday.”</li>
+<li>“Governance should span from prototype to production, and it includes the perimeters and boundaries to define what your agent can and cannot do.”</li>
+<li>“We provide you with an army of researchers throughout the Agent Platform so you don’t have to staff one yourself.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I’m Jordan, here to dig into the nitty‑gritty of today’s tech news.</p>
-<p><strong>MIKE:</strong> And I’m Mike, ready to explore why it matters to you and your business. Today we’re breaking down Google’s new Agent Platform update that just dropped at their keynote.</p>
-<p><strong>JORDAN:</strong> The highlight is this vertically integrated stack that promises to take agents from a prototype straight to production without rebuilding the plumbing each time.</p>
-<p><strong>MIKE:</strong> That sounds like a game‑changer for companies trying to move beyond basic chatbots into real‑world automation.</p>
-<p><strong>JORDAN:</strong> Exactly. A year ago they introduced the Agent Engine and a bunch of demos, but now they’ve added governance, deployment, and a whole suite of runtime features.</p>
-<p><strong>MIKE:</strong> So it’s not just a fancy demo anymore—it’s meant for enterprise folks who need compliance, security, and scalability baked in.</p>
-<p><strong>JORDAN:</strong> One analogy that stuck with me was the Toyota Camry versus a Formula 1 race car. Traditional software is the Camry: reliable and steady. Agents are the race car—high‑performance but needing guardrails.</p>
-<p><strong>MIKE:</strong> Which is why the new governance layer is crucial. They talk about identity, permission granularity, and even model armor to block prompt injection.</p>
-<p><strong>JORDAN:</strong> The platform also introduces a new Agent CLI that scaffolds, evaluates, deploys, and monitors agents—all from the terminal or integrated into tools like Cloud Code.</p>
-<p><strong>MIKE:</strong> That lowers the barrier for dev teams that aren’t AI specialists, letting them spin up agents with familiar tooling.</p>
-<p><strong>JORDAN:</strong> On the scalability side, they’ve built sub‑second cold starts, support for bring‑your‑own containers, and even 7‑day autonomous runs without human touch.</p>
-<p><strong>MIKE:</strong> Imagine a customer‑service bot that can handle a surge of queries for a week straight, learning as it goes, without any manual redeployment.</p>
-<p><strong>JORDAN:</strong> Persistent memory is another key upgrade—sessions and a memory bank let agents remember preferences, past interactions, and even custom signals.</p>
-<p><strong>MIKE:</strong> That moves us from “answering questions” to truly autonomous assistants that can act on behalf of users over time.</p>
-<p><strong>JORDAN:</strong> Governance isn’t an afterthought either; the Agent Registry gives a global view of every agent, its tools, and its permissions, while the Agent Gateway acts as a control plane for traffic.</p>
-<p><strong>MIKE:</strong> In practice, a compliance officer could audit all agent activity across the company from a single dashboard—no more piecing together logs from disparate systems.</p>
-<p><strong>JORDAN:</strong> Finally, the optimization stack leverages DeepMind’s evaluation tools, providing online and offline evals, continuous monitoring, and research‑grade metrics without needing an internal AI lab.</p>
-<p><strong>MIKE:</strong> That means businesses can iterate faster, knowing their agents are meeting performance and safety benchmarks as they evolve.</p>
-<p><strong>JORDAN:</strong> To sum up, Google’s Agent Platform now offers a full lifecycle: build with ADK and the new CLI, scale with robust runtimes, govern end‑to‑end, and optimize with DeepMind‑backed evals.</p>
-<p><strong>MIKE:</strong> If you’ve been waiting for a trustworthy, production‑ready way to deploy AI agents, this might be the moment to start experimenting.</p>
-<p><strong>JORDAN:</strong> Thanks for tuning in, everyone. We’ll keep an eye on how early adopters like L’Oréal and Thomas roll this out in real workflows.</p>
-<p><strong>MIKE:</strong> Absolutely. Catch you next time for more deep dives into the tech shaping our future. Bye!</p>
+<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I'm Jordan, your detail‑driven host, and today we're breaking down the latest Google Agent Platform announcement.</p>
+<p><strong>MIKE:</strong> And I’m Mike, here to connect the dots to the real world. We’ve got a big room‑scale update to unpack—governance, production‑grade agents, and even a demo from L’Oréal. Let’s dive in.</p>
+<p><strong>JORDAN:</strong> The keynote reminded us that a year ago we were all about the Agent Development Kit, the ADK, and simple chatbot demos. Since then, Google added governance layers and deployment tools to take prototypes to production.</p>
+<p><strong>MIKE:</strong> Right, and that shift is huge for businesses. Moving from a “toy car” chatbot to a “Formula 1” autonomous agent means you can actually put AI on the front line of revenue‑generating processes.</p>
+<p><strong>JORDAN:</strong> They used a car analogy—Camry versus race car—to illustrate the difference between traditional software and these new agents. The point is you can’t just floor it; you need guardrails.</p>
+<p><strong>MIKE:</strong> Which brings us to the guardrails: the platform now bundles Gemini Enterprise for user access and the Agent Platform for developers, so data and agents flow without that “hand‑off tax.”</p>
+<p><strong>JORDAN:</strong> At the core, the stack includes runtime, registry, gateway, identity, observability, and evals, all on Google Cloud’s AI hypercomputer. It’s a vertically integrated solution, eliminating the need to stitch together five vendors.</p>
+<p><strong>MIKE:</strong> That integration is a game‑changer for enterprises. Less vendor sprawl means faster time‑to‑value and tighter security—something every CISO is itchy to hear about.</p>
+<p><strong>JORDAN:</strong> Speaking of security, the new Agent Identity feature lets you manage permissions just like any other user, with granular controls. Plus, model armor blocks prompt injection and data leaks in real time.</p>
+<p><strong>MIKE:</strong> And the Agent Gateway acts as a control plane, letting you set policies on tool access. Imagine being able to enforce compliance across thousands of agents with a single dashboard.</p>
+<p><strong>JORDAN:</strong> On the developer side, the ADK now supports graph‑based orchestration, agent collaboration, and batch/event‑driven workflows. You can define reusable skills once and plug them everywhere.</p>
+<p><strong>MIKE:</strong> That reusability is key for scaling. A marketing team could spin up a campaign‑assistant agent, then hand it off to support without rebuilding the whole pipeline.</p>
+<p><strong>JORDAN:</strong> They also introduced an Agent CLI that scaffolds, evaluates, deploys, and monitors agents—either through existing coding agents like Cloud Code or directly from the terminal. It even supports bring‑your‑own‑container for custom runtimes.</p>
+<p><strong>MIKE:</strong> That flexibility means teams don’t have to lock into one stack. Whether you’re a Python shop or a Java shop, you can get sub‑second cold starts and run agents continuously for up to seven days.</p>
+<p><strong>JORDAN:</strong> Memory and session management have been upgraded, too. Agents now have persistent memory banks, so they remember user preferences across sessions and can learn over time.</p>
+<p><strong>MIKE:</strong> Persistent memory turns a one‑off chatbot into a personal assistant that actually improves, which is exactly what enterprises need to justify AI spend.</p>
+<p><strong>JORDAN:</strong> Finally, the optimization layer pulls in DeepMind‑style evals, both online and offline, giving you continuous monitoring without hiring a research army.</p>
+<p><strong>MIKE:</strong> So in a nutshell, Google’s platform is stacking building, scaling, governing, and optimizing into one cohesive offering—making it easier for anyone from engineers to compliance officers to ship trustworthy agents.</p>
+<p><strong>JORDAN:</strong> That’s the takeaway: a unified stack that takes you from idea to production with built‑in governance and performance.</p>
+<p><strong>MIKE:</strong> And with all those guardrails, real‑world teams can finally let agents drive business outcomes without worrying about flying blind.</p>
+<p><strong>JORDAN:</strong> Thanks for joining us, and a big thanks to the Google team for the deep dive.</p>
+<p><strong>MIKE:</strong> We’ll be back soon with more tech breakdowns—stay curious, stay safe, and see you next time!</p>
 </div>
 </section>
 <section class="section">
@@ -285,17 +276,17 @@ Availability: General</p>
       <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
       <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="track-meta"><span class="track-name">whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.wav</span></div>
+    <div class="track-meta"><span class="track-name">whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.mp3</span></div>
     <div class="seek-wrap">
       <span class="time-lbl" id="currentTime">0:00</span>
       <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
       <span class="time-lbl" id="totalTime">0:00</span>
     </div>
   </div>
-  <audio id="audioEl" preload="metadata"><source src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.wav" type="audio/wav"></audio>
+  <audio id="audioEl" preload="metadata"><source src="whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.mp3" type="audio/mpeg"></audio>
 </div>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true"><span class="lightbox-close" aria-label="Close">&times;</span><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><p id="lightboxCaption" class="lightbox-caption"></p></div></div>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="FxnjRYo3fpU"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
 
 <script>
 (function () {
@@ -323,15 +314,72 @@ Availability: General</p>
 }());
 
 (function () {
-  var lb    = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lightboxImg');
-  var lbCap = document.getElementById('lightboxCaption');
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
   if (!lb) return;
-  function open(src, caption) { lbImg.src = src; if (lbCap) lbCap.textContent = caption || ''; lb.classList.add('open'); }
-  function close() { lb.classList.remove('open'); lbImg.src = ''; if (lbCap) lbCap.textContent = ''; }
-  document.querySelectorAll('.gal-item img').forEach(function (img) { img.addEventListener('click', function () { open(img.src, img.getAttribute('data-caption')); }); });
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
   lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
 }());
 
 (function () {
