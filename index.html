@@ -19,7 +19,7 @@
     body { background: var(--ps-bg); color: var(--ps-text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
 
     /* ── Navbar ── */
-    .ps-nav-logo { width: 32px; height: 32px; border-radius: 7px; object-fit: contain; flex-shrink: 0; }
+    .ps-nav-logo { width: 64px; height: 64px; border-radius: 14px; object-fit: contain; flex-shrink: 0; }
     .ps-nav-title { font-weight: 700; font-size: 1.05rem; color: var(--ps-text); letter-spacing: -0.01em; }
     .ps-nav-subtitle { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--ps-muted); }
 
@@ -46,59 +46,50 @@
     /* ── Card shell ── */
     .ps-card { background: var(--ps-surface); border: 1px solid var(--ps-border); border-radius: 10px; overflow: hidden; }
 
-    /* ── Entry row ── */
+    /* ── Entry: always column so title, summary, and meta stack cleanly
+       at every viewport width. This also avoids the "flex-basis becomes
+       a height request" whitespace bug that appeared on narrow screens
+       when the layout was horizontal. ── */
     .ps-entry {
       display: flex;
-      align-items: center;
-      gap: 0.75rem 1rem;
-      padding: 0.75rem 1rem;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0.85rem 1rem;
       border-bottom: 1px solid rgba(48,54,61,0.5);
-      /* Allow meta to wrap below title when the viewport is too narrow
-         for them to coexist on one line */
-      flex-wrap: wrap;
     }
     .ps-entry:last-child { border-bottom: none; }
 
-    /* Title: grows to fill space; flex-basis 12rem means it requests
-       ~192 px before wrapping — stops it from collapsing to a sliver */
     .ps-title-link {
-      flex: 1 1 12rem;
-      min-width: 0;
       color: var(--ps-accent);
       text-decoration: none;
       font-weight: 500;
       line-height: 1.4;
-      /* overflow-wrap handles genuinely long single words (URLs, IDs).
-         word-break: break-word is intentionally omitted — it triggers
-         character-by-character breaking when the flex item is narrow. */
       overflow-wrap: break-word;
     }
     .ps-title-link:hover { text-decoration: underline; }
 
-    /* Meta cluster (dates + download) stays together on the right.
-       flex-shrink: 1 lets it yield space to the title when needed. */
+    /* Short plain-text excerpt from the LLM summary. */
+    .ps-summary {
+      margin: 0.1rem 0 0;
+      font-size: 0.82rem;
+      color: var(--ps-muted);
+      line-height: 1.5;
+      overflow-wrap: break-word;
+    }
+
+    /* Meta cluster: dates + transcript link */
     .ps-entry-meta {
       display: flex;
       align-items: center;
       gap: 0.4rem 1rem;
-      flex: 0 1 auto;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      margin-top: 0.2rem;
     }
     .ps-meta-pill { display: flex; align-items: baseline; gap: 0.3rem; white-space: nowrap; }
     .ps-meta-label { font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ps-muted); opacity: 0.65; }
     .ps-date { font-family: "SF Mono", Consolas, monospace; font-size: 0.78rem; color: var(--ps-muted); }
     .ps-dl { font-size: 0.82rem; color: var(--ps-muted); text-decoration: none; white-space: nowrap; }
     .ps-dl:hover { color: var(--ps-accent); }
-
-    /* Narrow screens (phones): force column so the title always has
-       the full card width.  align-items: stretch is critical — without
-       it the title measures its own intrinsic min-width and collapses
-       to ~1 character wide, causing vertical character waterfalls. */
-    @media (max-width: 600px) {
-      .ps-entry { flex-direction: column; align-items: stretch; gap: 0.4rem; }
-      .ps-entry-meta { justify-content: flex-start; flex-wrap: wrap; }
-    }
 
     footer { border-top: 1px solid var(--ps-border); color: var(--ps-muted); }
     footer a { color: var(--ps-accent); text-decoration: none; }
@@ -125,32 +116,100 @@
     </div>
     <h2 id="3-minute-videos" class="ps-section-heading">3 Minute Videos</h2>
     <div class="ps-card mb-4">
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html">3min Vlog - 5 things you can do to improve yourself</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T15:19:39.3338105+00:00" class="ps-date ps-local-time">2026-05-22 15:19 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T16:14:30.6080361+00:00" class="ps-date ps-local-time">2026-05-24 16:14 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html">How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T14:00:38.5495743+00:00" class="ps-date ps-local-time">2026-05-22 14:00 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T05:02:25.1597469+00:00" class="ps-date ps-local-time">2026-05-24 05:02 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html">3min Vlog - 5 things you can do to improve yourself</a>
+        <p class="ps-summary">The vlog challenges viewers to improve themselves by focusing on five simple, everyday habits. It emphasizes that small, consistent actions—like better sleep, hydration, exercise, personal time, and open conversation—can create meaningful long‑term change. The host encourages trying all five or at…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T15:19:39.3338105+00:00" class="ps-date ps-local-time">2026-05-22 15:19 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T16:14:30.6080361+00:00" class="ps-date ps-local-time">2026-05-24 16:14 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html">How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively</a>
+        <p class="ps-summary">The video explains how insurance agencies can lower client churn and boost revenue by treating policy renewals as strategic relationship checkpoints. It outlines three actionable tactics: proactive renewal review calls, handling cancellations before they happen, and training reps to become retention…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T14:00:38.5495743+00:00" class="ps-date ps-local-time">2026-05-22 14:00 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T05:02:25.1597469+00:00" class="ps-date ps-local-time">2026-05-24 05:02 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_transcript.txt" download>📄 Transcript</a></div>
+      </div>
     </div>
     <h2 id="google-cloud-next-2026" class="ps-section-heading">Google Cloud Next 2026</h2>
     <div class="ps-card mb-4">
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html">Agentic commerce: Transform the shopping experience with Google agents and open standards</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T16:14:26.8993835+00:00" class="ps-date ps-local-time">2026-05-22 16:14 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:06:30.3963813+00:00" class="ps-date ps-local-time">2026-05-23 18:06 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html">Build production-ready agents on Google Cloud: A guide for architects and CTOs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T18:57:52.4485983+00:00" class="ps-date ps-local-time">2026-05-22 18:57 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T16:38:18.3222462+00:00" class="ps-date ps-local-time">2026-05-24 16:38 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_page.html">From pilot to production: Scaling Gemini with proven practices</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T19:28:51.4961123+00:00" class="ps-date ps-local-time">2026-05-22 19:28 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:18:45.9330148+00:00" class="ps-date ps-local-time">2026-05-23 18:18 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_page.html">From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T19:59:28.6145146+00:00" class="ps-date ps-local-time">2026-05-22 19:59 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:24:36.5215367+00:00" class="ps-date ps-local-time">2026-05-23 18:24 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_page.html">Gemini Enterprise app: Building the connected enterprise</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T20:29:22.4792503+00:00" class="ps-date ps-local-time">2026-05-22 20:29 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:31:05.6287757+00:00" class="ps-date ps-local-time">2026-05-23 18:31 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html">Google Cloud Next &#39;26 Opening Keynote</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T21:29:28.4365825+00:00" class="ps-date ps-local-time">2026-05-22 21:29 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:37:22.4102946+00:00" class="ps-date ps-local-time">2026-05-23 18:37 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_page.html">The agentic ROI framework for lean teams</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T21:55:57.5342123+00:00" class="ps-date ps-local-time">2026-05-22 21:55 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:42:39.1219056+00:00" class="ps-date ps-local-time">2026-05-23 18:42 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_page.html">The agentic shift in software development life cycle</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T22:21:31.9227941+00:00" class="ps-date ps-local-time">2026-05-22 22:21 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:47:21.5676311+00:00" class="ps-date ps-local-time">2026-05-23 18:47 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html">What&#39;s new in Google Cloud&#39;s agent platform</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T22:47:20.1030986+00:00" class="ps-date ps-local-time">2026-05-22 22:47 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:52:33.6846938+00:00" class="ps-date ps-local-time">2026-05-23 18:52 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html">What&#39;s new with Gemini Enterprise app</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T23:14:46.3238009+00:00" class="ps-date ps-local-time">2026-05-22 23:14 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:57:45.2420956+00:00" class="ps-date ps-local-time">2026-05-23 18:57 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html">Agentic commerce: Transform the shopping experience with Google agents and open standards</a>
+        <p class="ps-summary">In this breakout session Google Cloud introduces Agentic Commerce, a new way to let shoppers interact with retail and payment services through conversational AI agents. Jesse, an AI incubation lead, outlines the market opportunity, showcases Google’s tooling (Gemini Enterprise, Shopping Agent…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T16:14:26.8993835+00:00" class="ps-date ps-local-time">2026-05-22 16:14 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:06:30.3963813+00:00" class="ps-date ps-local-time">2026-05-23 18:06 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html">Build production-ready agents on Google Cloud: A guide for architects and CTOs</a>
+        <p class="ps-summary">The session walks through how to take AI agents from prototype to production on Google Cloud. Sita (Developer Relations Engineer) and her co‑speakers introduce five core principles—building, scaling, governing, optimizing, and observing agents—while showcasing the Google‑provided tooling (Agent…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T18:57:52.4485983+00:00" class="ps-date ps-local-time">2026-05-22 18:57 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T16:38:18.3222462+00:00" class="ps-date ps-local-time">2026-05-24 16:38 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_page.html">From pilot to production: Scaling Gemini with proven practices</a>
+        <p class="ps-summary">The panel, moderated by Google Applied‑AI leader Donna, explored how three large‑scale tech companies move Gemini from a pilot experiment to production‑grade services.  DeepMind’s Arca, JetBrains’ Nick, and Roblox’s Naren each described their organization’s use‑cases, the engineering constraints…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T19:28:51.4961123+00:00" class="ps-date ps-local-time">2026-05-22 19:28 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:18:45.9330148+00:00" class="ps-date ps-local-time">2026-05-23 18:18 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_page.html">From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent</a>
+        <p class="ps-summary">In this session, Booking.com’s AI Platform team walks through their journey of turning generative‑AI prototypes into production‑ready, agentic solutions on Google Cloud. Alibek introduces the company’s scale, AI heritage, and the evolution of their multi‑provider AI ecosystem, while Maria showcases…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T19:59:28.6145146+00:00" class="ps-date ps-local-time">2026-05-22 19:59 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-24T17:02:53.6151625+00:00" class="ps-date ps-local-time">2026-05-24 17:02 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_page.html">Gemini Enterprise app: Building the connected enterprise</a>
+        <p class="ps-summary">The video introduces Gemini Enterprise, a unified AI‑driven platform designed to eliminate tool‑fragmentation and boost productivity across organizations.  Demetri, Sammy, and Dimitri explain how the app’s “fabric of universal intelligence” combines generative creation, agent automation, and deep…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T20:29:22.4792503+00:00" class="ps-date ps-local-time">2026-05-22 20:29 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:31:05.6287757+00:00" class="ps-date ps-local-time">2026-05-23 18:31 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html">Google Cloud Next &#39;26 Opening Keynote</a>
+        <p class="ps-summary">The opening keynote of Google Cloud Next ’26, delivered by CEO Thomas Kurian (with remarks from Sundar Pichai), announced Google’s “agentic” AI strategy and introduced Gemini Enterprise, a full‑stack platform that lets enterprises build, scale, govern, and secure AI agents across every workflow. The…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T21:29:28.4365825+00:00" class="ps-date ps-local-time">2026-05-22 21:29 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:37:22.4102946+00:00" class="ps-date ps-local-time">2026-05-23 18:37 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_page.html">The agentic ROI framework for lean teams</a>
+        <p class="ps-summary">The video introduces the Agentic ROI Framework, a structured approach for lean teams to turn AI initiatives into measurable business value. Patik (Google Cloud Ops) and Andre (Google Financial Services) walk through a value‑realization model, illustrate it with a real‑world case study from One…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T21:55:57.5342123+00:00" class="ps-date ps-local-time">2026-05-22 21:55 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:42:39.1219056+00:00" class="ps-date ps-local-time">2026-05-23 18:42 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_page.html">The agentic shift in software development life cycle</a>
+        <p class="ps-summary">The session explores the agentic shift in the software development life‑cycle – how AI agents are being adopted, coordinated, and moved from prototype to production. After reviewing recent adoption statistics, the speakers introduce Cyan, an open‑source container‑based orchestration framework that…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T22:21:31.9227941+00:00" class="ps-date ps-local-time">2026-05-22 22:21 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:47:21.5676311+00:00" class="ps-date ps-local-time">2026-05-23 18:47 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html">What&#39;s new in Google Cloud&#39;s agent platform</a>
+        <p class="ps-summary">The session provides a deep dive into Google Cloud’s Agent Platform, showing how it has evolved from the early Agent Development Kit (ADK) demos to a full‑stack, production‑grade solution. Aman Khan (Product Manager) and Lavi (DevRel) walk through new capabilities, real‑world customer use cases, and…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T22:47:20.1030986+00:00" class="ps-date ps-local-time">2026-05-22 22:47 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:52:33.6846938+00:00" class="ps-date ps-local-time">2026-05-23 18:52 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html">What&#39;s new with Gemini Enterprise app</a>
+        <p class="ps-summary">The session announced new capabilities for Gemini Enterprise, focusing on the launch of the Gemini Enterprise Agent platform and a suite of application‑level features that let every employee create, run, and manage AI agents across the company. Jamie Deggeer (Google Cloud AI) and a panel of…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-22T23:14:46.3238009+00:00" class="ps-date ps-local-time">2026-05-22 23:14 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T18:57:45.2420956+00:00" class="ps-date ps-local-time">2026-05-23 18:57 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_transcript.txt" download>📄 Transcript</a></div>
+      </div>
     </div>
     <h2 id="google-io-2026" class="ps-section-heading">Google IO 2026</h2>
     <div class="ps-card mb-4">
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html">Developer Keynote (Google I/O &#39;26)</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T03:51:33.6008591+00:00" class="ps-date ps-local-time">2026-05-23 03:51 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T19:03:17.7482551+00:00" class="ps-date ps-local-time">2026-05-23 19:03 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html">Google I/O &#39;26 Keynote</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T17:51:18.7163406+00:00" class="ps-date ps-local-time">2026-05-23 17:51 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html">Developer Keynote (Google I/O &#39;26)</a>
+        <p class="ps-summary">Google’s I/O ‘26 developer keynote showcased the company’s shift toward agentic AI.  New Gemini models, the open‑source Gemma 4, and the Google Antigravity platform were presented as the backbone for building, deploying, and managing AI agents that can complete complex, end‑to‑end tasks.  Live demos…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T03:51:33.6008591+00:00" class="ps-date ps-local-time">2026-05-23 03:51 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T19:03:17.7482551+00:00" class="ps-date ps-local-time">2026-05-23 19:03 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_page.html">Google I/O &#39;26 Keynote</a>
+        <p class="ps-summary">Google’s I/O 2026 keynote, led by CEO Sundar Pichai and DeepMind lead Demis Hassabis, showcased the company’s AI‑first strategy and the rapid expansion of its Gemini models across products. Highlights included staggering growth in AI usage, new generative‑AI features in Search, Maps, YouTube, Docs…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T17:51:18.7163406+00:00" class="ps-date ps-local-time">2026-05-23 17:51 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_transcript.txt" download>📄 Transcript</a></div>
+      </div>
     </div>
     <h2 id="hill-country-guitar-lessons" class="ps-section-heading">Hill Country Guitar Lessons</h2>
     <div class="ps-card mb-4">
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T05:15:32.7565488+00:00" class="ps-date ps-local-time">2026-05-23 05:15 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:16:46.8255645+00:00" class="ps-date ps-local-time">2026-05-23 17:16 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html">Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T16:58:24.5518200+00:00" class="ps-date ps-local-time">2026-05-23 16:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:26:04.2828326+00:00" class="ps-date ps-local-time">2026-05-23 17:26 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_transcript.txt" download>📄 Transcript</a></div></div>
-      <div class="ps-entry"><a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html">The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</a><div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T14:58:43.6027151+00:00" class="ps-date ps-local-time">2026-05-23 14:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:22:14.9732466+00:00" class="ps-date ps-local-time">2026-05-23 17:22 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt" download>📄 Transcript</a></div></div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html">Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs</a>
+        <p class="ps-summary">The lesson teaches the hill‑country blues riff from “Goin’ Down South” (R.L. Burnside / The Black Keys). The instructor explains the style’s groove‑centric, riff‑based nature and walks through the entire eight‑bar pattern, breaking it into two main sections. Two right‑hand techniques are…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T05:15:32.7565488+00:00" class="ps-date ps-local-time">2026-05-23 05:15 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:16:46.8255645+00:00" class="ps-date ps-local-time">2026-05-23 17:16 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html">Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs</a>
+        <p class="ps-summary">The tutorial breaks down Junior Kimbrough’s blues‑rock tune “Meet Me In The City.” The instructor focuses primarily on mastering the 18‑bar intro, which is ideal for practicing monotonic bass patterns that underpin the melody. After the intro, he walks through the verse, chorus, bridge (shuffle)…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T16:58:24.5518200+00:00" class="ps-date ps-local-time">2026-05-23 16:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:26:04.2828326+00:00" class="ps-date ps-local-time">2026-05-23 17:26 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_transcript.txt" download>📄 Transcript</a></div>
+      </div>
+      <div class="ps-entry">
+        <a class="ps-title-link" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html">The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher</a>
+        <p class="ps-summary">The video introduces Hill Country blues, a rhythm‑driven, percussive style that developed in Mississippi’s juke‑joints as a dance‑floor alternative to Delta blues. The instructor explains the two main sub‑styles—Delta‑drone and hypnotic boogie—and demonstrates how to achieve their signature sound by…</p>
+        <div class="ps-entry-meta"><span class="ps-meta-pill"><span class="ps-meta-label">Published</span><time datetime="2026-05-23T14:58:43.6027151+00:00" class="ps-date ps-local-time">2026-05-23 14:58 UTC</time></span><span class="ps-meta-pill"><span class="ps-meta-label">Updated</span><time datetime="2026-05-23T17:22:14.9732466+00:00" class="ps-date ps-local-time">2026-05-23 17:22 UTC</time></span><a class="ps-dl" href="https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt" download>📄 Transcript</a></div>
+      </div>
     </div>
   </main>
   <footer class="py-3 text-center small">
