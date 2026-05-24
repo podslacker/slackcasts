@@ -6,73 +6,65 @@
 ---
 
 ## Overview  
-The video teaches insurance agency owners how to reduce client churn and boost revenue at policy renewal time. It stresses that most losses stem from silence, missed opportunities, and poor renewal strategy—not price. By moving from reactive to proactive renewal conversations, handling cancellations thoughtfully, and training reps to become retention specialists, agencies can keep clients longer and generate more cross‑selling opportunities.
+The video explains how insurance agencies can lower client churn and boost revenue by treating policy renewals as strategic relationship checkpoints. It outlines three actionable tactics: proactive renewal review calls, handling cancellations before they happen, and training reps to become retention experts. Throughout, the presenter emphasizes that the way agencies manage renewals and cancellations directly influences referrals and future growth.
 
-## Topics Covered
-- **Proactive renewal review calls** – Reach out 45‑60 days before a policy expires, use the call to review coverage, discuss market conditions, and uncover gaps for cross‑selling, turning monoline clients into more profitable multi‑line relationships.  
-- **Handling cancellations proactively** – Treat every cancellation call as a dialog, not a conclusion; ask why the client wants to leave, explore price concerns, coverage confusion, or life‑change needs, and offer adjustments or flexible payment options. Even if they leave, a respectful process preserves referrals and future win‑backs.  
-- **Training reps to be retention rock‑stars** – Retention is a teachable skill. Use role‑plays, side‑by‑side listening, scripts, and structured objection handling to build confidence. Provide ongoing learning via on‑demand videos and live virtual training through the agency’s “Agency School.”  
-- **Resources & support** – The presenter highlights the agency’s website, performance partners, blog library, and over 1,000 YouTube videos as tools for agencies seeking deeper guidance.
+## Topics Covered  
+- **Renewals as Relationship Checkpoints** – Explains that most client loss isn’t price‑driven but caused by silence, missed opportunities, and lack of a renewal strategy. Turning renewals into proactive conversations creates chances to reduce churn and cross‑sell.  
+- **Proactive Renewal Review Calls** – Reach out 45‑60 days before a policy expires, discuss market conditions, uncover coverage gaps, and present multi‑line options. This shifts the conversation from a simple price talk to a risk‑management review and helps convert monoline clients to higher‑value multi‑line relationships.  
+- **Pre‑emptive Cancellation Management** – Listen to cancellation calls for signs of a conclusion rather than a dialogue. Before processing a cancellation, ask why the client is leaving, check for price concerns, coverage confusion, or life‑change events, and offer adjustments or payment solutions. Even if a client departs, a respectful handling can preserve referrals and open the door for future re‑engagement.  
+- **Training Reps to Be Retention Rock Stars** – Retention is a teachable skill. Use role‑playing, side‑by‑side listening, scripts, and structured frameworks to build confidence for tough renewal conversations. Empowered reps who own the process are more likely to save accounts.  
+- **Support Resources** – The presenter promotes an agency school with on‑demand videos, live virtual trainings, a library of >1,000 blog posts and videos, and personalized consulting to help agencies implement these strategies.
 
-## Key Takeaways
-- **Renewals are relationship checkpoints**; use them to reduce churn and increase multi‑line revenue.  
-- **Contact clients 45‑60 days ahead** of renewal to discuss coverage, not just price.  
-- **Turn cancellation calls into conversations** to uncover underlying reasons and possible solutions.  
-- **Multi‑line clients stay longer**; aim to expand coverage breadth during renewals.  
-- **Retention skills can be trained** through role‑plays, scripts, and mentorship.  
-- **Leverage the agency’s training platform** for continuous rep development and process improvement.  
-- **A respectful cancellation experience protects referrals** and opens doors for future re‑engagement.
+## Key Takeaways  
+- Most churn stems from lack of proactive communication, not price.  
+- Initiate renewal review calls 45–60 days before expiration to position yourself as a risk‑management partner and uncover cross‑sell opportunities.  
+- Treat every cancellation as a conversation: identify the root cause and offer tailored solutions before finalizing the loss.  
+- Invest in systematic training—role‑plays, scripts, and mentorship—to turn every rep into a retention specialist.  
+- Multi‑line clients stay longer; use renewal reviews to transition monoline customers to broader coverage.  
+- How you handle a departing client affects future referrals and the chance they may return.  
 
-## Notable Quotes
-- “Most agencies don’t lose clients because of the price, they lose them because of silence, missed opportunities, and a lack of strategy at renewal.”  
+## Notable Quotes  
+- “Most agencies don’t lose clients because of the price, they lose them because of silence, missed opportunity and a lack of strategy at renewal.”  
 - “Retention isn’t about reacting. It’s about leading the renewal conversation.”  
-- “If our reps believe that they can save accounts, they most certainly will.”
+- “When our reps believe that they can save accounts, they most certainly do.”
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Hey everyone, welcome back to the podcast, I’m Jordan, your detail‑driven host, and with me as always is the big‑picture guy, Mike.
+**JORDAN:** Hey everyone, welcome back to the podcast! I'm Jordan, your detail‑driven host, and today we're diving into the three biggest strategies agencies can use to stop client churn and boost renewal revenue.
 
-**MIKE:** Thanks, Jordan! Today we’re diving into a hot topic for insurance agencies—how to turn client churn into revenue growth.
+**MIKE:** And I'm Mike, here to keep the big picture in focus. If you've ever lost a client and wondered *why* it happened, this episode is for you—plus we’ll throw in some real‑world tips you can start using right now.
 
-**JORDAN:** The transcript we got breaks it down into three strategies, starting with proactive renewal review calls about 45 days before a policy expires.
+**JORDAN:** First up, the transcript stresses proactive renewal review calls about 45 to 60 days before a policy expires. The goal isn’t just to talk price, but to set expectations about market conditions and uncover coverage gaps.
 
-**MIKE:** That timing is key—catch the client before they even think about leaving, and you can shift the conversation from price to value.
+**MIKE:** That makes sense—getting ahead of the conversation turns a potential “I’m leaving” moment into a partnership check‑in. How many agencies actually schedule these calls ahead of time, do you think?
 
-**JORDAN:** Exactly. By reviewing coverage gaps and market conditions early, agents can position themselves as risk‑management partners rather than just salespeople.
+**JORDAN:** Not many, which is why it’s a goldmine. By reviewing the existing policy, reps can cross‑sell additional lines, moving monoline clients toward multi‑line relationships that statistically stay longer.
 
-**MIKE:** And that opens the door for multi‑line upsells, which studies show keep clients around longer than monoline accounts.
+**MIKE:** So it’s a win‑win: you protect the client and you lock in more revenue. I can hear the “aha” moment from listeners already—why wait for a cancellation when you can create value first?
 
-**JORDAN:** The second strategy is handling cancellations proactively—listening to why a client wants out before you process the termination.
+**JORDAN:** Exactly. The second strategy is handling cancellations proactively. The key is to treat every cancellation call as a conversation, not a conclusion, and ask why the client wants out before processing anything.
 
-**MIKE:** It’s like a safety net: if the issue is a misunderstanding or a life change, you can offer adjustments or payment options on the spot.
+**MIKE:** That “why” question is huge. It could be price, coverage confusion, or a life change—each one opens a different solution path, like adjusting coverage or offering flexible payments.
 
-**JORDAN:** The transcript stresses that the tone of the call matters; it should feel like a conversation, not a conclusion.
+**JORDAN:** And even if the client still decides to leave, the way you handle it influences referrals and future wins. A graceful exit can turn a quitter into a promoter who might come back later.
 
-**MIKE:** Right, because even if they still leave, a respectful exit can turn them into a referral source or a future comeback client.
+**MIKE:** It’s like turning a negative into a brand ambassador. Listeners, think about the last time a client left—did you ask the right questions, or just close the file?
 
-**JORDAN:** Third, they suggest training reps to become “retention rockstars” through role‑playing and side‑by‑side listening.
+**JORDAN:** The third tactic is turning reps into retention rockstars. Retention isn’t luck; it’s a skill you can train with role‑playing, side‑by‑side listening, and structured scripts.
 
-**MIKE:** I love that—actual practice builds confidence, and confidence is what makes reps own the renewal conversation instead of fearing it.
+**MIKE:** I love that—learning by watching the best. If a newer rep can shadow a seasoned pro during a tough renewal call, the whole team levels up faster.
 
-**JORDAN:** They also mention scripts and structured frameworks, which can help newer agents avoid getting stuck on objections.
+**JORDAN:** Training should also empower reps to own the situation and act as client advocates, which boosts confidence and results. When reps truly believe they can save an account, the numbers follow.
 
-**MIKE:** And let’s not forget the agency school they offer—on‑demand videos and live virtual classrooms to keep the whole team on the same page.
+**MIKE:** And for agencies looking for resources, the transcript mentions an agency school with on‑demand videos and live virtual classrooms—perfect for scaling that training.
 
-**JORDAN:** So, pulling it together: proactive outreach, empathetic cancellation handling, and systematic training are the three pillars.
+**JORDAN:** To sum up, proactive renewal calls, thoughtful cancellation handling, and focused retention training form a trifecta that reduces churn and drives revenue growth.
 
-**MIKE:** When agencies adopt those pillars, they shift from reacting to churn to leading the renewal dialogue, which drives both retention and revenue.
+**MIKE:** Those are actionable steps anyone can start applying today, whether you’re a solo agent or running a big agency. Thanks for tuning in, and remember—lead the renewal conversation before it even starts.
 
-**JORDAN:** For anyone listening, start by mapping out a 45‑day renewal calendar and script a quick gap‑analysis question set.
+**JORDAN:** That’s a wrap from me, Jordan. Keep sharpening those processes, and your clients will stick around.
 
-**MIKE:** Then, record a few cancellation calls, identify the tone, and coach your reps on turning those “goodbyes” into “let’s talk.”
-
-**JORDAN:** Remember, retention isn’t luck—it’s a repeatable process you can teach and measure.
-
-**MIKE:** And the payoff? Happier clients, fewer surprises at bill time, and a healthier bottom line for your agency.
-
-**JORDAN:** That wraps up today’s deep dive. Thanks for tuning in, and don’t forget to check out the agency school if you want to fast‑track your team’s skills.
-
-**MIKE:** Thanks, everyone! Keep leading those renewal conversations, and we’ll see you next time. Bye for now!
+**MIKE:** I’m Mike—stay curious, keep building relationships, and we’ll catch you on the next episode. Happy selling!
 
