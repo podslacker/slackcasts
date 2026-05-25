@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+
+/* ── Chat feature ────────────────────────────────────────────────────────── */
+.chat-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: #0d1117;
+  border: none; cursor: pointer; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(88,166,255,.4);
+  transition: transform .2s, background .2s;
+}
+.chat-fab:hover { background: #79bbff; transform: scale(1.08); }
+body.has-player .chat-fab { bottom: calc(var(--ph) + 16px); }
+.chat-panel {
+  position: fixed; bottom: 88px; right: 24px;
+  width: 360px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100vh - 120px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  z-index: 1500; display: none; flex-direction: column; overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+body.has-player .chat-panel { bottom: calc(var(--ph) + 80px); }
+.chat-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.chat-header-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+.chat-header-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1.2rem; line-height: 1;
+  padding: 2px 6px; border-radius: 4px; transition: color .15s;
+}
+.chat-header-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.chat-msg { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; align-items: flex-end; }
+.chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+.chat-bubble {
+  padding: 10px 14px; border-radius: 14px;
+  font-size: .875rem; line-height: 1.55; word-break: break-word;
+}
+.chat-msg.user .chat-bubble {
+  background: rgba(88,166,255,.18); color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.assistant .chat-bubble {
+  background: var(--code-bg); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble p { margin: 0 0 .5em; }
+.chat-bubble p:last-child { margin-bottom: 0; }
+.chat-bubble strong { font-weight: 600; }
+.chat-bubble em { font-style: italic; }
+.chat-bubble code {
+  font-family: "SF Mono", Consolas, monospace; font-size: .8em;
+  background: rgba(0,0,0,.3); padding: .1em .35em;
+  border-radius: 3px; color: #79c0ff;
+}
+.chat-ts-btn {
+  background: none; border: 1px solid rgba(88,166,255,.4); color: var(--accent);
+  border-radius: 10px; padding: 1px 8px; font-size: .8em;
+  cursor: pointer; transition: background .15s;
+}
+.chat-ts-btn:hover { background: rgba(88,166,255,.15); }
+.chat-thinking {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px; background: var(--code-bg);
+  border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content;
+}
+.chat-thinking span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+  animation: chat-bounce .9s ease-in-out infinite;
+}
+.chat-thinking span:nth-child(2) { animation-delay: .15s; }
+.chat-thinking span:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+.chat-footer {
+  padding: 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: .875rem;
+  padding: 8px 12px; outline: none; resize: none;
+  min-height: 38px; max-height: 120px; line-height: 1.4;
+  font-family: inherit; transition: border-color .15s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-send {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: #0d1117; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .1s; align-self: flex-end;
+}
+.chat-send:hover { background: #79bbff; }
+.chat-send:active { transform: scale(.92); }
+.chat-send:disabled { background: var(--border); color: var(--muted); cursor: default; transform: none; }
+.chat-error { font-size: .8rem; color: #f85149; padding: 4px 14px 8px; text-align: center; }
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; dQw4w9WgXcQ</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_01.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_01.jpg" loading="lazy" data-caption="Opening title slide introduces the classic pop anthem." data-yt-ts="0" data-frame-ts="0"><figcaption class="gal-caption">Opening title slide introduces the classic pop anthem.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_02.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_02.jpg" loading="lazy" data-caption="The presenter highlights the lyric about being &quot;no strangers to love,&quot; marking the first thematic shift." data-yt-ts="22" data-frame-ts="24"><figcaption class="gal-caption">The presenter highlights the lyric about being &quot;no strangers to love,&quot; marking the first thematic shift.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_03.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_03.jpg" loading="lazy" data-caption="A key refrain &quot;Never gonna give you up&quot; is emphasized, underscoring the song&#39;s central promise." data-yt-ts="46" data-frame-ts="48"><figcaption class="gal-caption">A key refrain &quot;Never gonna give you up&quot; is emphasized, underscoring the song&#39;s central promise.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_04.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_04.jpg" loading="lazy" data-caption="The line &quot;And if you ask me how I&#39;m feeling&quot; introduces a reflective moment in the narrative." data-yt-ts="64" data-frame-ts="66"><figcaption class="gal-caption">The line &quot;And if you ask me how I&#39;m feeling&quot; introduces a reflective moment in the narrative.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_05.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_05.jpg" loading="lazy" data-caption="The repeated chorus &quot;Never gonna give you up&quot; reinforces the song&#39;s hook." data-yt-ts="99" data-frame-ts="101"><figcaption class="gal-caption">The repeated chorus &quot;Never gonna give you up&quot; reinforces the song&#39;s hook.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_06.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_06.jpg" loading="lazy" data-caption="A brief vocal break &quot;(Give you up)&quot; signals a transition to the bridge section." data-yt-ts="123" data-frame-ts="125"><figcaption class="gal-caption">A brief vocal break &quot;(Give you up)&quot; signals a transition to the bridge section.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_07.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_07.jpg" loading="lazy" data-caption="The lyric &quot;Gotta make you understand&quot; signals a shift toward the song&#39;s climax." data-yt-ts="151" data-frame-ts="153"><figcaption class="gal-caption">The lyric &quot;Gotta make you understand&quot; signals a shift toward the song&#39;s climax.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_08.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_08.jpg" loading="lazy" data-caption="The promise &quot;Never gonna let you down&quot; appears, highlighting the emotional peak." data-yt-ts="176" data-frame-ts="178"><figcaption class="gal-caption">The promise &quot;Never gonna let you down&quot; appears, highlighting the emotional peak.</figcaption></figure>
+<figure class="gal-item"><img src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_09.jpg" alt="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_frame_09.jpg" loading="lazy" data-caption="The final line &quot;Never gonna make you cry&quot; concludes the track, wrapping up the theme." data-yt-ts="201" data-frame-ts="203"><figcaption class="gal-caption">The final line &quot;Never gonna make you cry&quot; concludes the track, wrapping up the theme.</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="rick-astley-never-gonna-give-you-up-official-video-4k-remaster">Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a><br />
+<strong>Video ID:</strong> <code>dQw4w9WgXcQ</code></p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The video is the official, 4K‑remastered music video for Rick Astley’s 1987 hit “Never Gonna Give You You Up.” It features the full lyrical performance of the iconic pop‑dance track, accompanied by Astley’s charismatic vocals and classic 80s visuals. The purpose of the upload is to present the song in higher‑definition quality for fans and newcomers, preserving its status as a cultural meme (“rickrolling”) while showcasing the original artistry.</p>
+<h2 id="topics-covered">Topics Covered</h2>
+<ul>
+<li><strong>Intro and opening verses</strong> – The song opens with the recognizable synth hook and Astley singing “We’re no strangers to love…” establishing the upbeat, pledging tone.</li>
+<li><strong>Chorus &amp; central promise</strong> – The repeated refrain “Never gonna give you up, never gonna let you down…” reinforces the song’s core message of unwavering loyalty.</li>
+<li><strong>Bridge and lyrical variations</strong> – Slightly altered lines (“Your heart’s been aching but you’re too shy to say it”) add emotional depth before returning to the main hook.</li>
+<li><strong>Repetitive structure</strong> – The track cycles through verses, choruses, and a vocal interlude (“Ooh, give you up”) creating a catchy, meme‑friendly format.</li>
+<li><strong>Closing repetition</strong> – The video ends with several rounds of the chorus, cementing the unforgettable hook that fuels the rickroll phenomenon.</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>The video showcases the full, unedited lyrics of the 1987 hit, preserving its original arrangement.</li>
+<li>Its 4K remaster provides clearer audio‑visual quality while retaining the classic 80s aesthetic.</li>
+<li>The lyrical theme revolves around steadfast commitment and reassurance in a romantic context.</li>
+<li>The repetitive, hook‑driven structure is a key factor in the song’s lasting viral popularity.</li>
+<li>The video serves both as a nostalgic piece for original fans and an accessible entry point for new listeners.</li>
+</ul>
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li>“We’re no strangers to love, you know the rules and so do I.”</li>
+<li>“Never gonna give you up, never gonna let you down, never gonna run around and desert you.”</li>
+<li>“Your heart’s been aching but you’re too shy to say it.”</li>
+</ul>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Welcome to Audio Deep Dive, where we dissect the anatomy of iconic tracks. Today we’re breaking down the 4K‑remastered “Never Gonna Give You Up,” Rick Astley’s 1987 pop‑dance anthem that’s been immortalized as the ultimate rickroll.</p>
+<p><strong>MIKE:</strong> It’s a short clip—just three and a half minutes—but the structure is textbook for a viral hook. Let’s start with that instantly recognizable synth intro and the opening verses.</p>
+<p><strong>JORDAN:</strong> The synth hook rides a classic Roland Juno‑60 patch, establishing a bright, mid‑range timbre that immediately signals an ’80s production. Astley’s baritone enters on “We’re no strangers to love,” stacking a two‑part vocal harmony that reinforces the lyrical premise of mutual familiarity.</p>
+<p><strong>MIKE:</strong> That lyrical premise is crucial—it frames the whole song as a promise contract. The line “You know the rules and so do I” creates a shared rule‑set, which later becomes a meme‑ready punchline.</p>
+<p><strong>JORDAN:</strong> Absolutely. Musically, the verse follows a I‑vi‑IV‑V progression in B♭ major, a staple of pop songwriting. The chord movement is smooth enough to let the vocal line sit on the beat, while the drum machine—likely a LinnDrum—adds that crisp snare on the 2 and 4.</p>
+<p><strong>MIKE:</strong> And then we hit the chorus—“Never gonna give you up, never gonna let you down…”. That repetition is the core promise you mentioned, but from a strategic standpoint, it’s engineered for recall. The melodic hook is a simple fifth interval that’s easy to sing along, reinforcing the song’s meme potential.</p>
+<p><strong>JORDAN:</strong> The harmony thickens there, moving from a single lead to a four‑voice choir. The backing vocals double the lower thirds, creating a quasi‑chorus effect without adding a separate instrument. This density makes the hook dominate the mix, especially now that the 4K remaster lifts the high‑frequency sheen on the synths and crispness on the percussion.</p>
+<p><strong>MIKE:</strong> The bridge adds a subtle shift—“Your heart’s been aching but you’re too shy to say it.” Lyrically it injects a hint of vulnerability, and harmonically we see a temporary modulation to the relative minor, giving a fleeting emotional dip before the chorus re‑asserts dominance.</p>
+<p><strong>JORDAN:</strong> Right, the bridge introduces a minor iv chord, which adds that emotional coloration. The synth pad becomes more sustained, with a slight chorus effect, differentiating it from the percussive verses. The vocal delivery also drops an octave, increasing intimacy.</p>
+<p><strong>MIKE:</strong> After that, we return to the repetitive structure: verse‑chorus‑verse‑chorus, with that vocal interlude “Ooh, give you up.” The repetition isn’t lazy; it’s a calculated loop that maximizes earworm potential. In meme culture, that loop is the exact moment people slip the video into an unsuspecting playlist.</p>
+<p><strong>JORDAN:</strong> The interlude uses a filtered synth sweep that mirrors the intro but with a low‑pass cutoff, creating a sense of momentum back into the final choruses. The production also adds a subtle gated reverb on the snare—a quintessential ‘80s technique—now rendered with more clarity in the 4K version.</p>
+<p><strong>MIKE:</strong> The closing repetition is basically a cascade of the chorus, each iteration layered with more backing vocals. That cumulative layering creates a wall of sound, making it hard to disengage—perfect for that “you can’t stop listening” meme effect.</p>
+<p><strong>JORDAN:</strong> From a mix perspective, the mastering push in the remaster raises the overall loudness by about 2 LUFS, but retains dynamic range in the bridge, ensuring the emotional contrast isn’t flattened. The video’s visual upgrade also restores the original color grading, preserving the neon aesthetic that fans associate with the era.</p>
+<p><strong>MIKE:</strong> So the key takeaways: the song’s structural simplicity, its promise‑driven lyrics, and the production tricks—synth hooks, layered harmonies, gated reverb—combine to produce a timeless hook that translates directly into meme culture. The 4K remaster simply makes those elements clearer for a new generation.</p>
+<p><strong>JORDAN:</strong> And technically, the song demonstrates how classic pop songwriting formulas, when executed with crisp arrangement and modern mastering, can achieve both commercial success and cultural longevity.</p>
+<p><strong>MIKE:</strong> That’s our deep dive on the Rick Astley classic. Keep those playlists sharp, and remember—never gonna give you up on analyzing music.</p>
+<p><strong>JORDAN:</strong> Thanks for listening to Audio Deep Dive. Until next time, stay tuned and stay analytical.</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_podcast.mp3</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_podcast.mp3" type="audio/mpeg"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="dQw4w9WgXcQ"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<button id="chat-fab" class="chat-fab" aria-label="Ask a question about this video" title="Chat about this video"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+<div id="chat-panel" class="chat-panel"><div class="chat-header"><span class="chat-header-title">Ask about this video</span><button id="chat-close" class="chat-header-close" aria-label="Close chat">&times;</button></div><div id="chat-messages" class="chat-messages"></div><div id="chat-error" class="chat-error" style="display:none"></div><div class="chat-footer"><textarea id="chat-input" class="chat-input" placeholder="Ask a question..." rows="1"></textarea><button id="chat-send" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+<script>
+window.PS_CHAT = {"apiLocal":"http://localhost:64598","apiBase":"https://podslacker-api.fly.dev","videoUrl":"https://www.youtube.com/watch?v=dQw4w9WgXcQ","videoTitle":"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)","transcript":"[00:01] [\u266A\u266A\u266A]\r\n[00:18] \u266A We\u0027re no strangers to love \u266A\r\n[00:22] \u266A You know the rules and so do I \u266A\r\n[00:27] \u266A A full commitment\u0027s what I\u0027m thinking of \u266A\r\n[00:31] \u266A You wouldn\u0027t get this from any other guy \u266A\r\n[00:35] \u266A I just wanna tell you how I\u0027m feeling \u266A\r\n[00:40] \u266A Gotta make you understand \u266A\r\n[00:43] \u266A Never gonna give you up \u266A\r\n[00:45] \u266A Never gonna let you down \u266A\r\n[00:47] \u266A Never gonna run around and desert you \u266A\r\n[00:51] \u266A Never gonna make you cry \u266A\r\n[00:53] \u266A Never gonna say goodbye \u266A\r\n[00:55] \u266A Never gonna tell a lie and hurt you \u266A\r\n[01:00] \u266A We\u0027ve known each other for so long \u266A\r\n[01:04] \u266A Your heart\u0027s been aching but you\u0027re too shy to say it \u266A\r\n[01:09] \u266A Inside we both know what\u0027s been going \u266A\r\n[01:13] \u266A We know the game and we\u0027re gonna play it \u266A\r\n[01:17] \u266A And if you ask me how I\u0027m feeling \u266A\r\n[01:22] \u266A Don\u0027t tell me you\u0027re too blind to see \u266A\r\n[01:25] \u266A Never gonna give you up \u266A\r\n[01:27] \u266A Never gonna let you down \u266A\r\n[01:29] \u266A Never gonna run around and desert you \u266A\r\n[01:33] \u266A Never gonna make you cry \u266A\r\n[01:35] \u266A Never gonna say goodbye \u266A\r\n[01:38] \u266A Never gonna tell a lie and hurt you \u266A\r\n[01:42] \u266A Never gonna give you up \u266A\r\n[01:44] \u266A Never gonna let you down \u266A\r\n[01:46] \u266A Never gonna run around and desert you \u266A\r\n[01:50] \u266A Never gonna make you cry \u266A\r\n[01:52] \u266A Never gonna say goodbye \u266A\r\n[01:54] \u266A Never gonna tell a lie and hurt you \u266A\r\n[01:59] \u266A (Ooh, give you up) \u266A\r\n[02:03] \u266A (Ooh, give you up) \u266A\r\n[02:08] \u266A Never gonna give, never gonna give \u266A\r\n[02:10] \u266A (Give you up) \u266A\r\n[02:12] \u266A Never gonna give, never gonna give \u266A\r\n[02:14] \u266A (Give you up) \u266A\r\n[02:16] \u266A We\u0027ve known each other for so long \u266A\r\n[02:21] \u266A Your heart\u0027s been aching but you\u0027re too shy to say it \u266A\r\n[02:25] \u266A Inside we both know what\u0027s been going \u266A\r\n[02:29] \u266A We know the game and we\u0027re gonna play it \u266A\r\n[02:33] \u266A I just wanna tell you how I\u0027m feeling \u266A\r\n[02:38] \u266A Gotta make you understand \u266A\r\n[02:41] \u266A Never gonna give you up \u266A\r\n[02:43] \u266A Never gonna let you down \u266A\r\n[02:45] \u266A Never gonna run around and desert you \u266A\r\n[02:49] \u266A Never gonna make you cry \u266A\r\n[02:51] \u266A Never gonna say goodbye \u266A\r\n[02:54] \u266A Never gonna tell a lie and hurt you \u266A\r\n[02:58] \u266A Never gonna give you up \u266A\r\n[03:00] \u266A Never gonna let you down \u266A\r\n[03:02] \u266A Never gonna run around and desert you \u266A\r\n[03:06] \u266A Never gonna make you cry \u266A\r\n[03:08] \u266A Never gonna say goodbye \u266A\r\n[03:10] \u266A Never gonna tell a lie and hurt you \u266A\r\n[03:15] \u266A Never gonna give you up \u266A\r\n[03:17] \u266A Never gonna let you down \u266A\r\n[03:19] \u266A Never gonna run around and desert you \u266A\r\n[03:23] \u266A Never gonna make you cry \u266A\r\n[03:25] \u266A Never gonna say goodbye \u266A\r\n[03:27] \u266A Never gonna tell a lie and hurt you \u266A\r\n","summary":"# Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\r\n\r\n**Source:** https://www.youtube.com/watch?v=dQw4w9WgXcQ  \r\n**Video ID:** \u0060dQw4w9WgXcQ\u0060\r\n\r\n---\r\n\r\n## Overview\nThe video is the official, 4K\u2011remastered music video for Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FYou\u202FUp.\u201D It features the full lyrical performance of the iconic pop\u2011dance track, accompanied by Astley\u2019s charismatic vocals and classic 80s visuals. The purpose of the upload is to present the song in higher\u2011definition quality for fans and newcomers, preserving its status as a cultural meme (\u201Crickrolling\u201D) while showcasing the original artistry.\n\n## Topics Covered\n- **Intro and opening verses** \u2013 The song opens with the recognizable synth hook and Astley singing \u201CWe\u2019re no strangers to love\u2026\u201D establishing the upbeat, pledging tone.  \n- **Chorus \u0026 central promise** \u2013 The repeated refrain \u201CNever gonna give you up, never gonna let you down\u2026\u201D reinforces the song\u2019s core message of unwavering loyalty.  \n- **Bridge and lyrical variations** \u2013 Slightly altered lines (\u201CYour heart\u2019s been aching but you\u2019re too shy to say it\u201D) add emotional depth before returning to the main hook.  \n- **Repetitive structure** \u2013 The track cycles through verses, choruses, and a vocal interlude (\u201COoh, give you up\u201D) creating a catchy, meme\u2011friendly format.  \n- **Closing repetition** \u2013 The video ends with several rounds of the chorus, cementing the unforgettable hook that fuels the rickroll phenomenon.\n\n## Key Takeaways\n- The video showcases the full, unedited lyrics of the 1987 hit, preserving its original arrangement.  \n- Its 4K remaster provides clearer audio\u2011visual quality while retaining the classic 80s aesthetic.  \n- The lyrical theme revolves around steadfast commitment and reassurance in a romantic context.  \n- The repetitive, hook\u2011driven structure is a key factor in the song\u2019s lasting viral popularity.  \n- The video serves both as a nostalgic piece for original fans and an accessible entry point for new listeners.\n\n## Notable Quotes\n- \u201CWe\u2019re no strangers to love, you know the rules and so do I.\u201D  \n- \u201CNever gonna give you up, never gonna let you down, never gonna run around and desert you.\u201D  \n- \u201CYour heart\u2019s been aching but you\u2019re too shy to say it.\u201D\r\n\r\n---\r\n\r\n## Podcast Script\r\n\r\n**JORDAN:** Welcome to Audio Deep Dive, where we dissect the anatomy of iconic tracks. Today we\u2019re breaking down the 4K\u2011remastered \u201CNever Gonna Give You Up,\u201D Rick Astley\u2019s 1987 pop\u2011dance anthem that\u2019s been immortalized as the ultimate rickroll.\r\n\r\n**MIKE:** It\u2019s a short clip\u2014just three and a half minutes\u2014but the structure is textbook for a viral hook. Let\u2019s start with that instantly recognizable synth intro and the opening verses.\r\n\r\n**JORDAN:** The synth hook rides a classic Roland Juno\u201160 patch, establishing a bright, mid\u2011range timbre that immediately signals an \u201980s production. Astley\u2019s baritone enters on \u201CWe\u2019re no strangers to love,\u201D stacking a two\u2011part vocal harmony that reinforces the lyrical premise of mutual familiarity.\r\n\r\n**MIKE:** That lyrical premise is crucial\u2014it frames the whole song as a promise contract. The line \u201CYou know the rules and so do I\u201D creates a shared rule\u2011set, which later becomes a meme\u2011ready punchline.\r\n\r\n**JORDAN:** Absolutely. Musically, the verse follows a I\u2011vi\u2011IV\u2011V progression in B\u266D major, a staple of pop songwriting. The chord movement is smooth enough to let the vocal line sit on the beat, while the drum machine\u2014likely a LinnDrum\u2014adds that crisp snare on the 2 and 4.\r\n\r\n**MIKE:** And then we hit the chorus\u2014\u201CNever gonna give you up, never gonna let you down\u2026\u201D. That repetition is the core promise you mentioned, but from a strategic standpoint, it\u2019s engineered for recall. The melodic hook is a simple fifth interval that\u2019s easy to sing along, reinforcing the song\u2019s meme potential.\r\n\r\n**JORDAN:** The harmony thickens there, moving from a single lead to a four\u2011voice choir. The backing vocals double the lower thirds, creating a quasi\u2011chorus effect without adding a separate instrument. This density makes the hook dominate the mix, especially now that the 4K remaster lifts the high\u2011frequency sheen on the synths and crispness on the percussion.\r\n\r\n**MIKE:** The bridge adds a subtle shift\u2014\u201CYour heart\u2019s been aching but you\u2019re too shy to say it.\u201D Lyrically it injects a hint of vulnerability, and harmonically we see a temporary modulation to the relative minor, giving a fleeting emotional dip before the chorus re\u2011asserts dominance.\r\n\r\n**JORDAN:** Right, the bridge introduces a minor iv chord, which adds that emotional coloration. The synth pad becomes more sustained, with a slight chorus effect, differentiating it from the percussive verses. The vocal delivery also drops an octave, increasing intimacy.\r\n\r\n**MIKE:** After that, we return to the repetitive structure: verse\u2011chorus\u2011verse\u2011chorus, with that vocal interlude \u201COoh, give you up.\u201D The repetition isn\u2019t lazy; it\u2019s a calculated loop that maximizes earworm potential. In meme culture, that loop is the exact moment people slip the video into an unsuspecting playlist.\r\n\r\n**JORDAN:** The interlude uses a filtered synth sweep that mirrors the intro but with a low\u2011pass cutoff, creating a sense of momentum back into the final choruses. The production also adds a subtle gated reverb on the snare\u2014a quintessential \u201880s technique\u2014now rendered with more clarity in the 4K version.\r\n\r\n**MIKE:** The closing repetition is basically a cascade of the chorus, each iteration layered with more backing vocals. That cumulative layering creates a wall of sound, making it hard to disengage\u2014perfect for that \u201Cyou can\u2019t stop listening\u201D meme effect.\r\n\r\n**JORDAN:** From a mix perspective, the mastering push in the remaster raises the overall loudness by about 2\u202FLUFS, but retains dynamic range in the bridge, ensuring the emotional contrast isn\u2019t flattened. The video\u2019s visual upgrade also restores the original color grading, preserving the neon aesthetic that fans associate with the era.\r\n\r\n**MIKE:** So the key takeaways: the song\u2019s structural simplicity, its promise\u2011driven lyrics, and the production tricks\u2014synth hooks, layered harmonies, gated reverb\u2014combine to produce a timeless hook that translates directly into meme culture. The 4K remaster simply makes those elements clearer for a new generation.\r\n\r\n**JORDAN:** And technically, the song demonstrates how classic pop songwriting formulas, when executed with crisp arrangement and modern mastering, can achieve both commercial success and cultural longevity.\r\n\r\n**MIKE:** That\u2019s our deep dive on the Rick Astley classic. Keep those playlists sharp, and remember\u2014never gonna give you up on analyzing music.\r\n\r\n**JORDAN:** Thanks for listening to Audio Deep Dive. Until next time, stay tuned and stay analytical.\r\n\r\n","keyMoments":[{"seconds":0,"caption":"Opening title slide introduces the classic pop anthem."},{"seconds":24.6,"caption":"The presenter highlights the lyric about being \u0022no strangers to love,\u0022 marking the first thematic shift."},{"seconds":48.8,"caption":"A key refrain \u0022Never gonna give you up\u0022 is emphasized, underscoring the song\u0027s central promise."},{"seconds":66.8,"caption":"The line \u0022And if you ask me how I\u0027m feeling\u0022 introduces a reflective moment in the narrative."},{"seconds":101.92,"caption":"The repeated chorus \u0022Never gonna give you up\u0022 reinforces the song\u0027s hook."},{"seconds":125.76,"caption":"A brief vocal break \u0022(Give you up)\u0022 signals a transition to the bridge section."},{"seconds":153.2,"caption":"The lyric \u0022Gotta make you understand\u0022 signals a shift toward the song\u0027s climax."},{"seconds":178.88,"caption":"The promise \u0022Never gonna let you down\u0022 appears, highlighting the emotional peak."},{"seconds":203.6,"caption":"The final line \u0022Never gonna make you cry\u0022 concludes the track, wrapping up the theme."}]};
+(function () {
+  var cfg = window.PS_CHAT;
+  if (!cfg) return;
+  var fab     = document.getElementById('chat-fab');
+  var panel   = document.getElementById('chat-panel');
+  var msgsCt  = document.getElementById('chat-messages');
+  var input   = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var errEl   = document.getElementById('chat-error');
+  if (!fab || !panel) return;
+  var history = [];
+  console.log('[PodSlacker chat] initialised — local:', cfg.apiLocal || '(none)', '| internet:', cfg.apiBase);
+
+  fab.addEventListener('click', function () {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+
+  function setDisabled(v) { sendBtn.disabled = v; input.disabled = v; }
+
+  function addBubble(role, html) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    var bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    bub.innerHTML = html || '';
+    wrap.appendChild(bub);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+    return bub;
+  }
+
+  function showThinking() {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg assistant';
+    wrap.id = 'chat-thinking-row';
+    var dots = document.createElement('div');
+    dots.className = 'chat-thinking';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+  }
+  function removeThinking() {
+    var t = document.getElementById('chat-thinking-row');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function clearError() { if (errEl) errEl.style.display = 'none'; }
+  function showError(msg) { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderMd(text) {
+    // Timestamp links → inline buttons that open the nearest key-moment frame
+    text = text.replace(/\[([^\]]+)\]\(timestamp:(\d+(?:\.\d+)?)\)/g, function (_, label, secs) {
+      return '<button class="chat-ts-btn" onclick="openKeyMoment(' + secs + ')">' + escHtml(label) + '</button>';
+    });
+    // Bold / italic / inline code (bold before italic to avoid mis-parse)
+    text = text.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    text = text.replace(/`([^`\n]+)`/g, function(_, c) { return '<code>' + escHtml(c) + '</code>'; });
+    // Split on blank lines → paragraphs; single newlines → <br>
+    return text.split(/\n{2,}/).map(function(p) {
+      return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+
+  window.openKeyMoment = function (seconds) {
+    var imgs = Array.from(document.querySelectorAll('.gal-item img'));
+    if (!imgs.length) {
+      // No captured frames — fall back to YouTube at the given timestamp
+      window.open(cfg.videoUrl + (cfg.videoUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Math.floor(seconds), '_blank');
+      return;
+    }
+    // Find the gallery frame whose original timestamp is nearest to `seconds`
+    var best = imgs[0], bestDiff = Infinity;
+    imgs.forEach(function (img) {
+      var ts = parseFloat(img.getAttribute('data-frame-ts') || '-1');
+      if (ts < 0) return;
+      var d = Math.abs(ts - seconds);
+      if (d < bestDiff) { bestDiff = d; best = img; }
+    });
+    best.click(); // triggers the existing lightbox open() handler
+  };
+
+  // Try local API first (fast connection-refused if not running), then internet API.
+  // HTTP errors (4xx/5xx) are NOT retried — they mean the server responded.
+  async function fetchWithFallback(payload) {
+    var urls = [];
+    if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) urls.push(cfg.apiLocal);
+    urls.push(cfg.apiBase);
+    var lastErr;
+    for (var i = 0; i < urls.length; i++) {
+      var target = urls[i] + '/api/chat';
+      var label  = urls[i] === cfg.apiLocal ? ' (local)' : ' (internet)';
+      try {
+        console.debug('[PodSlacker chat] POST →', target + label);
+        return await fetch(target, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        lastErr = err;
+        if (i < urls.length - 1) {
+          console.warn('[PodSlacker chat] local unreachable, trying internet API →', urls[i + 1] + '/api/chat', err);
+        }
+      }
+    }
+    throw lastErr;
+  }
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    clearError();
+    input.value = '';
+    input.style.height = '';
+    history.push({ role: 'user', content: text });
+    addBubble('user', escHtml(text));
+    setDisabled(true);
+    showThinking();
+    var payload = {
+      video_url: cfg.videoUrl, title: cfg.videoTitle,
+      transcript: cfg.transcript, summary: cfg.summary,
+      key_moments: cfg.keyMoments, messages: history
+    };
+    try {
+      var resp = await fetchWithFallback(payload);
+      if (!resp.ok) {
+        var errBody = await resp.text().catch(function() { return ''; });
+        var httpErr = 'HTTP ' + resp.status + (errBody ? ': ' + errBody : '');
+        console.error('[PodSlacker chat] server error', httpErr);
+        throw new Error(httpErr);
+      }
+      removeThinking();
+      var bub = addBubble('assistant', '');
+      var reader = resp.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '', full = '', streamDone = false;
+      while (!streamDone) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (!line.startsWith('data:')) continue;
+          var chunk = line.slice(5).trim();
+          if (chunk === '[DONE]') { streamDone = true; break; }
+          try {
+            var obj = JSON.parse(chunk);
+            if (obj.text) { full += obj.text; bub.innerHTML = renderMd(full); msgsCt.scrollTop = msgsCt.scrollHeight; }
+          } catch(_) {}
+        }
+      }
+      if (full) {
+        history.push({ role: 'assistant', content: full });
+      } else {
+        history.pop();
+        showError('No response received. Please try again.');
+      }
+    } catch(err) {
+      removeThinking();
+      history.pop();
+      console.error('[PodSlacker chat] failed', err);
+      var isNetErr = !err.message || err.message === 'Failed to fetch'
+        || err.message.indexOf('NetworkError') >= 0
+        || err.message.toLowerCase().indexOf('network') >= 0;
+      if (isNetErr) {
+        var tried = [];
+        if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) tried.push(cfg.apiLocal + ' (local)');
+        tried.push(cfg.apiBase + ' (internet)');
+        showError('Cannot reach chat API — tried ' + tried.join(', then ') + '. Check that the service is running or set chat_api_base_url in podslacker.json.');
+      } else {
+        showError(err.message);
+      }
+    } finally {
+      setDisabled(false);
+      input.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  input.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+}());
+</script>
+
+</body>
+</html>

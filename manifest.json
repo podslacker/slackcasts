@@ -303,5 +303,22 @@
     "audio_file_size_bytes": 1516488,
     "audio_duration_seconds": 165,
     "episode_summary": "The tutorial breaks down Junior Kimbrough\u2019s blues\u2011rock tune \u201CMeet Me In The City.\u201D The instructor focuses primarily on mastering the 18\u2011bar intro, which is ideal for practicing monotonic bass patterns that underpin the melody. After the intro, he walks through the verse, chorus, bridge (shuffle)\u2026"
+  },
+  "3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_page.html": {
+    "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+    "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "published_at": "2026-05-25T15:23:48.8258524+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 9,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_podcast.mp3",
+    "audio_file_size_bytes": 2780856,
+    "audio_duration_seconds": 304,
+    "episode_summary": "The video is the official, 4K\u2011remastered music video for Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FYou\u202FUp.\u201D It features the full lyrical performance of the iconic pop\u2011dance track, accompanied by Astley\u2019s charismatic vocals and classic 80s visuals. The purpose of the upload is to present the song\u2026"
   }
 }
