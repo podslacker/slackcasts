@@ -146,6 +146,112 @@ details[open] .transcript-summary::before { content: "▼ "; }
   .page-header { padding: 20px 16px; }
   .content { padding: 20px 16px; }
 }
+
+/* ── Chat feature ────────────────────────────────────────────────────────── */
+.chat-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: #0d1117;
+  border: none; cursor: pointer; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(88,166,255,.4);
+  transition: transform .2s, background .2s;
+}
+.chat-fab:hover { background: #79bbff; transform: scale(1.08); }
+body.has-player .chat-fab { bottom: calc(var(--ph) + 16px); }
+.chat-panel {
+  position: fixed; bottom: 88px; right: 24px;
+  width: 360px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100vh - 120px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  z-index: 1500; display: none; flex-direction: column; overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+body.has-player .chat-panel { bottom: calc(var(--ph) + 80px); }
+.chat-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.chat-header-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+.chat-header-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1.2rem; line-height: 1;
+  padding: 2px 6px; border-radius: 4px; transition: color .15s;
+}
+.chat-header-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.chat-msg { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; align-items: flex-end; }
+.chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+.chat-bubble {
+  padding: 10px 14px; border-radius: 14px;
+  font-size: .875rem; line-height: 1.55; word-break: break-word;
+}
+.chat-msg.user .chat-bubble {
+  background: rgba(88,166,255,.18); color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.assistant .chat-bubble {
+  background: var(--code-bg); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble p { margin: 0 0 .5em; }
+.chat-bubble p:last-child { margin-bottom: 0; }
+.chat-bubble strong { font-weight: 600; }
+.chat-bubble em { font-style: italic; }
+.chat-bubble code {
+  font-family: "SF Mono", Consolas, monospace; font-size: .8em;
+  background: rgba(0,0,0,.3); padding: .1em .35em;
+  border-radius: 3px; color: #79c0ff;
+}
+.chat-ts-btn {
+  background: none; border: 1px solid rgba(88,166,255,.4); color: var(--accent);
+  border-radius: 10px; padding: 1px 8px; font-size: .8em;
+  cursor: pointer; transition: background .15s;
+}
+.chat-ts-btn:hover { background: rgba(88,166,255,.15); }
+.chat-thinking {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px; background: var(--code-bg);
+  border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content;
+}
+.chat-thinking span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+  animation: chat-bounce .9s ease-in-out infinite;
+}
+.chat-thinking span:nth-child(2) { animation-delay: .15s; }
+.chat-thinking span:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+.chat-footer {
+  padding: 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: .875rem;
+  padding: 8px 12px; outline: none; resize: none;
+  min-height: 38px; max-height: 120px; line-height: 1.4;
+  font-family: inherit; transition: border-color .15s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-send {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: #0d1117; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .1s; align-self: flex-end;
+}
+.chat-send:hover { background: #79bbff; }
+.chat-send:active { transform: scale(.92); }
+.chat-send:disabled { background: var(--border); color: var(--muted); cursor: default; transform: none; }
+.chat-error { font-size: .8rem; color: #f85149; padding: 4px 14px 8px; text-align: center; }
 </style>
 </head>
 <body class="has-player">
@@ -170,18 +276,18 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_01.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_01.jpg" loading="lazy" data-caption="The video opens with a upbeat greeting, setting a positive tone for the discussion." data-yt-ts="0"><figcaption class="gal-caption">The video opens with a upbeat greeting, setting a positive tone for the discussion.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_02.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_02.jpg" loading="lazy" data-caption="The speaker acknowledges feeling down and introduces the idea of small, manageable steps to improve mood." data-yt-ts="13"><figcaption class="gal-caption">The speaker acknowledges feeling down and introduces the idea of small, manageable steps to improve mood.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_03.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_03.jpg" loading="lazy" data-caption="A brief transition highlights the focus of today’s talk, hinting at practical mental‑health tips." data-yt-ts="28"><figcaption class="gal-caption">A brief transition highlights the focus of today’s talk, hinting at practical mental‑health tips.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_05.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_05.jpg" loading="lazy" data-caption="Exercise is suggested as a simple way to boost wellbeing, with a reminder to stay hydrated." data-yt-ts="38"><figcaption class="gal-caption">Exercise is suggested as a simple way to boost wellbeing, with a reminder to stay hydrated.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_04.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_04.jpg" loading="lazy" data-caption="The presenter mentions late‑night phone scrolling as a common habit that can worsen anxiety." data-yt-ts="38"><figcaption class="gal-caption">The presenter mentions late‑night phone scrolling as a common habit that can worsen anxiety.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_06.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_06.jpg" loading="lazy" data-caption="Listeners are encouraged to enjoy simple pleasures, like watching a sunset, as a mood‑lifting activity." data-yt-ts="79"><figcaption class="gal-caption">Listeners are encouraged to enjoy simple pleasures, like watching a sunset, as a mood‑lifting activity.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_07.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_07.jpg" loading="lazy" data-caption="Having a drink in moderation is presented as an optional way to relax without guilt." data-yt-ts="94"><figcaption class="gal-caption">Having a drink in moderation is presented as an optional way to relax without guilt.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_08.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_08.jpg" loading="lazy" data-caption="The importance of reaching out to a trusted friend or family member for support is emphasized." data-yt-ts="109"><figcaption class="gal-caption">The importance of reaching out to a trusted friend or family member for support is emphasized.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_09.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_09.jpg" loading="lazy" data-caption="The speaker normalizes feeling scared of judgment and reassures that sharing is okay." data-yt-ts="124"><figcaption class="gal-caption">The speaker normalizes feeling scared of judgment and reassures that sharing is okay.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_10.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_10.jpg" loading="lazy" data-caption="Digital communication, such as WhatsApp, is highlighted as a low‑pressure way to start a conversation." data-yt-ts="139"><figcaption class="gal-caption">Digital communication, such as WhatsApp, is highlighted as a low‑pressure way to start a conversation.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_11.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_11.jpg" loading="lazy" data-caption="A quick tip suggests talking to a barber or another casual acquaintance when you need an easy outlet." data-yt-ts="155"><figcaption class="gal-caption">A quick tip suggests talking to a barber or another casual acquaintance when you need an easy outlet.</figcaption></figure>
-<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_12.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_12.jpg" loading="lazy" data-caption="The video wraps up by reminding viewers that brief, three‑minute check‑ins can make a big difference." data-yt-ts="175"><figcaption class="gal-caption">The video wraps up by reminding viewers that brief, three‑minute check‑ins can make a big difference.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_01.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_01.jpg" loading="lazy" data-caption="The video opens with a brief upbeat intro setting the tone for a mental‑wellness discussion." data-yt-ts="0" data-frame-ts="0"><figcaption class="gal-caption">The video opens with a brief upbeat intro setting the tone for a mental‑wellness discussion.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_02.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_02.jpg" loading="lazy" data-caption="The presenter acknowledges feeling down and describes how low moods can feel like “crappy building blocks” that hold you back." data-yt-ts="13" data-frame-ts="15"><figcaption class="gal-caption">The presenter acknowledges feeling down and describes how low moods can feel like “crappy building blocks” that hold you back.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_03.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_03.jpg" loading="lazy" data-caption="A common habit is highlighted: scrolling on your phone late at night, which can worsen anxiety and sleep quality." data-yt-ts="33" data-frame-ts="35"><figcaption class="gal-caption">A common habit is highlighted: scrolling on your phone late at night, which can worsen anxiety and sleep quality.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_05.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_05.jpg" loading="lazy" data-caption="The speaker encourages gentle self‑compassion, suggesting activities like watching the sunset instead of self‑criticism." data-yt-ts="38" data-frame-ts="40"><figcaption class="gal-caption">The speaker encourages gentle self‑compassion, suggesting activities like watching the sunset instead of self‑criticism.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_04.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_04.jpg" loading="lazy" data-caption="Practical self‑care tips are offered, such as exercising and staying hydrated, to help reduce stress in the moment." data-yt-ts="38" data-frame-ts="40"><figcaption class="gal-caption">Practical self‑care tips are offered, such as exercising and staying hydrated, to help reduce stress in the moment.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_06.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_06.jpg" loading="lazy" data-caption="Emphasis is placed on reaching out to a trusted friend or family member for a supportive conversation." data-yt-ts="79" data-frame-ts="81"><figcaption class="gal-caption">Emphasis is placed on reaching out to a trusted friend or family member for a supportive conversation.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_07.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_07.jpg" loading="lazy" data-caption="Normalizing the fear of judgment, the narrator explains that feeling nervous about sharing is a common reaction." data-yt-ts="94" data-frame-ts="96"><figcaption class="gal-caption">Normalizing the fear of judgment, the narrator explains that feeling nervous about sharing is a common reaction.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_08.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_08.jpg" loading="lazy" data-caption="Alternative ways to seek help are presented, including messaging apps or talking to a barber for younger viewers." data-yt-ts="109" data-frame-ts="111"><figcaption class="gal-caption">Alternative ways to seek help are presented, including messaging apps or talking to a barber for younger viewers.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_09.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_09.jpg" loading="lazy" data-caption="The message stresses that help doesn’t need to follow a strict timeline; even a brief three‑minute chat can be valuable." data-yt-ts="129" data-frame-ts="131"><figcaption class="gal-caption">The message stresses that help doesn’t need to follow a strict timeline; even a brief three‑minute chat can be valuable.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_10.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_10.jpg" loading="lazy" data-caption="A quick recap summarizes the key coping strategies discussed throughout the segment." data-yt-ts="144" data-frame-ts="146"><figcaption class="gal-caption">A quick recap summarizes the key coping strategies discussed throughout the segment.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_11.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_11.jpg" loading="lazy" data-caption="The presenter offers final encouragement, urging viewers to take one small step toward better mental health today." data-yt-ts="160" data-frame-ts="162"><figcaption class="gal-caption">The presenter offers final encouragement, urging viewers to take one small step toward better mental health today.</figcaption></figure>
+<figure class="gal-item"><img src="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_12.jpg" alt="3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_frame_12.jpg" loading="lazy" data-caption="Closing slide thanks the audience and invites them to subscribe for more wellness content." data-yt-ts="175" data-frame-ts="177"><figcaption class="gal-caption">Closing slide thanks the audience and invites them to subscribe for more wellness content.</figcaption></figure>
 
 </div>
 </section>
@@ -192,50 +298,43 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>CYEPf7Zk2dw</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The vlog challenges viewers to improve themselves by focusing on five simple, everyday habits. It emphasizes that small, consistent actions—like better sleep, hydration, exercise, personal time, and open conversation—can create meaningful long‑term change. The host encourages trying all five or at least taking a step toward any one of them today.</p>
+<p>The vlog encourages viewers to focus on five simple, everyday actions that can gradually improve mental and physical wellbeing. By treating small habits—sleep, hydration, exercise, personal time, and open conversation—as “1 % improvements,” the creator shows how incremental changes can lift someone out of a low‑energy or “crappy” place. The video is a quick, motivational push to try at least one of these habits today.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Assessing your current state</strong> – A quote is used to prompt viewers to recognize if they’ve set the bar too low for themselves while in a “crappy place.”</li>
-<li><strong>Sleep hygiene</strong> – Suggests cutting down on late‑night phone scrolling, gaming, or other distractions to get adequate rest.</li>
-<li><strong>Hydration</strong> – Recommends drinking 2–3 L of water daily, especially when exercising.</li>
-<li><strong>Exercise &amp; movement</strong> – Encourages regular physical activity and ties it to increased water intake.</li>
-<li><strong>Personal “me time”</strong> – For the next five days, do something enjoyable for yourself (e.g., walk, watch sunrise/sunset, play guitar, golf, or have a modest drink) without guilt.</li>
-<li><strong>Talking it out</strong> – Advises reaching out to a trusted person—friend, family, barber, or even a stranger—via any medium (in‑person, WhatsApp, social media) to offload thoughts and gain perspective.</li>
-<li><strong>Final motivational push</strong> – Ends with a quick call‑to‑action: “whatever you’re doing today, absolutely smash it—you’re a legend.”</li>
+<li><strong>Assess your current habits</strong> – The host asks viewers to recognize if they’re “setting the bar low” and staying stuck in unproductive routines.</li>
+<li><strong>Sleep hygiene</strong> – Stop late‑night scrolling, gaming, or binge‑watching; aim for consistent, restful sleep.</li>
+<li><strong>Hydration</strong> – Drink roughly 2‑3 L of water daily; more if you’re exercising.</li>
+<li><strong>Exercise</strong> – Incorporate any form of movement; even a short walk counts.</li>
+<li><strong>Personal time</strong> – Spend 5 days doing something you enjoy (e.g., sunrise walk, guitar, golf, a modest drink) without guilt.</li>
+<li><strong>Talk to someone</strong> – Share thoughts with a trusted person—friend, family member, barber, or even a stranger—via any medium (in‑person, WhatsApp, social media).</li>
+<li><strong>Call to action</strong> – Finish with a high‑energy reminder to “smash” today’s tasks and feel like a legend.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Small, 1 % improvements in daily habits can lead to big long‑term benefits.</li>
-<li>Prioritize sleep by limiting late‑night screen time and distractions.</li>
-<li>Stay hydrated (2–3 L per day), especially when you work out.</li>
-<li>Schedule at least one enjoyable personal activity each day for five consecutive days.</li>
-<li>Share your thoughts with someone you trust—anyone, anywhere—to reduce mental weight.</li>
-<li>Take immediate action; even a single step counts toward self‑growth.</li>
+<li>Small, consistent habits are more powerful than occasional big changes.</li>
+<li>Prioritize sleep, water, and movement as foundational health pillars.</li>
+<li>Give yourself permission to enjoy personal leisure without shame.</li>
+<li>Open, honest conversation—no matter the source—helps process feelings and reduce pressure.</li>
+<li>Implement at least one of the five suggestions today; even a tiny step is progress.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
 <li>“If you’re in a crappy place, are you setting the bar low enough?”</li>
-<li>“Don’t feel bad about taking time for yourself—go for a walk, watch the sunrise, play guitar.”</li>
-<li>“Talk to someone you trust, even if it’s a barber or a stranger; offloading helps you rationalize.”</li>
+<li>“Small building blocks, the little one‑percent improvements, will help you in the long term.”</li>
+<li>“Talk to somebody you trust—doesn’t have to be a family member, could even be your barber.”</li>
 <li>“Whatever you’re doing today, absolutely smash it—you’re a legend.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey there, legends! It’s Jordan here, and today I want to dive into five simple habits that can turn a rough patch into a launchpad for real growth.</p>
-<p><strong>JORDAN:</strong> First up, sleep. I know we all love scrolling late‑night or binge‑watching that next episode, but those all‑nighters steal our recovery time. Try shoving the phone away an hour before bed and see how just a couple extra hours of shut‑eye can sharpen your focus.</p>
-<p><strong>JORDAN:</strong> Next, water. You hear the two‑to‑three‑liter mantra all the time, and there’s a reason for it—hydration fuels every cell, especially when you’re moving. If you’re already hitting the gym, crank up that intake a bit; it’s the easiest way to boost performance without any extra gear.</p>
-<p><strong>JORDAN:</strong> Speaking of the gym, let’s talk exercise. You don’t need a marathon plan; a short walk, a quick bodyweight circuit, or a bike ride can do the trick. The key is consistency—those tiny, one‑percent gains add up faster than you think.</p>
-<p><strong>JORDAN:</strong> Now, give yourself some personal time. Whether it’s catching sunrise, strumming a guitar, or even just grabbing a modest drink with a buddy, carve out a moment that’s just for you. It’s not selfish; it’s a reset button that refuels your mental battery.</p>
-<p><strong>JORDAN:</strong> Lastly, talk it out. Reaching out doesn’t have to be a deep therapy session; a quick chat with a friend, a barber, or even a stranger can lighten the load. Sharing, even in small doses, helps you process and often brings fresh perspective you didn’t see before.</p>
-<p><strong>JORDAN:</strong> So here’s the challenge: pick one of those five habits and commit to it for the next five days. Maybe you start with an earlier bedtime, or you add an extra glass of water each morning—whatever feels doable.</p>
-<p><strong>JORDAN:</strong> As you work on that habit, notice the ripple effect. Better sleep often means you’re less tempted to scroll mindlessly, which in turn frees up energy for that walk or guitar practice you’ve been putting off.</p>
-<p><strong>JORDAN:</strong> And when you’re out for that walk, try striking up a conversation with someone you pass—a barista, a neighbor, anyone. You’ll be surprised how those tiny social exchanges can boost your mood, making the whole day feel lighter.</p>
-<p><strong>JORDAN:</strong> Remember, it’s not about overhauling your life overnight. It’s about stacking these micro‑improvements—those little one‑percent wins—that compound into real change.</p>
-<p><strong>JORDAN:</strong> If you stumble, that’s okay. The goal isn’t perfection; it’s progress. Each night you get a few more hours of rest, each extra sip of water, each step you take, you’re building a stronger foundation.</p>
-<p><strong>JORDAN:</strong> By the end of the week, you’ll likely notice a shift: clearer thoughts, steadier energy, and a calmer mind. That’s the power of consistent, small actions.</p>
-<p><strong>JORDAN:</strong> So, what’s your first move? Hit pause on the endless scroll, grab a glass of water, lace up those shoes, or send a quick “Hey, how’s it going?” to someone you trust.</p>
-<p><strong>JORDAN:</strong> I’ll be checking in with you next time to see how those five habits played out, but for now, go smash today’s challenge. You’ve got this, you’re a legend, and I can’t wait to hear about your wins.</p>
-<p><strong>JORDAN:</strong> Thanks for tuning in, stay hydrated, stay rested, and keep moving forward. Catch you next time—until then, keep grinding and keep smiling.</p>
+<p><strong>JORDAN:</strong> When you’re stuck in a rut, the first question isn’t “what’s wrong?” but “are you setting the bar low enough?” That quote frames today’s discussion: instead of grand, unsustainable overhauls, we’ll examine five micro‑habits—sleep, hydration, movement, personal downtime, and purposeful conversation—that act as 1 % upgrades, compounding into measurable gains in both mental clarity and physical resilience.</p>
+<p><strong>JORDAN:</strong> Let’s start with the most foundational pillar—sleep hygiene. The neurobiology is clear: fragmented, late‑night screen exposure suppresses melatonin, spikes cortisol, and erodes the glymphatic clearance that consolidates memory. A practical tweak is to enforce a digital curfew—no scrolling, gaming, or binge‑watching after a set hour—and to anchor your bedtime to a consistent window, even on weekends. Over time, you’ll notice sharper executive function and a lower baseline of anxiety without any supplement.</p>
+<p><strong>JORDAN:</strong> Hydration is the next “quick win.” The body’s intracellular milieu operates optimally around 2‑3 L of water daily, adjusted upward for exercise or heat stress. Dehydration, even at the 1‑2 % level, impairs glucose metabolism and cognitive throughput. A simple cue—placing a reusable bottle on your desk and sipping at each hour mark—creates a habit loop that sustains electrolyte balance and supports cardiovascular output during subsequent workouts.</p>
+<p><strong>JORDAN:</strong> Speaking of movement, the recommendation isn’t a marathon; it’s any intentional locomotion that raises heart rate above baseline. A 10‑minute brisk walk, a set of body‑weight repetitions, or a casual bike ride all trigger mitochondrial biogenesis and enhance neurotrophic factor release. The key is consistency: a brief daily stimulus yields the same long‑term adaptations as occasional high‑intensity sessions, without the injury risk or motivational dip.</p>
+<p><strong>JORDAN:</strong> Now, personal time—often dismissed as “self‑indulgence.” Allocating five consecutive days to a solitary activity—a sunrise walk, guitar practice, or a modest drink with friends—reinforces autonomy and restores the parasympathetic tone that chronic stress suppresses. The psychological benefit lies in counter‑conditioning guilt; you rewire the reward circuitry to associate leisure with self‑care, not selfishness.</p>
+<p><strong>JORDAN:</strong> Finally, the conversation pillar. Humans are hardwired for vocal social exchange; articulating internal states reduces amygdala activation and clarifies appraisal. The host highlights unconventional outlets—a barber, a trusted stranger, or a WhatsApp group—as viable sounding boards. The crucial factor isn’t the interlocutor’s expertise but the act of externalizing rumination, which creates cognitive distance and enables reframing.</p>
+<p><strong>JORDAN:</strong> Synthesizing these points, the hierarchy is clear: prioritize sleep, water, and movement as non‑negotiable infrastructure, then layer personal downtime and open dialogue to fine‑tune emotional regulation. Each habit is deliberately low‑friction, designed to slide into existing routines rather than demanding a radical lifestyle overhaul.</p>
+<p><strong>JORDAN:</strong> Your actionable takeaway: pick one of the five habits, implement it for the next 48 hours, and observe the subtle shift in energy or mood. Log the outcome, then iterate—add a second habit once the first feels entrenched. Incremental, evidence‑backed tweaks compound faster than you think.</p>
+<p><strong>JORDAN:</strong> That’s it for today—pick a habit, execute, and remember you’re not just surviving; you’re engineering a legend‑level version of yourself. Stay disciplined, stay curious, and I’ll catch you in the next episode.</p>
 </div>
 </section>
 <section class="section">
@@ -261,6 +360,8 @@ details[open] .transcript-summary::before { content: "▼ "; }
 </div>
 
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="CYEPf7Zk2dw"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<button id="chat-fab" class="chat-fab" aria-label="Ask a question about this video" title="Chat about this video"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+<div id="chat-panel" class="chat-panel"><div class="chat-header"><span class="chat-header-title">Ask about this video</span><button id="chat-close" class="chat-header-close" aria-label="Close chat">&times;</button></div><div id="chat-messages" class="chat-messages"></div><div id="chat-error" class="chat-error" style="display:none"></div><div class="chat-footer"><textarea id="chat-input" class="chat-input" placeholder="Ask a question..." rows="1"></textarea><button id="chat-send" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div>
 
 <script>
 (function () {
@@ -373,6 +474,209 @@ details[open] .transcript-summary::before { content: "▼ "; }
     });
   });
 }());</script>
+
+<script>
+window.PS_CHAT = {"apiLocal":"http://localhost:64598","apiBase":"https://podslacker-api.fly.dev","videoUrl":"https://www.youtube.com/watch?v=CYEPf7Zk2dw","videoTitle":"3min Vlog - 5 things you can do to improve yourself","transcript":"\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF[00:00] good morning gang it\u0027s Friday how you\n[00:02] feeling feeling good\n[00:05] um\n[00:05] I want you to think about five things\n[00:07] today\n[00:08] um\n[00:09] I saw a quote and it was if you\u0027re in if\n[00:12] you know you\u0027re in a bit of a crappy\n[00:14] place\n[00:15] um are you setting the bar low enough\n[00:18] so are you doing the things that you\n[00:21] deem as mundane that could actually\n[00:24] small building blocks the little one\n[00:27] percent improvements that will help you\n[00:30] in the long term\n[00:31] so five things I want you to think about\n[00:34] today\n[00:35] can you do all five or can you make a\n[00:38] step to improve any of the five\n[00:42] um\n[00:43] are you sleeping enough so are you like\n[00:46] up all night on your phone scrolling\n[00:49] playing computer games\n[00:51] um you know watching anime like watching\n[00:54] porn I don\u0027t know whatever any of those\n[00:57] things can you reduce them now over the\n[01:00] next couple of days improve your sleep\n[01:01] are you drinking enough water two to\n[01:04] three liters a day\n[01:05] are you exercising obviously if you\u0027re\n[01:08] exercising you should probably drink a\n[01:10] little bit more water\n[01:12] um and then every day for the next like\n[01:15] five days do something for yourself and\n[01:18] don\u0027t feel bad about it so like go for a\n[01:22] walk on your own\n[01:24] don\u0027t feel bad about it Go and like get\n[01:27] up early catch the sunrise\n[01:30] catch the sunset like whatever you\u0027re\n[01:32] into do something for yourself play\n[01:34] guitar\n[01:36] um go and play golf with your friends go\n[01:39] and have a drink don\u0027t go too mad go and\n[01:41] have like a drink\n[01:43] um work on yourself and don\u0027t feel bad\n[01:46] about it and the last one is talk to\n[01:48] someone\n[01:49] so I\u0027m not saying you go and talk to you\n[01:52] know talk to somebody you trust and it\n[01:56] doesn\u0027t have to be your friends or your\n[01:57] family if you\u0027re worried about sharing\n[02:00] something how you feel with your friends\n[02:02] or family that\u0027s normal that\u0027s\n[02:04] absolutely fine you\u0027ve got all this\n[02:06] pressure all this weight on yourself\n[02:07] don\u0027t feel pressured to have to talk to\n[02:11] a family member if you\u0027re scared of\n[02:13] their reaction scared of their judgment\n[02:15] embarrassed whatever talk to whoever\n[02:19] somebody you trust could be a friend\n[02:21] family someone in your social group\n[02:23] doesn\u0027t have to be face to face WhatsApp\n[02:25] somebody like whatever like social media\n[02:28] any social media you want to do even\n[02:31] speak to a relative stranger speak to\n[02:34] your Barber like if you\u0027re a young guy\n[02:36] there you is surprising how much like I\n[02:40] know from being on the other side of the\n[02:41] chair how much people talk to me about\n[02:43] their problems or not problems just\n[02:45] their lives it doesn\u0027t have to be a\n[02:46] problem but offloading getting somebody\n[02:48] else\u0027s input is really important and\n[02:52] they\u0027ll help to like calm you down\n[02:53] rationalize stuff anyway we get into\n[02:56] that three minute Mark whatever you\u0027re\n[02:58] doing today absolutely smash it you\u0027re a\n[03:00] legend\n","summary":"# 3min Vlog - 5 things you can do to improve yourself\r\n\r\n**Source:** https://www.youtube.com/watch?v=CYEPf7Zk2dw  \r\n**Video ID:** \u0060CYEPf7Zk2dw\u0060\r\n\r\n---\r\n\r\n## Overview  \nThe vlog encourages viewers to focus on five simple, everyday actions that can gradually improve mental and physical wellbeing. By treating small habits\u2014sleep, hydration, exercise, personal time, and open conversation\u2014as \u201C1\u202F% improvements,\u201D the creator shows how incremental changes can lift someone out of a low\u2011energy or \u201Ccrappy\u201D place. The video is a quick, motivational push to try at least one of these habits today.\n\n## Topics Covered\n- **Assess your current habits** \u2013 The host asks viewers to recognize if they\u2019re \u201Csetting the bar low\u201D and staying stuck in unproductive routines.  \n- **Sleep hygiene** \u2013 Stop late\u2011night scrolling, gaming, or binge\u2011watching; aim for consistent, restful sleep.  \n- **Hydration** \u2013 Drink roughly 2\u20113\u202FL of water daily; more if you\u2019re exercising.  \n- **Exercise** \u2013 Incorporate any form of movement; even a short walk counts.  \n- **Personal time** \u2013 Spend 5\u202Fdays doing something you enjoy (e.g., sunrise walk, guitar, golf, a modest drink) without guilt.  \n- **Talk to someone** \u2013 Share thoughts with a trusted person\u2014friend, family member, barber, or even a stranger\u2014via any medium (in\u2011person, WhatsApp, social media).  \n- **Call to action** \u2013 Finish with a high\u2011energy reminder to \u201Csmash\u201D today\u2019s tasks and feel like a legend.\n\n## Key Takeaways\n- Small, consistent habits are more powerful than occasional big changes.  \n- Prioritize sleep, water, and movement as foundational health pillars.  \n- Give yourself permission to enjoy personal leisure without shame.  \n- Open, honest conversation\u2014no matter the source\u2014helps process feelings and reduce pressure.  \n- Implement at least one of the five suggestions today; even a tiny step is progress.\n\n## Notable Quotes\n- \u201CIf you\u2019re in a crappy place, are you setting the bar low enough?\u201D  \n- \u201CSmall building blocks, the little one\u2011percent improvements, will help you in the long term.\u201D  \n- \u201CTalk to somebody you trust\u2014doesn\u2019t have to be a family member, could even be your barber.\u201D  \n- \u201CWhatever you\u2019re doing today, absolutely smash it\u2014you\u2019re a legend.\u201D\r\n\r\n---\r\n\r\n## Podcast Script\r\n\r\n**JORDAN:** When you\u2019re stuck in a rut, the first question isn\u2019t \u201Cwhat\u2019s wrong?\u201D but \u201Care you setting the bar low enough?\u201D That quote frames today\u2019s discussion: instead of grand, unsustainable overhauls, we\u2019ll examine five micro\u2011habits\u2014sleep, hydration, movement, personal downtime, and purposeful conversation\u2014that act as 1\u202F% upgrades, compounding into measurable gains in both mental clarity and physical resilience.\r\n\r\n**JORDAN:** Let\u2019s start with the most foundational pillar\u2014sleep hygiene. The neurobiology is clear: fragmented, late\u2011night screen exposure suppresses melatonin, spikes cortisol, and erodes the glymphatic clearance that consolidates memory. A practical tweak is to enforce a digital curfew\u2014no scrolling, gaming, or binge\u2011watching after a set hour\u2014and to anchor your bedtime to a consistent window, even on weekends. Over time, you\u2019ll notice sharper executive function and a lower baseline of anxiety without any supplement.\r\n\r\n**JORDAN:** Hydration is the next \u201Cquick win.\u201D The body\u2019s intracellular milieu operates optimally around 2\u20113\u202FL of water daily, adjusted upward for exercise or heat stress. Dehydration, even at the 1\u20112\u202F% level, impairs glucose metabolism and cognitive throughput. A simple cue\u2014placing a reusable bottle on your desk and sipping at each hour mark\u2014creates a habit loop that sustains electrolyte balance and supports cardiovascular output during subsequent workouts.\r\n\r\n**JORDAN:** Speaking of movement, the recommendation isn\u2019t a marathon; it\u2019s any intentional locomotion that raises heart rate above baseline. A 10\u2011minute brisk walk, a set of body\u2011weight repetitions, or a casual bike ride all trigger mitochondrial biogenesis and enhance neurotrophic factor release. The key is consistency: a brief daily stimulus yields the same long\u2011term adaptations as occasional high\u2011intensity sessions, without the injury risk or motivational dip.\r\n\r\n**JORDAN:** Now, personal time\u2014often dismissed as \u201Cself\u2011indulgence.\u201D Allocating five consecutive days to a solitary activity\u2014a sunrise walk, guitar practice, or a modest drink with friends\u2014reinforces autonomy and restores the parasympathetic tone that chronic stress suppresses. The psychological benefit lies in counter\u2011conditioning guilt; you rewire the reward circuitry to associate leisure with self\u2011care, not selfishness.\r\n\r\n**JORDAN:** Finally, the conversation pillar. Humans are hardwired for vocal social exchange; articulating internal states reduces amygdala activation and clarifies appraisal. The host highlights unconventional outlets\u2014a barber, a trusted stranger, or a WhatsApp group\u2014as viable sounding boards. The crucial factor isn\u2019t the interlocutor\u2019s expertise but the act of externalizing rumination, which creates cognitive distance and enables reframing.\r\n\r\n**JORDAN:** Synthesizing these points, the hierarchy is clear: prioritize sleep, water, and movement as non\u2011negotiable infrastructure, then layer personal downtime and open dialogue to fine\u2011tune emotional regulation. Each habit is deliberately low\u2011friction, designed to slide into existing routines rather than demanding a radical lifestyle overhaul.\r\n\r\n**JORDAN:** Your actionable takeaway: pick one of the five habits, implement it for the next 48\u202Fhours, and observe the subtle shift in energy or mood. Log the outcome, then iterate\u2014add a second habit once the first feels entrenched. Incremental, evidence\u2011backed tweaks compound faster than you think.\r\n\r\n**JORDAN:** That\u2019s it for today\u2014pick a habit, execute, and remember you\u2019re not just surviving; you\u2019re engineering a legend\u2011level version of yourself. Stay disciplined, stay curious, and I\u2019ll catch you in the next episode.\r\n\r\n","keyMoments":[{"seconds":0,"caption":"The video opens with a brief upbeat intro setting the tone for a mental\u2011wellness discussion."},{"seconds":15.2,"caption":"The presenter acknowledges feeling down and describes how low moods can feel like \u201Ccrappy building blocks\u201D that hold you back."},{"seconds":35.46666666666667,"caption":"A common habit is highlighted: scrolling on your phone late at night, which can worsen anxiety and sleep quality."},{"seconds":40.53333333333333,"caption":"The speaker encourages gentle self\u2011compassion, suggesting activities like watching the sunset instead of self\u2011criticism."},{"seconds":40.53333333333333,"caption":"Practical self\u2011care tips are offered, such as exercising and staying hydrated, to help reduce stress in the moment."},{"seconds":81.06666666666666,"caption":"Emphasis is placed on reaching out to a trusted friend or family member for a supportive conversation."},{"seconds":96.26666666666667,"caption":"Normalizing the fear of judgment, the narrator explains that feeling nervous about sharing is a common reaction."},{"seconds":111.46666666666667,"caption":"Alternative ways to seek help are presented, including messaging apps or talking to a barber for younger viewers."},{"seconds":131.73333333333332,"caption":"The message stresses that help doesn\u2019t need to follow a strict timeline; even a brief three\u2011minute chat can be valuable."},{"seconds":146.93333333333334,"caption":"A quick recap summarizes the key coping strategies discussed throughout the segment."},{"seconds":162.13333333333333,"caption":"The presenter offers final encouragement, urging viewers to take one small step toward better mental health today."},{"seconds":177.33333333333334,"caption":"Closing slide thanks the audience and invites them to subscribe for more wellness content."}]};
+(function () {
+  var cfg = window.PS_CHAT;
+  if (!cfg) return;
+  var fab     = document.getElementById('chat-fab');
+  var panel   = document.getElementById('chat-panel');
+  var msgsCt  = document.getElementById('chat-messages');
+  var input   = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var errEl   = document.getElementById('chat-error');
+  if (!fab || !panel) return;
+  var history = [];
+  console.log('[PodSlacker chat] initialised — local:', cfg.apiLocal || '(none)', '| internet:', cfg.apiBase);
+
+  fab.addEventListener('click', function () {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+
+  function setDisabled(v) { sendBtn.disabled = v; input.disabled = v; }
+
+  function addBubble(role, html) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    var bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    bub.innerHTML = html || '';
+    wrap.appendChild(bub);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+    return bub;
+  }
+
+  function showThinking() {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg assistant';
+    wrap.id = 'chat-thinking-row';
+    var dots = document.createElement('div');
+    dots.className = 'chat-thinking';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+  }
+  function removeThinking() {
+    var t = document.getElementById('chat-thinking-row');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function clearError() { if (errEl) errEl.style.display = 'none'; }
+  function showError(msg) { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderMd(text) {
+    // Timestamp links → inline buttons that open the nearest key-moment frame
+    text = text.replace(/\[([^\]]+)\]\(timestamp:(\d+(?:\.\d+)?)\)/g, function (_, label, secs) {
+      return '<button class="chat-ts-btn" onclick="openKeyMoment(' + secs + ')">' + escHtml(label) + '</button>';
+    });
+    // Bold / italic / inline code (bold before italic to avoid mis-parse)
+    text = text.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    text = text.replace(/`([^`\n]+)`/g, function(_, c) { return '<code>' + escHtml(c) + '</code>'; });
+    // Split on blank lines → paragraphs; single newlines → <br>
+    return text.split(/\n{2,}/).map(function(p) {
+      return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+
+  window.openKeyMoment = function (seconds) {
+    var imgs = Array.from(document.querySelectorAll('.gal-item img'));
+    if (!imgs.length) {
+      // No captured frames — fall back to YouTube at the given timestamp
+      window.open(cfg.videoUrl + (cfg.videoUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Math.floor(seconds), '_blank');
+      return;
+    }
+    // Find the gallery frame whose original timestamp is nearest to `seconds`
+    var best = imgs[0], bestDiff = Infinity;
+    imgs.forEach(function (img) {
+      var ts = parseFloat(img.getAttribute('data-frame-ts') || '-1');
+      if (ts < 0) return;
+      var d = Math.abs(ts - seconds);
+      if (d < bestDiff) { bestDiff = d; best = img; }
+    });
+    best.click(); // triggers the existing lightbox open() handler
+  };
+
+  // Try local API first (fast connection-refused if not running), then internet API.
+  // HTTP errors (4xx/5xx) are NOT retried — they mean the server responded.
+  async function fetchWithFallback(payload) {
+    var urls = [];
+    if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) urls.push(cfg.apiLocal);
+    urls.push(cfg.apiBase);
+    var lastErr;
+    for (var i = 0; i < urls.length; i++) {
+      var target = urls[i] + '/api/chat';
+      var label  = urls[i] === cfg.apiLocal ? ' (local)' : ' (internet)';
+      try {
+        console.debug('[PodSlacker chat] POST →', target + label);
+        return await fetch(target, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        lastErr = err;
+        if (i < urls.length - 1) {
+          console.warn('[PodSlacker chat] local unreachable, trying internet API →', urls[i + 1] + '/api/chat', err);
+        }
+      }
+    }
+    throw lastErr;
+  }
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    clearError();
+    input.value = '';
+    input.style.height = '';
+    history.push({ role: 'user', content: text });
+    addBubble('user', escHtml(text));
+    setDisabled(true);
+    showThinking();
+    var payload = {
+      video_url: cfg.videoUrl, title: cfg.videoTitle,
+      transcript: cfg.transcript, summary: cfg.summary,
+      key_moments: cfg.keyMoments, messages: history
+    };
+    try {
+      var resp = await fetchWithFallback(payload);
+      if (!resp.ok) {
+        var errBody = await resp.text().catch(function() { return ''; });
+        var httpErr = 'HTTP ' + resp.status + (errBody ? ': ' + errBody : '');
+        console.error('[PodSlacker chat] server error', httpErr);
+        throw new Error(httpErr);
+      }
+      removeThinking();
+      var bub = addBubble('assistant', '');
+      var reader = resp.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '', full = '', streamDone = false;
+      while (!streamDone) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (!line.startsWith('data:')) continue;
+          var chunk = line.slice(5).trim();
+          if (chunk === '[DONE]') { streamDone = true; break; }
+          try {
+            var obj = JSON.parse(chunk);
+            if (obj.text) { full += obj.text; bub.innerHTML = renderMd(full); msgsCt.scrollTop = msgsCt.scrollHeight; }
+          } catch(_) {}
+        }
+      }
+      if (full) {
+        history.push({ role: 'assistant', content: full });
+      } else {
+        history.pop();
+        showError('No response received. Please try again.');
+      }
+    } catch(err) {
+      removeThinking();
+      history.pop();
+      console.error('[PodSlacker chat] failed', err);
+      var isNetErr = !err.message || err.message === 'Failed to fetch'
+        || err.message.indexOf('NetworkError') >= 0
+        || err.message.toLowerCase().indexOf('network') >= 0;
+      if (isNetErr) {
+        var tried = [];
+        if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) tried.push(cfg.apiLocal + ' (local)');
+        tried.push(cfg.apiBase + ' (internet)');
+        showError('Cannot reach chat API — tried ' + tried.join(', then ') + '. Check that the service is running or set chat_api_base_url in podslacker.json.');
+      } else {
+        showError(err.message);
+      }
+    } finally {
+      setDisabled(false);
+      input.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  input.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+}());
+</script>
 
 </body>
 </html>
