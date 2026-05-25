@@ -146,6 +146,112 @@ details[open] .transcript-summary::before { content: "▼ "; }
   .page-header { padding: 20px 16px; }
   .content { padding: 20px 16px; }
 }
+
+/* ── Chat feature ────────────────────────────────────────────────────────── */
+.chat-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: #0d1117;
+  border: none; cursor: pointer; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(88,166,255,.4);
+  transition: transform .2s, background .2s;
+}
+.chat-fab:hover { background: #79bbff; transform: scale(1.08); }
+body.has-player .chat-fab { bottom: calc(var(--ph) + 16px); }
+.chat-panel {
+  position: fixed; bottom: 88px; right: 24px;
+  width: 360px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100vh - 120px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  z-index: 1500; display: none; flex-direction: column; overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+body.has-player .chat-panel { bottom: calc(var(--ph) + 80px); }
+.chat-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.chat-header-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+.chat-header-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1.2rem; line-height: 1;
+  padding: 2px 6px; border-radius: 4px; transition: color .15s;
+}
+.chat-header-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.chat-msg { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; align-items: flex-end; }
+.chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+.chat-bubble {
+  padding: 10px 14px; border-radius: 14px;
+  font-size: .875rem; line-height: 1.55; word-break: break-word;
+}
+.chat-msg.user .chat-bubble {
+  background: rgba(88,166,255,.18); color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.assistant .chat-bubble {
+  background: var(--code-bg); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble p { margin: 0 0 .5em; }
+.chat-bubble p:last-child { margin-bottom: 0; }
+.chat-bubble strong { font-weight: 600; }
+.chat-bubble em { font-style: italic; }
+.chat-bubble code {
+  font-family: "SF Mono", Consolas, monospace; font-size: .8em;
+  background: rgba(0,0,0,.3); padding: .1em .35em;
+  border-radius: 3px; color: #79c0ff;
+}
+.chat-ts-btn {
+  background: none; border: 1px solid rgba(88,166,255,.4); color: var(--accent);
+  border-radius: 10px; padding: 1px 8px; font-size: .8em;
+  cursor: pointer; transition: background .15s;
+}
+.chat-ts-btn:hover { background: rgba(88,166,255,.15); }
+.chat-thinking {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px; background: var(--code-bg);
+  border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content;
+}
+.chat-thinking span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+  animation: chat-bounce .9s ease-in-out infinite;
+}
+.chat-thinking span:nth-child(2) { animation-delay: .15s; }
+.chat-thinking span:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+.chat-footer {
+  padding: 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: .875rem;
+  padding: 8px 12px; outline: none; resize: none;
+  min-height: 38px; max-height: 120px; line-height: 1.4;
+  font-family: inherit; transition: border-color .15s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-send {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: #0d1117; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .1s; align-self: flex-end;
+}
+.chat-send:hover { background: #79bbff; }
+.chat-send:active { transform: scale(.92); }
+.chat-send:disabled { background: var(--border); color: var(--muted); cursor: default; transform: none; }
+.chat-error { font-size: .8rem; color: #f85149; padding: 4px 14px 8px; text-align: center; }
 </style>
 </head>
 <body class="has-player">
@@ -170,15 +276,15 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_01.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_01.jpg" loading="lazy" data-caption="The video opens with a brief welcome and introduction to the agency‑focused podcast." data-yt-ts="0"><figcaption class="gal-caption">The video opens with a brief welcome and introduction to the agency‑focused podcast.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_02.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_02.jpg" loading="lazy" data-caption="The presenter explains that most agencies retain clients by focusing on value rather than price, highlighting an opportunity to reduce churn." data-yt-ts="42"><figcaption class="gal-caption">The presenter explains that most agencies retain clients by focusing on value rather than price, highlighting an opportunity to reduce churn.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_03.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_03.jpg" loading="lazy" data-caption="A proactive renewal review call strategy is introduced as a way to drive multi‑line growth and prevent clients from simply calling to quit." data-yt-ts="82"><figcaption class="gal-caption">A proactive renewal review call strategy is introduced as a way to drive multi‑line growth and prevent clients from simply calling to quit.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_04.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_04.jpg" loading="lazy" data-caption="The speaker notes that monoline clients are more likely to shop around, emphasizing the need to identify coverage gaps during reviews." data-yt-ts="122"><figcaption class="gal-caption">The speaker notes that monoline clients are more likely to shop around, emphasizing the need to identify coverage gaps during reviews.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_05.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_05.jpg" loading="lazy" data-caption="The concept of &quot;Rockstar&quot; retention is described, stressing that success comes from systematic practices rather than luck." data-yt-ts="162"><figcaption class="gal-caption">The concept of &quot;Rockstar&quot; retention is described, stressing that success comes from systematic practices rather than luck.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_06.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_06.jpg" loading="lazy" data-caption="Role‑playing objections and side‑by‑side call training are recommended to help newer agents improve their retention conversations." data-yt-ts="202"><figcaption class="gal-caption">Role‑playing objections and side‑by‑side call training are recommended to help newer agents improve their retention conversations.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_07.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_07.jpg" loading="lazy" data-caption="The host invites viewers to join live virtual training sessions and a classroom‑style agency school for process improvement." data-yt-ts="242"><figcaption class="gal-caption">The host invites viewers to join live virtual training sessions and a classroom‑style agency school for process improvement.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_08.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_08.jpg" loading="lazy" data-caption="Viewers are encouraged to explore the channel’s library of over 1,000 videos for answers to common agency questions." data-yt-ts="282"><figcaption class="gal-caption">Viewers are encouraged to explore the channel’s library of over 1,000 videos for answers to common agency questions.</figcaption></figure>
-<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_09.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_09.jpg" loading="lazy" data-caption="The closing call‑to‑action asks the audience to like, comment, and visit the website for further support." data-yt-ts="288"><figcaption class="gal-caption">The closing call‑to‑action asks the audience to like, comment, and visit the website for further support.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_01.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_01.jpg" loading="lazy" data-caption="The opening slide introduces the episode and sets the tone for the retention strategies discussion." data-yt-ts="0" data-frame-ts="0"><figcaption class="gal-caption">The opening slide introduces the episode and sets the tone for the retention strategies discussion.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_02.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_02.jpg" loading="lazy" data-caption="The presenter explains that even if a client decides to leave, the way you handle the exit can influence future churn." data-yt-ts="34" data-frame-ts="36"><figcaption class="gal-caption">The presenter explains that even if a client decides to leave, the way you handle the exit can influence future churn.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_03.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_03.jpg" loading="lazy" data-caption="The first core tactic is proactive renewal review calls, designed to uncover multi‑line growth opportunities before a client thinks about leaving." data-yt-ts="68" data-frame-ts="70"><figcaption class="gal-caption">The first core tactic is proactive renewal review calls, designed to uncover multi‑line growth opportunities before a client thinks about leaving.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_04.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_04.jpg" loading="lazy" data-caption="During renewal reviews, agents can spot coverage gaps and position the policy as a comprehensive risk‑management solution." data-yt-ts="82" data-frame-ts="84"><figcaption class="gal-caption">During renewal reviews, agents can spot coverage gaps and position the policy as a comprehensive risk‑management solution.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_05.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_05.jpg" loading="lazy" data-caption="Before processing any cancellation, the team should verify whether price is truly the driver behind the client’s decision." data-yt-ts="142" data-frame-ts="144"><figcaption class="gal-caption">Before processing any cancellation, the team should verify whether price is truly the driver behind the client’s decision.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_06.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_06.jpg" loading="lazy" data-caption="Role‑playing common objections is highlighted as a practical method for agents to improve their response skills." data-yt-ts="178" data-frame-ts="180"><figcaption class="gal-caption">Role‑playing common objections is highlighted as a practical method for agents to improve their response skills.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_07.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_07.jpg" loading="lazy" data-caption="The video promotes the agency’s school and live virtual training sessions where agents can learn in a classroom‑style environment." data-yt-ts="212" data-frame-ts="214"><figcaption class="gal-caption">The video promotes the agency’s school and live virtual training sessions where agents can learn in a classroom‑style environment.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_08.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_08.jpg" loading="lazy" data-caption="Viewers are encouraged to like, comment, and visit the website for further support and resources." data-yt-ts="250" data-frame-ts="252"><figcaption class="gal-caption">Viewers are encouraged to like, comment, and visit the website for further support and resources.</figcaption></figure>
+<figure class="gal-item"><img src="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_09.jpg" alt="how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_frame_09.jpg" loading="lazy" data-caption="The presenter mentions a library of over 1,000 YouTube videos that answer the most frequent agency questions." data-yt-ts="288" data-frame-ts="290"><figcaption class="gal-caption">The presenter mentions a library of over 1,000 YouTube videos that answer the most frequent agency questions.</figcaption></figure>
 
 </div>
 </section>
@@ -189,50 +295,54 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>3TKSVb7VOcQ</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The video explains how insurance agencies can lower client churn and boost revenue by treating policy renewals as strategic relationship checkpoints. It outlines three actionable tactics: proactive renewal review calls, handling cancellations before they happen, and training reps to become retention experts. Throughout, the presenter emphasizes that the way agencies manage renewals and cancellations directly influences referrals and future growth.</p>
+<p>The video shares practical tactics for insurance agencies to reduce client churn and boost revenue through smarter renewal management. It emphasizes treating renewals as strategic relationship checkpoints rather than simple price talks. Three core strategies are presented: proactive renewal review calls, handling cancellations before they happen, and training reps to become retention specialists.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Renewals as Relationship Checkpoints</strong> – Explains that most client loss isn’t price‑driven but caused by silence, missed opportunities, and lack of a renewal strategy. Turning renewals into proactive conversations creates chances to reduce churn and cross‑sell.</li>
-<li><strong>Proactive Renewal Review Calls</strong> – Reach out 45‑60 days before a policy expires, discuss market conditions, uncover coverage gaps, and present multi‑line options. This shifts the conversation from a simple price talk to a risk‑management review and helps convert monoline clients to higher‑value multi‑line relationships.</li>
-<li><strong>Pre‑emptive Cancellation Management</strong> – Listen to cancellation calls for signs of a conclusion rather than a dialogue. Before processing a cancellation, ask why the client is leaving, check for price concerns, coverage confusion, or life‑change events, and offer adjustments or payment solutions. Even if a client departs, a respectful handling can preserve referrals and open the door for future re‑engagement.</li>
-<li><strong>Training Reps to Be Retention Rock Stars</strong> – Retention is a teachable skill. Use role‑playing, side‑by‑side listening, scripts, and structured frameworks to build confidence for tough renewal conversations. Empowered reps who own the process are more likely to save accounts.</li>
-<li><strong>Support Resources</strong> – The presenter promotes an agency school with on‑demand videos, live virtual trainings, a library of &gt;1,000 blog posts and videos, and personalized consulting to help agencies implement these strategies.</li>
+<li><strong>Renewals as Relationship Checkpoints</strong> – Explains why silence, missed opportunities, and lack of strategy cause churn more than price alone.</li>
+<li><strong>Proactive Renewal Review Calls</strong> – Reach out 45‑60 days before a policy expires, discuss market conditions, uncover coverage gaps, and cross‑sell to move monoline clients to multi‑line relationships.</li>
+<li><strong>Pre‑emptive Cancellation Management</strong> – Turn cancellation calls into conversations: ask why they’re leaving, explore price concerns, coverage confusion, or life‑change needs, and offer adjustments or flexible payment options.</li>
+<li><strong>Building Retention‑Rockstar Reps</strong> – Retention is a teachable skill; use role‑plays, shadowing, scripts, and structured training to boost confidence in tough renewal talks.</li>
+<li><strong>Support Resources</strong> – Mentions the agency’s on‑demand training library, live virtual classrooms, blog library, and a community for ongoing help.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Most churn stems from lack of proactive communication, not price.</li>
-<li>Initiate renewal review calls 45–60 days before expiration to position yourself as a risk‑management partner and uncover cross‑sell opportunities.</li>
-<li>Treat every cancellation as a conversation: identify the root cause and offer tailored solutions before finalizing the loss.</li>
-<li>Invest in systematic training—role‑plays, scripts, and mentorship—to turn every rep into a retention specialist.</li>
-<li>Multi‑line clients stay longer; use renewal reviews to transition monoline customers to broader coverage.</li>
-<li>How you handle a departing client affects future referrals and the chance they may return.</li>
+<li>Most churn is driven by communication gaps, not price; proactive engagement at renewal can dramatically reduce loss.</li>
+<li>Initiate renewal review calls 45‑60 days early to set expectations, identify gaps, and create cross‑sell opportunities.</li>
+<li>Treat cancellation calls as diagnostic conversations; address underlying reasons before processing the termination.</li>
+<li>Invest in systematic retention training—role‑playing, scripts, and mentorship turn reps into “retention rockstars.”</li>
+<li>Leveraging multi‑line policies improves client longevity; monoline customers are more likely to switch providers.</li>
+<li>Ongoing education and community support (agency school, webinars, blogs) are essential for sustaining low churn rates.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“Most agencies don’t lose clients because of the price, they lose them because of silence, missed opportunity and a lack of strategy at renewal.”</li>
 <li>“Retention isn’t about reacting. It’s about leading the renewal conversation.”</li>
-<li>“When our reps believe that they can save accounts, they most certainly do.”</li>
+<li>“If your reps believe they can save accounts, they most certainly will.”</li>
+<li>“Most agencies don’t lose clients because of price; they lose them because of silence, missed opportunity, and lack of strategy at renewal.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the podcast! I'm Jordan, your detail‑driven host, and today we're diving into the three biggest strategies agencies can use to stop client churn and boost renewal revenue.</p>
-<p><strong>MIKE:</strong> And I'm Mike, here to keep the big picture in focus. If you've ever lost a client and wondered <em>why</em> it happened, this episode is for you—plus we’ll throw in some real‑world tips you can start using right now.</p>
-<p><strong>JORDAN:</strong> First up, the transcript stresses proactive renewal review calls about 45 to 60 days before a policy expires. The goal isn’t just to talk price, but to set expectations about market conditions and uncover coverage gaps.</p>
-<p><strong>MIKE:</strong> That makes sense—getting ahead of the conversation turns a potential “I’m leaving” moment into a partnership check‑in. How many agencies actually schedule these calls ahead of time, do you think?</p>
-<p><strong>JORDAN:</strong> Not many, which is why it’s a goldmine. By reviewing the existing policy, reps can cross‑sell additional lines, moving monoline clients toward multi‑line relationships that statistically stay longer.</p>
-<p><strong>MIKE:</strong> So it’s a win‑win: you protect the client and you lock in more revenue. I can hear the “aha” moment from listeners already—why wait for a cancellation when you can create value first?</p>
-<p><strong>JORDAN:</strong> Exactly. The second strategy is handling cancellations proactively. The key is to treat every cancellation call as a conversation, not a conclusion, and ask why the client wants out before processing anything.</p>
-<p><strong>MIKE:</strong> That “why” question is huge. It could be price, coverage confusion, or a life change—each one opens a different solution path, like adjusting coverage or offering flexible payments.</p>
-<p><strong>JORDAN:</strong> And even if the client still decides to leave, the way you handle it influences referrals and future wins. A graceful exit can turn a quitter into a promoter who might come back later.</p>
-<p><strong>MIKE:</strong> It’s like turning a negative into a brand ambassador. Listeners, think about the last time a client left—did you ask the right questions, or just close the file?</p>
-<p><strong>JORDAN:</strong> The third tactic is turning reps into retention rockstars. Retention isn’t luck; it’s a skill you can train with role‑playing, side‑by‑side listening, and structured scripts.</p>
-<p><strong>MIKE:</strong> I love that—learning by watching the best. If a newer rep can shadow a seasoned pro during a tough renewal call, the whole team levels up faster.</p>
-<p><strong>JORDAN:</strong> Training should also empower reps to own the situation and act as client advocates, which boosts confidence and results. When reps truly believe they can save an account, the numbers follow.</p>
-<p><strong>MIKE:</strong> And for agencies looking for resources, the transcript mentions an agency school with on‑demand videos and live virtual classrooms—perfect for scaling that training.</p>
-<p><strong>JORDAN:</strong> To sum up, proactive renewal calls, thoughtful cancellation handling, and focused retention training form a trifecta that reduces churn and drives revenue growth.</p>
-<p><strong>MIKE:</strong> Those are actionable steps anyone can start applying today, whether you’re a solo agent or running a big agency. Thanks for tuning in, and remember—lead the renewal conversation before it even starts.</p>
-<p><strong>JORDAN:</strong> That’s a wrap from me, Jordan. Keep sharpening those processes, and your clients will stick around.</p>
-<p><strong>MIKE:</strong> I’m Mike—stay curious, keep building relationships, and we’ll catch you on the next episode. Happy selling!</p>
+<p><strong>JORDAN:</strong> Welcome to the Agency Edge podcast, where we turn everyday insurance challenges into strategic advantages. I’m Jordan, and with me is Mike, our go‑to for the big‑picture impact. Today we’re dissecting a four‑minute YouTube masterclass on churn reduction through smarter renewal management.</p>
+<p><strong>MIKE:</strong> Thanks, Jordan. The premise is simple but powerful: most policy lapses aren’t about price points, they’re about silent gaps in the renewal process. If we can reframe renewals as relationship checkpoints, we unlock both retention and cross‑sell upside.</p>
+<p><strong>JORDAN:</strong> Exactly. The first tactic the video pushes is the proactive renewal review call, scheduled 45‑60 days before the policy expires. It’s not a price quote; it’s a market‑conditions briefing, a coverage‑gap audit, and a risk‑management conversation rolled into one.</p>
+<p><strong>MIKE:</strong> That timing matters. By reaching out before the renewal notice lands in the mailbox, agents set the agenda, pre‑empting the client’s “I need to think about it” instinct. It also creates a natural entry point for multi‑line expansion, which data shows dramatically lifts client longevity.</p>
+<p><strong>JORDAN:</strong> The speaker points out that monoline customers are statistically more churn‑prone because they lack the inertia of bundled policies. When you uncover a gap—say, a missing cyber endorsement—you can position a complementary line, turning a defensive renewal into a growth opportunity.</p>
+<p><strong>MIKE:</strong> And the economics stack up. A 10% increase in multi‑line penetration can shave years off the average churn curve, translating to higher lifetime value without acquiring new prospects. That aligns with the strategic goal of “growth from existing books.”</p>
+<p><strong>JORDAN:</strong> Moving to the second strategy: pre‑emptive cancellation management. The video stresses that most cancellation calls sound like conclusions, not conversations. The agent’s job is to diagnose the underlying driver—price, coverage confusion, or a life‑event—before any termination occurs.</p>
+<p><strong>MIKE:</strong> That diagnostic mindset is critical. If a client cites price, you can counter with a value‑based illustration or explore flexible payment schedules. If it’s coverage confusion, a quick policy walkthrough often rescues the relationship. And life‑change triggers—like a new home or business expansion—signal immediate upsell opportunities.</p>
+<p><strong>JORDAN:</strong> The key is to treat the cancellation call as a data‑gathering moment, not a lost cause. Even if the client ultimately departs, the handling of that call influences referral propensity and future win‑back potential.</p>
+<p><strong>MIKE:</strong> Right, churn isn’t a dead end; it’s a feedback loop. A well‑managed “no‑go” can still generate a Net Promoter Score boost, feeding the agency’s brand equity.</p>
+<p><strong>JORDAN:</strong> The third pillar is building “retention‑rockstar” reps. The video says retention is a teachable skill, not luck. Structured role‑plays, shadowing of top performers, and scripted objection handling are the core training levers.</p>
+<p><strong>MIKE:</strong> I like the emphasis on side‑by‑side listening. When a junior rep hears a senior’s cadence and tone on a live renewal call, the tacit knowledge transfers faster than any slide deck. Plus, scripted frameworks give reps confidence to own the conversation rather than default to price‑only scripts.</p>
+<p><strong>JORDAN:</strong> They also offer an agency school with on‑demand videos, live virtual classrooms, and a community forum. That ecosystem reinforces continuous learning—essential because renewal tactics evolve with market dynamics and regulatory shifts.</p>
+<p><strong>MIKE:</strong> And that ongoing education feeds back into the first two strategies. If you keep your team up‑to‑date on emerging coverage trends—like ransomware or climate‑related perils—they’ll surface those topics naturally during the renewal review, further deepening the consultative angle.</p>
+<p><strong>JORDAN:</strong> Let’s pull out a couple of the speaker’s memorable quotes. “Retention isn’t about reacting. It’s about leading the renewal conversation.” That captures the proactive ethos we’ve been unpacking.</p>
+<p><strong>MIKE:</strong> And the second one: “If your reps believe they can save accounts, they most certainly will.” It’s a classic self‑fulfilling prophecy—confidence drives outcomes, especially in high‑stakes renewal negotiations.</p>
+<p><strong>JORDAN:</strong> Summarizing the takeaways: first, schedule renewal review calls 45‑60 days out to set expectations, surface gaps, and drive multi‑line cross‑sell. Second, transform cancellation calls into diagnostic dialogues to salvage value or at least preserve goodwill. Third, institutionalize retention training—role‑plays, scripts, mentorship—to create a repeatable, scalable process.</p>
+<p><strong>MIKE:</strong> And don’t forget the support infrastructure: leverage the on‑demand library, live webinars, and peer community to keep the entire agency aligned on the renewal playbook. Consistency across reps is what turns a good process into a churn‑reduction engine.</p>
+<p><strong>JORDAN:</strong> That wraps our deep dive into the three‑step renewal strategy. Implement these tactics, and you’ll likely see a measurable dip in lapse rates and an uptick in multi‑line premiums.</p>
+<p><strong>MIKE:</strong> If you’re ready to put these ideas into practice, check out the agency’s website for the training portal and the community hub. As always, feel free to drop us a comment or reach out—we’re here to help you turn churn into growth.</p>
+<p><strong>JORDAN:</strong> Thanks for listening. I’m Jordan.</p>
+<p><strong>MIKE:</strong> I’m Mike. Stay proactive, keep leading those renewal conversations, and we’ll see you next time.</p>
 </div>
 </section>
 <section class="section">
@@ -258,6 +368,8 @@ details[open] .transcript-summary::before { content: "▼ "; }
 </div>
 
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="3TKSVb7VOcQ"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<button id="chat-fab" class="chat-fab" aria-label="Ask a question about this video" title="Chat about this video"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+<div id="chat-panel" class="chat-panel"><div class="chat-header"><span class="chat-header-title">Ask about this video</span><button id="chat-close" class="chat-header-close" aria-label="Close chat">&times;</button></div><div id="chat-messages" class="chat-messages"></div><div id="chat-error" class="chat-error" style="display:none"></div><div class="chat-footer"><textarea id="chat-input" class="chat-input" placeholder="Ask a question..." rows="1"></textarea><button id="chat-send" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div>
 
 <script>
 (function () {
@@ -370,6 +482,209 @@ details[open] .transcript-summary::before { content: "▼ "; }
     });
   });
 }());</script>
+
+<script>
+window.PS_CHAT = {"apiLocal":"http://localhost:64598","apiBase":"https://podslacker-api.fly.dev","videoUrl":"https://www.youtube.com/watch?v=3TKSVb7VOcQ","videoTitle":"How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively","transcript":"\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF\uFEFF[00:00] Hey there. It\u0027s Kelly Donnie a oh, you know,\n[00:02] your favorite industry, best friends. Well,\n[00:05] I\u0027m here to let you know that you\u0027ve done something great\n[00:07] for your agency by joining and listening in on our podcast or watching our YouTube channel.\n[00:11] I just want to remind everybody that we\u0027re here to help.\n[00:14] So if you need anything, drop a comment,\n[00:16] go to our website, hang out with our chat or just contact us.\n[00:21] There\u0027s a problem in your agency, I got Solutions,\n[00:24] right? I like to think of it, you got a problem,\n[00:26] I\u0027ll solve it. But let\u0027s get into the content today.\n[00:30] Day so that you can improve your awareness and knowledge of solutions,\n[00:33] that exist to the, agency\u0027s core challenges.\n[00:36] So even if they still leave, how we handle it,\n[00:39] impacts our referrals and future wins because they could always leave and then come back.\n[00:46] Most agencies don\u0027t lose clients because of the price,\n[00:49] they lose them because their silence moments of missed opportunity\n[00:53] and a lack of strategy at renewal,\n[00:55] we need to think of renewals as a relationship checkpoint.\n[00:58] Because when they\u0027re done, right there are big. Opportunity to reduce churn\n[01:01] and grow Revenue at the same time.\n[01:04] So today we have three minutes to talk about three ways that you can get ahead of client turn.\n[01:08] So our first strategy is doing proactive renewal review calls to help drive your multi-line growth.\n[01:14] So typically when our clients cancel, this is something that they\u0027ve been thinking about\n[01:18] for a while and instead of them calling us to let us know that they\u0027ve had enough,\n[01:23] we can actually call them ahead of time and get in front of it and turn it into a conversation.\n[01:27] So we want to start reaching out to our customers. He\u0027s about 62.\n[01:31] 45 days in advance. We want to use this renewal review call\n[01:34] as a review and not just a price discussion.\n[01:37] So we can set expectations about market conditions before their bill arrives.\n[01:41] In the mail. We can also identify coverage gaps and while we\u0027re reviewing their existing policy,\n[01:48] this puts us in a wonderful position to start cross-selling\n[01:51] and thinking of it as protection and risk management,\n[01:54] not just as a sale. So, this allows us to move our monoline clients into\n[02:00] And relationships because our data suggests that multi-line clients stay longer\n[02:05] while monoline clients are more likely to seek other insurance options.\n[02:09] So our strategy, number two, we\u0027re actually going to handle cancellations proactively.\n[02:14] We do need to inspect what we expect,\n[02:17] right? So, if you\u0027re listening to your cancellation calls and it doesn\u0027t sound like a conversation,\n[02:22] it sounds like it\u0027s a conclusion, then that\u0027s something that we need to work on.\n[02:26] We need to ask our clients why they are leaving before.\n[02:29] Before processing anything we need to identify if it\u0027s the price.\n[02:33] If they\u0027re confused about their coverage or if they\u0027re having a life change,\n[02:37] we can also offer Solutions like coverage adjustments or payment options.\n[02:42] So even if they still leave, how we handle it,\n[02:44] impacts our referrals and future wins because they could always leave and then come back.\n[02:50] So our strategy. Number three, we need to train our reps to be retention.\n[02:54] Rockstars retention isn\u0027t just luck.\n[02:57] It is a skill that can be trained and learned.\n[02:59] So you need to teach our reps how to handle a really tough renewal conversations with confidence\n[03:04] and we can do this by role-playing objections\n[03:08] or cancellation stays or having them listen to each\n[03:11] other and how some of your retention rock stars are already handling.\n[03:14] Those calls, somebody who\u0027s newer to the office May benefit from doing side by sides with them.\n[03:19] We can Empower our team with scripts structure\n[03:22] and make sure that they\u0027re taking ownership of the situation\n[03:25] and showing our clients that we are here to advocate for them.\n[03:28] So when our reps believe that they can save accounts,\n[03:31] they most certainly. Well, if you need to turn your team into retention rock stars,\n[03:36] you\u0027ve come to the right place. We offer an agency school with\n[03:39] on-demand videos that you can watch at your own\n[03:41] pace or you can actually come hang out with me.\n[03:44] I am a virtual development trainer here at a pee-pee\n[03:47] and we do live virtual training where you can join a classroom full of\n[03:51] representatives from all around the country,\n[03:53] to learn these strategies together. If you\u0027re not sure where to start,\n[03:56] you can go ahead and check out our website. You can see performance partners.\n[04:00] Calm. And you can ask us how we can help you build up your processes\n[04:03] that fit your agencies need to remember,\n[04:06] retention isn\u0027t about reacting. It\u0027s about leading the renewal conversation.\n[04:11] We\u0027ll see you next time. Well, I hope you enjoyed that.\n[04:14] It is so fun. Giving you guys tips and tricks every single,\n[04:18] you know, week that out there. Remember, you can find us on social media for updates.\n[04:22] You can like or comment on this podcast or video and we\u0027re here for you and check out our website.\n[04:28] There\u0027s a ton of tools. All\u0027s we have over a thousand blogs on our website.\n[04:32] If over 1,000 videos on YouTube you can search and find answers to your top questions.\n[04:38] But also, if you need a little bit more help, you want a best friend,\n[04:40] that\u0027s their cheerleading\n[04:41] for you, giving you the guidance that you need and being there on some of those tough days,\n[04:46] let us know. We\u0027d love to meet your agency and learn.\n[04:49] If we\u0027re a good fit, all right, signing off,\n[04:51] go sell insurance.\n","summary":"# How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively\r\n\r\n**Source:** https://www.youtube.com/watch?v=3TKSVb7VOcQ  \r\n**Video ID:** \u00603TKSVb7VOcQ\u0060\r\n\r\n---\r\n\r\n## Overview  \nThe video shares practical tactics for insurance agencies to reduce client churn and boost revenue through smarter renewal management. It emphasizes treating renewals as strategic relationship checkpoints rather than simple price talks. Three core strategies are presented: proactive renewal review calls, handling cancellations before they happen, and training reps to become retention specialists.\n\n## Topics Covered\n- **Renewals as Relationship Checkpoints** \u2013 Explains why silence, missed opportunities, and lack of strategy cause churn more than price alone.  \n- **Proactive Renewal Review Calls** \u2013 Reach out 45\u201160 days before a policy expires, discuss market conditions, uncover coverage gaps, and cross\u2011sell to move monoline clients to multi\u2011line relationships.  \n- **Pre\u2011emptive Cancellation Management** \u2013 Turn cancellation calls into conversations: ask why they\u2019re leaving, explore price concerns, coverage confusion, or life\u2011change needs, and offer adjustments or flexible payment options.  \n- **Building Retention\u2011Rockstar Reps** \u2013 Retention is a teachable skill; use role\u2011plays, shadowing, scripts, and structured training to boost confidence in tough renewal talks.  \n- **Support Resources** \u2013 Mentions the agency\u2019s on\u2011demand training library, live virtual classrooms, blog library, and a community for ongoing help.  \n\n## Key Takeaways\n- Most churn is driven by communication gaps, not price; proactive engagement at renewal can dramatically reduce loss.  \n- Initiate renewal review calls 45\u201160 days early to set expectations, identify gaps, and create cross\u2011sell opportunities.  \n- Treat cancellation calls as diagnostic conversations; address underlying reasons before processing the termination.  \n- Invest in systematic retention training\u2014role\u2011playing, scripts, and mentorship turn reps into \u201Cretention rockstars.\u201D  \n- Leveraging multi\u2011line policies improves client longevity; monoline customers are more likely to switch providers.  \n- Ongoing education and community support (agency school, webinars, blogs) are essential for sustaining low churn rates.\n\n## Notable Quotes\n- \u201CRetention isn\u2019t about reacting. It\u2019s about leading the renewal conversation.\u201D  \n- \u201CIf your reps believe they can save accounts, they most certainly will.\u201D  \n- \u201CMost agencies don\u2019t lose clients because of price; they lose them because of silence, missed opportunity, and lack of strategy at renewal.\u201D\r\n\r\n---\r\n\r\n## Podcast Script\r\n\r\n**JORDAN:** Welcome to the Agency Edge podcast, where we turn everyday insurance challenges into strategic advantages. I\u2019m Jordan, and with me is Mike, our go\u2011to for the big\u2011picture impact. Today we\u2019re dissecting a four\u2011minute YouTube masterclass on churn reduction through smarter renewal management.\r\n\r\n**MIKE:** Thanks, Jordan. The premise is simple but powerful: most policy lapses aren\u2019t about price points, they\u2019re about silent gaps in the renewal process. If we can reframe renewals as relationship checkpoints, we unlock both retention and cross\u2011sell upside.\r\n\r\n**JORDAN:** Exactly. The first tactic the video pushes is the proactive renewal review call, scheduled 45\u201160 days before the policy expires. It\u2019s not a price quote; it\u2019s a market\u2011conditions briefing, a coverage\u2011gap audit, and a risk\u2011management conversation rolled into one.\r\n\r\n**MIKE:** That timing matters. By reaching out before the renewal notice lands in the mailbox, agents set the agenda, pre\u2011empting the client\u2019s \u201CI need to think about it\u201D instinct. It also creates a natural entry point for multi\u2011line expansion, which data shows dramatically lifts client longevity.\r\n\r\n**JORDAN:** The speaker points out that monoline customers are statistically more churn\u2011prone because they lack the inertia of bundled policies. When you uncover a gap\u2014say, a missing cyber endorsement\u2014you can position a complementary line, turning a defensive renewal into a growth opportunity.\r\n\r\n**MIKE:** And the economics stack up. A 10% increase in multi\u2011line penetration can shave years off the average churn curve, translating to higher lifetime value without acquiring new prospects. That aligns with the strategic goal of \u201Cgrowth from existing books.\u201D\r\n\r\n**JORDAN:** Moving to the second strategy: pre\u2011emptive cancellation management. The video stresses that most cancellation calls sound like conclusions, not conversations. The agent\u2019s job is to diagnose the underlying driver\u2014price, coverage confusion, or a life\u2011event\u2014before any termination occurs.\r\n\r\n**MIKE:** That diagnostic mindset is critical. If a client cites price, you can counter with a value\u2011based illustration or explore flexible payment schedules. If it\u2019s coverage confusion, a quick policy walkthrough often rescues the relationship. And life\u2011change triggers\u2014like a new home or business expansion\u2014signal immediate upsell opportunities.\r\n\r\n**JORDAN:** The key is to treat the cancellation call as a data\u2011gathering moment, not a lost cause. Even if the client ultimately departs, the handling of that call influences referral propensity and future win\u2011back potential.\r\n\r\n**MIKE:** Right, churn isn\u2019t a dead end; it\u2019s a feedback loop. A well\u2011managed \u201Cno\u2011go\u201D can still generate a Net Promoter Score boost, feeding the agency\u2019s brand equity.\r\n\r\n**JORDAN:** The third pillar is building \u201Cretention\u2011rockstar\u201D reps. The video says retention is a teachable skill, not luck. Structured role\u2011plays, shadowing of top performers, and scripted objection handling are the core training levers.\r\n\r\n**MIKE:** I like the emphasis on side\u2011by\u2011side listening. When a junior rep hears a senior\u2019s cadence and tone on a live renewal call, the tacit knowledge transfers faster than any slide deck. Plus, scripted frameworks give reps confidence to own the conversation rather than default to price\u2011only scripts.\r\n\r\n**JORDAN:** They also offer an agency school with on\u2011demand videos, live virtual classrooms, and a community forum. That ecosystem reinforces continuous learning\u2014essential because renewal tactics evolve with market dynamics and regulatory shifts.\r\n\r\n**MIKE:** And that ongoing education feeds back into the first two strategies. If you keep your team up\u2011to\u2011date on emerging coverage trends\u2014like ransomware or climate\u2011related perils\u2014they\u2019ll surface those topics naturally during the renewal review, further deepening the consultative angle.\r\n\r\n**JORDAN:** Let\u2019s pull out a couple of the speaker\u2019s memorable quotes. \u201CRetention isn\u2019t about reacting. It\u2019s about leading the renewal conversation.\u201D That captures the proactive ethos we\u2019ve been unpacking.\r\n\r\n**MIKE:** And the second one: \u201CIf your reps believe they can save accounts, they most certainly will.\u201D It\u2019s a classic self\u2011fulfilling prophecy\u2014confidence drives outcomes, especially in high\u2011stakes renewal negotiations.\r\n\r\n**JORDAN:** Summarizing the takeaways: first, schedule renewal review calls 45\u201160 days out to set expectations, surface gaps, and drive multi\u2011line cross\u2011sell. Second, transform cancellation calls into diagnostic dialogues to salvage value or at least preserve goodwill. Third, institutionalize retention training\u2014role\u2011plays, scripts, mentorship\u2014to create a repeatable, scalable process.\r\n\r\n**MIKE:** And don\u2019t forget the support infrastructure: leverage the on\u2011demand library, live webinars, and peer community to keep the entire agency aligned on the renewal playbook. Consistency across reps is what turns a good process into a churn\u2011reduction engine.\r\n\r\n**JORDAN:** That wraps our deep dive into the three\u2011step renewal strategy. Implement these tactics, and you\u2019ll likely see a measurable dip in lapse rates and an uptick in multi\u2011line premiums.\r\n\r\n**MIKE:** If you\u2019re ready to put these ideas into practice, check out the agency\u2019s website for the training portal and the community hub. As always, feel free to drop us a comment or reach out\u2014we\u2019re here to help you turn churn into growth.\r\n\r\n**JORDAN:** Thanks for listening. I\u2019m Jordan.\r\n\r\n**MIKE:** I\u2019m Mike. Stay proactive, keep leading those renewal conversations, and we\u2019ll see you next time.\r\n\r\n","keyMoments":[{"seconds":0,"caption":"The opening slide introduces the episode and sets the tone for the retention strategies discussion."},{"seconds":36.64,"caption":"The presenter explains that even if a client decides to leave, the way you handle the exit can influence future churn."},{"seconds":70,"caption":"The first core tactic is proactive renewal review calls, designed to uncover multi\u2011line growth opportunities before a client thinks about leaving."},{"seconds":84.96,"caption":"During renewal reviews, agents can spot coverage gaps and position the policy as a comprehensive risk\u2011management solution."},{"seconds":144.96,"caption":"Before processing any cancellation, the team should verify whether price is truly the driver behind the client\u2019s decision."},{"seconds":180,"caption":"Role\u2011playing common objections is highlighted as a practical method for agents to improve their response skills."},{"seconds":214.96,"caption":"The video promotes the agency\u2019s school and live virtual training sessions where agents can learn in a classroom\u2011style environment."},{"seconds":252.76,"caption":"Viewers are encouraged to like, comment, and visit the website for further support and resources."},{"seconds":290,"caption":"The presenter mentions a library of over 1,000 YouTube videos that answer the most frequent agency questions."}]};
+(function () {
+  var cfg = window.PS_CHAT;
+  if (!cfg) return;
+  var fab     = document.getElementById('chat-fab');
+  var panel   = document.getElementById('chat-panel');
+  var msgsCt  = document.getElementById('chat-messages');
+  var input   = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var errEl   = document.getElementById('chat-error');
+  if (!fab || !panel) return;
+  var history = [];
+  console.log('[PodSlacker chat] initialised — local:', cfg.apiLocal || '(none)', '| internet:', cfg.apiBase);
+
+  fab.addEventListener('click', function () {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+
+  function setDisabled(v) { sendBtn.disabled = v; input.disabled = v; }
+
+  function addBubble(role, html) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    var bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    bub.innerHTML = html || '';
+    wrap.appendChild(bub);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+    return bub;
+  }
+
+  function showThinking() {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg assistant';
+    wrap.id = 'chat-thinking-row';
+    var dots = document.createElement('div');
+    dots.className = 'chat-thinking';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+  }
+  function removeThinking() {
+    var t = document.getElementById('chat-thinking-row');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function clearError() { if (errEl) errEl.style.display = 'none'; }
+  function showError(msg) { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderMd(text) {
+    // Timestamp links → inline buttons that open the nearest key-moment frame
+    text = text.replace(/\[([^\]]+)\]\(timestamp:(\d+(?:\.\d+)?)\)/g, function (_, label, secs) {
+      return '<button class="chat-ts-btn" onclick="openKeyMoment(' + secs + ')">' + escHtml(label) + '</button>';
+    });
+    // Bold / italic / inline code (bold before italic to avoid mis-parse)
+    text = text.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    text = text.replace(/`([^`\n]+)`/g, function(_, c) { return '<code>' + escHtml(c) + '</code>'; });
+    // Split on blank lines → paragraphs; single newlines → <br>
+    return text.split(/\n{2,}/).map(function(p) {
+      return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+
+  window.openKeyMoment = function (seconds) {
+    var imgs = Array.from(document.querySelectorAll('.gal-item img'));
+    if (!imgs.length) {
+      // No captured frames — fall back to YouTube at the given timestamp
+      window.open(cfg.videoUrl + (cfg.videoUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Math.floor(seconds), '_blank');
+      return;
+    }
+    // Find the gallery frame whose original timestamp is nearest to `seconds`
+    var best = imgs[0], bestDiff = Infinity;
+    imgs.forEach(function (img) {
+      var ts = parseFloat(img.getAttribute('data-frame-ts') || '-1');
+      if (ts < 0) return;
+      var d = Math.abs(ts - seconds);
+      if (d < bestDiff) { bestDiff = d; best = img; }
+    });
+    best.click(); // triggers the existing lightbox open() handler
+  };
+
+  // Try local API first (fast connection-refused if not running), then internet API.
+  // HTTP errors (4xx/5xx) are NOT retried — they mean the server responded.
+  async function fetchWithFallback(payload) {
+    var urls = [];
+    if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) urls.push(cfg.apiLocal);
+    urls.push(cfg.apiBase);
+    var lastErr;
+    for (var i = 0; i < urls.length; i++) {
+      var target = urls[i] + '/api/chat';
+      var label  = urls[i] === cfg.apiLocal ? ' (local)' : ' (internet)';
+      try {
+        console.debug('[PodSlacker chat] POST →', target + label);
+        return await fetch(target, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        lastErr = err;
+        if (i < urls.length - 1) {
+          console.warn('[PodSlacker chat] local unreachable, trying internet API →', urls[i + 1] + '/api/chat', err);
+        }
+      }
+    }
+    throw lastErr;
+  }
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    clearError();
+    input.value = '';
+    input.style.height = '';
+    history.push({ role: 'user', content: text });
+    addBubble('user', escHtml(text));
+    setDisabled(true);
+    showThinking();
+    var payload = {
+      video_url: cfg.videoUrl, title: cfg.videoTitle,
+      transcript: cfg.transcript, summary: cfg.summary,
+      key_moments: cfg.keyMoments, messages: history
+    };
+    try {
+      var resp = await fetchWithFallback(payload);
+      if (!resp.ok) {
+        var errBody = await resp.text().catch(function() { return ''; });
+        var httpErr = 'HTTP ' + resp.status + (errBody ? ': ' + errBody : '');
+        console.error('[PodSlacker chat] server error', httpErr);
+        throw new Error(httpErr);
+      }
+      removeThinking();
+      var bub = addBubble('assistant', '');
+      var reader = resp.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '', full = '', streamDone = false;
+      while (!streamDone) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (!line.startsWith('data:')) continue;
+          var chunk = line.slice(5).trim();
+          if (chunk === '[DONE]') { streamDone = true; break; }
+          try {
+            var obj = JSON.parse(chunk);
+            if (obj.text) { full += obj.text; bub.innerHTML = renderMd(full); msgsCt.scrollTop = msgsCt.scrollHeight; }
+          } catch(_) {}
+        }
+      }
+      if (full) {
+        history.push({ role: 'assistant', content: full });
+      } else {
+        history.pop();
+        showError('No response received. Please try again.');
+      }
+    } catch(err) {
+      removeThinking();
+      history.pop();
+      console.error('[PodSlacker chat] failed', err);
+      var isNetErr = !err.message || err.message === 'Failed to fetch'
+        || err.message.indexOf('NetworkError') >= 0
+        || err.message.toLowerCase().indexOf('network') >= 0;
+      if (isNetErr) {
+        var tried = [];
+        if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) tried.push(cfg.apiLocal + ' (local)');
+        tried.push(cfg.apiBase + ' (internet)');
+        showError('Cannot reach chat API — tried ' + tried.join(', then ') + '. Check that the service is running or set chat_api_base_url in podslacker.json.');
+      } else {
+        showError(err.message);
+      }
+    } finally {
+      setDisabled(false);
+      input.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  input.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+}());
+</script>
 
 </body>
 </html>
