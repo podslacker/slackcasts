@@ -6,90 +6,115 @@
 ---
 
 ## Overview
-The session walks through how Booking.com transformed a handful of GenAI prototypes into production‑ready, agentic solutions using Google Gemini, Vertex AI, and the Gemini Enterprise Agent Platform. Alibek (Engineering Manager) and Maria (Software Engineer) describe Booking.com’s scale, AI journey, and four real‑world use cases, followed by Google specialists who share best‑practice principles for evaluating, deploying, securing, and monitoring agents in production.
+In this session Booking.com engineers explain how they turned experimental Gen AI prototypes into reliable, production‑grade agents using Google’s Gemini models and Vertex AI. They walk through the evolution of Booking.com’s AI platform, showcase four real‑world use cases (customer‑facing, internal, partner‑facing, and multimodal), and share the lessons learned about serving strategies, governance, and developer enablement. The talk is followed by Google Cloud specialists who outline best‑practice principles for evaluating, deploying, securing, and observing agents in production.
 
 ## Topics Covered
-- **Booking.com’s scale & AI heritage** – Over 6.8 billion guest arrivals, 175 k destinations, and a decade of predictive ML serving ~500 k requests/second at <50 ms latency.  
-- **Evolution of the GenAI ecosystem** – From early “wrapper” experiments (2023) → multi‑provider stack (early 2024) → unified gateway with governance and monitoring, culminating in a comprehensive AI lifecycle platform.  
-- **Customer‑facing use case: “Know Before You Go”** – An itinerary‑planning agent that combines Gemini with Google Maps and search grounding to give travelers transport routes, activity suggestions, and personalized itineraries.  
-- **Internal use case: “Big Bot”** – A data‑registry chatbot for Booking.com employees that retrieves internal assets and creates workflows via natural language.  
-- **Partner analytics use case** – Extraction of traveler pain points from reviews/comments, turning unstructured feedback into actionable themes for partners.  
-- **Multimodal use case: “Reels to Reality”** – Converts short‑form travel videos (YouTube URLs) into concrete itineraries, showcasing Gemini’s ability to ingest video alongside text.  
-- **Serving‑strategy lessons** – Matching Vertex AI serving options (on‑demand, provisioned throughput, priority processing) to specific workload needs; “one size does not fit all.”  
-- **Platform adoption & knowledge sharing** – Emphasis on self‑service, documentation, hackathons, and clear guidance to help teams move from experiment to production.  
-- **Google Cloud production principles** – (Presented by Manasa & Naz) four pillars: evaluation (response vs. trajectory), rapid code‑to‑cloud migration, identity & security at deployment, and observability/auditability. Demonstrated with a travel‑assistant demo (London Travel Concierge) that integrates weather data, ticketing, activities, Agent Engine, and Model Armor.  
-- **Evaluation techniques** – Human review, LLM‑as‑judge for response evaluation, automated metrics (hallucination, groundedness, coherence), and trajectory‑level metrics that inspect tool calls and parameter usage.  
+- **Booking.com AI background** – over a decade of predictive ML, ≈ 500 k RPS with 50 ms latency; recent shift to Gen AI and multi‑provider ecosystem.  
+- **Evolution of the AI stack** – from a simple “wrapper” in 2023, to a multi‑provider gateway with built‑in governance, to a full‑life‑cycle AI platform covering evaluation, safety, and agentic capabilities.  
+- **Use‑case showcase** (presented by Maria)  
+  1. **Know Before You Go** – customer‑facing travel planner that combines Gemini with Google Maps and search grounding to generate itineraries and airport‑to‑hotel routes.  
+  2. **Big Bot** – internal data‑registry chatbot enabling employees to locate data assets and create workflows via natural language.  
+  3. **Partner Analytics** – host‑facing tool that extracts pain‑point signals from traveler reviews to surface actionable themes for partners.  
+  4. **Reels to Reality** – multimodal agent that turns short‑form travel videos (YouTube URLs) into concrete itineraries on the Booking.com app.  
+- **Serving strategy lessons** – default on‑demand Vertex AI serving is insufficient for latency‑critical or multimodal workloads; they moved to provisioned throughput and priority processing as needed.  
+- **Platform adoption & enablement** – importance of clear documentation, hackathons, and self‑service guidance to help squads move from experiments to production.  
+- **Google Cloud best‑practice segment** – four pillars for production agents: evaluation (response vs. trajectory), rapid code‑to‑cloud deployment, identity & access management, and security/observability. Demonstrated with a travel‑concierge demo involving multiple agents, Weather MCP, Cloud SQL, Agent Engine, and Model Armor.  
+- **Evaluation techniques** – human review, LLM‑as‑judge for response evaluation, and automated trajectory metrics (tool calls, parameters, collaboration) specific to agents.  
 
 ## Key Takeaways
-- Building reliable agents is as much about **serving architecture and governance** as it is about model selection.  
-- **Tailored Vertex AI serving tiers** (on‑demand, provisioned, priority) are essential to meet latency, throughput, and multimodal requirements.  
-- A **governed, multi‑provider ecosystem** enables rapid scaling of diverse use cases while maintaining safety and compliance.  
-- Effective **knowledge sharing** (docs, hackathons, self‑service portals) accelerates adoption across large organizations.  
-- **Agent evaluation** must consider both final outputs (response) and internal behavior (trajectory) to ensure correctness and tool usage.  
-- Using an **LLM as a judge** provides scalable, consistent feedback for response evaluation, though it has limits for complex tasks.  
-- **Security and observability** (identity, Model Armor, audit logs) are non‑negotiable for production agents handling proprietary or external data.  
+- Building reliable agents is as much about the serving infrastructure and governance as it is about picking a powerful model.  
+- One serving tier does not fit all; match Vertex AI options (on‑demand, provisioned throughput, priority processing) to the latency and scale requirements of each use case.  
+- A governed, multi‑provider AI platform enables rapid experimentation while maintaining safety, observability, and compliance.  
+- Providing clear, self‑service onboarding material and regular community events accelerates adoption across a large organization.  
+- Agent evaluation must consider both the final response and the internal “trajectory” (tool usage, parameters, collaboration) to ensure correctness and traceability.  
+- Using an LLM as a judge and automated metrics scales evaluation, but human judgment remains essential for complex or high‑risk scenarios.  
+- Security, identity, and auditability are integral from the start; Google Cloud’s Model Armor and Agent Engine help enforce these controls.  
 
 ## Notable Quotes
-- “One size does **not** fit all when it comes to serving tiers.” – Maria, on matching Vertex AI serving options to workload needs.  
-- “Building the platform is only half the job; the other half is helping users understand what’s available and how to get started.” – Maria, highlighting the importance of knowledge sharing.  
-- “If I had to summarize our journey in one sentence, it would be: Booking.com has moved from isolated GenAI experiments to a governed multi‑provider production‑ready AI ecosystem.” – Maria.  
-- “Agents are non‑deterministic, which brings unique challenges to evaluation – we need both response and trajectory metrics.” – Naz, on agent evaluation methodology.
+- “It’s not just about choosing the right model. It’s about how we serve the LLMs and make them easy to use across our organization.”  
+- “One size does not fit all when it comes to serving tiers.”  
+- “Building the platform is only half the job for us. The other half is helping users understand what’s available, when to use which tool, and how to get started.”  
+- “If I had to summarize our journey in one sentence: Booking.com has been moving from isolated Gen AI experiments to a governed multi‑provider production‑ready AI ecosystem.”
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Welcome to SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
+**JORDAN:** Welcome to Episode 6 of SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
 
-**MIKE:** Today we’re dissecting Booking.com’s journey from a handful of GenAI prototypes to a production‑grade, agentic ecosystem built on Google Gemini, Vertex AI, and the Gemini Enterprise Agent Platform. Let’s start with the scale that frames all of this.
+**MIKE:** Jordan, the Booking.com team just gave us a masterclass in taking Gen AI from sandbox to production. Let’s start with the big picture: a decade of predictive ML, half‑a‑million RPS at 50 ms, now layering Gemini on top. How does that legacy shape their approach to Gen AI?
 
-**JORDAN:** Booking.com isn’t just a travel site – it’s a massive online travel platform that has facilitated over 6.8 billion guest arrivals across 175 k destinations, handling roughly half a million requests per second at sub‑50 ms latency. Those numbers drive the need for ultra‑low‑latency, high‑throughput AI serving.
+**JORDAN:** Their existing stack forces a hard latency SLA, so any generative layer must respect the 50 ms tail latency at P99. That’s why they model Gen AI as a commodity service rather than a front‑end feature; the underlying traffic patterns dictate strict throughput guarantees.
 
-**MIKE:** Right, and they’ve been running predictive ML in production for a decade, which gave them a mature data‑pipeline and monitoring stack before GenAI even arrived. That heritage is why they could pivot to a “multi‑provider” stack without rebuilding from scratch.
+**MIKE:** Right, and that’s reflected in their evolution roadmap: from a “wrapper” in 2023 to a multi‑provider gateway with built‑in governance, then a full‑life‑cycle platform. What were the functional inflection points in that journey?
 
-**JORDAN:** Their GenAI evolution is worth mapping. In 2023 they started with a simple wrapper around ChatGPT‑style models – a proof‑of‑concept “Phase 0.” By early 2024 they added internal models and built a multi‑provider abstraction layer, and then consolidated everything behind a single gateway that embeds governance, usage throttling, and audit logging.
+**JORDAN:** Initially they just proxied OpenAI‑style APIs. Early 2024 they added in‑house models and a provider‑agnostic router, then introduced a governance layer—rate limits, content filtering, audit logs—so internal squads could request any model but still stay compliant. The final platform now includes evaluation pipelines, safety guardrails, and agentic orchestration primitives.
 
-**MIKE:** That gateway is the linchpin for a governed AI lifecycle: it lets any internal team request a model, apply safety guardrails, and push the call through a unified observability pipeline. It’s the bridge from experiment to production.
+**MIKE:** That governance layer is critical for a regulated industry like travel. Speaking of agents, Maria walked us through four use cases. Let’s break down “Know Before You Go.” How does the Gemini‑plus‑Maps stack actually work?
 
-**JORDAN:** With that foundation, they rolled out four real‑world use cases. The first, “Know Before You Go,” is a customer‑facing itinerary planner. It fuses Gemini with Google Maps and search grounding, so a traveler can ask, “What’s the best route from the airport to my hotel?” and receive a multimodal plan that includes transport, activities, and time constraints.
+**JORDAN:** They feed the user’s itinerary constraints into Gemini, then invoke the Google Maps grounding API to fetch real‑time airport‑to‑hotel routes. The model orchestrates tool calls: first a search grounding to retrieve POI data, then a routing call, finally stitching a natural‑language plan. It’s a classic “retrieval‑augmented generation” pipeline but with live geographic context.
 
-**MIKE:** From a strategic standpoint, “Know Before You Go” demonstrates how external tool integration—maps, transport APIs, weather—extends a pure LLM into a reasoning engine. It also showcases the need for deterministic latency, which pushed them away from the default on‑demand Vertex AI endpoint.
+**MIKE:** The latency challenge there is non‑trivial. A multi‑step tool chain can easily exceed 100 ms. How did they meet the performance target?
 
-**JORDAN:** Exactly. They moved to provisioned throughput for that workload, reserving tokens per minute to guarantee response time under heavy traffic. The second use case, “Big Bot,” is internal: a data‑registry chatbot that surfaces internal assets and can orchestrate workflows via natural language.
+**JORDAN:** By moving from on‑demand Vertex AI to provisioned throughput for that specific agent, reserving token capacity and pre‑warming the model. They also prioritize the routing calls in Vertex’s priority processing tier, ensuring the MAPS RPCs get low‑latency paths.
 
-**MIKE:** “Big Bot” is a productivity multiplier for engineers. It shows that the same agentic stack can be repurposed for SaaS‑style internal tooling, reducing context‑switching and boosting data discoverability across a 7,000‑person org.
+**MIKE:** Next, “Big Bot” is an internal data‑registry chatbot. What’s the value proposition beyond a simple FAQ bot?
 
-**JORDAN:** Third, the partner‑analytics agent extracts traveler pain points from reviews, turning unstructured feedback into actionable themes—think “breakfast variety” or “pool cleanliness.” This is a classic text‑to‑insight pipeline that leverages Gemini’s grounding and classification capabilities.
+**JORDAN:** It allows data engineers to query the internal catalog using natural language, then automatically triggers workflow creation via a tool‑call to their orchestration layer. The agent parses intent, resolves asset identifiers, and emits a DAG definition—all without manual scripting.
 
-**MIKE:** That use case underscores the business value of LLM‑driven signal extraction: partners get a concise, data‑driven product backlog without manual tagging. It also raises governance concerns because you’re processing private guest feedback at scale.
+**MIKE:** That internal usage also serves as a safety net: they can monitor tool usage patterns and spot anomalous data requests. Moving to the partner‑facing “Partner Analytics” tool—what’s the signal extraction pipeline?
 
-**JORDAN:** Finally, the multimodal “Reels to Reality” prototype consumes YouTube URLs, parses video content, and generates concrete itineraries. It’s a perfect testbed for Gemini’s vision‑language model, and it forced Booking.com to evaluate priority processing tiers for reliable multimodal inference.
+**JORDAN:** They ingest traveler reviews, run Gemini to extract sentiment‑tagged entities (e.g., “pool,” “breakfast”), then aggregate frequencies to surface actionable themes. The key is that they treat the LLM as a structured parser rather than a generator, feeding the output into a downstream analytics dashboard.
 
-**MIKE:** Multimodal workloads are notoriously heavy on GPU memory and I/O, so they opted for Vertex AI’s priority processing tier, which guarantees dedicated compute and lower jitter—critical when you’re turning a 30‑second clip into a booking recommendation in near‑real time.
+**MIKE:** And finally “Reels to Reality”—the multimodal showcase. How do they handle YouTube URLs as inputs?
 
-**JORDAN:** All those serving decisions tie back to a core lesson: “one size does not fit all” when picking Vertex AI serving options. On‑demand works for low‑traffic prototypes, provisioned throughput for steady‑state, latency‑sensitive agents, and priority processing for heavy multimodal or bursty traffic.
+**JORDAN:** Gemini’s multimodal endpoint ingests the video URL, pulls key frames via YouTube’s API, and runs a vision‑language model to extract location cues and activity descriptors. Those cues seed a planning graph, which is then turned into a concrete itinerary via the same tool‑call pattern we saw earlier.
 
-**MIKE:** Beyond serving, Booking.com emphasized platform adoption. They built self‑service documentation, hackathons, and a “knowledge‑share portal” so product teams can discover which tier, guardrails, and tooling to use without bottlenecking on the platform team.
+**MIKE:** Multimodal adds a whole new latency dimension—video decoding, frame extraction, vision inference. What serving strategy did they adopt?
 
-**JORDAN:** That aligns with the “platform team = half the job” mantra—building the APIs is only half; the other half is surfacing best practices, curating sample code, and creating a community of practice. Their internal enablement reduced time‑to‑production from months to weeks.
+**JORDAN:** They upgraded to Vertex AI’s priority processing tier with GPU‑accelerated nodes, ensuring the vision pipeline meets sub‑second response times. They also reserve higher token throughput because video captions can be long.
 
-**MIKE:** After the use cases, Google’s specialists—Manasa and Naz—laid out four production principles. First, evaluation: they split it into response evaluation (final answer quality) and trajectory evaluation (tool calls, parameters, and intermediate steps).
+**MIKE:** So the common thread is matching the Vertex tier to the workload. What lessons did they surface about serving tiers?
 
-**JORDAN:** They highlighted human review as the gold standard but expensive, so they introduced LLM‑as‑judge for scalable response scoring. For trajectory, they use automated metrics like hallucination rate, groundedness, and coherence, plus custom checks on tool‑call correctness.
+**JORDAN:** One size does not fit all. On‑demand works for low‑traffic proof‑of‑concepts, but production agents—especially those with tool calls or multimodal inputs—need provisioned throughput for predictable latency, and priority processing for bursty, compute‑heavy calls.
 
-**MIKE:** The second principle is rapid code‑to‑cloud migration. By packaging agents as Docker containers with the Vertex AI Agent Engine SDK, they can push a new version to the gateway in under five minutes, preserving CI/CD pipelines and enabling canary deployments.
+**MIKE:** Governance and observability were also front‑and‑center. How does Booking.com instrument and audit these agents?
 
-**JORDAN:** Third is identity and security at deployment. They bind each agent to a Google Service Account, enforce IAM roles for each downstream API (Maps, Cloud SQL, Weather MCP), and wrap the model with Model Armor to apply token‑level access controls and adversarial‑robustness checks.
+**JORDAN:** Their gateway logs every model invocation, tool call, and parameter set to Cloud Logging, ties it to a request ID, and feeds the data into a custom dashboard for latency‑SLA monitoring. They also enforce Model Armor policies that restrict outbound network calls, ensuring agents can’t inadvertently leak data.
 
-**MIKE:** And the final pillar is observability and auditability. They instrument agents with Cloud Logging, Cloud Monitoring, and Vertex AI’s Trace API to capture request‑level latency, token usage, and tool‑call graphs. This lets ops teams spot drift or policy violations quickly.
+**MIKE:** That dovetails nicely into the Google Cloud best‑practice segment. They framed four pillars: evaluation, rapid deployment, identity/access, and security/observability. Let’s unpack evaluation first.
 
-**JORDAN:** In their demo, the “London Travel Concierge” agent combines a weather MCP, a ticket‑booking microservice, and an activities service, all orchestrated via the Agent Engine. The demo illustrates how Model Armor can reject out‑of‑policy queries before they hit proprietary data.
+**JORDAN:** They split it into response evaluation—comparing the final text against a gold set—and trajectory evaluation—inspecting the sequence of tool calls, parameters, and inter‑agent collaborations. For response evaluation they use both human reviewers and an LLM‑as‑judge model for scalability.
 
-**MIKE:** From a senior practitioner’s view, the combination of trajectory metrics and Model Armor gives you a safety net against both hallucination and data leakage—a non‑negotiable requirement for any production travel assistant handling PII.
+**MIKE:** The trajectory metrics are fascinating: they quantify tool‑call correctness, parameter fidelity, and collaboration success. How do they automate that?
 
-**JORDAN:** To summarize the key takeaways: serve agents with the right Vertex AI tier, embed governance in a unified gateway, invest heavily in self‑service enablement, evaluate both response and trajectory, and lock down identity & observability from day one.
+**JORDAN:** Using the Agent Development Kit (ADK), each tool call emits a structured event. The evaluation harness aggregates these events, then runs a secondary LLM to score the “reasonableness” of the call sequence against expected patterns. This produces a composite score that reflects both output quality and process integrity.
 
-**MIKE:** Those principles aren’t travel‑specific; any large enterprise looking to scale GenAI agents can borrow this blueprint. Booking.com’s shift from isolated experiments to a governed, multi‑provider production ecosystem is a template for responsible AI roll‑out.
+**MIKE:** And for rapid code‑to‑cloud deployment, what does the demo illustrate?
 
-**JORDAN:** That’s a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
+**JORDAN:** They push a Python‑based agent to Vertex AI via a CI/CD pipeline that builds a container, registers it with the Agent Engine, and automatically attaches Model Armor policies. The process takes under five minutes from commit to live endpoint, demonstrating “GitOps for agents.”
+
+**MIKE:** Identity and access management is another pillar. How do they ensure the right principle of least privilege?
+
+**JORDAN:** Each agent runs under a dedicated service account with scoped IAM roles: read‑only on Cloud SQL for the weather MCP, no external network egress unless whitelisted. Agent Engine also supports token‑based authentication, so downstream tools can verify the caller’s identity before honoring a request.
+
+**MIKE:** Security wise, Model Armor seems central. What protections does it provide?
+
+**JORDAN:** Model Armor enforces runtime policies like disallowing direct internet egress, limiting token generation rates, and applying content filters on model outputs. It acts as a side‑car interceptor that can reject unsafe responses before they leave the Vertex endpoint.
+
+**MIKE:** Observability wraps everything up. Beyond logs, what signals do they surface?
+
+**JORDAN:** They emit custom metrics to Cloud Monitoring: request latency per tier, token usage, tool‑call success rates, and LLM‑as‑judge scores. Alerts fire on SLA breaches, and Trace integrates with Cloud Profiler to pinpoint hot paths in the agent orchestration flow.
+
+**MIKE:** Bringing it back to the organizational side, Booking.com emphasized developer enablement. What tactics helped them scale adoption?
+
+**JORDAN:** They produced self‑service documentation, run quarterly hackathons, and maintain a curated catalog of pre‑built agents with sample code. The platform team also offers “office hours” to help squads onboard, turning the platform from a backend service into a developer product.
+
+**MIKE:** That cultural layer is often the missing piece in AI rollouts. To close, what are the key takeaways for our listeners building their own production agents?
+
+**JORDAN:** First, treat serving infrastructure as a first‑class concern—choose Vertex AI tiers that match latency and throughput needs. Second, embed governance, audit logs, and Model Armor from day one. Third, evaluate both response quality and trajectory fidelity, leveraging LLM‑as‑judge for scale but retaining human oversight for high‑risk cases. Fourth, invest in developer enablement—clear docs, sample agents, and community events accelerate adoption.
+
+**MIKE:** And remember, the model is just one piece of the puzzle; the real competitive advantage comes from a robust, governed platform that lets developers focus on business logic, not on rewiring the cloud each time.
+
+**JORDAN:** That's a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
 

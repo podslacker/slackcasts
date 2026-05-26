@@ -117,7 +117,7 @@
     "title": "From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent",
     "video_url": "https://www.youtube.com/watch?v=fkCTifAqVGg",
     "published_at": "2026-05-22T19:59:28.6145146+00:00",
-    "last_republished_at": "2026-05-26T05:13:24.2809515+00:00",
+    "last_republished_at": "2026-05-26T17:55:29.3401412+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -127,9 +127,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.mp3",
-    "audio_file_size_bytes": 5135064,
-    "audio_duration_seconds": 560,
-    "episode_summary": "The session walks through how Booking.com transformed a handful of GenAI prototypes into production\u2011ready, agentic solutions using Google Gemini, Vertex\u202FAI, and the Gemini Enterprise Agent Platform. Alibek (Engineering Manager) and Maria (Software Engineer) describe Booking.com\u2019s scale, AI journey\u2026",
+    "audio_file_size_bytes": 6046992,
+    "audio_duration_seconds": 663,
+    "episode_summary": "In this session Booking.com engineers explain how they turned experimental Gen\u202FAI prototypes into reliable, production\u2011grade agents using Google\u2019s Gemini models and Vertex\u202FAI. They walk through the evolution of Booking.com\u2019s AI platform, showcase four real\u2011world use cases (customer\u2011facing, internal\u2026",
     "episode_number": 6
   },
   "Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_page.html": {
