@@ -5,7 +5,7 @@
     <link>https://podslacker.com/slackcasts/</link>
     <description>AI does the watching. You do the listening. One URL. One podcast. Zero effort. Your YouTube backlog, podcasted. Slack off smarter — let AI listen for you.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 25 May 2026 23:00:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 00:21:39 +0000</lastBuildDate>
     <atom:link href="https://podslacker.com/slackcasts/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>PodSlacker</itunes:author>
     <itunes:type>episodic</itunes:type>
@@ -203,14 +203,14 @@
     <item>
       <title>From pilot to production: Scaling Gemini with proven practices</title>
       <link>https://podslacker.com/slackcasts/Google%20Cloud%20Next%202026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_page.html</link>
-      <description><![CDATA[The panel, moderated by Google Applied‑AI leader Donna, explored how three large‑scale tech companies move Gemini from a pilot experiment to production‑grade services.  DeepMind’s Arca, JetBrains’ Nick, and Roblox’s Naren each described their organization’s use‑cases, the engineering constraints…]]></description>
+      <description><![CDATA[The panel, moderated by Google’s Applied AI leader Donna, explores how three companies—DeepMind, JetBrains, and Roblox—have moved Gemini from experimental pilots to production‑grade systems. Each speaker shares concrete use‑cases, the engineering hurdles they faced (latency, cost, precision…]]></description>
       <guid isPermaLink="false">dBRPi41nrJw</guid>
       <pubDate>Fri, 22 May 2026 19:28:51 +0000</pubDate>
-      <enclosure url="https://podslacker.com/slackcasts/Google%20Cloud%20Next%202026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.mp3" length="2608920" type="audio/mpeg" />
+      <enclosure url="https://podslacker.com/slackcasts/Google%20Cloud%20Next%202026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.mp3" length="5316600" type="audio/mpeg" />
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:author>PodSlacker</itunes:author>
-      <itunes:duration>299</itunes:duration>
+      <itunes:duration>582</itunes:duration>
       <podcast:transcript url="https://podslacker.com/slackcasts/Google%20Cloud%20Next%202026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_script.txt" type="text/plain" />
     </item>
     <item>
