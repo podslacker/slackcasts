@@ -231,7 +231,7 @@
     "title": "What\u0027s new with Gemini Enterprise app",
     "video_url": "https://www.youtube.com/watch?v=Tc3IiGNmXHc",
     "published_at": "2026-05-22T23:14:46.3238009+00:00",
-    "last_republished_at": "2026-05-26T05:55:26.3221243+00:00",
+    "last_republished_at": "2026-05-26T18:43:54.8610303+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -241,9 +241,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_podcast.mp3",
-    "audio_file_size_bytes": 5331696,
-    "audio_duration_seconds": 578,
-    "episode_summary": "The session provides an update on Gemini Enterprise, focusing on the newly launched Gemini Enterprise Agent platform and enhancements to the Gemini Enterprise application. Jamie Deggeer, product leader on Google Cloud AI, walks through how the platform enables employees to create and use AI\u2026",
+    "audio_file_size_bytes": 4988088,
+    "audio_duration_seconds": 548,
+    "episode_summary": "The session, presented by Jamie Deggeer and joined by engineering lead Dave Teggart plus customers from KPMG and Signal\u202FIduna, details the latest advancements in Gemini Enterprise\u2014Google Cloud\u2019s AI platform for the workplace. It introduces the new Gemini Enterprise Agent platform, explains how the\u2026",
     "episode_number": 12
   },
   "Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html": {

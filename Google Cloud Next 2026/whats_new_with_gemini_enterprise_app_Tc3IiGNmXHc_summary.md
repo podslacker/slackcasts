@@ -5,110 +5,124 @@
 
 ---
 
-## Overview
-The session provides an update on **Gemini Enterprise**, focusing on the newly launched **Gemini Enterprise Agent platform** and enhancements to the Gemini Enterprise application. Jamie Deggeer, product leader on Google Cloud AI, walks through how the platform enables employees to create and use AI agents—both long‑running code‑enabled agents and no‑code agents with guardrails—across the enterprise. Real‑world examples from KPMG and Signal Iduna illustrate adoption, and a live demo shows a banking loan‑processing workflow.
+## Overview  
+The session, presented by Jamie Deggeer and joined by engineering lead Dave Teggart plus customers from KPMG and Signal Iduna, details the latest advancements in **Gemini Enterprise**—Google Cloud’s AI platform for the workplace. It introduces the new **Gemini Enterprise Agent platform**, explains how the solution integrates with Workspace and other tools, and demonstrates real‑world use cases such as loan‑processing automation. The talk emphasizes a shift from ad‑hoc AI chat to persistent, governed agents that operate on behalf of employees across the enterprise.
 
-## New Features & Announcements
-- **Gemini Enterprise Agent Platform** — A cloud‑first, enterprise‑grade foundation that bundles Vertex AI, multiple LLM providers, an agent gateway, identity service, registry, and skill/registry tools.  
-  Availability: General Availability (GA).
+## New Features & Announcements  
 
-- **No‑Code Agent Designer** — Drag‑and‑drop UI for building agents, defining policies/guardrails, and orchestrating long‑running tasks without writing code.  
-  Availability: Public Preview.
+- **Gemini Enterprise Agent platform** — The underlying, cloud‑first, enterprise‑grade platform that unifies Vertex AI models, data connectors, and governance capabilities.  
+  Availability: General Availability (core services) with additional components in preview.
 
-- **Inbox** — Central view for all background agents, with configurable notifications to mobile, Slack, email, etc.  
-  Availability: GA.
+- **No‑code Agent Designer** — Visual builder that lets non‑technical users create agents, define guardrails, and set operational policies without writing code.  
 
-- **Skills & Canvas** – Employees can author reusable “skills” (procedures) and generate documents/presentations directly within Gemini Enterprise.  
-  Availability: GA.
+- **Inbox** — Centralized view for each employee to monitor background agents, receive notifications, and respond from preferred channels (mobile, Slack, email, etc.).  
 
-- **Projects** – Shared workspaces that preserve context, conversation history, and data for collaborative human‑and‑agent teams.  
-  Availability: GA.
+- **Skills & Canvas** – Personalizable “skills” let users codify repeatable procedures; Canvas enables creation of documents, presentations, and other artifacts directly from agent outputs.  
 
-- **Integrations** – Over 50 first‑party connectors plus ability to add custom connectors via MCP servers; seamless linking to Workspace, Slack, ServiceNow, and other enterprise tools.  
-  Availability: GA.
+- **Projects** – Shared workspaces with persistent context and conversation history where humans and digital agents collaborate.  
 
-## Topics Covered
-- **Introduction & Adoption** – Gemini Enterprise launched Oct 2023; strong uptake (e.g., 80 % of Anaplan staff using it, Macquarie Bank’s 40 % help‑center self‑service lift).  
-- **Agent Platform Architecture** – Combines Vertex AI models (including Anthropic Claude and open‑source) with data grounding, system connectors, and governance services (gateway, identity, registry).  
-- **Application Layer Enhancements** – How the Gemini Enterprise app surfaces agents, rankings, and cross‑system connectors to end users.  
-- **No‑Code vs. Code‑Enabled Agents** – Explanation of long‑running sandboxed agents that can write code, browse, and execute tools, versus no‑code agents that enforce deterministic policies.  
-- **Inbox & Notification Management** – Unified dashboard for monitoring agent activity and routing updates to preferred channels.  
-- **Skills, Canvas, Projects** – Tools for codifying repeatable procedures, generating artifacts, and collaborating in shared contexts.  
-- **Live Demo: Loan‑Processing Use Case** – Shows creation of a full‑code loan supervisor agent, wrapping it with a no‑code scheduled agent, handling human‑review loops, auto‑creating ServiceNow incidents, summarizing results, and producing a slide deck via Canvas—all accessible from Slack/Workspace.  
-- **Customer Perspectives** – Brief remarks from KPMG’s Aaron Purcell and Signal Iduna’s Lisa Nabb on enterprise adoption (details to follow in separate sessions).  
+- **Agent Gateway & Identity Service** – New services for secure, scalable agent management and authentication (GA).  
 
-## Key Takeaways
-- Gemini Enterprise now offers a **complete agent platform** that couples powerful LLMs with enterprise‑grade governance and integration capabilities.  
-- **No‑code designer** lets business users build safe, policy‑driven agents without developers, while **code‑enabled agents** handle complex, long‑running tasks in secure sandboxes.  
-- The **Inbox** centralizes agent monitoring and lets employees choose how and where they receive updates.  
-- Integrated **Skills, Canvas, and Projects** turn AI outputs into reusable procedures, polished documents, and collaborative workspaces.  
-- Real‑world demos confirm that agents can automate end‑to‑end processes (e.g., loan underwriting), trigger human review, log incidents in ServiceNow, and surface results in familiar tools like Slack and Workspace.  
-- Early adopters (Anaplan, Macquarie Bank, KPMG, Signal Iduna) report significant productivity gains and higher self‑service rates, indicating strong enterprise value.
+- **Integrations** – Over 50 first‑party connectors plus the ability to add custom connectors via MCP servers, extending AI access to enterprise systems such as ServiceNow, Slack, and Microsoft 365.
 
-## Notable Quotes
-- “Gemini Enterprise is the front door to AI in the workplace… it gives every employee the ability to leverage AI and agents connected to all of your enterprise data.”  
-- “We allow you to combine long‑running agents with a no‑code editor that lets you create guardrails and policies… to have deterministic outcomes.”  
-- “It shifts from a world where employees go to an AI assistant synchronously to a world where a team of agents works in the background and only surfaces when you need input.”
+## Topics Covered  
+
+- **Introduction to Gemini Enterprise** – Launched Oct 2023; serves as the “front door” to AI, offering a team of agents that can read/write enterprise data and act in core systems.  
+
+- **Customer Success Stories** –  
+  *Anaplan*: 80 % employee adoption, thousands of no‑code agents.  
+  *Macquarie Bank*: 40 % increase in self‑service, agents handling fraud prevention, recommendations, etc.  
+
+- **Architecture of the Agent Platform** – Combines Vertex AI model access (Google, Anthropic Claude, open‑source) with grounding tools, a new registry, skill/agent catalogs, and DeepMind‑driven quality‑at‑scale innovations.  
+
+- **Application Layer Enhancements** – Described how the Gemini Enterprise app surfaces agents, manages connectors, personalizes data ranking, and delivers experiences across web, mobile, Slack, and Workspace.  
+
+- **Demo: Loan‑Processing Automation** – Showcased a long‑running, sandboxed agent that pulls mortgage applications, validates documents, runs compliance checks, creates ServiceNow incidents, and generates summary reports and slide decks via Canvas.  
+
+- **Operational Guardrails** – Demonstrated pairing a full‑code, long‑running agent with a no‑code guardrail layer to enforce policy, schedule runs, and capture human‑review signals for continuous improvement.  
+
+- **Collaboration Features** – Inbox, Projects, and Skills enable teams to share agents, view histories, and collaborate with both humans and AI co‑workers in a single workspace.  
+
+- **Future Directions** – Hint at upcoming extensions, additional integrations, and further governance tools to be announced after the event.
+
+## Key Takeaways  
+
+- Gemini Enterprise is now supported by a robust **Agent platform** that centralizes model access, data grounding, and governance.  
+- **No‑code tools** empower business users to create and control agents while retaining enterprise‑grade security and policy enforcement.  
+- Persistent agents shift work from “point‑in‑time chat” to continuous background assistance, surfacing results only when needed.  
+- Integrated **Inbox, Projects, and Skills** provide a unified collaboration surface across Google Workspace, Slack, and other productivity suites.  
+- Real‑world demos prove that complex, regulated processes (e.g., loan approval) can be end‑to‑end automated, with human‑in‑the‑loop safeguards and automatic incident creation.  
+- Early adopters report high adoption rates and measurable efficiency gains, confirming the platform’s enterprise relevance.
+
+## Notable Quotes  
+
+- “From day one Gemini Enterprise has been built to be **cloud first and enterprise grade**.”  
+- “We’re moving from a world where employees **chat with an AI assistant** to a world where a **team of agents works in the background** for them.”  
+- “The **no‑code agent designer** lets you combine long‑running agents with guardrails so outcomes are **deterministic** for each scenario.”  
+- “With **Inbox**, every employee gets a single view of all their agents, notifications, and can interact via the channel of their choice.”  
+- “Our customers like Anaplan have **80 % employee adoption**, showing the real‑world appetite for AI‑driven workflows.”
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Welcome to SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
+**JORDAN:** Welcome to Episode 12 of SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
 
-**MIKE:** Today we’re unpacking Google Cloud’s Gemini Enterprise update—specifically the GA launch of the Gemini Enterprise Agent Platform and the slew of application‑layer features that promise to turn every employee into an AI‑augmented worker.
+**MIKE:** Jamie Deggeer opened the session by positioning Gemini Enterprise as the “front door” to AI in the workplace, launched back in October, and already seeing cross‑industry traction. It’s not just a chatbot; it’s a team of agents that can read, write, and act on enterprise data.
 
-**JORDAN:** Let’s start with the high‑level adoption story Jamie Deggeer shared: Gemini Enterprise went live in October 2023 and already sees 80 % of Anaplan’s workforce building thousands of no‑code agents, while Macquarie Bank reports a 40 % lift in help‑center self‑service thanks to agent‑driven fraud checks and personalized recommendations.
+**JORDAN:** Exactly. The core breakthrough is the Gemini Enterprise Agent platform, which unifies Vertex AI model access—including Google models, Anthropic Claude, and open‑source options—with a data‑grounding layer, system connectors, and a suite of governance services like the Agent Gateway and Identity Service, all GA today.
 
-**MIKE:** Those numbers illustrate the strategic shift: AI moves from a “help‑desk” supplement to an integral part of day‑to‑day operations. The question is, how does the new platform technically enable that scale?
+**MIKE:** From a strategic standpoint, that means you get a single, cloud‑first, enterprise‑grade surface for any AI workload, rather than cobbling together disparate services. It’s the “one‑stop shop” for LLMs and the policies that keep them compliant.
 
-**JORDAN:** The Gemini Enterprise Agent Platform is a cloud‑first, enterprise‑grade stack that bundles Vertex AI, multi‑model support—including Google’s own models, Anthropic’s Claude, and open‑source options—with an agent gateway, identity service, registry, and skill/registry tools. All of this is delivered as a single managed surface, so you don’t have to stitch together disparate services.
+**JORDAN:** The platform also introduces a new Agent Registry, Skill and Canvas registries, and DeepMind‑driven quality‑at‑scale tooling. Those components let you version agents, catalog reusable skills, and automatically improve outputs over time based on human‑in‑the‑loop signals.
 
-**MIKE:** And the governance layer is crucial. The agent gateway enforces policy at the request edge, while the identity service handles per‑user authentication and fine‑grained access controls, ensuring that an agent can’t overstep its data‑access boundaries.
+**MIKE:** Which dovetails nicely with the no‑code Agent Designer. Business users can now compose agents visually, set operational guardrails, and define policies without writing a line of code. That’s a huge shift for adoption curves.
 
-**JORDAN:** Right, plus the registry maintains a catalog of agents, skills, and connectors, exposing metadata that the Gemini Enterprise app uses to surface the “right agent” for a given query. That’s why, in the demo, when the user asked for “the latest 10 unprocessed mortgage loan applications,” the system automatically recommended the loan‑supervisor agent.
+**JORDAN:** And the guardrails aren’t after‑thoughts; they’re baked in. The no‑code layer sits on top of a long‑running full‑code sandbox agent, letting you enforce deterministic outcomes, schedule runs, and capture review signals for continuous improvement.
 
-**MIKE:** Speaking of the app, let’s walk through the new application‑layer features. First up: the No‑Code Agent Designer, now in public preview. Jamie described it as a drag‑and‑drop canvas where business analysts can define workflows, guardrails, and conditional logic without writing a line of code.
+**MIKE:** Let’s talk about the employee experience. The new Inbox aggregates every background agent, notification, and interaction point. Users can pick their delivery channel—mobile, Slack, email—so the AI surfaces results only when it matters.
 
-**JORDAN:** The Designer also lets you embed long‑running, sandboxed agents as sub‑tasks. Those sandboxed agents run in a secure, isolated environment, can spin up temporary file systems, execute code, even launch a headless browser—all under the enterprise security policies you’ve defined in the gateway.
+**JORDAN:** Right, the Inbox is essentially a unified notification hub that maps each agent’s lifecycle events to the user’s preferred surface. Under the hood it respects the Identity Service, ensuring that notifications are scoped to the right permissions and data domains.
 
-**MIKE:** That duality—long‑running code agents plus deterministic no‑code wrappers—addresses the classic “yin‑yang” enterprise demand: the need for sophisticated reasoning alongside predictable compliance.
+**MIKE:** Then there’s Skills and Canvas. Skills let you codify repeatable procedures—think “run monthly compliance check”—while Canvas turns agent output into first‑class artifacts like Slides, Docs, or PowerPoints, directly editable in Workspace or Microsoft 365.
 
-**JORDAN:** Next, the Inbox feature, now GA, provides a unified view of all background agents. It aggregates status, error traces, and human‑review prompts, and pushes notifications to the user’s preferred channel—mobile app, Slack, email, or even Teams.
+**JORDAN:** The Projects feature extends that collaboration model. A Project is a persistent workspace with fixed context, shared conversation history, and co‑ownership between humans and agents. It’s essentially a bounded domain for multi‑agent orchestration.
 
-**MIKE:** That’s a big productivity win. Instead of monitoring dozens of dashboards, an employee can triage all pending agent actions from a single pane, and respond directly from the notification channel.
+**MIKE:** And the integration layer is massive—over 50 first‑party connectors plus custom MCP server connectors. We saw ServiceNow, Slack, and Microsoft 365 in the demo, but the API surface lets you plug into any REST‑ful enterprise system.
 
-**JORDAN:** Then we have Skills and Canvas, both GA. Skills are reusable procedural primitives—think “run credit‑check” or “populate loan‑risk matrix”—that can be authored by any employee and referenced across agents. Canvas, on the other hand, lets agents generate rich artifacts: PowerPoint decks, Google Slides, Word docs, even PDFs, and opens them directly in Workspace or Microsoft 365.
+**JORDAN:** The demo of loan‑processing automation really ties it all together. A full‑code, long‑running agent scoped a sandbox, pulled mortgage applications, validated documents, performed credit risk assessment, and even created a ServiceNow incident for any flagged case.
 
-**MIKE:** The synergy is clear: an agent can pull data, invoke a Skill to compute risk, and then hand‑off the result to Canvas to produce a polished slide deck—all without human intervention until a policy‑driven review step.
+**MIKE:** What impressed me was the end‑to‑end flow: the agent runs for hours, the user only sees a notification in Inbox, then a no‑code guardrail layer decides whether to auto‑approve or forward to human review, and finally Canvas auto‑generates an HTML report and a slide deck. All without the loan officer touching code.
 
-**JORDAN:** Projects are the third GA addition. A Project bundles a persistent context, shared conversation history, and a fixed data scope, enabling both human collaborators and digital agents to work side‑by‑side over weeks or months. Think of it as a version‑controlled AI workspace.
+**JORDAN:** The architecture also shows how the Agent Gateway routes requests to the appropriate model, while the Identity Service injects per‑user credentials so the sandbox can call back‑end systems securely. No more distributing API keys to desktops.
 
-**MIKE:** That solves the “context loss” problem we’ve seen in earlier assistant models where each new chat starts from a clean slate. Projects keep the memory alive, which is essential for multi‑stage workflows like loan underwriting.
+**MIKE:** From a governance perspective, the system logs every decision, attaches the human review signal, and feeds it back into the quality‑at‑scale loop. That data can be used to fine‑tune guardrails or even retrain models in Vertex AI.
 
-**JORDAN:** Let’s dive into the live demo. Jamie built a full‑code loan‑supervisor agent that runs in a sandbox, accesses a document retriever, calls a risk‑assessment sub‑agent, and validates compliance. The agent can run for days, persisting state across sessions.
+**JORDAN:** Customer anecdotes reinforce the value. Anaplan reported 80 % employee adoption and thousands of no‑code agents, while Macquarie Bank saw a 40 % lift in self‑service, with agents handling fraud detection and personalized recommendations. Those are tangible ROI signals.
 
-**MIKE:** Then he wrapped that agent with a no‑code scheduler: a daily trigger that pulls the latest loan applications, feeds them to the code agent, and applies conditionals—if flagged for human review, fire a Slack notification and create a ServiceNow incident.
+**MIKE:** Those numbers also highlight the cultural shift: moving from “chat with an AI” to “agents work in the background for you.” That changes how work is scoped, measured, and optimized.
 
-**JORDAN:** The demo showcased the end‑to‑end loop: the incident appears in ServiceNow, an email with a deep‑link lands in the loan officer’s inbox, and the officer can approve or deny directly from the notification, feeding a quality signal back into the agent’s reinforcement loop.
+**JORDAN:** On the technical side, the platform supports multi‑model orchestration. An agent can invoke a Claude model for reasoning, then fall back to a fine‑tuned Google model for domain‑specific extraction, all within the same runtime.
 
-**MIKE:** That feedback loop is vital for continuous improvement. Over time the platform can adjust its confidence thresholds based on human approvals, reducing false positives without sacrificing compliance.
+**MIKE:** And the preview components—like advanced governance dashboards and customizable policy templates—suggest that Google is betting on modular extensibility. Enterprises can start with core services and layer on complexity as needed.
 
-**JORDAN:** After the processing step, the loan supervisor emitted an HTML summary report, which the user immediately opened in Canvas to generate a slide deck. The slides were editable on the fly and then pushed to Google Workspace for sharing.
+**JORDAN:** The demo also showcased a scheduled trigger in the no‑code designer: “run daily, pull latest loans, invoke full‑code supervisor, flag for review, and push a ServiceNow ticket.” That’s a classic RPA use case, but with LLM‑driven intelligence baked in.
 
-**MIKE:** And the cross‑surface integration? Jamie demonstrated an at‑mention of the loan‑supervisor agent inside a Slack channel, pulling the latest stats without leaving the chat. That’s the “agent as a first‑class citizen” model—agents can be invoked from any connected surface, be it Slack, Workspace, or a custom MCP connector.
+**MIKE:** It’s the convergence of RPA and generative AI, but with the enterprise security model we’ve been missing. The sandboxed execution plus identity‑aware connectors make it compliant‑by‑design.
 
-**JORDAN:** On the connector side, Gemini Enterprise now supports over 50 first‑party integrations out of the box—ServiceNow, Salesforce, SAP, Snowflake, you name it—and you can add custom connectors via MCP servers, extending the agent’s reach to virtually any legacy system.
+**JORDAN:** Speaking of compliance, the system can enforce data residency by routing model calls through regional Vertex endpoints, and the Identity Service can restrict connector scopes to specific OU units. That’s critical for regulated sectors like banking and insurance.
 
-**MIKE:** The extensibility is a strategic differentiator. Enterprises can onboard legacy mainframes through a custom MCP shim, surface those APIs as Skills, and then let agents orchestrate across modern SaaS and on‑prem endpoints without rewriting business logic.
+**MIKE:** Looking ahead, the roadmap hinted at more integrations, deeper governance tooling, and perhaps tighter coupling with Google Workspace’s “Smart Compose” style assistance. The platform seems positioned to become the AI layer beneath all productivity suites.
 
-**JORDAN:** Jamie also highlighted DeepMind‑derived quality‑at‑scale innovations: automated evaluation pipelines that score agent outputs against ground‑truth datasets, feeding into a continuous model‑fine‑tuning loop. That’s how they maintain high fidelity across heterogeneous LLMs.
+**JORDAN:** To sum up, Gemini Enterprise now offers a GA Agent platform, a no‑code Designer, Inbox, Skills, Canvas, Projects, and a robust integration ecosystem—all governed by GA‑level gateway and identity services. It converts ad‑hoc chat into persistent, policy‑driven automation.
 
-**MIKE:** Summarizing the key takeaways: GA of the Agent Platform gives us a unified, secure backbone; the No‑Code Designer democratizes agent creation; Inbox centralizes monitoring; Skills, Canvas, and Projects turn raw AI output into reusable, collaborative artifacts; and the demo proves that end‑to‑end loan processing—including human review, incident creation, and reporting—can be fully automated.
+**MIKE:** For leaders, the takeaways are clear: you can start small with no‑code agents, scale to long‑running, sandboxed agents for complex workflows, and maintain enterprise‑grade security and auditability throughout. The ROI stories prove the model works in the field.
 
-**MIKE:** For senior practitioners, the strategic implication is clear: you can now design a “team of agents” that operate asynchronously, only surfacing to humans when policy or judgment is required, dramatically reducing cycle time for high‑volume, compliance‑heavy processes.
+**JORDAN:** And from an implementation angle, the key is to map existing manual processes into “Projects” with defined context, then decide which steps merit a full‑code agent versus a guard‑railed no‑code wrapper. The platform handles the rest.
 
-**JORDAN:** And the early adopters—KPMG, Signal Iduna, Anaplan, Macquarie—are already reporting measurable productivity gains, which suggests that the platform is not just a proof‑of‑concept but a production‑ready foundation for AI‑first enterprises.
+**MIKE:** That alignment of strategy and technical execution is why I think Gemini Enterprise will become the de facto AI operating system for large organizations.
+
+**JORDAN:** Thanks to Jamie, Dave, Aaron, and Lisa for the deep dive, and thanks to you listeners for staying tuned.
 
 **JORDAN:** That's a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
 
