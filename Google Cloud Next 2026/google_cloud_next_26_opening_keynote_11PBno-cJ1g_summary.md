@@ -6,133 +6,116 @@
 ---
 
 ## Overview  
-Google Cloud Next ’26 opened with Thomas Kurian and Sundar Pichai announcing that the AI‑first era has moved from pilot projects to enterprise‑wide production.  Over 75 % of Google Cloud customers now use its AI tools, and Google is rolling out a unified “agentic” stack—Gemini Enterprise—that ties together custom chips, data, models, agents, and security.  The keynote detailed the new platform, its underlying infrastructure, and early customer successes ranging from code generation to spaceflight.
+The opening keynote at **Google Cloud Next ’26** highlighted Google’s transition from AI pilots to enterprise‑wide production. Sundar Pichai and Thomas Kurian charted massive capital investments, showcased how Google uses AI internally, and announced the **Gemini Enterprise Agent Platform**—a unified stack that connects data, models, and agents to enable secure, scalable, and governed AI across every workflow.
 
 ## New Features & Announcements  
 
-- **Gemini Enterprise Agent Platform** – End‑to‑end system for building, scaling, governing and optimizing AI agents across an organization.  
-  Timeline: announced today, preview available now  
-  Availability: Public preview  
+- **Gemini Enterprise Agent Platform** — End‑to‑end system that lets organizations build, scale, govern, and optimise AI agents for production workloads.  
+  Timeline: Available now in preview  
+  Availability: Public Preview  
 
-- **AI Hypercomputer** – Purpose‑built hardware optimized for the “physics of the agentic era.”  
-  Timeline: announced today  
+- **Gemini 3.1 Pro (preview)** — State‑of‑the‑art reasoning model optimised for complex workflow orchestration.  
+- **Gemini 3.1 Flash Image (Nano Banana 2)** — High‑fidelity visual generation model (preview).  
+- **Veo 3.1 Lite** — Cost‑effective video generation model for high‑volume applications (preview).  
+- **Lyria 3 Pro** — Enterprise‑grade audio and music generation model (preview).  
+- **Anthropic Claude Opus 4.7** — Added support for the latest Claude model.  
 
-- **Agentic Data Cloud** – Engine that feeds agents trusted, business‑contextual data.  
-
-- **Agentic Defense** – Autonomous security layer that protects the entire AI lifecycle (zero‑trust verification, Model Armor, sandboxing).  
-
-- **Agentic Platform** – Low‑code Agent Studio, Agent Registry, Skills & Tools Registry, Agent Marketplace, and Agent Gateway for unified development, deployment and policy enforcement.  
-
-- **Agentic Task Force** – Pre‑built specialized agents (e.g., for finance, building management, retail, aerospace) ready to be consumed.  
-
-- **Model releases (preview)**  
-  * Gemini 3.1 Pro – reasoning model for complex workflow orchestration.  
-  * Gemini 3.1 Flash Image (Nano Banana 2) – high‑fidelity visual generation.  
-  * Veo 3.1 Lite – cost‑effective video generation.  
-  * Lyria 3 Pro – enterprise‑grade audio/music.  
-  * Added support for Anthropic Claude Opus 4.7.  
-
-- **Partnerships**  
-  * Apple – preferred cloud provider for next‑gen Apple foundation models (future “personalized Siri”).  
-  * Citi Wealth – launch of “Citi Sky” AI‑powered wealth assistant.  
-  * Honeywell, Liverpool FC, NASA (Artemis II flight‑readiness) – early adopter case studies.  
+- **Agent Studio (low‑code)** — Natural‑language UI for building and deploying agents.  
+- **Agent Registry & Skills/Tools Registry** — Centralised catalogues for discoverability, governance, and reuse of agents and modular skills.  
+- **Agent Marketplace** — One‑click access to partner‑built agents (Atlassian, Box, Oracle, ServiceNow, Workday, etc.).  
+- **Model Context Protocol (MCP) integration** — Enables any MCP‑compatible server to be called from agents; all GCP services exposed via MCP.  
+- **Agent Identity & Agent Gateway** — Cryptographic IDs, zero‑trust verification, and policy enforcement for every agent and orchestration step.  
+- **Model Armor** — protects models and proprietary data from leakage and other threats.  
+- **Observability (OTel‑compliant telemetry)** — Fine‑grained tracing, logging, and tool‑use monitoring for agents.  
 
 ## Topics Covered  
 
-- **Scale of AI Adoption** – 75 % of Google Cloud customers now run AI in production; the shift from experimentation to enterprise‑wide deployment.  
-- **Unified Stack Philosophy** – Hardware, models, data, agents, and security must be tightly integrated; Google’s internal “OpenStack” is the example.  
-- **Internal Google Use Cases** – Code generation (75 % AI‑written), autonomous agents for code migration (6× faster), marketing asset creation (20 % lift in conversion), security SOC triage (90 % reduction in mitigation time).  
-- **Agentic Era Vision** – Moving from “can we build an agent?” to “how do we manage thousands of agents?”; Gemini Enterprise as the “mission control” for this transition.  
-- **Platform Architecture Layers** – Hypercomputer, Data Cloud, Defense, Platform, Task Force—each explained with security, observability, and orchestration capabilities.  
-- **Developer Experience** – Low‑code Agent Studio, natural‑language agent creation, reusable Skills/Tools, marketplace for third‑party agents, Model Context Protocol (MCP) integration.  
-- **Governance & Security** – Agent Identity with cryptographic IDs, zero‑trust policies, centralized Agent Gateway, Model Armor to prevent data leakage.  
-- **Observability** – OpenTelemetry‑compatible telemetry, trace visualisation, fine‑grained logging for debugging reasoning loops.  
-- **Customer Showcases** – Citi Sky (financial advice), Honeywell digital twins for building management, Liverpool’s AI shopping assistant, NASA’s Artemis II flight‑readiness agents.  
+- **State of AI adoption** – 75 % of Google Cloud customers now run AI workloads; the shift is from experimentation to production.  
+- **Unified AI stack concept** – Chips, models, data, agents, and security must be tightly integrated; Google uses the same “OpenStack” internally for Search, YouTube, Chrome, Android.  
+- **Sundar Pichai’s vision** – Massive CAPEX increase (≈ $175‑$185 B) to keep Google at the frontier; AI now powers 75 % of new code, marketing creatives, and security operations.  
+- **Agentic era examples** – Internal code‑migration agents (6× faster), marketing asset generation (70 % faster, +20 % conversion), SOC triage (90 % faster mitigation).  
+- **Gemini Enterprise launch** – Described as “mission control” for the agentic enterprise; introduces a full‑stack platform (AI Hypercomputer, Agentic Data Cloud, Agentic Defense, Agentic Platform, Agentic Task Force).  
+- **Partnerships & use cases** – Apple (future Siri), Citi Sky (AI‑powered wealth advisor), Honeywell (digital‑twin insights), Liverpool (in‑store AI assistant), NASA (Artemis II flight‑readiness).  
+- **Platform architecture** – Low‑code Studio, registries, marketplace, MCP, zero‑trust identity, Model Armor, observability, and orchestration capabilities for deterministic, compliant workflows.  
+- **Business impact** – A single intelligent flow that links data, people, and goals; enables every employee to become an AI builder while maintaining governance and security.  
 
 ## Key Takeaways  
 
-- The AI market has moved from pilots to production at unprecedented scale; enterprise AI is now a baseline expectation.  
-- Google’s answer is a fully integrated, secure, and observable agentic stack—Gemini Enterprise—that connects chips, models, data, and workflow automation.  
-- New hardware (AI Hypercomputer) and a suite of specialized foundation models are entering preview, targeting complex orchestration, visual, video, and audio workloads.  
-- Security is baked in via zero‑trust verification, Model Armor, and cryptographic agent identities.  
-- Low‑code tools, registries, and a global marketplace make it possible for any employee to build and deploy agents safely.  
-- Major partners (Apple, Citi, Honeywell, NASA, etc.) are already leveraging Gemini Enterprise to create mission‑critical AI assistants.  
-- Google’s massive CapEx increase (up to $185 B) underscores its commitment to staying at the AI frontier and delivering cutting‑edge resources to customers.  
+- AI has moved from pilot projects to enterprise‑scale production for the majority of Google Cloud customers.  
+- Successful AI adoption requires a **unified stack** where hardware, models, data, agents, and security are co‑designed.  
+- **Gemini Enterprise** is Google’s answer—a full‑stack platform that delivers secure, governed, and observable AI agents at scale.  
+- New Gemini models (3.1 Pro, Flash Image, Veo Lite, Lyria 3) and expanded Anthropic support are now in preview, providing specialized capabilities for reasoning, vision, video, and audio.  
+- Low‑code tools, registries, and a marketplace make it possible for non‑engineers to create and manage agents, while zero‑trust identity and Model Armor keep the system secure.  
+- Real‑world deployments (Apple, Citi, Honeywell, Liverpool, NASA) illustrate the breadth of impact—from consumer assistants to mission‑critical space operations.  
+- Google’s multi‑year CAPEX ramp‑up underscores its commitment to keeping AI infrastructure at the cutting edge for customers.  
 
 ## Notable Quotes  
 
-- “We stood on this stage a year ago and promised a new future for AI. Today, that future is running in production at a scale the world has never seen.” – Thomas Kurian  
-- “The experimenting phase is behind us. The real challenge begins: How do you move AI into production across your entire enterprise?” – Thomas Kurian  
-- “We are firmly in the agentic Gemini era… every employee in every organization can become a builder.” – Sundar Pichai  
-- “Intelligence plus automation must deliver value. To make this work, you need context and action.” – Thomas Kurian  
-- “Our Security Operations Center agents automatically triage tens of thousands of unstructured threat reports each month, reducing mitigation time by over 90 %.” – Sundar Pichai  
-- “Think of Gemini Enterprise as mission control for the agentic enterprise.” – Sundar Pichai
+- “**The experimenting phase is behind us. And now, the real challenge begins.**” – Thomas Kurian  
+- “**We are firmly in the agentic Gemini era.**” – Sundar Pichai  
+- “**Intelligence plus automation must deliver value. To make this work, you need context and action.**” – Thomas Kurian  
+- “**Our Security Operations Center agents automatically triage tens of thousands of unstructured threat reports each month… reducing threat mitigation time by over 90 %**.” – Sundar Pichai  
+- “**Think of it as mission control for the agentic enterprise.**” – Thomas Kurian
 
 ---
 
 ## Podcast Script
 
-**JORDAN:** Welcome to SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
+**JORDAN:** Welcome to Episode 8 of SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
 
-**MIKE:** The stage was set at Google Cloud Next ’26, and Thomas Kurian opened with a bold claim: the AI‑first era has left the lab and is now running in production for three‑quarters of Google Cloud customers. That scale shift changes everything for us enterprise architects.
+**MIKE:** Google Cloud Next ’26 just dropped a massive playbook: moving from AI pilots to an enterprise‑wide production paradigm. Sundar Pichai and Thomas Kurian framed it as a capital‑intensive, agent‑centric shift. Let’s unpack what that actually means for us.
 
-**JORDAN:** Exactly. The keynote framed the problem as moving from “can we build an agent?” to “how do we govern thousands of agents?” Their answer is Gemini Enterprise—a unified, agentic stack that ties custom silicon, data pipelines, foundation models, and security into a single control plane.
+**JORDAN:** The keynote opened with a stark statistic—75 % of Google Cloud customers are already running AI workloads at production scale. That’s not a sandbox anymore; it’s the new baseline. The real question is how we govern that scale without drowning in fragmented tooling.
 
-**MIKE:** Let’s unpack the stack layer by layer, starting at the bottom: the AI Hypercomputer. Google announced purpose‑built hardware optimized for what they call the “physics of the agentic era.” Do we have any specs?
+**MIKE:** Their answer is the “unified stack” concept: hardware, models, data, agents, and security all co‑designed. Google calls the internal implementation an OpenStack that powers Search, YouTube, Chrome, and Android. If they can pull that off for consumer products, we can expect the same rigor for enterprise workloads.
 
-**JORDAN:** While the exact TPU generation wasn’t disclosed, the Hypercomputer is positioned as a next‑gen Tensor‑accelerated fabric with ultra‑low latency interconnects, designed to keep model inference, tool execution, and orchestration in the same memory domain. That eliminates the “model‑to‑data” transfer bottleneck that plagues conventional clusters.
+**JORDAN:** At the heart of the announcement is the Gemini Enterprise Agent Platform, now in public preview. It’s positioned as “mission control” for the agentic enterprise—a full‑stack environment that binds data, models, and agents under a single governance plane.
 
-**MIKE:** That hardware foundation fuels the new foundation models. They previewed Gemini 3.1 Pro for reasoning, Gemini 3.1 Flash Image (Nano Banana 2) for high‑fidelity visuals, Veo 3.1 Lite for cost‑effective video, and Lyria 3 Pro for enterprise‑grade audio. Plus Anthropic’s Claude Opus 4.7. How do these fit into enterprise workloads?
+**MIKE:** Let’s break down the stack layers they walked through: the AI Hypercomputer, Agentic Data Cloud, Agentic Defense, Agentic Platform, and Agentic Task Force. Each layer addresses a specific piece of the production puzzle, from raw compute to pre‑built industry agents.
 
-**JORDAN:** Gemini 3.1 Pro is the workhorse for complex workflow orchestration—think multi‑step approval pipelines or dynamic API choreography. Flash Image handles design‑heavy use cases like rapid marketing asset generation, while Veo Lite lets you spin up millions of short video clips for personalized outreach without breaking the budget. Lyria 3 Pro brings high‑quality voice synthesis for IVR or AI‑powered assistants, which is what Citi Sky leverages for multilingual wealth advice.
+**JORDAN:** Starting with the AI Hypercomputer, Google unveiled Gemini 3.1 Pro, a reasoning model tuned for complex workflow orchestration. It’s designed to handle multi‑step API calls and deterministic branching with minimal prompt engineering. Early adopters like Databricks and Replit already have it in preview.
 
-**MIKE:** Speaking of Citi Sky, the partnership showcase is a concrete example of the “Agentic Task Force.” Those are pre‑built, domain‑specific agents, right?
+**MIKE:** Parallel to that, they introduced three domain‑specific models: Gemini 3.1 Flash Image (Nano Banana 2) for high‑fidelity visual generation, Veo 3.1 Lite for cost‑effective video synthesis, and Lyria 3 Pro for enterprise‑grade audio and music. All are preview‑only, but they signal Google’s push to cover the entire media stack under Gemini.
 
-**JORDAN:** Correct. The Task Force includes agents for finance, building management, retail, aerospace, and more. They ship with curated prompts, tool integrations, and compliance templates, letting enterprises drop them into production with minimal customization. The Citi Sky assistant, for instance, taps into internal market data, compliance rules, and GCP’s translation services—all through a single agent definition.
+**JORDAN:** They didn’t stop at Google’s own models. Anthropic’s Claude Opus 4.7 is now officially supported, expanding the model palette for customers who prefer multi‑model ensembles or need a safety‑first vendor.
 
-**MIKE:** Honeywell and Liverpool also got their own task‑force agents—digital twins for building management and an AI shopping assistant that reportedly drives a ten‑fold ROI. The breadth of these deployments underscores the platform’s versatility.
+**MIKE:** The platform’s low‑code surface, Agent Studio, is a natural‑language UI that lets any employee author agents. You write intents in plain English, bind them to business rules, and the system compiles the underlying prompts, tool calls, and policy checks automatically.
 
-**JORDAN:** And at the top of the stack sits the Agentic Platform, which is essentially a low‑code development environment. Agent Studio lets any employee compose agents with natural language, binding LLM reasoning to business rules. Under the hood, it auto‑generates the orchestration graph, registers tools from the Skills & Tools Registry, and publishes the artifact to the Agent Registry.
+**JORDAN:** Governance is handled through the Agent Registry and the Skills/Tools Registry. Registries act as a centralized catalogue, assigning versioned IDs, metadata, and policy tags to every agent and reusable skill. That’s critical for auditability and reuse across large orgs.
 
-**MIKE:** The registry part is key for governance. Every agent gets a cryptographic identity, and the Agent Gateway enforces zero‑trust policies across the entire lifecycle. How does that differ from traditional IAM?
+**MIKE:** And for ecosystem expansion, there’s an Agent Marketplace. Partners like Atlassian, Box, Oracle, ServiceNow, and Workday ship one‑click agents that can be imported directly into Gemini Enterprise. It’s a marketplace model similar to SaaS app stores, but for autonomous agents.
 
-**JORDAN:** Traditional IAM scopes permissions at the service or user level. Here, each agent has a unique public‑key‑derived ID, and policies are attached to that ID, allowing fine‑grained, auditable control over every tool invocation. Combined with Model Armor, you get data‑in‑motion encryption and sandboxing that prevents prompts from leaking proprietary information.
+**JORDAN:** Security gets its own dedicated layer: Agent Identity provides cryptographic IDs and zero‑trust verification for every agent and orchestration step. The Agent Gateway enforces policy centrally, while Model Armor protects model weights and proprietary data from leakage.
 
-**MIKE:** That’s the Agentic Defense layer. Zero‑trust verification, Model Armor, secure sandboxes—basically a defense‑in‑depth approach for the AI supply chain. They also mentioned automated threat triage inside Google’s SOC, cutting mitigation time by 90 %. That seems like an internal proof point for the security model.
+**MIKE:** Observability is baked in with OpenTelemetry‑compliant telemetry. You get fine‑grained traces, tool‑use logs, and reason‑loop diagnostics out of the box, which is indispensable for troubleshooting deterministic agent pipelines.
 
-**JORDAN:** Right, the SOC agents ingest unstructured threat reports, extract indicators, and route them through a deterministic reasoning path. The same pattern can be replicated by any enterprise using the platform’s orchestrated agent‑to‑agent workflows, ensuring consistent, repeatable security actions.
+**JORDAN:** The Model Context Protocol (MCP) integration is another first. Any MCP‑compatible server can be called from an agent, and Google has exposed all GCP services via MCP. That means you can orchestrate BigQuery, Vertex AI, Cloud Storage, or even private on‑prem services without custom adapters.
 
-**MIKE:** Observability is another pillar. They built OTel‑compatible telemetry into every agent execution, exposing traces, spans, and fine‑grained logs. That lets you visualize reasoning loops and detect “hallucination” or infinite recursion in real time.
+**MIKE:** They also highlighted agent‑to‑agent orchestration. Agents can delegate tasks, forming hierarchical workflows. This enables deterministic compliance paths—critical for regulated industries where you need to guarantee a specific execution sequence.
 
-**JORDAN:** The trace visualizer shows each LLM call, tool execution, and conditional branch as a node. You can drill down to the prompt level, see token usage, and even attach custom metrics. This is vital for compliance‑heavy industries where you need a full audit trail of AI decisions.
+**JORDAN:** Real‑world use cases were sprinkled throughout. Internally, Google engineers used a trio of planner, orchestrator, and coder agents to complete a code migration six times faster than a year ago. Marketing assets for Gemini and Chrome were generated at 70 % faster turnaround with a 20 % uplift in conversion.
 
-**MIKE:** Let’s circle back to the unified stack philosophy. Thomas said you can’t piece together fragmented silicon and disconnected models. By co‑designing the Hypercomputer, Data Cloud, and Defense layers, Google ensures that latency, security, and data residency constraints are addressed holistically.
+**MIKE:** Security Operations Center agents now triage tens of thousands of unstructured threat reports each month, slashing mitigation time by over 90 %. Those internal metrics set a high bar for what customers can expect when they adopt the platform.
 
-**JORDAN:** The Agentic Data Cloud is the data engine that injects trusted, business‑contextual data into agents. It integrates with BigQuery, Cloud SQL, and even Google Workspace, applying lineage tagging so that agents can reason over “clean” data sets with built‑in provenance.
+**JORDAN:** On the partnership front, Google announced Apple as a preferred cloud partner to develop next‑generation Apple Intelligence models, essentially a joint Gemini‑based foundation for Siri. That gives us a glimpse of how consumer‑grade agents will trickle down to enterprise tools.
 
-**MIKE:** That provenance feeds directly into governance—agents can be restricted to only query data that matches certain compliance tags, and the platform can enforce that at runtime via the Agent Gateway. It’s a concrete implementation of “intelligence plus automation must deliver value.”
+**MIKE:** Citi Sky, the AI‑powered wealth advisor built with Gemini Enterprise, showcases multilingual, always‑on client interactions. Honeywell leverages digital twins trained on billions of product specs, while Liverpool’s in‑store assistant promises a ten‑fold ROI. Even NASA is using Gemini agents for Artemis II flight readiness, illustrating the platform’s mission‑critical credibility.
 
-**JORDAN:** On the developer experience side, the low‑code Agent Studio also supports Model Context Protocol (MCP). That means any external model or service exposing an MCP endpoint can be invoked as a first‑class tool, expanding the ecosystem beyond GCP.
+**JORDAN:** All of this is underpinned by a staggering CAPEX ramp—Google is moving from $31 B in 2022 to $175‑$185 B in the next four years, with more than half of ML compute earmarked for the cloud business by 2026. That level of investment ensures the hardware, networking, and TPU fabric can keep pace with the agentic demand.
 
-**MIKE:** Which brings us to the marketplace. The Agent Marketplace aggregates third‑party agents from Atlassian, Box, Oracle, ServiceNow, Workday, and others. Enterprises can browse, trial, and provision agents with a single click, accelerating time‑to‑value.
+**MIKE:** From a strategic lens, the “agentic era” framing shifts the focus from isolated AI models to orchestrated workflows that deliver context‑aware action. It forces enterprises to think about data pipelines, policy enforcement, and observability as first‑class citizens, not afterthoughts.
 
-**MIKE:** The keynote also highlighted internal use cases—75 % of Google’s own code now generated by AI, autonomous code‑migration agents that are six times faster, marketing asset generation cutting turnaround by 70 % and boosting conversion 20 %, and SOC agents cutting mitigation time by 90 %. Those are not just bragging rights; they’re proof that the stack works at massive scale.
+**JORDAN:** The key differentiator for Gemini Enterprise is that it abstracts the complexity of building, securing, and monitoring agents while still exposing the low‑level knobs for power users. You can stay in a no‑code environment or dive into custom tool definitions if you need to.
 
-**JORDAN:** Absolutely. It demonstrates that the same abstractions they’re offering to customers have already been battle‑tested at Google’s scale. The “agentic era” isn’t speculative; it’s operational.
+**MIKE:** For senior practitioners, the biggest takeaways are: adopt a unified stack to avoid siloed AI, leverage the low‑code Agent Studio to democratize agent creation, and bake zero‑trust identity and Model Armor into every step to meet compliance.
 
-**MIKE:** Let’s not forget the massive CapEx ramp—up to $185 B this year, with half of the ML compute earmarked for the cloud. That budget underwrites the Hypercomputer rollout, the data‑centrism of the Agentic Data Cloud, and the security investments in Model Armor. For us, it means the platform will keep evolving rapidly.
+**JORDAN:** Also, start inventorying your reusable business logic as “skills” and publish them to the Skills Registry. That will pay dividends when you scale agent‑to‑agent orchestration across departments.
 
-**JORDAN:** And the partnership ecosystem reinforces that. Apple is using Gemini Enterprise as the preferred cloud for next‑gen Siri‑style foundation models. NASA is running agents for Artemis II flight‑readiness, showing the stack can meet aerospace reliability standards. Those use cases push the envelope on latency, compliance, and fault tolerance.
+**MIKE:** And don’t overlook the observability stack. OTel‑compatible traces let you root‑cause performance regressions in real time—a capability that’s non‑negotiable when agents are making autonomous decisions that affect revenue or safety.
 
-**MIKE:** So, to synthesize: Gemini Enterprise is a mission‑control‑style platform that unifies hardware, models, data, agents, and security. It provides low‑code creation, a governance layer with cryptographic identities, zero‑trust defense, and observability baked in. That’s the new baseline for enterprise AI.
+**JORDAN:** In summary, Google’s Gemini Enterprise Agent Platform moves AI from experimental pilots to production‑grade, governed, and observable agentic workflows. The preview includes a family of specialized Gemini models, a low‑code studio, robust security primitives, and an ecosystem marketplace.
 
-**JORDAN:** The takeaway for practitioners is clear: if you’re still stitching together separate LLM APIs, storage buckets, and custom auth layers, you’re building the pre‑agentic era. Adopting Gemini Enterprise—or a comparable end‑to‑end stack—will be essential to scale agents safely and responsibly.
+**MIKE:** If we can harness that stack, we’ll transform every knowledge worker into a potential AI builder, while keeping the enterprise canopy of governance intact. That’s the promise of the agentic era—scalable intelligence with purposeful action.
 
-**MIKE:** And from a strategic viewpoint, the platform’s marketplace and task‑force agents give you immediate ROI while you build bespoke agents for core business logic. The combination of pre‑built and custom agents accelerates adoption across the organization.
-
-**JORDAN:** Finally, keep an eye on the preview releases—Gemini 3.1 Pro, Flash Image, Veo Lite, Lyria 3 Pro, and Claude Opus 4.7. Early experimentation will let you benchmark performance and cost before the full GA roll‑out.
-
-**MIKE:** That wraps up our deep dive into Google’s Gemini Enterprise Agent Platform. We’ve dissected the hardware, models, data engine, security, developer tools, and real‑world deployments. For anyone looking to modernize their AI infra, this is the playbook to watch.
-
-**JORDAN:** That's a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
+**JORDAN:** That’s a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
 
