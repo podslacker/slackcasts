@@ -60,7 +60,7 @@
     "title": "Agentic commerce: Transform the shopping experience with Google agents and open standards",
     "video_url": "https://www.youtube.com/watch?v=GNlWClpVtcQ",
     "published_at": "2026-05-22T16:14:26.8993835+00:00",
-    "last_republished_at": "2026-05-26T04:48:56.5710593+00:00",
+    "last_republished_at": "2026-05-26T17:31:57.2179643+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -70,9 +70,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.mp3",
-    "audio_file_size_bytes": 4947432,
-    "audio_duration_seconds": 539,
-    "episode_summary": "The session introduces Agentic Commerce, showing how Google Cloud\u2019s AI tools\u2014particularly Gemini\u202FEnterprise and the new Shopping Agent\u2014enable retailers and payment providers to let large\u2011language\u2011model agents guide shoppers from discovery straight to checkout. By adopting open, vendor\u2011agnostic\u2026",
+    "audio_file_size_bytes": 5812296,
+    "audio_duration_seconds": 632,
+    "episode_summary": "The session introduces Agentic Commerce, a new way for retailers and payment providers to sell through AI agents using Google Cloud\u2019s open\u2011source protocols. Jesse (AI incubation lead) explains the market opportunity, showcases Google\u2019s shopping\u2011agent toolkit, and walks through the Universal Commerce\u2026",
     "episode_number": 3
   },
   "Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html": {
