@@ -75,7 +75,7 @@
     "title": "Build production-ready agents on Google Cloud: A guide for architects and CTOs",
     "video_url": "https://www.youtube.com/watch?v=Mq4ZY3eE5dI",
     "published_at": "2026-05-22T18:57:52.4485983+00:00",
-    "last_republished_at": "2026-05-24T16:38:18.3222462+00:00",
+    "last_republished_at": "2026-05-26T04:57:56.9122642+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -85,9 +85,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_podcast.mp3",
-    "audio_file_size_bytes": 5833848,
-    "audio_duration_seconds": 645,
-    "episode_summary": "The session walks through how to take AI agents from prototype to production on Google Cloud.\u202FSita (Developer Relations Engineer) and her co\u2011speakers introduce five core principles\u2014building, scaling, governing, optimizing, and observing agents\u2014while showcasing the Google\u2011provided tooling (Agent\u2026"
+    "audio_file_size_bytes": 6547152,
+    "audio_duration_seconds": 719,
+    "episode_summary": "The session walks through how to design, build, and operate production\u2011ready AI agents on Google Cloud.\u202FSita (Developer Relations), Kanchana Patola (Google Cloud), and Siddharth Jain (Ford Credit) share the four\u2011stage lifecycle\u2014build, scale, govern, and optimize\u2014along with concrete tools\u2026"
   },
   "Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_page.html": {
     "title": "From pilot to production: Scaling Gemini with proven practices",
