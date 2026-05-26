@@ -5,7 +5,7 @@
     <link>https://podslacker.com/slackcasts/</link>
     <description>AI does the watching. You do the listening. One URL. One podcast. Zero effort. Your YouTube backlog, podcasted. Slack off smarter — let AI listen for you.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 26 May 2026 06:30:32 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 12:32:44 +0000</lastBuildDate>
     <atom:link href="https://podslacker.com/slackcasts/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>PodSlacker</itunes:author>
     <itunes:type>episodic</itunes:type>
@@ -47,14 +47,14 @@
     <item>
       <title>Google I/O '26 Keynote</title>
       <link>https://podslacker.com/slackcasts/Google%20IO%202026/google_io_26_keynote_wYSncx9zLIU_page.html</link>
-      <description><![CDATA[The 2026 Google I/O keynote, led by Sundar Pichai and featuring DeepMind’s Demis Hassabis, showcased Google’s AI‑first strategy and the massive scale of its generative AI services.  Highlights included explosive growth in token processing, rapid adoption of the Gemini family of models across Search…]]></description>
+      <description><![CDATA[The Google I/O 2026 keynote, led by Sundar Pichai and featuring DeepMind’s Demis Hassabis, showcased how Google’s AI‑first strategy is maturing across its ecosystem.  The talk highlighted explosive growth in AI usage, new generative‑AI‑powered experiences in Search, Maps, YouTube and Docs, and major…]]></description>
       <guid isPermaLink="false">wYSncx9zLIU</guid>
       <pubDate>Sat, 23 May 2026 17:51:18 +0000</pubDate>
-      <enclosure url="https://podslacker.com/slackcasts/Google%20IO%202026/google_io_26_keynote_wYSncx9zLIU_podcast.mp3" length="6383088" type="audio/mpeg" />
+      <enclosure url="https://podslacker.com/slackcasts/Google%20IO%202026/google_io_26_keynote_wYSncx9zLIU_podcast.mp3" length="4790352" type="audio/mpeg" />
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:author>PodSlacker</itunes:author>
-      <itunes:duration>702</itunes:duration>
+      <itunes:duration>525</itunes:duration>
       <podcast:transcript url="https://podslacker.com/slackcasts/Google%20IO%202026/google_io_26_keynote_wYSncx9zLIU_script.txt" type="text/plain" />
     </item>
     <item>
