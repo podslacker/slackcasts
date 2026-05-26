@@ -327,17 +327,18 @@
     "title": "7 Cool Metronome Games [ AN\u0027s Bass Lessons #5 ]",
     "video_url": "https://www.youtube.com/watch?v=u6hg8GcLc-4",
     "published_at": "2026-05-25T15:39:24.2754521+00:00",
+    "last_republished_at": "2026-05-26T06:30:22.4654167+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
-    "num_frames": 9,
+    "num_frames": 12,
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/7_cool_metronome_games_ans_bass_lessons_5_u6hg8GcLc-4_podcast.mp3",
-    "audio_file_size_bytes": 3465168,
-    "audio_duration_seconds": 383,
-    "episode_summary": "In this lesson Adam\u202FNeil shows how to use a metronome as a creative practice tool rather than just a simple click. By shifting where the clicks fall (on \u201Cands,\u201D on beats\u202F2\u202F\u0026\u202F4, on the down\u2011beat only, etc.) he demonstrates several \u201Cmetronome games\u201D that force you to internalize the pulse and expose\u2026"
+    "audio_file_size_bytes": 3329520,
+    "audio_duration_seconds": 365,
+    "episode_summary": "In this lesson Adam\u202FNeil shows how to turn a simple metronome into a powerful rhythmic training tool. By altering where the click lands\u2014on subdivisions, on back\u2011beats, or even just once per measure\u2014players can develop a stronger internal sense of timing. He demonstrates each concept using the bass\u2026"
   }
 }
