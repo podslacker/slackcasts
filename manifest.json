@@ -309,18 +309,19 @@
     "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
     "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     "published_at": "2026-05-25T15:23:48.8258524+00:00",
+    "last_republished_at": "2026-05-26T06:24:51.0381691+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
-    "num_frames": 9,
+    "num_frames": 12,
     "llm_model": "openrouter/auto:free",
     "tts_engine": "kokoro",
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_podcast.mp3",
-    "audio_file_size_bytes": 2780856,
-    "audio_duration_seconds": 304,
-    "episode_summary": "The video is the official, 4K\u2011remastered music video for Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FYou\u202FUp.\u201D It features the full lyrical performance of the iconic pop\u2011dance track, accompanied by Astley\u2019s charismatic vocals and classic 80s visuals. The purpose of the upload is to present the song\u2026"
+    "audio_file_size_bytes": 2397192,
+    "audio_duration_seconds": 263,
+    "episode_summary": "The video is the official 4K remaster of Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FUp.\u201D It features the complete lyrical performance of the pop\u2011dance track, set to the original music video. The song\u2019s central message is a promise of unwavering loyalty and devotion, delivered with a catchy chorus\u2026"
   },
   "Hill Country Guitar Lessons/7_cool_metronome_games_ans_bass_lessons_5_u6hg8GcLc-4_page.html": {
     "title": "7 Cool Metronome Games [ AN\u0027s Bass Lessons #5 ]",
