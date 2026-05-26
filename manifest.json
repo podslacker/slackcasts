@@ -212,7 +212,7 @@
     "title": "What\u0027s new in Google Cloud\u0027s agent platform",
     "video_url": "https://www.youtube.com/watch?v=FxnjRYo3fpU",
     "published_at": "2026-05-22T22:47:20.1030986+00:00",
-    "last_republished_at": "2026-05-26T05:47:46.0142062+00:00",
+    "last_republished_at": "2026-05-26T18:36:12.8618083+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -222,9 +222,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.mp3",
-    "audio_file_size_bytes": 3928272,
-    "audio_duration_seconds": 431,
-    "episode_summary": "The session gives an update on Google Cloud\u2019s Agent Platform, showing how it has evolved from the initial ADK and Agent Engine demos to a full\u2011stack, production\u2011ready solution. Aman Khan (Product Manager) and Lavi (DevRel) walk through new capabilities\u2014governance, deployment, orchestration, memory\u2026",
+    "audio_file_size_bytes": 6136416,
+    "audio_duration_seconds": 681,
+    "episode_summary": "The session walks through the latest evolution of Google Cloud\u2019s Agent Platform, explaining how it moves from prototype\u2011level chatbots to production\u2011grade, autonomous agents that can run at scale across an enterprise. Aman Khan (product manager) and Lavi (DevRel) outline new capabilities, showcase\u2026",
     "episode_number": 11
   },
   "Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html": {
