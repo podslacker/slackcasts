@@ -193,7 +193,7 @@
     "title": "The agentic shift in software development life cycle",
     "video_url": "https://www.youtube.com/watch?v=161TA9Z0vxk",
     "published_at": "2026-05-22T22:21:31.9227941+00:00",
-    "last_republished_at": "2026-05-26T05:41:47.9371751+00:00",
+    "last_republished_at": "2026-05-26T18:26:40.6354316+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -203,9 +203,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_podcast.mp3",
-    "audio_file_size_bytes": 4644432,
-    "audio_duration_seconds": 507,
-    "episode_summary": "The session explores the \u201Cagentic shift\u201D in the software development life\u2011cycle, focusing on how AI\u2011driven agents are being adopted, the challenges of running many agents in parallel, and practical ways to move AI\u2011generated code into production. The speakers present recent adoption data, discuss\u2026",
+    "audio_file_size_bytes": 4545504,
+    "audio_duration_seconds": 496,
+    "episode_summary": "The session explores the agentic shift in the software development life\u2011cycle, focusing on how AI agents are increasingly used to write, review, and manage code. The speakers discuss adoption trends, the challenges of coordinating multiple agents, and a new open\u2011source framework\u2014Cyan\u2014that acts as a\u2026",
     "episode_number": 10
   },
   "Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html": {
