@@ -15,7 +15,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google IO 2026/google_io_26_keynote_wYSncx9zLIU_podcast.mp3",
     "audio_file_size_bytes": 4790352,
     "audio_duration_seconds": 525,
-    "episode_summary": "The Google I/O\u202F2026 keynote, led by Sundar Pichai and featuring DeepMind\u2019s Demis\u202FHassabis, showcased how Google\u2019s AI\u2011first strategy is maturing across its ecosystem.  The talk highlighted explosive growth in AI usage, new generative\u2011AI\u2011powered experiences in Search, Maps, YouTube and Docs, and major\u2026"
+    "episode_summary": "The Google I/O\u202F2026 keynote, led by Sundar Pichai and featuring DeepMind\u2019s Demis\u202FHassabis, showcased how Google\u2019s AI\u2011first strategy is maturing across its ecosystem.  The talk highlighted explosive growth in AI usage, new generative\u2011AI\u2011powered experiences in Search, Maps, YouTube and Docs, and major\u2026",
+    "episode_number": 17
   },
   "3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html": {
     "title": "3min Vlog - 5 things you can do to improve yourself",
@@ -33,13 +34,14 @@
     "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_podcast.mp3",
     "audio_file_size_bytes": 2755872,
     "audio_duration_seconds": 306,
-    "episode_summary": "The video presents five simple, actionable habits that can help you lift yourself out of a low\u2011energy or \u201Ccrappy\u201D place. By focusing on incremental 1\u202F% improvements\u2014better sleep, hydration, exercise, personal time, and meaningful conversation\u2014you can build lasting momentum toward a healthier, more\u2026"
+    "episode_summary": "The video presents five simple, actionable habits that can help you lift yourself out of a low\u2011energy or \u201Ccrappy\u201D place. By focusing on incremental 1\u202F% improvements\u2014better sleep, hydration, exercise, personal time, and meaningful conversation\u2014you can build lasting momentum toward a healthier, more\u2026",
+    "episode_number": 2
   },
   "3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html": {
     "title": "How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively",
     "video_url": "https://www.youtube.com/watch?v=3TKSVb7VOcQ",
     "published_at": "2026-05-22T14:00:38.5495743+00:00",
-    "last_republished_at": "2026-05-26T04:41:40.9094541+00:00",
+    "last_republished_at": "2026-05-26T14:42:57.7521252+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -49,9 +51,10 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_podcast.mp3",
-    "audio_file_size_bytes": 2394528,
-    "audio_duration_seconds": 263,
-    "episode_summary": "The video shares practical strategies for insurance agencies to reduce client churn and improve renewal outcomes. It emphasizes proactive communication, handling cancellations thoughtfully, and training reps to become \u201Cretention rock stars.\u201D By treating renewals as relationship checkpoints, agencies\u2026"
+    "audio_file_size_bytes": 2780616,
+    "audio_duration_seconds": 308,
+    "episode_summary": "The video offers practical strategies for insurance agencies to reduce client churn and turn renewals into growth opportunities. It emphasizes proactive communication, handling cancellations thoughtfully, and training reps to become \u201Cretention rock stars.\u201D The presenter also highlights resources\u2026",
+    "episode_number": 1
   },
   "Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html": {
     "title": "Agentic commerce: Transform the shopping experience with Google agents and open standards",
@@ -69,7 +72,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_podcast.mp3",
     "audio_file_size_bytes": 4947432,
     "audio_duration_seconds": 539,
-    "episode_summary": "The session introduces Agentic Commerce, showing how Google Cloud\u2019s AI tools\u2014particularly Gemini\u202FEnterprise and the new Shopping Agent\u2014enable retailers and payment providers to let large\u2011language\u2011model agents guide shoppers from discovery straight to checkout. By adopting open, vendor\u2011agnostic\u2026"
+    "episode_summary": "The session introduces Agentic Commerce, showing how Google Cloud\u2019s AI tools\u2014particularly Gemini\u202FEnterprise and the new Shopping Agent\u2014enable retailers and payment providers to let large\u2011language\u2011model agents guide shoppers from discovery straight to checkout. By adopting open, vendor\u2011agnostic\u2026",
+    "episode_number": 3
   },
   "Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html": {
     "title": "Build production-ready agents on Google Cloud: A guide for architects and CTOs",
@@ -87,7 +91,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_podcast.mp3",
     "audio_file_size_bytes": 6547152,
     "audio_duration_seconds": 719,
-    "episode_summary": "The session walks through how to design, build, and operate production\u2011ready AI agents on Google Cloud.\u202FSita (Developer Relations), Kanchana Patola (Google Cloud), and Siddharth Jain (Ford Credit) share the four\u2011stage lifecycle\u2014build, scale, govern, and optimize\u2014along with concrete tools\u2026"
+    "episode_summary": "The session walks through how to design, build, and operate production\u2011ready AI agents on Google Cloud.\u202FSita (Developer Relations), Kanchana Patola (Google Cloud), and Siddharth Jain (Ford Credit) share the four\u2011stage lifecycle\u2014build, scale, govern, and optimize\u2014along with concrete tools\u2026",
+    "episode_number": 4
   },
   "Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_page.html": {
     "title": "From pilot to production: Scaling Gemini with proven practices",
@@ -105,7 +110,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/from_pilot_to_production_scaling_gemini_with_prove_dBRPi41nrJw_podcast.mp3",
     "audio_file_size_bytes": 5345784,
     "audio_duration_seconds": 584,
-    "episode_summary": "The panel, moderated by Google Applied AI leader Donna, brings together experts from DeepMind, JetBrains, and Roblox to discuss how they have moved Gemini from experimental pilots to production\u2011grade services. Each speaker shares concrete use\u2011cases\u2014content safety at Roblox, AI\u2011assisted development\u2026"
+    "episode_summary": "The panel, moderated by Google Applied AI leader Donna, brings together experts from DeepMind, JetBrains, and Roblox to discuss how they have moved Gemini from experimental pilots to production\u2011grade services. Each speaker shares concrete use\u2011cases\u2014content safety at Roblox, AI\u2011assisted development\u2026",
+    "episode_number": 5
   },
   "Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_page.html": {
     "title": "From prototype to production: 45 minutes to a reliable Gemini Enterprise Agent Platform agent",
@@ -123,7 +129,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/from_prototype_to_production_45_minutes_to_a_relia_fkCTifAqVGg_podcast.mp3",
     "audio_file_size_bytes": 5135064,
     "audio_duration_seconds": 560,
-    "episode_summary": "The session walks through how Booking.com transformed a handful of GenAI prototypes into production\u2011ready, agentic solutions using Google Gemini, Vertex\u202FAI, and the Gemini Enterprise Agent Platform. Alibek (Engineering Manager) and Maria (Software Engineer) describe Booking.com\u2019s scale, AI journey\u2026"
+    "episode_summary": "The session walks through how Booking.com transformed a handful of GenAI prototypes into production\u2011ready, agentic solutions using Google Gemini, Vertex\u202FAI, and the Gemini Enterprise Agent Platform. Alibek (Engineering Manager) and Maria (Software Engineer) describe Booking.com\u2019s scale, AI journey\u2026",
+    "episode_number": 6
   },
   "Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_page.html": {
     "title": "Gemini Enterprise app: Building the connected enterprise",
@@ -141,7 +148,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/gemini_enterprise_app_building_the_connected_enter_tBw7IVlnwdY_podcast.mp3",
     "audio_file_size_bytes": 3559872,
     "audio_duration_seconds": 390,
-    "episode_summary": "The video introduces Gemini Enterprise, a unified AI platform designed to eliminate tool\u2011fatigue and fragmentation in modern workplaces. Demetri, Sammy, and Florian walk through the three core pillars of the product\u2014creation, agent execution, and deep contextual integration\u2014showing how the app acts\u2026"
+    "episode_summary": "The video introduces Gemini Enterprise, a unified AI platform designed to eliminate tool\u2011fatigue and fragmentation in modern workplaces. Demetri, Sammy, and Florian walk through the three core pillars of the product\u2014creation, agent execution, and deep contextual integration\u2014showing how the app acts\u2026",
+    "episode_number": 7
   },
   "Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_page.html": {
     "title": "Google Cloud Next \u002726 Opening Keynote",
@@ -159,7 +167,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/google_cloud_next_26_opening_keynote_11PBno-cJ1g_podcast.mp3",
     "audio_file_size_bytes": 6412704,
     "audio_duration_seconds": 703,
-    "episode_summary": "Google Cloud Next \u201926 opened with Thomas\u202FKurian and Sundar\u202FPichai announcing that the AI\u2011first era has moved from pilot projects to enterprise\u2011wide production.  Over 75\u202F% of Google Cloud customers now use its AI tools, and Google is rolling out a unified \u201Cagentic\u201D stack\u2014Gemini\u202FEnterprise\u2014that ties\u2026"
+    "episode_summary": "Google Cloud Next \u201926 opened with Thomas\u202FKurian and Sundar\u202FPichai announcing that the AI\u2011first era has moved from pilot projects to enterprise\u2011wide production.  Over 75\u202F% of Google Cloud customers now use its AI tools, and Google is rolling out a unified \u201Cagentic\u201D stack\u2014Gemini\u202FEnterprise\u2014that ties\u2026",
+    "episode_number": 8
   },
   "Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_page.html": {
     "title": "The agentic ROI framework for lean teams",
@@ -177,7 +186,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/the_agentic_roi_framework_for_lean_teams_GcQs3qf-AAE_podcast.mp3",
     "audio_file_size_bytes": 4582008,
     "audio_duration_seconds": 504,
-    "episode_summary": "The session introduces the Agentic ROI framework, a practical approach for lean teams that want to ship differentiated AI\u2011powered products quickly and prove concrete business value.  Google Cloud experts Patik and Andre explain how to move from AI hype to hard\u2011ROI calculations, and One United Bank\u2026"
+    "episode_summary": "The session introduces the Agentic ROI framework, a practical approach for lean teams that want to ship differentiated AI\u2011powered products quickly and prove concrete business value.  Google Cloud experts Patik and Andre explain how to move from AI hype to hard\u2011ROI calculations, and One United Bank\u2026",
+    "episode_number": 9
   },
   "Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_page.html": {
     "title": "The agentic shift in software development life cycle",
@@ -195,7 +205,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/the_agentic_shift_in_software_development_life_cyc_161TA9Z0vxk_podcast.mp3",
     "audio_file_size_bytes": 4644432,
     "audio_duration_seconds": 507,
-    "episode_summary": "The session explores the \u201Cagentic shift\u201D in the software development life\u2011cycle, focusing on how AI\u2011driven agents are being adopted, the challenges of running many agents in parallel, and practical ways to move AI\u2011generated code into production. The speakers present recent adoption data, discuss\u2026"
+    "episode_summary": "The session explores the \u201Cagentic shift\u201D in the software development life\u2011cycle, focusing on how AI\u2011driven agents are being adopted, the challenges of running many agents in parallel, and practical ways to move AI\u2011generated code into production. The speakers present recent adoption data, discuss\u2026",
+    "episode_number": 10
   },
   "Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_page.html": {
     "title": "What\u0027s new in Google Cloud\u0027s agent platform",
@@ -213,7 +224,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_in_google_clouds_agent_platform_FxnjRYo3fpU_podcast.mp3",
     "audio_file_size_bytes": 3928272,
     "audio_duration_seconds": 431,
-    "episode_summary": "The session gives an update on Google Cloud\u2019s Agent Platform, showing how it has evolved from the initial ADK and Agent Engine demos to a full\u2011stack, production\u2011ready solution. Aman Khan (Product Manager) and Lavi (DevRel) walk through new capabilities\u2014governance, deployment, orchestration, memory\u2026"
+    "episode_summary": "The session gives an update on Google Cloud\u2019s Agent Platform, showing how it has evolved from the initial ADK and Agent Engine demos to a full\u2011stack, production\u2011ready solution. Aman Khan (Product Manager) and Lavi (DevRel) walk through new capabilities\u2014governance, deployment, orchestration, memory\u2026",
+    "episode_number": 11
   },
   "Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_page.html": {
     "title": "What\u0027s new with Gemini Enterprise app",
@@ -231,7 +243,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google Cloud Next 2026/whats_new_with_gemini_enterprise_app_Tc3IiGNmXHc_podcast.mp3",
     "audio_file_size_bytes": 5331696,
     "audio_duration_seconds": 578,
-    "episode_summary": "The session provides an update on Gemini Enterprise, focusing on the newly launched Gemini Enterprise Agent platform and enhancements to the Gemini Enterprise application. Jamie Deggeer, product leader on Google Cloud AI, walks through how the platform enables employees to create and use AI\u2026"
+    "episode_summary": "The session provides an update on Gemini Enterprise, focusing on the newly launched Gemini Enterprise Agent platform and enhancements to the Gemini Enterprise application. Jamie Deggeer, product leader on Google Cloud AI, walks through how the platform enables employees to create and use AI\u2026",
+    "episode_number": 12
   },
   "Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_page.html": {
     "title": "Developer Keynote (Google I/O \u002726)",
@@ -249,7 +262,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_podcast.mp3",
     "audio_file_size_bytes": 2033832,
     "audio_duration_seconds": 230,
-    "episode_summary": "Google\u2019s I/O\u202F\u201826 developer keynote showcased the company\u2019s shift toward\u202Fagentic AI.  New Gemini models, the open\u2011source Gemma\u202F4, and the Google Antigravity platform were presented as the backbone for building, deploying, and managing AI agents that can complete complex, end\u2011to\u2011end tasks.  Live demos\u2026"
+    "episode_summary": "Google\u2019s I/O\u202F\u201826 developer keynote showcased the company\u2019s shift toward\u202Fagentic AI.  New Gemini models, the open\u2011source Gemma\u202F4, and the Google Antigravity platform were presented as the backbone for building, deploying, and managing AI agents that can complete complex, end\u2011to\u2011end tasks.  Live demos\u2026",
+    "episode_number": 13
   },
   "Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html": {
     "title": "Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs",
@@ -267,7 +281,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_podcast.mp3",
     "audio_file_size_bytes": 2950824,
     "audio_duration_seconds": 330,
-    "episode_summary": "The lesson breaks down the hill\u2011country blues instrumental \u201CGoing Down South\u201D (popularized by R.L.\u202FBurnside and the Black Keys). The instructor explains the song\u2019s riff\u2011based structure, demonstrates two right\u2011hand techniques for playing the groove, and guides you through the full eight\u2011bar pattern\u2026"
+    "episode_summary": "The lesson breaks down the hill\u2011country blues instrumental \u201CGoing Down South\u201D (popularized by R.L.\u202FBurnside and the Black Keys). The instructor explains the song\u2019s riff\u2011based structure, demonstrates two right\u2011hand techniques for playing the groove, and guides you through the full eight\u2011bar pattern\u2026",
+    "episode_number": 14
   },
   "Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html": {
     "title": "The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher",
@@ -285,7 +300,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_podcast.mp3",
     "audio_file_size_bytes": 3065424,
     "audio_duration_seconds": 339,
-    "episode_summary": "The video introduces Hill Country blues, a rhythmic, percussive off\u2011shoot of Mississippi blues that\u2019s geared toward dancing and partying. It explains the two main sub\u2011styles\u2014Delta Drone and Hypnotic Boogie\u2014and demonstrates the right\u2011hand techniques that give the music its signature groove. The\u2026"
+    "episode_summary": "The video introduces Hill Country blues, a rhythmic, percussive off\u2011shoot of Mississippi blues that\u2019s geared toward dancing and partying. It explains the two main sub\u2011styles\u2014Delta Drone and Hypnotic Boogie\u2014and demonstrates the right\u2011hand techniques that give the music its signature groove. The\u2026",
+    "episode_number": 15
   },
   "Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_page.html": {
     "title": "Junior Kimbrough Guitar Lesson - Meet Me In The City Tutorial With Tabs",
@@ -303,7 +319,8 @@
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/junior_kimbrough_guitar_lesson_meet_me_in_the_city_q7MwP9qbsOo_podcast.mp3",
     "audio_file_size_bytes": 3188304,
     "audio_duration_seconds": 354,
-    "episode_summary": "The video is a step\u2011by\u2011step guitar tutorial for Junior Kimbrough\u2019s blues classic \u201CMeet Me In The City.\u201D"
+    "episode_summary": "The video is a step\u2011by\u2011step guitar tutorial for Junior Kimbrough\u2019s blues classic \u201CMeet Me In The City.\u201D",
+    "episode_number": 16
   },
   "3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_page.html": {
     "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
@@ -321,7 +338,8 @@
     "audio_url": "https://podslacker.com/slackcasts/3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_podcast.mp3",
     "audio_file_size_bytes": 2397192,
     "audio_duration_seconds": 263,
-    "episode_summary": "The video is the official 4K remaster of Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FUp.\u201D It features the complete lyrical performance of the pop\u2011dance track, set to the original music video. The song\u2019s central message is a promise of unwavering loyalty and devotion, delivered with a catchy chorus\u2026"
+    "episode_summary": "The video is the official 4K remaster of Rick Astley\u2019s 1987 hit \u201CNever Gonna Give You\u202FUp.\u201D It features the complete lyrical performance of the pop\u2011dance track, set to the original music video. The song\u2019s central message is a promise of unwavering loyalty and devotion, delivered with a catchy chorus\u2026",
+    "episode_number": 18
   },
   "Hill Country Guitar Lessons/7_cool_metronome_games_ans_bass_lessons_5_u6hg8GcLc-4_page.html": {
     "title": "7 Cool Metronome Games [ AN\u0027s Bass Lessons #5 ]",
@@ -339,6 +357,7 @@
     "audio_url": "https://podslacker.com/slackcasts/Hill Country Guitar Lessons/7_cool_metronome_games_ans_bass_lessons_5_u6hg8GcLc-4_podcast.mp3",
     "audio_file_size_bytes": 3329520,
     "audio_duration_seconds": 365,
-    "episode_summary": "In this lesson Adam\u202FNeil shows how to turn a simple metronome into a powerful rhythmic training tool. By altering where the click lands\u2014on subdivisions, on back\u2011beats, or even just once per measure\u2014players can develop a stronger internal sense of timing. He demonstrates each concept using the bass\u2026"
+    "episode_summary": "In this lesson Adam\u202FNeil shows how to turn a simple metronome into a powerful rhythmic training tool. By altering where the click lands\u2014on subdivisions, on back\u2011beats, or even just once per measure\u2014players can develop a stronger internal sense of timing. He demonstrates each concept using the bass\u2026",
+    "episode_number": 19
   }
 }
