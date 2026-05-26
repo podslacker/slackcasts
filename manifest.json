@@ -250,7 +250,7 @@
     "title": "Developer Keynote (Google I/O \u002726)",
     "video_url": "https://www.youtube.com/watch?v=aqmpZocmR8o",
     "published_at": "2026-05-23T03:51:33.6008591+00:00",
-    "last_republished_at": "2026-05-23T19:03:17.7482551+00:00",
+    "last_republished_at": "2026-05-26T18:51:44.431009+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -260,9 +260,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Google IO 2026/developer_keynote_google_io_26_aqmpZocmR8o_podcast.mp3",
-    "audio_file_size_bytes": 2033832,
-    "audio_duration_seconds": 230,
-    "episode_summary": "Google\u2019s I/O\u202F\u201826 developer keynote showcased the company\u2019s shift toward\u202Fagentic AI.  New Gemini models, the open\u2011source Gemma\u202F4, and the Google Antigravity platform were presented as the backbone for building, deploying, and managing AI agents that can complete complex, end\u2011to\u2011end tasks.  Live demos\u2026",
+    "audio_file_size_bytes": 5114160,
+    "audio_duration_seconds": 559,
+    "episode_summary": "In this keynote, Google announced a suite of new tools that push AI from simple assistance toward fully\u2011featured, autonomous agents. Building on recent model releases\u2014Gemini\u202F3.5, Gemini\u202FSpark and the open\u2011source Gemma\u202F4\u2014Google introduced Google Antigravity, an agent\u2011centric development platform, and\u2026",
     "episode_number": 13
   },
   "Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html": {
