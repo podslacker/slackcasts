@@ -146,6 +146,112 @@ details[open] .transcript-summary::before { content: "▼ "; }
   .page-header { padding: 20px 16px; }
   .content { padding: 20px 16px; }
 }
+
+/* ── Chat feature ────────────────────────────────────────────────────────── */
+.chat-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: #0d1117;
+  border: none; cursor: pointer; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(88,166,255,.4);
+  transition: transform .2s, background .2s;
+}
+.chat-fab:hover { background: #79bbff; transform: scale(1.08); }
+body.has-player .chat-fab { bottom: calc(var(--ph) + 16px); }
+.chat-panel {
+  position: fixed; bottom: 88px; right: 24px;
+  width: 360px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100vh - 120px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  z-index: 1500; display: none; flex-direction: column; overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+body.has-player .chat-panel { bottom: calc(var(--ph) + 80px); }
+.chat-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.chat-header-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+.chat-header-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1.2rem; line-height: 1;
+  padding: 2px 6px; border-radius: 4px; transition: color .15s;
+}
+.chat-header-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.chat-msg { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; align-items: flex-end; }
+.chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+.chat-bubble {
+  padding: 10px 14px; border-radius: 14px;
+  font-size: .875rem; line-height: 1.55; word-break: break-word;
+}
+.chat-msg.user .chat-bubble {
+  background: rgba(88,166,255,.18); color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.assistant .chat-bubble {
+  background: var(--code-bg); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble p { margin: 0 0 .5em; }
+.chat-bubble p:last-child { margin-bottom: 0; }
+.chat-bubble strong { font-weight: 600; }
+.chat-bubble em { font-style: italic; }
+.chat-bubble code {
+  font-family: "SF Mono", Consolas, monospace; font-size: .8em;
+  background: rgba(0,0,0,.3); padding: .1em .35em;
+  border-radius: 3px; color: #79c0ff;
+}
+.chat-ts-btn {
+  background: none; border: 1px solid rgba(88,166,255,.4); color: var(--accent);
+  border-radius: 10px; padding: 1px 8px; font-size: .8em;
+  cursor: pointer; transition: background .15s;
+}
+.chat-ts-btn:hover { background: rgba(88,166,255,.15); }
+.chat-thinking {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px; background: var(--code-bg);
+  border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content;
+}
+.chat-thinking span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+  animation: chat-bounce .9s ease-in-out infinite;
+}
+.chat-thinking span:nth-child(2) { animation-delay: .15s; }
+.chat-thinking span:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+.chat-footer {
+  padding: 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: .875rem;
+  padding: 8px 12px; outline: none; resize: none;
+  min-height: 38px; max-height: 120px; line-height: 1.4;
+  font-family: inherit; transition: border-color .15s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-send {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: #0d1117; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .1s; align-self: flex-end;
+}
+.chat-send:hover { background: #79bbff; }
+.chat-send:active { transform: scale(.92); }
+.chat-send:disabled { background: var(--border); color: var(--muted); cursor: default; transform: none; }
+.chat-error { font-size: .8rem; color: #f85149; padding: 4px 14px 8px; text-align: center; }
 </style>
 </head>
 <body class="has-player">
@@ -170,12 +276,18 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <section class="section">
 <h2 class="section-heading">Key Moments</h2>
 <div class="gallery">
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" loading="lazy" data-caption="The video opens with a title slide introducing a hill‑country style blues riff lesson." data-yt-ts="0"><figcaption class="gal-caption">The video opens with a title slide introducing a hill‑country style blues riff lesson.</figcaption></figure>
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" loading="lazy" data-caption="The instructor demonstrates the basic eight‑bar groove, emphasizing the repeated pattern and finger placement on the low E string." data-yt-ts="29"><figcaption class="gal-caption">The instructor demonstrates the basic eight‑bar groove, emphasizing the repeated pattern and finger placement on the low E string.</figcaption></figure>
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" loading="lazy" data-caption="A detailed walkthrough of the short, percussive riff is shown, highlighting the pop technique and two‑finger picking approach." data-yt-ts="219"><figcaption class="gal-caption">A detailed walkthrough of the short, percussive riff is shown, highlighting the pop technique and two‑finger picking approach.</figcaption></figure>
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" loading="lazy" data-caption="The presenter introduces the backhand strum, explaining the hand rotation and how it creates a distinctive rhythmic accent." data-yt-ts="443"><figcaption class="gal-caption">The presenter introduces the backhand strum, explaining the hand rotation and how it creates a distinctive rhythmic accent.</figcaption></figure>
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" loading="lazy" data-caption="The lesson wraps up the full eight‑bar sequence, reinforcing timing and transitions between the main riff and variations." data-yt-ts="651"><figcaption class="gal-caption">The lesson wraps up the full eight‑bar sequence, reinforcing timing and transitions between the main riff and variations.</figcaption></figure>
-<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" loading="lazy" data-caption="The video concludes with final tips on avoiding excessive effort on the slap and encouraging viewers to practice the groove." data-yt-ts="893"><figcaption class="gal-caption">The video concludes with final tips on avoiding excessive effort on the slap and encouraging viewers to practice the groove.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_01.jpg" loading="lazy" data-caption="The video opens with the title slide introducing a hill‑country style blues riff lesson." data-yt-ts="0" data-frame-ts="0"><figcaption class="gal-caption">The video opens with the title slide introducing a hill‑country style blues riff lesson.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_02.jpg" loading="lazy" data-caption="The instructor demonstrates the core eight‑bar groove that will be repeated throughout the lesson." data-yt-ts="82" data-frame-ts="84"><figcaption class="gal-caption">The instructor demonstrates the core eight‑bar groove that will be repeated throughout the lesson.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_03.jpg" loading="lazy" data-caption="A close‑up shows the finger placement on the fifth fret and the open E string, emphasizing minimal string bending." data-yt-ts="94" data-frame-ts="96"><figcaption class="gal-caption">A close‑up shows the finger placement on the fifth fret and the open E string, emphasizing minimal string bending.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_04.jpg" loading="lazy" data-caption="The teacher explains how the short riff is articulated by plucking with all fingers, creating a percussive pop sound." data-yt-ts="200" data-frame-ts="202"><figcaption class="gal-caption">The teacher explains how the short riff is articulated by plucking with all fingers, creating a percussive pop sound.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_05.jpg" loading="lazy" data-caption="Hand‑motion techniques are highlighted, illustrating how the wrist rotates for a smooth backhand strum." data-yt-ts="300" data-frame-ts="302"><figcaption class="gal-caption">Hand‑motion techniques are highlighted, illustrating how the wrist rotates for a smooth backhand strum.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_06.jpg" loading="lazy" data-caption="A fun two‑finger variation of the riff is introduced, adding a new texture to the groove." data-yt-ts="405" data-frame-ts="407"><figcaption class="gal-caption">A fun two‑finger variation of the riff is introduced, adding a new texture to the groove.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_07.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_07.jpg" loading="lazy" data-caption="The backhand strum motion is demonstrated in detail, showing the hand rotation and attack angle." data-yt-ts="492" data-frame-ts="494"><figcaption class="gal-caption">The backhand strum motion is demonstrated in detail, showing the hand rotation and attack angle.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_08.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_08.jpg" loading="lazy" data-caption="The instructor ties the technique to a larger musical concept, stressing its importance for the style." data-yt-ts="505" data-frame-ts="507"><figcaption class="gal-caption">The instructor ties the technique to a larger musical concept, stressing its importance for the style.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_09.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_09.jpg" loading="lazy" data-caption="A recap of the backhand technique is provided, reinforcing timing and dynamics for the riff." data-yt-ts="598" data-frame-ts="600"><figcaption class="gal-caption">A recap of the backhand technique is provided, reinforcing timing and dynamics for the riff.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_10.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_10.jpg" loading="lazy" data-caption="All eight bars are played together, confirming that the learner can now cycle through the full progression." data-yt-ts="695" data-frame-ts="697"><figcaption class="gal-caption">All eight bars are played together, confirming that the learner can now cycle through the full progression.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_11.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_11.jpg" loading="lazy" data-caption="Advice is given to avoid over‑emphasizing the slap percussion, focusing instead on groove consistency." data-yt-ts="800" data-frame-ts="802"><figcaption class="gal-caption">Advice is given to avoid over‑emphasizing the slap percussion, focusing instead on groove consistency.</figcaption></figure>
+<figure class="gal-item"><img src="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_12.jpg" alt="goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_frame_12.jpg" loading="lazy" data-caption="The lesson concludes with a brief summary and encouragement to practice the riff regularly." data-yt-ts="887" data-frame-ts="889"><figcaption class="gal-caption">The lesson concludes with a brief summary and encouragement to practice the riff regularly.</figcaption></figure>
 
 </div>
 </section>
@@ -186,52 +298,66 @@ details[open] .transcript-summary::before { content: "▼ "; }
 <strong>Video ID:</strong> <code>wAAPcsR0waU</code></p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p>The lesson teaches the hill‑country blues riff from “Goin’ Down South” (R.L. Burnside / The Black Keys). The instructor explains the style’s groove‑centric, riff‑based nature and walks through the entire eight‑bar pattern, breaking it into two main sections. Two right‑hand techniques are demonstrated – a straightforward finger‑pop approach and a back‑hand strum with thumb slap – with tips on timing, dynamics, and practice methods.</p>
+<p>The lesson breaks down the hill‑country blues instrumental <strong>“Going Down South”</strong> (popularized by R.L. Burnside and the Black Keys). The instructor explains the song’s riff‑based structure, demonstrates two right‑hand techniques for playing the groove, and guides you through the full eight‑bar pattern with slow, metronome‑backed play‑throughs. By the end you should be able to lock in the rhythm, execute the finger‑popping or back‑hand strum approach, and improvise over the repeating riff.</p>
 <h2 id="topics-covered">Topics Covered</h2>
 <ul>
-<li><strong>Hill‑country blues vs. Delta blues</strong> – Emphasis on repetitive, groove‑based riffs with minimal chord changes.</li>
-<li><strong>Structure of the riff</strong> – First four bars (8‑beat pattern) followed by a second four‑bar variation; the fourth measure extends to six beats.</li>
-<li><strong>Finger placement &amp; note detail</strong> – Main notes on the D string (5th‑2nd‑5th‑2nd) with a tiny quarter‑step bend, plus open low E and higher‑string pops.</li>
-<li><strong>First right‑hand approach</strong> – Simultaneous thumb‑index pluck on low strings and pop of the high E/B strings; importance of short, crisp pops and using the left hand to mute immediately.</li>
-<li><strong>Second right‑hand approach</strong> – Back‑hand (downward) strum on the top two strings combined with a thumb slap on the low E for added percussion; rotational wrist motion rather than arm swing.</li>
-<li><strong>Practice workflow</strong> – Learn the tab with the basic pop technique first, then add the back‑hand strum, eventually combining both.</li>
-<li><strong>Slow metronome play‑through</strong> – Demonstrates all eight bars in both right‑hand styles for learners to play along.</li>
-<li><strong>Performance tips</strong> – Keep the slap light, focus on clean note placement, and maintain a relaxed rotational wrist motion for the back‑hand technique.</li>
+<li><strong>Hill‑country vs. Delta blues</strong> – Emphasis on repetitive riffs and limited chord changes, making it ideal for hand‑exercise and groove work.</li>
+<li><strong>Riff layout</strong> – First four bars (count 4‑4‑4‑6) and the second four‑bar section; how the fifth‑fret note is doubled in the fourth measure.</li>
+<li><strong>Finger‑popping technique</strong> – Thumb on low E, index on D, then pop the high E and B strings; use short, stopped notes with a slight quarter‑step bend.</li>
+<li><strong>Dynamics &amp; muting</strong> – Left‑hand damping right after each pop for a crisp, percussive sound.</li>
+<li><strong>Alternative right‑hand</strong> – Back‑hand strum (rotation motion) that simultaneously hits the low string with the thumb, adding a click‑like percussion.</li>
+<li><strong>Practice workflow</strong> – Learn the basic pop version first, then add the back‑hand strum, finally combine both.</li>
+<li><strong>Slow metronome play‑through</strong> – Eight‑bar run‑throughs in both techniques to lock timing.</li>
+<li><strong>Tips &amp; troubleshooting</strong> – Keep the wrist stable, focus on rotation rather than arm motion, and don’t over‑emphasize the slap when using the back‑hand style.</li>
 </ul>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li>Hill‑country blues relies on tight, repeating riffs; mastering one groove unlocks the whole song.</li>
-<li>The riff consists of a 5th‑2nd‑5th‑2nd pattern on the D string with a small bend, plus coordinated pops on the high strings.</li>
-<li>Two viable right‑hand methods: simple two‑finger pops or a back‑hand strum plus thumb slap for extra groove.</li>
-<li>Use the left hand to mute popped notes immediately for a crisp, percussive sound.</li>
-<li>Practice slowly with a metronome, then layer the back‑hand technique once the basic pattern is solid.</li>
-<li>The back‑hand motion is a wrist‑rotation, not an arm movement; keep it light to retain tone.</li>
+<li>Hill‑country blues riffs stay on a short groove; mastering the repetitive pattern lets you play the whole song.</li>
+<li>The main riff repeats eight bars: first half (4 bars, with a 6‑beat fourth bar) and a second half played three times before returning.</li>
+<li>Two right‑hand options:
+<ol>
+<li><strong>Finger‑pop</strong> – fast, short pops using two fingers; good for clean, percussive tone.</li>
+<li><strong>Back‑hand strum</strong> – rotational wrist motion that also mutes the low string, adding extra groove.</li>
+</ol>
+</li>
+<li>Left‑hand muting right after each pop is crucial for the “pop” feel.</li>
+<li>Start with the simpler pop technique, then layer in the back‑hand strum to enrich the rhythm.</li>
+<li>Keep the motion wrist‑based and rotational; avoid large arm movements.</li>
 </ul>
 <h2 id="notable-quotes">Notable Quotes</h2>
 <ul>
-<li>“Hill country blues… is really more riff‑based or groove‑based; they won’t change the chords as much.”</li>
-<li>“That tiny quarter‑step bend… just to give it that blues bend.”</li>
-<li>“The backhand strum… gives it a little more rhythm, a little more groove.”</li>
-<li>“My wrist is basically staying put; it’s a rotational motion, like opening a key at a lock.”</li>
+<li>“<em>Hill‑country blues is really more riff‑based or groove‑based… they won’t change the chords as much</em>.”</li>
+<li>“<em>The tiny quarter‑step bend gives it that blues bend, but you don’t pull it far</em>.”</li>
+<li>“<em>When you add the back‑hand strum you get a little more rhythm, a little more groove</em>.”</li>
+<li>“<em>Your wrist is basically staying put—it’s a rotational motion, like opening a key at a lock</em>.”</li>
 </ul>
 <hr />
 <h2 id="podcast-script">Podcast Script</h2>
-<p><strong>JORDAN:</strong> Hey everyone, welcome back to the show! I’m Jordan, and today we’re diving into a classic hill‑country blues groove that’s all about that hypnotic, riff‑driven feel. If you’ve ever wondered how those lo‑fi, repetitive blues jams lock you into a groove, stick around—by the end of this episode you’ll have two solid right‑hand approaches to play the riff yourself.</p>
-<p><strong>JORDAN:</strong> First, a quick primer on hill‑country blues versus the more familiar delta style. Hill‑country leans heavily on a steady, groove‑centric riff, with very little chord change, which makes it perfect for working both hands in sync. Think of it as a musical treadmill: the rhythm never really stops, and that’s exactly what we’ll be breaking down today.</p>
-<p><strong>JORDAN:</strong> The core riff is eight bars long, split into two four‑bar sections. The first four bars are the backbone—the part you’ll hear over and over. It’s built around a simple pattern on the D string with a little bend on the open E, alternating between the 5th and 2nd frets, then ending with a quick double hit on the 5th fret. It might sound straightforward, but the timing is a bit quirky: three bars count to four beats, and the fourth stretches to six.</p>
-<p><strong>JORDAN:</strong> Let’s walk through that first half slowly. You start with your thumb on the low E, your index on the D, and you pluck the open E and D together on beat one, giving it a subtle quarter‑step bend. Then you bounce between the 5th and 2nd frets—5, 2, 5, 2—before the final two quick 5ths in the fourth bar. It’s a tight little loop that feels like a drum beat in a way.</p>
-<p><strong>JORDAN:</strong> Now, the left hand does a quiet but crucial job: right after each pluck you lightly mute the strings, creating those short, punchy pops. If you don’t mute, the notes will ring out and you’ll lose that percussive snap. Don’t worry if it sounds a bit flat at first; the goal is to get the hand motion feeling natural before tightening up the mute.</p>
-<p><strong>JORDAN:</strong> Moving on to the second half of the riff, the groove shifts a bit. Here you add a thumb‑pop on the low E while your index and middle fingers pop the high E and B strings in a steady “one‑two‑three‑four” pattern. It’s essentially the same rhythm, but now you’ve got that extra top‑string syncopation that adds texture.</p>
-<p><strong>JORDAN:</strong> The right‑hand technique for this section can be approached two ways. The first, more traditional method uses two fingers to pop the top strings while your thumb handles the low string. It’s clean, precise, and great for beginners who want to lock in the groove without overcomplicating the motion.</p>
-<p><strong>JORDAN:</strong> The alternative, and my personal favorite for that extra groove, is a backhand strum. Instead of popping the top strings, you sweep them with the back of your hand, a sort of rotational motion that also strikes the low string with a click. This adds a subtle percussive layer, turning a simple riff into a mini‑drum kit under your fingers.</p>
-<p><strong>JORDAN:</strong> To pull off that backhand strum, imagine opening a key in a lock: your wrist stays relatively still while your hand rotates, the back of your fingers brushing the high strings as your thumb thumps the sixth string. The key is not to force the slap; let the rotation do the work and keep the click light.</p>
-<p><strong>JORDAN:</strong> Practicing both approaches side by side is the best way to discover what feels right for you. Start slow with the standard two‑finger pop, lock in the timing, then layer in the backhand strum once you’re comfortable. You’ll find the groove becomes richer, and you’ll have a versatile tool for other blues‑y or even funk‑ish pieces.</p>
-<p><strong>JORDAN:</strong> Let’s put it all together: play the first four bars with the pop technique, transition into the second half, and then bring the backhand strum into the mix for that extra rhythmic push. Keep a metronome ticking, maybe at 70‑80 BPM, and loop the eight bars—listen for that steady pulse and the subtle percussive clicks.</p>
-<p><strong>JORDAN:</strong> A quick tip on dynamics: keep the pops short and the muting tight. If the notes linger, the groove loses its bite. Likewise, when you add the backhand strum, don’t over‑accent the slap; let the natural resonance do the talking. Small adjustments here make a big difference in that hypnotic hill‑country feel.</p>
-<p><strong>JORDAN:</strong> Once you’ve got the riff down, experiment with swapping the two right‑hand styles within the same cycle. You might play the first repeat with the two‑finger pop, then the next with the backhand strum, creating an internal contrast that keeps the repetitive groove interesting.</p>
-<p><strong>JORDAN:</strong> Before we wrap up, I want to point you toward some great recordings of this tune. Check out R.L. Burnside’s original, the Black Keys’ gritty cover, and a few modern fingerstyle takes on YouTube. Hearing how different artists interpret the same riff will inspire you to make it your own.</p>
-<p><strong>JORDAN:</strong> To sum things up, we covered the hill‑country blues vibe, broke down the eight‑bar riff into two parts, explored two right‑hand techniques—standard pop and backhand strum—and gave you a practice roadmap. Remember, the magic lies in those short, muted pops and the subtle rotation of your hand.</p>
-<p><strong>JORDAN:</strong> Thanks for joining me on this deep dive into a groove that’s as hypnotic as it is simple. Keep practicing, keep experimenting, and most importantly, keep that feel alive in your playing. I’m Jordan, see you next time—stay groovy!</p>
+<p><strong>JORDAN:</strong> Welcome to SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.</p>
+<p><strong>MIKE:</strong> Today we're dissecting “Going Down South,” that hill‑country blues staple made famous by R.L. Burnside and later the Black Keys. It’s a perfect case study in how a simple eight‑bar riff can drive an entire song.</p>
+<p><strong>JORDAN:</strong> The instructor opens by contrasting hill‑country blues with Delta blues—hill‑country leans on repetitive, groove‑centric riffs and minimal chord changes, which makes it a solid platform for right‑hand endurance drills.</p>
+<p><strong>MIKE:</strong> Right, that “stay‑in‑the‑groove” philosophy is why the song repeats the same eight‑bar pattern over and over. Once you lock that down, you’ve essentially mastered the whole track.</p>
+<p><strong>JORDAN:</strong> He breaks the riff into two four‑bar sections. The first three bars are straight 4/4, and the fourth bar extends to six beats, essentially playing the fifth‑fret note twice in quick succession.</p>
+<p><strong>MIKE:</strong> That extra two‑beat tail gives the groove a subtle push before the loop cycles back—a little rhythmic tension that keeps it from feeling static.</p>
+<p><strong>JORDAN:</strong> The core right‑hand technique he teaches first is the finger‑pop. Thumb anchors the low E, index plucks the D string, then the high E and B strings are popped with the middle and ring fingers, each pop being short and lightly bent a quarter step.</p>
+<p><strong>MIKE:</strong> The quarter‑step bend is crucial for that authentic blues micro‑tonal flavor without turning it into a full bend that would derail the tight rhythm.</p>
+<p><strong>JORDAN:</strong> He emphasizes left‑hand damping immediately after each pop, creating a crisp, percussive snap. Without that muting, the notes bleed together and you lose the “pop” articulation.</p>
+<p><strong>MIKE:</strong> That muting trick is essentially a left‑hand palm‑mute on the higher strings, right? It turns a melodic line into a rhythmic kernel.</p>
+<p><strong>JORDAN:</strong> Exactly. After the pop version, he introduces the alternative back‑hand strum. Instead of popping the top strings, you rotate the wrist, striking the high strings with the backs of the fingers while the thumb thumps the low E, creating a click‑like percussive accent.</p>
+<p><strong>MIKE:</strong> The back‑hand strum adds a layer of groove because the thumb’s low‑string hit doubles as a percussive beat, marrying rhythm and harmony in one motion.</p>
+<p><strong>JORDAN:</strong> He warns that the back‑hand technique feels awkward at first; the motion is purely rotational, not an arm swing. Think of it as unlocking a key—your wrist stays in place while the hand rotates around the axis.</p>
+<p><strong>MIKE:</strong> That wrist‑centric approach is the same principle behind funk strumming and many hybrid picking patterns—minimizing arm movement for speed and control.</p>
+<p><strong>JORDAN:</strong> Practice workflow: start with the pure finger‑pop to internalize the timing, then layer the back‑hand strum, and finally try to blend both within the eight‑bar loop.</p>
+<p><strong>MIKE:</strong> And he backs each step with slow metronome play‑throughs—first the pop version, then the back‑hand version—so you can lock the subdivision of the six‑beat fourth bar without rushing.</p>
+<p><strong>JORDAN:</strong> A key troubleshooting tip: don’t over‑emphasize the slap component of the back‑hand strum. The primary goal is clean note articulation; the click is a by‑product, not the focus.</p>
+<p><strong>MIKE:</strong> That’s a common mistake—musicians often think louder percussive hits equal better groove, but in hill‑country blues the feel comes from tight, understated dynamics.</p>
+<p><strong>JORDAN:</strong> He also mentions that the back‑hand strum is transferable; once you nail it here, you can apply it to other groove‑centric blues or even folk songs that use a percussive thumb‑bass pattern.</p>
+<p><strong>MIKE:</strong> Which is why he frames the technique as a long‑term investment despite the short‑term awkwardness. It expands your right‑hand palette across genres.</p>
+<p><strong>JORDAN:</strong> Summarizing the structural insight: the eight‑bar riff consists of the first four bars (4‑4‑4‑6) then a three‑time repetition of the second four‑bar motif before returning to the start.</p>
+<p><strong>MIKE:</strong> That layout creates a “call‑and‑response” feel within the groove itself—perfect for soloists to layer over during jams.</p>
+<p><strong>JORDAN:</strong> The final takeaway: lock the wrist, use precise left‑hand damping, and let the rotational back‑hand strum add percussive depth without overwhelming the pocket.</p>
+<p><strong>MIKE:</strong> With those fundamentals, you can not only play “Going Down South” convincingly but also improvise over its hypnotic loop, turning a simple riff into a platform for expressive solos.</p>
+<p><strong>JORDAN:</strong> That's a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.</p>
 </div>
 </section>
 <section class="section">
@@ -257,6 +383,8 @@ details[open] .transcript-summary::before { content: "▼ "; }
 </div>
 
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="wAAPcsR0waU"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<button id="chat-fab" class="chat-fab" aria-label="Ask a question about this video" title="Chat about this video"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+<div id="chat-panel" class="chat-panel"><div class="chat-header"><span class="chat-header-title">Ask about this video</span><button id="chat-close" class="chat-header-close" aria-label="Close chat">&times;</button></div><div id="chat-messages" class="chat-messages"></div><div id="chat-error" class="chat-error" style="display:none"></div><div class="chat-footer"><textarea id="chat-input" class="chat-input" placeholder="Ask a question..." rows="1"></textarea><button id="chat-send" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div>
 
 <script>
 (function () {
@@ -369,6 +497,209 @@ details[open] .transcript-summary::before { content: "▼ "; }
     });
   });
 }());</script>
+
+<script>
+window.PS_CHAT = {"apiLocal":"http://localhost:64598","apiBase":"https://podslacker-api.fly.dev","videoUrl":"https://www.youtube.com/watch?v=wAAPcsR0waU","videoTitle":"Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs","transcript":"\uFEFF\uFEFF\uFEFF[00:00] [Music]\n[00:11] do\n[00:17] hey guys what\u0027s up welcome back this is\n[00:19] the song going down south this is\n[00:22] another hill country style blues and\n[00:24] remember guys the difference between the\n[00:25] hill country blues and maybe delta blues\n[00:28] or other styles of blues is that with\n[00:30] the hill country blues it\u0027s really more\n[00:32] riff-based or groove based often they\n[00:35] won\u0027t change the cords as much and\n[00:37] things like that so it\u0027s really great\n[00:38] for kind of working your hands out\n[00:40] working your right hand working your\n[00:41] left hand and getting a good short\n[00:43] groove to play over and over and over\n[00:46] again i\u0027m going to teach you how to play\n[00:47] this riff today but i\u0027m going to teach\n[00:49] you in two different ways with two\n[00:51] different right hand approaches\n[00:53] [Music]\n[00:57] so it\u0027s important for you to kind of see\n[00:59] both of these different types of\n[01:00] approaches and then try to pick the one\n[01:02] that you think sounds the most\n[01:04] appropriate for you okay so let\u0027s jump\n[01:06] right in and learn that riff and then\n[01:08] we\u0027ll talk about the right hand\n[01:09] technique all right cool so\n[01:11] basically this riff is kind of made up\n[01:13] of two parts the main bit of the song is\n[01:16] just these eight bars that repeat over\n[01:19] and over and over again but let\u0027s go\n[01:20] through the riff in two parts so we\u0027ve\n[01:22] got the first four bars which we\u0027re\n[01:24] going to talk about now and that sounds\n[01:25] like this\n[01:26] [Music]\n[01:34] okay that\u0027s the first four bars now if\n[01:37] you\u0027ve noticed\n[01:38] the last bar there is actually and we\u0027ve\n[01:41] added two beats so we\u0027re counting to\n[01:43] four for the first three bars and then\n[01:45] the fourth bar we\u0027re counting to six\n[01:48] okay now essentially it\u0027s just playing\n[01:50] this part\n[01:51] [Music]\n[01:52] okay but in the fourth measure we\u0027re\n[01:54] playing it twice in a row\n[01:59] like that so we\u0027re playing this fifth\n[02:00] fret twice in a row let\u0027s slow down the\n[02:01] riff and show you all the parts to it\n[02:04] so\n[02:04] we start with this\n[02:07] fifth fret here on the d string okay\n[02:09] along with the open e string we\u0027re going\n[02:11] to pluck both those together for beat\n[02:13] one one\n[02:14] okay notice also we\u0027re giving it a\n[02:17] little tiny quarter step bend okay\n[02:19] remember we\u0027re not bending it really far\n[02:21] we\u0027re just bending it kind of\n[02:23] a little tiny bit just to give it that\n[02:24] blues bend okay and that first\n[02:27] riff all the only note that\u0027s really\n[02:29] changing is this fret\n[02:31] goes to the second fret so we have the\n[02:32] fifth fret the second fret the fifth\n[02:35] fret the second fret okay and then the\n[02:37] third and then the fourth measure it\n[02:38] plays the fifth fret twice one two three\n[02:41] four five six like that okay\n[02:44] let\u0027s add the other parts to it now too\n[02:47] so now we have we\u0027re pinching thumb\n[02:49] okay index finger on the low e and the d\n[02:52] string\n[02:53] okay\n[02:54] then we\u0027re gonna pop these two top\n[02:56] strings so the high e and the high b\n[02:59] string in between the riffs so it\u0027s one\n[03:02] two and three\n[03:04] four and one\n[03:06] two and three\n[03:08] four and i\u0027ll keep repeating that\n[03:15] okay\n[03:16] now notice the thumb is going one\n[03:18] two and three\n[03:20] four and one two and three\n[03:24] four again the whole riff one one more\n[03:25] time slowly the first three bars\n[03:27] one\n[03:29] two and three\n[03:31] four and one\n[03:33] two and three\n[03:35] four and one\n[03:38] two and three\n[03:40] four okay now the fourth bar remember\n[03:42] we\u0027re gonna play the fifth fret twice in\n[03:43] a row so it goes one two and three\n[03:47] four and five six and\n[03:51] okay that\u0027s that first four bars so that\n[03:53] kind of is a cool groove they play that\n[03:55] for about half of the song you know they\n[03:57] alternate between that first riff and\n[03:59] then the second riff that we\u0027re going to\n[04:00] go over right now\n[04:02] and that\u0027s basically the whole song\n[04:03] that\u0027s one of the cool parts about this\n[04:05] hill country style blues is that\n[04:08] you know the riffs are kind of short\n[04:10] they take a little bit of work to get to\n[04:11] but once you can do them basically you\n[04:14] know the whole song okay so that\u0027s what\n[04:17] that first technique now notice we\u0027re\n[04:18] just plucking with all the fingers there\n[04:20] it sounds like this one\n[04:22] two and three\n[04:24] four okay a couple of the dynamics\n[04:26] markings i want to talk about is making\n[04:29] the pops short\n[04:36] okay notice what i\u0027m doing there with my\n[04:37] left hand\n[04:39] is right after i play it\n[04:41] i\u0027m kind of using my left hand to stop\n[04:43] those notes\n[04:46] okay like that now if you don\u0027t do that\n[04:48] at first that\u0027s okay it\u0027ll sound like\n[04:49] this\n[04:52] okay\n[04:54] it doesn\u0027t have the same pop to it okay\n[04:56] but that\u0027s still okay to way to practice\n[04:58] at first just to try to get the right\n[05:00] hand motions eventually after that\n[05:03] try to just\n[05:05] play it real short like that\n[05:07] okay and stopping remember with the left\n[05:09] hand here\n[05:10] okay\n[05:12] let\u0027s go through the second half of the\n[05:13] riff and then next and then after that\n[05:15] we\u0027ll talk about the alternate right\n[05:16] hand approach okay here\u0027s the second\n[05:18] riff it sounds like this\n[05:28] okay now essentially we\u0027re only really\n[05:29] playing that three times in a row and\n[05:31] then we go back to the\n[05:34] first riff okay\n[05:36] during the solos though you typically\n[05:38] play that riff that\n[05:40] um that riff that sounds like this\n[05:44] okay over and over again while the other\n[05:46] players will take turns soloing so check\n[05:48] it out\n[05:49] what we have here it\u0027s\n[05:51] these pops are in the same spot beads\n[05:54] two and four okay so we go one e and two\n[05:58] and three\n[05:59] four\n[06:00] one e and two and three\n[06:03] four\n[06:04] one e and two and three\n[06:06] four\n[06:07] one e and two and three\n[06:10] four okay\n[06:12] i\u0027ll try to slow that down a little bit\n[06:13] more so we have hammering on first uh\n[06:15] finger on the second fret of the a\n[06:17] string\n[06:19] okay and that\u0027s that triplet we\u0027ll count\n[06:20] that\n[06:21] and that\u0027s that triplet we\u0027re counting\n[06:22] it as one e and two and three\n[06:25] four\n[06:27] one e and pop and three\n[06:30] pop\n[06:31] one e and pop\n[06:35] [Music]\n[06:46] so this is a really fun riff to play\n[06:47] once you kind of get it okay so that\u0027s\n[06:49] the timing of it and that\u0027s how you do\n[06:50] it so the right hand technique here is\n[06:52] we\u0027re just really\n[06:53] popping the strings normally just with\n[06:56] two fingers\n[06:57] if you can\u0027t use two fingers or you\n[06:58] don\u0027t like using two fingers\n[07:00] alternatively you can just try to pop\n[07:02] with one finger like that\n[07:08] okay like that that\u0027s a little bit\n[07:10] harder of a motion to do but if you\n[07:12] can\u0027t use these other fingers then\n[07:14] that\u0027s really your only option for this\n[07:16] first approach with our right hand\n[07:19] okay so that riff basically you play\n[07:21] that riff three times in a row\n[07:23] and then the fourth time you go back to\n[07:27] our opening riff okay and then you go\n[07:29] back to the opening riff and you\u0027re\n[07:31] going to cycle through these parts\n[07:33] throughout the\n[07:34] length of the song\n[07:36] all right so at the beginning we talked\n[07:38] about how there was a different right\n[07:39] hand approach now i think that this\n[07:41] right hand approach\n[07:42] in a lot of ways is actually a little\n[07:44] bit easier in the long run\n[07:47] it\u0027ll also be easier to learn other\n[07:48] songs that are similar to this in the\n[07:50] long run but in the short run if you\u0027re\n[07:53] learning this technique for the first\n[07:54] time today\n[07:56] it\u0027s going to feel pretty awkward it\u0027s a\n[07:58] really kind of a\n[08:00] specialty technique that doesn\u0027t come up\n[08:02] very much but once you get the technique\n[08:04] it has so many benefits that carry over\n[08:06] to a bunch of different genres not just\n[08:08] like not just this one song so if you\n[08:11] like this kind of style of music or\n[08:14] other styles of music that use this\n[08:16] technique i mean this is a great\n[08:17] starting spot for it okay and here\n[08:19] essentially what the technique is this\n[08:24] [Music]\n[08:31] i don\u0027t know if you can see\n[08:34] i don\u0027t know if you can see what i was\n[08:35] doing there but basically instead of\n[08:37] popping the strings like this\n[08:40] the top two strings\n[08:42] i\u0027m popping them\n[08:44] with a backhand strum okay what that\n[08:46] allows you to do is simultaneously also\n[08:48] hit kind of a\n[08:50] percussion hit on the low string so i\u0027m\n[08:52] doing this motion here it\u0027s a rotation\n[08:54] motion so i\u0027m rotating my hands like\n[08:57] this\n[08:58] simultaneously hitting my thumb on the\n[09:00] sixth string making this little click\n[09:02] sound\n[09:03] along with\n[09:05] okay the backhand\n[09:06] strum on the top two strings so the riff\n[09:11] with that technique sounds like this\n[09:12] [Music]\n[09:21] it sounds like that right it\u0027s a it\u0027s\n[09:22] very similar it\u0027s almost exactly the\n[09:24] same here\u0027s with the other technique\n[09:25] [Music]\n[09:31] that with the other technique it sounds\n[09:33] really cool but then once you add this\n[09:34] new technique in there it kind of feels\n[09:36] like something\u0027s missing or something\u0027s\n[09:38] left out\n[09:40] [Music]\n[09:48] okay you get the idea right so\n[09:51] just by kind of adding this backhand\n[09:53] strum\n[09:54] with this it kind of gives it a little\n[09:56] bit more rhythm a little bit more groove\n[09:58] which is a really kind of big concept\n[10:00] for hill country style blues where it\u0027s\n[10:02] really groove based it\u0027s not just wrist\n[10:04] based okay so let\u0027s do that technique\n[10:06] over the first half riff so that sounds\n[10:08] like this\n[10:14] okay it\u0027s a little bit more simple to go\n[10:16] through the motion because there\u0027s not a\n[10:17] hammer on or anything like that so let\u0027s\n[10:20] look at that motion a little bit closer\n[10:22] plucking together\n[10:23] then we slap okay\n[10:25] [Music]\n[10:27] okay same idea once we\n[10:32] do the slap and hit the top strings you\n[10:34] want to stop it with your left hand and\n[10:36] now the whole riff with the backhand\n[10:37] strum sound like this\n[10:40] [Music]\n[10:55] okay\n[10:56] so it\u0027s a little bit different right um\n[11:00] [Music]\n[11:05] that\u0027s without this is with\n[11:06] [Music]\n[11:12] okay i think it just has a little bit\n[11:14] more of a groove to it so this is a\n[11:16] really fun one to play guys so what i\u0027d\n[11:18] recommend to do is just kind of learn it\n[11:20] through the tab maybe try it the first\n[11:21] way first um it\u0027s kind of tricky it\u0027s\n[11:24] it\u0027s not super easy with that right hand\n[11:26] but once you get the riff you know it\n[11:28] just repeats over and over again okay\n[11:30] once you can kind of get the riff\n[11:31] memorized then see if you can try it\n[11:33] with the\n[11:37] the backhand\n[11:38] [Music]\n[11:43] okay and then see if you can kind of\n[11:45] combine both parts together okay so what\n[11:47] we\u0027re going to do now is i\u0027m just going\n[11:48] to do a really slow play through of all\n[11:50] eight bars of this with a metronome so\n[11:53] that you guys can try to play along\n[11:56] one\n[11:57] two\n[11:58] three\n[11:59] four\n[12:02] [Music]\n[12:12] so\n[12:19] [Music]\n[12:35] okay so that\u0027s all eight bars with the\n[12:38] uh standard style let\u0027s try it this time\n[12:41] with the backhand style\n[12:43] one\n[12:44] two\n[12:45] three\n[12:46] four\n[12:48] [Music]\n[13:22] all right\n[13:24] all right great so those are the two\n[13:26] versions now one last thing i want to\n[13:28] say on the\n[13:30] on the backhand strum one\n[13:32] don\u0027t put too much effort on the slap\n[13:35] part okay the most important part is\n[13:37] just getting\n[13:38] the notes in right with the backhand\n[13:40] that gives it also just a kind of\n[13:42] percussive type groove by itself\n[13:44] notice that sounds different than\n[13:46] okay it has a different tone to it when\n[13:49] you stroke with the backs of your\n[13:50] fingers okay\n[13:52] so if you can\u0027t do the click and the\n[13:54] backhand strum at the same time\n[13:56] like this\n[14:00] then don\u0027t worry about it but this is a\n[14:01] good exercise to do is just literally\n[14:04] this rotational mechanic okay\n[14:07] now i\u0027m rotating i know that you think\n[14:09] that i\u0027m a lot of people think i\u0027m doing\n[14:11] this motion with my arm\n[14:13] like i\u0027m coming up off in the strings\n[14:15] i\u0027m not my wrist is basically staying\n[14:18] put it\u0027s rotating it\u0027s like i\u0027m doing a\n[14:20] key motion okay like opening a key at a\n[14:23] lock okay it\u0027s this motion\n[14:26] not\n[14:27] this\n[14:28] okay so it\u0027s rotational\n[14:30] [Music]\n[14:30] [Applause]\n[14:36] all right guys\n[14:38] i hope that makes sense i hope you guys\n[14:39] have fun learning this riff this is a\n[14:41] really fun song and check out all the\n[14:42] different versions of it rl burnside and\n[14:45] the black keys version and a bunch of\n[14:47] other people play this song as well so\n[14:49] have fun learning it and i\u0027ll see you\n[14:50] guys in the next one\n[15:00] you\n","summary":"# Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs\r\n\r\n**Source:** https://www.youtube.com/watch?v=wAAPcsR0waU  \r\n**Video ID:** \u0060wAAPcsR0waU\u0060\r\n\r\n---\r\n\r\n## Overview  \nThe lesson breaks down the hill\u2011country blues instrumental **\u201CGoing Down South\u201D** (popularized by R.L.\u202FBurnside and the Black Keys). The instructor explains the song\u2019s riff\u2011based structure, demonstrates two right\u2011hand techniques for playing the groove, and guides you through the full eight\u2011bar pattern with slow, metronome\u2011backed play\u2011throughs. By the end you should be able to lock in the rhythm, execute the finger\u2011popping or back\u2011hand strum approach, and improvise over the repeating riff.\n\n## Topics Covered  \n\n- **Hill\u2011country vs. Delta blues** \u2013 Emphasis on repetitive riffs and limited chord changes, making it ideal for hand\u2011exercise and groove work.  \n- **Riff layout** \u2013 First four bars (count 4\u20114\u20114\u20116) and the second four\u2011bar section; how the fifth\u2011fret note is doubled in the fourth measure.  \n- **Finger\u2011popping technique** \u2013 Thumb on low E, index on D, then pop the high E and B strings; use short, stopped notes with a slight quarter\u2011step bend.  \n- **Dynamics \u0026 muting** \u2013 Left\u2011hand damping right after each pop for a crisp, percussive sound.  \n- **Alternative right\u2011hand** \u2013 Back\u2011hand strum (rotation motion) that simultaneously hits the low string with the thumb, adding a click\u2011like percussion.  \n- **Practice workflow** \u2013 Learn the basic pop version first, then add the back\u2011hand strum, finally combine both.  \n- **Slow metronome play\u2011through** \u2013 Eight\u2011bar run\u2011throughs in both techniques to lock timing.  \n- **Tips \u0026 troubleshooting** \u2013 Keep the wrist stable, focus on rotation rather than arm motion, and don\u2019t over\u2011emphasize the slap when using the back\u2011hand style.\n\n## Key Takeaways  \n\n- Hill\u2011country blues riffs stay on a short groove; mastering the repetitive pattern lets you play the whole song.  \n- The main riff repeats eight bars: first half (4 bars, with a 6\u2011beat fourth bar) and a second half played three times before returning.  \n- Two right\u2011hand options:  \n  1. **Finger\u2011pop** \u2013 fast, short pops using two fingers; good for clean, percussive tone.  \n  2. **Back\u2011hand strum** \u2013 rotational wrist motion that also mutes the low string, adding extra groove.  \n- Left\u2011hand muting right after each pop is crucial for the \u201Cpop\u201D feel.  \n- Start with the simpler pop technique, then layer in the back\u2011hand strum to enrich the rhythm.  \n- Keep the motion wrist\u2011based and rotational; avoid large arm movements.  \n\n## Notable Quotes  \n\n- \u201C*Hill\u2011country blues is really more riff\u2011based or groove\u2011based\u2026 they won\u2019t change the chords as much*.\u201D  \n- \u201C*The tiny quarter\u2011step bend gives it that blues bend, but you don\u2019t pull it far*.\u201D  \n- \u201C*When you add the back\u2011hand strum you get a little more rhythm, a little more groove*.\u201D  \n- \u201C*Your wrist is basically staying put\u2014it\u2019s a rotational motion, like opening a key at a lock*.\u201D\r\n\r\n---\r\n\r\n## Podcast Script\r\n\r\n**JORDAN:** Welcome to SlackCasts by PodSlacker \u2014 where AI does the watching so you can do the listening. If you want a richer experience with today\u0027s episode, visit PodSlacker dot com slash SlackCasts \u2014 you\u0027ll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let\u0027s get into it.\r\n\r\n**MIKE:** Today we\u0027re dissecting \u201CGoing Down South,\u201D that hill\u2011country blues staple made famous by R.L.\u202FBurnside and later the Black\u00A0Keys. It\u2019s a perfect case study in how a simple eight\u2011bar riff can drive an entire song.\r\n\r\n**JORDAN:** The instructor opens by contrasting hill\u2011country blues with Delta blues\u2014hill\u2011country leans on repetitive, groove\u2011centric riffs and minimal chord changes, which makes it a solid platform for right\u2011hand endurance drills.\r\n\r\n**MIKE:** Right, that \u201Cstay\u2011in\u2011the\u2011groove\u201D philosophy is why the song repeats the same eight\u2011bar pattern over and over. Once you lock that down, you\u2019ve essentially mastered the whole track.\r\n\r\n**JORDAN:** He breaks the riff into two four\u2011bar sections. The first three bars are straight 4/4, and the fourth bar extends to six beats, essentially playing the fifth\u2011fret note twice in quick succession.\r\n\r\n**MIKE:** That extra two\u2011beat tail gives the groove a subtle push before the loop cycles back\u2014a little rhythmic tension that keeps it from feeling static.\r\n\r\n**JORDAN:** The core right\u2011hand technique he teaches first is the finger\u2011pop. Thumb anchors the low E, index plucks the D string, then the high E and B strings are popped with the middle and ring fingers, each pop being short and lightly bent a quarter step.\r\n\r\n**MIKE:** The quarter\u2011step bend is crucial for that authentic blues micro\u2011tonal flavor without turning it into a full bend that would derail the tight rhythm.\r\n\r\n**JORDAN:** He emphasizes left\u2011hand damping immediately after each pop, creating a crisp, percussive snap. Without that muting, the notes bleed together and you lose the \u201Cpop\u201D articulation.\r\n\r\n**MIKE:** That muting trick is essentially a left\u2011hand palm\u2011mute on the higher strings, right? It turns a melodic line into a rhythmic kernel.\r\n\r\n**JORDAN:** Exactly. After the pop version, he introduces the alternative back\u2011hand strum. Instead of popping the top strings, you rotate the wrist, striking the high strings with the backs of the fingers while the thumb thumps the low E, creating a click\u2011like percussive accent.\r\n\r\n**MIKE:** The back\u2011hand strum adds a layer of groove because the thumb\u2019s low\u2011string hit doubles as a percussive beat, marrying rhythm and harmony in one motion.\r\n\r\n**JORDAN:** He warns that the back\u2011hand technique feels awkward at first; the motion is purely rotational, not an arm swing. Think of it as unlocking a key\u2014your wrist stays in place while the hand rotates around the axis.\r\n\r\n**MIKE:** That wrist\u2011centric approach is the same principle behind funk strumming and many hybrid picking patterns\u2014minimizing arm movement for speed and control.\r\n\r\n**JORDAN:** Practice workflow: start with the pure finger\u2011pop to internalize the timing, then layer the back\u2011hand strum, and finally try to blend both within the eight\u2011bar loop.\r\n\r\n**MIKE:** And he backs each step with slow metronome play\u2011throughs\u2014first the pop version, then the back\u2011hand version\u2014so you can lock the subdivision of the six\u2011beat fourth bar without rushing.\r\n\r\n**JORDAN:** A key troubleshooting tip: don\u2019t over\u2011emphasize the slap component of the back\u2011hand strum. The primary goal is clean note articulation; the click is a by\u2011product, not the focus.\r\n\r\n**MIKE:** That\u2019s a common mistake\u2014musicians often think louder percussive hits equal better groove, but in hill\u2011country blues the feel comes from tight, understated dynamics.\r\n\r\n**JORDAN:** He also mentions that the back\u2011hand strum is transferable; once you nail it here, you can apply it to other groove\u2011centric blues or even folk songs that use a percussive thumb\u2011bass pattern.\r\n\r\n**MIKE:** Which is why he frames the technique as a long\u2011term investment despite the short\u2011term awkwardness. It expands your right\u2011hand palette across genres.\r\n\r\n**JORDAN:** Summarizing the structural insight: the eight\u2011bar riff consists of the first four bars (4\u20114\u20114\u20116) then a three\u2011time repetition of the second four\u2011bar motif before returning to the start.\r\n\r\n**MIKE:** That layout creates a \u201Ccall\u2011and\u2011response\u201D feel within the groove itself\u2014perfect for soloists to layer over during jams.\r\n\r\n**JORDAN:** The final takeaway: lock the wrist, use precise left\u2011hand damping, and let the rotational back\u2011hand strum add percussive depth without overwhelming the pocket.\r\n\r\n**MIKE:** With those fundamentals, you can not only play \u201CGoing Down South\u201D convincingly but also improvise over its hypnotic loop, turning a simple riff into a platform for expressive solos.\r\n\r\n**JORDAN:** That\u0027s a wrap on today\u0027s SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today\u0027s topic. Until next time \u2014 slack off smarter.\r\n\r\n","keyMoments":[{"seconds":0,"caption":"The video opens with the title slide introducing a hill\u2011country style blues riff lesson."},{"seconds":84.709625,"caption":"The instructor demonstrates the core eight\u2011bar groove that will be repeated throughout the lesson."},{"seconds":96.51308333333333,"caption":"A close\u2011up shows the finger placement on the fifth fret and the open E string, emphasizing minimal string bending."},{"seconds":202.86933333333334,"caption":"The teacher explains how the short riff is articulated by plucking with all fingers, creating a percussive pop sound."},{"seconds":302.96933333333334,"caption":"Hand\u2011motion techniques are highlighted, illustrating how the wrist rotates for a smooth backhand strum."},{"seconds":407.532125,"caption":"A fun two\u2011finger variation of the riff is introduced, adding a new texture to the groove."},{"seconds":494.8276666666667,"caption":"The backhand strum motion is demonstrated in detail, showing the hand rotation and attack angle."},{"seconds":507.25675,"caption":"The instructor ties the technique to a larger musical concept, stressing its importance for the style."},{"seconds":600.1412083333333,"caption":"A recap of the backhand technique is provided, reinforcing timing and dynamics for the riff."},{"seconds":697.1965,"caption":"All eight bars are played together, confirming that the learner can now cycle through the full progression."},{"seconds":802.0929583333333,"caption":"Advice is given to avoid over\u2011emphasizing the slap percussion, focusing instead on groove consistency."},{"seconds":889.6804583333334,"caption":"The lesson concludes with a brief summary and encouragement to practice the riff regularly."}]};
+(function () {
+  var cfg = window.PS_CHAT;
+  if (!cfg) return;
+  var fab     = document.getElementById('chat-fab');
+  var panel   = document.getElementById('chat-panel');
+  var msgsCt  = document.getElementById('chat-messages');
+  var input   = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var errEl   = document.getElementById('chat-error');
+  if (!fab || !panel) return;
+  var history = [];
+  console.log('[PodSlacker chat] initialised — local:', cfg.apiLocal || '(none)', '| internet:', cfg.apiBase);
+
+  fab.addEventListener('click', function () {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+
+  function setDisabled(v) { sendBtn.disabled = v; input.disabled = v; }
+
+  function addBubble(role, html) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    var bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    bub.innerHTML = html || '';
+    wrap.appendChild(bub);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+    return bub;
+  }
+
+  function showThinking() {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg assistant';
+    wrap.id = 'chat-thinking-row';
+    var dots = document.createElement('div');
+    dots.className = 'chat-thinking';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+  }
+  function removeThinking() {
+    var t = document.getElementById('chat-thinking-row');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function clearError() { if (errEl) errEl.style.display = 'none'; }
+  function showError(msg) { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderMd(text) {
+    // Timestamp links → inline buttons that open the nearest key-moment frame
+    text = text.replace(/\[([^\]]+)\]\(timestamp:(\d+(?:\.\d+)?)\)/g, function (_, label, secs) {
+      return '<button class="chat-ts-btn" onclick="openKeyMoment(' + secs + ')">' + escHtml(label) + '</button>';
+    });
+    // Bold / italic / inline code (bold before italic to avoid mis-parse)
+    text = text.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    text = text.replace(/`([^`\n]+)`/g, function(_, c) { return '<code>' + escHtml(c) + '</code>'; });
+    // Split on blank lines → paragraphs; single newlines → <br>
+    return text.split(/\n{2,}/).map(function(p) {
+      return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+
+  window.openKeyMoment = function (seconds) {
+    var imgs = Array.from(document.querySelectorAll('.gal-item img'));
+    if (!imgs.length) {
+      // No captured frames — fall back to YouTube at the given timestamp
+      window.open(cfg.videoUrl + (cfg.videoUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Math.floor(seconds), '_blank');
+      return;
+    }
+    // Find the gallery frame whose original timestamp is nearest to `seconds`
+    var best = imgs[0], bestDiff = Infinity;
+    imgs.forEach(function (img) {
+      var ts = parseFloat(img.getAttribute('data-frame-ts') || '-1');
+      if (ts < 0) return;
+      var d = Math.abs(ts - seconds);
+      if (d < bestDiff) { bestDiff = d; best = img; }
+    });
+    best.click(); // triggers the existing lightbox open() handler
+  };
+
+  // Try local API first (fast connection-refused if not running), then internet API.
+  // HTTP errors (4xx/5xx) are NOT retried — they mean the server responded.
+  async function fetchWithFallback(payload) {
+    var urls = [];
+    if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) urls.push(cfg.apiLocal);
+    urls.push(cfg.apiBase);
+    var lastErr;
+    for (var i = 0; i < urls.length; i++) {
+      var target = urls[i] + '/api/chat';
+      var label  = urls[i] === cfg.apiLocal ? ' (local)' : ' (internet)';
+      try {
+        console.debug('[PodSlacker chat] POST →', target + label);
+        return await fetch(target, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        lastErr = err;
+        if (i < urls.length - 1) {
+          console.warn('[PodSlacker chat] local unreachable, trying internet API →', urls[i + 1] + '/api/chat', err);
+        }
+      }
+    }
+    throw lastErr;
+  }
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    clearError();
+    input.value = '';
+    input.style.height = '';
+    history.push({ role: 'user', content: text });
+    addBubble('user', escHtml(text));
+    setDisabled(true);
+    showThinking();
+    var payload = {
+      video_url: cfg.videoUrl, title: cfg.videoTitle,
+      transcript: cfg.transcript, summary: cfg.summary,
+      key_moments: cfg.keyMoments, messages: history
+    };
+    try {
+      var resp = await fetchWithFallback(payload);
+      if (!resp.ok) {
+        var errBody = await resp.text().catch(function() { return ''; });
+        var httpErr = 'HTTP ' + resp.status + (errBody ? ': ' + errBody : '');
+        console.error('[PodSlacker chat] server error', httpErr);
+        throw new Error(httpErr);
+      }
+      removeThinking();
+      var bub = addBubble('assistant', '');
+      var reader = resp.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '', full = '', streamDone = false;
+      while (!streamDone) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (!line.startsWith('data:')) continue;
+          var chunk = line.slice(5).trim();
+          if (chunk === '[DONE]') { streamDone = true; break; }
+          try {
+            var obj = JSON.parse(chunk);
+            if (obj.text) { full += obj.text; bub.innerHTML = renderMd(full); msgsCt.scrollTop = msgsCt.scrollHeight; }
+          } catch(_) {}
+        }
+      }
+      if (full) {
+        history.push({ role: 'assistant', content: full });
+      } else {
+        history.pop();
+        showError('No response received. Please try again.');
+      }
+    } catch(err) {
+      removeThinking();
+      history.pop();
+      console.error('[PodSlacker chat] failed', err);
+      var isNetErr = !err.message || err.message === 'Failed to fetch'
+        || err.message.indexOf('NetworkError') >= 0
+        || err.message.toLowerCase().indexOf('network') >= 0;
+      if (isNetErr) {
+        var tried = [];
+        if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) tried.push(cfg.apiLocal + ' (local)');
+        tried.push(cfg.apiBase + ' (internet)');
+        showError('Cannot reach chat API — tried ' + tried.join(', then ') + '. Check that the service is running or set chat_api_base_url in podslacker.json.');
+      } else {
+        showError(err.message);
+      }
+    } finally {
+      setDisabled(false);
+      input.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  input.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+}());
+</script>
 
 </body>
 </html>
