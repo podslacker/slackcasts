@@ -41,3 +41,9 @@
 | [The Hypnotic Sound of Hill Country Blues - A Guitar Lesson with a Guitar Teacher](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/the_hypnotic_sound_of_hill_country_blues_a_guitar_a0z-2s5BRBs_transcript.txt) |
 | [Goin Down South (RL Burnside, Black Keys) Guitar Lesson with tabs](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_page.html) | 2026-05-23 | [📄 Download](https://podslacker.github.io/slackcasts/Hill Country Guitar Lessons/goin_down_south_rl_burnside_black_keys_guitar_less_wAAPcsR0waU_transcript.txt) |
 
+## Microsoft Build 2026
+
+| Video | Published | Transcript |
+|-------|-----------|------------|
+| [Microsoft Build 2026 | Opening Keynote](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_page.html) | 2026-06-02 | [📄 Download](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_transcript.txt) |
+

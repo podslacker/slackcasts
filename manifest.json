@@ -359,5 +359,23 @@
     "audio_duration_seconds": 332,
     "episode_summary": "In this lesson Adam\u202FNeil shows how to turn a simple metronome into a powerful practice tool for bass players. By shifting where the click lands\u2014onto \u201Cands,\u201D beats\u202F2\u202F\u0026\u202F4, or even only once per measure\u2014learners can train their internal pulse, improve subdivision awareness, and expose timing\u2026",
     "episode_number": 19
+  },
+  "Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_page.html": {
+    "title": "Microsoft Build 2026 | Opening Keynote",
+    "video_url": "https://www.youtube.com/watch?v=FFMm454fxNA",
+    "published_at": "2026-06-02T23:18:44.2067032+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 12,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "audio_url": "https://podslacker.com/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_podcast.mp3",
+    "audio_file_size_bytes": 4387224,
+    "audio_duration_seconds": 479,
+    "episode_summary": "The opening keynote at Microsoft Build\u202F2026 set the stage for a \u201Cfrontier intelligence ecosystem\u201D that unites edge\u2011to\u2011cloud compute, AI models, tooling, and security. Satya\u202FNadella and the engineering team emphasized that the real value lies in what developers can build on top of the platform, not\u2026",
+    "episode_number": 20
   }
 }
