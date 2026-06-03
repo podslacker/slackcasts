@@ -364,7 +364,7 @@
     "title": "Microsoft Build 2026 | Opening Keynote",
     "video_url": "https://www.youtube.com/watch?v=FFMm454fxNA",
     "published_at": "2026-06-02T23:18:44.2067032+00:00",
-    "last_republished_at": "2026-06-03T04:37:20.4005399+00:00",
+    "last_republished_at": "2026-06-03T04:40:42.892039+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -374,9 +374,9 @@
     "voice_host1": "onyx",
     "voice_host2": "nova",
     "audio_url": "https://podslacker.com/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_podcast.mp3",
-    "audio_file_size_bytes": 4792320,
-    "audio_duration_seconds": 239,
-    "episode_summary": "The opening keynote for Microsoft Build 2026 explores significant shifts in technology, particularly focusing on AI and how developers can leverage new platforms and tools to build value. The conference emphasizes the importance of an AI-driven tech stack that stretches from the edge to the cloud\u2026",
+    "audio_file_size_bytes": 5496000,
+    "audio_duration_seconds": 274,
+    "episode_summary": "The video showcases the opening keynote of Microsoft Build 2026, focusing on Microsoft\u0027s efforts in AI, cloud computing, and hardware innovation. It emphasizes Microsoft\u0027s vision for developers to capitalize on these technological advancements to build value-added applications. The keynote delves\u2026",
     "episode_number": 20
   }
 }
