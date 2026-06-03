@@ -5,7 +5,7 @@
     <link>https://podslacker.com/slackcasts/</link>
     <description>AI does the watching. You do the listening. One URL. One podcast. Zero effort. Your YouTube backlog, podcasted. Slack off smarter — let AI listen for you.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jun 2026 04:40:47 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 04:51:36 +0000</lastBuildDate>
     <atom:link href="https://podslacker.com/slackcasts/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>PodSlacker</itunes:author>
     <itunes:type>episodic</itunes:type>
@@ -21,14 +21,14 @@
     <item>
       <title>Microsoft Build 2026 | Opening Keynote</title>
       <link>https://podslacker.com/slackcasts/Microsoft%20Build%202026/microsoft_build_2026_opening_keynote_FFMm454fxNA_page.html</link>
-      <description><![CDATA[The video showcases the opening keynote of Microsoft Build 2026, focusing on Microsoft's efforts in AI, cloud computing, and hardware innovation. It emphasizes Microsoft's vision for developers to capitalize on these technological advancements to build value-added applications. The keynote delves…]]></description>
+      <description><![CDATA[The Microsoft Build 2026 Opening Keynote, hosted by Satya Nadella and accompanied by prominent figures in the tech industry, delves into the latest innovations and strategic directions of Microsoft. The event underscores the expanding role of AI across various platforms like Windows and Azure, and…]]></description>
       <guid isPermaLink="false">FFMm454fxNA</guid>
-      <pubDate>Wed, 03 Jun 2026 04:40:42 +0000</pubDate>
-      <enclosure url="https://podslacker.com/slackcasts/Microsoft%20Build%202026/microsoft_build_2026_opening_keynote_FFMm454fxNA_podcast.mp3" length="5496000" type="audio/mpeg" />
+      <pubDate>Wed, 03 Jun 2026 04:51:30 +0000</pubDate>
+      <enclosure url="https://podslacker.com/slackcasts/Microsoft%20Build%202026/microsoft_build_2026_opening_keynote_FFMm454fxNA_podcast.mp3" length="5403840" type="audio/mpeg" />
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:author>PodSlacker</itunes:author>
-      <itunes:duration>274</itunes:duration>
+      <itunes:duration>270</itunes:duration>
       <itunes:episode>20</itunes:episode>
       <podcast:transcript url="https://podslacker.com/slackcasts/Microsoft%20Build%202026/microsoft_build_2026_opening_keynote_FFMm454fxNA_script.txt" type="text/plain" />
     </item>
