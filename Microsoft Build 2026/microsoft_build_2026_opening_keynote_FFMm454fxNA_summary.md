@@ -6,45 +6,43 @@
 ---
 
 ## Overview  
-The opening keynote at Microsoft Build 2026 set the stage for a “frontier intelligence ecosystem” that unites edge‑to‑cloud compute, AI models, tooling, and security. Satya Nadella and the engineering team emphasized that the real value lies in what developers can build on top of the platform, not just the underlying technology. A large portion of the session showcased new Windows‑based AI hardware, an ultra‑powerful developer machine (Surface RTX DevBox), and a suite of developer‑centric tools that bring local, un‑metered AI capabilities into everyday coding workflows.
+The opening keynote at Microsoft Build 2026 set the stage for a “frontier intelligence ecosystem,” emphasizing that value comes not from a single technology but from what developers build on top of the AI stack. Satya Nadella and the engineering team walked through the full AI stack—from ubiquitous edge‑to‑cloud compute, through models, tooling, runtime, and governance—highlighting new Windows‑based AI capabilities, next‑gen hardware, and a suite of developer tools designed to enable un‑metered, locally‑run intelligence.
 
 ## New Features & Announcements  
 
-- **InvoX‑Eye and InvoX‑Plan models** – Two new on‑device AI models (a reasoning model and a planning model) that run locally on Windows, enabling fully agentic applications without cloud calls.  
-- **Surface RTX DevBox** – A “dream machine” developer workstation with 1 peta‑FLOP AI compute, 20 CPU cores, 128 GB unified memory, and native support for massive local models (up to 120 B parameters). Availability: public wait‑list, expected fall 2026.  
-- **Windows 365 Developer Distribution** – Optimized cloud‑based Windows environment for developer productivity, shipped with an intelligent terminal that includes GitHub Copilot integration.  
-- **Vertical Task‑Bar & PowerToys Grab & Move** – New UI customizations now in Insider builds, immediately usable by developers.  
-- **Native Linux utilities & Homebrew on Windows** – Over 70 command‑line tools (e.g., grep, head, tail, touch) plus Homebrew support, delivered via a public configuration repo.  
-- **Intelligent Terminal** – Integrated AI agents (Copilot, custom) that can respond to voice commands and assist with code refactoring, log search, and other development tasks.  
-- **WSL Containers with GPU acceleration** – First‑class container experience on Windows, enabling GPU‑powered workloads directly from the dev box.  
+- **Windows AI Models (INVOX‑Eye On Instruct & INVOX‑Eye Plan)** – Local reasoning and planning models that run fully on Windows devices, enabling agentic applications without cloud calls.  
+- **Surface Ultra** – New Windows PC built on NVIDIA’s next‑gen AI‑centric SoC with 128 GB unified memory, 2K display, and all‑day battery. Timeline: Fall 2026. Availability: General.  
+- **Surface RTX DevBox (Spark)** – “Dream machine” developer workstation with 1 peta‑FLOP AI compute, 20 CPU cores, 128 GB unified memory. Timeline: Fall 2026. Availability: Private preview → General.  
+- **Intelligent Terminal with GitHub Copilot** – Integrated terminal that hosts a Copilot‑powered AI agent to assist code writing, debugging, and command execution. Availability: Public preview.  
+- **Vertical Task Bar** – New UI option in Windows Insider builds allowing the task bar to be docked on the left side. Availability: Insider now, GA later.  
+- **Full Linux Tooling & 70+ CLI Utilities on Windows** – Native support for utilities (e.g., `grep`, `head`, `touch`) and package managers like Homebrew, plus first‑class container support leveraging GPU acceleration. Availability: Public preview.  
+- **Windows 365 Developer Distribution** – Cloud‑based Windows environment optimized for developer productivity, featuring the same tooling as the local RTX DevBox. Availability: General now.  
 
 ## Topics Covered  
 
-- **AI Stack Overview** – Described the layers from edge compute (Windows ML) through models, context/tools, runtime, and governance.  
-- **Edge Compute Landscape** – Highlighted the massive AI‑capable hardware present in PCs, phones, and IoT devices; examples include Outlook Summarizer, PowerPoint Text AI, Teams super‑resolution.  
-- **Hardware Partnerships** – Intel, Qualcomm, and NVIDIA contributions to next‑gen SoCs, unified memory, and DRTM; preview of the Surface Ultra device with 128 GB unified memory.  
-- **Surface RTX DevBox Demonstration** – Live walkthrough of the dev environment, task‑bar customization, PowerToys, Dev Drive, WSL containers, large‑model inference, and voice‑driven Copilot actions.  
-- **Unmetered Local Intelligence** – Showed how developers can run massive models locally, keeping token usage “free” and preserving privacy.  
-- **Cloud Infrastructure Strategy** – Satya discussed Azure’s data‑center expansion, design principles (price, water, jobs, community), and the three core AI workloads: training, inference, and agent runtime.  
-- **AI‑First Data Centers** – Example of the “AI super‑factory” in Georgia/Wisconsin built with NVIDIA GPUs, high‑bandwidth networking, and near‑zero water consumption.  
-- **Silicon Ecosystem** – Partnerships with NVIDIA and AMD on custom AI silicon (e.g., NVIDIA DGX‑Station‑class devices, AMD “NX” GPUs) to boost token‑per‑dollar‑per‑watt efficiency.  
+- **The AI Stack** – Described as layers of compute fabric (edge + cloud), models & context, runtime agents, tooling, and governance.  
+- **Edge Compute on Windows** – Examples of on‑device AI in Outlook, PowerPoint, Teams, and the broader Windows ML ecosystem.  
+- **Partner Hardware Ecosystem** – Highlights of Intel, Qualcomm, and NVIDIA contributions, culminating in the NVIDIA‑based SoC powering Surface devices.  
+- **Surface RTX DevBox Demo** – Live showcase of configuring a dev environment (vertical task bar, PowerToys, WSL containers, GPU‑accelerated local LLMs up to 120 B parameters).  
+- **Intelligent Development Experience** – Demonstrated Copilot‑driven terminal, voice‑activated coding, and local log‑analysis using the INVOX models.  
+- **Azure Data Center Strategy** – Discussed token‑per‑dollar‑per‑watt optimization, sustainability principles, and the “AI super‑factory” design (two‑story NVIDIA‑dense architecture, zero‑water‑consumption cooling).  
+- **Silicon Partnerships** – Collaboration with NVIDIA, AMD (NX generation GPU) to deliver higher token efficiency for cloud workloads.  
 
 ## Key Takeaways  
 
-- The future of development is an **integrated AI stack** where edge, cloud, and local models work together seamlessly.  
-- **Windows is becoming a first‑class AI platform**, with on‑device models, unified memory SoCs, and developer‑focused hardware like Surface RTX.  
-- **Local, un‑metered AI** enables privacy‑preserving, low‑latency experiences and removes reliance on constant cloud calls.  
-- **Developer productivity tools** (Intelligent Terminal, Copilot, PowerToys, native Linux utilities) are being bundled into a ready‑to‑use DevBox image.  
-- Microsoft’s **cloud strategy** is grounded in sustainability and community impact, while scaling AI‑centric data centers at unprecedented speed.  
-- Partnerships with **Intel, Qualcomm, NVIDIA, AMD** are critical to delivering the compute density and efficiency required for massive AI workloads.  
+- The future of AI development is a seamless blend of edge and cloud, with Windows positioned as the unifying platform.  
+- New local AI models (INVOX) enable full‑agentic loops on devices, eliminating the need for constant cloud calls.  
+- The Surface RTX DevBox provides unprecedented on‑premise compute for developers, supporting massive local LLMs and GPU‑accelerated containers.  
+- Integrated developer tools—Intelligent Terminal, vertical task bar, extensive Linux utilities—create a frictionless dev experience on Windows.  
+- Azure’s data‑center expansion is guided by sustainability and community impact while delivering massive token‑efficiency gains.  
+- Partner hardware (NVIDIA, AMD, Qualcomm, Intel) is critical to delivering the unified memory, AI‑centric SoC, and performance needed for un‑metered intelligence.  
 
 ## Notable Quotes  
 
-- “It is not about any one piece of technology… it is about the **value you can build, you can compound, you can create** on top of the platform.”  
-- “We are delivering **unmetered intelligence**—local models that run without worrying about token usage.”  
-- “The Surface RTX DevBox is a **dream machine** with 1 peta‑FLOP of AI compute and 128 GB unified memory.”  
-- “Our design criteria start with **earning permission from the communities** where we build data centers – price, water, jobs, and local investment.”  
-- “Tokens per dollar per watt is the driving equation – we optimize every layer from silicon to the data‑center to the developer’s laptop.”
+- “It is not about any one piece of technology… it is about the value that you can build, you can compound, you can create on top of the platform.”  
+- “We are delivering a dream machine… 1 peta‑flop of AI compute, 20 CPU cores, 128 GB of unified memory.”  
+- “The beginning of un‑metered intelligence—models and agents running in parallel on the device and in the cloud.”  
+- “Tokens per dollar per watt is the driving equation; everything we build is optimized around that metric.”
 
 ---
 
@@ -52,43 +50,75 @@ The opening keynote at Microsoft Build 2026 set the stage for a “frontier in
 
 **JORDAN:** Welcome to Episode 20 of SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.
 
-**MIKE:** Satya kicked off Build 2026 with a big picture claim: the real moat isn’t the silicon or the OS, it’s the “frontier intelligence ecosystem” that lets developers compose edge‑to‑cloud AI experiences. Let’s unpack that stack, starting at the edge.
+**MIKE:** Satya's keynote framed the whole Build as a “frontier intelligence ecosystem.” It wasn’t just hype; he emphasized that real value emerges from the layers developers stitch together on top of the AI stack.
 
-**JORDAN:** On the edge, Windows ML is now a universal compute fabric. Every NPU, GPU, and even CPU in a Windows PC can run inference locally—think Outlook Summarizer, PowerPoint Text AI, Teams super‑resolution. That baseline means any developer can target the entire Windows install base without a single cloud call.
+**JORDAN:** Right, the stack he outlined starts with a ubiquitous compute fabric that stretches from edge devices all the way to Azure’s hyperscale data centers, then layers models, context, tooling, runtime agents, and finally governance.
 
-**MIKE:** And that baseline is being hardened by two on‑device models: InvoX‑Eye, a reasoning engine, and InvoX‑Plan, a planning model. Both run entirely on Windows, giving us a full agentic loop—tools, state, and actions—without ever leaving the device.
+**MIKE:** That hierarchy is crucial because it tells us where to invest our effort. If you can push compute to the edge, you reduce latency and token costs, which aligns with the “tokens per dollar per watt” metric they keep repeating.
 
-**JORDAN:** The implication is “unmetered intelligence”: token consumption stays local, privacy improves, and latency drops to sub‑millisecond. You can now ship autonomous agents that respect data residency regulations out‑of‑the‑box.
+**JORDAN:** Speaking of edge, Microsoft showcased on‑device AI already baked into Outlook summarization, PowerPoint text‑to‑speech, and Teams super‑resolution—all powered by Windows ML and the GPU/NPU pool on every Windows PC.
 
-**MIKE:** To make those models useful, Microsoft unveiled the Surface RTX DevBox. It’s a 1 peta‑FLOP AI workstation with 20 CPU cores, 128 GB unified memory, and support for models up to 120 B parameters. The spec sheet reads like a research cluster, but it’s a developer laptop.
+**MIKE:** It’s a bold claim: “full install base of GPUs” meaning even a mid‑range Surface can host local inference. That opens the door to truly offline experiences.
 
-**JORDAN:** The unified memory is a game‑changer for large‑model loading; the GPU can address the entire model without PCIe hops, which is why the demo could run a 120 B parameter model and still report 3.4 M local tokens processed. That’s essentially a desktop‑scale DGX‑Station.
+**JORDAN:** The first concrete manifestation of that claim are the INVOX‑Eye On Instruct and INVOX‑Eye Plan models. Both run entirely on Windows devices, giving you a reasoning engine and a planning engine without a single cloud round‑trip.
 
-**MIKE:** Availability will be via a public waitlist later this year, but the architecture signals Microsoft’s intent to make “AI‑first hardware” a first‑class part of the Windows ecosystem, not an add‑on.
+**MIKE:** And because they’re local, you can close the agentic loop—grant the model tool‑access, let it read files, call APIs, and act autonomously, all while staying on‑prem. That’s a game‑changer for regulated industries.
 
-**JORDAN:** Parallel to the hardware push, they rolled out Windows 365 Developer Distribution. It’s a cloud‑hosted Windows image pre‑loaded with the Intelligent Terminal, GitHub Copilot integration, and the same dev‑drive tooling you get on the RTX DevBox. In other words, your dev environment is portable across laptop, desktop, and Azure.
+**JORDAN:** To make those models practical, Microsoft introduced two new hardware platforms. The Surface Ultra, built on NVIDIA’s next‑gen AI‑centric SoC, ships with 128 GB of unified memory and a 2K display, targeting power users who need on‑device reasoning.
 
-**MIKE:** Speaking of the Intelligent Terminal, the demo showed voice‑driven Copilot actions, sub‑agent delegation, and on‑the‑fly refactoring. The UI splits the terminal pane from the AI assistant pane, letting you iterate without context switching. That’s a tangible productivity boost for senior engineers who spend 30% of their day on repetitive CLI work.
+**MIKE:** Then there’s the Surface RTX DevBox, code‑named “Spark.” It’s marketed as a “dream machine” with 1 peta‑FLOP AI compute, 20 CPU cores, and the same 128 GB unified memory. That’s essentially a desktop‑sized AI super‑computer.
 
-**JORDAN:** And the terminal isn’t just a pretty UI; it’s backed by native Linux utilities—over 70 command‑line tools plus Homebrew support—all delivered via a public repo. That means you can `grep`, `tail`, or even install `htop` without WSL, bridging the Windows‑Linux developer divide.
+**JORDAN:** The DevBox isn’t just raw silicon; they shipped a pre‑configured dev environment. Python, Node, PowerToys, the vertical task bar, and a WSL2 container stack that can run GPU‑accelerated workloads out of the box.
 
-**MIKE:** The WSL containers got a GPU‑acceleration upgrade too. Now you can spin up a CUDA‑enabled container on Windows, run a TensorFlow workload, and hit GPUs directly from the dev box. It’s the first time we’ve seen first‑class container GPU support baked into the desktop OS.
+**MIKE:** The vertical task bar is a small UI tweak, but it signals a broader shift toward developer ergonomics on Windows—customizable, distraction‑free workspaces that feel native.
 
-**JORDAN:** All these pieces—local models, powerful hardware, AI‑augmented terminal, Linux utilities—are tied together by the new vertical task‑bar and PowerToys Grab & Move. They’re quality‑of‑life tweaks, but they demonstrate Microsoft’s “developer‑first” mindset: the OS surface itself becomes a programmable canvas.
+**JORDAN:** And they didn’t stop at UI. The Intelligent Terminal now embeds a GitHub Copilot agent. You can summon the agent, have it write or refactor code, debug, even execute shell commands—all from within the same pane.
 
-**MIKE:** Shifting up to the cloud, Satya laid out the data‑center design philosophy: tokens per dollar per watt. Azure’s AI super‑factory in Georgia/Wisconsin exemplifies that—two‑story racks, NVIDIA GPUs, 100 kW per rack, near‑zero water consumption, and a network fabric optimized for low‑latency model serving.
+**MIKE:** That tight integration reduces context switching. I liked the demo where they used voice‑activated Copilot to refactor logging statements across a codebase, delegating sub‑tasks to the local INVOX model.
 
-**JORDAN:** That facility also highlights the “token‑per‑watt” metric at scale. By co‑optimizing silicon (NVIDIA DGX‑class), networking, and cooling, they achieve roughly 30% lower token cost versus legacy GPU farms. The same efficiency goal drives the Surface RTX design: unified memory reduces data movement, saving watts per token.
+**JORDAN:** Under the hood, the terminal also pulls in a massive Linux tooling set—over 70 CLI utilities like `grep`, `head`, `touch`, plus Homebrew support, all natively on Windows. That bridges the Windows‑Linux developer divide.
 
-**MIKE:** Partnerships are central here. Intel’s upcoming Xe‑HPC SoCs, Qualcomm’s Snapdragon X for sub‑$500 PCs, and AMD’s upcoming “NX” GPU all feed into the same ecosystem. By exposing a common Windows‑ML API, Microsoft abstracts away vendor differences, letting developers write once and run anywhere—from a low‑end phone to a petaflop workstation.
+**MIKE:** It’s a strategic move for cross‑platform teams. You can spin up a container, leverage the GPU, and use familiar Linux tools without leaving the Windows ecosystem.
 
-**JORDAN:** Let’s not forget governance. The stack layers—edge compute, models, context/tools, runtime, security—are all baked into Windows 365 and the on‑device runtime. Enterprise customers can enforce compliance policies at the OS level while still running local models, which is crucial for regulated industries.
+**JORDAN:** The demo also showed loading a 120‑billion‑parameter LLM locally on the RTX DevBox, consuming about 90 GB of GPU RAM and processing 3.4 million tokens on‑device. That’s unprecedented for a laptop‑class form factor.
 
-**MIKE:** From a strategic viewpoint, this integrated stack reduces the friction of moving workloads between edge and cloud. A developer can prototype locally on a Surface RTX, push the same container to Azure without code changes, and rely on the same security posture across both environments.
+**MIKE:** When you think about token cost, running that locally eliminates any Azure egress fees and dramatically cuts latency for code‑completion or log‑analysis workloads.
 
-**JORDAN:** The key takeaway is that Microsoft is positioning Windows not just as an OS but as an AI platform. Unmetered local models, high‑density developer hardware, and AI‑enhanced tooling converge to make the “frontier intelligence ecosystem” a reality for every developer, not just AI research labs.
+**JORDAN:** Speaking of Azure, Satya pivoted to the data‑center strategy, reinforcing the token‑per‑dollar‑per‑watt equation. They highlighted the “AI super‑factory” in Georgia and Wisconsin—a two‑story, NVIDIA‑dense architecture with zero‑water cooling.
 
-**MIKE:** For senior practitioners, the immediate action items are clear: start experimenting with InvoX‑Eye/Plan on any Windows 10/11 machine, spin up a Windows 365 DevBox to test the Intelligent Terminal, and keep an eye on the Surface RTX waitlist for when you need petaflop‑scale local inference.
+**MIKE:** The sustainability angle is more than PR. Zero water consumption, localized power delivery, and community investment are now part of the business case for scaling AI workloads.
 
-**JORDAN:** That’s a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
+**JORDAN:** They also mentioned the massive expansion—over 500 Azure regions, with more capacity added in the last 18 months than in the previous decade. That infrastructure underpins the hybrid edge‑cloud model they’re advocating.
+
+**MIKE:** The hybrid model relies heavily on silicon partners. NVIDIA provides the AI‑centric SoC for Surface devices, while AMD’s upcoming NX‑generation GPU promises a 30 % improvement in tokens per dollar versus current leading GPUs.
+
+**JORDAN:** Intel and Qualcomm were also referenced. Qualcomm’s Snapdragon X targets high‑end laptops, and their lower‑tier roadmap aims at sub‑$500 PCs, widening the edge compute envelope.
+
+**MIKE:** It’s a clear signal that Microsoft is not playing a single‑vendor game; they’re building a hardware‑agnostic stack that can ingest compute from any partner SoC.
+
+**JORDAN:** Another interesting piece is Windows 365 Developer Distribution. It mirrors the RTX DevBox toolchain in the cloud, letting developers spin up identical environments without provisioning physical hardware.
+
+**MIKE:** That’s critical for team consistency. If you develop locally on a Surface Ultra and test in Windows 365, you get the same unified memory, same model versions, same tooling—no “works on my machine” surprises.
+
+**JORDAN:** The keynote also introduced the “Intelligent Terminal” as a public preview, and the vertical task bar is already rolling out to Insider builds. Both are tangible, near‑term developer efficiencies.
+
+**MIKE:** From a strategic standpoint, those incremental upgrades lower the barrier for adoption of on‑device AI, moving the market from cloud‑only inference toward a truly distributed intelligence fabric.
+
+**JORDAN:** To sum up the new features: INVOX local models, Surface Ultra hardware, Surface RTX DevBox with petaflop compute, Copilot‑powered terminal, vertical task bar, 70+ native Linux CLI tools, and Windows 365 developer distro—all aimed at un‑metered intelligence.
+
+**MIKE:** The big picture is that Microsoft wants Windows to be the universal substrate where edge, cloud, and developer tooling converge, with sustainability and community impact baked into the data‑center roadmap.
+
+**JORDAN:** For engineers, the immediate takeaways are: start experimenting with INVOX models on any Windows machine, explore the Intelligent Terminal for AI‑assisted scripting, and consider the RTX DevBox or Windows 365 for large‑scale local model work.
+
+**MIKE:** And for architects, factor in token‑per‑dollar‑per‑watt when sizing workloads—leveraging on‑device inference wherever possible, and reserving cloud bursts for training or heavy inference that truly need scale.
+
+**JORDAN:** That aligns with the “frontier intelligence ecosystem” mantra—value isn’t in any single component but in how we compose them into end‑to‑end solutions.
+
+**MIKE:** Exactly. If you can compose edge compute, local models, unified tooling, and cloud‑scale back‑ends, you’ll unlock new business models that were impossible a year ago.
+
+**JORDAN:** Before we close, a quick nod to the community commitments—zero‑water data centers, local job creation, and training programs—those are the social contracts that allow such aggressive infrastructure rollouts.
+
+**MIKE:** It’s a reminder that technology and policy are intertwined. Sustainable, community‑first data centers make the whole ecosystem viable long term.
+
+**JORDAN:** That’s a wrap on today’s SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.
 

@@ -364,6 +364,7 @@
     "title": "Microsoft Build 2026 | Opening Keynote",
     "video_url": "https://www.youtube.com/watch?v=FFMm454fxNA",
     "published_at": "2026-06-02T23:18:44.2067032+00:00",
+    "last_republished_at": "2026-06-03T02:04:37.8906541+00:00",
     "hosts": 2,
     "host1_name": "JORDAN",
     "host2_name": "MIKE",
@@ -373,9 +374,9 @@
     "voice_host1": "af_heart",
     "voice_host2": "am_michael",
     "audio_url": "https://podslacker.com/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_podcast.mp3",
-    "audio_file_size_bytes": 4387224,
-    "audio_duration_seconds": 479,
-    "episode_summary": "The opening keynote at Microsoft Build\u202F2026 set the stage for a \u201Cfrontier intelligence ecosystem\u201D that unites edge\u2011to\u2011cloud compute, AI models, tooling, and security. Satya\u202FNadella and the engineering team emphasized that the real value lies in what developers can build on top of the platform, not\u2026",
+    "audio_file_size_bytes": 5443416,
+    "audio_duration_seconds": 596,
+    "episode_summary": "The opening keynote at Microsoft Build 2026 set the stage for a \u201Cfrontier intelligence ecosystem,\u201D emphasizing that value comes not from a single technology but from what developers build on top of the AI stack. Satya Nadella and the engineering team walked through the full AI stack\u2014from ubiquitous\u2026",
     "episode_number": 20
   }
 }
