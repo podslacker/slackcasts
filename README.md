@@ -45,5 +45,5 @@
 
 | Video | Published | Transcript |
 |-------|-----------|------------|
-| [Microsoft Build 2026 | Opening Keynote](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_page.html) | 2026-06-02 | [📄 Download](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_transcript.txt) |
+| [Microsoft Build 2026 | Satya Nadella Opening Keynote](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_page.html) | 2026-06-02 | [📄 Download](https://podslacker.github.io/slackcasts/Microsoft Build 2026/microsoft_build_2026_opening_keynote_FFMm454fxNA_transcript.txt) |
 
