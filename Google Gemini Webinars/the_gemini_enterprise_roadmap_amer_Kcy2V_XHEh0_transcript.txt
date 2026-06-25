@@ -1,4 +1,4 @@
-﻿[00:02] Hello and welcome to the next iteration
+﻿﻿[00:02] Hello and welcome to the next iteration
 [00:04] of our quarterly roadmap series. Today
 [00:06] we're going to be talking about Gemini
 [00:08] Enterprise and our recent announcement
