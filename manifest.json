@@ -378,5 +378,19 @@
     "audio_duration_seconds": 270,
     "episode_summary": "The Microsoft Build 2026 Opening Keynote, hosted by Satya Nadella and accompanied by prominent figures in the tech industry, delves into the latest innovations and strategic directions of Microsoft. The event underscores the expanding role of AI across various platforms like Windows and Azure, and\u2026",
     "episode_number": 20
+  },
+  "Google Gemini Webinars/the_gemini_enterprise_roadmap_amer_Kcy2V_XHEh0_page.html": {
+    "title": "The Gemini Enterprise Roadmap (AMER)",
+    "video_url": "https://www.youtube.com/watch?v=Kcy2V_XHEh0",
+    "published_at": "2026-06-25T04:39:37.1487104+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 12,
+    "llm_model": "gpt-4o",
+    "tts_engine": "openai",
+    "voice_host1": "onyx",
+    "voice_host2": "nova",
+    "episode_number": 21
   }
 }

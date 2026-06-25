@@ -25,6 +25,12 @@
 | [Build production-ready agents on Google Cloud: A guide for architects and CTOs](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_page.html) | 2026-05-22 | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/build_production_ready_agents_on_google_cloud_a_gu_Mq4ZY3eE5dI_transcript.txt) |
 | [Agentic commerce: Transform the shopping experience with Google agents and open standards](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_page.html) | 2026-05-22 | [📄 Download](https://podslacker.github.io/slackcasts/Google Cloud Next 2026/agentic_commerce_transform_the_shopping_experience_GNlWClpVtcQ_transcript.txt) |
 
+## Google Gemini Webinars
+
+| Video | Published | Transcript |
+|-------|-----------|------------|
+| [The Gemini Enterprise Roadmap (AMER)](https://podslacker.github.io/slackcasts/Google Gemini Webinars/the_gemini_enterprise_roadmap_amer_Kcy2V_XHEh0_page.html) | 2026-06-25 | [📄 Download](https://podslacker.github.io/slackcasts/Google Gemini Webinars/the_gemini_enterprise_roadmap_amer_Kcy2V_XHEh0_transcript.txt) |
+
 ## Google IO 2026
 
 | Video | Published | Transcript |

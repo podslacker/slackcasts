@@ -1,0 +1,1241 @@
+﻿[00:02] Hello and welcome to the next iteration
+[00:04] of our quarterly roadmap series. Today
+[00:06] we're going to be talking about Gemini
+[00:08] Enterprise and our recent announcement
+[00:10] of the Gemini Enterprise Agent platform
+[00:12] that allows you to build, scale, govern,
+[00:15] and optimize agents across your
+[00:16] organization.
+[00:18] My name's Jamie Deggeart. I'm one of the
+[00:20] product leaders on Google Cloud AI, and
+[00:22] I'm joined today by Dimitri and Shubham
+[00:24] who will be giving you demos of some of
+[00:26] the latest updates that we released. The
+[00:28] agenda for our session today is I will
+[00:30] first walk you through an introduction
+[00:32] to Gemini Enterprise, and then we'll
+[00:33] dive into the roadmap for Gemini
+[00:35] Enterprise and several of our recent
+[00:37] announcements. And as we go, we'll give
+[00:40] you a couple of demos of recent updates.
+[00:43] So, why are we all here? It's kind of
+[00:45] obvious at this point, but AI agents are
+[00:48] really the next frontier. And
+[00:50] organizations like yourselves are
+[00:52] working to transform their business with
+[00:54] generative AI.
+[00:56] But what we hear from customers like
+[00:57] yourselves
+[00:59] is that this isn't easy.
+[01:00] There's a lot of key challenges, and
+[01:02] those challenges kind of fit into four
+[01:04] buckets. First, how do I create agents
+[01:08] and build agents with quality that are
+[01:10] actually achieving these high-quality
+[01:12] business outcomes that I'm looking for
+[01:15] to start. If I can't do that, then
+[01:18] none of this really matters. But second,
+[01:20] once I'm able to build those agents that
+[01:21] are achieving those outcomes, how do I
+[01:23] integrate that across my organization?
+[01:26] How do I integrate that with my
+[01:27] employees and where they work and the
+[01:29] workflows or procedures that they have?
+[01:32] How do I integrate it with all of my
+[01:33] enterprise data and integrate it with my
+[01:35] systems to be able to take actions
+[01:37] across those systems? And third, and
+[01:39] this is really fundamental, how do I do
+[01:41] this with trust? If I'm moving to a
+[01:43] world where every employee will be able
+[01:45] to create agents as easily as they
+[01:47] create a Google Doc, I'm going to have
+[01:50] hundreds of agents per employee, each
+[01:52] with the ability to access data across
+[01:55] my systems and take actions in those
+[01:57] systems. This is almost like, you know,
+[01:59] in Maslow's hierarchy of need, this is
+[02:01] the most fundamental.
+[02:03] Being able to trust that I'm doing this
+[02:05] in a secure and governed way is
+[02:08] critical.
+[02:09] And then fourth, the pace of change
+[02:11] today in AI is just palpable.
+[02:13] How do I get confidence that I'm
+[02:15] choosing a partner that is going to be
+[02:18] with me for that pace of change and be
+[02:20] at the frontier of innovation? Gemini
+[02:22] Enterprise is really designed to address
+[02:25] all of these challenges. You'll see with
+[02:27] recent updates that we announced in our
+[02:29] recent events, as well as in the road
+[02:31] map we show today,
+[02:32] we give you, your employees, your
+[02:35] developers, the ability to build
+[02:37] frontier agents with quality in a number
+[02:40] of ways, meeting you where you are.
+[02:43] Second, we enable you to integrate that
+[02:46] across your organization, bringing those
+[02:48] agents right to where your employees
+[02:50] work,
+[02:51] connected to all of your enterprise data
+[02:53] in a secure way, and with the ability to
+[02:55] kick actions across your systems with
+[02:57] Gemini Enterprise app. But very
+[02:59] fundamentally, we're very focused on
+[03:02] making sure that this can be governed in
+[03:04] a secure and trusted way.
+[03:06] I think this is an area that Gemini
+[03:08] Enterprise is leading across the
+[03:09] industry.
+[03:11] We'll talk today a little bit about
+[03:12] agent identity service, agent security,
+[03:15] governance, the registries for where you
+[03:18] register and manage each of the agents,
+[03:19] tools, and skills across your
+[03:21] organization, and more. And then
+[03:22] finally, when it comes to keeping up
+[03:25] with that pace of innovation, optimizing
+[03:27] your agents at scale, what you'll see is
+[03:29] that with Gemini Enterprise, we're
+[03:31] committed to bringing to you all the
+[03:33] best of Google AI.
+[03:35] This includes new frontier models,
+[03:38] features like Spark and more, and that
+[03:40] gives you all the leading updates from
+[03:42] Google. But in addition, we're very
+[03:44] committed to Google Cloud being the most
+[03:46] open cloud. And so we give you choice
+[03:48] and flexibility throughout the stack.
+[03:50] Developing on the Gemini Enterprise
+[03:52] agent platform does not lock you into
+[03:54] one model. We give you the choice of all
+[03:56] the latest Google models, models from
+[03:58] Anthropic, and the industry. Building on
+[04:01] the platform doesn't lock you into
+[04:02] building with one framework. You can
+[04:04] build with different frameworks, whether
+[04:05] it be ADK,
+[04:07] our managed agents API, or third-party
+[04:10] frameworks like LangChain, Crew AI, and
+[04:12] more. And so, taken together, Gemini
+[04:14] Enterprise really helps you address
+[04:17] across each of these challenges how
+[04:19] you'll transform your business with
+[04:21] agents and AI. So, next, let's look at
+[04:23] what Gemini Enterprise is. And
+[04:25] importantly,
+[04:27] at Next, we introduced the Gemini
+[04:29] Enterprise Agent platform, which is the
+[04:31] foundation for the full solution. The
+[04:34] Gemini Enterprise Agent platform brings
+[04:36] together the best of Vertex AI with how
+[04:38] we host models and give you services for
+[04:40] how you use those models with things
+[04:42] like grounding, rag, and more.
+[04:45] How you build agents with ADK and run
+[04:47] those agents and scale them across your
+[04:49] organization with the runtime
+[04:50] environment, but it also added a new set
+[04:53] of capabilities from across Google
+[04:55] Cloud,
+[04:56] including low-level security
+[04:58] capabilities for how you manage and
+[05:00] govern those agents, whether that be the
+[05:02] agent identity service, agent
+[05:04] registries, an all-new agent gateway,
+[05:07] and more.
+[05:08] And finally, the agent platform includes
+[05:11] new innovations that we're bringing from
+[05:13] DeepMind for how you optimize agents at
+[05:15] scale and improve the quality over time
+[05:18] with features like agent evals, agent
+[05:20] simulation, and more.
+[05:23] Built on top of this, you have the
+[05:24] Gemini Enterprise app. And this puts
+[05:27] each of those low-level building blocks
+[05:28] and capabilities to work through your
+[05:30] organization. So, if that in the
+[05:32] registry it says that Jamie has access
+[05:34] to these 350 agents, I have an interface
+[05:37] where I go to use those agents, I can
+[05:39] automatically select the right one for a
+[05:41] task, um and share them across my
+[05:43] organization. We also have Gemini
+[05:45] Enterprise for customer experience built
+[05:47] on top of this platform that extends
+[05:49] this to how you interact with your
+[05:51] customers, whether that be new touch
+[05:53] points with customers coming to your
+[05:55] website or customer support interactions
+[05:57] with existing customers. And for
+[05:59] developers, they can build directly to
+[06:01] the agent platform building custom apps,
+[06:04] agents, and other experiences with the
+[06:07] capabilities available.
+[06:08] And we have Google Antigravity allowing
+[06:11] you to do agentic development in the
+[06:14] Antigravity desktop app or CLI
+[06:17] leveraging the agent platform for the
+[06:19] back end. Taken together, this really
+[06:21] gives you a full suite of solutions for
+[06:24] deploying
+[06:25] AI across your organization. So, let's
+[06:27] dive into the road map of some of what's
+[06:29] new.
+[06:30] We'll start with our announcements at
+[06:32] Google Cloud Next. As you can see here,
+[06:35] the agent platform, as we launched at
+[06:37] Next, really includes a full suite of
+[06:40] product features and capabilities
+[06:42] helping you build, scale, optimize, and
+[06:45] govern agents across your organization.
+[06:48] Each of the items here without a little
+[06:49] blue box were already generally
+[06:51] available as part of the Vertex AI
+[06:53] service.
+[06:55] And we introduced new capabilities with
+[06:57] several of them generally available
+[06:59] launched at Next and others coming in
+[07:01] preview in the coming weeks or months.
+[07:03] This includes everything from things
+[07:05] like secure code sandboxes and computer
+[07:08] use sandboxes that you can allow an
+[07:10] agent to write its own code, create its
+[07:12] own tools, and evaluate them in a secure
+[07:14] way. The agent identity and registry
+[07:17] capabilities to govern agents across
+[07:19] your organization.
+[07:21] And new solutions to optimize quality at
+[07:23] runtime with things like agent optimizer
+[07:26] and agent simulation. And moving to IO,
+[07:29] these are the five headline
+[07:30] announcements Google made at IO, and
+[07:32] each of them are coming to Gemini
+[07:34] Enterprise.
+[07:36] First, we have Antigravity 2.0, an all
+[07:38] new harness for how you do agentic
+[07:41] development both through a CLI interface
+[07:43] or a desktop agent management
+[07:44] application. This is available,
+[07:46] generally available today to use with
+[07:49] your agent platform projects. And we
+[07:51] have a new version coming soon to Gemini
+[07:53] Enterprise app as part of our
+[07:54] subscriptions. Second, we introduced
+[07:57] Gemini Spark
+[07:59] allowing users to create an agent with
+[08:01] just a prompt and have that be an agent
+[08:04] that works in a sandbox environment,
+[08:06] writes its own code, creates its own
+[08:07] tools, and hill climbs against a task
+[08:10] until the outcome is achieved for the
+[08:11] user. This too is coming to Gemini
+[08:13] Enterprise app very soon. We launched
+[08:16] the new managed agents API that allows
+[08:18] developers to build an agent just by
+[08:21] specifying a simple configuration and
+[08:23] defining the outcome. This is available
+[08:25] today as preview on the agent platform
+[08:27] where you can post your definition of an
+[08:29] agent to the agents API and then start
+[08:31] using the agents that that is created
+[08:33] for you using the interactions API. We
+[08:36] announced the latest updates to the
+[08:38] Gemini model family with Gemini 3.5
+[08:40] family of models. Starting with a
+[08:42] generally available Gemini 3.5 Flash.
+[08:46] It's available to use today on the agent
+[08:48] platform through the API
+[08:50] or through Gemini Enterprise app
+[08:52] powering all of the interactions with AI
+[08:55] from your employees and agents. We also
+[08:57] announced that Gemini 3.5 Pro is coming
+[09:00] soon. And we introduced an all new
+[09:02] family of models with Gemini Omni coming
+[09:04] soon to the agent platform. So taken
+[09:06] together with each of these updates and
+[09:09] a number of updates that are in addition
+[09:11] to these, this is a look at the
+[09:12] short-term roadmap for the agent
+[09:14] platform across how you build, scale,
+[09:16] govern, and optimize agents. When
+[09:18] building agents this includes, for
+[09:20] example, ADK 2.0 that just went to GA,
+[09:24] updates to the Gemini 3.5 model family,
+[09:26] all new managed agents API
+[09:29] and more.
+[09:30] When scaling agents, I mentioned the
+[09:32] code sandbox and computer use sandbox.
+[09:35] Code sandbox is now generally available
+[09:37] and computer use coming soon. We have
+[09:39] memory bank updates giving you memory
+[09:42] profiles and long-term memory across
+[09:44] sessions. When governing agents, this is
+[09:47] fundamental. We introduced agent
+[09:48] gateway, agent identity and agent
+[09:51] registry capabilities, and some new APIs
+[09:53] like our content detection API that
+[09:56] allows you to take any image and detect
+[09:58] if it was AI generated, our agent
+[10:00] anomaly detection, and new semantic
+[10:02] governance policies that allow you to
+[10:04] govern in a semantic way across the
+[10:06] organization. And then finally, when it
+[10:08] comes to optimizing agents, we
+[10:09] introduced new capabilities for agent
+[10:12] observability. We just announced Code
+[10:14] Mentor, which is a security agent that
+[10:16] allows you to do code analysis for
+[10:19] security vulnerabilities and
+[10:20] automatically remediate those, and Alpha
+[10:23] Evolve that allows hill climbing against
+[10:26] quality for our particular agent
+[10:28] automatically and optimizing it at
+[10:30] scale. So, let's dive into a few of
+[10:32] these starting with the Gemini 3.5 model
+[10:35] family. Gemini 3.5 combines advanced
+[10:38] coding and reasoning with tool and
+[10:40] workflow execution to help build complex
+[10:43] agents.
+[10:45] Gemini 3.5 Flash is now generally
+[10:47] available and it excels across use cases
+[10:50] with coding, reasoning, and other
+[10:52] real-world tasks.
+[10:54] It already outperforms our last Pro
+[10:57] model, Gemini 3.1 Pro, at much faster
+[11:01] speeds and at a lower cost.
+[11:04] We also announced Gemini 3.5 Pro will be
+[11:07] available soon, our most intelligent
+[11:09] multimodal model. And we look at Gemini
+[11:12] 3.5 Flash from a perspective of the of
+[11:14] the Pareto frontier, you can see that
+[11:17] it's providing faster performance at
+[11:19] lower cost than models with equivalent
+[11:22] quality. So, for example, compared to
+[11:24] Claude Sonnet, it's giving the same kind
+[11:26] of overall quality and reasoning
+[11:28] ability, but at half the price and at
+[11:31] faster performance. I mentioned Gemini
+[11:33] Omni flash. This is a whole new class of
+[11:35] model that can create anything, any
+[11:38] multimodal output from any input,
+[11:40] whether you're starting with audio and
+[11:42] then creating a video output, or
+[11:44] starting with images and creating audio
+[11:47] and video output, etc. We're starting
+[11:49] today with the ability to generate
+[11:51] high-quality videos. And this is sort of
+[11:53] a nano banana moment for video, where
+[11:56] you have a whole new level of quality
+[11:58] for how you can do conversational video
+[12:00] editing with really strong prompt
+[12:03] adherence to get each of the details
+[12:06] right that really matter in the video
+[12:08] that's created. Now, when it comes to
+[12:10] agent development, we have a whole suite
+[12:12] of solutions for how you develop agents
+[12:15] that meet you where you are as a
+[12:16] developer. From a code-first
+[12:18] perspective, at the left side of the
+[12:19] screen, we have ADK 2.0. This is an
+[12:22] engineering-first, approach for how you
+[12:25] build and define your agents. It allows
+[12:27] you to use multiple models, multiple
+[12:29] frameworks, include some of your own
+[12:31] code, and more. Next, we have the agent
+[12:33] CLI. If you're doing AI development in a
+[12:36] harness like antigravity, cloud code, or
+[12:39] codex,
+[12:40] this makes it trivial for you to start
+[12:42] to build ADK agents, deploy them to the
+[12:45] agent platform, and make them available
+[12:47] to employees through the Gemini
+[12:48] enterprise app,
+[12:50] just by connecting the agent CLI to your
+[12:53] coding harness. We also have
+[12:55] antigravity.
+[12:56] Antigravity available both from a CLI
+[12:59] perspective for more code-first
+[13:01] approach, or from the Antigravity 2.0
+[13:04] agent manager, which allows you to do
+[13:06] your agentic coding just by managing a
+[13:08] team of agents through prompts. And we
+[13:10] launched the managed agents API, that
+[13:13] allows you as a developer to create an
+[13:16] agent just by specifying a configuration
+[13:19] and outlining the outcome you want to
+[13:20] achieve, and then Gemini builds that
+[13:23] agent on your behalf on the back end,
+[13:25] and makes it available to use through
+[13:26] the Interactions APIs.
+[13:28] Finally, for the most no-code or
+[13:30] low-code approach, we have Agent Studio
+[13:33] that allows you to start in a web-based
+[13:35] interface,
+[13:37] specify the agent you want to build just
+[13:39] through a prompt or through a
+[13:40] drag-and-drop flow-based editor, and
+[13:42] then go back and forth between that
+[13:44] web-based version and a full ADK
+[13:47] compliant agent that's created on your
+[13:49] behalf. Now, each of these can be used
+[13:51] in conjunction, and you can iteratively
+[13:53] go between them. You could start
+[13:55] prototyping with the Managed Agents API
+[13:57] and evolve to using ADK when you want to
+[14:00] do production deployment of the agent
+[14:02] that's working and you want to hill
+[14:03] climb a bot and refine. You can also use
+[14:05] Anti-Gravity 2.0 and the Agent CLI to
+[14:09] automatically build an ADK compliant
+[14:11] agent for you in the background just
+[14:13] through a prompt. And with the CLI, it
+[14:15] will automatically deploy to the
+[14:17] platform and to Gemini Enterprise app.
+[14:19] So, together those give you a full suite
+[14:21] of solutions for how you do your agentic
+[14:24] development. Diving into Anti-Gravity,
+[14:26] Anti-Gravity is our agent-first platform
+[14:29] built for the next era of how you build,
+[14:31] work, and automate with agents. As I
+[14:34] mentioned, it includes the Agent
+[14:36] Manager, Anti-Gravity 2.0 as a desktop
+[14:39] application where you as a developer can
+[14:41] manage a team of agents that are working
+[14:43] to do different tasks for your
+[14:44] development, coding, testing, and
+[14:47] iterating on quality. We also have
+[14:49] Anti-Gravity CLI that gives you a
+[14:51] command-line interface to do the same.
+[14:53] And generally available today, you can
+[14:55] use both of these with your Agent
+[14:57] Platform project.
+[14:59] This gives you scalable Google Cloud
+[15:01] infrastructure for the back end of how
+[15:03] you do that coding, and gives you
+[15:04] enterprise data governance assurances,
+[15:07] and it gives you the full Google Cloud
+[15:10] terms of service and commitments that
+[15:12] are needed for your enterprise
+[15:14] organization. When using the Agent
+[15:16] Platform, you just connect it to your
+[15:18] project and it will leverage whichever
+[15:20] consumption service you're using for how
+[15:22] you access the models, whether that be
+[15:24] pay as you go or provision throughput or
+[15:27] other consumption models. That's
+[15:29] generally available today. Coming soon,
+[15:31] we're bringing anti-gravity to Gemini
+[15:33] Enterprise app.
+[15:35] This will be available in new bundles,
+[15:37] bundled with Gemini Enterprise app. So,
+[15:39] as you roll Gemini Enterprise out
+[15:41] through your organization to your
+[15:42] employees, you can also give your
+[15:44] developers the ability to do that
+[15:46] agentic development with anti-gravity.
+[15:48] As we introduce this, we're also
+[15:50] bringing a whole suite of new admin
+[15:52] controls for how you manage who has
+[15:55] access and when they're doing
+[15:57] development, which tools or skills they
+[15:59] can leverage, and feature control for
+[16:01] things like, do I want to allow Yolo
+[16:03] mode, auto automatic execution in my
+[16:06] environment. Finally, we're also adding
+[16:09] IDE extensions so that you can work in
+[16:11] your existing IDEs you know and love,
+[16:13] whether that be VS Code, JetBrains,
+[16:16] Xcode, or others. So, next, let me
+[16:19] switch to Shubham to show a demo of
+[16:21] anti-gravity 2.0.
+[16:23] >> Hello everyone. Today, I'm going to show
+[16:25] you how easy it is to manage the entire
+[16:29] agent development life cycle using the
+[16:31] Gemini Enterprise agent platform and
+[16:34] anti-gravity 2.0.
+[16:36] We'll go from an idea to a fully
+[16:38] deployed agent registered in Gemini
+[16:41] Enterprise without even leaving our
+[16:43] coding agent.
+[16:45] We'll start with the Google Agent CLI,
+[16:48] which injects a powerful set of skills
+[16:51] covering everything from agent
+[16:53] scaffolding to evaluation and
+[16:55] deployment. First, let's ask our coding
+[16:59] agent to check if the Agent CLI is
+[17:01] installed and list the skills that we
+[17:03] can use.
+[17:05] So, here you see,
+[17:07] I just put the simple prompt in the
+[17:09] coding agent and it comes up with all
+[17:12] the skills that are installed on my
+[17:14] machine. If it wasn't installed, it will
+[17:16] automatically do it by itself.
+[17:18] Now, we are going to build an SRE triage
+[17:21] agent to parse server logs and classify
+[17:24] incidents. I'll simply tell Anduril
+[17:26] Gravity what I need, specifying that we
+[17:29] want Gemini 3.5 flash model. It comes up
+[17:33] with an implementation plan.
+[17:35] If you want, you can just add any
+[17:37] comments and will improve the
+[17:38] implementation plan from there.
+[17:41] If not, you can just move ahead with
+[17:43] that.
+[17:44] The agent then leverages the ADK skills
+[17:47] to instantly scaffold the full project,
+[17:49] creating the tools and logic on its own.
+[17:52] Here you can see the agent files is
+[17:54] created with all the logic and the code
+[17:56] that needs to be in there, and you did
+[17:58] not do anything. All you did is just
+[18:01] prompting Anduril Gravity, and it
+[18:03] automatically used the agent skills to
+[18:05] create that.
+[18:06] Next, I want to see this agent in
+[18:09] action.
+[18:10] I ask Anduril Gravity to spin up a local
+[18:13] development server.
+[18:15] And all you need to do that is just ask.
+[18:18] Can you run a local dev server so I can
+[18:20] test a few examples myself?
+[18:22] And here it did. It opened up. We can
+[18:26] open up this link in our web browser.
+[18:28] Click on the app. Test it out ourselves
+[18:32] to see if the agent is working as
+[18:34] expected or not.
+[18:36] Hello, I'm an SRE triage agent. It works
+[18:39] as expected. Let's test it out by
+[18:42] pasting a real server log snippet.
+[18:47] And it is running. Here you can see all
+[18:50] the different steps, intermediate steps.
+[18:51] It is parsing the logs, generating the
+[18:53] report for you. And here you go. It
+[18:56] generated the SRE incident report for
+[18:58] you, and the agent is now working. But,
+[19:01] before we push this to production, we
+[19:03] need quantitative metrics. I'll ask
+[19:05] Anduril Gravity to set up a proper
+[19:07] evaluation suite by creating 20 diverse
+[19:10] test scenarios, including edge cases,
+[19:13] noisy logs, and critical errors.
+[19:15] Again, all you have to do here is ask
+[19:18] your coding agent to do it. It will
+[19:22] create the evaluation suite, run it for
+[19:24] you, and come up with an eval summary.
+[19:27] Once completed, you can see a clear
+[19:29] scorecard showing the evaluation
+[19:31] results. This gives us the confidence we
+[19:33] need to deploy.
+[19:35] So, we have tested the agent locally,
+[19:38] evaluated it. Now, it's time to get it
+[19:40] running on Google Cloud, so the rest of
+[19:42] the team can use it.
+[19:44] I'll now ask AndAGravity to deploy it on
+[19:46] agent runtime.
+[19:49] And here you go. Again, a simple prompt,
+[19:51] please configure the deployment for me
+[19:54] and deploy it to agent runtime.
+[19:56] It handles the deployment configuration
+[19:58] and automatically deployed the agent to
+[20:00] Google Cloud agent runtime. It just
+[20:03] takes 5 to 10 minutes, so we have taken
+[20:05] care of it for you. And here you see the
+[20:07] message, the deployment is successful,
+[20:10] and it has given us a console link where
+[20:12] we can try it out. And once you click on
+[20:15] that link, it opens up the deployed
+[20:18] agents with a dashboard
+[20:21] and a cloud playground for you to try it
+[20:23] out. Here, we can run the same prompts
+[20:25] to try it out and see if the deployed
+[20:27] agent is working as expected. And yes,
+[20:30] it does. Now, our agent is ready to use.
+[20:33] Finally, we want to make this agent
+[20:35] discoverable and usable by broader
+[20:38] organization.
+[20:39] So, to do that, I simply say to
+[20:42] AndAGravity, "Register it to Gemini
+[20:45] Enterprise and give me the URL to open
+[20:48] and test it out." Again, it runs for a
+[20:50] few minutes
+[20:52] and give me this URL
+[20:54] where, once I click that, it opens up
+[20:58] the Gemini Enterprise dashboard.
+[21:00] Clicking on it takes me to Gemini
+[21:03] Enterprise app, where the agent is
+[21:06] already available and ready to use.
+[21:09] And similarly, we can
+[21:12] test it out here just like we did for
+[21:14] with our local server and the cloud
+[21:16] playground. And here you see the agent
+[21:19] works as expected.
+[21:21] So, we went from a simple idea to a
+[21:23] deployed agent and registered it in
+[21:26] Gemini Enterprise.
+[21:27] All without leaving the antigravity
+[21:29] coding agent.
+[21:31] Thank you so much for joining us today.
+[21:33] >> Thanks, Shubham. That's great. So, that
+[21:35] was a look at the agent platform roadmap
+[21:38] and some of the ways you can build with
+[21:39] the agent platform using antigravity.
+[21:42] Next, let's switch to the app, the
+[21:45] Gemini Enterprise app built on top of
+[21:47] this platform. We have a robust roadmap
+[21:50] across how you build, scale, govern, and
+[21:52] optimize agents through the Gemini
+[21:54] Enterprise app.
+[21:56] Starting with how you build agents, we
+[21:58] have a new 2.0 version of agent designer
+[22:01] that allows you to take any agent and
+[22:03] put it in specific policies or
+[22:05] guardrails, how you want that agent to
+[22:07] run within your own operational
+[22:09] procedures. And any employee can do that
+[22:12] through just a simple drag-and-drop
+[22:13] interface. We introduced Gemini Spark
+[22:16] that allows employees to create an agent
+[22:18] with just a prompt and Gemini will build
+[22:20] that agent on their behalf and then hill
+[22:22] climb against the task until a quality
+[22:25] outcome is achieved in a sandbox
+[22:26] environment. Antigravity coming to the
+[22:29] Gemini Enterprise app bundles,
+[22:31] MCP server support, skills, and more.
+[22:35] When it comes to scaling agents and
+[22:37] making these available to all of your
+[22:39] employees across where they work, we
+[22:41] have a new set of Gemini Enterprise
+[22:43] mobile apps for iOS and Android. We have
+[22:46] integration with Slack allowing you to
+[22:48] interact with any agent just through
+[22:50] chat in Slack.
+[22:51] We have updates to our canvas
+[22:53] capabilities allowing you to see right
+[22:56] in place how you're creating a
+[22:57] PowerPoint presentation, Word document,
+[23:00] or editing uh workspace slides or or
+[23:03] sheets, etc. We're introducing the inbox
+[23:06] that allows employees to have a single
+[23:08] place to see and manage updates from all
+[23:11] of their agents and have a team of
+[23:13] agents working in the background that
+[23:15] come to them when they need input or
+[23:16] have results. Notifications from the
+[23:18] inbox can be pushed to your preferred
+[23:20] shot client or email or other
+[23:22] interfaces. We also announced projects,
+[23:26] which will give a shared workspace for
+[23:28] employees to work with agents and their
+[23:31] AI tasks in one shared collaborative
+[23:33] space with a shared set of context. And
+[23:35] when it comes to governing agents,
+[23:37] we have new deeper observability for the
+[23:40] app, leveraging the agent identity and
+[23:42] registry services, and more. And then
+[23:44] finally, helping to bring the latest
+[23:46] Google innovations and the best
+[23:48] innovations from our ecosystem, we have
+[23:51] a number of updates to how you kind of
+[23:52] optimize with Gemini Enterprise,
+[23:54] including deep research V2, data
+[23:57] insights, updates to notebook LM, and a
+[24:01] full marketplace of agents from suite of
+[24:03] partners from across the ecosystem.
+[24:05] Now, let's dive a little bit deeper into
+[24:08] Gemini Spark.
+[24:10] Gemini Spark is really your 24/7
+[24:12] personal AI agent built for the
+[24:15] enterprise.
+[24:16] This gives every employee the ability to
+[24:19] create an agent through just a prompt.
+[24:22] Now, when you create that agent, it
+[24:25] automatically connects seamlessly to all
+[24:27] the data that's connected into Gemini
+[24:29] Enterprise. Whether that be through
+[24:30] built-in connectors like ServiceNow,
+[24:33] Salesforce, Jira, or SharePoint, or
+[24:36] through anything you connect through an
+[24:37] MCP server. When you build one of these
+[24:39] agents, it automatically executes
+[24:41] multi-step workflows and handles
+[24:44] routines in the background for you. You
+[24:46] can schedule these to run on a
+[24:47] particular cron schedule or based on an
+[24:50] event from any of the systems connected
+[24:52] to Gemini Enterprise. Now, importantly,
+[24:55] while this gives you a similar
+[24:57] experience to something like an open
+[24:58] claw,
+[24:59] this is all happening in a secure Google
+[25:02] Cloud container. It runs on our back-end
+[25:04] cloud infrastructure that you manage
+[25:06] through your governance capabilities on
+[25:08] the agent platform. This is now
+[25:10] available in early access and we're
+[25:12] bringing this to all Gemini Enterprise
+[25:14] customers in preview next month.
+[25:17] And to show you a demo, I'd like to hand
+[25:18] over to Demetri. Thanks, Jamie.
+[25:21] >> Hi, I'm Demetri, director of products on
+[25:23] Gemini Enterprise.
+[25:25] I'm really excited to share a sneak peek
+[25:26] into the future of agents in Gemini
+[25:28] Enterprise.
+[25:29] So, you might be familiar with chat,
+[25:31] which is a great place to get answers to
+[25:33] all of your work questions.
+[25:35] Now, we're introducing a new mode to
+[25:37] Gemini Enterprise called agent mode. And
+[25:39] this is a way to get real work done and
+[25:42] delegate tasks that are high judgment or
+[25:45] complex to agents to a fleet of agents
+[25:48] to help you solve those tasks.
+[25:50] And so, to kick it off, I can provide a
+[25:52] description of what I want to get done.
+[25:55] So, let's say I'm a sales leader and I
+[25:57] have some upcoming client meetings. I
+[25:59] need to prepare for those. Instead of me
+[26:01] having to walk the agent through do
+[26:04] this, do that,
+[26:05] I can just tell the agent, I want some I
+[26:08] want a high-quality output. Uh use maybe
+[26:11] some additional like existing context
+[26:13] from previous transcripts, but go ahead
+[26:15] and do this for me.
+[26:16] And so, with that, the agent will kind
+[26:18] of think it through.
+[26:20] It will first form a plan
+[26:22] and play the plan back to me.
+[26:24] I can provide additional details or
+[26:26] constraints.
+[26:27] And once we're on the same page, the
+[26:29] agent will take on this task and provide
+[26:32] the outputs I've I've requested.
+[26:35] So, here it's looking through my
+[26:36] calendar. It's using connectors and
+[26:37] skills to kind of do the initial pass.
+[26:41] And then it'll run
+[26:42] uh
+[26:43] a couple of questions by me. So, the
+[26:44] first question is, what should the
+[26:46] output look like? I can say I want both
+[26:48] a sales script and an email draft,
+[26:51] which is recommended.
+[26:52] And at of these points in time, I can
+[26:54] provide additional details or constrain
+[26:56] it further.
+[26:58] All of this looks good to me, so let's
+[27:00] let's proceed. And so, these agents will
+[27:02] run async by default, so I can kick them
+[27:04] off, I can walk away, I can spin up
+[27:06] multiple agents in parallel.
+[27:08] And they can work on highly ambiguous
+[27:11] problems. They can fill in the details,
+[27:12] they can backtrack, and they can use
+[27:14] memory, they can pull together word
+[27:16] context all in order to get these tasks
+[27:18] done.
+[27:19] And what's really exciting is I can
+[27:20] always steer the agent. So, I can say
+[27:22] uh remember context
+[27:25] CEO is coming back from vacation.
+[27:29] Maybe I could pull that in.
+[27:30] That's a little bit too fast, but um
+[27:33] during these agent runs, I can provide
+[27:35] live input as the agent is is up and
+[27:38] running, and it can use that
+[27:41] over the course of its trajectory and
+[27:44] incorporate those details into its
+[27:45] outputs.
+[27:46] So, here I have a couple of these
+[27:49] drafted emails, and I have a couple
+[27:51] sales scripts I can review.
+[27:53] And what's exciting is I can use Canvas
+[27:55] mode to edit these directly
+[27:57] all from inside Gemini Enterprise.
+[27:59] So, I have a fully end-to-end experience
+[28:01] where I can start with a task and get my
+[28:03] outputs. I can spot-check them, make
+[28:05] some edits,
+[28:06] and I can then
+[28:08] uh quickly jump over into workspace to
+[28:11] get some additional work done.
+[28:13] So, this is kind of an initial preview,
+[28:16] and uh I'm really excited to see how
+[28:19] users use agent mode, the new inbox
+[28:22] feature, and tasks to get additional
+[28:24] leverage in their workdays.
+[28:26] Uh we have a lot more coming shortly,
+[28:28] and I'll with that, I'll hand it back
+[28:29] over to you, Jamie.
+[28:31] >> Amazing. Thank you, Dmitri. I can't wait
+[28:32] to get Spark in all of your hands. Now,
+[28:35] when it comes to building agents in the
+[28:37] Gemini Enterprise app, we give you
+[28:39] multiple options. This starts with Agent
+[28:41] Designer,
+[28:43] where employees can create
+[28:44] conversational agents with just a prompt
+[28:47] or use the flow-based editor to create
+[28:49] workflow-based agents that govern
+[28:52] specific policies and
+[28:54] deterministic actions of how that agent
+[28:56] runs. We just saw Gemini Spark, which
+[28:59] creates long-running agents
+[29:02] for employees in a very simple interface
+[29:04] through a prompt that they can iterate
+[29:06] back and forth with Gemini to define the
+[29:08] outcome they're looking for. And because
+[29:09] Gemini Enterprise app is built on top of
+[29:12] the platform we covered it earlier,
+[29:14] you can build full-code agents and make
+[29:16] those available inside of Gemini
+[29:18] Enterprise to all your employees through
+[29:20] ADK agents. Now, importantly, these also
+[29:23] work together. If an employee has an
+[29:25] agent that was created with Gemini Spark
+[29:27] or ADK that's available to them, but
+[29:30] they want to put it in their own set of
+[29:31] policies or procedures, they can do so
+[29:34] by leveraging Agent Designer and
+[29:36] creating that workflow and just having
+[29:38] the Gemini Spark or ADK agent run as one
+[29:41] step in that policy. And this is
+[29:43] something we hear from a lot of
+[29:45] organizations that they want to have
+[29:46] that power of agentic AI,
+[29:49] but in specific guardrails and
+[29:51] procedures for their own organization.
+[29:53] Now, importantly, regardless of where
+[29:55] you start or what you're using to build
+[29:57] those agents, all of it is governed on
+[30:00] top of the agent platform with the agent
+[30:03] registry and all of your governance
+[30:05] policies.
+[30:06] This includes full-code agents developed
+[30:08] with ADK or with third-party frameworks
+[30:11] like LangGraph or Crew AI.
+[30:13] Those can be deployed to run on Agent
+[30:15] Platform Agent Engine, governed with the
+[30:18] registry and the rest of your policies
+[30:20] across your organization. Equally, if
+[30:23] employees build an agent through Spark
+[30:25] or through the Agent Designer, the same
+[30:27] thing is true. It's governed with all of
+[30:30] your enterprise policies and through
+[30:31] that Agent Registry. So, that's a look
+[30:34] at the road map for Gemini Enterprise
+[30:36] and some of our headline announcements.
+[30:38] But, that's not all. There's even more
+[30:39] coming. Uh we have new language support
+[30:42] ADK with Kotlin support. We launched a
+[30:44] new open source runtime called Agent
+[30:47] Executor. And we're bringing a
+[30:49] co-scientist agent into the Gemini
+[30:51] Enterprise app. Hopefully, this has
+[30:53] given you an exciting update on all the
+[30:56] updates coming to Gemini Enterprise
+[30:58] across the platform and the app. Thank
+[31:00] you so much for taking the time to join
+[31:01] us today. To get started, you can scan
+[31:04] one of the QR codes on screen to get
+[31:06] started with the Gemini Enterprise Agent
+[31:08] platform or with the QR code on the
+[31:10] right to get with the Gemini Enterprise
+[31:12] app.
+[31:13] Thank you so much for joining me today
+[31:15] and taking the time. I'm excited next to
+[31:17] hand over to Ali, who will take you
+[31:19] through more updates on Gemini
+[31:21] Enterprise for customer experience.
+[31:23] Thank you.
+[31:24] >> Thank you so much, Jamie. Welcome to our
+[31:26] GECX roadmap webinar. Google has played
+[31:29] a foundational role in modern AI, from
+[31:31] search and language understanding to
+[31:34] transformers, BERT, and Gemini.
+[31:36] What matters now is how that foundation
+[31:39] shows up in enterprise products. Today,
+[31:41] we are sharing a strategic roadmap for
+[31:44] Gemini Enterprise for customer
+[31:45] experience.
+[31:46] My name is Ali Rana, director of product
+[31:48] management at Google in the applied AI
+[31:50] team. Let me show you where we're going.
+[31:54] Today, we will cover six important
+[31:56] topics.
+[31:57] Customer experience is fundamentally
+[31:59] fragmented. Enterprises are still
+[32:01] investing in disconnected point
+[32:03] solutions. Customers get a broken
+[32:05] journey because their systems don't talk
+[32:07] to each other. You cannot fix a
+[32:09] fragmented experience with a simple bot
+[32:11] builder. It requires a much more
+[32:13] horizontal agentic platform. Today,
+[32:16] we're offering Gemini Enterprise for
+[32:18] customer experience. Gemini Enterprise
+[32:20] for customer experience brings Google's
+[32:22] frontier AI into the entire customer
+[32:24] life cycle. Search, discovery, sales,
+[32:27] and support. These are not separate
+[32:29] products. It is one platform, one
+[32:31] unified AI backbone. Let me show you how
+[32:34] it works. CX Agent Studio is a core
+[32:37] environment for building, evaluating,
+[32:39] and deploying customer experience
+[32:41] agents. The six pillars on this slide
+[32:43] describe the broader stack. Insights and
+[32:46] quality, multi-modality, context
+[32:48] engineering, native SaaS integrations,
+[32:51] agent assist, and of the omni-channel
+[32:53] gateway. The important point is that
+[32:55] reliability does not come from the model
+[32:57] alone. It comes from the full system
+[33:00] around the model. Grounding, evals,
+[33:02] context, integrations, governance, and
+[33:05] deployment support. This is why we frame
+[33:08] CX Asian Studio as a future-proof stack,
+[33:11] not just a visual builder.
+[33:14] Omni-channel gateway is about
+[33:15] continuity. Customers do not think in
+[33:18] channels. They do not think, "I'm now in
+[33:20] chat or I'm now in voice." They think
+[33:22] about completing a task or resolving an
+[33:25] issue. The gateway is designed to help
+[33:28] context travel with the customer as they
+[33:30] move across channels, from chat to voice
+[33:33] to mobile to human escalation. The goal
+[33:36] is to reduce repetition, reduce
+[33:38] friction, and preserve the thread of the
+[33:40] interaction across the journey.
+[33:43] Agent assist is focused on the human
+[33:45] representative. The core idea is to
+[33:48] provide in-the-moment guidance when the
+[33:50] customer interactions are complex,
+[33:52] emotional, or high-stakes.
+[33:55] The first bucket is the real-time
+[33:57] advisor, giving agents a synthesized
+[33:59] view of the customer, the context, and
+[34:01] the likely need. The second is the
+[34:04] in-call intelligence, surfacing relevant
+[34:06] knowledge, suggesting responses,
+[34:08] monitoring sentiment, and helping with
+[34:10] wrap-up. The intent is not to replace
+[34:13] the human agent. It is to make the human
+[34:15] agent more effective.
+[34:18] Shopping agent is our branded AI
+[34:20] shopping concierge for commerce
+[34:21] journeys. It is designed to understand
+[34:24] shopper intent, personalize
+[34:25] recommendations, support multi-modal
+[34:28] discovery, take consented actions,
+[34:30] connect sales and service, and optimize
+[34:32] for growth. The key point is that this
+[34:35] is not a product search. It is about
+[34:37] helping a shopper move from an express
+[34:39] need to a confident decision and
+[34:42] eventually check out. For merchants, the
+[34:44] experience remains branded and the
+[34:46] merchant owned while Google provides AI
+[34:48] capabilities that make the journey more
+[34:50] helpful. Before we get into the road map
+[34:53] details, this slide is the simplest way
+[34:55] to understand where we're investing.
+[34:57] Quality, scale, and speed. Quality comes
+[35:01] first. In the customer experience, AI
+[35:04] cannot just be an impressive demo. It
+[35:07] has to be reliable, grounded, evaluated,
+[35:10] governed, and ready for real customer
+[35:12] interactions. So, a major part of our
+[35:15] road map is focused on improving
+[35:17] confidence, better controls, better
+[35:20] evals, better grounding, and better
+[35:22] production readiness.
+[35:24] Second is scale. Enterprises need these
+[35:27] experiences to work across channels and
+[35:29] teams and systems and markets. This
+[35:31] means connecting agents, human
+[35:34] representative contact centers, customer
+[35:36] journeys, voice, chat, mobile into
+[35:39] escalation paths into a much more
+[35:40] consistent consumer experience.
+[35:43] Third is the speed.
+[35:45] Consumers want to move faster from idea
+[35:47] to deployment, but they need to do that
+[35:50] safely.
+[35:51] So, we're investing in developer
+[35:53] tooling, reusable patterns,
+[35:55] out-of-the-box capabilities, and
+[35:56] implementation paths that help teams
+[35:59] build, test, launch, and improve faster.
+[36:02] So, the takeaway is quite simple.
+[36:04] We're investing in quality to continue
+[36:06] to earn trust, scale to meet enterprise
+[36:10] complexity, and finally speed to help
+[36:13] customers move from ambition to impact.
+[36:16] This slide shows the major launch areas
+[36:18] across the first half of the year. The
+[36:20] key point is that these are not isolated
+[36:22] products.
+[36:23] CX Agent Studio, Shopping Agent, Agent
+[36:26] Assist, Insights, and C-CaaS are in
+[36:30] connected parts of the entire customer
+[36:32] experience platform. For customers, this
+[36:35] means the opportunity is broader than
+[36:36] deploying one chatbot or one support
+[36:39] workflow. The opportunity is to create
+[36:42] more intelligent journeys across
+[36:44] discovery,
+[36:46] purchase, service,
+[36:48] escalation, and follow-up.
+[36:50] That is the lens I'll use as we walk
+[36:52] through the road map. Let me spend a
+[36:54] little bit more time on this slide
+[36:56] because CX agent studio is one of the
+[36:58] core building blocks of the road map. In
+[37:00] Q2, the focus is trust, control,
+[37:03] integration, and collaboration. For
+[37:05] enterprise customers, the bar is not
+[37:08] whether the agent can work in a demo.
+[37:09] The bar is whether it can be tested,
+[37:12] governed, improved, and trusted in a
+[37:15] real customer environment. This is why
+[37:18] trust and control are such an important
+[37:21] part of our Q2 road map. Agent control
+[37:24] and grounding are designed to help
+[37:26] agents stay aligned with the enterprise.
+[37:29] Instructions, policies, and approved
+[37:31] knowledge. This matters because many
+[37:33] customer experiences use cases are high
+[37:36] volume and high impact. Customers need
+[37:38] confidence that the agent is not only
+[37:41] conversational, but also grounded in the
+[37:43] right context and operating within the
+[37:45] right boundaries.
+[37:47] The out-of-the-box supervisors are also
+[37:49] an important step forward. They're
+[37:51] focused on practical production risks
+[37:53] that customers care about. Audio
+[37:55] quality, tool call reliability, and
+[37:57] groundedness.
+[37:58] In simple terms, we want to help
+[38:00] customers detect and manage issues that
+[38:03] can affect the end user experience.
+[38:05] Whether that is quality of a voice
+[38:07] interaction, whether an action was
+[38:09] actually completed, or whether the
+[38:11] response is grounded in the right source
+[38:13] of truth. The scrappy eval framework is
+[38:15] another key part of the Q2 story. It
+[38:18] gives teams a more software-like way to
+[38:20] test agent skills before production and
+[38:23] continue improving them after launch.
+[38:26] This is important because enterprise AI
+[38:28] quality cannot depend only on manual
+[38:31] review or intuition.
+[38:33] Customers need repeated evaluation loops
+[38:35] so they can measure where the agent is
+[38:37] performing well,
+[38:39] whether it needs improvement, and
+[38:41] whether the changes are making the
+[38:42] experience better over time. The Q2
+[38:45] roadmap also expands how agents connect
+[38:48] into real enterprise environments. Aid
+[38:50] to Aid protocol integration helps agent
+[38:52] interact with other agents, tools, and
+[38:54] system. This is important because
+[38:57] customer experience work rarely happens
+[38:59] in isolation. Agents need to connect
+[39:02] into broader workflows, and over time
+[39:04] they need to collaborate with other
+[39:06] systems to complete more complex tasks.
+[39:09] And finally, the collaboration features
+[39:11] help the teams build together.
+[39:13] Multi-user auto sync and live presence
+[39:16] indicators may sound operational, but
+[39:18] they matter because enterprise agent
+[39:21] development is a team sport. Product
+[39:23] teams, developers, operational teams,
+[39:26] compliance teams, and business
+[39:28] stakeholders all need to work together
+[39:30] with less friction. So, Q2 is really
+[39:33] about building the foundation for
+[39:34] production readiness. Stronger controls,
+[39:37] better evals, safer deployment, better
+[39:40] integrations, and more collaborative
+[39:42] development. Then in Q3, the major theme
+[39:45] becomes context engineering.
+[39:47] The context engineering SDK is intended
+[39:49] to give Gemini only the instructions,
+[39:52] tools, and state needed for a specific
+[39:54] turn.
+[39:55] That matters because reliability is not
+[39:57] just about model quality. It is also
+[39:59] about giving the model the right context
+[40:01] at the right moment. The practical
+[40:03] benefit for customers is faster
+[40:05] development, better reliability, and
+[40:07] more reusable implementation patterns
+[40:09] for developers and partners. Taken
+[40:11] together, the roadmap is moving CX Agent
+[40:14] Studio from an agent building
+[40:16] environment towards a more complete
+[40:17] production platform for enterprise-grade
+[40:20] customer experience agents.
+[40:22] In Q2, the focus is the foundation for
+[40:25] continuous customer journeys. The
+[40:27] omnichannel gateway foundation includes
+[40:29] intelligent context carryover,
+[40:31] signal-based dynamic routing, and
+[40:33] session continuity. In plain English,
+[40:35] that means customers should not have to
+[40:38] repeat themselves. The system should use
+[40:40] the journey signals to determine the
+[40:42] right next step, and the conversation
+[40:44] thread should be preserved across
+[40:46] channels. We're also bringing in CX
+[40:48] Agent Studio agents into channels like
+[40:50] chat 2.0 and WhatsApp with human
+[40:53] escalation through the Genesys Cloud.
+[40:56] In Q3, the emphasis moves towards scale.
+[40:58] The goal is to make connected,
+[41:01] context-aware journeys deployable across
+[41:03] more enterprise environments.
+[41:06] That includes shopping agent support for
+[41:08] chat 2.0, CX Agent Studio support for
+[41:11] chat 2.0, WhatsApp, PSTN voice through
+[41:14] GTP,
+[41:16] and more flexible escalation paths,
+[41:18] including bring your own platforms like
+[41:20] Genesys Cloud and SIP. The customer
+[41:22] value is straightforward. Fewer
+[41:25] disconnected experiences, less
+[41:27] repetition, and more continuity across
+[41:29] customer journey.
+[41:32] In Q2, the theme is productivity plus
+[41:35] trust. Companion agent gives
+[41:37] representatives an AI partner during
+[41:39] live customer interactions.
+[41:41] Google CCAI integrations brings
+[41:43] assistant directly into the contact
+[41:45] center workflow. Live translation with
+[41:48] native audio is designed to help teams
+[41:50] support multilingual customers in real
+[41:53] time.
+[41:54] Proactive generative knowledge assist is
+[41:56] also important. Instead of asking reps
+[41:58] to search manually, the system can
+[42:00] suggest the right answer, action, or
+[42:02] tool while the conversation is
+[42:04] happening.
+[42:05] Summarization with Gemini 3.1 Flash
+[42:08] helps reduce after-call work while
+[42:10] preserving useful context for the
+[42:12] broader customer journey.
+[42:14] In Q3, the direction moves from
+[42:16] suggestions to workflow execution.
+[42:18] Companion agent becomes more active with
+[42:21] checklist, workflow automation, and live
+[42:23] note-taking. The practical benefit is
+[42:26] helping representatives move faster,
+[42:28] stay accurate, reduce manual effort
+[42:30] during live customer moments. In Q2, the
+[42:34] focus is early merchant value and
+[42:36] engagement. PDP prompts are designed to
+[42:38] start helpful conversations directly on
+[42:40] the product detail pages. AI overviews
+[42:43] turn search results into more dynamic
+[42:45] multi-turn product discovery.
+[42:47] We are also investing in integrations,
+[42:49] scale analytics, and insights so
+[42:51] merchants can understand how these
+[42:53] experiences affect engagement and
+[42:55] conversion. The goal is to turn
+[42:57] high-intent shopping moments into guided
+[43:00] conversations. In Q3, the roadmap
+[43:03] expands beyond full-funnel agentic
+[43:05] shopping. That means conversational
+[43:07] guidance across more of the customer
+[43:09] journey, not only product detail pages.
+[43:12] Journey prompts extend the experience to
+[43:15] home pages and category pages.
+[43:17] Developer flexibility and merchant
+[43:19] visibility make the experience easier to
+[43:21] integrate, measure, and customize. The
+[43:24] headless SDK helps merchants embed
+[43:26] shopping agent into their own surfaces
+[43:28] and custom front ends. The customer
+[43:31] value is a branded shopping experience
+[43:33] that can support discovery,
+[43:35] recommendation, and checkout in a more
+[43:37] personalized way.
+[43:40] Every global brand needs to speak the
+[43:42] native language of its customers. This
+[43:45] is why CX Agent Studio supports our
+[43:47] native audio voices across all major US
+[43:50] and European languages in general
+[43:52] availability.
+[43:54] English, French, German, Portuguese, and
+[43:56] Spanish are ready for production right
+[43:58] now.
+[43:59] We already have live customers deploying
+[44:02] local dialects and regional languages
+[44:04] like Australian English and Polish.
+[44:07] Now that we're closer to 2H, we want to
+[44:09] provide a definitive guide to our
+[44:11] priorities. Arabic, Danish, Dutch will
+[44:14] be previewed in Q3. Italian will become
+[44:17] available in GA in June. New locales for
+[44:20] English, United Kingdom and India are
+[44:23] coming to GA as well. Japanese, Korean,
+[44:26] Marathi, Polish and Romanian will go GA
+[44:28] by the end of the year. But a global
+[44:30] roadmap should not be restricted by
+[44:32] regional boundaries. Many languages on
+[44:35] our roadmap are actually ready for you
+[44:37] right now behind our allow list. If you
+[44:40] see a language listed in your allow
+[44:41] list,
+[44:43] you do not need to wait. Work directly
+[44:45] with our sales team to request early
+[44:47] access and trial to unlock access. I'll
+[44:50] close the roadmap section with
+[44:51] compliance. Because our enterprise
+[44:54] customers, this is not a secondary
+[44:56] consideration. It is often a requirement
+[44:59] for adoption.
+[45:00] The slide shows the compliance posture
+[45:02] across conversational agents, CX Agent
+[45:04] Studio, Agent Assist, Conversational
+[45:07] Insights and CCAAS.
+[45:09] The key takeaway is that we are building
+[45:11] these products with enterprise
+[45:13] requirements in mind. HIPAA, ISO, SOC,
+[45:17] data residency, C-MAC,
+[45:19] access transparency, FedRAMP and many
+[45:21] others. Not every product has the same
+[45:24] set status on every requirement today.
+[45:26] And the roadmap reflects where
+[45:28] additional work is planned. But the
+[45:30] direction is clear. Reliability,
+[45:33] governance, security and compliance are
+[45:35] core to making these AI experiences
+[45:37] usable in real enterprise environments.
+[45:41] To summarize, the roadmap is focused on
+[45:44] three practical outcomes. We are taking
+[45:47] a measured approach, moving quickly
+[45:49] where the products are ready and being
+[45:51] disciplined where enterprise quality,
+[45:54] trust and compliance matter. The future
+[45:57] of customer experience is no longer a
+[45:59] distant roadmap. With Gemini Enterprise
+[46:01] for Customer Experience, we are
+[46:03] delivering that future to your
+[46:04] production environments today. Thank you
+[46:07] so much for listening. I'm excited to
+[46:09] see what you build together.
