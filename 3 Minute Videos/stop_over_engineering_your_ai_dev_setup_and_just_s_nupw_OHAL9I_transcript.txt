@@ -1,0 +1,307 @@
+﻿[00:00] AJA HAMMERLY: Hi, it's Aja again,
+[00:01] and we're here at Next in the GDE Lounge.
+[00:04] We're going to be talking today with Richard Seroter about AI
+[00:07] DevTools.
+[00:07] And I kind of want to know, do you actually
+[00:10] use our AI DevTools?
+[00:11] RICHARD SEROTER: It's a good question.
+[00:13] I do, I do.
+[00:14] I don't code every day, but I try
+[00:17] to be a builder because I don't like talking about our stuff
+[00:19] if I don't know how to use it.
+[00:21] AJA HAMMERLY: Fair enough.
+[00:22] So what thoughts do you have?
+[00:24] Are you a CLI person?
+[00:25] Are you more an Antigravity person?
+[00:27] You in AI Studio or Stitch?
+[00:29] Is there a tool that you find yourself gravitating toward?
+[00:31] RICHARD SEROTER: I mean, I lose any dev credibility
+[00:33] by saying I like a UI.
+[00:35] I mean, I'll do the terminal stuff, like I'll use a CLI.
+[00:38] It's fine.
+[00:38] Actually, I usually keep it open all day just
+[00:40] to ask one-off questions.
+[00:41] I find that it's good for that, not when I'm trying
+[00:44] to do a long-running thing.
+[00:45] Sometimes I like going into a IDE-type tool
+[00:48] instead, like let's kick off a thing.
+[00:50] Let's work on a whole exercise, plug in some MCPs, whatever.
+[00:53] Have a goal.
+[00:54] CLI is kind of doing one-off, just
+[00:56] answer a quick question for me.
+[00:57] AJA HAMMERLY: OK, tell me more about that,
+[00:58] because that's not a use case I had thought of.
+[01:00] Do you have an example of a question
+[01:01] you might ask in the CLI?
+[01:03] RICHARD SEROTER: Yeah, I mean, part of the nice piece
+[01:04] now that I plug in our Developer Knowledge API
+[01:06] are things like that.
+[01:07] So if I have a quick product question,
+[01:08] I know it's actually coming back accurately, too.
+[01:10] It's not doing the web search, it's
+[01:12] actually pulling the latest.
+[01:13] So if I go, hey, how do I deploy to a worker pool,
+[01:16] and I know it knows about Cloud Run worker pools now,
+[01:18] and it's going to pull the latest info.
+[01:20] And that's just a one-off question.
+[01:21] It's a question/answer, almost a fancier chatbot
+[01:23] at times, but a really well-connected one.
+[01:26] AJA HAMMERLY: Yeah, so it doesn't
+[01:28] have the problem of the knowledge cutoff
+[01:29] date, then, because it's always got the latest stuff.
+[01:32] So everything we announced here at Next is already there.
+[01:35] RICHARD SEROTER: I think that is such an underrated value
+[01:37] thing because my reason I sometimes
+[01:39] get so annoyed with agentic coding tools
+[01:41] was that, hey, I'm asking about a new feature in Go or Java,
+[01:44] and it's like, I don't know what you're talking about.
+[01:45] AJA HAMMERLY: Yeah.
+[01:46] RICHARD SEROTER: I'm like, it's right there,
+[01:47] and I send it the link.
+[01:48] Maybe it doesn't pick it up.
+[01:49] But now to be able to just know, and especially
+[01:52] because that Developer Knowledge API isn't just Cloud docs.
+[01:55] It's pulling now Go Docs, it's pulling this from Firebase.
+[01:59] Why does a developer need to know there's nine doc sets?
+[02:01] You shouldn't.
+[02:02] AJA HAMMERLY: No.
+[02:02] You just want--
+[02:02] RICHARD SEROTER: Just ask for stuff and get back trusted info.
+[02:05] So I love that scenario where I can have a trusted little smart
+[02:10] person hanging out-- not person--
+[02:12] thing hanging out there answering questions.
+[02:14] AJA HAMMERLY: So are there any other surprising use cases
+[02:17] you've found for these tools?
+[02:18] I've heard some really strange ones internally,
+[02:20] but I'm curious if you have any interest in use cases
+[02:23] that people may not expect.
+[02:24] RICHARD SEROTER: For the DevTools?
+[02:25] AJA HAMMERLY: For the DevTools.
+[02:26] RICHARD SEROTER: I mean, my favorite thing
+[02:27] I like doing for both demonstrations and Richard
+[02:30] building is connecting my agentic IDE, Antigravity,
+[02:35] to Stitch.
+[02:36] AJA HAMMERLY: OK.
+[02:36] RICHARD SEROTER: I just love it so much because I'm
+[02:38] terrible at frontend.
+[02:39] I like a good frontend.
+[02:40] They're beautiful things.
+[02:41] I would spend all week centering a div.
+[02:44] Like I'm just not good at it.
+[02:46] So I'll often, in a demonstration,
+[02:49] actually ask the IDE like, hey, understand something,
+[02:53] use the browser, understand the style, whatever.
+[02:55] Go send to Stitch for a design, pull it back in,
+[02:58] and literally build the app.
+[02:59] I'm doing something in that use case
+[03:01] that would have literally taken Richard days,
+[03:04] if not a week, before.
+[03:06] I'm literally only constrained by my thoughts now.
+[03:09] That's wild because I would have given up on these projects,
+[03:12] and I did often.
+[03:13] Because it was like, this looks terrible,
+[03:15] or I can't show this to a customer or do whatever.
+[03:18] I'm embarrassing myself.
+[03:19] I'm not anymore.
+[03:20] So now I finish more projects, I think, I ever have in 15 years.
+[03:25] AJA HAMMERLY: That's awesome.
+[03:26] So what you're using is you're finding ways
+[03:28] to use the different tools basically
+[03:30] as agents in and of themselves, and they collaborate together
+[03:33] to work on a goal, where Stitch is working on the frontend
+[03:35] and Antigravity is working on the backend?
+[03:37] RICHARD SEROTER: Yeah, and even in this case,
+[03:38] the browser is doing the research.
+[03:40] So if I'm saying, hey, go do research and understand
+[03:42] the colors and fonts of my brand so that you can feed that
+[03:45] into Stitch so that it looks correct,
+[03:47] those are all different tasks for us.
+[03:49] I'd open up my browser.
+[03:50] I would do 10 blue links.
+[03:51] I would do whatever.
+[03:53] I'm just now indicating all of that
+[03:56] with maybe even a single prompt, if not a short conversation.
+[03:59] That's amazing.
+[04:00] AJA HAMMERLY: And you can stay in context.
+[04:02] You don't open a browser and open another window
+[04:04] and open another one.
+[04:05] It's all right there.
+[04:06] RICHARD SEROTER: It's all right there.
+[04:07] And so now I'm not sitting here thinking about,
+[04:09] wait, what did you finish?
+[04:10] And yes, agents might be finishing at different times,
+[04:13] but as you say, I'm just sitting in one command center sort
+[04:16] of view of this sort of thing.
+[04:17] That feels like the future.
+[04:18] And for many, it's the present.
+[04:20] But I think for most of us, we're still getting used to,
+[04:22] how do we delegate?
+[04:23] What's the right way to even instruct all these things?
+[04:26] But as you look at that, again, we just get this outcome focus.
+[04:29] AJA HAMMERLY: Yeah, and I'm really
+[04:30] liking that I'm hearing that a lot this week.
+[04:32] Focus on the outcome.
+[04:34] Focus on what you want, not necessarily how to get there.
+[04:38] RICHARD SEROTER: Now, for many of us,
+[04:40] that might be unnatural because we're also used
+[04:42] to building it incrementally.
+[04:43] And then yeah, you start with some sort of a spec or goal,
+[04:46] but it's almost emergent.
+[04:48] The emergent window has shrunk to nothing.
+[04:50] And so all of a sudden, I just went from,
+[04:52] I wonder if I could to, oh, I'm looking at it, really quickly.
+[04:55] AJA HAMMERLY: Yeah.
+[04:56] RICHARD SEROTER: That's going to probably cause
+[04:57] some other downstream impact that I can't think of yet,
+[05:00] but maybe it's just learning loops are that much faster.
+[05:02] And I can look at that immediately and go,
+[05:04] that's terrible.
+[05:05] I shouldn't have built that.
+[05:06] But I lost 20 minutes, not four days.
+[05:08] AJA HAMMERLY: There's many things
+[05:09] that I have vibe coded where I'm like, I
+[05:12] wonder if that would work?
+[05:13] And I try it, and it did not.
+[05:15] And so we abandon that branch and we go back
+[05:17] and we do something else.
+[05:18] And it's great that I can get through that in five minutes,
+[05:20] not two weeks.
+[05:21] RICHARD SEROTER: And the one I've
+[05:22] been doing lately, especially as our team, or at least I, have
+[05:25] been taking on some more product areas and things,
+[05:28] like I did my first Flutter project or my first Angular
+[05:31] or things like that because I was always
+[05:33] intimidated by those frameworks because I'm not a frontend guy.
+[05:36] AJA HAMMERLY: Yeah.
+[05:36] RICHARD SEROTER: It's a lot of scaffolding.
+[05:37] I don't want to set all this up.
+[05:39] But instead, when I can go into one of these tools,
+[05:42] whether that's CLIs or IDEs, and say,
+[05:44] hey, I'd like to build this type of app--
+[05:46] not even just the basic Hello, World tutorial,
+[05:48] but use the MCP to pull those in to maybe guide you.
+[05:50] But hey, I'm trying to build a functional app that does
+[05:53] this, that uses this framework.
+[05:55] I've tried three or four frameworks
+[05:56] that I've always been intimidated
+[05:57] by over the last month.
+[05:59] And in 15, 20 minutes, I have something,
+[06:01] and then I can ask the agent, hey, how's this work?
+[06:04] Oh, what does this do?
+[06:06] So I'm learning through a personalized result.
+[06:09] AJA HAMMERLY: Yeah.
+[06:10] RICHARD SEROTER: My gosh, that's so much better than just click
+[06:12] here, click here, type these words.
+[06:14] And all I learned was how to follow a tutorial.
+[06:16] AJA HAMMERLY: Yep.
+[06:17] RICHARD SEROTER: In this case, I have an outcome,
+[06:18] and now I'm dissecting the outcome to figure out
+[06:21] how does this piece together.
+[06:22] Am I learning it as deeply as if I went to a class
+[06:24] and did a boot camp?
+[06:25] No.
+[06:26] But am I seeing what I wanted to see from it?
+[06:28] Yeah.
+[06:28] AJA HAMMERLY: Yeah, I'm doing the exact same thing with Go
+[06:29] right now.
+[06:30] I'm building Go agents.
+[06:31] I am not a Gopher.
+[06:33] I really like the Go community.
+[06:34] And so I'm like, OK, well, let's use ADK Go as not released.
+[06:38] I started learning Go.
+[06:39] And I'm building stuff with it, and I'm like, hey,
+[06:41] how does that work exactly?
+[06:42] RICHARD SEROTER: So do you feel less language constraint?
+[06:44] Like, I don't write Python, and yet I've
+[06:45] written a decent amount of Python in the last few months
+[06:48] because there were certain things that
+[06:49] only had a package there or that was something that works well
+[06:51] with Agent Engine or things.
+[06:53] And so I'm not intimidated by that.
+[06:54] Before, it'd be like, I guess I'm just
+[06:55] not trying that service.
+[06:57] Now it doesn't matter.
+[06:58] I'll build a Python agent.
+[06:59] It works fine.
+[06:59] AJA HAMMERLY: Yeah, exactly how I feel.
+[07:01] There's been a lot of projects where
+[07:02] I've wanted the power of Go, but learning a new language
+[07:04] was super intimidating, and I didn't have enough time.
+[07:06] RICHARD SEROTER: Yeah.
+[07:07] AJA HAMMERLY: And now I can just get the power of Go.
+[07:09] It's great.
+[07:10] So the last question I've been asking everyone
+[07:12] is, how do you get started?
+[07:14] There are so many models, so many tools.
+[07:16] Google's got several tools, but there's
+[07:17] plenty of tools from other companies as well.
+[07:20] Every model has different versions in the family,
+[07:23] and then you've got Gemma's, models from other providers.
+[07:28] Folks want to build cool stuff.
+[07:29] They have amazing ideas, but they try to navigate the space,
+[07:32] and they're like, I don't even know what is an AI Studio?
+[07:36] What is an Antigravity?
+[07:37] So if you were talking to someone
+[07:39] who had a really cool idea they wanted to build,
+[07:41] where would you tell them to get started?
+[07:43] RICHARD SEROTER: Yeah, I guess the second question would be,
+[07:46] what are you thinking about?
+[07:47] It's a web application?
+[07:48] AJA HAMMERLY: Let's go with web.
+[07:49] RICHARD SEROTER: AI Studio's great.
+[07:50] AJA HAMMERLY: OK.
+[07:50] RICHARD SEROTER: Google AI Studio
+[07:52] to just say, I'm going from intent to now even adding a box
+[07:54] and saying, give me Firebase Auth if I want it or a database.
+[07:57] Amazing.
+[07:58] I just go from idea to implementation like that.
+[08:01] Beautiful stuff.
+[08:02] I think when I'm thinking of building
+[08:04] a system or an application, I'd be looking more to my IDE.
+[08:07] Plenty of people will jump to terminal, and that's fine.
+[08:10] For me, I still at least like the read-only code editor
+[08:12] view for me, basically, at this point to run through there.
+[08:16] I guess my advice would be, don't
+[08:17] overoptimize at the beginning.
+[08:19] Don't be like, OK, when I'm starting to build,
+[08:21] I need to first try every model and every tool.
+[08:24] Then you just have a really cool setup,
+[08:26] and you've produced nothing.
+[08:27] And I don't know if you have--
+[08:29] and I think we see this on social sometimes,
+[08:30] people advertising their unbelievable setups.
+[08:33] And someone would be like, what have you built?
+[08:35] Nothing yet.
+[08:35] I don't know.
+[08:36] Maybe grow your setup after you keep getting wins.
+[08:40] It's like otherwise, you're going to be really intimidated.
+[08:43] I have to use seven harnesses and all these clouds and all
+[08:46] these models?
+[08:46] And none of that's the point because arguably, anybody
+[08:49] who uses your output couldn't care less how you produced it.
+[08:53] The point was the output and the outcome.
+[08:55] And so just build the thing.
+[08:57] And when you get comfortable with that thing and you're like,
+[08:59] I wonder if this other thing works, too?
+[09:01] Awesome.
+[09:01] I don't know.
+[09:02] Win after win.
+[09:03] AJA HAMMERLY: So baby steps.
+[09:04] RICHARD SEROTER: Yeah.
+[09:04] AJA HAMMERLY: Have an idea.
+[09:06] Start in AI Studio if it's web based and iterate.
+[09:08] RICHARD SEROTER: Get the dopamine hit, right?
+[09:10] That's what motivates us.
+[09:11] I did something.
+[09:12] That's awesome.
+[09:13] I want to do it again.
+[09:14] That's cool.
+[09:15] That's great.
+[09:15] So yeah, don't overindex on the tools.
+[09:19] Still say obsessed with, I can do anything I think of now,
+[09:22] and be obsessed with that.
+[09:23] AJA HAMMERLY: So focus on the outcomes.
+[09:26] Well, thank you so much for giving us some time today.
+[09:27] I really enjoyed talking to you.
+[09:29] RICHARD SEROTER: Absolutely.
+[09:30] Thanks, everybody.

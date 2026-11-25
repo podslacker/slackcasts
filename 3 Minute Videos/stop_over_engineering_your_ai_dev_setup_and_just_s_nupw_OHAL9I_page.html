@@ -1,0 +1,723 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PodSlacker — Stop over engineering your AI dev setup and just start</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --code-bg: #1e2433;
+  --radius:  10px;
+  --ph:      72px;
+}
+html { scroll-behavior: smooth; }
+.ps-cta-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: linear-gradient(90deg, #0d1f3c 0%, #111827 100%);
+  border-bottom: 1px solid rgba(88,166,255,.25);
+  padding: 10px 24px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ps-cta-logo {
+  width: 32px; height: 32px; object-fit: contain; border-radius: 50%;
+  flex-shrink: 0;
+}
+.ps-cta-bar span { flex: 1; }
+.ps-cta-bar strong { color: var(--text); }
+.ps-cta-btn {
+  display: inline-block; padding: 6px 16px; white-space: nowrap;
+  background: rgba(88,166,255,.12);
+  color: var(--accent);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 20px;
+  font-size: 0.82rem; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s;
+}
+.ps-cta-btn:hover { background: rgba(88,166,255,.24); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+body.has-player { padding-bottom: calc(var(--ph) + 8px); }
+.page-header {
+  background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px;
+  text-align: center;
+}
+.page-header h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; }
+.vid-badge { display: inline-block; margin-top: 6px; font-size: 0.75rem; color: var(--muted); font-family: "SF Mono", Consolas, monospace; }
+.vid-badge a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.vid-badge a:hover { opacity: .8; }
+.header-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.source-link { display: inline-block; padding: 6px 16px; background: rgba(88,166,255,.1); color: var(--accent); border: 1px solid rgba(88,166,255,.3); border-radius: 20px; font-size: 0.84rem; text-decoration: none; transition: background .2s; }
+.source-link:hover { background: rgba(88,166,255,.2); }
+.content { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+.section { margin-bottom: 48px; }
+.section-heading { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 600; line-height: 1.3; margin: 1.5em 0 .5em; color: var(--text); }
+.prose h1 { font-size: 1.7rem; }
+.prose h2 { font-size: 1.3rem; color: var(--accent); }
+.prose h3 { font-size: 1.1rem; }
+.prose p { margin-bottom: 1em; }
+.prose ul, .prose ol { padding-left: 1.6em; margin-bottom: 1em; }
+.prose li { margin-bottom: .3em; }
+.prose strong { font-weight: 600; }
+.prose code { font-family: "SF Mono", Consolas, monospace; font-size: .875em; background: var(--code-bg); padding: .15em .4em; border-radius: 4px; color: #79c0ff; }
+.prose pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; overflow-x: auto; margin-bottom: 1em; }
+.prose pre code { background: none; padding: 0; }
+.prose blockquote { border-left: 3px solid var(--accent); padding: 8px 16px; margin: 0 0 1em; color: var(--muted); background: rgba(88,166,255,.06); border-radius: 0 4px 4px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 1em; font-size: .9em; }
+.prose th, .prose td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
+.prose th { background: var(--surface); font-weight: 600; }
+.prose tr:nth-child(even) { background: rgba(255,255,255,.02); }
+.prose a { color: var(--accent); text-decoration: none; }
+.prose a:hover { text-decoration: underline; }
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+.md-fallback { white-space: pre-wrap; font-size: .88em; color: var(--muted); }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.gal-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color .2s, transform .2s; }
+.gal-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.gal-item img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; cursor: zoom-in; }
+.gal-caption { padding: 8px 10px; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.transcript-details { margin-top: 8px; }
+.transcript-summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; padding: 8px 0; list-style: none; user-select: none; }
+.transcript-summary::-webkit-details-marker { display: none; }
+.transcript-summary::marker { display: none; }
+.transcript-summary::before { content: "▶ "; font-size: .7em; }
+details[open] .transcript-summary::before { content: "▼ "; }
+.transcript-body { margin-top: 12px; display: flex; flex-direction: column; gap: 3px; max-height: 420px; overflow-y: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.ts-line { font-size: .875rem; line-height: 1.55; color: var(--text); }
+.ts-link { color: var(--accent); text-decoration: none; font-family: "SF Mono", Consolas, monospace; font-size: .8rem; }
+.ts-link:hover { text-decoration: underline; }
+.transcript-download-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.25); border-radius: 20px; font-size: 0.88rem; text-decoration: none; transition: background .2s; }
+.transcript-download-link:hover { background: rgba(88,166,255,.2); }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
+.lightbox.open { display: flex; }
+.lightbox-content { display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: default; max-width: 82vw; }
+.lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius); box-shadow: 0 8px 48px rgba(0,0,0,.7); }
+.lightbox-caption { color: #cdd5e0; font-size: .88rem; line-height: 1.5; text-align: center; max-width: 700px; min-height: 1.2em; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; font-size: 2rem; color: #fff; cursor: pointer; line-height: 1; opacity: .7; transition: opacity .15s; }
+.lightbox-close:hover { opacity: 1; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 3rem; line-height: 1; cursor: pointer; padding: 10px 18px; border-radius: var(--radius); opacity: .7; transition: opacity .15s, background .15s; user-select: none; }
+.lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,.24); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-nav.hidden { visibility: hidden; pointer-events: none; }
+.lightbox-yt-wrap { display: none; width: min(82vw, 900px); aspect-ratio: 16/9; }
+.lightbox-yt-wrap iframe { width: 100%; height: 100%; border-radius: var(--radius); }
+.lightbox-actions { display: flex; gap: 10px; justify-content: center; align-items: center; }
+.lightbox-yt-btn { background: #ff0000; color: #fff; border: none; border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; display: inline-flex; align-items: center; gap: 6px; }
+.lightbox-yt-btn:hover { background: #cc0000; }
+.lightbox-yt-btn.no-yt { display: none; }
+.lightbox-back-btn { display: none; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 8px 20px; font-size: .88rem; cursor: pointer; transition: background .15s; }
+.lightbox-back-btn:hover { background: rgba(255,255,255,.22); }
+.lightbox-content.yt-mode > img { display: none; }
+.lightbox-content.yt-mode .lightbox-yt-wrap { display: block; }
+.lightbox-content.yt-mode .lightbox-yt-btn { display: none; }
+.lightbox-content.yt-mode .lightbox-back-btn { display: inline-flex; }
+.player { position: fixed; bottom: 0; left: 0; right: 0; height: var(--ph); background: rgba(13,17,23,.93); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid var(--border); z-index: 1000; }
+.player-inner { max-width: 860px; margin: 0 auto; height: 100%; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+.play-btn { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #0d1117; transition: background .15s, transform .1s; }
+.play-btn:hover { background: #79bbff; }
+.play-btn:active { transform: scale(.94); }
+.track-meta { flex-shrink: 0; max-width: 200px; overflow: hidden; }
+.track-name { font-size: .78rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-family: "SF Mono", Consolas, monospace; }
+.seek-wrap { flex: 1; display: flex; align-items: center; gap: 10px; }
+.time-lbl { font-size: .76rem; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; font-family: "SF Mono", Consolas, monospace; }
+.seek-bar { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: var(--border); cursor: pointer; outline: none; }
+.seek-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: transform .1s; }
+.seek-bar:hover::-webkit-slider-thumb { transform: scale(1.3); }
+.seek-bar::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) {
+  .track-meta { display: none; }
+  .page-header { padding: 20px 16px; }
+  .content { padding: 20px 16px; }
+}
+
+/* ── Chat feature ────────────────────────────────────────────────────────── */
+.chat-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: #0d1117;
+  border: none; cursor: pointer; z-index: 1500;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(88,166,255,.4);
+  transition: transform .2s, background .2s;
+}
+.chat-fab:hover { background: #79bbff; transform: scale(1.08); }
+body.has-player .chat-fab { bottom: calc(var(--ph) + 16px); }
+.chat-panel {
+  position: fixed; bottom: 88px; right: 24px;
+  width: 360px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100vh - 120px);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  z-index: 1500; display: none; flex-direction: column; overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+body.has-player .chat-panel { bottom: calc(var(--ph) + 80px); }
+.chat-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.chat-header-title { font-size: .88rem; font-weight: 600; color: var(--text); }
+.chat-header-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1.2rem; line-height: 1;
+  padding: 2px 6px; border-radius: 4px; transition: color .15s;
+}
+.chat-header-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1; overflow-y: auto; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.chat-msg { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+.chat-msg.user { align-self: flex-end; align-items: flex-end; }
+.chat-msg.assistant { align-self: flex-start; align-items: flex-start; }
+.chat-bubble {
+  padding: 10px 14px; border-radius: 14px;
+  font-size: .875rem; line-height: 1.55; word-break: break-word;
+}
+.chat-msg.user .chat-bubble {
+  background: rgba(88,166,255,.18); color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+.chat-msg.assistant .chat-bubble {
+  background: var(--code-bg); color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.chat-bubble p { margin: 0 0 .5em; }
+.chat-bubble p:last-child { margin-bottom: 0; }
+.chat-bubble strong { font-weight: 600; }
+.chat-bubble em { font-style: italic; }
+.chat-bubble code {
+  font-family: "SF Mono", Consolas, monospace; font-size: .8em;
+  background: rgba(0,0,0,.3); padding: .1em .35em;
+  border-radius: 3px; color: #79c0ff;
+}
+.chat-ts-btn {
+  background: none; border: 1px solid rgba(88,166,255,.4); color: var(--accent);
+  border-radius: 10px; padding: 1px 8px; font-size: .8em;
+  cursor: pointer; transition: background .15s;
+}
+.chat-ts-btn:hover { background: rgba(88,166,255,.15); }
+.chat-thinking {
+  display: flex; gap: 4px; align-items: center;
+  padding: 10px 14px; background: var(--code-bg);
+  border-radius: 14px; border-bottom-left-radius: 4px; width: fit-content;
+}
+.chat-thinking span {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+  animation: chat-bounce .9s ease-in-out infinite;
+}
+.chat-thinking span:nth-child(2) { animation-delay: .15s; }
+.chat-thinking span:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30%           { transform: translateY(-5px); opacity: 1; }
+}
+.chat-footer {
+  padding: 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); font-size: .875rem;
+  padding: 8px 12px; outline: none; resize: none;
+  min-height: 38px; max-height: 120px; line-height: 1.4;
+  font-family: inherit; transition: border-color .15s;
+}
+.chat-input:focus { border-color: var(--accent); }
+.chat-send {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--accent); color: #0d1117; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .1s; align-self: flex-end;
+}
+.chat-send:hover { background: #79bbff; }
+.chat-send:active { transform: scale(.92); }
+.chat-send:disabled { background: var(--border); color: var(--muted); cursor: default; transform: none; }
+.chat-error { font-size: .8rem; color: #f85149; padding: 4px 14px 8px; text-align: center; }
+</style>
+</head>
+<body class="has-player">
+
+<div class="ps-cta-bar">
+  <img src="https://podslacker.com/logo.png" alt="PodSlacker" class="ps-cta-logo" onerror="this.style.display='none'" />
+  <span>This SlackCast was generated by <strong>PodSlacker</strong> &mdash; turn any YouTube video into a podcast.</span>
+  <a href="https://podslacker.com" target="_blank" rel="noopener" class="ps-cta-btn">Try PodSlacker now &#8599;</a>
+</div>
+
+<header class="page-header">
+  <h1>Stop over engineering your AI dev setup and just start</h1>
+  <div class="vid-badge">Created with <a href="https://podslacker.com" target="_blank" rel="noopener">PodSlacker</a> &nbsp;·&nbsp; nupw_OHAL9I</div><br>
+  <div class="header-links">
+  <a class="source-link" href="https://podslacker.github.io/slackcasts/" target="_blank" rel="noopener">&#8592; Back to Index</a>
+  <a class="source-link" href="https://www.youtube.com/watch?v=nupw_OHAL9I" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="section">
+<h2 class="section-heading">Key Moments</h2>
+<div class="gallery">
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_01.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_01.jpg" loading="lazy" data-caption="Opening introduction with Aja Hammerly welcoming viewers and framing the discussion around AI developer tools." data-yt-ts="0" data-frame-ts="0"><figcaption class="gal-caption">Opening introduction with Aja Hammerly welcoming viewers and framing the discussion around AI developer tools.</figcaption></figure>
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_02.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_02.jpg" loading="lazy" data-caption="The conversation turns to the Developer Knowledge API, noting its awareness of Cloud Run worker pools and the problem of model knowledge cutoffs." data-yt-ts="60" data-frame-ts="62"><figcaption class="gal-caption">The conversation turns to the Developer Knowledge API, noting its awareness of Cloud Run worker pools and the problem of model knowledge cutoffs.</figcaption></figure>
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_03.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_03.jpg" loading="lazy" data-caption="The speakers describe working with multiple agents from a single command center, focusing on instructing the desired outcome rather than the method." data-yt-ts="243" data-frame-ts="245"><figcaption class="gal-caption">The speakers describe working with multiple agents from a single command center, focusing on instructing the desired outcome rather than the method.</figcaption></figure>
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_04.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_04.jpg" loading="lazy" data-caption="The topic shifts to learning and experimentation, including boot camps, unreleased ADK Go, and recent Python work." data-yt-ts="378" data-frame-ts="380"><figcaption class="gal-caption">The topic shifts to learning and experimentation, including boot camps, unreleased ADK Go, and recent Python work.</figcaption></figure>
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_05.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_05.jpg" loading="lazy" data-caption="A concrete setup is introduced for a walkthrough, with the interface ready to be viewed and run." data-yt-ts="409" data-frame-ts="411"><figcaption class="gal-caption">A concrete setup is introduced for a walkthrough, with the interface ready to be viewed and run.</figcaption></figure>
+<figure class="gal-item"><img src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_06.jpg" alt="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_frame_06.jpg" loading="lazy" data-caption="The session closes with a memorable conclusion about the dopamine hit of building and the feeling of being able to create anything." data-yt-ts="562" data-frame-ts="564"><figcaption class="gal-caption">The session closes with a memorable conclusion about the dopamine hit of building and the feeling of being able to create anything.</figcaption></figure>
+
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Summary &amp; Script</h2>
+<div class="prose"><h1 id="stop-over-engineering-your-ai-dev-setup-and-just-start">Stop over engineering your AI dev setup and just start</h1>
+<p><strong>Source:</strong> <a href="https://www.youtube.com/watch?v=nupw_OHAL9I">https://www.youtube.com/watch?v=nupw_OHAL9I</a><br />
+<strong>Video ID:</strong> <code>nupw_OHAL9I</code></p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This is a Next '26 GDE Lounge interview in which Aja Hammerly talks with Richard Seroter about how he actually uses Google's AI developer tooling day to day. Rather than surveying the whole product portfolio, the conversation focuses on Seroter's real workflows: keeping a CLI open for one-off grounded questions, orchestrating Antigravity, a browser, and Stitch together to build frontends he could never hand-write, and using agents to learn unfamiliar frameworks and languages. The through-line is that the tooling's value is trusted, current information plus compressed learning loops, not elaborate harness setups. The video closes with Seroter's advice for beginners: pick one entry point, ship something, and expand your setup only after accumulating wins.</p>
+<h2 id="speakers-guests">Speakers &amp; Guests</h2>
+<ul>
+<li><strong>Aja Hammerly</strong> — Developer Relations (Google), host of the segment; frames the questions and shares her own parallel experience learning Go and building Go agents.</li>
+<li><strong>Richard Seroter</strong> — Google developer advocate/builder; the primary subject, demonstrating his CLI, Antigravity, and Stitch workflows and offering the &quot;don't over-engineer your setup&quot; argument.</li>
+</ul>
+<h2 id="new-features-announcements">New Features &amp; Announcements</h2>
+<ul>
+<li><strong>Developer Knowledge API</strong> — Grounds CLI answers in current official documentation rather than stale model training data or web search; Seroter calls this the most underrated value of the setup.</li>
+<li><strong>Go Docs in the Developer Knowledge API</strong> — Documentation set pulled in beyond Google Cloud docs, so language-level questions about new Go features resolve correctly.</li>
+<li><strong>Firebase docs in the Developer Knowledge API</strong> — Another non-Cloud doc set added, supporting Seroter's point that developers shouldn't need to know how many doc sets exist behind the answer.</li>
+<li><strong>Cloud Run worker pools</strong> — Cited as the concrete example of a newly shipped feature the Developer Knowledge API already knows about, whereas older agentic tools did not.</li>
+<li><strong>Next announcements reflected in the Developer Knowledge API</strong> — Hammerly notes everything announced at Next is already answerable through the grounded CLI because the API pulls the latest docs.</li>
+<li><strong>Antigravity (agentic IDE)</strong> — Seroter's primary long-running-work environment and the orchestrator that delegates to the browser and Stitch.</li>
+<li><strong>Stitch</strong> — Design/frontend generation tool he connects to Antigravity to produce usable UI, removing his self-described inability to center a div.</li>
+<li><strong>Browser-driven brand research inside the agentic flow</strong> — The browser acts as a research agent, extracting colors and fonts from a brand site and feeding them into Stitch, all within one context window.</li>
+<li><strong>Google AI Studio</strong> — Seroter's recommended starting point for web ideas, going from plain intent to implementation.</li>
+<li><strong>Firebase Auth via AI Studio</strong> — Added by typing it into the prompt box alongside the app request.</li>
+<li><strong>Database provisioning via AI Studio</strong> — Same one-box addition flow as Firebase Auth.</li>
+<li><strong>MCP (Model Context Protocol) integrations</strong> — Plugged into IDEs and CLIs to pull in framework-specific guidance when building with unfamiliar stacks.</li>
+<li><strong>Read-only code editor view</strong> — The IDE surface Seroter says he still relies on at minimum when building a system or application.</li>
+<li><strong>Agent Engine</strong> — Cited as a reason he wrote real Python recently, because certain packages worked well with it.</li>
+<li><strong>ADK Go</strong> — Aja's motivation for learning Go; explicitly described as not released.
+Availability: Not released</li>
+<li><strong>Gemma models</strong> — Referenced as part of the crowded model landscape (alongside multiple model families and other providers) that makes getting started feel overwhelming.</li>
+<li><strong>Flutter and Angular (agent-assisted first projects)</strong> — Not new products, but demonstrated capabilities: Seroter built functional apps in frameworks that had previously intimidated him, in 15–20 minutes each.</li>
+</ul>
+<h2 id="topics-covered">Topics Covered</h2>
+<p><strong>CLI as a grounded Q&amp;A surface, not a coding harness.</strong> Seroter keeps the CLI open all day for one-off questions rather than long-running agentic work, which is the opposite of how he uses an IDE. The reason this works is the Developer Knowledge API: answers come from current official docs, so asking how to deploy to a Cloud Run worker pool returns accurate, up-to-date information. He describes it as a fancier chatbot that happens to be extremely well connected. Hammerly reframes it as eliminating the knowledge-cutoff-date problem.</p>
+<p><strong>The knowledge cutoff frustration with agentic coding tools.</strong> Seroter explains that his annoyance with agentic tools came from asking about new features in Go or Java and getting &quot;I don't know what you're talking about,&quot; even after pasting a link the tool failed to read. The fix is grounding rather than a bigger model: the Developer Knowledge API spans Cloud docs, Go Docs, and Firebase without the developer needing to know how many doc sets are involved. Both speakers treat this as an underrated reason to trust agent output.</p>
+<p><strong>Multi-agent orchestration across Antigravity, browser, and Stitch.</strong> Seroter's favorite demo and real workflow is having Antigravity use the browser to research a brand's colors and fonts, send that to Stitch for design, and pull the result back to build the app. Hammerly characterizes the tools as agents collaborating on one goal, with Stitch on frontend and Antigravity on backend. The key structural benefit is that everything happens in one command-center context instead of scattered windows and &quot;10 blue links&quot; research. Seroter says work that would have cost him days or a week now happens in a single prompt or short conversation.</p>
+<p><strong>Outcome focus and collapsed learning loops.</strong> Both speakers repeatedly land on focusing on what you want rather than the steps to get there, and Seroter notes this is unnatural for people used to incremental building. He argues the &quot;emergent window has shrunk to nothing&quot;: you go from wondering if something is possible to looking at it almost immediately. The downstream effect is that bad ideas cost 20 minutes instead of four days, which he expects to accelerate learning loops in ways not yet fully understood. Hammerly agrees, describing vibe-coded experiments she abandons after five minutes rather than two weeks.</p>
+<p><strong>Learning new frameworks and languages through generated artifacts.</strong> Seroter built his first Flutter and Angular projects in the last month by asking agents for functional apps in those frameworks, using MCPs for guidance, then interrogating the result to understand how it works. He's explicit that this is shallower than a bootcamp but delivers what he actually wanted from it. He and Hammerly both report shed language anxiety: he wrote real Python because certain packages worked with Agent Engine, and she is learning Go via ADK Go while building agents. The pattern is a personalized outcome that you then dissect, instead of following a tutorial and learning only how to follow tutorials.</p>
+<p><strong>Getting started without over-engineering the setup.</strong> Asked where a beginner with a web idea should begin, Seroter says AI Studio, adding Firebase Auth or a database in the same prompt box, then moving to an IDE for a full application. His core advice is not to optimize the toolchain first: trying every model and tool before building produces an impressive setup and nothing else. He calls out social posts advertising elaborate multi-harness, multi-cloud, multi-model rigs whose authors have shipped nothing. Grow the setup after accumulating wins, because the audience for your output doesn't care how it was produced.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li>Grounding beats model size for current information. The Developer Knowledge API's ability to answer from live Cloud, Go, and Firebase docs solves the stale-knowledge problem that made agentic tools frustrating for new language and platform features.</li>
+<li>Pair tools instead of picking one. Antigravity handling orchestration and backend, the browser handling research, and Stitch handling design collapsed a week of frontend work into one short conversation.</li>
+<li>Abandoning ideas is now cheap. Failed experiments cost minutes rather than days, which both speakers frame as the real unlock: faster learning loops and more finished projects.</li>
+<li>AI is functioning as a personalized tutor. Building a real Flutter, Angular, Python, or Go artifact and then asking the agent to explain it teaches more usefully than a tutorial, even if it is less deep than formal training.</li>
+<li>Do not front-load tool selection. Start in AI Studio for web ideas, ship something, collect wins, and only then experiment with additional tools, harnesses, and models.</li>
+</ul>
+<h2 id="notable-quotes">Notable Quotes</h2>
+<ul>
+<li>&quot;I'm literally only constrained by my thoughts now. That's wild because I would have given up on these projects, and I did often.&quot; — Richard Seroter</li>
+<li>&quot;Don't overoptimize at the beginning. Don't be like, OK, when I'm starting to build, I need to first try every model and every tool. Then you just have a really cool setup, and you've produced nothing.&quot; — Richard Seroter</li>
+</ul>
+<hr />
+<h2 id="podcast-script">Podcast Script</h2>
+<p><strong>JORDAN:</strong> Welcome to Episode 21 of SlackCasts by PodSlacker — where AI does the watching so you can do the listening. If you want a richer experience with today's episode, visit PodSlacker dot com slash SlackCasts — you'll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let's get into it.</p>
+<p><strong>JORDAN:</strong> So today we've got a short one from the Next '26 GDE Lounge — about nine and a half minutes — where Aja Hammerly sits down with Richard Seroter and asks the question that rarely gets asked at these events: do you actually use this stuff? Not a portfolio tour, an actual workflow confession. And the through-line is genuinely counterintuitive — it's trusted current information and compressed learning loops, not some elaborate multi-harness rig.</p>
+<p><strong>MIKE:</strong> Yeah, and the first thing that jumped out is how deliberately un-sexy his setup is. He keeps a CLI open all day, but not for agentic coding — he uses it for one-off questions, and explicitly says it's bad at long-running work. That's the inverse of the dominant narrative around terminal agents, and it only makes sense once you understand what's grounding it.</p>
+<p><strong>JORDAN:</strong> Right, and that's the Developer Knowledge API. It grounds answers in current official documentation rather than model training data or a web search, so if he asks &quot;how do I deploy to a worker pool,&quot; it comes back accurate because it actually knows Cloud Run worker pools shipped. He describes it as &quot;a fancier chatbot at times, but a really well-connected one&quot; — which is a pretty honest self-assessment for a Google developer advocate to make on camera.</p>
+<p><strong>MIKE:</strong> And that's the strategic point I'd underline for anyone running a platform team: grounding beats model size for the currency problem. The number one objection I hear to agent output in enterprises isn't capability, it's &quot;this thing is confidently wrong about an API that changed six months ago.&quot; Compare that to RAG over generic web search, which gets you stale blog posts and Stack Overflow answers from three major versions back.</p>
+<p><strong>JORDAN:</strong> Which is exactly the frustration he describes. He says his annoyance with agentic coding tools was asking about a new feature in Go or Java and getting &quot;I don't know what you're talking about&quot; — and then he'd paste the link and the tool still wouldn't pick it up. That's a specific, damning failure mode: the model can't read the thing you just handed it.</p>
+<p><strong>MIKE:</strong> And Aja's reframe is the cleaner way to say it — this eliminates the knowledge-cutoff-date problem. She notes that everything announced at Next is already answerable through that CLI, which is a subtle but important claim about the docs pipeline: the grounding corpus is updating at roughly announcement cadence, not on a quarterly crawl.</p>
+<p><strong>JORDAN:</strong> The other detail I loved is the &quot;nine doc sets&quot; line. He points out the Developer Knowledge API isn't just Cloud docs — it's now pulling Go docs, it's pulling from Firebase — and then delivers what should be the design principle for all of this: &quot;Why does a developer need to know there's nine doc sets? You shouldn't.&quot;</p>
+<p><strong>MIKE:</strong> That's a retrieval routing problem hidden behind a natural language interface, and it's honestly the hard engineering part nobody gives credit for. Deciding which corpus to hit for &quot;what's new in generics&quot; versus &quot;how do I configure Cloud Run&quot; is non-trivial, and exposing that as a user-facing choice would be a UX failure. The Go docs addition matters specifically because language-level questions previously fell outside the Cloud doc boundary.</p>
+<p><strong>JORDAN:</strong> Now, the part he clearly enjoys most is the orchestration. He connects Antigravity — the agentic IDE — to Stitch, and the framing is brutally honest: &quot;I'm terrible at frontend. I would spend all week centering a div.&quot; So Antigravity orchestrates and handles the backend, Stitch generates the design and frontend, and the browser acts as a research agent in between.</p>
+<p><strong>MIKE:</strong> And the concrete flow is the good bit. He says: use the browser, understand the style of the brand, extract the colors and fonts, send that into Stitch for a design, pull it back in, and build the app. Aja's characterization is right — these are agents with distinct jobs collaborating on one goal, with Stitch on frontend and Antigravity on backend. That's a division of labor, not just a chain of prompts.</p>
+<p><strong>JORDAN:</strong> And the structural benefit isn't the model quality, it's the context continuity. Aja makes the point that you don't open a browser, then another window, then another — everything stays in one context window. He calls it sitting in &quot;one command center sort of view,&quot; and contrasts it with the old world of ten blue links and &quot;wait, what did you finish?&quot;</p>
+<p><strong>MIKE:</strong> That context loss is the thing that kills real work, and it's underappreciated in these discussions. When your research, your design decision, and your implementation all live in separate tools, you pay a translation tax every hop. Here the artifact from one agent is directly consumable by the next because it never left the context. He says this workflow would have taken him days or a week before — and I believe it, because the week was mostly that translation tax.</p>
+<p><strong>JORDAN:</strong> He puts it in a way that's almost uncomfortable: &quot;I'm literally only constrained by my thoughts now. That's wild because I would have given up on these projects, and I did often.&quot; And then the follow-on — this looks terrible, I can't show this to a customer, I'm embarrassing myself. He says he's not anymore, and that he finishes more projects now than in fifteen years.</p>
+<p><strong>MIKE:</strong> That's a behavioral shift, not a velocity metric, and I think it's the most important thing in the whole interview. The bottleneck moved from execution to taste and ideation. When execution is cheap, the differentiator becomes knowing what's worth building — which is a much harder skill to hire for and a much more uncomfortable one to develop.</p>
+<p><strong>JORDAN:</strong> And this is where his phrase &quot;the emergent window has shrunk to nothing&quot; lands. You go from &quot;I wonder if I could&quot; to &quot;oh, I'm looking at it&quot; almost immediately, and he admits that outcome focus is unnatural for engineers trained to build incrementally. Then he makes the economics explicit — a bad idea costs twenty minutes, not four days. Aja mirrors it with five minutes instead of two weeks of vibe-coded experiments she abandons.</p>
+<p><strong>MIKE:</strong> Which changes the optimal number of experiments you run. If each attempt is cheap, the right strategy is a broad portfolio of quick probes rather than one carefully-justified project. That's a real portfolio-management shift, and he's honest that we don't yet understand the downstream effects — the learning-loop acceleration is the hypothesis, not a proven outcome.</p>
+<p><strong>JORDAN:</strong> The learning angle is the second half of the interview and it's genuinely interesting. He built his first Flutter project and his first Angular project in the last month — frameworks that intimidated him because of the scaffolding — and each took fifteen to twenty minutes. The method matters: he asks for a functional app, not a Hello World, uses MCP integrations to pull in framework-specific guidance, and then interrogates the result — &quot;hey, how does this work, what does this do?&quot;</p>
+<p><strong>MIKE:</strong> And his critique of the alternative is sharp: with a tutorial, &quot;all I learned was how to follow a tutorial.&quot; Learning by dissecting a personalized artifact you actually wanted is a fundamentally different loop. He's upfront that it's shallower than a bootcamp — he doesn't overclaim — but it delivers what he wanted from the exercise, which was a working mental model of the framework, not certification-level depth.</p>
+<p><strong>JORDAN:</strong> Then the language anxiety piece. He says he doesn't write Python, but he's written a decent amount recently because certain packages only existed there, or worked well with Agent Engine — and previously he'd have just skipped the service entirely. Aja's on the mirror side of it: she's learning Go by building Go agents with ADK Go, which she flags as not released, and openly says &quot;I'm not a Gopher.&quot;</p>
+<p><strong>MIKE:</strong> This is the practitioner-relevant consequence: language choice decouples from team fluency. If I can prototype a Python agent against Agent Engine or a Go service for the concurrency model without a six-month ramp, the architecture decision gets driven by the problem rather than by who happens to be on staff. The obvious caveat — and I'd want to hear them address it — is that somebody still has to maintain and debug that artifact, and &quot;the agent wrote it&quot; is not an on-call runbook.</p>
+<p><strong>JORDAN:</strong> Which is presumably why he still wants that read-only code editor view. When Aja asks where a beginner with a web idea should start, he says Google AI Studio — go from intent to implementation, and if you want Firebase Auth or a database you just add it in the same prompt box alongside the app request. But when he's building a system, he moves to an IDE, and he says he still at least wants the read-only code editor view to run through it.</p>
+<p><strong>MIKE:</strong> That's a small detail with a big implication: the supervision surface still matters even when you're not hand-writing the code. Reading the generated code is the review step, and teams that skip it are the ones who end up with agent-generated technical debt nobody understands. The AI Studio one-box flow for Firebase Auth and database provisioning is great for prototyping velocity, but for anything production-bound you'd want to know exactly what got provisioned and with what rules.</p>
+<p><strong>JORDAN:</strong> And then he closes with the advice that I think is the actual thesis of the segment. &quot;Don't overoptimize at the beginning. Don't be like, OK, when I'm starting to build, I need to first try every model and every tool. Then you just have a really cool setup, and you've produced nothing.&quot; He calls out the social-media posts advertising seven harnesses, multi-cloud, multi-model rigs — and the obvious question is &quot;what have you built?&quot; Answer: nothing yet.</p>
+<p><strong>MIKE:</strong> &quot;Grow your setup after you keep getting wins&quot; is the line I'd put on a slide. And the closer he lands is the one that should make any tooling-obsessed engineer uncomfortable: &quot;arguably, anybody who uses your output couldn't care less how you produced it.&quot; That's the senior-leader framing in one sentence — outcomes over toolchain — and it's a useful corrective given how much of the discourse is about configuration rather than shipped work.</p>
+<p><strong>JORDAN:</strong> The other thing worth noting is that the piece is self-referential in a nice way. Aja points out that everything announced at Next is already answerable through the grounded CLI, because the Developer Knowledge API pulls the latest docs — so Cloud Run worker pools being known isn't a marketing claim, it's the proof point for the whole thesis. The announcement coverage and the tool capability are the same story.</p>
+<p><strong>MIKE:</strong> Right, and that's the clearest signal about how seriously to take the grounding argument. Newly shipped features being immediately answerable is exactly the gap that made earlier agentic tools useless for anyone working at the leading edge. If that pipeline holds at announcement cadence — and the Go and Firebase doc additions suggest it's broadening, not narrowing — it's a meaningful differentiator for anyone building against fast-moving APIs.</p>
+<p><strong>JORDAN:</strong> So let me try to compress the takeaways. Grounding beats model size for current information. Pair tools instead of picking one — Antigravity orchestrates, the browser researches, Stitch designs. Abandoning ideas is now cheap, so run more experiments. AI works as a personalized tutor when you build a real artifact and then dissect it. And don't front-load tool selection — start in AI Studio, ship something, collect wins.</p>
+<p><strong>MIKE:</strong> And what I'd watch next: ADK Go when it actually ships, since Aja's learning it ahead of release; how the Agent Engine package ecosystem pulls people into Python whether they planned to or not; and whether organizations build their own grounded knowledge APIs over internal docs, because that's the obvious enterprise extension of everything Seroter described here. The interesting open question is whether the &quot;setup doesn't matter&quot; advice survives contact with a real production codebase — I suspect the answer is that setup matters a lot more at scale than it does for a twenty-minute prototype.</p>
+<p><strong>JORDAN:</strong> That's a wrap on today's SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today's topic. Until next time — slack off smarter.</p>
+</div>
+</section>
+<section class="section">
+<h2 class="section-heading">Transcript</h2>
+<p><a href="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_transcript.txt" class="transcript-download-link" download>📄 Download full transcript</a></p>
+</section>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <button class="play-btn" id="playBtn" aria-label="Play / Pause" title="Play / Pause (Space)">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" hidden><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="track-meta"><span class="track-name">stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_podcast.mp3</span></div>
+    <div class="seek-wrap">
+      <span class="time-lbl" id="currentTime">0:00</span>
+      <input type="range" id="seekBar" class="seek-bar" min="0" max="100" step="0.1" value="0">
+      <span class="time-lbl" id="totalTime">0:00</span>
+    </div>
+  </div>
+  <audio id="audioEl" preload="metadata"><source src="stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_podcast.mp3" type="audio/mpeg"></audio>
+</div>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" data-yt-id="nupw_OHAL9I"><span class="lightbox-close" aria-label="Close">&times;</span><button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size frame"><div class="lightbox-yt-wrap"><iframe id="lightboxYtFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div><p id="lightboxCaption" class="lightbox-caption"></p><div class="lightbox-actions"><button class="lightbox-yt-btn no-yt" id="lightboxYtBtn">&#9654; Watch this moment</button><button class="lightbox-back-btn" id="lightboxBackBtn">&#8592; Back to image</button></div></div><button class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button></div>
+<button id="chat-fab" class="chat-fab" aria-label="Ask a question about this video" title="Chat about this video"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></button>
+<div id="chat-panel" class="chat-panel"><div class="chat-header"><span class="chat-header-title">Ask about this video</span><button id="chat-close" class="chat-header-close" aria-label="Close chat">&times;</button></div><div id="chat-messages" class="chat-messages"></div><div id="chat-error" class="chat-error" style="display:none"></div><div class="chat-footer"><textarea id="chat-input" class="chat-input" placeholder="Ask a question..." rows="1"></textarea><button id="chat-send" class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div>
+
+<script>
+(function () {
+  var audio = document.getElementById('audioEl');
+  if (!audio) return;
+  var playBtn   = document.getElementById('playBtn');
+  var seekBar   = document.getElementById('seekBar');
+  var curTime   = document.getElementById('currentTime');
+  var totTime   = document.getElementById('totalTime');
+  var iconPlay  = document.getElementById('iconPlay');
+  var iconPause = document.getElementById('iconPause');
+  function fmt(s) {
+    if (isNaN(s) || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+  playBtn.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+  audio.addEventListener('play',  function () { iconPlay.setAttribute('hidden', ''); iconPause.removeAttribute('hidden'); });
+  audio.addEventListener('pause', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); });
+  audio.addEventListener('ended', function () { iconPlay.removeAttribute('hidden'); iconPause.setAttribute('hidden', ''); seekBar.value = 0; curTime.textContent = '0:00'; });
+  audio.addEventListener('loadedmetadata', function () { totTime.textContent = fmt(audio.duration); });
+  audio.addEventListener('timeupdate', function () { if (!audio.duration) return; seekBar.value = (audio.currentTime / audio.duration) * 100; curTime.textContent = fmt(audio.currentTime); });
+  seekBar.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seekBar.value / 100) * audio.duration; });
+  document.addEventListener('keydown', function (e) { if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); audio.paused ? audio.play() : audio.pause(); } });
+}());
+
+(function () {
+  var lb        = document.getElementById('lightbox');
+  var lbImg     = document.getElementById('lightboxImg');
+  var lbCap     = document.getElementById('lightboxCaption');
+  if (!lb) return;
+  var lbPrev    = lb.querySelector('.lightbox-prev');
+  var lbNext    = lb.querySelector('.lightbox-next');
+  var lbContent = lb.querySelector('.lightbox-content');
+  var lbYtBtn   = document.getElementById('lightboxYtBtn');
+  var lbBackBtn = document.getElementById('lightboxBackBtn');
+  var lbYtFrame = document.getElementById('lightboxYtFrame');
+  var ytId      = lb.dataset.ytId || '';
+  var imgs      = Array.from(document.querySelectorAll('.gal-item img'));
+  var cur       = 0;
+  function toImageMode() {
+    if (lbContent) lbContent.classList.remove('yt-mode');
+    if (lbYtFrame) lbYtFrame.src = '';  // clears the iframe, stopping the video
+  }
+  function updateArrows() {
+    var solo = imgs.length <= 1;
+    if (lbPrev) lbPrev.classList.toggle('hidden', solo);
+    if (lbNext) lbNext.classList.toggle('hidden', solo);
+  }
+  function show(idx) {
+    cur = (idx + imgs.length) % imgs.length;
+    toImageMode();
+    lbImg.src = imgs[cur].src;
+    if (lbCap) lbCap.textContent = imgs[cur].getAttribute('data-caption') || '';
+    // Show "Watch this moment" only when the image has a YouTube timestamp.
+    var ts = imgs[cur].getAttribute('data-yt-ts');
+    if (lbYtBtn) {
+      var hasYt = ts !== null && ytId !== '';
+      lbYtBtn.classList.toggle('no-yt', !hasYt);
+      if (hasYt) lbYtBtn.dataset.ts = ts;
+    }
+    updateArrows();
+  }
+  function open(idx) { show(idx); lb.classList.add('open'); }
+  function close() {
+    toImageMode();
+    lb.classList.remove('open');
+    lbImg.src = '';
+    if (lbCap) lbCap.textContent = '';
+  }
+  imgs.forEach(function (img, i) { img.addEventListener('click', function () { open(i); }); });
+  if (lbPrev) lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  if (lbNext) lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
+  if (lbYtBtn) lbYtBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var ts = lbYtBtn.dataset.ts || '0';
+    if (ytId && lbYtFrame && lbContent) {
+      lbYtFrame.src = 'https://www.youtube.com/embed/' + ytId +
+                      '?start=' + ts + '&autoplay=1&rel=0';
+      lbContent.classList.add('yt-mode');
+    }
+  });
+  if (lbBackBtn) lbBackBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toImageMode();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')          close();
+    else if (e.key === 'ArrowLeft')  { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
+}());
+
+(function () {
+  var ytWin = null;
+  document.querySelectorAll('.ts-link').forEach(function (a) {
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = a.href;
+      var navigated = false;
+      if (ytWin) {
+        try {
+          if (!ytWin.closed) { ytWin.location.href = url; navigated = true; try { ytWin.focus(); } catch (_) {} }
+        } catch (_) { ytWin = null; }
+      }
+      if (!navigated) { ytWin = window.open(url, '_blank'); }
+    });
+  });
+}());</script>
+
+<script>
+window.PS_CHAT = {"apiLocal":"http://localhost:64598","apiBase":"https://podslacker-api.fly.dev","videoUrl":"https://www.youtube.com/watch?v=nupw_OHAL9I","videoTitle":"Stop over engineering your AI dev setup and just start","transcript":"[00:00] AJA HAMMERLY: Hi, it\u0027s Aja again,\r\n[00:01] and we\u0027re here at Next in the GDE Lounge.\r\n[00:04] We\u0027re going to be talking today with Richard Seroter about AI\r\n[00:07] DevTools.\r\n[00:07] And I kind of want to know, do you actually\r\n[00:10] use our AI DevTools?\r\n[00:11] RICHARD SEROTER: It\u0027s a good question.\r\n[00:13] I do, I do.\r\n[00:14] I don\u0027t code every day, but I try\r\n[00:17] to be a builder because I don\u0027t like talking about our stuff\r\n[00:19] if I don\u0027t know how to use it.\r\n[00:21] AJA HAMMERLY: Fair enough.\r\n[00:22] So what thoughts do you have?\r\n[00:24] Are you a CLI person?\r\n[00:25] Are you more an Antigravity person?\r\n[00:27] You in AI Studio or Stitch?\r\n[00:29] Is there a tool that you find yourself gravitating toward?\r\n[00:31] RICHARD SEROTER: I mean, I lose any dev credibility\r\n[00:33] by saying I like a UI.\r\n[00:35] I mean, I\u0027ll do the terminal stuff, like I\u0027ll use a CLI.\r\n[00:38] It\u0027s fine.\r\n[00:38] Actually, I usually keep it open all day just\r\n[00:40] to ask one-off questions.\r\n[00:41] I find that it\u0027s good for that, not when I\u0027m trying\r\n[00:44] to do a long-running thing.\r\n[00:45] Sometimes I like going into a IDE-type tool\r\n[00:48] instead, like let\u0027s kick off a thing.\r\n[00:50] Let\u0027s work on a whole exercise, plug in some MCPs, whatever.\r\n[00:53] Have a goal.\r\n[00:54] CLI is kind of doing one-off, just\r\n[00:56] answer a quick question for me.\r\n[00:57] AJA HAMMERLY: OK, tell me more about that,\r\n[00:58] because that\u0027s not a use case I had thought of.\r\n[01:00] Do you have an example of a question\r\n[01:01] you might ask in the CLI?\r\n[01:03] RICHARD SEROTER: Yeah, I mean, part of the nice piece\r\n[01:04] now that I plug in our Developer Knowledge API\r\n[01:06] are things like that.\r\n[01:07] So if I have a quick product question,\r\n[01:08] I know it\u0027s actually coming back accurately, too.\r\n[01:10] It\u0027s not doing the web search, it\u0027s\r\n[01:12] actually pulling the latest.\r\n[01:13] So if I go, hey, how do I deploy to a worker pool,\r\n[01:16] and I know it knows about Cloud Run worker pools now,\r\n[01:18] and it\u0027s going to pull the latest info.\r\n[01:20] And that\u0027s just a one-off question.\r\n[01:21] It\u0027s a question/answer, almost a fancier chatbot\r\n[01:23] at times, but a really well-connected one.\r\n[01:26] AJA HAMMERLY: Yeah, so it doesn\u0027t\r\n[01:28] have the problem of the knowledge cutoff\r\n[01:29] date, then, because it\u0027s always got the latest stuff.\r\n[01:32] So everything we announced here at Next is already there.\r\n[01:35] RICHARD SEROTER: I think that is such an underrated value\r\n[01:37] thing because my reason I sometimes\r\n[01:39] get so annoyed with agentic coding tools\r\n[01:41] was that, hey, I\u0027m asking about a new feature in Go or Java,\r\n[01:44] and it\u0027s like, I don\u0027t know what you\u0027re talking about.\r\n[01:45] AJA HAMMERLY: Yeah.\r\n[01:46] RICHARD SEROTER: I\u0027m like, it\u0027s right there,\r\n[01:47] and I send it the link.\r\n[01:48] Maybe it doesn\u0027t pick it up.\r\n[01:49] But now to be able to just know, and especially\r\n[01:52] because that Developer Knowledge API isn\u0027t just Cloud docs.\r\n[01:55] It\u0027s pulling now Go Docs, it\u0027s pulling this from Firebase.\r\n[01:59] Why does a developer need to know there\u0027s nine doc sets?\r\n[02:01] You shouldn\u0027t.\r\n[02:02] AJA HAMMERLY: No.\r\n[02:02] You just want--\r\n[02:02] RICHARD SEROTER: Just ask for stuff and get back trusted info.\r\n[02:05] So I love that scenario where I can have a trusted little smart\r\n[02:10] person hanging out-- not person--\r\n[02:12] thing hanging out there answering questions.\r\n[02:14] AJA HAMMERLY: So are there any other surprising use cases\r\n[02:17] you\u0027ve found for these tools?\r\n[02:18] I\u0027ve heard some really strange ones internally,\r\n[02:20] but I\u0027m curious if you have any interest in use cases\r\n[02:23] that people may not expect.\r\n[02:24] RICHARD SEROTER: For the DevTools?\r\n[02:25] AJA HAMMERLY: For the DevTools.\r\n[02:26] RICHARD SEROTER: I mean, my favorite thing\r\n[02:27] I like doing for both demonstrations and Richard\r\n[02:30] building is connecting my agentic IDE, Antigravity,\r\n[02:35] to Stitch.\r\n[02:36] AJA HAMMERLY: OK.\r\n[02:36] RICHARD SEROTER: I just love it so much because I\u0027m\r\n[02:38] terrible at frontend.\r\n[02:39] I like a good frontend.\r\n[02:40] They\u0027re beautiful things.\r\n[02:41] I would spend all week centering a div.\r\n[02:44] Like I\u0027m just not good at it.\r\n[02:46] So I\u0027ll often, in a demonstration,\r\n[02:49] actually ask the IDE like, hey, understand something,\r\n[02:53] use the browser, understand the style, whatever.\r\n[02:55] Go send to Stitch for a design, pull it back in,\r\n[02:58] and literally build the app.\r\n[02:59] I\u0027m doing something in that use case\r\n[03:01] that would have literally taken Richard days,\r\n[03:04] if not a week, before.\r\n[03:06] I\u0027m literally only constrained by my thoughts now.\r\n[03:09] That\u0027s wild because I would have given up on these projects,\r\n[03:12] and I did often.\r\n[03:13] Because it was like, this looks terrible,\r\n[03:15] or I can\u0027t show this to a customer or do whatever.\r\n[03:18] I\u0027m embarrassing myself.\r\n[03:19] I\u0027m not anymore.\r\n[03:20] So now I finish more projects, I think, I ever have in 15 years.\r\n[03:25] AJA HAMMERLY: That\u0027s awesome.\r\n[03:26] So what you\u0027re using is you\u0027re finding ways\r\n[03:28] to use the different tools basically\r\n[03:30] as agents in and of themselves, and they collaborate together\r\n[03:33] to work on a goal, where Stitch is working on the frontend\r\n[03:35] and Antigravity is working on the backend?\r\n[03:37] RICHARD SEROTER: Yeah, and even in this case,\r\n[03:38] the browser is doing the research.\r\n[03:40] So if I\u0027m saying, hey, go do research and understand\r\n[03:42] the colors and fonts of my brand so that you can feed that\r\n[03:45] into Stitch so that it looks correct,\r\n[03:47] those are all different tasks for us.\r\n[03:49] I\u0027d open up my browser.\r\n[03:50] I would do 10 blue links.\r\n[03:51] I would do whatever.\r\n[03:53] I\u0027m just now indicating all of that\r\n[03:56] with maybe even a single prompt, if not a short conversation.\r\n[03:59] That\u0027s amazing.\r\n[04:00] AJA HAMMERLY: And you can stay in context.\r\n[04:02] You don\u0027t open a browser and open another window\r\n[04:04] and open another one.\r\n[04:05] It\u0027s all right there.\r\n[04:06] RICHARD SEROTER: It\u0027s all right there.\r\n[04:07] And so now I\u0027m not sitting here thinking about,\r\n[04:09] wait, what did you finish?\r\n[04:10] And yes, agents might be finishing at different times,\r\n[04:13] but as you say, I\u0027m just sitting in one command center sort\r\n[04:16] of view of this sort of thing.\r\n[04:17] That feels like the future.\r\n[04:18] And for many, it\u0027s the present.\r\n[04:20] But I think for most of us, we\u0027re still getting used to,\r\n[04:22] how do we delegate?\r\n[04:23] What\u0027s the right way to even instruct all these things?\r\n[04:26] But as you look at that, again, we just get this outcome focus.\r\n[04:29] AJA HAMMERLY: Yeah, and I\u0027m really\r\n[04:30] liking that I\u0027m hearing that a lot this week.\r\n[04:32] Focus on the outcome.\r\n[04:34] Focus on what you want, not necessarily how to get there.\r\n[04:38] RICHARD SEROTER: Now, for many of us,\r\n[04:40] that might be unnatural because we\u0027re also used\r\n[04:42] to building it incrementally.\r\n[04:43] And then yeah, you start with some sort of a spec or goal,\r\n[04:46] but it\u0027s almost emergent.\r\n[04:48] The emergent window has shrunk to nothing.\r\n[04:50] And so all of a sudden, I just went from,\r\n[04:52] I wonder if I could to, oh, I\u0027m looking at it, really quickly.\r\n[04:55] AJA HAMMERLY: Yeah.\r\n[04:56] RICHARD SEROTER: That\u0027s going to probably cause\r\n[04:57] some other downstream impact that I can\u0027t think of yet,\r\n[05:00] but maybe it\u0027s just learning loops are that much faster.\r\n[05:02] And I can look at that immediately and go,\r\n[05:04] that\u0027s terrible.\r\n[05:05] I shouldn\u0027t have built that.\r\n[05:06] But I lost 20 minutes, not four days.\r\n[05:08] AJA HAMMERLY: There\u0027s many things\r\n[05:09] that I have vibe coded where I\u0027m like, I\r\n[05:12] wonder if that would work?\r\n[05:13] And I try it, and it did not.\r\n[05:15] And so we abandon that branch and we go back\r\n[05:17] and we do something else.\r\n[05:18] And it\u0027s great that I can get through that in five minutes,\r\n[05:20] not two weeks.\r\n[05:21] RICHARD SEROTER: And the one I\u0027ve\r\n[05:22] been doing lately, especially as our team, or at least I, have\r\n[05:25] been taking on some more product areas and things,\r\n[05:28] like I did my first Flutter project or my first Angular\r\n[05:31] or things like that because I was always\r\n[05:33] intimidated by those frameworks because I\u0027m not a frontend guy.\r\n[05:36] AJA HAMMERLY: Yeah.\r\n[05:36] RICHARD SEROTER: It\u0027s a lot of scaffolding.\r\n[05:37] I don\u0027t want to set all this up.\r\n[05:39] But instead, when I can go into one of these tools,\r\n[05:42] whether that\u0027s CLIs or IDEs, and say,\r\n[05:44] hey, I\u0027d like to build this type of app--\r\n[05:46] not even just the basic Hello, World tutorial,\r\n[05:48] but use the MCP to pull those in to maybe guide you.\r\n[05:50] But hey, I\u0027m trying to build a functional app that does\r\n[05:53] this, that uses this framework.\r\n[05:55] I\u0027ve tried three or four frameworks\r\n[05:56] that I\u0027ve always been intimidated\r\n[05:57] by over the last month.\r\n[05:59] And in 15, 20 minutes, I have something,\r\n[06:01] and then I can ask the agent, hey, how\u0027s this work?\r\n[06:04] Oh, what does this do?\r\n[06:06] So I\u0027m learning through a personalized result.\r\n[06:09] AJA HAMMERLY: Yeah.\r\n[06:10] RICHARD SEROTER: My gosh, that\u0027s so much better than just click\r\n[06:12] here, click here, type these words.\r\n[06:14] And all I learned was how to follow a tutorial.\r\n[06:16] AJA HAMMERLY: Yep.\r\n[06:17] RICHARD SEROTER: In this case, I have an outcome,\r\n[06:18] and now I\u0027m dissecting the outcome to figure out\r\n[06:21] how does this piece together.\r\n[06:22] Am I learning it as deeply as if I went to a class\r\n[06:24] and did a boot camp?\r\n[06:25] No.\r\n[06:26] But am I seeing what I wanted to see from it?\r\n[06:28] Yeah.\r\n[06:28] AJA HAMMERLY: Yeah, I\u0027m doing the exact same thing with Go\r\n[06:29] right now.\r\n[06:30] I\u0027m building Go agents.\r\n[06:31] I am not a Gopher.\r\n[06:33] I really like the Go community.\r\n[06:34] And so I\u0027m like, OK, well, let\u0027s use ADK Go as not released.\r\n[06:38] I started learning Go.\r\n[06:39] And I\u0027m building stuff with it, and I\u0027m like, hey,\r\n[06:41] how does that work exactly?\r\n[06:42] RICHARD SEROTER: So do you feel less language constraint?\r\n[06:44] Like, I don\u0027t write Python, and yet I\u0027ve\r\n[06:45] written a decent amount of Python in the last few months\r\n[06:48] because there were certain things that\r\n[06:49] only had a package there or that was something that works well\r\n[06:51] with Agent Engine or things.\r\n[06:53] And so I\u0027m not intimidated by that.\r\n[06:54] Before, it\u0027d be like, I guess I\u0027m just\r\n[06:55] not trying that service.\r\n[06:57] Now it doesn\u0027t matter.\r\n[06:58] I\u0027ll build a Python agent.\r\n[06:59] It works fine.\r\n[06:59] AJA HAMMERLY: Yeah, exactly how I feel.\r\n[07:01] There\u0027s been a lot of projects where\r\n[07:02] I\u0027ve wanted the power of Go, but learning a new language\r\n[07:04] was super intimidating, and I didn\u0027t have enough time.\r\n[07:06] RICHARD SEROTER: Yeah.\r\n[07:07] AJA HAMMERLY: And now I can just get the power of Go.\r\n[07:09] It\u0027s great.\r\n[07:10] So the last question I\u0027ve been asking everyone\r\n[07:12] is, how do you get started?\r\n[07:14] There are so many models, so many tools.\r\n[07:16] Google\u0027s got several tools, but there\u0027s\r\n[07:17] plenty of tools from other companies as well.\r\n[07:20] Every model has different versions in the family,\r\n[07:23] and then you\u0027ve got Gemma\u0027s, models from other providers.\r\n[07:28] Folks want to build cool stuff.\r\n[07:29] They have amazing ideas, but they try to navigate the space,\r\n[07:32] and they\u0027re like, I don\u0027t even know what is an AI Studio?\r\n[07:36] What is an Antigravity?\r\n[07:37] So if you were talking to someone\r\n[07:39] who had a really cool idea they wanted to build,\r\n[07:41] where would you tell them to get started?\r\n[07:43] RICHARD SEROTER: Yeah, I guess the second question would be,\r\n[07:46] what are you thinking about?\r\n[07:47] It\u0027s a web application?\r\n[07:48] AJA HAMMERLY: Let\u0027s go with web.\r\n[07:49] RICHARD SEROTER: AI Studio\u0027s great.\r\n[07:50] AJA HAMMERLY: OK.\r\n[07:50] RICHARD SEROTER: Google AI Studio\r\n[07:52] to just say, I\u0027m going from intent to now even adding a box\r\n[07:54] and saying, give me Firebase Auth if I want it or a database.\r\n[07:57] Amazing.\r\n[07:58] I just go from idea to implementation like that.\r\n[08:01] Beautiful stuff.\r\n[08:02] I think when I\u0027m thinking of building\r\n[08:04] a system or an application, I\u0027d be looking more to my IDE.\r\n[08:07] Plenty of people will jump to terminal, and that\u0027s fine.\r\n[08:10] For me, I still at least like the read-only code editor\r\n[08:12] view for me, basically, at this point to run through there.\r\n[08:16] I guess my advice would be, don\u0027t\r\n[08:17] overoptimize at the beginning.\r\n[08:19] Don\u0027t be like, OK, when I\u0027m starting to build,\r\n[08:21] I need to first try every model and every tool.\r\n[08:24] Then you just have a really cool setup,\r\n[08:26] and you\u0027ve produced nothing.\r\n[08:27] And I don\u0027t know if you have--\r\n[08:29] and I think we see this on social sometimes,\r\n[08:30] people advertising their unbelievable setups.\r\n[08:33] And someone would be like, what have you built?\r\n[08:35] Nothing yet.\r\n[08:35] I don\u0027t know.\r\n[08:36] Maybe grow your setup after you keep getting wins.\r\n[08:40] It\u0027s like otherwise, you\u0027re going to be really intimidated.\r\n[08:43] I have to use seven harnesses and all these clouds and all\r\n[08:46] these models?\r\n[08:46] And none of that\u0027s the point because arguably, anybody\r\n[08:49] who uses your output couldn\u0027t care less how you produced it.\r\n[08:53] The point was the output and the outcome.\r\n[08:55] And so just build the thing.\r\n[08:57] And when you get comfortable with that thing and you\u0027re like,\r\n[08:59] I wonder if this other thing works, too?\r\n[09:01] Awesome.\r\n[09:01] I don\u0027t know.\r\n[09:02] Win after win.\r\n[09:03] AJA HAMMERLY: So baby steps.\r\n[09:04] RICHARD SEROTER: Yeah.\r\n[09:04] AJA HAMMERLY: Have an idea.\r\n[09:06] Start in AI Studio if it\u0027s web based and iterate.\r\n[09:08] RICHARD SEROTER: Get the dopamine hit, right?\r\n[09:10] That\u0027s what motivates us.\r\n[09:11] I did something.\r\n[09:12] That\u0027s awesome.\r\n[09:13] I want to do it again.\r\n[09:14] That\u0027s cool.\r\n[09:15] That\u0027s great.\r\n[09:15] So yeah, don\u0027t overindex on the tools.\r\n[09:19] Still say obsessed with, I can do anything I think of now,\r\n[09:22] and be obsessed with that.\r\n[09:23] AJA HAMMERLY: So focus on the outcomes.\r\n[09:26] Well, thank you so much for giving us some time today.\r\n[09:27] I really enjoyed talking to you.\r\n[09:29] RICHARD SEROTER: Absolutely.\r\n[09:30] Thanks, everybody.\r\n","summary":"# Stop over engineering your AI dev setup and just start\r\n\r\n**Source:** https://www.youtube.com/watch?v=nupw_OHAL9I  \r\n**Video ID:** \u0060nupw_OHAL9I\u0060\r\n\r\n---\r\n\r\n## Overview\nThis is a Next \u002726 GDE Lounge interview in which Aja Hammerly talks with Richard Seroter about how he actually uses Google\u0027s AI developer tooling day to day. Rather than surveying the whole product portfolio, the conversation focuses on Seroter\u0027s real workflows: keeping a CLI open for one-off grounded questions, orchestrating Antigravity, a browser, and Stitch together to build frontends he could never hand-write, and using agents to learn unfamiliar frameworks and languages. The through-line is that the tooling\u0027s value is trusted, current information plus compressed learning loops, not elaborate harness setups. The video closes with Seroter\u0027s advice for beginners: pick one entry point, ship something, and expand your setup only after accumulating wins.\n\n## Speakers \u0026 Guests\n\n- **Aja Hammerly** \u2014 Developer Relations (Google), host of the segment; frames the questions and shares her own parallel experience learning Go and building Go agents.\n- **Richard Seroter** \u2014 Google developer advocate/builder; the primary subject, demonstrating his CLI, Antigravity, and Stitch workflows and offering the \u0022don\u0027t over-engineer your setup\u0022 argument.\n\n## New Features \u0026 Announcements\n\n- **Developer Knowledge API** \u2014 Grounds CLI answers in current official documentation rather than stale model training data or web search; Seroter calls this the most underrated value of the setup.\n- **Go Docs in the Developer Knowledge API** \u2014 Documentation set pulled in beyond Google Cloud docs, so language-level questions about new Go features resolve correctly.\n- **Firebase docs in the Developer Knowledge API** \u2014 Another non-Cloud doc set added, supporting Seroter\u0027s point that developers shouldn\u0027t need to know how many doc sets exist behind the answer.\n- **Cloud Run worker pools** \u2014 Cited as the concrete example of a newly shipped feature the Developer Knowledge API already knows about, whereas older agentic tools did not.\n- **Next announcements reflected in the Developer Knowledge API** \u2014 Hammerly notes everything announced at Next is already answerable through the grounded CLI because the API pulls the latest docs.\n- **Antigravity (agentic IDE)** \u2014 Seroter\u0027s primary long-running-work environment and the orchestrator that delegates to the browser and Stitch.\n- **Stitch** \u2014 Design/frontend generation tool he connects to Antigravity to produce usable UI, removing his self-described inability to center a div.\n- **Browser-driven brand research inside the agentic flow** \u2014 The browser acts as a research agent, extracting colors and fonts from a brand site and feeding them into Stitch, all within one context window.\n- **Google AI Studio** \u2014 Seroter\u0027s recommended starting point for web ideas, going from plain intent to implementation.\n- **Firebase Auth via AI Studio** \u2014 Added by typing it into the prompt box alongside the app request.\n- **Database provisioning via AI Studio** \u2014 Same one-box addition flow as Firebase Auth.\n- **MCP (Model Context Protocol) integrations** \u2014 Plugged into IDEs and CLIs to pull in framework-specific guidance when building with unfamiliar stacks.\n- **Read-only code editor view** \u2014 The IDE surface Seroter says he still relies on at minimum when building a system or application.\n- **Agent Engine** \u2014 Cited as a reason he wrote real Python recently, because certain packages worked well with it.\n- **ADK Go** \u2014 Aja\u0027s motivation for learning Go; explicitly described as not released.\n  Availability: Not released\n- **Gemma models** \u2014 Referenced as part of the crowded model landscape (alongside multiple model families and other providers) that makes getting started feel overwhelming.\n- **Flutter and Angular (agent-assisted first projects)** \u2014 Not new products, but demonstrated capabilities: Seroter built functional apps in frameworks that had previously intimidated him, in 15\u201320 minutes each.\n\n## Topics Covered\n\n**CLI as a grounded Q\u0026A surface, not a coding harness.** Seroter keeps the CLI open all day for one-off questions rather than long-running agentic work, which is the opposite of how he uses an IDE. The reason this works is the Developer Knowledge API: answers come from current official docs, so asking how to deploy to a Cloud Run worker pool returns accurate, up-to-date information. He describes it as a fancier chatbot that happens to be extremely well connected. Hammerly reframes it as eliminating the knowledge-cutoff-date problem.\n\n**The knowledge cutoff frustration with agentic coding tools.** Seroter explains that his annoyance with agentic tools came from asking about new features in Go or Java and getting \u0022I don\u0027t know what you\u0027re talking about,\u0022 even after pasting a link the tool failed to read. The fix is grounding rather than a bigger model: the Developer Knowledge API spans Cloud docs, Go Docs, and Firebase without the developer needing to know how many doc sets are involved. Both speakers treat this as an underrated reason to trust agent output.\n\n**Multi-agent orchestration across Antigravity, browser, and Stitch.** Seroter\u0027s favorite demo and real workflow is having Antigravity use the browser to research a brand\u0027s colors and fonts, send that to Stitch for design, and pull the result back to build the app. Hammerly characterizes the tools as agents collaborating on one goal, with Stitch on frontend and Antigravity on backend. The key structural benefit is that everything happens in one command-center context instead of scattered windows and \u002210 blue links\u0022 research. Seroter says work that would have cost him days or a week now happens in a single prompt or short conversation.\n\n**Outcome focus and collapsed learning loops.** Both speakers repeatedly land on focusing on what you want rather than the steps to get there, and Seroter notes this is unnatural for people used to incremental building. He argues the \u0022emergent window has shrunk to nothing\u0022: you go from wondering if something is possible to looking at it almost immediately. The downstream effect is that bad ideas cost 20 minutes instead of four days, which he expects to accelerate learning loops in ways not yet fully understood. Hammerly agrees, describing vibe-coded experiments she abandons after five minutes rather than two weeks.\n\n**Learning new frameworks and languages through generated artifacts.** Seroter built his first Flutter and Angular projects in the last month by asking agents for functional apps in those frameworks, using MCPs for guidance, then interrogating the result to understand how it works. He\u0027s explicit that this is shallower than a bootcamp but delivers what he actually wanted from it. He and Hammerly both report shed language anxiety: he wrote real Python because certain packages worked with Agent Engine, and she is learning Go via ADK Go while building agents. The pattern is a personalized outcome that you then dissect, instead of following a tutorial and learning only how to follow tutorials.\n\n**Getting started without over-engineering the setup.** Asked where a beginner with a web idea should begin, Seroter says AI Studio, adding Firebase Auth or a database in the same prompt box, then moving to an IDE for a full application. His core advice is not to optimize the toolchain first: trying every model and tool before building produces an impressive setup and nothing else. He calls out social posts advertising elaborate multi-harness, multi-cloud, multi-model rigs whose authors have shipped nothing. Grow the setup after accumulating wins, because the audience for your output doesn\u0027t care how it was produced.\n\n## Key Takeaways\n\n- Grounding beats model size for current information. The Developer Knowledge API\u0027s ability to answer from live Cloud, Go, and Firebase docs solves the stale-knowledge problem that made agentic tools frustrating for new language and platform features.\n- Pair tools instead of picking one. Antigravity handling orchestration and backend, the browser handling research, and Stitch handling design collapsed a week of frontend work into one short conversation.\n- Abandoning ideas is now cheap. Failed experiments cost minutes rather than days, which both speakers frame as the real unlock: faster learning loops and more finished projects.\n- AI is functioning as a personalized tutor. Building a real Flutter, Angular, Python, or Go artifact and then asking the agent to explain it teaches more usefully than a tutorial, even if it is less deep than formal training.\n- Do not front-load tool selection. Start in AI Studio for web ideas, ship something, collect wins, and only then experiment with additional tools, harnesses, and models.\n\n## Notable Quotes\n\n- \u0022I\u0027m literally only constrained by my thoughts now. That\u0027s wild because I would have given up on these projects, and I did often.\u0022 \u2014 Richard Seroter\n- \u0022Don\u0027t overoptimize at the beginning. Don\u0027t be like, OK, when I\u0027m starting to build, I need to first try every model and every tool. Then you just have a really cool setup, and you\u0027ve produced nothing.\u0022 \u2014 Richard Seroter\r\n\r\n---\r\n\r\n## Podcast Script\r\n\r\n**JORDAN:** Welcome to Episode 21 of SlackCasts by PodSlacker \u2014 where AI does the watching so you can do the listening. If you want a richer experience with today\u0027s episode, visit PodSlacker dot com slash SlackCasts \u2014 you\u0027ll find a written summary, key frame moments from the video, and an interactive AI chat to explore the topic as deep as you like. Now let\u0027s get into it.\r\n\r\n**JORDAN:** So today we\u0027ve got a short one from the Next \u002726 GDE Lounge \u2014 about nine and a half minutes \u2014 where Aja Hammerly sits down with Richard Seroter and asks the question that rarely gets asked at these events: do you actually use this stuff? Not a portfolio tour, an actual workflow confession. And the through-line is genuinely counterintuitive \u2014 it\u0027s trusted current information and compressed learning loops, not some elaborate multi-harness rig.\r\n\r\n**MIKE:** Yeah, and the first thing that jumped out is how deliberately un-sexy his setup is. He keeps a CLI open all day, but not for agentic coding \u2014 he uses it for one-off questions, and explicitly says it\u0027s bad at long-running work. That\u0027s the inverse of the dominant narrative around terminal agents, and it only makes sense once you understand what\u0027s grounding it.\r\n\r\n**JORDAN:** Right, and that\u0027s the Developer Knowledge API. It grounds answers in current official documentation rather than model training data or a web search, so if he asks \u0022how do I deploy to a worker pool,\u0022 it comes back accurate because it actually knows Cloud Run worker pools shipped. He describes it as \u0022a fancier chatbot at times, but a really well-connected one\u0022 \u2014 which is a pretty honest self-assessment for a Google developer advocate to make on camera.\r\n\r\n**MIKE:** And that\u0027s the strategic point I\u0027d underline for anyone running a platform team: grounding beats model size for the currency problem. The number one objection I hear to agent output in enterprises isn\u0027t capability, it\u0027s \u0022this thing is confidently wrong about an API that changed six months ago.\u0022 Compare that to RAG over generic web search, which gets you stale blog posts and Stack Overflow answers from three major versions back.\r\n\r\n**JORDAN:** Which is exactly the frustration he describes. He says his annoyance with agentic coding tools was asking about a new feature in Go or Java and getting \u0022I don\u0027t know what you\u0027re talking about\u0022 \u2014 and then he\u0027d paste the link and the tool still wouldn\u0027t pick it up. That\u0027s a specific, damning failure mode: the model can\u0027t read the thing you just handed it.\r\n\r\n**MIKE:** And Aja\u0027s reframe is the cleaner way to say it \u2014 this eliminates the knowledge-cutoff-date problem. She notes that everything announced at Next is already answerable through that CLI, which is a subtle but important claim about the docs pipeline: the grounding corpus is updating at roughly announcement cadence, not on a quarterly crawl.\r\n\r\n**JORDAN:** The other detail I loved is the \u0022nine doc sets\u0022 line. He points out the Developer Knowledge API isn\u0027t just Cloud docs \u2014 it\u0027s now pulling Go docs, it\u0027s pulling from Firebase \u2014 and then delivers what should be the design principle for all of this: \u0022Why does a developer need to know there\u0027s nine doc sets? You shouldn\u0027t.\u0022\r\n\r\n**MIKE:** That\u0027s a retrieval routing problem hidden behind a natural language interface, and it\u0027s honestly the hard engineering part nobody gives credit for. Deciding which corpus to hit for \u0022what\u0027s new in generics\u0022 versus \u0022how do I configure Cloud Run\u0022 is non-trivial, and exposing that as a user-facing choice would be a UX failure. The Go docs addition matters specifically because language-level questions previously fell outside the Cloud doc boundary.\r\n\r\n**JORDAN:** Now, the part he clearly enjoys most is the orchestration. He connects Antigravity \u2014 the agentic IDE \u2014 to Stitch, and the framing is brutally honest: \u0022I\u0027m terrible at frontend. I would spend all week centering a div.\u0022 So Antigravity orchestrates and handles the backend, Stitch generates the design and frontend, and the browser acts as a research agent in between.\r\n\r\n**MIKE:** And the concrete flow is the good bit. He says: use the browser, understand the style of the brand, extract the colors and fonts, send that into Stitch for a design, pull it back in, and build the app. Aja\u0027s characterization is right \u2014 these are agents with distinct jobs collaborating on one goal, with Stitch on frontend and Antigravity on backend. That\u0027s a division of labor, not just a chain of prompts.\r\n\r\n**JORDAN:** And the structural benefit isn\u0027t the model quality, it\u0027s the context continuity. Aja makes the point that you don\u0027t open a browser, then another window, then another \u2014 everything stays in one context window. He calls it sitting in \u0022one command center sort of view,\u0022 and contrasts it with the old world of ten blue links and \u0022wait, what did you finish?\u0022\r\n\r\n**MIKE:** That context loss is the thing that kills real work, and it\u0027s underappreciated in these discussions. When your research, your design decision, and your implementation all live in separate tools, you pay a translation tax every hop. Here the artifact from one agent is directly consumable by the next because it never left the context. He says this workflow would have taken him days or a week before \u2014 and I believe it, because the week was mostly that translation tax.\r\n\r\n**JORDAN:** He puts it in a way that\u0027s almost uncomfortable: \u0022I\u0027m literally only constrained by my thoughts now. That\u0027s wild because I would have given up on these projects, and I did often.\u0022 And then the follow-on \u2014 this looks terrible, I can\u0027t show this to a customer, I\u0027m embarrassing myself. He says he\u0027s not anymore, and that he finishes more projects now than in fifteen years.\r\n\r\n**MIKE:** That\u0027s a behavioral shift, not a velocity metric, and I think it\u0027s the most important thing in the whole interview. The bottleneck moved from execution to taste and ideation. When execution is cheap, the differentiator becomes knowing what\u0027s worth building \u2014 which is a much harder skill to hire for and a much more uncomfortable one to develop.\r\n\r\n**JORDAN:** And this is where his phrase \u0022the emergent window has shrunk to nothing\u0022 lands. You go from \u0022I wonder if I could\u0022 to \u0022oh, I\u0027m looking at it\u0022 almost immediately, and he admits that outcome focus is unnatural for engineers trained to build incrementally. Then he makes the economics explicit \u2014 a bad idea costs twenty minutes, not four days. Aja mirrors it with five minutes instead of two weeks of vibe-coded experiments she abandons.\r\n\r\n**MIKE:** Which changes the optimal number of experiments you run. If each attempt is cheap, the right strategy is a broad portfolio of quick probes rather than one carefully-justified project. That\u0027s a real portfolio-management shift, and he\u0027s honest that we don\u0027t yet understand the downstream effects \u2014 the learning-loop acceleration is the hypothesis, not a proven outcome.\r\n\r\n**JORDAN:** The learning angle is the second half of the interview and it\u0027s genuinely interesting. He built his first Flutter project and his first Angular project in the last month \u2014 frameworks that intimidated him because of the scaffolding \u2014 and each took fifteen to twenty minutes. The method matters: he asks for a functional app, not a Hello World, uses MCP integrations to pull in framework-specific guidance, and then interrogates the result \u2014 \u0022hey, how does this work, what does this do?\u0022\r\n\r\n**MIKE:** And his critique of the alternative is sharp: with a tutorial, \u0022all I learned was how to follow a tutorial.\u0022 Learning by dissecting a personalized artifact you actually wanted is a fundamentally different loop. He\u0027s upfront that it\u0027s shallower than a bootcamp \u2014 he doesn\u0027t overclaim \u2014 but it delivers what he wanted from the exercise, which was a working mental model of the framework, not certification-level depth.\r\n\r\n**JORDAN:** Then the language anxiety piece. He says he doesn\u0027t write Python, but he\u0027s written a decent amount recently because certain packages only existed there, or worked well with Agent Engine \u2014 and previously he\u0027d have just skipped the service entirely. Aja\u0027s on the mirror side of it: she\u0027s learning Go by building Go agents with ADK Go, which she flags as not released, and openly says \u0022I\u0027m not a Gopher.\u0022\r\n\r\n**MIKE:** This is the practitioner-relevant consequence: language choice decouples from team fluency. If I can prototype a Python agent against Agent Engine or a Go service for the concurrency model without a six-month ramp, the architecture decision gets driven by the problem rather than by who happens to be on staff. The obvious caveat \u2014 and I\u0027d want to hear them address it \u2014 is that somebody still has to maintain and debug that artifact, and \u0022the agent wrote it\u0022 is not an on-call runbook.\r\n\r\n**JORDAN:** Which is presumably why he still wants that read-only code editor view. When Aja asks where a beginner with a web idea should start, he says Google AI Studio \u2014 go from intent to implementation, and if you want Firebase Auth or a database you just add it in the same prompt box alongside the app request. But when he\u0027s building a system, he moves to an IDE, and he says he still at least wants the read-only code editor view to run through it.\r\n\r\n**MIKE:** That\u0027s a small detail with a big implication: the supervision surface still matters even when you\u0027re not hand-writing the code. Reading the generated code is the review step, and teams that skip it are the ones who end up with agent-generated technical debt nobody understands. The AI Studio one-box flow for Firebase Auth and database provisioning is great for prototyping velocity, but for anything production-bound you\u0027d want to know exactly what got provisioned and with what rules.\r\n\r\n**JORDAN:** And then he closes with the advice that I think is the actual thesis of the segment. \u0022Don\u0027t overoptimize at the beginning. Don\u0027t be like, OK, when I\u0027m starting to build, I need to first try every model and every tool. Then you just have a really cool setup, and you\u0027ve produced nothing.\u0022 He calls out the social-media posts advertising seven harnesses, multi-cloud, multi-model rigs \u2014 and the obvious question is \u0022what have you built?\u0022 Answer: nothing yet.\r\n\r\n**MIKE:** \u0022Grow your setup after you keep getting wins\u0022 is the line I\u0027d put on a slide. And the closer he lands is the one that should make any tooling-obsessed engineer uncomfortable: \u0022arguably, anybody who uses your output couldn\u0027t care less how you produced it.\u0022 That\u0027s the senior-leader framing in one sentence \u2014 outcomes over toolchain \u2014 and it\u0027s a useful corrective given how much of the discourse is about configuration rather than shipped work.\r\n\r\n**JORDAN:** The other thing worth noting is that the piece is self-referential in a nice way. Aja points out that everything announced at Next is already answerable through the grounded CLI, because the Developer Knowledge API pulls the latest docs \u2014 so Cloud Run worker pools being known isn\u0027t a marketing claim, it\u0027s the proof point for the whole thesis. The announcement coverage and the tool capability are the same story.\r\n\r\n**MIKE:** Right, and that\u0027s the clearest signal about how seriously to take the grounding argument. Newly shipped features being immediately answerable is exactly the gap that made earlier agentic tools useless for anyone working at the leading edge. If that pipeline holds at announcement cadence \u2014 and the Go and Firebase doc additions suggest it\u0027s broadening, not narrowing \u2014 it\u0027s a meaningful differentiator for anyone building against fast-moving APIs.\r\n\r\n**JORDAN:** So let me try to compress the takeaways. Grounding beats model size for current information. Pair tools instead of picking one \u2014 Antigravity orchestrates, the browser researches, Stitch designs. Abandoning ideas is now cheap, so run more experiments. AI works as a personalized tutor when you build a real artifact and then dissect it. And don\u0027t front-load tool selection \u2014 start in AI Studio, ship something, collect wins.\r\n\r\n**MIKE:** And what I\u0027d watch next: ADK Go when it actually ships, since Aja\u0027s learning it ahead of release; how the Agent Engine package ecosystem pulls people into Python whether they planned to or not; and whether organizations build their own grounded knowledge APIs over internal docs, because that\u0027s the obvious enterprise extension of everything Seroter described here. The interesting open question is whether the \u0022setup doesn\u0027t matter\u0022 advice survives contact with a real production codebase \u2014 I suspect the answer is that setup matters a lot more at scale than it does for a twenty-minute prototype.\r\n\r\n**JORDAN:** That\u0027s a wrap on today\u0027s SlackCast. Head over to PodSlacker dot com slash SlackCasts for the written summary, visual key moments, and an AI chat to dive even deeper into today\u0027s topic. Until next time \u2014 slack off smarter.\r\n\r\n","keyMoments":[{"seconds":0,"caption":"Opening introduction with Aja Hammerly welcoming viewers and framing the discussion around AI developer tools."},{"seconds":62.96666666666667,"caption":"The conversation turns to the Developer Knowledge API, noting its awareness of Cloud Run worker pools and the problem of model knowledge cutoffs."},{"seconds":245.3,"caption":"The speakers describe working with multiple agents from a single command center, focusing on instructing the desired outcome rather than the method."},{"seconds":380.76666666666665,"caption":"The topic shifts to learning and experimentation, including boot camps, unreleased ADK Go, and recent Python work."},{"seconds":411.76666666666665,"caption":"A concrete setup is introduced for a walkthrough, with the interface ready to be viewed and run."},{"seconds":564.0666666666667,"caption":"The session closes with a memorable conclusion about the dopamine hit of building and the feeling of being able to create anything."}]};
+(function () {
+  var cfg = window.PS_CHAT;
+  if (!cfg) return;
+  var fab     = document.getElementById('chat-fab');
+  var panel   = document.getElementById('chat-panel');
+  var msgsCt  = document.getElementById('chat-messages');
+  var input   = document.getElementById('chat-input');
+  var sendBtn = document.getElementById('chat-send');
+  var errEl   = document.getElementById('chat-error');
+  if (!fab || !panel) return;
+  var history = [];
+  console.log('[PodSlacker chat] initialised — local:', cfg.apiLocal || '(none)', '| internet:', cfg.apiBase);
+
+  fab.addEventListener('click', function () {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) input.focus();
+  });
+  document.getElementById('chat-close').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+
+  function setDisabled(v) { sendBtn.disabled = v; input.disabled = v; }
+
+  function addBubble(role, html) {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    var bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    bub.innerHTML = html || '';
+    wrap.appendChild(bub);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+    return bub;
+  }
+
+  function showThinking() {
+    var wrap = document.createElement('div');
+    wrap.className = 'chat-msg assistant';
+    wrap.id = 'chat-thinking-row';
+    var dots = document.createElement('div');
+    dots.className = 'chat-thinking';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(dots);
+    msgsCt.appendChild(wrap);
+    msgsCt.scrollTop = msgsCt.scrollHeight;
+  }
+  function removeThinking() {
+    var t = document.getElementById('chat-thinking-row');
+    if (t) t.parentNode.removeChild(t);
+  }
+
+  function clearError() { if (errEl) errEl.style.display = 'none'; }
+  function showError(msg) { if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; } }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderMd(text) {
+    // Timestamp links → inline buttons that open the nearest key-moment frame
+    text = text.replace(/\[([^\]]+)\]\(timestamp:(\d+(?:\.\d+)?)\)/g, function (_, label, secs) {
+      return '<button class="chat-ts-btn" onclick="openKeyMoment(' + secs + ')">' + escHtml(label) + '</button>';
+    });
+    // Bold / italic / inline code (bold before italic to avoid mis-parse)
+    text = text.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+    text = text.replace(/`([^`\n]+)`/g, function(_, c) { return '<code>' + escHtml(c) + '</code>'; });
+    // Split on blank lines → paragraphs; single newlines → <br>
+    return text.split(/\n{2,}/).map(function(p) {
+      return '<p>' + p.replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+
+  window.openKeyMoment = function (seconds) {
+    var imgs = Array.from(document.querySelectorAll('.gal-item img'));
+    if (!imgs.length) {
+      // No captured frames — fall back to YouTube at the given timestamp
+      window.open(cfg.videoUrl + (cfg.videoUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Math.floor(seconds), '_blank');
+      return;
+    }
+    // Find the gallery frame whose original timestamp is nearest to `seconds`
+    var best = imgs[0], bestDiff = Infinity;
+    imgs.forEach(function (img) {
+      var ts = parseFloat(img.getAttribute('data-frame-ts') || '-1');
+      if (ts < 0) return;
+      var d = Math.abs(ts - seconds);
+      if (d < bestDiff) { bestDiff = d; best = img; }
+    });
+    best.click(); // triggers the existing lightbox open() handler
+    // Override the YouTube seek time with the chat link's exact timestamp
+    // (show() already ran synchronously and set it to the nearest frame's
+    // data-yt-ts, which may be far from what the chat link requested).
+    var lbYtBtn = document.getElementById('lightboxYtBtn');
+    if (lbYtBtn) lbYtBtn.dataset.ts = Math.max(0, Math.floor(seconds) - 2);
+  };
+
+  // Try local API first (fast connection-refused if not running), then internet API.
+  // HTTP errors (4xx/5xx) are NOT retried — they mean the server responded.
+  async function fetchWithFallback(payload) {
+    var urls = [];
+    if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) urls.push(cfg.apiLocal);
+    urls.push(cfg.apiBase);
+    var lastErr;
+    for (var i = 0; i < urls.length; i++) {
+      var target = urls[i] + '/api/chat';
+      var label  = urls[i] === cfg.apiLocal ? ' (local)' : ' (internet)';
+      try {
+        console.debug('[PodSlacker chat] POST →', target + label);
+        return await fetch(target, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'text/event-stream' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        lastErr = err;
+        if (i < urls.length - 1) {
+          console.warn('[PodSlacker chat] local unreachable, trying internet API →', urls[i + 1] + '/api/chat', err);
+        }
+      }
+    }
+    throw lastErr;
+  }
+
+  async function sendMessage() {
+    var text = input.value.trim();
+    if (!text || sendBtn.disabled) return;
+    clearError();
+    input.value = '';
+    input.style.height = '';
+    history.push({ role: 'user', content: text });
+    addBubble('user', escHtml(text));
+    setDisabled(true);
+    showThinking();
+    var payload = {
+      video_url: cfg.videoUrl, title: cfg.videoTitle,
+      transcript: cfg.transcript, summary: cfg.summary,
+      key_moments: cfg.keyMoments, messages: history
+    };
+    try {
+      var resp = await fetchWithFallback(payload);
+      if (!resp.ok) {
+        var errBody = await resp.text().catch(function() { return ''; });
+        var httpErr = 'HTTP ' + resp.status + (errBody ? ': ' + errBody : '');
+        console.error('[PodSlacker chat] server error', httpErr);
+        throw new Error(httpErr);
+      }
+      removeThinking();
+      var bub = addBubble('assistant', '');
+      var reader = resp.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '', full = '', streamDone = false;
+      while (!streamDone) {
+        var r = await reader.read();
+        if (r.done) break;
+        buf += dec.decode(r.value, { stream: true });
+        var lines = buf.split('\n');
+        buf = lines.pop();
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (!line.startsWith('data:')) continue;
+          var chunk = line.slice(5).trim();
+          if (chunk === '[DONE]') { streamDone = true; break; }
+          try {
+            var obj = JSON.parse(chunk);
+            if (obj.text) { full += obj.text; bub.innerHTML = renderMd(full); msgsCt.scrollTop = msgsCt.scrollHeight; }
+          } catch(_) {}
+        }
+      }
+      if (full) {
+        history.push({ role: 'assistant', content: full });
+      } else {
+        history.pop();
+        showError('No response received. Please try again.');
+      }
+    } catch(err) {
+      removeThinking();
+      history.pop();
+      console.error('[PodSlacker chat] failed', err);
+      var isNetErr = !err.message || err.message === 'Failed to fetch'
+        || err.message.indexOf('NetworkError') >= 0
+        || err.message.toLowerCase().indexOf('network') >= 0;
+      if (isNetErr) {
+        var tried = [];
+        if (cfg.apiLocal && cfg.apiLocal !== cfg.apiBase) tried.push(cfg.apiLocal + ' (local)');
+        tried.push(cfg.apiBase + ' (internet)');
+        showError('Cannot reach chat API — tried ' + tried.join(', then ') + '. Check that the service is running or set chat_api_base_url in podslacker.json.');
+      } else {
+        showError(err.message);
+      }
+    } finally {
+      setDisabled(false);
+      input.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+  input.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+}());
+</script>
+
+</body>
+</html>

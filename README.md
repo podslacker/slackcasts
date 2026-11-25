@@ -6,6 +6,7 @@
 
 | Video | Published | Transcript |
 |-------|-----------|------------|
+| [Stop over engineering your AI dev setup and just start](https://podslacker.github.io/slackcasts/3 Minute Videos/stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_page.html) | 2026-11-25 | [📄 Download](https://podslacker.github.io/slackcasts/3 Minute Videos/stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_transcript.txt) |
 | [Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)](https://podslacker.github.io/slackcasts/3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_page.html) | 2026-05-25 | [📄 Download](https://podslacker.github.io/slackcasts/3 Minute Videos/rick_astley_never_gonna_give_you_up_official_video_dQw4w9WgXcQ_transcript.txt) |
 | [3min Vlog - 5 things you can do to improve yourself](https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_page.html) | 2026-05-22 | [📄 Download](https://podslacker.github.io/slackcasts/3 Minute Videos/3min_vlog_5_things_you_can_do_to_improve_yourself_CYEPf7Zk2dw_transcript.txt) |
 | [How to Reduce Client Churn Insurance: Tips for Renewing Policies Effectively](https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_page.html) | 2026-05-22 | [📄 Download](https://podslacker.github.io/slackcasts/3 Minute Videos/how_to_reduce_client_churn_insurance_tips_for_rene_3TKSVb7VOcQ_transcript.txt) |

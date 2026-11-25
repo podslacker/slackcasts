@@ -393,5 +393,19 @@
     "voice_host1": "onyx",
     "voice_host2": "nova",
     "episode_number": 21
+  },
+  "3 Minute Videos/stop_over_engineering_your_ai_dev_setup_and_just_s_nupw_OHAL9I_page.html": {
+    "title": "Stop over engineering your AI dev setup and just start",
+    "video_url": "https://www.youtube.com/watch?v=nupw_OHAL9I",
+    "published_at": "2026-11-25T05:28:21.2697822+00:00",
+    "hosts": 2,
+    "host1_name": "JORDAN",
+    "host2_name": "MIKE",
+    "num_frames": 6,
+    "llm_model": "openrouter/auto:free",
+    "tts_engine": "kokoro",
+    "voice_host1": "af_heart",
+    "voice_host2": "am_michael",
+    "episode_number": 21
   }
 }
